@@ -1192,7 +1192,7 @@ export default function HomePage() {
               <div className="bg-gray-500 text-white rounded-2xl p-6 shadow-sm">
                 <div className="flex justify-between items-center">
                   <div>
-                    <div className="text-[#FF6B35] font-bold text-lg">9月15日-9月30日</div>
+                    <div className="text-[#FF6B35] font-bold text-lg">9月16日-9月30日</div>
                     <div className="text-sm">最後預購價</div>
                   </div>
                   <div className="text-3xl font-bold">TWD 7,250</div>
