@@ -17,19 +17,46 @@ export default function HomePage() {
       { src: "/digital-skills-training.png", alt: "數位技能培訓課程" },
     ],
     [
-      { src: "/digital-nomad-meetup.png", alt: "數位遊牧聚會交流" },
-      { src: "/coworking-collaboration.png", alt: "共同工作空間討論" },
-      { src: "/networking-event.png", alt: "遊牧者交流活動" },
+      {
+        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2_1.jpg-M9xnN0cObzxZFIjRmdkIGVNYU5AGoL.jpeg",
+        alt: "數位遊牧聚會交流",
+      },
+      {
+        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2_2.jpg-sr1t7443ADzaGZCXce0k5aYt0RkoWp.jpeg",
+        alt: "共同工作空間討論",
+      },
+      {
+        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2_3.jpg-0IyLFbeEHPFpShsNWLO9p3lk3vexg3.jpeg",
+        alt: "遊牧者交流活動",
+      },
     ],
     [
-      { src: "/bali-coworking-tropical-nomad.png", alt: "峇里島共同工作空間" },
-      { src: "/chiang-mai-cafe-nomad.png", alt: "清邁咖啡廳工作" },
-      { src: "/fukuoka-workspace.png", alt: "福岡工作空間體驗" },
+      {
+        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3-1.jpg-i3ZYgL0BpiloCRvCQfM0HfPBqiTHsw.jpeg",
+        alt: "越南峴港Holi節慶文化遊牧體驗",
+      },
+      {
+        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3_2.JPG-r7oPD2d4pX1zD3ySgEkOVMkmDZPHtI.jpeg",
+        alt: "越南數位遊牧嘉年華國際社交晚會",
+      },
+      {
+        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3_3.jpg-c8IsRAZMFubgTaABaR3LLfVRaaB5sY.jpeg",
+        alt: "越南會安海邊，冥想與身心平衡",
+      },
     ],
     [
-      { src: "/online-workshop-collaboration.png", alt: "線上工作坊視訊會議" },
-      { src: "/team-brainstorming.png", alt: "團隊協作腦力激盪" },
-      { src: "/skill-development.png", alt: "技能提升工作坊" },
+      {
+        src: "/online-workshop-session.png",
+        alt: "線上工作坊",
+      },
+      {
+        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4_2-CyyyNGc5AMNLnbmY31T06rUaCfIBo8.png",
+        alt: "線上社群會議",
+      },
+      {
+        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4_3.jpg-n3tBn5cIN2JSRt3YGmq6mWLHRywN9f.jpeg",
+        alt: "數位遊牧知識分享演講",
+      },
     ],
     [
       { src: "/digital-nomad-presentation.png", alt: "成功數位遊牧者演講分享" },
@@ -120,14 +147,14 @@ export default function HomePage() {
     },
     {
       name: "許詮",
-      title: "前 TikTok 子公司總經理、前阿里巴巴子公司副總、33 歲退休旅居峇里島，跨國職涯密碼：讓履歷替你打開高薪之門",
+      title: "前 TikTok 子公司總經理、前阿里巴巴子公司副總、XChange創辦人、33 歲退休旅居峇里島。",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E8%A8%B1%E8%A9%AE.jpg-itDEjBXa0hB8ICG282sBZU9QpyFY6P.jpeg",
       link: "https://www.facebook.com/SnT.life",
     },
     {
       name: "Shelley",
-      title: "ADPList 2025 Top 50 Global Mentor，LinkedIn 影響力達近 10,000，LinkedIn 個人品牌術，機會自己來敲門",
+      title: "ADPList 2025 Top 50 Global Mentor，LinkedIn 個人品牌術，機會自己來敲門",
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Shelly.jpg-PyXkAhj2OxAkXAl9Sb17kH47TZpuFY.jpeg",
       link: "https://www.linkedin.com/in/yuhsuan-tien",
     },
@@ -152,7 +179,7 @@ export default function HomePage() {
     },
     {
       name: "林佳 Zoe",
-      title: "每日E錠Co-Founder，9 萬名粉絲自媒體創作者，系統化個人品牌讓你影響力與收入雙重複利",
+      title: "每日E錠Co-Founder，9萬名粉絲自媒體創作者，引導你做出有潛力短影片！",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E6%AF%8F%E6%97%A5E%E9%8C%A0.jpg-uUoyWQD7LwmMBYTszPZiaMDwYYf7Cj.jpeg",
       link: "https://www.daydayding.com",
