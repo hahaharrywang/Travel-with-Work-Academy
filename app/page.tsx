@@ -196,7 +196,7 @@ export default function HomePage() {
           {/* Logo */}
           <div className="mb-8">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/youtube_banner_v2_0-9822ni8JxgwP90jJ9hDZY5mYroLI4I.png"
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1200%20X%20630_%E5%8E%BB%E8%83%8C-Kdt9BA7d8dcS493DQ68ttHn9t2JUBl.png"
               alt="遠距遊牧學院 Travel With Work Academy"
               width={400}
               height={120}
