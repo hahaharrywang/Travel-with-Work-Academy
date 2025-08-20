@@ -274,14 +274,14 @@ export default function HomePage() {
             <Button
               asChild
               size="lg"
-              className="bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white font-semibold px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 relative z-30"
+              className="bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white font-semibold px-8 py-8 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 relative z-30"
             >
               <a
                 href="https://travelworkacademy.myteachify.com/checkout?planId=83790f8d-386a-4855-b6be-9f9a9391562b"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                立即加入，開啟自由人生
+                開啟自由人生<br/>早鳥優惠，立刻報名
               </a>
             </Button>
             <p className="text-sm text-gray-500"> </p>
@@ -844,7 +844,7 @@ export default function HomePage() {
                         </div>
                         <h3 className="text-xl font-bold text-black">第二階段</h3>
                       </div>
-                      <p className="text-[#FF6B35] font-semibold">遊者者社群交流與啟發</p>
+                      <p className="text-[#FF6B35] font-semibold">遊牧者社群交流、啟發、共創</p>
                     </div>
                   </div>
 
@@ -866,7 +866,7 @@ export default function HomePage() {
                   <div className="space-y-3">
                     <p className="text-gray-700 leading-relaxed">
                       參加每月數位遊牧社群活動，與來自不同背景、不同專業的世界遊牧者或同儕交流
-                      經驗、成長的最新資訊，一起實踐自由工作人生、遠距旅居夢
+                      經驗、成長的最新資訊，加入共創專案、積累經驗人脈，一起實踐自由工作人生、遠距旅居夢
                     </p>
                   </div>
                 </div>
@@ -937,7 +937,7 @@ export default function HomePage() {
                         </div>
                         <h3 className="text-xl font-bold text-black">第四階段</h3>
                       </div>
-                      <p className="text-[#FF6B35] font-semibold">2026年1-7月 線上復盤&衝刺 WORK SHOP</p>
+                      <p className="text-[#FF6B35] font-semibold">2026年1-7月 復盤&衝刺WORKSHOP</p>
                     </div>
                   </div>
 
@@ -1111,7 +1111,7 @@ export default function HomePage() {
                   <div className="text-xs text-gray-600">獨家現身說法，興趣、熱情事業的永續經營之道</div>
                 </div>
                 <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100">
-                  <div className="text-xl font-bold text-black mb-2">破匡者電子月刊 3本</div>
+                  <div className="text-xl font-bold text-black mb-2">破框者電子月刊 3本</div>
                   <div className="text-xs text-gray-600">細膩的訪談內容，認識每月講者＆嘉賓的行動願景與故事</div>
                 </div>
                 <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100">
@@ -1271,8 +1271,8 @@ export default function HomePage() {
             </div>
 
             <p className="text-gray-600 mb-8 leading-relaxed">
-              3個月連續直播後，7個月線上社群延續學習熱度，
-              社群中將持續分享學習資源、微型課程、移地workshop、海內外遊牧探所旅程的搶先優惠資訊，學習與實戰並進！
+              3個月連續直播後，追加7個月線上社群延續學習熱度，
+              社群中將持續分享學習資源、微型課程Workshop、移地Program、海內外遊牧探所旅程的搶先優惠資訊，學習與實戰並進！
               <br /> 讓你的遠距遊牧之路不孤單，持續成長與進步。
             </p>
 
@@ -1336,7 +1336,7 @@ export default function HomePage() {
               <CardContent className="p-6 sm:p-8">
                 <h3 className="text-xl font-bold text-black mb-3">Q: 課程費用包含哪些內容？</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  A: 課程費用包含所有線上課程、實作練習、社群資源和導師諮詢。
+                  A: 課程費用包含所有線上課程、實作練習、社群資源。
                 </p>
               </CardContent>
             </Card>
