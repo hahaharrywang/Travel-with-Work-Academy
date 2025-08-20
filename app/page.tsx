@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
 
+const CHECKOUT_URL = "https://travelworkacademy.myteachify.com/checkout?planId=83790f8d-386a-4855-b6be-9f9a9391562b"
+
 export default function HomePage() {
   const [isGalleryOpen, setIsGalleryOpen] = useState(false)
   const [currentStage, setCurrentStage] = useState(0)
@@ -276,12 +278,10 @@ export default function HomePage() {
               size="lg"
               className="bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white font-semibold px-8 py-8 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 relative z-30"
             >
-              <a
-                href="https://travelworkacademy.myteachify.com/checkout?planId=83790f8d-386a-4855-b6be-9f9a9391562b"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                開啟自由人生<br/>早鳥優惠，立刻報名
+              <a href={CHECKOUT_URL} target="_blank" rel="noopener noreferrer">
+                開啟自由人生
+                <br />
+                早鳥優惠，立刻報名
               </a>
             </Button>
             <p className="text-sm text-gray-500"> </p>
@@ -441,61 +441,6 @@ export default function HomePage() {
               </div>
             </div>
           </section>
-
-          {/* Partnership Section */}
-          {/* <div className="bg-[#2c3e50] rounded-3xl p-8 sm:p-12 text-white">
-            <div className="text-center mb-12">
-              <h3 className="text-2xl sm:text-3xl font-bold mb-6">強強聯手，全面資源、技能、成長整合</h3>
-            </div>
-
-            {/* Partners Grid */}
-          {/*  <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12">
-              {/* Partner 1 */}
-          {/*    <div className="text-center">
-                <div className="w-32 h-32 bg-white rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-lg p-4">
-                  <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E6%95%B8%E4%BD%8D%E9%81%8A%E7%89%A7%E5%8F%B0%E7%81%A3%20Logo-CktjpYvle8tI4IOT03r29miCGKO58R.png"
-                    alt="Taiwan Digital Nomad"
-                    width={96}
-                    height={96}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <p className="text-[#FF6B35] font-semibold text-sm">#台灣最大數位遊牧社群</p>
-              </div>
-
-              {/* X Connector */}
-          {/*    <div className="text-[#FF6B35] text-4xl font-bold">X</div>
-
-              {/* Partner 2 */}
-          {/*    <div className="text-center">
-                <div className="w-32 h-32 bg-white rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-lg">
-                  <div className="text-center">
-                    <div className="text-black text-4xl font-bold">t</div>
-                    <div className="text-black text-lg">campus</div>
-                  </div>
-                </div>
-                <p className="text-[#FF6B35] font-semibold text-sm">#多年不同學院創建經驗</p>
-              </div>
-
-              {/* X Connector */}
-          {/*    <div className="text-[#FF6B35] text-4xl font-bold">X</div>
-
-              {/* Partner 3 */}
-          {/*    <div className="text-center">
-                <div className="w-32 h-32 bg-white rounded-2xl flex items-center justify-center mb-4 mx-auto shadow-lg p-4">
-                  <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E7%94%9F%E9%AE%AE%E6%99%82%E6%9B%B8%20Logo-tmulzAwGVPgRWnQAeoA9Jjr2CySR0G.png"
-                    alt="生鮮時書 NEWSVEG"
-                    width={96}
-                    height={96}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <p className="text-[#FF6B35] font-semibold text-sm">#專業知識萃取經驗</p>
-              </div>
-            </div>
-          </div> */}
         </div>
       </section>
 
@@ -724,9 +669,6 @@ export default function HomePage() {
                 <div className="bg-card rounded-3xl p-6 sm:p-8 shadow-lg border border-border relative">
                   {/* Speech Bubble Tail */}
                   <div className="absolute -bottom-3 left-8 w-6 h-6 bg-card border-r border-b border-border transform rotate-45"></div>
-
-                  {/* Emoji */}
-                  <div className="text-4xl mb-4">{painPoint.emoji}</div>
 
                   {/* Question */}
                   <h3 className="text-xl sm:text-2xl font-bold text-card-foreground mb-4 leading-tight">
@@ -1261,23 +1203,24 @@ export default function HomePage() {
       <section className="py-16 sm:py-20 bg-gradient-to-br from-orange-50 to-red-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-white rounded-2xl p-8 sm:p-12 shadow-lg border-2 border-orange-200">
-            <h3 className="text-2xl sm:text-3xl font-bold text-black mb-4">🎁 限時限名額優惠，前150位，加贈</h3>
+            <h3 className="text-2xl sm:text-3xl font-bold text-black mb-4">🎁 獨享加贈</h3>
 
             <div className="bg-orange-50 rounded-xl p-6 mb-6">
               <div className="text-xl sm:text-2xl font-bold text-orange-600 mb-2">
-                2026年 1-7月 Skool 線上持續成長社群資格
+                現在報名享有 「免費」
+                <br />
+                人脈社群互助交流社群
               </div>
               <div className="text-lg text-gray-600 line-through mb-2">原價 399/月 × 7個月 = 2,793元</div>
             </div>
 
             <p className="text-gray-600 mb-8 leading-relaxed">
-              3個月連續直播後，追加7個月線上社群延續學習熱度，
-              社群中將持續分享學習資源、微型課程Workshop、移地Program、海內外遊牧探所旅程的搶先優惠資訊，學習與實戰並進！
+              3個月連續直播課程，追加7個月線上社群延續學習熱度
               <br /> 讓你的遠距遊牧之路不孤單，持續成長與進步。
             </p>
 
             <a
-              href="https://travelworkacademy.myteachify.com/checkout?planId=83790f8d-386a-4855-b6be-9f9a9391562b"
+              href={CHECKOUT_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-full text-lg font-bold hover:from-orange-600 hover:to-red-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
@@ -1285,7 +1228,7 @@ export default function HomePage() {
               立即搶購限時優惠 →
             </a>
 
-            <div className="mt-4 text-sm text-gray-500">⏰ 限時優惠，數量有限，先搶先贏</div>
+            <div className="mt-4 text-sm text-gray-500">⏰ 名額有限贈完為止！</div>
           </div>
         </div>
       </section>
@@ -1306,7 +1249,7 @@ export default function HomePage() {
               <CardContent className="p-6 sm:p-8">
                 <h3 className="text-xl font-bold text-black mb-3">Q: 課程結束後，我能達到什麼程度？</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  A: 課程結束後，你將具備獨立接案、跨國遠距工作的能力，並擁有個人品牌和國際履歷。
+                  A: 課程結束後，你將具備開始接案、跨國遠距工作的基礎能力，並擁有個人品牌和國際履歷。
                 </p>
               </CardContent>
             </Card>
@@ -1316,7 +1259,7 @@ export default function HomePage() {
               <CardContent className="p-6 sm:p-8">
                 <h3 className="text-xl font-bold text-black mb-3">Q: 課程內容適合完全沒有經驗的新手嗎？</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  A: 課程設計從零開始，適合沒有經驗的新手。我們將提供 step-by-step 的指導，讓你輕鬆入門。
+                  A: 課程設計從零開始，適合沒有經驗的新手。我們將提供初學者也能執行的第一步指導，讓你輕鬆入門。
                 </p>
               </CardContent>
             </Card>
@@ -1326,7 +1269,7 @@ export default function HomePage() {
               <CardContent className="p-6 sm:p-8">
                 <h3 className="text-xl font-bold text-black mb-3">Q: 課程時間如何安排？</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  A: 課程為期12週，每週有線上課程和實作練習。你可以根據自己的時間彈性安排學習進度。
+                  A: 課程為期12週，每週有線上課程和課後實作任務。直播課程也會錄製下來提供回放，你可以根據自己的時間彈性安排學習進度。
                 </p>
               </CardContent>
             </Card>
@@ -1335,9 +1278,7 @@ export default function HomePage() {
             <Card className="shadow-xl border-0 overflow-hidden">
               <CardContent className="p-6 sm:p-8">
                 <h3 className="text-xl font-bold text-black mb-3">Q: 課程費用包含哪些內容？</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  A: 課程費用包含所有線上課程、實作練習、社群資源。
-                </p>
+                <p className="text-gray-700 leading-relaxed">A: 課程費用包含所有線上課程、實作練習、社群資源。</p>
               </CardContent>
             </Card>
           </div>
