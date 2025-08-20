@@ -277,7 +277,7 @@ export default function HomePage() {
               className="bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white font-semibold px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 relative z-30"
             >
               <a
-                href="https://travelworkacademy.myteachify.com/checkout?cartId=eyJzdWJkb21haW4iOiJ0cmF2ZWx3b3JrYWNhZGVteSIsImNhcnREZXRhaWxzIjpbeyJuYW1lIjoi6YGg6Led6YGK54mn5a246ZmiIDIwMjUiLCJwcmljZSI6NTQwMCwiY3VycmVuY3lTeW1ib2wiOiJOVCQiLCJjdXJyZW5jeSI6IlRXRCIsImxpbmVpdGVtVHlwZSI6IkN1cnJpY3VsdW1QbGFuIiwibGluZWl0ZW1JZCI6ImQ0MmIxOGM4LTlhNWYtNGEyMi1hNWI2LTkxOTMzY2RlYTY4OSIsImltYWdlIjoiaHR0cHM6Ly90cmF2ZWx3b3JrYWNhZGVteS5teXRlYWNoaWZ5LmNvbS9hc3NldHMvY291cnNlcy9jb3Vyc2UtY292ZXItODQ3MDJmZjNmNTkyZDUyNWUzNzViMDNiN2U2YjgxNjAwYjIyMmM2MDYzNWZlMWY1ZDgxZjc4NWY0MzUxM2VmYy5qcGciLCJzbHVnIjoiYWNhZGVteTIwMjUiLCJjb21wYXJlQXRQcmljZSI6bnVsbH1dfQ"
+                href="https://travelworkacademy.myteachify.com/checkout?planId=83790f8d-386a-4855-b6be-9f9a9391562b"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -1277,7 +1277,7 @@ export default function HomePage() {
             </p>
 
             <a
-              href="https://travelworkacademy.myteachify.com/checkout?cartId=eyJzdWJkb21haW4iOiJ0cmF2ZWx3b3JrYWNhZGVteSIsImNhcnREZXRhaWxzIjpbeyJuYW1lIjoi6YGg6Led6YGK54mn5a246ZmiIDIwMjUiLCJwcmljZSI6NTQwMCwiY3VycmVuY3lTeW1ib2wiOiJOVCQiLCJjdXJyZW5jeSI6IlRXRCIsImxpbmVpdGVtVHlwZSI6IkN1cnJpY3VsdW1QbGFuIiwibGluZWl0ZW1JZCI6ImQ0MmIxOGM4LTlhNWYtNGEyMi1hNWI2LTkxOTMzY2RlYTY4OSIsImltYWdlIjoiaHR0cHM6Ly90cmF2ZWx3b3JrYWNhZGVteS5teXRlYWNoaWZ5LmNvbS9hc3NldHMvY291cnNlcy9jb3Vyc2UtY292ZXItODQ3MDJmZjNmNTkyZDUyNWUzNzViMDNiN2U2YjgxNjAwYjIyMmM2MDYzNWZlMWY1ZDgxZjc4NWY0MzUxM2VmYy5qcGciLCJzbHVnIjoiYWNhZGVteTIwMjUiLCJjb21wYXJlQXRQcmljZSI6bnVsbH1dfQ"
+              href="https://travelworkacademy.myteachify.com/checkout?planId=83790f8d-386a-4855-b6be-9f9a9391562b"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-full text-lg font-bold hover:from-orange-600 hover:to-red-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
