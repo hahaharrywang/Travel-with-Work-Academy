@@ -20,23 +20,19 @@ export default function HomePage() {
     ],
     [
       {
-        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2_1.jpg-M9xnN0cObzxZFIjRmdkIGVNYU5AGoL.jpeg",
-        alt: "數位遊牧聚會交流",
-      },
-      {
         src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2_2.jpg-sr1t7443ADzaGZCXce0k5aYt0RkoWp.jpeg",
-        alt: "共同工作空間討論",
+        alt: "數位遊牧聚會交流",
       },
       {
         src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2_3.jpg-0IyLFbeEHPFpShsNWLO9p3lk3vexg3.jpeg",
         alt: "遊牧者交流活動",
       },
-    ],
-    [
       {
         src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3-1.jpg-i3ZYgL0BpiloCRvCQfM0HfPBqiTHsw.jpeg",
         alt: "越南峴港Holi節慶文化遊牧體驗",
       },
+    ],
+    [
       {
         src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3_2.JPG-r7oPD2d4pX1zD3ySgEkOVMkmDZPHtI.jpeg",
         alt: "越南數位遊牧嘉年華國際社交晚會",
@@ -45,12 +41,12 @@ export default function HomePage() {
         src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3_3.jpg-c8IsRAZMFubgTaABaR3LLfVRaaB5sY.jpeg",
         alt: "越南會安海邊，冥想與身心平衡",
       },
-    ],
-    [
       {
         src: "/online-workshop-session.png",
         alt: "線上工作坊",
       },
+    ],
+    [
       {
         src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4_2-CyyyNGc5AMNLnbmY31T06rUaCfIBo8.png",
         alt: "線上社群會議",
@@ -59,11 +55,15 @@ export default function HomePage() {
         src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4_3.jpg-n3tBn5cIN2JSRt3YGmq6mWLHRywN9f.jpeg",
         alt: "數位遊牧知識分享演講",
       },
+      { src: "/digital-nomad-presentation.png", alt: "成功數位遊牧者演講分享" },
     ],
     [
-      { src: "/digital-nomad-presentation.png", alt: "成功數位遊牧者演講分享" },
       { src: "/mentorship-success.png", alt: "導師指導成功案例" },
       { src: "/community-leadership.png", alt: "社群領導力展現" },
+      {
+        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2_1.jpg-M9xnN0cObzxZFIjRmdkIGVNYU5AGoL.jpeg",
+        alt: "數位遊牧聚會交流",
+      },
     ],
   ]
 
@@ -181,7 +181,7 @@ export default function HomePage() {
     },
     {
       name: "林佳 Zoe",
-      title: "每日E錠Co-Founder，9萬名粉絲自媒體創作者，引導你做出有潛力短影片！",
+      title: "9萬粉絲自媒體創作者，專長於打造自媒體與 IG 流量，協助你產出具潛力的短影片與貼文！",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E6%AF%8F%E6%97%A5E%E9%8C%A0.jpg-uUoyWQD7LwmMBYTszPZiaMDwYYf7Cj.jpeg",
       link: "https://www.daydayding.com",
@@ -625,6 +625,26 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="py-12 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="bg-gradient-to-r from-[#FF6B35] to-[#FF8A65] rounded-2xl p-8 shadow-xl">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">跟隨國際領袖腳步，開啟你的遊牧之路</h3>
+            <p className="text-white/90 text-lg mb-6 leading-relaxed">學習頂尖遊牧領袖的實戰經驗，掌握全球趨勢與機會</p>
+            <a
+              href={CHECKOUT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#FF6B35] font-bold text-lg rounded-full hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
+              立即加入，與領袖同行
+              <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Pain Points Section - moved from later in the page */}
       <section className="py-16 sm:py-24 bg-background">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -689,11 +709,15 @@ export default function HomePage() {
               <p className="text-lg sm:text-xl text-muted-foreground mb-6 leading-relaxed">
                 因為我們也曾在同樣的十字路口徘徊。
               </p>
-              <p className="text-xl sm:text-2xl font-bold text-accent">
+              {/* 手機版文案 */}
+              <p className="block sm:hidden text-xl font-bold text-accent">
                 現在的我們相信
-                <br className="sm:hidden" />
-                ，自由值得有更多選擇。
+                <br />
+                自由值得有更多選擇
               </p>
+
+              {/* 電腦版文案 */}
+              <p className="hidden sm:block text-2xl font-bold text-accent">現在的我們相信，自由值得有更多選擇。</p>
             </div>
           </div>
         </div>
@@ -1037,8 +1061,8 @@ export default function HomePage() {
                 <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100">
                   <div className="text-xl font-bold text-black mb-2">12週 線上衝刺實踐班</div>
                   <div className="text-xs text-gray-600">
-                    12位導師實戰精華，終身回放：
-                    高強度線上直播課程，分享最真實的遠距工作與副業經驗，助你少走彎路。搭配課後任務，提升執行力。{" "}
+                    12位導師每週三晚間直播課程+QA、課程終身回放：
+                    分享最真實的遠距工作與副業經驗，助你少走彎路。搭配課後任務，提升執行力。{" "}
                   </div>
                 </div>
                 <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100">
@@ -1126,7 +1150,7 @@ export default function HomePage() {
                 <div className="flex justify-between items-center">
                   <div>
                     <div className="text-[#FF6B35] font-bold text-lg">8月1日-8月8日</div>
-                    <div className="text-sm">超級早鳥預購優惠</div>
+                    <div className="text-sm">特級盲鳥預購優惠</div>
                   </div>
                   <div className="text-3xl font-bold">TWD 4,550</div>
                 </div>
@@ -1135,7 +1159,7 @@ export default function HomePage() {
                 <div className="flex justify-between items-center">
                   <div>
                     <div className="text-[#FF6B35] font-bold text-lg">8月9日-8月15日</div>
-                    <div className="text-sm">特級早鳥預購價</div>
+                    <div className="text-sm">盲鳥預購優惠</div>
                   </div>
                   <div className="text-3xl font-bold">TWD 5,999</div>
                 </div>
@@ -1144,7 +1168,7 @@ export default function HomePage() {
                 <div className="flex justify-between items-center">
                   <div>
                     <div className="text-[#FF6B35] font-bold text-lg">8月16日-8月31日</div>
-                    <div className="text-sm">早鳥結束最後預購價</div>
+                    <div className="text-sm">早鳥預購優惠</div>
                   </div>
                   <div className="text-3xl font-bold">TWD 6,200</div>
                 </div>
@@ -1162,7 +1186,7 @@ export default function HomePage() {
                 <div className="flex justify-between items-center">
                   <div>
                     <div className="text-[#FF6B35] font-bold text-lg">9月16日-9月30日</div>
-                    <div className="text-sm">最後預購價</div>
+                    <div className="text-sm">開學前最後預購</div>
                   </div>
                   <div className="text-3xl font-bold">TWD 7,250</div>
                 </div>
@@ -1171,7 +1195,7 @@ export default function HomePage() {
                 <div className="flex justify-between items-center">
                   <div>
                     <div className="text-[#FF6B35] font-bold text-lg">10月1日-10月31日</div>
-                    <div className="text-sm">開學最後報名原價</div>
+                    <div className="text-sm">剛開學後悔價</div>
                   </div>
                   <div className="text-3xl font-bold">TWD 8,899</div>
                 </div>
@@ -1179,8 +1203,8 @@ export default function HomePage() {
               <div className="bg-gray-400 text-white rounded-2xl p-6 shadow-sm">
                 <div className="flex justify-between items-center">
                   <div>
-                    <div className="text-[#FF6B35] font-bold text-lg">11月1日-12月31日</div>
-                    <div className="text-sm">課程進行中價格</div>
+                    <div className="text-[#FF6B35] font-bold text-lg">11月1日-11月30日</div>
+                    <div className="text-sm">課程中加入相見恨晚</div>
                   </div>
                   <div className="text-3xl font-bold"> TWD 11,500</div>
                 </div>
@@ -1189,7 +1213,7 @@ export default function HomePage() {
                 <div className="flex justify-between items-center">
                   <div>
                     <div className="text-[#FF6B35] font-bold text-lg">12月1日開始</div>
-                    <div className="text-sm">正式售價</div>
+                    <div className="text-sm">原價</div>
                   </div>
                   <div className="text-3xl font-bold">TWD 13,500</div>
                 </div>
@@ -1214,7 +1238,19 @@ export default function HomePage() {
               <div className="text-lg text-gray-600 line-through mb-2">原價 399/月 × 7個月 = 2,793元</div>
             </div>
 
-            <p className="text-gray-600 mb-8 leading-relaxed">
+            {/* 手機版 */}
+            <p className="block sm:hidden text-gray-600 mb-8 leading-relaxed">
+              3個月連續直播課程
+              <br />
+              追加7個月線上社群延續學習熱度
+              <br />
+              讓你的遠距遊牧之路不孤單
+              <br />
+              持續成長與進步。
+            </p>
+
+            {/* 電腦版 */}
+            <p className="hidden sm:block text-gray-600 mb-8 leading-relaxed">
               3個月連續直播課程，追加7個月線上社群延續學習熱度
               <br /> 讓你的遠距遊牧之路不孤單，持續成長與進步。
             </p>
@@ -1269,7 +1305,8 @@ export default function HomePage() {
               <CardContent className="p-6 sm:p-8">
                 <h3 className="text-xl font-bold text-black mb-3">Q: 課程時間如何安排？</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  A: 課程為期12週，每週有線上課程和課後實作任務。直播課程也會錄製下來提供回放，你可以根據自己的時間彈性安排學習進度。
+                  A:
+                  課程為期12週，每週有線上課程和課後實作任務。直播課程也會錄製下來提供回放，你可以根據自己的時間彈性安排學習進度。
                 </p>
               </CardContent>
             </Card>

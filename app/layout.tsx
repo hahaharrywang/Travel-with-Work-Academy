@@ -35,12 +35,12 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "遠距遊牧學院 - 告別朝九晚五，解鎖全球遠距自由人生",
     description:
       "台灣首個系統性『遠距遊牧實戰學院』助你邊旅行邊實現人生價值。10個月學習與累積，讓你獲得開啟副業、遠距職涯的基礎能力。",
     images: [
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FB%20Metadata.jpg-ME1NIL8bJeMlpv4o0BCk7jSUp3P5xe.jpeg",
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FB%20Metadata%20-%20Square.jpg-nw2lh41iL0uXsDncOotln0XjzQUnZA.jpeg",
     ],
   },
   robots: {
@@ -64,6 +64,13 @@ export default function RootLayout({
         <meta property="og:image:width" content="1080" />
         <meta property="og:image:height" content="1080" />
         <meta property="og:image:alt" content="遠距遊牧學院 - 告別朝九晚五，解鎖全球遠距自由人生" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta
+          name="twitter:image"
+          content="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FB%20Metadata%20-%20Square.jpg-nw2lh41iL0uXsDncOotln0XjzQUnZA.jpeg"
+        />
+        <meta name="twitter:image:width" content="1080" />
+        <meta name="twitter:image:height" content="1080" />
         <meta name="format-detection" content="telephone=no" />
         <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
         <meta httpEquiv="Pragma" content="no-cache" />
