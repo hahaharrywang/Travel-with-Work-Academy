@@ -5,40 +5,40 @@ import { GeistMono } from "geist/font/mono"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "遠距遊牧學院 - 告別朝九晚五，解鎖全球遠距自由人生",
+  title: "Remote Nomad Academy - Escape 9-to-5, Unlock Your Global Remote Freedom",
   description:
-    "台灣首個系統性『遠距遊牧實戰學院』助你邊旅行邊實現人生價值。10個月學習與累積，讓你獲得開啟副業、遠距職涯的基礎能力。",
+    "Taiwan's first systematic 'Remote Nomad Academy' helps you travel while achieving life value. 10 months of learning and growth to gain foundational skills for side business and remote career.",
   generator: "Travel With Work Academy",
-  keywords: "遠距工作,數位遊牧,副業,遠距職涯,線上課程,個人品牌,自由工作",
+  keywords: "remote work,digital nomad,side business,remote career,online courses,personal branding,freelance work",
   authors: [{ name: "Travel With Work Academy" }],
   openGraph: {
-    title: "遠距遊牧學院 - 告別朝九晚五，解鎖全球遠距自由人生",
+    title: "Remote Nomad Academy - Escape 9-to-5, Unlock Your Global Remote Freedom",
     description:
-      "台灣首個系統性『遠距遊牧實戰學院』助你邊旅行邊實現人生價值。10個月學習與累積，讓你獲得開啟副業、遠距職涯的基礎能力。",
+      "Taiwan's first systematic 'Remote Nomad Academy' helps you travel while achieving life value. 10 months of learning and growth to gain foundational skills for side business and remote career.",
     url: "https://www.travelwithwork.life",
-    siteName: "遠距遊牧學院 Travel With Work Academy",
+    siteName: "Remote Nomad Academy Travel With Work Academy",
     images: [
       {
         url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FB%20Metadata%20-%20Square.jpg-nw2lh41iL0uXsDncOotln0XjzQUnZA.jpeg",
         width: 1080,
         height: 1080,
-        alt: "遠距遊牧學院 - 告別朝九晚五，解鎖全球遠距自由人生",
+        alt: "Remote Nomad Academy - Escape 9-to-5, Unlock Your Global Remote Freedom",
       },
       {
         url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FB%20Metadata.jpg-ME1NIL8bJeMlpv4o0BCk7jSUp3P5xe.jpeg",
         width: 1200,
         height: 630,
-        alt: "遠距遊牧學院 - 告別朝九晚五，解鎖全球遠距自由人生",
+        alt: "Remote Nomad Academy - Escape 9-to-5, Unlock Your Global Remote Freedom",
       },
     ],
-    locale: "zh_TW",
+    locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "遠距遊牧學院 - 告別朝九晚五，解鎖全球遠距自由人生",
+    title: "Remote Nomad Academy - Escape 9-to-5, Unlock Your Global Remote Freedom",
     description:
-      "台灣首個系統性『遠距遊牧實戰學院』助你邊旅行邊實現人生價值。10個月學習與累積，讓你獲得開啟副業、遠距職涯的基礎能力。",
+      "Taiwan's first systematic 'Remote Nomad Academy' helps you travel while achieving life value. 10 months of learning and growth to gain foundational skills for side business and remote career.",
     images: [
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FB%20Metadata%20-%20Square.jpg-nw2lh41iL0uXsDncOotln0XjzQUnZA.jpeg",
     ],
@@ -63,7 +63,10 @@ export default function RootLayout({
         />
         <meta property="og:image:width" content="1080" />
         <meta property="og:image:height" content="1080" />
-        <meta property="og:image:alt" content="遠距遊牧學院 - 告別朝九晚五，解鎖全球遠距自由人生" />
+        <meta
+          property="og:image:alt"
+          content="Remote Nomad Academy - Escape 9-to-5, Unlock Your Global Remote Freedom"
+        />
         <meta property="og:image:type" content="image/jpeg" />
         <meta
           name="twitter:image"
