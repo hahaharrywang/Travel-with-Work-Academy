@@ -21,15 +21,15 @@ export default function HomePage() {
     [
       {
         src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2_2.jpg-sr1t7443ADzaGZCXce0k5aYt0RkoWp.jpeg",
-        alt: "數位遊牧聚會交流",
+        alt: "一日同事 Coworking",
       },
       {
         src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2_3.jpg-0IyLFbeEHPFpShsNWLO9p3lk3vexg3.jpeg",
         alt: "遊牧者交流活動",
       },
       {
-        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3-1.jpg-i3ZYgL0BpiloCRvCQfM0HfPBqiTHsw.jpeg",
-        alt: "越南峴港Holi節慶文化遊牧體驗",
+        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2_1.jpg-M9xnN0cObzxZFIjRmdkIGVNYU5AGoL.jpeg",
+        alt: "每月數位遊牧小聚",
       },
     ],
     [
@@ -42,8 +42,8 @@ export default function HomePage() {
         alt: "越南會安海邊，冥想與身心平衡",
       },
       {
-        src: "/online-workshop-session.png",
-        alt: "線上工作坊",
+        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3-1.jpg-i3ZYgL0BpiloCRvCQfM0HfPBqiTHsw.jpeg",
+        alt: "越南峴港Holi節慶文化遊牧體驗",
       },
     ],
     [
@@ -61,9 +61,10 @@ export default function HomePage() {
       { src: "/mentorship-success.png", alt: "導師指導成功案例" },
       { src: "/community-leadership.png", alt: "社群領導力展現" },
       {
-        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2_1.jpg-M9xnN0cObzxZFIjRmdkIGVNYU5AGoL.jpeg",
-        alt: "數位遊牧聚會交流",
+        src: "/online-workshop-session.png",
+        alt: "線上工作坊",
       },
+      
     ],
   ]
 
