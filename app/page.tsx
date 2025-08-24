@@ -5,9 +5,26 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
 
-const CHECKOUT_URL = "https://travelworkacademy.myteachify.com/checkout?planId=83790f8d-386a-4855-b6be-9f9a9391562b"
+const getCheckoutURL = (couponCode?: string) => {
+  const baseURL = "https://travelworkacademy.myteachify.com/checkout?planId=83790f8d-386a-4855-b6be-9f9a9391562b"
+  return couponCode ? `${baseURL}&coupon=${encodeURIComponent(couponCode)}` : baseURL
+}
 
 export default function HomePage() {
+  const [couponCode, setCouponCode] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const pathname = window.location.pathname
+      const pathSegments = pathname.split("/").filter((segment) => segment.length > 0)
+
+      if (pathSegments.length > 0) {
+        setCouponCode(pathSegments[0])
+      }
+    }
+  }, [])
+
+  const checkoutURL = getCheckoutURL(couponCode || undefined)
   const [isGalleryOpen, setIsGalleryOpen] = useState(false)
   const [currentStage, setCurrentStage] = useState(0)
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
@@ -64,7 +81,6 @@ export default function HomePage() {
         src: "/online-workshop-session.png",
         alt: "線上工作坊",
       },
-      
     ],
   ]
 
@@ -279,7 +295,7 @@ export default function HomePage() {
               size="lg"
               className="bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white font-semibold px-8 py-8 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 relative z-30"
             >
-              <a href={CHECKOUT_URL} target="_blank" rel="noopener noreferrer">
+              <a href={checkoutURL} target="_blank" rel="noopener noreferrer">
                 開啟自由人生
                 <br />
                 早鳥優惠，立刻報名
@@ -632,7 +648,7 @@ export default function HomePage() {
             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">跟隨國際領袖腳步，開啟你的遊牧之路</h3>
             <p className="text-white/90 text-lg mb-6 leading-relaxed">學習頂尖遊牧領袖的實戰經驗，掌握全球趨勢與機會</p>
             <a
-              href={CHECKOUT_URL}
+              href={checkoutURL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#FF6B35] font-bold text-lg rounded-full hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
@@ -1257,7 +1273,7 @@ export default function HomePage() {
             </p>
 
             <a
-              href={CHECKOUT_URL}
+              href={checkoutURL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-full text-lg font-bold hover:from-orange-600 hover:to-red-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
