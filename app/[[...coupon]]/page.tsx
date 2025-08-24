@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
+import { useParams } from "next/navigation"
 
 const getCheckoutURL = (couponCode?: string) => {
   const baseURL = "https://travelworkacademy.myteachify.com/checkout?planId=83790f8d-386a-4855-b6be-9f9a9391562b"
@@ -11,18 +12,16 @@ const getCheckoutURL = (couponCode?: string) => {
 }
 
 export default function HomePage() {
+  const params = useParams()
   const [couponCode, setCouponCode] = useState<string | null>(null)
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const pathname = window.location.pathname
-      const pathSegments = pathname.split("/").filter((segment) => segment.length > 0)
-
-      if (pathSegments.length > 0) {
-        setCouponCode(pathSegments[0])
-      }
+    if (params.coupon && Array.isArray(params.coupon) && params.coupon.length > 0) {
+      setCouponCode(params.coupon[0])
+    } else if (typeof params.coupon === "string") {
+      setCouponCode(params.coupon)
     }
-  }, [])
+  }, [params])
 
   const checkoutURL = getCheckoutURL(couponCode || undefined)
   const [isGalleryOpen, setIsGalleryOpen] = useState(false)
