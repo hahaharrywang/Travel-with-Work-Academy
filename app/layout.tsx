@@ -63,7 +63,7 @@ export default function RootLayout({
         />
         <meta property="og:image:width" content="1080" />
         <meta property="og:image:height" content="1080" />
-        <meta property="og:image:alt" content="遠距遊牧學院 - 告別朝九晚五，解鎖全球遠距自由人生" />
+        <meta property="og:image:alt" content="遠距遊牧學院 - 告別朝九晚五，解鎖遠距自由人生" />
         <meta property="og:image:type" content="image/jpeg" />
         <meta
           name="twitter:image"

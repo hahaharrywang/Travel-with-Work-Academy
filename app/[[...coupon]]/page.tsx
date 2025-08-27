@@ -50,35 +50,44 @@ export default function HomePage() {
     ],
     [
       {
-        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3_2.JPG-r7oPD2d4pX1zD3ySgEkOVMkmDZPHtI.jpeg",
-        alt: "越南數位遊牧嘉年華國際社交晚會",
+        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3-1-POkyUXEvofiKnJD7RW7y8XPZ8TiZax.webp",
+        alt: "越南峴港Holi節慶文化體驗",
       },
       {
-        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3_3.jpg-c8IsRAZMFubgTaABaR3LLfVRaaB5sY.jpeg",
-        alt: "越南會安海邊，冥想與身心平衡",
+        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3_3-HocinB3Ob9XBKSh401ZMSUqERXMVxK.webp",
+        alt: "海邊冥想身心平衡",
       },
       {
-        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3-1.jpg-i3ZYgL0BpiloCRvCQfM0HfPBqiTHsw.jpeg",
-        alt: "越南峴港Holi節慶文化遊牧體驗",
+        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3_2-C9qMchRBOXVbbJQkpaPWTdXz2KU5wg.webp",
+        alt: "台灣數位遊牧社群聚會",
       },
     ],
     [
       {
         src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4_2-CyyyNGc5AMNLnbmY31T06rUaCfIBo8.png",
-        alt: "線上社群會議",
+        alt: "線上會議討論",
       },
       {
-        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4_3.jpg-n3tBn5cIN2JSRt3YGmq6mWLHRywN9f.jpeg",
-        alt: "數位遊牧知識分享演講",
+        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4_3.jpg-AFOdzrdCQRmkAbTaNaKX14AklTPiJe.jpeg",
+        alt: "專業演講分享",
       },
-      { src: "/digital-nomad-presentation.png", alt: "成功數位遊牧者演講分享" },
+      {
+        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E6%88%AA%E5%9C%96%202025-08-27%20%E6%99%9A%E4%B8%8A7.38.33-F8SRPgmQ0uyCHk9uLjQilXpKZjQxfk.png",
+        alt: "數位學習科技應用",
+      },
     ],
     [
-      { src: "/mentorship-success.png", alt: "導師指導成功案例" },
-      { src: "/community-leadership.png", alt: "社群領導力展現" },
       {
-        src: "/online-workshop-session.png",
-        alt: "線上工作坊",
+        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/20231216-0D0A0595.jpg-S5ylj7p7LbnLaaq59pym2qSAwNJYxf.jpeg",
+        alt: "社群網絡建立慶祝活動",
+      },
+      {
+        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/20250329-DSC01965.jpg-Esdk9O9x29Jwx4P1jFc334RC972HXB.jpeg",
+        alt: "學習成果展示與認證儀式",
+      },
+      {
+        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/227A8906.jpg-9G3V7GbFRKiwyUgZrRL0wSXbJyVHNN.jpeg",
+        alt: "線上復盤工作坊知識分享",
       },
     ],
   ]
@@ -160,8 +169,8 @@ export default function HomePage() {
       name: "林上哲",
       title: "非資訊背景 AI生產力工具教育者，已幫助4200+ 台灣、日本和香港的學員",
       image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E6%9E%97%E4%B8%8A%E5%93%B2.jpg-VGF6swQbojP8d5BYEM8eHth9nQhWn6.jpeg",
-      link: "https://www.instagram.com/p/DBlvouhSj5X/",
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E6%9E%97%E4%B8%8A%E5%93%B2_2.jpg-G5bK6x7qmVDbalRXX4a6EqVc8YVzW0.jpeg",
+      link: "https://www.instagram.com/nuva.now/",
     },
     {
       name: "許詮",
@@ -177,7 +186,7 @@ export default function HomePage() {
       link: "https://www.linkedin.com/in/yuhsuan-tien",
     },
     {
-      name: "Moja",
+      name: "讀者太太",
       title: "英國職涯教練、「女力學院」《人脈力》講師，突破跨國遠距職涯天花板",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E8%AE%80%E8%80%85%E5%A4%AA%E5%A4%AA.jpg-S6PC1XhLu0mpPoDfHEZowxDfv77RmP.jpeg",
@@ -1108,8 +1117,9 @@ export default function HomePage() {
               <div className="mt-8 bg-gradient-to-r from-[#FF6B35] to-[#FF8C42] rounded-xl p-6 text-center text-white shadow-lg">
                 <div className="text-lg font-bold mb-2">🏆 績優學員專屬獎勵</div>
                 <div className="text-sm">
-                  課程期間成長表現優異的學員，將有機會獲得<span className="font-semibold">學費部分或全額退費</span>，
-                  以及<span className="font-semibold">2026年遊牧啟發之旅招待名額</span>！
+                  課程期間成長表現優異的學員，將有機會獲得<span className="font-semibold">學費的部分或全額</span>
+                  <span className="text-2xl font-bold text-yellow-300 mx-1">獎學金</span>， 以及
+                  <span className="font-semibold">2026年遊牧啟發之旅招待名額</span>！
                 </div>
               </div>
             </div>
@@ -1165,31 +1175,13 @@ export default function HomePage() {
               <div className="bg-black text-white rounded-2xl p-6 shadow-sm border-2 border-[#FF6B35]">
                 <div className="flex justify-between items-center">
                   <div>
-                    <div className="text-[#FF6B35] font-bold text-lg">8月1日-8月8日</div>
-                    <div className="text-sm">特級盲鳥預購優惠</div>
-                  </div>
-                  <div className="text-3xl font-bold">TWD 4,550</div>
-                </div>
-              </div>
-              <div className="bg-gray-800 text-white rounded-2xl p-6 shadow-sm">
-                <div className="flex justify-between items-center">
-                  <div>
-                    <div className="text-[#FF6B35] font-bold text-lg">8月9日-8月15日</div>
-                    <div className="text-sm">盲鳥預購優惠</div>
-                  </div>
-                  <div className="text-3xl font-bold">TWD 5,999</div>
-                </div>
-              </div>
-              <div className="bg-gray-700 text-white rounded-2xl p-6 shadow-sm">
-                <div className="flex justify-between items-center">
-                  <div>
                     <div className="text-[#FF6B35] font-bold text-lg">8月16日-8月31日</div>
                     <div className="text-sm">早鳥預購優惠</div>
                   </div>
                   <div className="text-3xl font-bold">TWD 6,200</div>
                 </div>
               </div>
-              <div className="bg-gray-600 text-white rounded-2xl p-6 shadow-sm">
+              <div className="bg-gray-800 text-white rounded-2xl p-6 shadow-sm">
                 <div className="flex justify-between items-center">
                   <div>
                     <div className="text-[#FF6B35] font-bold text-lg">9月1日-9月15日</div>
@@ -1198,7 +1190,7 @@ export default function HomePage() {
                   <div className="text-3xl font-bold">TWD 6,999</div>
                 </div>
               </div>
-              <div className="bg-gray-500 text-white rounded-2xl p-6 shadow-sm">
+              <div className="bg-gray-700 text-white rounded-2xl p-6 shadow-sm">
                 <div className="flex justify-between items-center">
                   <div>
                     <div className="text-[#FF6B35] font-bold text-lg">9月16日-9月30日</div>
@@ -1207,7 +1199,7 @@ export default function HomePage() {
                   <div className="text-3xl font-bold">TWD 7,250</div>
                 </div>
               </div>
-              <div className="bg-gray-500 text-white rounded-2xl p-6 shadow-sm">
+              <div className="bg-gray-600 text-white rounded-2xl p-6 shadow-sm">
                 <div className="flex justify-between items-center">
                   <div>
                     <div className="text-[#FF6B35] font-bold text-lg">10月1日-10月31日</div>
@@ -1216,7 +1208,7 @@ export default function HomePage() {
                   <div className="text-3xl font-bold">TWD 8,899</div>
                 </div>
               </div>
-              <div className="bg-gray-400 text-white rounded-2xl p-6 shadow-sm">
+              <div className="bg-gray-500 text-white rounded-2xl p-6 shadow-sm">
                 <div className="flex justify-between items-center">
                   <div>
                     <div className="text-[#FF6B35] font-bold text-lg">11月1日-11月30日</div>
@@ -1225,7 +1217,7 @@ export default function HomePage() {
                   <div className="text-3xl font-bold"> TWD 11,500</div>
                 </div>
               </div>
-              <div className="bg-gray-300 text-gray-800 rounded-2xl p-6 shadow-sm">
+              <div className="bg-gray-400 text-gray-800 rounded-2xl p-6 shadow-sm">
                 <div className="flex justify-between items-center">
                   <div>
                     <div className="text-[#FF6B35] font-bold text-lg">12月1日開始</div>
