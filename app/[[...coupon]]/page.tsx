@@ -11,6 +11,33 @@ const getCheckoutURL = (couponCode?: string) => {
   return couponCode ? `${baseURL}&coupon=${encodeURIComponent(couponCode)}` : baseURL
 }
 
+const getTrackingParams = () => {
+  if (typeof window === "undefined") return ""
+
+  // 讀取 URL 中的 fbclid
+  const urlParams = new URLSearchParams(window.location.search)
+  const fbclid = urlParams.get("fbclid")
+
+  // 讀取 cookie 中的 fbc 和 fbp
+  const getCookie = (name: string) => {
+    const value = `; ${document.cookie}`
+    const parts = value.split(`; ${name}=`)
+    if (parts.length === 2) return parts.pop()?.split(";").shift()
+    return null
+  }
+
+  const fbc = getCookie("_fbc")
+  const fbp = getCookie("_fbp")
+
+  // 組合參數
+  const params = new URLSearchParams()
+  if (fbclid) params.append("fbclid", fbclid)
+  if (fbc) params.append("fbc", fbc)
+  if (fbp) params.append("fbp", fbp)
+
+  return params.toString() ? `&${params.toString()}` : ""
+}
+
 export default function HomePage() {
   const params = useParams()
   const [couponCode, setCouponCode] = useState<string | null>(null)
@@ -228,6 +255,12 @@ export default function HomePage() {
     { stage: "正式售價", deadline: "10/1起", price: "$400", discount: "--", savings: "--" },
   ]
 
+  const getCheckoutURLWithTracking = () => {
+    const baseURL = checkoutURL
+    const trackingParams = getTrackingParams()
+    return `${baseURL}${trackingParams}`
+  }
+
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -304,7 +337,7 @@ export default function HomePage() {
               className="bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white font-semibold px-8 py-8 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 relative z-30"
             >
               <a
-                href={checkoutURL}
+                href={getCheckoutURLWithTracking()}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => {
@@ -665,7 +698,7 @@ export default function HomePage() {
             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">跟隨國際領袖腳步，開啟你的遊牧之路</h3>
             <p className="text-white/90 text-lg mb-6 leading-relaxed">學習頂尖遊牧領袖的實戰經驗，掌握全球趨勢與機會</p>
             <a
-              href={checkoutURL}
+              href={getCheckoutURLWithTracking()}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#FF6B35] font-bold text-lg rounded-full hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
@@ -1278,7 +1311,7 @@ export default function HomePage() {
             </p>
 
             <a
-              href={checkoutURL}
+              href={getCheckoutURLWithTracking()}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-full text-lg font-bold hover:from-orange-600 hover:to-red-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
