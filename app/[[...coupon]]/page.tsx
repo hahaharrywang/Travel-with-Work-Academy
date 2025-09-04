@@ -303,7 +303,16 @@ export default function HomePage() {
               size="lg"
               className="bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white font-semibold px-8 py-8 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 relative z-30"
             >
-              <a href={checkoutURL} target="_blank" rel="noopener noreferrer">
+              <a
+                href={checkoutURL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => {
+                  if (typeof window !== "undefined" && window.trackInitiateCheckout) {
+                    window.trackInitiateCheckout(0)
+                  }
+                }}
+              >
                 開啟自由人生
                 <br />
                 早鳥優惠，立刻報名
@@ -660,6 +669,11 @@ export default function HomePage() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#FF6B35] font-bold text-lg rounded-full hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+              onClick={() => {
+                if (typeof window !== "undefined" && window.trackInitiateCheckout) {
+                  window.trackInitiateCheckout(0)
+                }
+              }}
             >
               立即加入，與領袖同行
               <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1268,6 +1282,11 @@ export default function HomePage() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-full text-lg font-bold hover:from-orange-600 hover:to-red-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
+              onClick={() => {
+                if (typeof window !== "undefined" && window.trackInitiateCheckout) {
+                  window.trackInitiateCheckout(0)
+                }
+              }}
             >
               立即搶購限時優惠 →
             </a>
