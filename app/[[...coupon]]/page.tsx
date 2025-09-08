@@ -309,7 +309,7 @@ export default function HomePage() {
           {/* Core Promise */}
           {/* Mobile Version */}
           <div className="block sm:hidden bg-black/5 backdrop-blur-sm rounded-2xl p-6 mb-8 border border-gray-200">
-            <p className="text-lg text-gray-800 font-medium leading-relaxed">
+            <p className="text-lg text-black font-medium leading-relaxed">
               10個月學習與累積
               <br />
               讓你獲得開啟副業、遠距職涯的基礎能力
@@ -322,7 +322,7 @@ export default function HomePage() {
 
           {/* Desktop Version */}
           <div className="hidden sm:block bg-black/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 mb-8 border border-gray-200">
-            <p className="text-lg sm:text-xl text-gray-800 font-medium leading-relaxed">
+            <p className="text-lg sm:text-xl text-black font-medium leading-relaxed">
               10個月學習與累積，讓你獲得開啟副業、遠距職涯的基礎能力
               <br />
               不只是學習方法，是大家一起付諸行動、一起成長
@@ -1161,11 +1161,11 @@ export default function HomePage() {
                   <div className="text-xs text-gray-600">加入群組建立長期連結、商業合作職涯機會分享</div>
                 </div>
               </div>
-              <div className="mt-8 bg-gradient-to-r from-[#FF6B35] to-[#FF8C42] rounded-xl p-6 text-center text-white shadow-lg">
+              <div className="mt-8 bg-gradient-to-r from-[#E55A2B] to-[#D2691E] rounded-xl p-6 text-center text-white shadow-lg">
                 <div className="text-lg font-bold mb-2">🏆 績優學員專屬獎勵</div>
                 <div className="text-sm">
                   課程期間成長表現優異的學員，將有機會獲得<span className="font-semibold">學費的部分或全額</span>
-                  <span className="text-2xl font-bold text-yellow-300 mx-1">獎學金</span>， 以及
+                  <span className="text-2xl font-bold text-yellow-200 mx-1">獎學金</span>， 以及
                   <span className="font-semibold">2026年遊牧啟發之旅招待名額</span>！
                 </div>
               </div>
@@ -1222,52 +1222,77 @@ export default function HomePage() {
               <div className="bg-black text-white rounded-2xl p-6 shadow-sm border-2 border-[#FF6B35]">
                 <div className="flex justify-between items-center">
                   <div>
-                    <div className="text-[#FF6B35] font-bold text-lg">8月16日-8月31日</div>
-                    <div className="text-sm">早鳥預購優惠</div>
-                  </div>
-                  <div className="text-3xl font-bold">TWD 6,200</div>
-                </div>
-              </div>
-              <div className="bg-gray-800 text-white rounded-2xl p-6 shadow-sm">
-                <div className="flex justify-between items-center">
-                  <div>
-                    <div className="text-[#FF6B35] font-bold text-lg">9月1日-9月15日</div>
-                    <div className="text-sm">晚鳥預購價</div>
+                    <div className="text-[#FF6B35] font-bold text-lg">9月1日-9月8日</div>
+                    <div className="text-sm">盲鳥預購優惠</div>
                   </div>
                   <div className="text-3xl font-bold">TWD 6,999</div>
                 </div>
               </div>
+
+              <div className="bg-gray-800 text-white rounded-2xl p-6 shadow-sm">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <div className="text-orange-200 font-bold text-lg">9月9日-9月15日</div>
+                    <div className="text-sm">早鳥預購優惠</div>
+                  </div>
+                  <div className="text-3xl font-bold">TWD 7,499</div>
+                </div>
+              </div>
+
               <div className="bg-gray-700 text-white rounded-2xl p-6 shadow-sm">
                 <div className="flex justify-between items-center">
                   <div>
-                    <div className="text-[#FF6B35] font-bold text-lg">9月16日-9月30日</div>
-                    <div className="text-sm">開學前最後預購</div>
+                    <div className="text-orange-200 font-bold text-lg">9月16日-9月22日</div>
+                    <div className="text-sm">晚鳥預購價</div>
                   </div>
-                  <div className="text-3xl font-bold">TWD 7,250</div>
+                  <div className="text-3xl font-bold">TWD 7,999</div>
                 </div>
               </div>
+
               <div className="bg-gray-600 text-white rounded-2xl p-6 shadow-sm">
                 <div className="flex justify-between items-center">
                   <div>
-                    <div className="text-[#FF6B35] font-bold text-lg">10月1日-10月31日</div>
-                    <div className="text-sm">剛開學後悔價</div>
+                    <div className="text-orange-100 font-bold text-lg">9月23日-9月30日</div>
+                    <div className="text-sm">開學前最後預購</div>
                   </div>
-                  <div className="text-3xl font-bold">TWD 8,899</div>
+                  <div className="text-3xl font-bold">TWD 8,999</div>
                 </div>
               </div>
+
               <div className="bg-gray-500 text-white rounded-2xl p-6 shadow-sm">
                 <div className="flex justify-between items-center">
                   <div>
-                    <div className="text-[#FF6B35] font-bold text-lg">11月1日-11月30日</div>
-                    <div className="text-sm">課程中加入相見恨晚</div>
+                    <div className="text-orange-800 font-bold text-lg">10月1日-10月13日</div>
+                    <div className="text-sm">剛開學後悔價</div>
                   </div>
-                  <div className="text-3xl font-bold"> TWD 11,500</div>
+                  <div className="text-3xl font-bold">TWD 9,999</div>
                 </div>
               </div>
-              <div className="bg-gray-400 text-gray-800 rounded-2xl p-6 shadow-sm">
+
+              <div className="bg-gray-400 text-gray-900 rounded-2xl p-6 shadow-sm">
                 <div className="flex justify-between items-center">
                   <div>
-                    <div className="text-[#FF6B35] font-bold text-lg">12月1日開始</div>
+                    <div className="text-orange-900 font-bold text-lg">10月14日-10月27日</div>
+                    <div className="text-sm">課程中加入相見恨晚</div>
+                  </div>
+                  <div className="text-3xl font-bold">TWD 11,500</div>
+                </div>
+              </div>
+
+              <div className="bg-gray-300 text-gray-900 rounded-2xl p-6 shadow-sm">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <div className="text-orange-900 font-bold text-lg">10月28日-11月30日</div>
+                    <div className="text-sm">晚還是必須加入</div>
+                  </div>
+                  <div className="text-3xl font-bold">TWD 12,500</div>
+                </div>
+              </div>
+
+              <div className="bg-gray-200 text-gray-900 rounded-2xl p-6 shadow-sm">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <div className="text-orange-900 font-bold text-lg">12月1日起</div>
                     <div className="text-sm">原價</div>
                   </div>
                   <div className="text-3xl font-bold">TWD 13,500</div>
@@ -1286,7 +1311,7 @@ export default function HomePage() {
 
             <div className="bg-orange-50 rounded-xl p-6 mb-6">
               <div className="text-xl sm:text-2xl font-bold text-orange-600 mb-2">
-                現在報名享有 「免費」
+                現在報名享有 「限量免費」
                 <br />
                 人脈社群互助交流社群
               </div>
@@ -1321,7 +1346,7 @@ export default function HomePage() {
                 }
               }}
             >
-              立即搶購限時優惠 →
+              立即搶購限量優惠 →
             </a>
 
             <div className="mt-4 text-sm text-gray-500">⏰ 名額有限贈完為止！</div>
