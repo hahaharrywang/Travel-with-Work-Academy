@@ -7,7 +7,7 @@ import Image from "next/image"
 import { useParams } from "next/navigation"
 
 const getCheckoutURL = (couponCode?: string) => {
-  const baseURL = "https://travelworkacademy.myteachify.com/checkout?planId=e8bd54a6-8f9d-4b2f-affc-45c438b2b4a6"
+  const baseURL = "https://travelworkacademy.myteachify.com/checkout?planId=ce93bfdf-9e70-420e-b68f-1f6879715411"
   return couponCode ? `${baseURL}&coupon=${encodeURIComponent(couponCode)}` : baseURL
 }
 
