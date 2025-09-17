@@ -7,7 +7,7 @@ import Image from "next/image"
 import { useParams } from "next/navigation"
 
 const getCheckoutURL = (couponCode?: string) => {
-  const baseURL = "https://travelworkacademy.myteachify.com/checkout?planId=ce93bfdf-9e70-420e-b68f-1f6879715411"
+  const baseURL = "https://travelworkacademy.myteachify.com/checkout?planId=8ffeedda-e624-4c43-a050-39b8bcac5cc0"
   return couponCode ? `${baseURL}&coupon=${encodeURIComponent(couponCode)}` : baseURL
 }
 
@@ -1222,74 +1222,54 @@ export default function HomePage() {
               <div className="bg-black text-white rounded-2xl p-6 shadow-sm border-2 border-[#FF6B35]">
                 <div className="flex justify-between items-center">
                   <div>
-                    <div className="text-[#FF6B35] font-bold text-lg">9月1日-9月8日</div>
-                    <div className="text-sm">盲鳥預購優惠</div>
-                  </div>
-                  <div className="text-3xl font-bold">TWD 6,999</div>
-                </div>
-              </div>
-
-              <div className="bg-gray-800 text-white rounded-2xl p-6 shadow-sm">
-                <div className="flex justify-between items-center">
-                  <div>
-                    <div className="text-orange-200 font-bold text-lg">9月9日-9月15日</div>
-                    <div className="text-sm">早鳥預購優惠</div>
-                  </div>
-                  <div className="text-3xl font-bold">TWD 7,499</div>
-                </div>
-              </div>
-
-              <div className="bg-gray-700 text-white rounded-2xl p-6 shadow-sm">
-                <div className="flex justify-between items-center">
-                  <div>
-                    <div className="text-orange-200 font-bold text-lg">9月16日-9月22日</div>
+                    <div className="text-[#FF6B35] font-bold text-lg">9月16日-9月22日</div>
                     <div className="text-sm">晚鳥預購價</div>
                   </div>
                   <div className="text-3xl font-bold">TWD 7,999</div>
                 </div>
               </div>
 
-              <div className="bg-gray-600 text-white rounded-2xl p-6 shadow-sm">
+              <div className="bg-gray-800 text-white rounded-2xl p-6 shadow-sm">
                 <div className="flex justify-between items-center">
                   <div>
-                    <div className="text-orange-100 font-bold text-lg">9月23日-9月30日</div>
+                    <div className="text-orange-200 font-bold text-lg">9月23日-9月30日</div>
                     <div className="text-sm">開學前最後預購</div>
                   </div>
                   <div className="text-3xl font-bold">TWD 8,999</div>
                 </div>
               </div>
 
-              <div className="bg-gray-500 text-white rounded-2xl p-6 shadow-sm">
+              <div className="bg-gray-700 text-white rounded-2xl p-6 shadow-sm">
                 <div className="flex justify-between items-center">
                   <div>
-                    <div className="text-orange-800 font-bold text-lg">10月1日-10月13日</div>
+                    <div className="text-orange-200 font-bold text-lg">10月1日-10月13日</div>
                     <div className="text-sm">剛開學後悔價</div>
                   </div>
                   <div className="text-3xl font-bold">TWD 9,999</div>
                 </div>
               </div>
 
-              <div className="bg-gray-400 text-gray-900 rounded-2xl p-6 shadow-sm">
+              <div className="bg-gray-600 text-white rounded-2xl p-6 shadow-sm">
                 <div className="flex justify-between items-center">
                   <div>
-                    <div className="text-orange-900 font-bold text-lg">10月14日-10月27日</div>
+                    <div className="text-orange-100 font-bold text-lg">10月14日-10月27日</div>
                     <div className="text-sm">課程中加入相見恨晚</div>
                   </div>
                   <div className="text-3xl font-bold">TWD 11,500</div>
                 </div>
               </div>
 
-              <div className="bg-gray-300 text-gray-900 rounded-2xl p-6 shadow-sm">
+              <div className="bg-gray-500 text-white rounded-2xl p-6 shadow-sm">
                 <div className="flex justify-between items-center">
                   <div>
-                    <div className="text-orange-900 font-bold text-lg">10月28日-11月30日</div>
+                    <div className="text-orange-800 font-bold text-lg">10月28日-11月30日</div>
                     <div className="text-sm">晚還是必須加入</div>
                   </div>
                   <div className="text-3xl font-bold">TWD 12,500</div>
                 </div>
               </div>
 
-              <div className="bg-gray-200 text-gray-900 rounded-2xl p-6 shadow-sm">
+              <div className="bg-gray-400 text-gray-900 rounded-2xl p-6 shadow-sm">
                 <div className="flex justify-between items-center">
                   <div>
                     <div className="text-orange-900 font-bold text-lg">12月1日起</div>
