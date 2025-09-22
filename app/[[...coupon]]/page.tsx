@@ -312,7 +312,7 @@ export default function HomePage() {
           {/* Logo */}
           <div className="mb-8">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/1200%20X%20630_%E5%8E%BB%E8%83%8C%281%29%281%29-0ETCyAHxAuSN0LzxO1nHMSzexIzfQx.png"
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/1200%20X%20630_%E5%8E%BB%E8%83%8C%281%29%281%29-fEFvK62xfTFH1pENQgJHaxEyiPDJDM.png"
               alt="遠距遊牧學院 Travel With Work Academy"
               width={400}
               height={120}
@@ -469,7 +469,7 @@ export default function HomePage() {
                     >
                       <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4">
                         <Image
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E6%95%B8%E4%BD%8D%E9%81%8A%E7%89%A7%E5%8F%B0%E7%81%A3%20Logo%281%29%281%29-EfHB9KJNVr72nUTA3RwM9GVt0iiXgC.png"
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E6%95%B8%E4%BD%8D%E9%81%8A%E7%89%A7%E5%8F%B0%E7%81%A3%20Logo%281%29%281%29-MZyEvEEX8Dfb04M0sY7nNCsnspaIYk.png"
                           alt="Taiwan Digital Nomad"
                           width={96}
                           height={96}
@@ -494,7 +494,7 @@ export default function HomePage() {
                     >
                       <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4">
                         <Image
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E6%88%90%E9%95%B7%E7%87%9FLogo.jpg%281%29%281%29-ujqNFb8P8Zi9ViHKAl7z7t5O7ey1HG.jpeg"
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E6%88%90%E9%95%B7%E7%87%9FLogo.jpg%281%29%281%29-1scNKh9wJl7UZDGeaiFE3xQH2ZqNsG.jpeg"
                           alt="成長營"
                           width={96}
                           height={96}
@@ -519,7 +519,7 @@ export default function HomePage() {
                     >
                       <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4">
                         <Image
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E7%94%9F%E9%AE%AE%E6%99%82%E6%9B%B8%20Logo%281%29%281%29-xfW9DKbiiEUOf8qk3KUNsV6injell2.png"
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E7%94%9F%E9%AE%AE%E6%99%82%E6%9B%B8%20Logo%281%29%281%29-7qQDENuaRNg9ftnJagSUIVQBa3Fxb5.png"
                           alt="生鮮時書 NEWSVEG"
                           width={96}
                           height={96}
@@ -1452,7 +1452,7 @@ export default function HomePage() {
       <section className="py-16 sm:py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-6">國際遊牧領袖趨勢分享</h2>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-6">國際遊牧領袖Podcast趨勢分享</h2>
             <div className="w-24 h-1 bg-[#FF6B35] mx-auto rounded-full mb-8"></div>
           </div>
 
@@ -1666,7 +1666,7 @@ export default function HomePage() {
                 <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100">
                   <div className="text-xl font-bold text-black mb-2">學習資源統整</div>
                   <div className="text-xs text-gray-600">
-                    遊牧領域新星Podcast： 獨家現身說法，興趣、熱情事業的永續經營之道。
+                    專屬工具包，效率倍增： 獨家『副業斜槓啟動包』、『職涯躍升包』、『系統平衡包』，助你高效學習，快速上手
                   </div>
                 </div>
                 <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100">
@@ -1682,8 +1682,8 @@ export default function HomePage() {
                   <div className="text-xs text-gray-600">加入群組建立長期連結、商業合作職涯機會分享</div>
                 </div>
                 <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100">
-                  <div className="text-xl font-bold text-black mb-2">專屬學習工具包</div>
-                  <div className="text-xs text-gray-600">實用模板與工具，助你快速應用課程內容到實際工作中</div>
+                  <div className="text-xl font-bold text-black mb-2">際遊牧領袖Podcast趨勢分享</div>
+                  <div className="text-xs text-gray-600">獨家現身說法，興趣、熱情事業的永續經營之道</div>
                 </div>
               </div>
 
