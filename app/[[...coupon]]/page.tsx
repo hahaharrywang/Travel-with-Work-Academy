@@ -312,7 +312,7 @@ export default function HomePage() {
           {/* Logo */}
           <div className="mb-8">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/1200%20X%20630_%E5%8E%BB%E8%83%8C%281%29-QUvvI5hAbKhgq4ZxAmrkjjCrM0sBQ4.png"
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/1200%20X%20630_%E5%8E%BB%E8%83%8C%281%29%281%29-0ETCyAHxAuSN0LzxO1nHMSzexIzfQx.png"
               alt="遠距遊牧學院 Travel With Work Academy"
               width={400}
               height={120}
@@ -469,7 +469,7 @@ export default function HomePage() {
                     >
                       <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4">
                         <Image
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E6%95%B8%E4%BD%8D%E9%81%8A%E7%89%A7%E5%8F%B0%E7%81%A3%20Logo%281%29-s0gUTj5ZrjINrJ1k9i7sYWBgs4FmxC.png"
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E6%95%B8%E4%BD%8D%E9%81%8A%E7%89%A7%E5%8F%B0%E7%81%A3%20Logo%281%29%281%29-EfHB9KJNVr72nUTA3RwM9GVt0iiXgC.png"
                           alt="Taiwan Digital Nomad"
                           width={96}
                           height={96}
@@ -494,7 +494,7 @@ export default function HomePage() {
                     >
                       <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4">
                         <Image
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E6%88%90%E9%95%B7%E7%87%9FLogo.jpg%281%29-erDq8UUvkcPCUt5CzzYVbluXumglnR.jpeg"
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E6%88%90%E9%95%B7%E7%87%9FLogo.jpg%281%29%281%29-ujqNFb8P8Zi9ViHKAl7z7t5O7ey1HG.jpeg"
                           alt="成長營"
                           width={96}
                           height={96}
@@ -519,7 +519,7 @@ export default function HomePage() {
                     >
                       <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4">
                         <Image
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E7%94%9F%E9%AE%AE%E6%99%82%E6%9B%B8%20Logo%281%29-NN7YvHBY31hRvYGqa8qq8GFNJlj8xu.png"
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E7%94%9F%E9%AE%AE%E6%99%82%E6%9B%B8%20Logo%281%29%281%29-xfW9DKbiiEUOf8qk3KUNsV6injell2.png"
                           alt="生鮮時書 NEWSVEG"
                           width={96}
                           height={96}
@@ -944,7 +944,7 @@ export default function HomePage() {
                       </span>
                       <span className="text-[#FF6B35] font-semibold">Emilia</span>
                     </div>
-                    <h4 className="text-lg font-bold text-black mb-3">獵頭不告訴你的祕密：談薪與職涯跳躍策略</h4>
+                    <h4 className="text-lg font-bold text-black mb-3"> 獵頭不告訴你的祕密：談薪與職涯跳躍策略</h4>
                     <button
                       onClick={() =>
                         setSelectedWeek({
@@ -974,7 +974,7 @@ export default function HomePage() {
                 }}
               >
                 <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2" style={{ color: "#ffffff" }}>
-                  十二月：實戰應用與未來規劃
+                  十二月：可持續之系統性規劃
                 </h3>
                 <p className="text-white/90 text-lg" style={{ color: "rgba(255, 255, 255, 0.9)" }}>
                   核心目標：整合所學技能，制定長期發展策略，實現可持續的遠距職涯。
@@ -1064,6 +1064,9 @@ export default function HomePage() {
                       src={
                         instructors.find((i) => i.name === "Angela Feng")?.image ||
                         "/placeholder.svg?height=80&width=80" ||
+                        "/placeholder.svg" ||
+                        "/placeholder.svg" ||
+                        "/placeholder.svg" ||
                         "/placeholder.svg" ||
                         "/placeholder.svg" ||
                         "/placeholder.svg" ||
@@ -1399,9 +1402,9 @@ export default function HomePage() {
                     )}
                     {selectedWeek.month === 3 && selectedWeek.week === 10 && (
                       <div>
-                      專注於知識變現與內容創新，經營全遠端公司，致力於以「知識為你所用」為核心理念，協助超過100位講師課程開發，累計銷售額超過 3 億。
-
-                      曾擔任商業周刊等多家企業顧問，創辦人氣文創商品「讀曆書店」，並推出多檔 Podcast 節目，持續探索知識經濟的可能性。
+                        專注於知識變現與內容創新，經營全遠端公司，致力於以「知識為你所用」為核心理念，協助超過100位講師課程開發，累計銷售額超過
+                        3 億。 曾擔任商業周刊等多家企業顧問，創辦人氣文創商品「讀曆書店」，並推出多檔 Podcast
+                        節目，持續探索知識經濟的可能性。
                       </div>
                     )}
                     {selectedWeek.month === 3 && selectedWeek.week === 11 && (
@@ -1437,13 +1440,199 @@ export default function HomePage() {
                   rel="noopener noreferrer"
                   className="inline-block bg-[#FF6B35] hover:bg-[#E55A2B] px-6 py-3 rounded-lg text-white font-semibold transition-colors duration-200"
                 >
-                  查看講師完整資料
+                  更多講師資訊
                 </a>
               </div>
             </div>
           </div>
         </div>
       )}
+
+      {/* Nomad Leaders Podcast Section */}
+      <section className="py-16 sm:py-24 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-6">國際遊牧領袖趨勢分享</h2>
+            <div className="w-24 h-1 bg-[#FF6B35] mx-auto rounded-full mb-8"></div>
+          </div>
+
+          <div className="space-y-8 mb-16">
+            {/* Osera Ryo */}
+            <div className="bg-white rounded-2xl shadow-lg p-8 sm:p-12">
+              <div className="flex flex-col sm:flex-row items-start gap-6">
+                <div className="flex-shrink-0">
+                  <div className="w-32 h-32 rounded-full overflow-hidden">
+                    <img src="/images/osera-ryo.png" alt="Osera Ryo" className="w-full h-full object-cover" />
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <div className="mb-4">
+                    <h3 className="text-xl sm:text-2xl font-bold text-black mb-2">
+                      Colive Fukuoka 共同創辦人、日本數位遊牧協會執行理事
+                    </h3>
+                    <p className="text-[#FF6B35] text-lg font-bold">Osera Ryo</p>
+                  </div>
+                  <div className="space-y-4 text-gray-700 leading-relaxed">
+                    <p>
+                      畢業於筑波大學，曾任職於日本電通公司，擔任筑波市都市規劃顧問，受日本首相任命為社群行銷主管。2019年共同創立旅遊訂閱服務HafH，推動日本長期旅遊與遠距生活，自2020年起擔任日本Workcation協會顧問。
+                    </p>
+                    <p>
+                      2022年創辦日本首間遊牧專注的行銷公司 yugyo
+                      inc.，並於2023年成為金澤大學觀光前沿研究所副教授。長期致力於推動日本與國際間的遊牧交流與創新專案。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Johannes Völkner */}
+            <div className="bg-white rounded-2xl shadow-lg p-8 sm:p-12">
+              <div className="flex flex-col sm:flex-row items-start gap-6">
+                <div className="flex-shrink-0">
+                  <div className="w-32 h-32 rounded-full overflow-hidden">
+                    <img
+                      src="/images/johannes-volkner.png"
+                      alt="Johannes Völkner"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <div className="mb-4">
+                    <h3 className="text-xl sm:text-2xl font-bold text-black mb-2">
+                      Nomad Cruise 創辦人｜全球數位遊牧線下社群先驅
+                    </h3>
+                    <p className="text-[#FF6B35] text-lg font-bold">Johannes Völkner</p>
+                  </div>
+                  <div className="space-y-4 text-gray-700 leading-relaxed">
+                    <p>
+                      他來自德國，2010年起展開數位遊牧生活並創立Global Digital Nomad Network，全球最大遊牧者社群之一。
+                    </p>
+                    <p>
+                      2015年創辦Nomad
+                      Cruise，結合郵輪旅遊與遠距工作社群，至今已舉辦十餘次跨國航程，吸引來自70多國、逾2,500名參與者。
+                    </p>
+                    <p>
+                      疫情期間轉型推出Nomad
+                      Base，持續打造全球線下聚會與據點網絡，並以「社群先於產品」的理念設計經典活動如失敗之夜（FuckUp
+                      Nights），啟發全球遊牧者交流與成長。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Harry Wang */}
+            <div className="bg-white rounded-2xl shadow-lg p-8 sm:p-12">
+              <div className="flex flex-col sm:flex-row items-start gap-6">
+                <div className="flex-shrink-0">
+                  <div className="w-32 h-32 rounded-full overflow-hidden">
+                    <img src="/images/harry-wang.png" alt="Harry Wang" className="w-full h-full object-cover" />
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <div className="mb-4">
+                    <h3 className="text-xl sm:text-2xl font-bold text-black mb-2">
+                      DigitalNomadsTaiwan 數位遊牧台灣創辦人
+                    </h3>
+                    <p className="text-[#FF6B35] text-lg font-bold">Harry Wang</p>
+                  </div>
+                  <div className="space-y-4 text-gray-700 leading-relaxed">
+                    <p>
+                      2021年畢業於日本立命館亞洲太平洋大學國際經營學系，曾任AI保養品新創營運、跨國遠距人力資源公司商務開發，以及台越跨國專案PM等職務，於職涯早期透過遠距工作快速法代經驗。
+                    </p>
+                    <p>
+                      2024年創辦DigitalNomadsTaiwan，舉辦逾50場數位遊牧主題活動，累積超過1,200名線下參與者，參加者國籍數已超過70，其中近半來自口碑推薦。
+                    </p>
+                    <p>
+                      作為推動台灣遊牧Movement的發起人，曾受邀於日本Colive Fukuoka、日本Okinawa Kozarocks、Asian Nomad
+                      Alliance Summit、越南Nomad Fest等國際論壇擔任講者，分享台灣遊牧社群發展與跨國交流經驗。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-6">
+              這些心聲，是否也曾在你心中響起？
+            </h2>
+            <div className="w-24 h-1 bg-[#FF6B35] mx-auto rounded-full"></div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            <div className="bg-gray-50 rounded-2xl p-8 relative">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                  <span className="text-2xl">🌍</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-black mb-4">渴望跨國遠距工作，卻不知從何開始？</h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    每天看著辦公室天花板，想著世界有多大。心動數位遊牧生活，卻擔心自己是否適合。其實，這是可以學習的技能。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 rounded-2xl p-8 relative">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                  <span className="text-2xl">✈️</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-black mb-4">想邊旅行邊工作，實現理想生活？</h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    誰說工作與生活只能二選一？週四下班後出現在曼谷街上散心，是有機會實踐的生活方式。真正的 work-life
+                    balance 不是口號，需要透過時間與積累化為你的實質。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 rounded-2xl p-8 relative">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+                  <span className="text-2xl">💰</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-black mb-4">希望創造多元收入，卻苦無方向？</h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    存款數字停滯，夢想清單卻越來越長。你需要的不只是副業，而是打造可持續的遠距收入組合。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 rounded-2xl p-8 relative">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                  <span className="text-2xl">📚</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-black mb-4">資訊爆炸，反而更迷茫？</h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    Google了好幾晚筆記滿滿，卻還是不知道第一步該怎麼走。你不缺資訊，缺的是系統化的實戰指南與前線的趨勢。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <div className="bg-gray-50 rounded-2xl p-12 max-w-4xl mx-auto">
+              <h3 className="text-3xl sm:text-4xl font-bold text-black mb-6">我們都懂。</h3>
+              <p className="text-xl text-gray-600 mb-6 leading-relaxed">因為我們也曾在同樣的十字路口徘徊。</p>
+              <p className="text-xl font-bold text-[#FF6B35] leading-relaxed">現在的我們相信，自由值得有更多選擇。</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Course Content & Pricing Section */}
       <section className="py-16 sm:py-24 bg-white">
@@ -1477,13 +1666,8 @@ export default function HomePage() {
                 <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100">
                   <div className="text-xl font-bold text-black mb-2">學習資源統整</div>
                   <div className="text-xs text-gray-600">
-                    專屬工具包，效率倍增：
-                    獨家『副業斜槓啟動包』、『職涯躍升包』、『系統平衡包』，助你高效學習，快速上手
+                    遊牧領域新星Podcast： 獨家現身說法，興趣、熱情事業的永續經營之道。
                   </div>
-                </div>
-                <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100">
-                  <div className="text-xl font-bold text-black mb-2">遊牧領域新星Podcast</div>
-                  <div className="text-xs text-gray-600">獨家現身說法，興趣、熱情事業的永續經營之道</div>
                 </div>
                 <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100">
                   <div className="text-xl font-bold text-black mb-2">破框者電子月刊 3本</div>
@@ -1497,7 +1681,12 @@ export default function HomePage() {
                   <div className="text-xl font-bold text-black mb-2">Linkedin 校友網絡</div>
                   <div className="text-xs text-gray-600">加入群組建立長期連結、商業合作職涯機會分享</div>
                 </div>
+                <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100">
+                  <div className="text-xl font-bold text-black mb-2">專屬學習工具包</div>
+                  <div className="text-xs text-gray-600">實用模板與工具，助你快速應用課程內容到實際工作中</div>
+                </div>
               </div>
+
               <div className="mt-8 bg-gradient-to-r from-[#E55A2B] to-[#D2691E] rounded-xl p-6 text-center text-white shadow-lg">
                 <div className="text-lg font-bold mb-2">🏆 績優學員專屬獎勵</div>
                 <div className="text-sm">
