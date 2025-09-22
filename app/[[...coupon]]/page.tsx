@@ -1070,6 +1070,7 @@ export default function HomePage() {
                         "/placeholder.svg" ||
                         "/placeholder.svg" ||
                         "/placeholder.svg" ||
+                        "/placeholder.svg" ||
                         "/placeholder.svg"
                       }
                       alt="Angela Feng"
@@ -1196,7 +1197,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* 核心內容 */}
+              {/* 課程內容 */}
               <div className="mb-6">
                 <h4 className="text-lg font-semibold text-black mb-3">核心內容</h4>
                 <div className="bg-gray-50 p-4 rounded-xl">
@@ -1459,7 +1460,7 @@ export default function HomePage() {
           <div className="space-y-8 mb-16">
             {/* Osera Ryo */}
             <div className="bg-white rounded-2xl shadow-lg p-8 sm:p-12">
-              <div className="flex flex-col sm:flex-row items-start gap-6">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
                 <div className="flex-shrink-0">
                   <div className="w-32 h-32 rounded-full overflow-hidden">
                     <img src="/images/osera-ryo.png" alt="Osera Ryo" className="w-full h-full object-cover" />
@@ -1487,7 +1488,7 @@ export default function HomePage() {
 
             {/* Johannes Völkner */}
             <div className="bg-white rounded-2xl shadow-lg p-8 sm:p-12">
-              <div className="flex flex-col sm:flex-row items-start gap-6">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
                 <div className="flex-shrink-0">
                   <div className="w-32 h-32 rounded-full overflow-hidden">
                     <img
@@ -1524,7 +1525,7 @@ export default function HomePage() {
 
             {/* Harry Wang */}
             <div className="bg-white rounded-2xl shadow-lg p-8 sm:p-12">
-              <div className="flex flex-col sm:flex-row items-start gap-6">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
                 <div className="flex-shrink-0">
                   <div className="w-32 h-32 rounded-full overflow-hidden">
                     <img src="/images/harry-wang.png" alt="Harry Wang" className="w-full h-full object-cover" />
@@ -1666,7 +1667,8 @@ export default function HomePage() {
                 <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100">
                   <div className="text-xl font-bold text-black mb-2">學習資源統整</div>
                   <div className="text-xs text-gray-600">
-                    專屬工具包，效率倍增： 獨家『副業斜槓啟動包』、『職涯躍升包』、『系統平衡包』，助你高效學習，快速上手
+                    專屬工具包，效率倍增：
+                    獨家『副業斜槓啟動包』、『職涯躍升包』、『系統平衡包』，助你高效學習，快速上手
                   </div>
                 </div>
                 <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100">
