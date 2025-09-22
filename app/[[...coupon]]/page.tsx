@@ -192,7 +192,7 @@ export default function HomePage() {
     },
     {
       name: "鮪魚",
-      title: "生鮮時書創辦人、知名知識變現顧問，知識產品 MVP思維：最小可行產品測試",
+      title: "專注於知識變現與內容創新，協助超過百位講師完成課程開發，累積銷售額突破 3 億。",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E9%AE%AA%E9%AD%9A.jpg-VDNe0wRiY8em6DXNMgYTf5f3C7grun.jpeg",
       link: "https://www.instagram.com/newsvegtw/",
@@ -312,7 +312,7 @@ export default function HomePage() {
           {/* Logo */}
           <div className="mb-8">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/1200%20X%20630_%E5%8E%BB%E8%83%8C%281%29-yC64DWAch4EN9iMJGxAbGWqOVTKT2B.png"
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/1200%20X%20630_%E5%8E%BB%E8%83%8C%281%29-QUvvI5hAbKhgq4ZxAmrkjjCrM0sBQ4.png"
               alt="遠距遊牧學院 Travel With Work Academy"
               width={400}
               height={120}
@@ -469,7 +469,7 @@ export default function HomePage() {
                     >
                       <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4">
                         <Image
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E6%95%B8%E4%BD%8D%E9%81%8A%E7%89%A7%E5%8F%B0%E7%81%A3%20Logo%281%29-C61XdAGmggafsIPGsR4Mk87gbWTReK.png"
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E6%95%B8%E4%BD%8D%E9%81%8A%E7%89%A7%E5%8F%B0%E7%81%A3%20Logo%281%29-s0gUTj5ZrjINrJ1k9i7sYWBgs4FmxC.png"
                           alt="Taiwan Digital Nomad"
                           width={96}
                           height={96}
@@ -494,7 +494,7 @@ export default function HomePage() {
                     >
                       <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4">
                         <Image
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E6%88%90%E9%95%B7%E7%87%9FLogo.jpg%281%29-Gb0vHOQKr1blPM9S9W5TMAMalV3J1D.jpeg"
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E6%88%90%E9%95%B7%E7%87%9FLogo.jpg%281%29-erDq8UUvkcPCUt5CzzYVbluXumglnR.jpeg"
                           alt="成長營"
                           width={96}
                           height={96}
@@ -519,7 +519,7 @@ export default function HomePage() {
                     >
                       <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4">
                         <Image
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E7%94%9F%E9%AE%AE%E6%99%82%E6%9B%B8%20Logo%281%29-nuqMyguQqjONd0soWjVTsiGAAMPvdz.png"
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E7%94%9F%E9%AE%AE%E6%99%82%E6%9B%B8%20Logo%281%29-NN7YvHBY31hRvYGqa8qq8GFNJlj8xu.png"
                           alt="生鮮時書 NEWSVEG"
                           width={96}
                           height={96}
@@ -1082,12 +1082,12 @@ export default function HomePage() {
                       </span>
                       <span className="text-[#FF6B35] font-semibold">Angela</span>
                     </div>
-                    <h4 className="text-lg font-bold text-black mb-3">個人遠距職涯發展計劃制定</h4>
+                    <h4 className="text-lg font-bold text-black mb-3">可持續的自由：身心靈平衡的遠距人生 SOP</h4>
                     <button
                       onClick={() =>
                         setSelectedWeek({
                           week: 12,
-                          title: "個人遠距職涯發展計劃制定",
+                          title: "可持續的自由：身心靈平衡的遠距人生 SOP",
                           instructor: "Angela",
                           instructorData: instructors.find((i) => i.name === "Angela Feng"),
                           month: 3,
