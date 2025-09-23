@@ -312,7 +312,7 @@ export default function HomePage() {
           {/* Logo */}
           <div className="mb-8">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/1200%20X%20630_%E5%8E%BB%E8%83%8C%281%29%281%29-fEFvK62xfTFH1pENQgJHaxEyiPDJDM.png"
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/1200%20X%20630_%E5%8E%BB%E8%83%8C%281%29%281%29%281%29-FgdDm9xRi3ZTWZBucHQ5xlIEpOiZMW.png"
               alt="遠距遊牧學院 Travel With Work Academy"
               width={400}
               height={120}
@@ -469,7 +469,7 @@ export default function HomePage() {
                     >
                       <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4">
                         <Image
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E6%95%B8%E4%BD%8D%E9%81%8A%E7%89%A7%E5%8F%B0%E7%81%A3%20Logo%281%29%281%29-MZyEvEEX8Dfb04M0sY7nNCsnspaIYk.png"
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E6%95%B8%E4%BD%8D%E9%81%8A%E7%89%A7%E5%8F%B0%E7%81%A3%20Logo%281%29%281%29%281%29-B8H0Xw4coOnx0xFsDRIRDz28OEB8Fx.png"
                           alt="Taiwan Digital Nomad"
                           width={96}
                           height={96}
@@ -494,7 +494,7 @@ export default function HomePage() {
                     >
                       <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4">
                         <Image
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E6%88%90%E9%95%B7%E7%87%9FLogo.jpg%281%29%281%29-1scNKh9wJl7UZDGeaiFE3xQH2ZqNsG.jpeg"
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E6%88%90%E9%95%B7%E7%87%9FLogo.jpg%281%29%281%29%281%29-KUuXC5EtJAXzQwMBUifhptcUQGwrg3.jpeg"
                           alt="成長營"
                           width={96}
                           height={96}
@@ -519,7 +519,7 @@ export default function HomePage() {
                     >
                       <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4">
                         <Image
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E7%94%9F%E9%AE%AE%E6%99%82%E6%9B%B8%20Logo%281%29%281%29-7qQDENuaRNg9ftnJagSUIVQBa3Fxb5.png"
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E7%94%9F%E9%AE%AE%E6%99%82%E6%9B%B8%20Logo%281%29%281%29%281%29-c28paV1j3lIR8nAB2pRF5JUOOavA0Q.png"
                           alt="生鮮時書 NEWSVEG"
                           width={96}
                           height={96}
@@ -1071,6 +1071,10 @@ export default function HomePage() {
                         "/placeholder.svg" ||
                         "/placeholder.svg" ||
                         "/placeholder.svg" ||
+                        "/placeholder.svg" ||
+                        "/placeholder.svg" ||
+                        "/placeholder.svg" ||
+                        "/placeholder.svg" ||
                         "/placeholder.svg"
                       }
                       alt="Angela Feng"
@@ -1540,7 +1544,7 @@ export default function HomePage() {
                   </div>
                   <div className="space-y-4 text-gray-700 leading-relaxed">
                     <p>
-                      2021年畢業於日本立命館亞洲太平洋大學國際經營學系，曾任AI保養品新創營運、跨國遠距人力資源公司商務開發，以及台越跨國專案PM等職務，於職涯早期透過遠距工作快速法代經驗。
+                      2021年畢業於日本立命館大學國際經營學系，曾任AI保養品新創營運、跨國遠距人力資源公司商務開發，以及台越跨國專案PM等職務，於職涯早期透過遠距工作快速法代經驗。
                     </p>
                     <p>
                       2024年創辦DigitalNomadsTaiwan，舉辦逾50場數位遊牧主題活動，累積超過1,200名線下參與者，參加者國籍數已超過70，其中近半來自口碑推薦。
@@ -1557,6 +1561,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* These voices section */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -1630,6 +1635,299 @@ export default function HomePage() {
               <h3 className="text-3xl sm:text-4xl font-bold text-black mb-6">我們都懂。</h3>
               <p className="text-xl text-gray-600 mb-6 leading-relaxed">因為我們也曾在同樣的十字路口徘徊。</p>
               <p className="text-xl font-bold text-[#FF6B35] leading-relaxed">現在的我們相信，自由值得有更多選擇。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Diverse Learning Resources Section */}
+      <section className="py-16 sm:py-24 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Title */}
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+              <span className="bg-gradient-to-r from-[#FF6B35] to-[#FF8C42] bg-clip-text text-transparent">
+                多元學習資源
+              </span>
+            </h2>
+            <div className="w-24 h-1 bg-[#FF6B35] mx-auto rounded-full"></div>
+          </div>
+
+          {/* Learning Phases */}
+          <div className="space-y-12">
+            {/* Phase 1 */}
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <div className="p-6 sm:p-8">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-[#FF6B35] rounded-full flex items-center justify-center text-white font-bold text-lg">
+                    1
+                  </div>
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-bold text-black">線上技能學習</h3>
+                    <p className="text-[#FF6B35] font-semibold">10–12月｜看見可能、跨出行動、建立基礎。</p>
+                  </div>
+                </div>
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  三個月線上課程，從 0 啟動個人品牌與副業、提升職場競爭力，並統整知識與人生規劃。
+                </p>
+                <div className="hidden sm:grid sm:grid-cols-3 gap-4">
+                  {stagePhotos[0].map((photo, index) => (
+                    <div
+                      key={index}
+                      className="relative aspect-video rounded-xl overflow-hidden cursor-pointer group"
+                      onClick={() => openGallery(0, index)}
+                    >
+                      <Image
+                        src={photo.src || "/placeholder.svg"}
+                        alt={photo.alt}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                    </div>
+                  ))}
+                </div>
+                {/* Mobile horizontal scrolling gallery */}
+                <div className="sm:hidden overflow-x-auto">
+                  <div className="flex gap-4 pb-2" style={{ width: `${stagePhotos[0].length * 280}px` }}>
+                    {stagePhotos[0].map((photo, index) => (
+                      <div
+                        key={index}
+                        className="relative w-64 aspect-video rounded-xl overflow-hidden cursor-pointer group flex-shrink-0"
+                        onClick={() => openGallery(0, index)}
+                      >
+                        <Image
+                          src={photo.src || "/placeholder.svg"}
+                          alt={photo.alt}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Phase 2 */}
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <div className="p-6 sm:p-8">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-[#FF6B35] rounded-full flex items-center justify-center text-white font-bold text-lg">
+                    2
+                  </div>
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-bold text-black">社群交流、支持與共創</h3>
+                    <p className="text-[#FF6B35] font-semibold">每月遊牧社群活動</p>
+                  </div>
+                </div>
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  在交流中遇見夥伴、累積跨域人脈與遠距實戰經驗；一起實踐自由工作與遠距旅居。
+                </p>
+                <div className="hidden sm:grid sm:grid-cols-3 gap-4">
+                  {stagePhotos[1].map((photo, index) => (
+                    <div
+                      key={index}
+                      className="relative aspect-video rounded-xl overflow-hidden cursor-pointer group"
+                      onClick={() => openGallery(1, index)}
+                    >
+                      <Image
+                        src={photo.src || "/placeholder.svg"}
+                        alt={photo.alt}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                    </div>
+                  ))}
+                </div>
+                {/* Mobile horizontal scrolling gallery */}
+                <div className="sm:hidden overflow-x-auto">
+                  <div className="flex gap-4 pb-2" style={{ width: `${stagePhotos[1].length * 280}px` }}>
+                    {stagePhotos[1].map((photo, index) => (
+                      <div
+                        key={index}
+                        className="relative w-64 aspect-video rounded-xl overflow-hidden cursor-pointer group flex-shrink-0"
+                        onClick={() => openGallery(1, index)}
+                      >
+                        <Image
+                          src={photo.src || "/placeholder.svg"}
+                          alt={photo.alt}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Phase 3 */}
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <div className="p-6 sm:p-8">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-[#FF6B35] rounded-full flex items-center justify-center text-white font-bold text-lg">
+                    3
+                  </div>
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-bold text-black">國內外遊牧啟發之旅</h3>
+                    <p className="text-[#FF6B35] font-semibold">2026 年 1–7 月</p>
+                  </div>
+                </div>
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  清邁、越南、岩里島、福岡、恆春等地，在旅居工作、交流之中感受人生、獲得啟發，找回內在動能。
+                </p>
+                <div className="hidden sm:grid sm:grid-cols-3 gap-4">
+                  {stagePhotos[2].map((photo, index) => (
+                    <div
+                      key={index}
+                      className="relative aspect-video rounded-xl overflow-hidden cursor-pointer group"
+                      onClick={() => openGallery(2, index)}
+                    >
+                      <Image
+                        src={photo.src || "/placeholder.svg"}
+                        alt={photo.alt}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                    </div>
+                  ))}
+                </div>
+                {/* Mobile horizontal scrolling gallery */}
+                <div className="sm:hidden overflow-x-auto">
+                  <div className="flex gap-4 pb-2" style={{ width: `${stagePhotos[2].length * 280}px` }}>
+                    {stagePhotos[2].map((photo, index) => (
+                      <div
+                        key={index}
+                        className="relative w-64 aspect-video rounded-xl overflow-hidden cursor-pointer group flex-shrink-0"
+                        onClick={() => openGallery(2, index)}
+                      >
+                        <Image
+                          src={photo.src || "/placeholder.svg"}
+                          alt={photo.alt}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Phase 4 */}
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <div className="p-6 sm:p-8">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-[#FF6B35] rounded-full flex items-center justify-center text-white font-bold text-lg">
+                    4
+                  </div>
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-bold text-black">複盤 & Workshop</h3>
+                    <p className="text-[#FF6B35] font-semibold">2026 年 1–7 月</p>
+                  </div>
+                </div>
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  線上工作坊，與同儕精進自我、持續複盤，讓成果不斷累積。
+                </p>
+                <div className="hidden sm:grid sm:grid-cols-3 gap-4">
+                  {stagePhotos[3].map((photo, index) => (
+                    <div
+                      key={index}
+                      className="relative aspect-video rounded-xl overflow-hidden cursor-pointer group"
+                      onClick={() => openGallery(3, index)}
+                    >
+                      <Image
+                        src={photo.src || "/placeholder.svg"}
+                        alt={photo.alt}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                    </div>
+                  ))}
+                </div>
+                {/* Mobile horizontal scrolling gallery */}
+                <div className="sm:hidden overflow-x-auto">
+                  <div className="flex gap-4 pb-2" style={{ width: `${stagePhotos[3].length * 280}px` }}>
+                    {stagePhotos[3].map((photo, index) => (
+                      <div
+                        key={index}
+                        className="relative w-64 aspect-video rounded-xl overflow-hidden cursor-pointer group flex-shrink-0"
+                        onClick={() => openGallery(3, index)}
+                      >
+                        <Image
+                          src={photo.src || "/placeholder.svg"}
+                          alt={photo.alt}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Phase 5 */}
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <div className="p-6 sm:p-8">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-[#FF6B35] rounded-full flex items-center justify-center text-white font-bold text-lg">
+                    5
+                  </div>
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-bold text-black">成為遊牧之星</h3>
+                    <p className="text-[#FF6B35] font-semibold">社群激勵與舞台機會</p>
+                  </div>
+                </div>
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  以執行力為評分核心，提供助教資格、學費折扣、登台分享機會、遊牧之旅邀請名額等激勵機制。
+                </p>
+                <div className="hidden sm:grid sm:grid-cols-3 gap-4">
+                  {stagePhotos[4].map((photo, index) => (
+                    <div
+                      key={index}
+                      className="relative aspect-video rounded-xl overflow-hidden cursor-pointer group"
+                      onClick={() => openGallery(4, index)}
+                    >
+                      <Image
+                        src={photo.src || "/placeholder.svg"}
+                        alt={photo.alt}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                    </div>
+                  ))}
+                </div>
+                {/* Mobile horizontal scrolling gallery */}
+                <div className="sm:hidden overflow-x-auto">
+                  <div className="flex gap-4 pb-2" style={{ width: `${stagePhotos[4].length * 280}px` }}>
+                    {stagePhotos[4].map((photo, index) => (
+                      <div
+                        key={index}
+                        className="relative w-64 aspect-video rounded-xl overflow-hidden cursor-pointer group flex-shrink-0"
+                        onClick={() => openGallery(4, index)}
+                      >
+                        <Image
+                          src={photo.src || "/placeholder.svg"}
+                          alt={photo.alt}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1800,7 +2098,7 @@ export default function HomePage() {
               <div className="bg-gray-400 text-gray-900 rounded-2xl p-6 shadow-sm">
                 <div className="flex justify-between items-center">
                   <div>
-                    <div className="text-orange-900 font-bold text-lg">12月1日起</div>
+                    <div className="text-orange-900 font-bold text-lg">12月日起</div>
                     <div className="text-sm">原價</div>
                   </div>
                   <div className="text-3xl font-bold">TWD 13,500</div>
@@ -1932,6 +2230,101 @@ export default function HomePage() {
           / Email: Academy@travelwithwork.life
         </p>
       </footer>
+
+      {/* Gallery Modal for Diverse Learning Resources */}
+      {isGalleryOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4 z-50"
+          onClick={() => setIsGalleryOpen(false)}
+        >
+          <div className="relative max-w-4xl w-full max-h-[90vh] flex items-center justify-center">
+            {/* Close Button */}
+            <button
+              onClick={() => setIsGalleryOpen(false)}
+              className="absolute top-4 right-4 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-all duration-200 z-10 text-xl font-bold"
+            >
+              ✕
+            </button>
+
+            {/* Previous Button */}
+            {stagePhotos[currentStage].length > 1 && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation()
+                  prevPhoto()
+                }}
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full shadow-xl flex items-center justify-center text-gray-800 hover:text-orange-500 transition-all duration-200 z-10 group"
+              >
+                <svg
+                  className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-200"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+            )}
+
+            {/* Next Button */}
+            {stagePhotos[currentStage].length > 1 && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation()
+                  nextPhoto()
+                }}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full shadow-xl flex items-center justify-center text-gray-800 hover:text-orange-500 transition-all duration-200 z-10 group"
+              >
+                <svg
+                  className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-200"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            )}
+
+            {/* Image Container */}
+            <div
+              className="relative w-full h-full flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="relative max-w-full max-h-full">
+                <Image
+                  src={stagePhotos[currentStage][currentPhotoIndex]?.src || "/placeholder.svg"}
+                  alt={stagePhotos[currentStage][currentPhotoIndex]?.alt || ""}
+                  width={800}
+                  height={600}
+                  className="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl"
+                />
+
+                {/* Caption */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent text-white p-6 rounded-b-lg">
+                  <p className="text-center text-sm sm:text-base font-medium leading-relaxed">
+                    {stagePhotos[currentStage][currentPhotoIndex]?.alt}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Photo Counter */}
+            {stagePhotos[currentStage].length > 1 && (
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-80 text-white px-6 py-3 rounded-full text-sm font-medium shadow-lg">
+                <span className="text-orange-400">{currentPhotoIndex + 1}</span>
+                <span className="mx-2 text-gray-300">/</span>
+                <span>{stagePhotos[currentStage].length}</span>
+              </div>
+            )}
+
+            {/* Keyboard navigation hint */}
+            <div className="absolute top-4 left-4 bg-black bg-opacity-60 text-white px-3 py-2 rounded-lg text-xs opacity-70">
+              使用 ← → 鍵或點擊按鈕切換圖片
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   )
 }
