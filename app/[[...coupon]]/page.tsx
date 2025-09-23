@@ -7,7 +7,7 @@ import Image from "next/image"
 import { useParams } from "next/navigation"
 
 const getCheckoutURL = (couponCode?: string) => {
-  const baseURL = "https://travelworkacademy.myteachify.com/checkout?planId=8ffeedda-e624-4c43-a050-39b8bcac5cc0"
+  const baseURL = "https://travelworkacademy.myteachify.com/checkout?planId=51334ab1-1717-47d1-8fda-b8feaf356a39"
   return couponCode ? `${baseURL}&coupon=${encodeURIComponent(couponCode)}` : baseURL
 }
 
@@ -107,7 +107,7 @@ export default function HomePage() {
         alt: "專業演講分享",
       },
       {
-        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E6%88%AA%E5%9C%96%202025-08-27%20%E6%99%9A%E4%B8%8A7.38.33-F8SRPgmQ0uyCHk9uLjQilXpKZjQxfk.png",
+        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E6%88%90%E5%9C%96%202025-08-27%20%E6%99%9A%E4%B8%8A7.38.33-F8SRPgmQ0uyCHk9uLjQilXpKZjQxfk.png",
         alt: "數位學習科技應用",
       },
     ],
@@ -312,7 +312,7 @@ export default function HomePage() {
           {/* Logo */}
           <div className="mb-8">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/1200%20X%20630_%E5%8E%BB%E8%83%8C%281%29%281%29%281%29-FgdDm9xRi3ZTWZBucHQ5xlIEpOiZMW.png"
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/1200%20X%20630_%E5%8E%BB%E8%83%8C%281%29%281%29%281%29%281%29-ADsa7vrVD2aVXGZur09ExjtWIDRWhH.png"
               alt="遠距遊牧學院 Travel With Work Academy"
               width={400}
               height={120}
@@ -331,7 +331,8 @@ export default function HomePage() {
           <div className="mb-8">
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
               臺灣首個系統性 『遠距遊牧實戰學院』
-              <br className="sm:hidden" /> 助你邊旅行邊實現人生價值
+              <br className="sm:hidden" />
+              助你邊旅行邊實現人生價值
             </p>
           </div>
 
@@ -469,7 +470,7 @@ export default function HomePage() {
                     >
                       <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4">
                         <Image
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E6%95%B8%E4%BD%8D%E9%81%8A%E7%89%A7%E5%8F%B0%E7%81%A3%20Logo%281%29%281%29%281%29-B8H0Xw4coOnx0xFsDRIRDz28OEB8Fx.png"
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E6%95%B8%E4%BD%8D%E9%81%8A%E7%89%A7%E5%8F%B0%E7%81%A3%20Logo%281%29%281%29%281%29%281%29-BeT1s8tDRYa8QpmwAcgqJefW0Cnb0L.png"
                           alt="Taiwan Digital Nomad"
                           width={96}
                           height={96}
@@ -494,7 +495,7 @@ export default function HomePage() {
                     >
                       <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4">
                         <Image
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E6%88%90%E9%95%B7%E7%87%9FLogo.jpg%281%29%281%29%281%29-KUuXC5EtJAXzQwMBUifhptcUQGwrg3.jpeg"
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E6%88%90%E9%95%B7%E7%87%9FLogo.jpg%281%29%281%29%281%29%281%29-AKjtnDhBPPzRkVW709rd8R7Z77GWhd.jpeg"
                           alt="成長營"
                           width={96}
                           height={96}
@@ -519,7 +520,7 @@ export default function HomePage() {
                     >
                       <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4">
                         <Image
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E7%94%9F%E9%AE%AE%E6%99%82%E6%9B%B8%20Logo%281%29%281%29%281%29-c28paV1j3lIR8nAB2pRF5JUOOavA0Q.png"
+                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E7%94%9F%E9%AE%AE%E6%99%82%E6%9B%B8%20Logo%281%29%281%29%281%29%281%29-DBfDB9ebqhuATOkiQYQupsK4poCZV7.png"
                           alt="生鮮時書 NEWSVEG"
                           width={96}
                           height={96}
@@ -537,6 +538,85 @@ export default function HomePage() {
               </div>
             </div>
           </section>
+        </div>
+      </section>
+
+      {/* These voices section */}
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-6">
+              這些心聲，是否也曾在你心中響起？
+            </h2>
+            <div className="w-24 h-1 bg-[#FF6B35] mx-auto rounded-full"></div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            <div className="bg-gray-50 rounded-2xl p-8 relative">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                  <span className="text-2xl">🌍</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-black mb-4">渴望跨國遠距工作，卻不知從何開始？</h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    每天看著辦公室天花板，想著世界有多大。心動數位遊牧生活，卻擔心自己是否適合。其實，這是可以學習的技能。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 rounded-2xl p-8 relative">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                  <span className="text-2xl">✈️</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-black mb-4">想邊旅行邊工作，實現理想生活？</h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    誰說工作與生活只能二選一？週四下班後出現在曼谷街上散心，是有機會實踐的生活方式。真正的 work-life
+                    balance 不是口號，需要透過時間與積累化為你的實質。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 rounded-2xl p-8 relative">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+                  <span className="text-2xl">💰</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-black mb-4">希望創造多元收入，卻苦無方向？</h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    存款數字停滯，夢想清單卻越來越長。你需要的不只是副業，而是打造可持續的遠距收入組合。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 rounded-2xl p-8 relative">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                  <span className="text-2xl">📚</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-black mb-4">資訊爆炸，反而更迷茫？</h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    Google了好幾晚筆記滿滿，卻還是不知道第一步該怎麼走。你不缺資訊，缺的是系統化的實戰指南與前線的趨勢。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <div className="bg-gray-50 rounded-2xl p-12 max-w-4xl mx-auto">
+              <h3 className="text-3xl sm:text-4xl font-bold text-black mb-6">我們都懂。</h3>
+              <p className="text-xl text-gray-600 mb-6 leading-relaxed">因為我們也曾在同樣的十字路口徘徊。</p>
+              <p className="text-xl font-bold text-[#FF6B35] leading-relaxed">現在的我們相信，自由值得有更多選擇。</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1075,6 +1155,9 @@ export default function HomePage() {
                         "/placeholder.svg" ||
                         "/placeholder.svg" ||
                         "/placeholder.svg" ||
+                        "/placeholder.svg" ||
+                        "/placeholder.svg" ||
+                        "/placeholder.svg" ||
                         "/placeholder.svg"
                       }
                       alt="Angela Feng"
@@ -1190,7 +1273,7 @@ export default function HomePage() {
                       "學會優化履歷，在國際獵頭眼中脫穎而出，掌握薪資談判技巧，提升談判成功率，了解跨國職缺申請流程並實際投遞，建立職涯成長策略，找到「下一步」。"}
                     {selectedWeek.month === 3 &&
                       selectedWeek.week === 10 &&
-                      "學會知識萃取的方法，將專業轉化為知識產品，完成快速驗證的知識商品方案，降低試錯成本，建立多元變現思維。"}
+                      "學會知識產品全景介紹，知識萃取技巧，快速驗證方法。"}
                     {selectedWeek.month === 3 &&
                       selectedWeek.week === 11 &&
                       "制定旅居財務規劃表，掌握收支平衡，了解跨國移動中如何保持財務穩定，預備未來自由生活，降低財務焦慮。"}
@@ -1457,7 +1540,11 @@ export default function HomePage() {
       <section className="py-16 sm:py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-6">國際遊牧領袖Podcast趨勢分享</h2>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-6">
+              國際遊牧領袖
+              <br className="sm:hidden" />
+              <span className="sm:ml-2">Podcast趨勢分享</span>
+            </h2>
             <div className="w-24 h-1 bg-[#FF6B35] mx-auto rounded-full mb-8"></div>
           </div>
 
@@ -1556,85 +1643,6 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* These voices section */}
-      <section className="py-16 sm:py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-6">
-              這些心聲，是否也曾在你心中響起？
-            </h2>
-            <div className="w-24 h-1 bg-[#FF6B35] mx-auto rounded-full"></div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
-            <div className="bg-gray-50 rounded-2xl p-8 relative">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                  <span className="text-2xl">🌍</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-black mb-4">渴望跨國遠距工作，卻不知從何開始？</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    每天看著辦公室天花板，想著世界有多大。心動數位遊牧生活，卻擔心自己是否適合。其實，這是可以學習的技能。
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gray-50 rounded-2xl p-8 relative">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                  <span className="text-2xl">✈️</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-black mb-4">想邊旅行邊工作，實現理想生活？</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    誰說工作與生活只能二選一？週四下班後出現在曼谷街上散心，是有機會實踐的生活方式。真正的 work-life
-                    balance 不是口號，需要透過時間與積累化為你的實質。
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gray-50 rounded-2xl p-8 relative">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
-                  <span className="text-2xl">💰</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-black mb-4">希望創造多元收入，卻苦無方向？</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    存款數字停滯，夢想清單卻越來越長。你需要的不只是副業，而是打造可持續的遠距收入組合。
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gray-50 rounded-2xl p-8 relative">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                  <span className="text-2xl">📚</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-black mb-4">資訊爆炸，反而更迷茫？</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    Google了好幾晚筆記滿滿，卻還是不知道第一步該怎麼走。你不缺資訊，缺的是系統化的實戰指南與前線的趨勢。
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center">
-            <div className="bg-gray-50 rounded-2xl p-12 max-w-4xl mx-auto">
-              <h3 className="text-3xl sm:text-4xl font-bold text-black mb-6">我們都懂。</h3>
-              <p className="text-xl text-gray-600 mb-6 leading-relaxed">因為我們也曾在同樣的十字路口徘徊。</p>
-              <p className="text-xl font-bold text-[#FF6B35] leading-relaxed">現在的我們相信，自由值得有更多選擇。</p>
             </div>
           </div>
         </div>
@@ -1828,12 +1836,12 @@ export default function HomePage() {
                     4
                   </div>
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-black">複盤 & Workshop</h3>
+                    <h3 className="text-xl sm:text-2xl font-bold text-black">線上學習社群</h3>
                     <p className="text-[#FF6B35] font-semibold">2026 年 1–7 月</p>
                   </div>
                 </div>
                 <p className="text-gray-700 leading-relaxed mb-6">
-                  線上工作坊，與同儕精進自我、持續複盤，讓成果不斷累積。
+                  工作坊、複盤、不定期直播分享等線上學習資源，與同儕交流精進、累積成長腳印。
                 </p>
                 <div className="hidden sm:grid sm:grid-cols-3 gap-4">
                   {stagePhotos[3].map((photo, index) => (
@@ -1884,7 +1892,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h3 className="text-xl sm:text-2xl font-bold text-black">成為遊牧之星</h3>
-                    <p className="text-[#FF6B35] font-semibold">社群激勵與舞台機會</p>
+                    <p className="text-[#FF6B35] font-semibold">社群激勵＆舞台機會</p>
                   </div>
                 </div>
                 <p className="text-gray-700 leading-relaxed mb-6">
@@ -1987,12 +1995,12 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="mt-8 bg-gradient-to-r from-[#E55A2B] to-[#D2691E] rounded-xl p-6 text-center text-white shadow-lg">
+              <div className="mt-8 bg-gradient-to-r from-[#FF6B35] to-[#FF6B35] rounded-xl p-6 text-center text-white shadow-lg">
                 <div className="text-lg font-bold mb-2">🏆 績優學員專屬獎勵</div>
                 <div className="text-sm">
                   課程期間成長表現優異的學員，將有機會獲得<span className="font-semibold">學費的部分或全額</span>
                   <span className="text-2xl font-bold text-yellow-200 mx-1">獎學金</span>， 以及
-                  <span className="font-semibold">2026年遊牧啟發之旅招待名額</span>！
+                  <span className="text-2xl font-bold text-yellow-200 mx-1">2026年遊牧啟發之旅招待名額</span>！
                 </div>
               </div>
             </div>
