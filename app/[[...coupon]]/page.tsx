@@ -312,7 +312,7 @@ export default function HomePage() {
           {/* Logo */}
           <div className="mb-8">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/1200%20X%20630_%E5%8E%BB%E8%83%8C%281%29%281%29%281%29%281%29-ADsa7vrVD2aVXGZur09ExjtWIDRWhH.png"
+              src="/images/design-mode/1200%20X%20630_%E5%8E%BB%E8%83%8C%281%29%281%29%281%29%281%29.png"
               alt="遠距遊牧學院 Travel With Work Academy"
               width={400}
               height={120}
@@ -470,7 +470,7 @@ export default function HomePage() {
                     >
                       <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4">
                         <Image
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E6%95%B8%E4%BD%8D%E9%81%8A%E7%89%A7%E5%8F%B0%E7%81%A3%20Logo%281%29%281%29%281%29%281%29-BeT1s8tDRYa8QpmwAcgqJefW0Cnb0L.png"
+                          src="/images/design-mode/%E6%95%B8%E4%BD%8D%E9%81%8A%E7%89%A7%E5%8F%B0%E7%81%A3%20Logo%281%29%281%29%281%29%281%29.png"
                           alt="Taiwan Digital Nomad"
                           width={96}
                           height={96}
@@ -495,7 +495,7 @@ export default function HomePage() {
                     >
                       <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4">
                         <Image
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E6%88%90%E9%95%B7%E7%87%9FLogo.jpg%281%29%281%29%281%29%281%29-AKjtnDhBPPzRkVW709rd8R7Z77GWhd.jpeg"
+                          src="/images/design-mode/%E6%88%90%E9%95%B7%E7%87%9FLogo.jpg%281%29%281%29%281%29%281%29.jpeg"
                           alt="成長營"
                           width={96}
                           height={96}
@@ -520,7 +520,7 @@ export default function HomePage() {
                     >
                       <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4">
                         <Image
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/design-mode-images/%E7%94%9F%E9%AE%AE%E6%99%82%E6%9B%B8%20Logo%281%29%281%29%281%29%281%29-DBfDB9ebqhuATOkiQYQupsK4poCZV7.png"
+                          src="/images/design-mode/%E7%94%9F%E9%AE%AE%E6%99%82%E6%9B%B8%20Logo%281%29%281%29%281%29%281%29.png"
                           alt="生鮮時書 NEWSVEG"
                           width={96}
                           height={96}
@@ -611,10 +611,18 @@ export default function HomePage() {
           </div>
 
           <div className="text-center">
-            <div className="bg-gray-50 rounded-2xl p-12 max-w-4xl mx-auto">
-              <h3 className="text-3xl sm:text-4xl font-bold text-black mb-6">我們都懂。</h3>
-              <p className="text-xl text-gray-600 mb-6 leading-relaxed">因為我們也曾在同樣的十字路口徘徊。</p>
-              <p className="text-xl font-bold text-[#FF6B35] leading-relaxed">現在的我們相信，自由值得有更多選擇。</p>
+            <div className="bg-gradient-to-r from-[#FF6B35] to-[#E55A2B] rounded-2xl p-12 max-w-4xl mx-auto shadow-lg">
+              <h3 className="text-3xl sm:text-4xl font-bold text-white mb-6">我們都懂。</h3>
+              <p className="text-xl text-white mb-6 leading-relaxed">
+                因為我們，
+                <br className="sm:hidden" />
+                也曾在同樣的十字路口徘徊。
+              </p>
+              <p className="text-xl font-bold text-yellow-200 leading-relaxed">
+                現在的我們相信，
+                <br className="sm:hidden" />
+                自由值得有更多選擇。
+              </p>
             </div>
           </div>
         </div>
@@ -1144,6 +1152,10 @@ export default function HomePage() {
                       src={
                         instructors.find((i) => i.name === "Angela Feng")?.image ||
                         "/placeholder.svg?height=80&width=80" ||
+                        "/placeholder.svg" ||
+                        "/placeholder.svg" ||
+                        "/placeholder.svg" ||
+                        "/placeholder.svg" ||
                         "/placeholder.svg" ||
                         "/placeholder.svg" ||
                         "/placeholder.svg" ||
@@ -2053,23 +2065,23 @@ export default function HomePage() {
               早鳥優惠價來了！
             </h3>
             <div className="space-y-4 max-w-2xl mx-auto">
-              <div className="bg-black text-white rounded-2xl p-6 shadow-sm border-2 border-[#FF6B35]">
+              <div className="bg-gray-800 text-white rounded-2xl p-6 shadow-sm border-4 border-[#FF6B35]">
                 <div className="flex justify-between items-center">
                   <div>
-                    <div className="text-[#FF6B35] font-bold text-lg">9月16日-9月22日</div>
-                    <div className="text-sm">晚鳥預購價</div>
-                  </div>
-                  <div className="text-3xl font-bold">TWD 7,999</div>
-                </div>
-              </div>
-
-              <div className="bg-gray-800 text-white rounded-2xl p-6 shadow-sm">
-                <div className="flex justify-between items-center">
-                  <div>
-                    <div className="text-orange-200 font-bold text-lg">9月23日-9月30日</div>
+                    <div className="text-orange-200 font-bold text-lg">9月23日-9月29日</div>
                     <div className="text-sm">開學前最後預購</div>
                   </div>
                   <div className="text-3xl font-bold">TWD 8,999</div>
+                </div>
+              </div>
+
+              <div className="bg-gray-700 text-white rounded-2xl p-6 shadow-sm">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <div className="text-orange-300 font-bold text-lg">9月30日</div>
+                    <div className="text-sm">開學前一天優惠價</div>
+                  </div>
+                  <div className="text-3xl font-bold">TWD 9,499</div>
                 </div>
               </div>
 
