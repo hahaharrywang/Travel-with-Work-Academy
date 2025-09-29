@@ -107,10 +107,6 @@ export default function HomePage() {
         alt: "專業演講分享",
       },
       {
-        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E6%88%90%E5%9C%96%202025-08-27%20%E6%99%9A%E4%B8%8A7.38.33-F8SRPgmQ0uyCHk9uLjQilXpKZjQxfk.png",
-        alt: "數位學習科技應用",
-      },
-      {
         src: "/digital-learning-technology-application-with-lapto.jpg",
         alt: "數位學習科技應用",
       },
