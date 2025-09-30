@@ -1171,6 +1171,7 @@ export default function HomePage() {
                         "/placeholder.svg" ||
                         "/placeholder.svg" ||
                         "/placeholder.svg" ||
+                        "/placeholder.svg" ||
                         "/placeholder.svg"
                       }
                       alt="Angela Feng"
@@ -2069,17 +2070,7 @@ export default function HomePage() {
               <div className="bg-gray-800 text-white rounded-2xl p-6 shadow-sm border-4 border-[#FF6B35]">
                 <div className="flex justify-between items-center">
                   <div>
-                    <div className="text-orange-200 font-bold text-lg">9月23日-9月29日</div>
-                    <div className="text-sm">開學前最後預購</div>
-                  </div>
-                  <div className="text-3xl font-bold">TWD 8,999</div>
-                </div>
-              </div>
-
-              <div className="bg-gray-700 text-white rounded-2xl p-6 shadow-sm">
-                <div className="flex justify-between items-center">
-                  <div>
-                    <div className="text-orange-300 font-bold text-lg">9月30日</div>
+                    <div className="text-orange-200 font-bold text-lg">9月30日</div>
                     <div className="text-sm">開學前一天優惠價</div>
                   </div>
                   <div className="text-3xl font-bold">TWD 9,499</div>
