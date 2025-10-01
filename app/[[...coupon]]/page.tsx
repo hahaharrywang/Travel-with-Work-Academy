@@ -117,11 +117,11 @@ export default function HomePage() {
         alt: "社群網絡建立慶祝活動",
       },
       {
-        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/20250329-DSC01965.jpg-Esdk9O9x29Jwx4P1jFc334RC972HXB.jpeg",
+        src: "https://hebbkx1anhila5yf.blob.vercel-storage.com/20250329-DSC01965.jpg-Esdk9O9x29Jwx4P1jFc334RC972HXB.jpeg",
         alt: "學習成果展示與認證儀式",
       },
       {
-        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/227A8906.jpg-9G3V7GbFRKiwyUgZrRL0wSXbJyVHNN.jpeg",
+        src: "https://hebbkx1anhila5yf.blob.vercel-storage.com/227A8906.jpg-9G3V7GbFRKiwyUgZrRL0wSXbJyVHNN.jpeg",
         alt: "線上復盤工作坊知識分享",
       },
     ],
@@ -495,7 +495,7 @@ export default function HomePage() {
                     >
                       <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4">
                         <Image
-                          src="/images/design-mode/%E6%88%90%E9%95%B7%E7%87%9FLogo.jpg%281%29%281%29%281%29%281%29.jpeg"
+                          src="/images/design-mode/%E6%88%90%E9%95%B7%E7%87%95Logo.jpg%281%29%281%29%281%29%281%29.jpeg"
                           alt="成長營"
                           width={96}
                           height={96}
@@ -1152,6 +1152,7 @@ export default function HomePage() {
                       src={
                         instructors.find((i) => i.name === "Angela Feng")?.image ||
                         "/placeholder.svg?height=80&width=80" ||
+                        "/placeholder.svg" ||
                         "/placeholder.svg" ||
                         "/placeholder.svg" ||
                         "/placeholder.svg" ||
@@ -2070,16 +2071,6 @@ export default function HomePage() {
               <div className="bg-gray-800 text-white rounded-2xl p-6 shadow-sm border-4 border-[#FF6B35]">
                 <div className="flex justify-between items-center">
                   <div>
-                    <div className="text-orange-200 font-bold text-lg">9月30日</div>
-                    <div className="text-sm">開學前一天優惠價</div>
-                  </div>
-                  <div className="text-3xl font-bold">TWD 9,499</div>
-                </div>
-              </div>
-
-              <div className="bg-gray-700 text-white rounded-2xl p-6 shadow-sm">
-                <div className="flex justify-between items-center">
-                  <div>
                     <div className="text-orange-200 font-bold text-lg">10月1日-10月13日</div>
                     <div className="text-sm">剛開學後悔價</div>
                   </div>
@@ -2087,30 +2078,30 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="bg-gray-600 text-white rounded-2xl p-6 shadow-sm">
+              <div className="bg-gray-700 text-white rounded-2xl p-6 shadow-sm">
                 <div className="flex justify-between items-center">
                   <div>
-                    <div className="text-orange-100 font-bold text-lg">10月14日-10月27日</div>
+                    <div className="text-orange-200 font-bold text-lg">10月14日-10月27日</div>
                     <div className="text-sm">課程中加入相見恨晚</div>
                   </div>
                   <div className="text-3xl font-bold">TWD 11,500</div>
                 </div>
               </div>
 
-              <div className="bg-gray-500 text-white rounded-2xl p-6 shadow-sm">
+              <div className="bg-gray-600 text-white rounded-2xl p-6 shadow-sm">
                 <div className="flex justify-between items-center">
                   <div>
-                    <div className="text-orange-900 font-bold text-lg">10月28日-11月30日</div>
+                    <div className="text-orange-100 font-bold text-lg">10月28日-11月30日</div>
                     <div className="text-sm">晚還是必須加入</div>
                   </div>
                   <div className="text-3xl font-bold">TWD 12,500</div>
                 </div>
               </div>
 
-              <div className="bg-gray-400 text-gray-900 rounded-2xl p-6 shadow-sm">
+              <div className="bg-gray-500 text-white rounded-2xl p-6 shadow-sm">
                 <div className="flex justify-between items-center">
                   <div>
-                    <div className="text-orange-900 font-bold text-lg">12月日起</div>
+                    <div className="text-orange-100 font-bold text-lg">12月日起</div>
                     <div className="text-sm">原價</div>
                   </div>
                   <div className="text-3xl font-bold">TWD 13,500</div>
