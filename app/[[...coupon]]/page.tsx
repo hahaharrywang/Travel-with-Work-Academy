@@ -378,7 +378,7 @@ export default function HomePage() {
               >
                 開啟自由人生
                 <br />
-                早鳥優惠，立刻報名
+                立刻報名
               </a>
             </Button>
             <p className="text-sm text-gray-500"> </p>
@@ -2065,7 +2065,7 @@ export default function HomePage() {
           {/* Pricing Section */}
           <div className="text-center">
             <h3 className="text-3xl sm:text-4xl font-bold text-white mb-12 bg-black rounded-2xl py-6 px-8 inline-block">
-              早鳥優惠價來了！
+              優惠價來了！
             </h3>
             <div className="space-y-4 max-w-2xl mx-auto">
               <div className="bg-gray-800 text-white rounded-2xl p-6 shadow-sm border-4 border-[#FF6B35]">
