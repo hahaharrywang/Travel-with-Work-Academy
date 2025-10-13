@@ -65,9 +65,15 @@ export default function HomePage() {
 
   const stagePhotos = [
     [
-      { src: "/online-learning-digital-skills.png", alt: "線上學習工作坊" },
+      {
+        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E6%88%AA%E5%9C%96%202025-10-09%20%E4%B8%8B%E5%8D%881.29.34-mYm0F3w2xe33aZzeDN8uFamgAGkPZH.png",
+        alt: "數位遊牧0-1流程",
+      },
+      {
+        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E6%88%AA%E5%9C%96%202025-10-13%20%E4%B8%8B%E5%8D%886.04.07-SZA6dOKLyt6kkPFe96fU2OZGtQE1qt.png",
+        alt: "AI助理與AI超級助理比較",
+      },
       { src: "/remote-work-home-office.png", alt: "遠距工作環境設置" },
-      { src: "/digital-skills-training.png", alt: "數位技能培訓課程" },
     ],
     [
       {
@@ -117,11 +123,11 @@ export default function HomePage() {
         alt: "社群網絡建立慶祝活動",
       },
       {
-        src: "https://hebbkx1anhila5yf.blob.vercel-storage.com/20250329-DSC01965.jpg-Esdk9O9x29Jwx4P1jFc334RC972HXB.jpeg",
+        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/20250329-DSC01965.jpg-Esdk9O9x29Jwx4P1jFc334RC972HXB.jpeg",
         alt: "學習成果展示與認證儀式",
       },
       {
-        src: "https://hebbkx1anhila5yf.blob.vercel-storage.com/227A8906.jpg-9G3V7GbFRKiwyUgZrRL0wSXbJyVHNN.jpeg",
+        src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/227A8906.jpg-9G3V7GbFRKiwyUgZrRL0wSXbJyVHNN.jpeg",
         alt: "線上復盤工作坊知識分享",
       },
     ],
@@ -312,10 +318,10 @@ export default function HomePage() {
           {/* Logo */}
           <div className="mb-8">
             <Image
-              src="/images/design-mode/1200%20X%20630_%E5%8E%BB%E8%83%8C%281%29%281%29%281%29%281%29.png"
+              src="/images/design-mode/1200%20X%20630_%E5%8E%BB%E8%83%8C(2).png"
               alt="遠距遊牧學院 Travel With Work Academy"
-              width={400}
-              height={120}
+              width={600}
+              height={200}
               className="mx-auto"
             />
           </div>
@@ -485,7 +491,7 @@ export default function HomePage() {
                     ×
                   </div>
 
-                  {/* Partner 2 - t campus */}
+                  {/* Partner 2 - 成長營 */}
                   <div className="text-center">
                     <a
                       href="https://www.instagram.com/elsacampus/"
@@ -495,8 +501,8 @@ export default function HomePage() {
                     >
                       <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4">
                         <Image
-                          src="/images/design-mode/%E6%88%90%E9%95%B7%E7%87%95Logo.jpg%281%29%281%29%281%29%281%29.jpeg"
-                          alt="成長營"
+                          src="/images/design-mode/%E6%88%90%E9%95%B7%E7%87%9FLogo%E6%8B%B7%E8%B2%90.jpg"
+                          alt="艾兒莎成長營"
                           width={96}
                           height={96}
                           className="w-full h-full object-contain"
@@ -1152,6 +1158,11 @@ export default function HomePage() {
                       src={
                         instructors.find((i) => i.name === "Angela Feng")?.image ||
                         "/placeholder.svg?height=80&width=80" ||
+                        "/placeholder.svg" ||
+                        "/placeholder.svg" ||
+                        "/placeholder.svg" ||
+                        "/placeholder.svg" ||
+                        "/placeholder.svg" ||
                         "/placeholder.svg" ||
                         "/placeholder.svg" ||
                         "/placeholder.svg" ||
@@ -2065,7 +2076,7 @@ export default function HomePage() {
           {/* Pricing Section */}
           <div className="text-center">
             <h3 className="text-3xl sm:text-4xl font-bold text-white mb-12 bg-black rounded-2xl py-6 px-8 inline-block">
-              優惠價來了！
+              還有優惠！
             </h3>
             <div className="space-y-4 max-w-2xl mx-auto">
               <div className="bg-gray-800 text-white rounded-2xl p-6 shadow-sm border-4 border-[#FF6B35]">
@@ -2129,9 +2140,9 @@ export default function HomePage() {
 
             {/* 手機版 */}
             <p className="block sm:hidden text-gray-600 mb-8 leading-relaxed">
-              3個月連續直播課程
+              3 個月課程後
               <br />
-              追加7個月線上社群延續學習熱度
+              追加 7 個月線上社群延續學習熱度
               <br />
               讓你的遠距遊牧之路不孤單
               <br />
@@ -2140,7 +2151,7 @@ export default function HomePage() {
 
             {/* 電腦版 */}
             <p className="hidden sm:block text-gray-600 mb-8 leading-relaxed">
-              3個月連續直播課程，追加7個月線上社群延續學習熱度
+              3 個月連續課程後，追加 7 個月線上社群，延續學習熱度
               <br /> 讓你的遠距遊牧之路不孤單，持續成長與進步。
             </p>
 
