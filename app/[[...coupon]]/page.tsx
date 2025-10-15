@@ -7,7 +7,7 @@ import Image from "next/image"
 import { useParams } from "next/navigation"
 
 const getCheckoutURL = (couponCode?: string) => {
-  const baseURL = "https://travelworkacademy.myteachify.com/checkout?planId=2acf71d8-151e-401f-b36f-1dec53cd1086"
+  const baseURL = "https://travelworkacademy.myteachify.com/checkout?planId=049131a1-4ab8-4481-9552-9d55373d6b5a"
   return couponCode ? `${baseURL}&coupon=${encodeURIComponent(couponCode)}` : baseURL
 }
 
@@ -501,7 +501,7 @@ export default function HomePage() {
                     >
                       <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4">
                         <Image
-                          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E6%88%90%E9%95%B7%E7%87%9FLogo-6pK8bklXwUD58GfGgJKEKG8KHfGg9R.jpg"
+                          src="/images/design-mode/%E6%88%90%E9%95%B7%E7%87%9FLogo.jpg"
                           alt="艾兒莎成長營"
                           width={96}
                           height={96}
