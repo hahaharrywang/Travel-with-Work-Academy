@@ -256,19 +256,20 @@ export default function HomePage() {
         "Joyce Weng 是一位成功從記者轉型為遠距工作者的前輩，將分享她在海外的經驗，以及如何規劃旅居財務與開銷。",
     },
     {
+      name: "林佳 Zoe",
+      title: "9萬粉絲自媒體創作者，專長於打造自媒體與 IG 流量，協助你產出具潛力的短影片與貼文！",
+      image: "/images/e6-af-8f-e6-97-a5e-e9-8c-a0.jpeg",
+      link: "https://www.daydayding.com",
+      background:
+        "林佳 Zoe 是一位擁有9萬粉絲的自媒體創作者，專長於 IG 流量經營與短影片製作，將分享如何打造吸引人的內容。",
+    },
+    {
       name: "Angela Feng",
       title: "Ness Wellness 共同創辦人、創業投資管理者，遠距生活可持續的身心靈平衡",
       image: "/images/angela.jpeg",
       link: "https://www.nesswellness.com/",
       background:
         "Angela Feng 是 Ness Wellness 的共同創辦人，也是創業投資管理者，將分享如何實現遠距生活中的身心靈平衡。",
-    },
-    {
-      name: "林佳 Zoe",
-      title: "內容變現與社群數據分析師",
-      image: "/images/lin-jia.jpeg",
-      link: "https://www.instagram.com/zoe.lin.content/",
-      background: "內容變現與社群數據分析師，擅長將數據轉化為內容策略。",
     },
   ]
 
@@ -310,7 +311,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-white">
       <div className="sticky top-0 z-50 bg-[#17464F] text-white py-3 px-4 hidden md:block">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4">
           <div className="flex items-center gap-2 text-sm sm:text-base text-center sm:text-left">
             <span>現在是</span>
             <span className="text-[#D4B483] font-bold">🔥 {currentTier.stage}</span>
@@ -850,7 +851,7 @@ export default function HomePage() {
           {/* Section Header */}
           <div className="text-center mb-10 sm:mb-12">
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#17464F] mb-6 text-balance">
-              六個月路線｜3+3 個月 × 三大亮點，讓改變真的走得完
+              六個月路線｜3+3 月 × 三大亮點，讓改變真的走得完
             </h3>
             <div className="max-w-2xl mx-auto space-y-2">
               <p className="text-[#33393C] leading-relaxed">前 3 個月，是一起打底、一起行動的「共學探索期」。</p>
@@ -913,6 +914,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* SECTION 2 COURSE HIGHLIGHTS CONTINUED (Part 2) END */}
+
       {/* SECTION 2.1 ECOSYSTEM PARTNERSHIP START */}
       <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1144,6 +1147,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* SECTION 4 INSTRUCTORS END */}
+
       {/* SECTION 5 COURSE OUTLINE START */}
       <section id="course-map" className="py-16 sm:py-24 bg-[#F5F3ED]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1577,9 +1582,13 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
-      </section>selectedWeek && (
+      </section>
+      {/* SECTION 5 COURSE OUTLINE END */}
+
+      {/* SECTION 5.1 COURSE DETAIL MODAL START */}
+      {selectedWeek && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
           onClick={() => setSelectedWeek(null)}
@@ -1682,9 +1691,13 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      )}
+      {/* SECTION 5.1 COURSE DETAIL MODAL END */}
+
+      {/* SECTION 6 PODCAST LEADERS START */}
       <section className="py-16 sm:py-24 bg-[#F5F3ED]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
           <div className="text-center mb-12">
             {/* Three dots decoration */}
             <div className="flex justify-center gap-2 mb-6">
@@ -1692,7 +1705,9 @@ export default function HomePage() {
               <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#17464F] mb-6">國際視野，不只是課堂裡的投影片</h2>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#17464F] mb-6">
+              國際視野，不只是課堂裡的投影片
+            </h2>
             <div className="w-24 h-1 bg-[#D4B483] mx-auto rounded-full mb-8"></div>
             <p className="text-[#33393C] text-lg leading-relaxed max-w-3xl mx-auto">
               遠距遊牧學院的內容，不是關在房間裡想像出來的。
@@ -1704,6 +1719,8 @@ export default function HomePage() {
               學院裡很多觀念，都是從這些真實故事長出來的。
             </p>
           </div>
+
+          {/* Guest Cards - 3 columns on desktop */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {/* Card 1 - Osera Ryo */}
             <div className="bg-white rounded-2xl shadow-md p-6 border border-[#C9D7D4] hover:shadow-lg transition-shadow">
@@ -1746,7 +1763,7 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-\
+
             {/* Card 3 - Harry Wang / Nomad Leaders Podcast */}
             <div className="bg-white rounded-2xl shadow-md p-6 border border-[#C9D7D4] hover:shadow-lg transition-shadow">
               <div className="flex flex-col items-center text-center">
@@ -1766,6 +1783,8 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+
+          {/* Podcast CTA */}
           <div className="bg-white rounded-2xl shadow-md p-8 border border-[#C9D7D4] mb-12">
             <div className="flex flex-col md:flex-row items-center gap-6">
               <div className="flex-shrink-0">
@@ -1798,6 +1817,8 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+
+          {/* Section Footer */}
           <div className="text-center">
             <p className="text-lg text-[#33393C] leading-relaxed max-w-2xl mx-auto">
               你不只是在上「一門課」，
@@ -1807,8 +1828,12 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* SECTION 6 PODCAST LEADERS END */}
+
+      {/* SECTION 7 LEARNING RESOURCES START */}
       <section className="py-16 sm:py-24 bg-[#F5F3ED]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Title */}
           <div className="text-center mb-12">
             {/* Three dots decoration */}
             <div className="flex justify-center gap-2 mb-6">
@@ -1816,13 +1841,17 @@ export default function HomePage() {
               <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#17464F] mb-4">你不只是買一門課，而是走進一個行動生態系</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#17464F] mb-4">
+              你不只是買一門課，而是走進一個行動生態系
+            </h2>
             <p className="text-[#33393C]/80 max-w-2xl mx-auto leading-relaxed">
               六個月裡，你會接觸到的不只是固定幾堂課，
               <br className="hidden sm:inline" />
               而是一整套幫你「學、做、問、連結」的資源組合。
             </p>
           </div>
+
+          {/* Resource Cards - 2x2 grid on desktop, single column on mobile */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Card 1: 主課程 & 課後任務 */}
             <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
@@ -2016,7 +2045,7 @@ export default function HomePage() {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth={2}
-                        d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                        d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
                   </div>
@@ -2069,23 +2098,30 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <section className="py-16 sm:py-24 bg-[#17464F]">
+      {/* SECTION 7 LEARNING RESOURCES END */}
+
+      {/* SECTION 8 PRICING START */}
+      <section className="py-16 sm:py-24 bg-[#F5F3ED]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Title */}
           <div className="text-center mb-12">
+            {/* Three dots decoration */}
             <div className="flex justify-center gap-2 mb-6">
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
               <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#17464F] mb-6">
               選一條先走，也可以雙線並進
             </h2>
-            <p className="text-lg sm:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl text-[#33393C] max-w-3xl mx-auto leading-relaxed">
               所有方案都包含六個月的 3+3 成長節奏、通識課程、Skool 共學社群，
               <br className="hidden sm:block" />
               差別只在於：你想先專心走哪一條主線，或是一次打開兩種可能。
             </p>
           </div>
+
+          {/* Three Pricing Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
             {/* Plan 1: 自媒體接案線路 */}
             <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
@@ -2094,7 +2130,7 @@ export default function HomePage() {
               </div>
               <div className="p-6 flex-1 flex flex-col">
                 <p className="text-[#33393C] text-sm mb-4 pb-4 border-b border-slate-100">
-                  適合想透過內容與個人品牌，慢慢建立第二條收入的人。
+                  適合想用內容與個人品牌，慢慢建立第二條收入的人。
                 </p>
                 <ul className="space-y-3 text-sm text-[#33393C] mb-6 flex-1">
                   <li className="flex items-start gap-2">
@@ -2223,6 +2259,8 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+
+          {/* Shared Benefits */}
           <div className="bg-white/60 rounded-2xl border border-slate-200 p-6 md:p-8 text-center">
             <h4 className="text-lg font-bold text-[#17464F] mb-4">所有方案皆包含</h4>
             <div className="flex flex-wrap justify-center gap-3 text-sm text-[#33393C]">
@@ -2234,6 +2272,8 @@ export default function HomePage() {
               <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">Nomad Leaders Podcast</span>
             </div>
           </div>
+
+          {/* Scholarship Note */}
           <div className="mt-8 bg-gradient-to-r from-[#17464F] to-[#1a5561] rounded-2xl p-6 text-center text-white shadow-lg">
             <div className="text-lg font-bold mb-2">績優學員專屬獎勵</div>
             <div className="text-sm opacity-90">
@@ -2244,9 +2284,13 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* SECTION 8 PRICING END */}
+
+      {/* SECTION 9 LIMITED OFFER START */}
       <section className="py-16 sm:py-20 bg-gradient-to-br from-[#17464F] to-[#1a5561]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-white/95 backdrop-blur rounded-2xl p-8 sm:p-12 shadow-xl border border-[#C9D7D4]">
+            {/* Three dots decoration */}
             <div className="flex justify-center gap-2 mb-6">
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
               <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
@@ -2260,6 +2304,8 @@ export default function HomePage() {
               <br className="hidden sm:block" />
               每一梯次的名額與優惠都會做控管，以下是這一梯的安排：
             </p>
+
+            {/* Bullet points */}
             <div className="bg-[#F5F3ED] rounded-xl p-6 mb-8 text-left max-w-xl mx-auto">
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
@@ -2285,6 +2331,8 @@ export default function HomePage() {
                 </li>
               </ul>
             </div>
+
+            {/* CTA */}
             <a
               href={getCheckoutURLWithTracking()}
               target="_blank"
@@ -2298,6 +2346,8 @@ export default function HomePage() {
             >
               我要加入本梯
             </a>
+
+            {/* Soft closing note */}
             <p className="mt-8 text-sm text-[#33393C]/80 leading-relaxed max-w-lg mx-auto">
               如果你還在觀望，也可以先把問題整理下來，
               <br className="hidden sm:block" />
@@ -2315,8 +2365,12 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* SECTION 9 LIMITED OFFER END */}
+
+      {/* SECTION 10 FAQ START */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Title */}
           <div className="text-center mb-12">
             {/* Three dots decoration */}
             <div className="flex items-center justify-center gap-2 mb-6">
@@ -2331,6 +2385,8 @@ export default function HomePage() {
               以下整理了大家最常問的幾個問題，如果沒找到答案，歡迎私訊我們。
             </p>
           </div>
+
+          {/* FAQ Groups */}
           <div className="space-y-8">
             {/* Group 1: 適合對象 */}
             <div>
@@ -2483,7 +2539,7 @@ export default function HomePage() {
 
             {/* Group 4: 其他 */}
             <div>
-              <h3 className=\"text-sm font-semibold text-[#D4B483] uppercase tracking-wider mb-4 flex items-center gap-2">\
+              <h3 className="text-sm font-semibold text-[#D4B483] uppercase tracking-wider mb-4 flex items-center gap-2">
                 <span className="w-8 h-px bg-[#D4B483]"></span>
                 其他
               </h3>
@@ -2491,7 +2547,9 @@ export default function HomePage() {
                 {/* Q8 */}
                 <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
                   <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
-                    <span className="font-medium text-[#17464F] text-left pr-4">有發票／公司報帳、分期付款的選項嗎？</span>
+                    <span className="font-medium text-[#17464F] text-left pr-4">
+                      有發票／公司報帳、分期付款的選項嗎？
+                    </span>
                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F]/10 flex items-center justify-center text-[#17464F] group-open:rotate-45 transition-transform duration-200">
                       +
                     </span>
@@ -2503,6 +2561,8 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+
+          {/* Closing note */}
           <div className="mt-12 text-center">
             <p className="text-[#33393C]/70 text-sm leading-relaxed">
               還有其他問題？歡迎到{" "}
@@ -2519,11 +2579,14 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* SECTION 10 FAQ END */}
+
+      {/* FOOTER START */}
       <footer className="py-8 bg-[#17464F] text-white text-center">
         <p className="text-sm text-white/80">
           &copy; 2025 遠距遊牧學院 Travel With Work Academy. All rights reserved.
           <br />
-          任何疑問請洽 " "
+          任何疑問請洽 Instagram:{" "}
           <a
             href="https://www.instagram.com/travelwithwork_/"
             target="_blank"
@@ -2531,10 +2594,14 @@ export default function HomePage() {
             className="text-[#D4B483] hover:text-[#D4B483]/80 transition-colors"
           >
             遠距遊牧學院
-          </a>" "
+          </a>{" "}
           / Email: Academy@travelwork.life
         </p>
-      </footer>isGalleryOpen && (
+      </footer>
+      {/* FOOTER END */}
+
+      {/* Image Gallery Modal */}
+      {isGalleryOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4 z-50"
           onClick={() => setIsGalleryOpen(false)}
@@ -2589,7 +2656,10 @@ export default function HomePage() {
             )}
 
             {/* Image Container */}
-            <div className="relative w-full h-full flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
+            <div
+              className="relative w-full h-full flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
               <div className="relative max-w-full max-h-full">
                 <Image
                   src={stagePhotos[currentStage][currentPhotoIndex]?.src || "/placeholder.svg"}
@@ -2623,8 +2693,9 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      )
+      )}
 
+      {/* MOBILE STICKY BOTTOM BAR */}
       <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white border-t border-[#C9D7D4] shadow-[0_-4px_20px_rgba(0,0,0,0.1)] px-4 py-3">
         <div className="flex items-center justify-between gap-3">
           {/* Left: Price Info */}
@@ -2654,6 +2725,8 @@ export default function HomePage() {
           </a>
         </div>
       </div>
+      {/* Add bottom padding to account for sticky bar on mobile */}
       <div className="h-20 md:hidden"></div>
     </main>
-  )\
+  )
+}
