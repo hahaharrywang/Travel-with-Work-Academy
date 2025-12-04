@@ -382,6 +382,7 @@ export default function HomePage() {
   const [currentStage, setCurrentStage] = useState(0)
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
   const [showFullSchedule, setShowFullSchedule] = useState(false)
+  const [showAllStages, setShowAllStages] = useState(false) // New state for showing all stages in pricing timeline
 
   const stagePhotos = [
     [
@@ -924,7 +925,7 @@ export default function HomePage() {
                 <br />
                 「那我今天到底要做哪一個小步驟？」
                 <br />
-                所以日子一忙，又回到原本的節奏。
+                所以日子一忙，又回到塬本的節奏。
               </p>
             </div>
 
@@ -982,14 +983,13 @@ export default function HomePage() {
 
           {/* Pricing Timeline */}
           <div className="relative">
-            {/* Desktop: Horizontal Timeline */}
             <div className="hidden md:block">
               {/* Timeline Line */}
               <div className="absolute top-8 left-0 right-0 h-1 bg-[#C9D7D4]"></div>
 
-              {/* Timeline Nodes */}
-              <div className="grid grid-cols-6 gap-2">
-                {stages.map((stage, index) => {
+              {/* Timeline Nodes - Show every other stage (6 nodes) or all */}
+              <div className={`grid gap-2 ${showAllStages ? "grid-cols-6 lg:grid-cols-12" : "grid-cols-6"}`}>
+                {(showAllStages ? stages : stages.filter((_, i) => i % 2 === 0)).map((stage, index) => {
                   const now = new Date()
                   const isPast = now > stage.endAt
                   const isCurrent = now >= stage.startAt && now <= stage.endAt
@@ -998,7 +998,7 @@ export default function HomePage() {
                     <div key={stage.id} className="relative flex flex-col items-center">
                       {/* Node */}
                       <div
-                        className={`relative z-10 w-16 h-16 rounded-full flex items-center justify-center text-lg font-bold transition-all duration-300 ${
+                        className={`relative z-10 w-14 h-14 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${
                           isCurrent
                             ? "bg-[#D4B483] text-white ring-4 ring-[#D4B483]/30 scale-110"
                             : isPast
@@ -1006,14 +1006,12 @@ export default function HomePage() {
                               : "bg-white border-2 border-[#C9D7D4] text-[#17464F]"
                         }`}
                       >
-                        {stage.prices.dualLine.stagePrice % 1 === 0
-                          ? formatPrice(stage.prices.dualLine.stagePrice)
-                          : stage.prices.dualLine.stagePrice}
+                        {formatPrice(stage.prices.dualLine.stagePrice)}
                       </div>
 
                       {/* Card */}
                       <div
-                        className={`mt-6 p-4 rounded-xl text-center transition-all duration-300 ${
+                        className={`mt-4 p-3 rounded-xl text-center transition-all duration-300 w-full ${
                           isCurrent
                             ? "bg-[#17464F] text-white shadow-lg"
                             : isPast
@@ -1021,15 +1019,15 @@ export default function HomePage() {
                               : "bg-white border border-[#C9D7D4] text-[#33393C]"
                         }`}
                       >
-                        <p className={`font-semibold text-sm mb-1 ${isCurrent ? "text-[#D4B483]" : ""}`}>
+                        <p className={`font-semibold text-xs mb-1 ${isCurrent ? "text-[#D4B483]" : ""}`}>
                           {stage.name}
                         </p>
-                        <p className="text-xs mb-2">
+                        <p className="text-xs mb-1">
                           截止 {stage.endAt.getMonth() + 1}/{stage.endAt.getDate()}
                         </p>
                         {stage.discountLabel !== "原價" && (
                           <p className={`text-xs ${isCurrent ? "text-white/80" : "text-[#33393C]/60"}`}>
-                            省 ${formatPrice(stage.prices.dualLine.savingAmount)} （{stage.discountLabel}）
+                            {stage.discountLabel}
                           </p>
                         )}
                       </div>
@@ -1037,11 +1035,34 @@ export default function HomePage() {
                   )
                 })}
               </div>
+
+              {/* Expand/Collapse Button */}
+              <div className="text-center mt-6">
+                <button
+                  onClick={() => setShowAllStages(!showAllStages)}
+                  className="text-[#17464F] hover:text-[#D4B483] transition-colors text-sm font-medium inline-flex items-center gap-2"
+                >
+                  {showAllStages ? (
+                    <>
+                      收起
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7-7" />
+                      </svg>
+                    </>
+                  ) : (
+                    <>
+                      展開全部 12 個階段
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </>
+                  )}
+                </button>
+              </div>
             </div>
 
-            {/* Mobile: Vertical Timeline */}
-            <div className="md:hidden space-y-4">
-              {stages.map((stage, index) => {
+            <div className="md:hidden space-y-3">
+              {(showAllStages ? stages : stages.slice(0, 4)).map((stage, index) => {
                 const now = new Date()
                 const isPast = now > stage.endAt
                 const isCurrent = now >= stage.startAt && now <= stage.endAt
@@ -1059,7 +1080,7 @@ export default function HomePage() {
                   >
                     {/* Price Circle */}
                     <div
-                      className={`w-14 h-14 rounded-full flex items-center justify-center text-base font-bold flex-shrink-0 ${
+                      className={`w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 ${
                         isCurrent
                           ? "bg-[#D4B483] text-white"
                           : isPast
@@ -1067,52 +1088,144 @@ export default function HomePage() {
                             : "bg-white border-2 border-[#C9D7D4] text-[#17464F]"
                       }`}
                     >
-                      {stage.prices.dualLine.stagePrice % 1 === 0
-                        ? formatPrice(stage.prices.dualLine.stagePrice)
-                        : stage.prices.dualLine.stagePrice}
+                      {formatPrice(stage.prices.selfMedia.stagePrice)}
                     </div>
 
                     {/* Info */}
-                    <div className="flex-1">
-                      <p className={`font-semibold ${isCurrent ? "text-[#D4B483]" : ""}`}>{stage.name}</p>
-                      <p className="text-sm">
-                        截止 {stage.endAt.getMonth() + 1}/{stage.endAt.getDate()}
+                    <div className="flex-1 min-w-0">
+                      <p className={`font-semibold text-sm ${isCurrent ? "text-[#D4B483]" : ""}`}>{stage.name}</p>
+                      <p className="text-xs">
+                        截止 {stage.endAt.getMonth() + 1}/{stage.endAt.getDate()} ・ {stage.discountLabel}
                       </p>
-                      {stage.discountLabel !== "原價" && (
-                        <p className={`text-xs ${isCurrent ? "text-white/70" : "text-[#33393C]/60"}`}>
-                          省 ${formatPrice(stage.prices.dualLine.savingAmount)} （{stage.discountLabel}）
-                        </p>
-                      )}
                     </div>
 
                     {/* Current Indicator */}
-                    {isCurrent && <div className="text-[#D4B483] text-sm font-medium">目前</div>}
+                    {isCurrent && (
+                      <div className="bg-[#D4B483] text-white text-xs px-2 py-1 rounded-full font-medium flex-shrink-0">
+                        目前
+                      </div>
+                    )}
                   </div>
                 )
               })}
+
+              {/* Expand Button for Mobile */}
+              {!showAllStages && stages.length > 4 && (
+                <button
+                  onClick={() => setShowAllStages(true)}
+                  className="w-full py-3 text-center text-[#17464F] hover:text-[#D4B483] transition-colors text-sm font-medium border border-dashed border-[#C9D7D4] rounded-xl"
+                >
+                  展開看全部 {stages.length} 個階段 ↓
+                </button>
+              )}
+              {showAllStages && (
+                <button
+                  onClick={() => setShowAllStages(false)}
+                  className="w-full py-3 text-center text-[#17464F] hover:text-[#D4B483] transition-colors text-sm font-medium"
+                >
+                  收起 ↑
+                </button>
+              )}
             </div>
           </div>
 
+          {/* Current Stage Summary Card */}
+          {currentStageData && (
+            <div className="mt-10 bg-gradient-to-br from-[#17464F] to-[#0f3339] rounded-2xl p-6 sm:p-8 text-white shadow-xl">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+                <div>
+                  <p className="text-[#D4B483] text-sm font-medium mb-1">目前階段</p>
+                  <h3 className="text-xl sm:text-2xl font-bold">{currentStageData.name}</h3>
+                  <p className="text-white/70 text-sm mt-1">
+                    {currentStageData.discountLabel} ・ 截止 {currentStageData.endAt.getMonth() + 1}/
+                    {currentStageData.endAt.getDate()}
+                  </p>
+                </div>
+                <div className="text-left sm:text-right">
+                  <p className="text-white/70 text-sm">距離下一階段還有</p>
+                  <p className="text-2xl sm:text-3xl font-bold text-[#D4B483]">
+                    {timeLeft.days} 天 {timeLeft.hours} 時 {timeLeft.minutes} 分
+                  </p>
+                </div>
+              </div>
+
+              {/* Three Plan Prices */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {/* Single Line - Self Media */}
+                <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                  <p className="text-white/80 text-sm mb-2">自媒體接案線路</p>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-2xl font-bold text-white">
+                      NT$ {formatPrice(currentStageData.prices.selfMedia.stagePrice)}
+                    </span>
+                  </div>
+                  <p className="text-white/50 text-xs line-through mt-1">
+                    原價 NT$ {formatPrice(currentStageData.prices.selfMedia.original)}
+                  </p>
+                  <p className="text-[#D4B483] text-sm mt-2">
+                    省 NT$ {formatPrice(currentStageData.prices.selfMedia.savingAmount)}
+                  </p>
+                </div>
+
+                {/* Single Line - Remote Job */}
+                <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                  <p className="text-white/80 text-sm mb-2">遠端上班線路</p>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-2xl font-bold text-white">
+                      NT$ {formatPrice(currentStageData.prices.remoteJob.stagePrice)}
+                    </span>
+                  </div>
+                  <p className="text-white/50 text-xs line-through mt-1">
+                    原價 NT$ {formatPrice(currentStageData.prices.remoteJob.original)}
+                  </p>
+                  <p className="text-[#D4B483] text-sm mt-2">
+                    省 NT$ {formatPrice(currentStageData.prices.remoteJob.savingAmount)}
+                  </p>
+                </div>
+
+                {/* Dual Line */}
+                <div className="bg-[#D4B483]/20 backdrop-blur rounded-xl p-4 ring-2 ring-[#D4B483]">
+                  <div className="flex items-center justify-between mb-2">
+                    <p className="text-white/80 text-sm">雙線並進方案</p>
+                    <span className="bg-[#D4B483] text-[#17464F] text-xs px-2 py-0.5 rounded-full font-medium">
+                      推薦
+                    </span>
+                  </div>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-2xl font-bold text-white">
+                      NT$ {formatPrice(currentStageData.prices.dualLine.stagePrice)}
+                    </span>
+                  </div>
+                  <p className="text-white/50 text-xs line-through mt-1">
+                    原價 NT$ {formatPrice(currentStageData.prices.dualLine.original)}
+                  </p>
+                  <p className="text-[#D4B483] text-sm mt-2">
+                    省 NT$ {formatPrice(currentStageData.prices.dualLine.savingAmount)}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Lock-in Note */}
-          <div className="mt-10 text-center">
+          <div className="mt-8 text-center">
             <p className="text-[#33393C]/70 text-sm sm:text-base">現在報名 ＝ 鎖定此價格，即使之後課程漲價也不影響你</p>
           </div>
 
           {/* CTA */}
-          <div className="mt-10 text-center">
+          <div className="mt-8 text-center">
             <a
               href={getCheckoutURLWithTracking()}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-[#17464F] text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-lg"
+              className="inline-block bg-[#D4B483] text-[#17464F] px-8 py-4 rounded-full text-lg font-bold hover:bg-[#c9a66f] transition-all duration-300 shadow-lg"
               onClick={() => {
                 if (typeof window !== "undefined" && (window as any).trackInitiateCheckout) {
                   ;(window as any).trackInitiateCheckout(0)
                 }
               }}
             >
-              以【{currentStageData?.name || "正式售價"} {lowestPrice ? `NT$ ${formatPrice(lowestPrice)}` : "--"}
-              】加入本屆學員
+              以【{currentStageData?.name || "正式售價"}】加入本屆學員
             </a>
           </div>
         </div>
@@ -1156,7 +1269,7 @@ export default function HomePage() {
               <h4 className="text-base md:text-lg font-semibold text-[#17464F]">行動導向：課後任務 × 實作工作坊</h4>
               <div className="text-sm md:text-base leading-relaxed text-slate-700 space-y-4">
                 <p>
-                  前 3 個月，每一堂課後都有做得到、但有一點挑戰的行動任務：
+                  前 3 個月，每一課後都有做得到、但有一點挑戰的行動任務：
                   發一支影片、寫一封信、更新履歷、完成一個小專案⋯⋯
                   你不用自己猜下一步，只要跟著每週任務，把遠距上班或接案， 拆成一個一個可以完成的小步驟，並在 Skool
                   上交作業、收到回饋。
@@ -2110,7 +2223,7 @@ export default function HomePage() {
           {/* Section Title */}
           <div className="text-center mb-12">
             {/* Three dots decoration */}
-            <div className="flex justify-center gap-2 mb-6">
+            <div className="flex items-center justify-center gap-2 mb-6">
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
               <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
@@ -3076,7 +3189,6 @@ export default function HomePage() {
           </div>
         </div>
       )}
-
       {/* MOBILE STICKY BOTTOM BAR - Mobile Only */}
       {currentStageData && (
         <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white border-t border-[#C9D7D4] shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
@@ -3150,7 +3262,7 @@ export default function HomePage() {
                   href={getCheckoutURLWithTracking(selectedPlanId)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-shrink-0 bg-[#D4B483] text-[#17464F] px-5 py-3 rounded-full text-sm font-bold hover:bg-[#c9a673] transition-all duration-300 shadow-md"
+                  className="flex-shrink-0 bg-[#D4B483] text-[#17464F] px-5 py-3 rounded-full text-sm font-bold hover:bg-[#c9a66f] transition-all duration-300 shadow-md"
                   onClick={() => {
                     if (typeof window !== "undefined" && (window as any).trackInitiateCheckout) {
                       ;(window as any).trackInitiateCheckout(selectedPlanId)
