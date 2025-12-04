@@ -298,6 +298,7 @@ export default function HomePage() {
   const [couponCode, setCouponCode] = useState<string | null>(null)
 
   const [selectedPlanId, setSelectedPlanId] = useState<PlanId | null>(null)
+  const [showAllStages, setShowAllStages] = useState(false)
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -382,7 +383,7 @@ export default function HomePage() {
   const [currentStage, setCurrentStage] = useState(0)
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
   const [showFullSchedule, setShowFullSchedule] = useState(false)
-  const [showAllStages, setShowAllStages] = useState(false) // New state for showing all stages in pricing timeline
+  // const [showAllStages, setShowAllStages] = useState(false) // New state for showing all stages in pricing timeline // This line was commented out in the original code, keeping it commented here.
 
   const stagePhotos = [
     [
@@ -685,7 +686,7 @@ export default function HomePage() {
                     }}
                   >
                     立刻鎖定【{currentStageData?.name} NT$
-                    {currentStageData ? formatPrice(currentStageData.plans?.singleLine.price) : "--"}起】
+                    {currentStageData ? formatPrice(currentStageData.prices.selfMedia.stagePrice) : "--"}起】
                   </a>
                 </Button>
                 <button
@@ -704,7 +705,8 @@ export default function HomePage() {
                     <p className="text-sm text-[#33393C]/70">
                       目前為{" "}
                       <span className="text-[#D4B483] font-semibold">
-                        🔥 {currentStageData.name}｜單線 NT${formatPrice(currentStageData.plans.singleLine.price)} 起
+                        🔥 {currentStageData.name}｜單線 NT${formatPrice(currentStageData.prices.selfMedia.stagePrice)}{" "}
+                        起
                       </span>
                       <span className="text-[#33393C]/50 line-through ml-1">
                         （原價 NT${formatPrice(currentStageData.prices.selfMedia.original)}）
@@ -1032,7 +1034,7 @@ export default function HomePage() {
                 >
                   <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4 border border-[#C9D7D4]">
                     <Image
-                      src="/images/design-mode/%E6%88%90%E9%95%B7%E7%87%9FLogo.jpg"
+                      src="/images/design-mode/%E6%88%90%E9%95%B7%E7%87%97Logo.jpg"
                       alt="艾兒莎成長營"
                       width={96}
                       height={96}
@@ -2012,7 +2014,7 @@ export default function HomePage() {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth={2}
-                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                        d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
                   </div>
@@ -2153,6 +2155,230 @@ export default function HomePage() {
             )}
           </div>
 
+          <div className="mb-12">
+            <h3 className="text-xl font-bold text-[#17464F] text-center mb-6">價格階段時間軸</h3>
+
+            {/* Desktop: Horizontal scrollable timeline with 6 representative nodes by default */}
+            <div className="hidden md:block">
+              <div className="overflow-x-auto pb-4">
+                <div className="flex items-center justify-start gap-2 min-w-max px-4">
+                  {(showAllStages ? stages : stages.filter((_, i) => i % 2 === 0 || i === stages.length - 1)).map(
+                    (stage, index, arr) => {
+                      const now = new Date()
+                      const isPast = now > stage.endAt
+                      const isCurrent = currentStageData?.id === stage.id
+                      const isFuture = now < stage.startAt
+
+                      return (
+                        <div key={stage.id} className="flex items-center">
+                          <div className={`flex flex-col items-center min-w-[120px] ${isCurrent ? "scale-110" : ""}`}>
+                            <div
+                              className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-all ${
+                                isCurrent
+                                  ? "bg-[#D4B483] text-[#17464F] ring-4 ring-[#D4B483]/30"
+                                  : isPast
+                                    ? "bg-gray-300 text-gray-500"
+                                    : "bg-[#C9D7D4] text-[#17464F]"
+                              }`}
+                            >
+                              {showAllStages ? index + 1 : stages.findIndex((s) => s.id === stage.id) + 1}
+                            </div>
+                            <div
+                              className={`mt-2 text-center ${isCurrent ? "font-bold text-[#17464F]" : isPast ? "text-gray-400" : "text-[#33393C]"}`}
+                            >
+                              <div className="text-xs font-medium whitespace-nowrap">{stage.name}</div>
+                              <div className={`text-sm font-bold ${isCurrent ? "text-[#D4B483]" : ""}`}>
+                                ${formatPrice(stage.prices.selfMedia.stagePrice)}起
+                              </div>
+                              <div className="text-xs text-gray-500">
+                                {stage.startAt.getMonth() + 1}/{stage.startAt.getDate()} - {stage.endAt.getMonth() + 1}/
+                                {stage.endAt.getDate()}
+                              </div>
+                            </div>
+                          </div>
+                          {index < arr.length - 1 && (
+                            <div className={`w-8 h-0.5 mx-1 ${isPast ? "bg-gray-300" : "bg-[#C9D7D4]"}`} />
+                          )}
+                        </div>
+                      )
+                    },
+                  )}
+                </div>
+              </div>
+              <div className="text-center mt-4">
+                <button
+                  onClick={() => setShowAllStages(!showAllStages)}
+                  className="text-[#17464F] text-sm font-medium hover:text-[#D4B483] transition-colors inline-flex items-center gap-1"
+                >
+                  {showAllStages ? "收合" : "展開全部 12 個階段"}
+                  <svg
+                    className={`w-4 h-4 transition-transform ${showAllStages ? "rotate-180" : ""}`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* Mobile: Vertical list with first 4 stages, expandable */}
+            <div className="md:hidden">
+              <div className="space-y-3">
+                {(showAllStages ? stages : stages.slice(0, 4)).map((stage, index) => {
+                  const now = new Date()
+                  const isPast = now > stage.endAt
+                  const isCurrent = currentStageData?.id === stage.id
+
+                  return (
+                    <div
+                      key={stage.id}
+                      className={`flex items-center gap-4 p-3 rounded-xl border transition-all ${
+                        isCurrent
+                          ? "bg-[#D4B483]/10 border-[#D4B483] shadow-sm"
+                          : isPast
+                            ? "bg-gray-50 border-gray-200 opacity-60"
+                            : "bg-white border-slate-200"
+                      }`}
+                    >
+                      <div
+                        className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 ${
+                          isCurrent
+                            ? "bg-[#D4B483] text-[#17464F]"
+                            : isPast
+                              ? "bg-gray-300 text-gray-500"
+                              : "bg-[#C9D7D4] text-[#17464F]"
+                        }`}
+                      >
+                        {index + 1}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2">
+                          <span
+                            className={`font-medium ${isCurrent ? "text-[#17464F]" : isPast ? "text-gray-500" : "text-[#33393C]"}`}
+                          >
+                            {stage.name}
+                          </span>
+                          {isCurrent && (
+                            <span className="text-xs bg-[#D4B483] text-[#17464F] px-2 py-0.5 rounded-full font-bold">
+                              目前
+                            </span>
+                          )}
+                        </div>
+                        <div className="text-xs text-gray-500 mt-0.5">
+                          {stage.startAt.getMonth() + 1}/{stage.startAt.getDate()} - {stage.endAt.getMonth() + 1}/
+                          {stage.endAt.getDate()}
+                        </div>
+                      </div>
+                      <div className={`text-right ${isCurrent ? "text-[#D4B483]" : "text-[#33393C]"}`}>
+                        <div className="font-bold">${formatPrice(stage.prices.selfMedia.stagePrice)}起</div>
+                        <div className="text-xs text-gray-500">{stage.discountLabel}</div>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+              {!showAllStages && stages.length > 4 && (
+                <button
+                  onClick={() => setShowAllStages(true)}
+                  className="w-full mt-4 py-3 text-[#17464F] text-sm font-medium border border-[#17464F] rounded-full hover:bg-[#17464F] hover:text-white transition-colors"
+                >
+                  展開看全部 {stages.length} 個階段
+                </button>
+              )}
+              {showAllStages && (
+                <button
+                  onClick={() => setShowAllStages(false)}
+                  className="w-full mt-4 py-3 text-[#17464F] text-sm font-medium border border-[#17464F] rounded-full hover:bg-[#17464F] hover:text-white transition-colors"
+                >
+                  收合
+                </button>
+              )}
+            </div>
+
+            {/* 當前階段摘要卡 */}
+            {currentStageData && (
+              <div className="mt-8 bg-gradient-to-br from-[#17464F] to-[#1a5259] rounded-2xl p-6 text-white">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+                  <div>
+                    <div className="text-sm text-white/70 mb-1">目前階段</div>
+                    <div className="text-2xl font-bold flex items-center gap-2">
+                      <span className="text-[#D4B483]">{currentStageData.name}</span>
+                      <span className="text-xs bg-white/20 px-2 py-0.5 rounded-full">
+                        {currentStageData.discountLabel}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-sm text-white/70 mb-1">距離下一階段價格調整還有</div>
+                    <div className="text-xl font-bold text-[#D4B483]">
+                      {timeLeft.days} 天 {String(timeLeft.hours).padStart(2, "0")}:
+                      {String(timeLeft.minutes).padStart(2, "0")}:{String(timeLeft.seconds).padStart(2, "0")}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {/* 自媒體接案 */}
+                  <div className="bg-white/10 rounded-xl p-4">
+                    <div className="text-sm text-white/70 mb-2">自媒體接案線路</div>
+                    <div className="flex items-baseline gap-2 mb-1">
+                      <span className="text-sm text-white/50 line-through">
+                        ${formatPrice(currentStageData.prices.selfMedia.original)}
+                      </span>
+                      <span className="text-xl font-bold">
+                        ${formatPrice(currentStageData.prices.selfMedia.stagePrice)}
+                      </span>
+                    </div>
+                    <div className="text-xs text-[#D4B483]">
+                      省 ${formatPrice(currentStageData.prices.selfMedia.savingAmount)}
+                    </div>
+                  </div>
+
+                  {/* 遠端上班 */}
+                  <div className="bg-white/10 rounded-xl p-4">
+                    <div className="text-sm text-white/70 mb-2">遠端上班線路</div>
+                    <div className="flex items-baseline gap-2 mb-1">
+                      <span className="text-sm text-white/50 line-through">
+                        ${formatPrice(currentStageData.prices.remoteJob.original)}
+                      </span>
+                      <span className="text-xl font-bold">
+                        ${formatPrice(currentStageData.prices.remoteJob.stagePrice)}
+                      </span>
+                    </div>
+                    <div className="text-xs text-[#D4B483]">
+                      省 ${formatPrice(currentStageData.prices.remoteJob.savingAmount)}
+                    </div>
+                  </div>
+
+                  {/* 雙線並進 - 推薦 */}
+                  <div className="bg-[#D4B483]/20 rounded-xl p-4 ring-2 ring-[#D4B483]">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-sm text-white/70">雙線並進</span>
+                      <span className="text-xs bg-[#D4B483] text-[#17464F] px-2 py-0.5 rounded-full font-bold">
+                        推薦
+                      </span>
+                    </div>
+                    <div className="flex items-baseline gap-2 mb-1">
+                      <span className="text-sm text-white/50 line-through">
+                        ${formatPrice(currentStageData.prices.dualLine.original)}
+                      </span>
+                      <span className="text-xl font-bold text-[#D4B483]">
+                        ${formatPrice(currentStageData.prices.dualLine.stagePrice)}
+                      </span>
+                    </div>
+                    <div className="text-xs text-[#D4B483]">
+                      省 ${formatPrice(currentStageData.prices.dualLine.savingAmount)}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+          {/* End of pricing timeline */}
+
+          {/* Pricing cards grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
             <div
               className={`bg-white rounded-2xl border shadow-sm overflow-hidden flex flex-col transition-all duration-300 ${
@@ -2238,7 +2464,7 @@ export default function HomePage() {
               <div className="absolute top-0 right-0 bg-[#D4B483] text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
                 推薦方案
               </div>
-              <div className="bg-gradient-to-r from-[#17464F] to-[#1a5561] text-white py-4 px-6 text-center">
+              <div className="bg-gradient-to-r from-[#17464F] to-[#1a5259] text-white py-4 px-6 text-center">
                 <h3 className="text-xl font-bold">雙線並進方案</h3>
               </div>
               <div className="p-6 flex-1 flex flex-col">
@@ -2714,54 +2940,49 @@ export default function HomePage() {
               ✕
             </button>
 
-            {stagePhotos[currentStage].length > 1 && (
-              <button
-                onClick={(e) => {
-                  e.stopPropagation()
-                  prevPhoto()
-                }}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full shadow-xl flex items-center justify-center text-gray-800 hover:text-orange-500 transition-all duration-200 z-10 group"
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                prevPhoto()
+              }}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full shadow-xl flex items-center justify-center text-gray-800 hover:text-orange-500 transition-all duration-200 z-10 group"
+            >
+              <svg
+                className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-200"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-200"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-            )}
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
 
-            {stagePhotos[currentStage].length > 1 && (
-              <button
-                onClick={(e) => {
-                  e.stopPropagation()
-                  nextPhoto()
-                }}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full shadow-xl flex items-center justify-center text-gray-800 hover:text-orange-500 transition-all duration-200 z-10 group"
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                nextPhoto()
+              }}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full shadow-xl flex items-center justify-center text-gray-800 hover:text-orange-500 transition-all duration-200 z-10 group"
+            >
+              <svg
+                className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-200"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-200"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            )}
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
 
             <div
               className="relative w-full h-full flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative max-w-full max-h-full">
+              <div className="relative max-w-full max-h-[70vh]">
                 <Image
                   src={stagePhotos[currentStage][currentPhotoIndex]?.src || "/placeholder.svg"}
                   alt={stagePhotos[currentStage][currentPhotoIndex]?.alt || ""}
-                  width={800}
-                  height={600}
+                  fill
                   className="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl"
                 />
 
