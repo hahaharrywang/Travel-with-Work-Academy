@@ -256,20 +256,19 @@ export default function HomePage() {
         "Joyce Weng 是一位成功從記者轉型為遠距工作者的前輩，將分享她在海外的經驗，以及如何規劃旅居財務與開銷。",
     },
     {
-      name: "林佳 Zoe",
-      title: "9萬粉絲自媒體創作者，專長於打造自媒體與 IG 流量，協助你產出具潛力的短影片與貼文！",
-      image: "/images/e6-af-8f-e6-97-a5e-e9-8c-a0.jpeg",
-      link: "https://www.daydayding.com",
-      background:
-        "林佳 Zoe 是一位擁有9萬粉絲的自媒體創作者，專長於 IG 流量經營與短影片製作，將分享如何打造吸引人的內容。",
-    },
-    {
       name: "Angela Feng",
       title: "Ness Wellness 共同創辦人、創業投資管理者，遠距生活可持續的身心靈平衡",
       image: "/images/angela.jpeg",
       link: "https://www.nesswellness.com/",
       background:
         "Angela Feng 是 Ness Wellness 的共同創辦人，也是創業投資管理者，將分享如何實現遠距生活中的身心靈平衡。",
+    },
+    {
+      name: "林佳 Zoe",
+      title: "內容變現與社群數據分析師",
+      image: "/images/lin-jia.jpeg",
+      link: "https://www.instagram.com/zoe.lin.content/",
+      background: "內容變現與社群數據分析師，擅長將數據轉化為內容策略。",
     },
   ]
 
@@ -851,7 +850,7 @@ export default function HomePage() {
           {/* Section Header */}
           <div className="text-center mb-10 sm:mb-12">
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#17464F] mb-6 text-balance">
-              六個月路線｜3+3 月 × 三大亮點，讓改變真的走得完
+              六個月路線｜3+3 個月 × 三大亮點，讓改變真的走得完
             </h3>
             <div className="max-w-2xl mx-auto space-y-2">
               <p className="text-[#33393C] leading-relaxed">前 3 個月，是一起打底、一起行動的「共學探索期」。</p>
@@ -914,8 +913,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* SECTION 2 COURSE HIGHLIGHTS CONTINUED (Part 2) END */}
-
       {/* SECTION 2.1 ECOSYSTEM PARTNERSHIP START */}
       <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1582,114 +1579,112 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
-  selectedWeek && (
-    <div
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
-      onClick={() => setSelectedWeek(null)}
-    >
-      <div
-        className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <button
+      </section>selectedWeek && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
           onClick={() => setSelectedWeek(null)}
-          className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-400 hover:text-gray-600 text-xl font-bold z-10"
         >
-          ×
-        </button>
-
-        <div className="p-6 pr-12">
-          {/* Modal Header */}
-          <div className="flex items-center gap-4 mb-6">
-            <Image
-              src={selectedWeek.instructorData?.image || "/placeholder.svg"}
-              alt={selectedWeek.instructor}
-              width={80}
-              height={80}
-              className="w-20 h-20 rounded-full object-cover shadow-lg ring-4 ring-[#D4B483]/30"
-            />
-            <div>
-              <div className="flex items-center gap-2 mb-2">
-                <span className="bg-[#17464F] px-3 py-1 rounded-full text-sm font-semibold text-white">
-                  第 {selectedWeek.week} 週
-                </span>
-              </div>
-              <h3 className="text-xl font-bold text-[#17464F] mb-1">{selectedWeek.instructor}</h3>
-              <p className="text-[#33393C] text-sm">{selectedWeek.instructorData?.title}</p>
-            </div>
-          </div>
-
-          {/* Course Title */}
-          <div className="mb-6">
-            <h2 className="text-2xl font-bold text-[#17464F] mb-4 text-balance">{selectedWeek.title}</h2>
-            <div className="w-full h-1 rounded-full bg-[#D4B483]"></div>
-          </div>
-
-          {/* 課程目標 */}
-          <div className="mb-6">
-            <h4 className="text-lg font-semibold text-[#17464F] mb-3">課程目標</h4>
-            <div className="bg-[#F5F3ED] p-4 rounded-xl">
-              <p className="text-[#33393C] leading-relaxed">
-                {selectedWeek.month === 1 &&
-                  selectedWeek.week === 1 &&
-                  "打開對數位遊牧生活的想像，理解不同型態的遠距人生可能樣貌。掌握多元收入模式，從自由接案、自媒體經營到被動收入。繪製專屬的遊牧起點地圖，找到屬於自己的第一步。"}
-                {selectedWeek.month === 1 &&
-                  selectedWeek.week === 2 &&
-                  "掌握 AI 與自動化的實際應用，學會與 AI 有效溝通並設計串接流程，完成第一個「從對話到自動化」的完整任務。"}
-                {selectedWeek.month === 1 &&
-                  selectedWeek.week === 3 &&
-                  "學會定位並經營個人品牌，設計內容架構，提升流量與轉化力，完成一篇具備爆紅潛力的作品。"}
-                {selectedWeek.month === 1 &&
-                  selectedWeek.week === 4 &&
-                  "掌握短影片流量密碼，理解爆紅三要素，完成一支短影片，體驗從腳本到成片，建立內容規劃能力，規劃未來短影片腳本。"}
-                {selectedWeek.month === 1 &&
-                  selectedWeek.week === 5 &&
-                  "學會將作品轉化為能銷售的方案，練習現場銷售話術與應對，完成第一個可推廣的接案方案。"}
-                {selectedWeek.month === 2 &&
-                  selectedWeek.week === 6 &&
-                  "拓展國際視野，了解跨國企業工作的可能性，學習規劃跨國職涯並提升薪資談判力，從真實案例找到國際職涯突破點。"}
-                {selectedWeek.month === 2 &&
-                  selectedWeek.week === 7 &&
-                  "優化 LinkedIn 個人檔案，提升能見度，打造專業形象與品牌，吸引企業與合作邀約，學會主動 + 被動並行策略，拓展高品質人脈，建立即時可用的 LinkedIn 實戰方法。"}
-                {selectedWeek.month === 2 &&
-                  selectedWeek.week === 8 &&
-                  "精準分析 JD，掌握雇主需求，熟悉外商面試流程與關鍵環節，完成一份客製化履歷與 Cover Letter draft，模擬外商面試問答，展現關鍵能力。"}
-                {selectedWeek.month === 2 &&
-                  selectedWeek.week === 9 &&
-                  "學會優化履歷，在國際獵頭眼中脫穎而出，掌握薪資談判技巧，提升談判成功率，了解跨國職缺申請流程並實際投遞，建立職涯成長策略，找到「下一步」。"}
-                {selectedWeek.month === 3 &&
-                  selectedWeek.week === 10 &&
-                  "學會知識產品全景介紹，知識萃取技巧，快速驗證方法。"}
-                {selectedWeek.month === 3 &&
-                  selectedWeek.week === 11 &&
-                  "制定旅居財務規劃表，掌握收支平衡，了解跨國移動中如何保持財務穩定，預備未來自由生活，降低財務焦慮。"}
-                {selectedWeek.month === 3 &&
-                  selectedWeek.week === 12 &&
-                  "學會設計生活與工作 SOP，建立可持續的人生規劃，建立身心靈平衡，提升專注力與效能，學會自我覺察與有效溝通。"}
-              </p>
-            </div>
-          </div>
-
-          {/* 講師更多資訊 */}
-          <div className="mb-6">
-            <h4 className="text-lg font-semibold text-[#17464F] mb-3">講師更多資訊</h4>
-            <a
-              href={selectedWeek.instructorData?.link || "#"}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-[#17464F] hover:bg-[#17464F]/80 px-6 py-3 rounded-lg text-white font-semibold transition-colors duration-200"
+          <div
+            className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedWeek(null)}
+              className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-400 hover:text-gray-600 text-xl font-bold z-10"
             >
-              更多講師資訊
-            </a>
+              ×
+            </button>
+
+            <div className="p-6 pr-12">
+              {/* Modal Header */}
+              <div className="flex items-center gap-4 mb-6">
+                <Image
+                  src={selectedWeek.instructorData?.image || "/placeholder.svg"}
+                  alt={selectedWeek.instructor}
+                  width={80}
+                  height={80}
+                  className="w-20 h-20 rounded-full object-cover shadow-lg ring-4 ring-[#D4B483]/30"
+                />
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="bg-[#17464F] px-3 py-1 rounded-full text-sm font-semibold text-white">
+                      第 {selectedWeek.week} 週
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold text-[#17464F] mb-1">{selectedWeek.instructor}</h3>
+                  <p className="text-[#33393C] text-sm">{selectedWeek.instructorData?.title}</p>
+                </div>
+              </div>
+
+              {/* Course Title */}
+              <div className="mb-6">
+                <h2 className="text-2xl font-bold text-[#17464F] mb-4 text-balance">{selectedWeek.title}</h2>
+                <div className="w-full h-1 rounded-full bg-[#D4B483]"></div>
+              </div>
+
+              {/* 課程目標 */}
+              <div className="mb-6">
+                <h4 className="text-lg font-semibold text-[#17464F] mb-3">課程目標</h4>
+                <div className="bg-[#F5F3ED] p-4 rounded-xl">
+                  <p className="text-[#33393C] leading-relaxed">
+                    {selectedWeek.month === 1 &&
+                      selectedWeek.week === 1 &&
+                      "打開對數位遊牧生活的想像，理解不同型態的遠距人生可能樣貌。掌握多元收入模式，從自由接案、自媒體經營到被動收入。繪製專屬的遊牧起點地圖，找到屬於自己的第一步。"}
+                    {selectedWeek.month === 1 &&
+                      selectedWeek.week === 2 &&
+                      "掌握 AI 與自動化的實際應用，學會與 AI 有效溝通並設計串接流程，完成第一個「從對話到自動化」的完整任務。"}
+                    {selectedWeek.month === 1 &&
+                      selectedWeek.week === 3 &&
+                      "學會定位並經營個人品牌，設計內容架構，提升流量與轉化力，完成一篇具備爆紅潛力的作品。"}
+                    {selectedWeek.month === 1 &&
+                      selectedWeek.week === 4 &&
+                      "掌握短影片流量密碼，理解爆紅三要素，完成一支短影片，體驗從腳本到成片，建立內容規劃能力，規劃未來短影片腳本。"}
+                    {selectedWeek.month === 1 &&
+                      selectedWeek.week === 5 &&
+                      "學會將作品轉化為能銷售的方案，練習現場銷售話術與應對，完成第一個可推廣的接案方案。"}
+                    {selectedWeek.month === 2 &&
+                      selectedWeek.week === 6 &&
+                      "拓展國際視野，了解跨國企業工作的可能性，學習規劃跨國職涯並提升薪資談判力，從真實案例找到國際職涯突破點。"}
+                    {selectedWeek.month === 2 &&
+                      selectedWeek.week === 7 &&
+                      "優化 LinkedIn 個人檔案，提升能見度，打造專業形象與品牌，吸引企業與合作邀約，學會主動 + 被動並行策略，拓展高品質人脈，建立即時可用的 LinkedIn 實戰方法。"}
+                    {selectedWeek.month === 2 &&
+                      selectedWeek.week === 8 &&
+                      "精準分析 JD，掌握雇主需求，熟悉外商面試流程與關鍵環節，完成一份客製化履歷與 Cover Letter draft，模擬外商面試問答，展現關鍵能力。"}
+                    {selectedWeek.month === 2 &&
+                      selectedWeek.week === 9 &&
+                      "學會優化履歷，在國際獵頭眼中脫穎而出，掌握薪資談判技巧，提升談判成功率，了解跨國職缺申請流程並實際投遞，建立職涯成長策略，找到「下一步」。"}
+                    {selectedWeek.month === 3 &&
+                      selectedWeek.week === 10 &&
+                      "學會知識產品全景介紹，知識萃取技巧，快速驗證方法。"}
+                    {selectedWeek.month === 3 &&
+                      selectedWeek.week === 11 &&
+                      "制定旅居財務規劃表，掌握收支平衡，了解跨國移動中如何保持財務穩定，預備未來自由生活，降低財務焦慮。"}
+                    {selectedWeek.month === 3 &&
+                      selectedWeek.week === 12 &&
+                      "學會設計生活與工作 SOP，建立可持續的人生規劃，建立身心靈平衡，提升專注力與效能，學會自我覺察與有效溝通。"}
+                  </p>
+                </div>
+              </div>
+
+              {/* 講師更多資訊 */}
+              <div className="mb-6">
+                <h4 className="text-lg font-semibold text-[#17464F] mb-3">講師更多資訊</h4>
+                <a
+                  href={selectedWeek.instructorData?.link || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-[#17464F] hover:bg-[#17464F]/80 px-6 py-3 rounded-lg text-white font-semibold transition-colors duration-200"
+                >
+                  更多講師資訊
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  )
-  <section className="py-16 sm:py-24 bg-[#F5F3ED]">
+      </section>
+      <section className="py-16 sm:py-24 bg-[#F5F3ED]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Header */}
           <div className="text-center mb-12">
             {/* Three dots decoration */}
             <div className="flex justify-center gap-2 mb-6">
@@ -1697,9 +1692,7 @@ export default function HomePage() {
               <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#17464F] mb-6">
-              國際視野，不只是課堂裡的投影片
-            </h2>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#17464F] mb-6">國際視野，不只是課堂裡的投影片</h2>
             <div className="w-24 h-1 bg-[#D4B483] mx-auto rounded-full mb-8"></div>
             <p className="text-[#33393C] text-lg leading-relaxed max-w-3xl mx-auto">
               遠距遊牧學院的內容，不是關在房間裡想像出來的。
@@ -1711,8 +1704,6 @@ export default function HomePage() {
               學院裡很多觀念，都是從這些真實故事長出來的。
             </p>
           </div>
-
-          {/* Guest Cards - 3 columns on desktop */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {/* Card 1 - Osera Ryo */}
             <div className="bg-white rounded-2xl shadow-md p-6 border border-[#C9D7D4] hover:shadow-lg transition-shadow">
@@ -1750,12 +1741,12 @@ export default function HomePage() {
                   <br />
                   全球數位遊牧社群先驅
                 </p>
-                <p className=\"text-sm text-[#33393C]/80 leading-relaxed">
+                <p className="text-sm text-[#33393C]/80 leading-relaxed">
                   「社群先於產品——當人們真正連結，一切都會自然發生。」
                 </p>
               </div>
             </div>
-
+\
             {/* Card 3 - Harry Wang / Nomad Leaders Podcast */}
             <div className="bg-white rounded-2xl shadow-md p-6 border border-[#C9D7D4] hover:shadow-lg transition-shadow">
               <div className="flex flex-col items-center text-center">
@@ -1775,8 +1766,6 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-
-          {/* Podcast CTA */}
           <div className="bg-white rounded-2xl shadow-md p-8 border border-[#C9D7D4] mb-12">
             <div className="flex flex-col md:flex-row items-center gap-6">
               <div className="flex-shrink-0">
@@ -1809,8 +1798,6 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-
-          {/* Section Footer */}
           <div className="text-center">
             <p className="text-lg text-[#33393C] leading-relaxed max-w-2xl mx-auto">
               你不只是在上「一門課」，
@@ -1820,875 +1807,853 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-  ;<section className="py-16 sm:py-24 bg-[#F5F3ED]">
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      {/* Section Title */}
-      <div className="text-center mb-12">
-        {/* Three dots decoration */}
-        <div className="flex justify-center gap-2 mb-6">
-          <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-          <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
-          <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-        </div>
-        <h2 className="text-3xl sm:text-4xl font-bold text-[#17464F] mb-4">你不只是買一門課，而是走進一個行動生態系</h2>
-        <p className="text-[#33393C]/80 max-w-2xl mx-auto leading-relaxed">
-          六個月裡，你會接觸到的不只是固定幾堂課，
-          <br className="hidden sm:inline" />
-          而是一整套幫你「學、做、問、連結」的資源組合。
-        </p>
-      </div>
-
-      {/* Resource Cards - 2x2 grid on desktop, single column on mobile */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Card 1: 主課程 & 課後任務 */}
-        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-          <div className="p-6 sm:p-8">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-12 h-12 bg-[#17464F] rounded-xl flex items-center justify-center">
-                <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-[#17464F]">主課程與課後任務</h3>
+      <section className="py-16 sm:py-24 bg-[#F5F3ED]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            {/* Three dots decoration */}
+            <div className="flex justify-center gap-2 mb-6">
+              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
             </div>
-            <p className="text-[#D4B483] font-medium text-sm mb-3">讓每一週都有明確下一步</p>
-            <p className="text-[#33393C]/80 leading-relaxed mb-6">
-              通識課程＋雙線路主課程，是你六個月的主軸。每一堂課後都有設計好的必修作業與進階挑戰，讓你不會只停在「聽懂」，而是每週都完成一個小行動。
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#17464F] mb-4">你不只是買一門課，而是走進一個行動生態系</h2>
+            <p className="text-[#33393C]/80 max-w-2xl mx-auto leading-relaxed">
+              六個月裡，你會接觸到的不只是固定幾堂課，
+              <br className="hidden sm:inline" />
+              而是一整套幫你「學、做、問、連結」的資源組合。
             </p>
-            {/* Photo gallery */}
-            <div className="hidden sm:grid sm:grid-cols-3 gap-3">
-              {stagePhotos[0].slice(0, 3).map((photo, index) => (
-                <div
-                  key={index}
-                  className="relative aspect-video rounded-lg overflow-hidden cursor-pointer group"
-                  onClick={() => openGallery(0, index)}
-                >
-                  <Image
-                    src={photo.src || "/placeholder.svg"}
-                    alt={photo.alt}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
-                </div>
-              ))}
-            </div>
-            <div className="sm:hidden overflow-x-auto">
-              <div className="flex gap-3 pb-2">
-                {stagePhotos[0].slice(0, 3).map((photo, index) => (
-                  <div
-                    key={index}
-                    className="relative w-48 aspect-video rounded-lg overflow-hidden cursor-pointer group flex-shrink-0"
-                    onClick={() => openGallery(0, index)}
-                  >
-                    <Image
-                      src={photo.src || "/placeholder.svg"}
-                      alt={photo.alt}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Card 1: 主課程 & 課後任務 */}
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+              <div className="p-6 sm:p-8">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 bg-[#17464F] rounded-xl flex items-center justify-center">
+                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                      />
+                    </svg>
                   </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Card 2: 實作工作坊 & 選修課程 */}
-        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-          <div className="p-6 sm:p-8">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-12 h-12 bg-[#17464F] rounded-xl flex items-center justify-center">
-                <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-[#17464F]">實作工作坊與選修</h3>
-            </div>
-            <p className="text-[#D4B483] font-medium text-sm mb-3">針對卡關點補強實戰能力</p>
-            <p className="text-[#33393C]/80 leading-relaxed mb-6">
-              依照你的目標與卡關點，你可以選修不同主題的實作工作坊：影音剪輯、內容系統、AI、自動化、工作英文、網站 /
-              Vibe Coding⋯這些課都是「邊看邊做」，幫你把主課程裡學到的東西，變成看得見、用得出的成果。
-            </p>
-            {/* Photo gallery */}
-            <div className="hidden sm:grid sm:grid-cols-3 gap-3">
-              {stagePhotos[3].slice(0, 3).map((photo, index) => (
-                <div
-                  key={index}
-                  className="relative aspect-video rounded-lg overflow-hidden cursor-pointer group"
-                  onClick={() => openGallery(3, index)}
-                >
-                  <Image
-                    src={photo.src || "/placeholder.svg"}
-                    alt={photo.alt}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                  <h3 className="text-xl font-bold text-[#17464F]">主課程與課後任務</h3>
                 </div>
-              ))}
-            </div>
-            <div className="sm:hidden overflow-x-auto">
-              <div className="flex gap-3 pb-2">
-                {stagePhotos[3].slice(0, 3).map((photo, index) => (
-                  <div
-                    key={index}
-                    className="relative w-48 aspect-video rounded-lg overflow-hidden cursor-pointer group flex-shrink-0"
-                    onClick={() => openGallery(3, index)}
-                  >
-                    <Image
-                      src={photo.src || "/placeholder.svg"}
-                      alt={photo.alt}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Card 3: 共學社群 & 校友 network */}
-        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-          <div className="p-6 sm:p-8">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-12 h-12 bg-[#17464F] rounded-xl flex items-center justify-center">
-                <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-[#17464F]">共學社群與校友連結</h3>
-            </div>
-            <p className="text-[#D4B483] font-medium text-sm mb-3">讓路上不只剩你一個人</p>
-            <p className="text-[#33393C]/80 leading-relaxed mb-6">
-              Skool
-              共學空間、線上同學會、專屬群組，讓你可以在六個月裡隨時提問、分享、找人討論。結業後，還有校友與城市群組，持續交換機會與經驗。
-            </p>
-            {/* Photo gallery */}
-            <div className="hidden sm:grid sm:grid-cols-3 gap-3">
-              {stagePhotos[1].slice(0, 3).map((photo, index) => (
-                <div
-                  key={index}
-                  className="relative aspect-video rounded-lg overflow-hidden cursor-pointer group"
-                  onClick={() => openGallery(1, index)}
-                >
-                  <Image
-                    src={photo.src || "/placeholder.svg"}
-                    alt={photo.alt}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                <p className="text-[#D4B483] font-medium text-sm mb-3">讓每一週都有明確下一步</p>
+                <p className="text-[#33393C]/80 leading-relaxed mb-6">
+                  通識課程＋雙線路主課程，是你六個月的主軸。每一堂課後都有設計好的必修作業與進階挑戰，讓你不會只停在「聽懂」，而是每週都完成一個小行動。
+                </p>
+                {/* Photo gallery */}
+                <div className="hidden sm:grid sm:grid-cols-3 gap-3">
+                  {stagePhotos[0].slice(0, 3).map((photo, index) => (
+                    <div
+                      key={index}
+                      className="relative aspect-video rounded-lg overflow-hidden cursor-pointer group"
+                      onClick={() => openGallery(0, index)}
+                    >
+                      <Image
+                        src={photo.src || "/placeholder.svg"}
+                        alt={photo.alt}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-            <div className="sm:hidden overflow-x-auto">
-              <div className="flex gap-3 pb-2">
-                {stagePhotos[1].slice(0, 3).map((photo, index) => (
-                  <div
-                    key={index}
-                    className="relative w-48 aspect-video rounded-lg overflow-hidden cursor-pointer group flex-shrink-0"
-                    onClick={() => openGallery(1, index)}
-                  >
-                    <Image
-                      src={photo.src || "/placeholder.svg"}
-                      alt={photo.alt}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                <div className="sm:hidden overflow-x-auto">
+                  <div className="flex gap-3 pb-2">
+                    {stagePhotos[0].slice(0, 3).map((photo, index) => (
+                      <div
+                        key={index}
+                        className="relative w-48 aspect-video rounded-lg overflow-hidden cursor-pointer group flex-shrink-0"
+                        onClick={() => openGallery(0, index)}
+                      >
+                        <Image
+                          src={photo.src || "/placeholder.svg"}
+                          alt={photo.alt}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Card 4: 旅居 & 機會生態 */}
-        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-          <div className="p-6 sm:p-8">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-12 h-12 bg-[#17464F] rounded-xl flex items-center justify-center">
-                <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-[#17464F]">旅居與機會生態</h3>
-            </div>
-            <p className="text-[#D4B483] font-medium text-sm mb-3">把學到的帶到真實世界</p>
-            <p className="text-[#33393C]/80 leading-relaxed mb-6">
-              學院背後連結的是完整的 Nomad 生態系：國內外 Nomad Journey 旅居活動、生態系內部機會、未來 Job
-              Board⋯當你準備好，這裡有下一步可以嘗試的舞台。
-            </p>
-            {/* Photo gallery */}
-            <div className="hidden sm:grid sm:grid-cols-3 gap-3">
-              {stagePhotos[2].slice(0, 3).map((photo, index) => (
-                <div
-                  key={index}
-                  className="relative aspect-video rounded-lg overflow-hidden cursor-pointer group"
-                  onClick={() => openGallery(2, index)}
-                >
-                  <Image
-                    src={photo.src || "/placeholder.svg"}
-                    alt={photo.alt}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
                 </div>
-              ))}
+              </div>
             </div>
-            <div className="sm:hidden overflow-x-auto">
-              <div className="flex gap-3 pb-2">
-                {stagePhotos[2].slice(0, 3).map((photo, index) => (
-                  <div
-                    key={index}
-                    className="relative w-48 aspect-video rounded-lg overflow-hidden cursor-pointer group flex-shrink-0"
-                    onClick={() => openGallery(2, index)}
-                  >
-                    <Image
-                      src={photo.src || "/placeholder.svg"}
-                      alt={photo.alt}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+
+            {/* Card 2: 實作工作坊 & 選修課程 */}
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+              <div className="p-6 sm:p-8">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 bg-[#17464F] rounded-xl flex items-center justify-center">
+                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                      />
+                    </svg>
                   </div>
-                ))}
+                  <h3 className="text-xl font-bold text-[#17464F]">實作工作坊與選修</h3>
+                </div>
+                <p className="text-[#D4B483] font-medium text-sm mb-3">針對卡關點補強實戰能力</p>
+                <p className="text-[#33393C]/80 leading-relaxed mb-6">
+                  依照你的目標與卡關點，你可以選修不同主題的實作工作坊：影音剪輯、內容系統、AI、自動化、工作英文、網站 /
+                  Vibe Coding⋯這些課都是「邊看邊做」，幫你把主課程裡學到的東西，變成看得見、用得出的成果。
+                </p>
+                {/* Photo gallery */}
+                <div className="hidden sm:grid sm:grid-cols-3 gap-3">
+                  {stagePhotos[3].slice(0, 3).map((photo, index) => (
+                    <div
+                      key={index}
+                      className="relative aspect-video rounded-lg overflow-hidden cursor-pointer group"
+                      onClick={() => openGallery(3, index)}
+                    >
+                      <Image
+                        src={photo.src || "/placeholder.svg"}
+                        alt={photo.alt}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                    </div>
+                  ))}
+                </div>
+                <div className="sm:hidden overflow-x-auto">
+                  <div className="flex gap-3 pb-2">
+                    {stagePhotos[3].slice(0, 3).map((photo, index) => (
+                      <div
+                        key={index}
+                        className="relative w-48 aspect-video rounded-lg overflow-hidden cursor-pointer group flex-shrink-0"
+                        onClick={() => openGallery(3, index)}
+                      >
+                        <Image
+                          src={photo.src || "/placeholder.svg"}
+                          alt={photo.alt}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3: 共學社群 & 校友 network */}
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+              <div className="p-6 sm:p-8">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 bg-[#17464F] rounded-xl flex items-center justify-center">
+                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                      />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold text-[#17464F]">共學社群與校友連結</h3>
+                </div>
+                <p className="text-[#D4B483] font-medium text-sm mb-3">讓路上不只剩你一個人</p>
+                <p className="text-[#33393C]/80 leading-relaxed mb-6">
+                  Skool
+                  共學空間、線上同學會、專屬群組，讓你可以在六個月裡隨時提問、分享、找人討論。結業後，還有校友與城市群組，持續交換機會與經驗。
+                </p>
+                {/* Photo gallery */}
+                <div className="hidden sm:grid sm:grid-cols-3 gap-3">
+                  {stagePhotos[1].slice(0, 3).map((photo, index) => (
+                    <div
+                      key={index}
+                      className="relative aspect-video rounded-lg overflow-hidden cursor-pointer group"
+                      onClick={() => openGallery(1, index)}
+                    >
+                      <Image
+                        src={photo.src || "/placeholder.svg"}
+                        alt={photo.alt}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                    </div>
+                  ))}
+                </div>
+                <div className="sm:hidden overflow-x-auto">
+                  <div className="flex gap-3 pb-2">
+                    {stagePhotos[1].slice(0, 3).map((photo, index) => (
+                      <div
+                        key={index}
+                        className="relative w-48 aspect-video rounded-lg overflow-hidden cursor-pointer group flex-shrink-0"
+                        onClick={() => openGallery(1, index)}
+                      >
+                        <Image
+                          src={photo.src || "/placeholder.svg"}
+                          alt={photo.alt}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 4: 旅居 & 機會生態 */}
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+              <div className="p-6 sm:p-8">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 bg-[#17464F] rounded-xl flex items-center justify-center">
+                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold text-[#17464F]">旅居與機會生態</h3>
+                </div>
+                <p className="text-[#D4B483] font-medium text-sm mb-3">把學到的帶到真實世界</p>
+                <p className="text-[#33393C]/80 leading-relaxed mb-6">
+                  學院背後連結的是完整的 Nomad 生態系：國內外 Nomad Journey 旅居活動、生態系內部機會、未來 Job
+                  Board⋯當你準備好，這裡有下一步可以嘗試的舞台。
+                </p>
+                {/* Photo gallery */}
+                <div className="hidden sm:grid sm:grid-cols-3 gap-3">
+                  {stagePhotos[2].slice(0, 3).map((photo, index) => (
+                    <div
+                      key={index}
+                      className="relative aspect-video rounded-lg overflow-hidden cursor-pointer group"
+                      onClick={() => openGallery(2, index)}
+                    >
+                      <Image
+                        src={photo.src || "/placeholder.svg"}
+                        alt={photo.alt}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                    </div>
+                  ))}
+                </div>
+                <div className="sm:hidden overflow-x-auto">
+                  <div className="flex gap-3 pb-2">
+                    {stagePhotos[2].slice(0, 3).map((photo, index) => (
+                      <div
+                        key={index}
+                        className="relative w-48 aspect-video rounded-lg overflow-hidden cursor-pointer group flex-shrink-0"
+                        onClick={() => openGallery(2, index)}
+                      >
+                        <Image
+                          src={photo.src || "/placeholder.svg"}
+                          alt={photo.alt}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-  ;<section className="py-16 sm:py-24 bg-[#F5F3ED]">
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      {/* Section Title */}
-      <div className="text-center mb-12">
-        {/* Three dots decoration */}
-        <div className="flex justify-center gap-2 mb-6">
-          <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-          <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
-          <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-        </div>
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#17464F] mb-6">選一條先走，也可以雙線並進</h2>
-        <p className="text-lg sm:text-xl text-[#33393C] max-w-3xl mx-auto leading-relaxed">
-          所有方案都包含六個月的 3+3 成長節奏、通識課程、Skool 共學社群，
-          <br className="hidden sm:block" />
-          差別只在於：你想先專心走哪一條主線，或是一次打開兩種可能。
-        </p>
-      </div>
-
-      {/* Three Pricing Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
-        {/* Plan 1: 自媒體接案線路 */}
-        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
-          <div className="bg-[#17464F] text-white py-4 px-6 text-center">
-            <h3 className="text-xl font-bold">自媒體接案線路</h3>
-          </div>
-          <div className="p-6 flex-1 flex flex-col">
-            <p className="text-[#33393C] text-sm mb-4 pb-4 border-b border-slate-100">
-              適合想用內容與個人品牌，慢慢建立第二條收入的人。
+      </section>
+      <section className="py-16 sm:py-24 bg-[#17464F]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="flex justify-center gap-2 mb-6">
+              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+              選一條先走，也可以雙線並進
+            </h2>
+            <p className="text-lg sm:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+              所有方案都包含六個月的 3+3 成長節奏、通識課程、Skool 共學社群，
+              <br className="hidden sm:block" />
+              差別只在於：你想先專心走哪一條主線，或是一次打開兩種可能。
             </p>
-            <ul className="space-y-3 text-sm text-[#33393C] mb-6 flex-1">
-              <li className="flex items-start gap-2">
-                <span className="text-[#D4B483] mt-0.5">●</span>
-                <span>
-                  <strong>通識課程</strong>（Direction＋General）：人生藍圖、AI、自動化、旅居財務
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[#D4B483] mt-0.5">●</span>
-                <span>
-                  <strong>自媒體接案主課程</strong>：定位、內容系統、作品集、短影音實作
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[#D4B483] mt-0.5">●</span>
-                <span>六個月 Skool 共學社群與同學會</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[#D4B483] mt-0.5">●</span>
-                <span>選修實作工作坊（剪輯、AI、自動化、工作英文等）</span>
-              </li>
-            </ul>
-            <div className="text-center pt-4 border-t border-slate-100">
-              <div className="text-sm text-gray-500 line-through mb-1">原價 TWD 13,500</div>
-              <div className="text-3xl font-bold text-[#17464F] mb-4">TWD 12,500</div>
-              <a href={getCheckoutURLWithTracking()} target="_blank" rel="noopener noreferrer">
-                <Button className="w-full bg-[#17464F] hover:bg-[#0f3339] text-white py-3 rounded-full font-medium">
-                  選擇此方案
-                </Button>
-              </a>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
+            {/* Plan 1: 自媒體接案線路 */}
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+              <div className="bg-[#17464F] text-white py-4 px-6 text-center">
+                <h3 className="text-xl font-bold">自媒體接案線路</h3>
+              </div>
+              <div className="p-6 flex-1 flex flex-col">
+                <p className="text-[#33393C] text-sm mb-4 pb-4 border-b border-slate-100">
+                  適合想透過內容與個人品牌，慢慢建立第二條收入的人。
+                </p>
+                <ul className="space-y-3 text-sm text-[#33393C] mb-6 flex-1">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5">●</span>
+                    <span>
+                      <strong>通識課程</strong>（Direction＋General）：人生藍圖、AI、自動化、旅居財務
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5">●</span>
+                    <span>
+                      <strong>自媒體接案主課程</strong>：定位、內容系統、作品集、短影音實作
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5">●</span>
+                    <span>六個月 Skool 共學社群與同學會</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5">●</span>
+                    <span>選修實作工作坊（剪輯、AI、自動化、工作英文等）</span>
+                  </li>
+                </ul>
+                <div className="text-center pt-4 border-t border-slate-100">
+                  <div className="text-sm text-gray-500 line-through mb-1">原價 TWD 13,500</div>
+                  <div className="text-3xl font-bold text-[#17464F] mb-4">TWD 12,500</div>
+                  <a href={getCheckoutURLWithTracking()} target="_blank" rel="noopener noreferrer">
+                    <Button className="w-full bg-[#17464F] hover:bg-[#0f3339] text-white py-3 rounded-full font-medium">
+                      選擇此方案
+                    </Button>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Plan 2: 雙線並進方案 (Featured) */}
+            <div className="bg-white rounded-2xl border-2 border-[#D4B483] shadow-lg overflow-hidden flex flex-col relative">
+              <div className="absolute top-0 right-0 bg-[#D4B483] text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+                推薦方案
+              </div>
+              <div className="bg-gradient-to-r from-[#17464F] to-[#1a5561] text-white py-4 px-6 text-center">
+                <h3 className="text-xl font-bold">雙線並進方案</h3>
+              </div>
+              <div className="p-6 flex-1 flex flex-col">
+                <p className="text-[#33393C] text-sm mb-4 pb-4 border-b border-slate-100">
+                  適合想同時為副業收入與職涯升級鋪路的人。
+                </p>
+                <ul className="space-y-3 text-sm text-[#33393C] mb-6 flex-1">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5">●</span>
+                    <span>
+                      <strong>通識課程</strong>（Direction＋General）：人生藍圖、AI、自動化、旅居財務
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5">●</span>
+                    <span>
+                      <strong>自媒體接案 + 遠端上班</strong> 雙主線課程全解鎖
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5">●</span>
+                    <span>六個月 Skool 共學社群與同學會</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5">●</span>
+                    <span>選修實作工作坊（全部工作坊優先報名）</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5">●</span>
+                    <span>專屬雙軌學員交流小組</span>
+                  </li>
+                </ul>
+                <div className="text-center pt-4 border-t border-slate-100">
+                  <div className="text-sm text-gray-500 line-through mb-1">原價 TWD 19,800</div>
+                  <div className="text-3xl font-bold text-[#17464F] mb-4">TWD 16,800</div>
+                  <a href={checkoutURL + getTrackingParams()} target="_blank" rel="noopener noreferrer">
+                    <Button className="w-full bg-[#D4B483] hover:bg-[#c9a673] text-[#17464F] py-3 rounded-full font-bold">
+                      選擇雙線方案
+                    </Button>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Plan 3: 遠端上班線路 */}
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+              <div className="bg-[#17464F] text-white py-4 px-6 text-center">
+                <h3 className="text-xl font-bold">遠端上班線路</h3>
+              </div>
+              <div className="p-6 flex-1 flex flex-col">
+                <p className="text-[#33393C] text-sm mb-4 pb-4 border-b border-slate-100">
+                  適合想往遠端團隊、外商或更有彈性的職涯前進的人。
+                </p>
+                <ul className="space-y-3 text-sm text-[#33393C] mb-6 flex-1">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5">●</span>
+                    <span>
+                      <strong>通識課程</strong>（Direction＋General）：人生藍圖、AI、自動化、旅居財務
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5">●</span>
+                    <span>
+                      <strong>遠端上班主課程</strong>：職涯藍圖、履歷、LinkedIn、面試與談薪、獵頭合作
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5">●</span>
+                    <span>六個月 Skool 共學社群與同學會</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5">●</span>
+                    <span>選修實作工作坊（剪輯、AI、自動化、工作英文等）</span>
+                  </li>
+                </ul>
+                <div className="text-center pt-4 border-t border-slate-100">
+                  <div className="text-sm text-gray-500 line-through mb-1">原價 TWD 13,500</div>
+                  <div className="text-3xl font-bold text-[#17464F] mb-4">TWD 12,500</div>
+                  <a href={getCheckoutURLWithTracking()} target="_blank" rel="noopener noreferrer">
+                    <Button className="w-full bg-[#17464F] hover:bg-[#0f3339] text-white py-3 rounded-full font-medium">
+                      選擇此方案
+                    </Button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="bg-white/60 rounded-2xl border border-slate-200 p-6 md:p-8 text-center">
+            <h4 className="text-lg font-bold text-[#17464F] mb-4">所有方案皆包含</h4>
+            <div className="flex flex-wrap justify-center gap-3 text-sm text-[#33393C]">
+              <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">六個月 3+3 成長節奏</span>
+              <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">通識課程（Direction + General）</span>
+              <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">Skool 共學社群</span>
+              <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">課程終身回放</span>
+              <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">LinkedIn 校友網絡</span>
+              <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">Nomad Leaders Podcast</span>
+            </div>
+          </div>
+          <div className="mt-8 bg-gradient-to-r from-[#17464F] to-[#1a5561] rounded-2xl p-6 text-center text-white shadow-lg">
+            <div className="text-lg font-bold mb-2">績優學員專屬獎勵</div>
+            <div className="text-sm opacity-90">
+              課程期間成長表現優異的學員，將有機會獲得<span className="font-semibold">學費的部分或全額</span>
+              <span className="text-[#D4B483] font-bold mx-1">獎學金</span>，以及
+              <span className="text-[#D4B483] font-bold mx-1">2026 年遊牧啟發之旅招待名額</span>！
             </div>
           </div>
         </div>
+      </section>
+      <section className="py-16 sm:py-20 bg-gradient-to-br from-[#17464F] to-[#1a5561]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="bg-white/95 backdrop-blur rounded-2xl p-8 sm:p-12 shadow-xl border border-[#C9D7D4]">
+            <div className="flex justify-center gap-2 mb-6">
+              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
+            </div>
 
-        {/* Plan 2: 雙線並進方案 (Featured) */}
-        <div className="bg-white rounded-2xl border-2 border-[#D4B483] shadow-lg overflow-hidden flex flex-col relative">
-          <div className="absolute top-0 right-0 bg-[#D4B483] text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
-            推薦方案
-          </div>
-          <div className="bg-gradient-to-r from-[#17464F] to-[#1a5561] text-white py-4 px-6 text-center">
-            <h3 className="text-xl font-bold">雙線並進方案</h3>
-          </div>
-          <div className="p-6 flex-1 flex flex-col">
-            <p className="text-[#33393C] text-sm mb-4 pb-4 border-b border-slate-100">
-              適合想同時為副業收入與職涯升級鋪路的人。
+            <h3 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-4">本梯限定的優惠與名額</h3>
+
+            <p className="text-[#33393C] mb-8 leading-relaxed max-w-2xl mx-auto">
+              為了讓教學與陪跑品質維持在好的狀態，
+              <br className="hidden sm:block" />
+              每一梯次的名額與優惠都會做控管，以下是這一梯的安排：
             </p>
-            <ul className="space-y-3 text-sm text-[#33393C] mb-6 flex-1">
-              <li className="flex items-start gap-2">
-                <span className="text-[#D4B483] mt-0.5">●</span>
-                <span>
-                  <strong>通識課程</strong>（Direction＋General）：人生藍圖、AI、自動化、旅居財務
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[#D4B483] mt-0.5">●</span>
-                <span>
-                  <strong>自媒體接案 + 遠端上班</strong> 雙主線課程全解鎖
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[#D4B483] mt-0.5">●</span>
-                <span>六個月 Skool 共學社群與同學會</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[#D4B483] mt-0.5">●</span>
-                <span>選修實作工作坊（全部工作坊優先報名）</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[#D4B483] mt-0.5">●</span>
-                <span>專屬雙軌學員交流小組</span>
-              </li>
-            </ul>
-            <div className="text-center pt-4 border-t border-slate-100">
-              <div className="text-sm text-gray-500 line-through mb-1">原價 TWD 19,800</div>
-              <div className="text-3xl font-bold text-[#17464F] mb-4">TWD 16,800</div>
-              <a href={checkoutURL + getTrackingParams()} target="_blank" rel="noopener noreferrer">
-                <Button className="w-full bg-[#D4B483] hover:bg-[#c9a673] text-[#17464F] py-3 rounded-full font-bold">
-                  選擇雙線方案
-                </Button>
-              </a>
+            <div className="bg-[#F5F3ED] rounded-xl p-6 mb-8 text-left max-w-xl mx-auto">
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-2 flex-shrink-0"></span>
+                  <div>
+                    <span className="font-semibold text-[#17464F]">早鳥專屬價格</span>
+                    <span className="text-[#33393C]">：限時優惠倒數中，把握內部名單專屬折扣</span>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-2 flex-shrink-0"></span>
+                  <div>
+                    <span className="font-semibold text-[#17464F]">加贈共學社群延長權限</span>
+                    <span className="text-[#33393C]">：前 3 個月課程後，再享後 3 個月社群陪伴與資源</span>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-2 flex-shrink-0"></span>
+                  <div>
+                    <span className="font-semibold text-[#17464F]">名額上限控管</span>
+                    <span className="text-[#33393C]">：為維持教學品質，本梯名額有限，額滿即收班</span>
+                  </div>
+                </li>
+              </ul>
             </div>
-          </div>
-        </div>
-
-        {/* Plan 3: 遠端上班線路 */}
-        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
-          <div className="bg-[#17464F] text-white py-4 px-6 text-center">
-            <h3 className="text-xl font-bold">遠端上班線路</h3>
-          </div>
-          <div className="p-6 flex-1 flex flex-col">
-            <p className="text-[#33393C] text-sm mb-4 pb-4 border-b border-slate-100">
-              適合想往遠端團隊、外商或更有彈性的職涯前進的人。
+            <a
+              href={getCheckoutURLWithTracking()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-[#17464F] text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-lg"
+              onClick={() => {
+                if (typeof window !== "undefined" && window.trackInitiateCheckout) {
+                  window.trackInitiateCheckout(0)
+                }
+              }}
+            >
+              我要加入本梯
+            </a>
+            <p className="mt-8 text-sm text-[#33393C]/80 leading-relaxed max-w-lg mx-auto">
+              如果你還在觀望，也可以先把問題整理下來，
+              <br className="hidden sm:block" />
+              在下方 FAQ 或{" "}
+              <a
+                href="https://www.instagram.com/travelwithwork_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#17464F] underline hover:text-[#D4B483] transition-colors"
+              >
+                Instagram
+              </a>{" "}
+              問清楚，再決定這六個月要不要一起走。
             </p>
-            <ul className="space-y-3 text-sm text-[#33393C] mb-6 flex-1">
-              <li className="flex items-start gap-2">
-                <span className="text-[#D4B483] mt-0.5">●</span>
-                <span>
-                  <strong>通識課程</strong>（Direction＋General）：人生藍圖、AI、自動化、旅居財務
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[#D4B483] mt-0.5">●</span>
-                <span>
-                  <strong>遠端上班主課程</strong>：職涯藍圖、履歷、LinkedIn、面試與談薪、獵頭合作
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[#D4B483] mt-0.5">●</span>
-                <span>六個月 Skool 共學社群與同學會</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[#D4B483] mt-0.5">●</span>
-                <span>選修實作工作坊（剪輯、AI、自動化、工作英文等）</span>
-              </li>
-            </ul>
-            <div className="text-center pt-4 border-t border-slate-100">
-              <div className="text-sm text-gray-500 line-through mb-1">原價 TWD 13,500</div>
-              <div className="text-3xl font-bold text-[#17464F] mb-4">TWD 12,500</div>
-              <a href={getCheckoutURLWithTracking()} target="_blank" rel="noopener noreferrer">
-                <Button className="w-full bg-[#17464F] hover:bg-[#0f3339] text-white py-3 rounded-full font-medium">
-                  選擇此方案
-                </Button>
-              </a>
-            </div>
           </div>
         </div>
-      </div>
+      </section>
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            {/* Three dots decoration */}
+            <div className="flex items-center justify-center gap-2 mb-6">
+              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#17464F] mb-4">常見問題</h2>
+            <p className="text-[#33393C]/80 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+              看到這裡，你可能還有一些問題想問清楚。
+              <br className="hidden sm:block" />
+              以下整理了大家最常問的幾個問題，如果沒找到答案，歡迎私訊我們。
+            </p>
+          </div>
+          <div className="space-y-8">
+            {/* Group 1: 適合對象 */}
+            <div>
+              <h3 className="text-sm font-semibold text-[#D4B483] uppercase tracking-wider mb-4 flex items-center gap-2">
+                <span className="w-8 h-px bg-[#D4B483]"></span>
+                適合對象
+              </h3>
+              <div className="space-y-3">
+                {/* Q1 */}
+                <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
+                  <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
+                    <span className="font-medium text-[#17464F] text-left pr-4">
+                      這堂學院適合什麼樣的人？我現在只是在上班，可以報名嗎？
+                    </span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F]/10 flex items-center justify-center text-[#17464F] group-open:rotate-45 transition-transform duration-200">
+                      +
+                    </span>
+                  </summary>
+                  <div className="px-5 pb-5 text-[#33393C]/80 leading-relaxed border-t border-[#C9D7D4]/50 pt-4">
+                    當然可以！這堂學院就是為了「有正職、但想探索更多可能」的人設計的。你不需要先離職，也不需要有任何接案或遠距經驗。只要你願意在未來六個月裡，每週騰出
+                    2-4 小時來學習和行動，這裡就適合你。
+                  </div>
+                </details>
 
-      {/* Shared Benefits */}
-      <div className="bg-white/60 rounded-2xl border border-slate-200 p-6 md:p-8 text-center">
-        <h4 className="text-lg font-bold text-[#17464F] mb-4">所有方案皆包含</h4>
-        <div className="flex flex-wrap justify-center gap-3 text-sm text-[#33393C]">
-          <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">六個月 3+3 成長節奏</span>
-          <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">通識課程（Direction + General）</span>
-          <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">Skool 共學社群</span>
-          <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">課程終身回放</span>
-          <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">LinkedIn 校友網絡</span>
-          <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">Nomad Leaders Podcast</span>
-        </div>
-      </div>
-
-      {/* Scholarship Note */}
-      <div className="mt-8 bg-gradient-to-r from-[#17464F] to-[#1a5561] rounded-2xl p-6 text-center text-white shadow-lg">
-        <div className="text-lg font-bold mb-2">績優學員專屬獎勵</div>
-        <div className="text-sm opacity-90">
-          課程期間成長表現優異的學員，將有機會獲得<span className="font-semibold">學費的部分或全額</span>
-          <span className="text-[#D4B483] font-bold mx-1">獎學金</span>，以及
-          <span className="text-[#D4B483] font-bold mx-1">2026 年遊牧啟發之旅招待名額</span>！
-        </div>
-      </div>
-    </div>
-  </section>
-  ;<section className="py-16 sm:py-20 bg-gradient-to-br from-[#17464F] to-[#1a5561]">
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div className="bg-white/95 backdrop-blur rounded-2xl p-8 sm:p-12 shadow-xl border border-[#C9D7D4]">
-        {/* Three dots decoration */}
-        <div className="flex justify-center gap-2 mb-6">
-          <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-          <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
-          <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-        </div>
-
-        <h3 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-4">本梯限定的優惠與名額</h3>
-
-        <p className="text-[#33393C] mb-8 leading-relaxed max-w-2xl mx-auto">
-          為了讓教學與陪跑品質維持在好的狀態，
-          <br className="hidden sm:block" />
-          每一梯次的名額與優惠都會做控管，以下是這一梯的安排：
-        </p>
-
-        {/* Bullet points */}
-        <div className="bg-[#F5F3ED] rounded-xl p-6 mb-8 text-left max-w-xl mx-auto">
-          <ul className="space-y-4">
-            <li className="flex items-start gap-3">
-              <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-2 flex-shrink-0"></span>
-              <div>
-                <span className="font-semibold text-[#17464F]">早鳥專屬價格</span>
-                <span className="text-[#33393C]">：限時優惠倒數中，把握內部名單專屬折扣</span>
+                {/* Q2 */}
+                <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
+                  <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
+                    <span className="font-medium text-[#17464F] text-left pr-4">英文不好、程式不會，可以嗎？</span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F]/10 flex items-center justify-center text-[#17464F] group-open:rotate-45 transition-transform duration-200">
+                      +
+                    </span>
+                  </summary>
+                  <div className="px-5 pb-5 text-[#33393C]/80 leading-relaxed border-t border-[#C9D7D4]/50 pt-4">
+                    可以。我們的課程主要用中文進行，不會要求你一開始就具備流利英文或程式能力。選修課程中有「工作英文」和「AI
+                    工具應用」，會幫助你從零建立這些技能。最重要的是「願意學」，而不是「已經會」。
+                  </div>
+                </details>
               </div>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-2 flex-shrink-0"></span>
-              <div>
-                <span className="font-semibold text-[#17464F]">加贈共學社群延長權限</span>
-                <span className="text-[#33393C]">：前 3 個月課程後，再享後 3 個月社群陪伴與資源</span>
+            </div>
+
+            {/* Group 2: 時間與節奏 */}
+            <div>
+              <h3 className="text-sm font-semibold text-[#D4B483] uppercase tracking-wider mb-4 flex items-center gap-2">
+                <span className="w-8 h-px bg-[#D4B483]"></span>
+                時間與節奏
+              </h3>
+              <div className="space-y-3">
+                {/* Q3 */}
+                <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
+                  <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
+                    <span className="font-medium text-[#17464F] text-left pr-4">
+                      3+3 個月的節奏大概是怎麼安排的？會不會太硬？
+                    </span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F]/10 flex items-center justify-center text-[#17464F] group-open:rotate-45 transition-transform duration-200">
+                      +
+                    </span>
+                  </summary>
+                  <div className="px-5 pb-5 text-[#33393C]/80 leading-relaxed border-t border-[#C9D7D4]/50 pt-4">
+                    <p className="mb-3">
+                      前 3 個月是「共學探索期」，每週會有 1 堂主課（約 60-90 分鐘）+ 課後任務，預計每週投入 2-4
+                      小時。這段時間會比較密集，但節奏是設計給有正職的人跟得上的。
+                    </p>
+                    <p>
+                      後 3
+                      個月是「延伸累積期」，節奏放慢，以每月復盤工作坊、選修課程、社群任務為主，讓你有空間把學到的東西真的用出來。
+                    </p>
+                  </div>
+                </details>
+
+                {/* Q4 */}
+                <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
+                  <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
+                    <span className="font-medium text-[#17464F] text-left pr-4">
+                      我時間很不固定，有錄影可以回看嗎？作業一定要每週交嗎？
+                    </span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F]/10 flex items-center justify-center text-[#17464F] group-open:rotate-45 transition-transform duration-200">
+                      +
+                    </span>
+                  </summary>
+                  <div className="px-5 pb-5 text-[#33393C]/80 leading-relaxed border-t border-[#C9D7D4]/50 pt-4">
+                    所有課程都會錄影，放在 Skool
+                    社群讓你隨時回看。作業有建議繳交時間，但我們更鼓勵「完成比完美重要」——如果某週真的忙不過來，可以先跟上進度，之後再補。我們會有基本的及格門檻，但不會逼你每週都交滿。
+                  </div>
+                </details>
+
+                {/* Q5 */}
+                <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
+                  <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
+                    <span className="font-medium text-[#17464F] text-left pr-4">
+                      如果這六個月中途真的發生變故（工作太忙、人生事件），怎麼辦？
+                    </span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F]/10 flex items-center justify-center text-[#17464F] group-open:rotate-45 transition-transform duration-200">
+                      +
+                    </span>
+                  </summary>
+                  <div className="px-5 pb-5 text-[#33393C]/80 leading-relaxed border-t border-[#C9D7D4]/50 pt-4">
+                    我們理解人生不會照劇本走。如果中途遇到重大變故，可以先私訊我們討論。錄影內容會保留讓你補課，部分情況也可以申請轉到下一梯次。詳細的退費與轉班規則會在報名後提供完整說明。
+                  </div>
+                </details>
               </div>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-2 flex-shrink-0"></span>
-              <div>
-                <span className="font-semibold text-[#17464F]">名額上限控管</span>
-                <span className="text-[#33393C]">：為維持教學品質，本梯名額有限，額滿即收班</span>
+            </div>
+
+            {/* Group 3: 內容與線路 */}
+            <div>
+              <h3 className="text-sm font-semibold text-[#D4B483] uppercase tracking-wider mb-4 flex items-center gap-2">
+                <span className="w-8 h-px bg-[#D4B483]"></span>
+                內容與線路
+              </h3>
+              <div className="space-y-3">
+                {/* Q6 */}
+                <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
+                  <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
+                    <span className="font-medium text-[#17464F] text-left pr-4">
+                      自媒體接案線路與遠端上班線路有什麼差別？我不知道要選哪一個。
+                    </span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F]/10 flex items-center justify-center text-[#17464F] group-open:rotate-45 transition-transform duration-200">
+                      +
+                    </span>
+                  </summary>
+                  <div className="px-5 pb-5 text-[#33393C]/80 leading-relaxed border-t border-[#C9D7D4]/50 pt-4">
+                    <p className="mb-3">
+                      <strong>自媒體接案線路</strong>
+                      ：適合想透過內容創作、個人品牌來獲得收入與自由的人。課程會教你怎麼從零開始經營自媒體、找到變現模式、接到第一個案子。
+                    </p>
+                    <p className="mb-3">
+                      <strong>遠端上班線路</strong>
+                      ：適合想找到一份可以遠距工作的正職或長期合作的人。課程會教你怎麼打造國際履歷、在哪裡找遠距職缺、如何通過面試。
+                    </p>
+                    <p>
+                      如果你還不確定，建議先選一條「現在比較有感覺」的線路走走看。六個月很長，你會在過程中慢慢釐清自己要的是什麼。
+                    </p>
+                  </div>
+                </details>
+
+                {/* Q7 */}
+                <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
+                  <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
+                    <span className="font-medium text-[#17464F] text-left pr-4">可以中途換線、改成雙線並進嗎？</span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F]/10 flex items-center justify-center text-[#17464F] group-open:rotate-45 transition-transform duration-200">
+                      +
+                    </span>
+                  </summary>
+                  <div className="px-5 pb-5 text-[#33393C]/80 leading-relaxed border-t border-[#C9D7D4]/50 pt-4">
+                    可以。如果你在前 3
+                    個月發現另一條線路更適合自己，可以申請換線或升級成雙線並進方案（需補差額）。我們希望你選到真正適合的路，而不是被綁在一開始的選擇。
+                  </div>
+                </details>
               </div>
-            </li>
-          </ul>
+            </div>
+
+            {/* Group 4: 其他 */}
+            <div>
+              <h3 className=\"text-sm font-semibold text-[#D4B483] uppercase tracking-wider mb-4 flex items-center gap-2">\
+                <span className="w-8 h-px bg-[#D4B483]"></span>
+                其他
+              </h3>
+              <div className="space-y-3">
+                {/* Q8 */}
+                <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
+                  <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
+                    <span className="font-medium text-[#17464F] text-left pr-4">有發票／公司報帳、分期付款的選項嗎？</span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F]/10 flex items-center justify-center text-[#17464F] group-open:rotate-45 transition-transform duration-200">
+                      +
+                    </span>
+                  </summary>
+                  <div className="px-5 pb-5 text-[#33393C]/80 leading-relaxed border-t border-[#C9D7D4]/50 pt-4">
+                    我們可以開立電子發票（含統編），適合需要公司報帳的學員。分期付款部分，目前支援信用卡分期（視發卡銀行而定）。如果有特殊需求，歡迎私訊我們討論。
+                  </div>
+                </details>
+              </div>
+            </div>
+          </div>
+          <div className="mt-12 text-center">
+            <p className="text-[#33393C]/70 text-sm leading-relaxed">
+              還有其他問題？歡迎到{" "}
+              <a
+                href="https://www.instagram.com/travelwithwork_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#17464F] underline hover:text-[#D4B483] transition-colors"
+              >
+                Instagram
+              </a>{" "}
+              私訊我們，或寄信到 Academy@travelwork.life
+            </p>
+          </div>
         </div>
-
-        {/* CTA */}
-        <a
-          href={getCheckoutURLWithTracking()}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-[#17464F] text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-lg"
-          onClick={() => {
-            if (typeof window !== "undefined" && window.trackInitiateCheckout) {
-              window.trackInitiateCheckout(0)
-            }
-          }}
-        >
-          我要加入本梯
-        </a>
-
-        {/* Soft closing note */}
-        <p className="mt-8 text-sm text-[#33393C]/80 leading-relaxed max-w-lg mx-auto">
-          如果你還在觀望，也可以先把問題整理下來，
-          <br className="hidden sm:block" />
-          在下方 FAQ 或{" "}
+      </section>
+      <footer className="py-8 bg-[#17464F] text-white text-center">
+        <p className="text-sm text-white/80">
+          &copy; 2025 遠距遊牧學院 Travel With Work Academy. All rights reserved.
+          <br />
+          任何疑問請洽 " "
           <a
             href="https://www.instagram.com/travelwithwork_/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#17464F] underline hover:text-[#D4B483] transition-colors"
+            className="text-[#D4B483] hover:text-[#D4B483]/80 transition-colors"
           >
-            Instagram
-          </a>{" "}
-          問清楚，再決定這六個月要不要一起走。
+            遠距遊牧學院
+          </a>" "
+          / Email: Academy@travelwork.life
         </p>
-      </div>
-    </div>
-  </section>
-  ;<section className="py-16 sm:py-24 bg-white">
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      {/* Section Title */}
-      <div className="text-center mb-12">
-        {/* Three dots decoration */}
-        <div className="flex items-center justify-center gap-2 mb-6">
-          <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-          <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
-          <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-        </div>
-        <h2 className="text-3xl sm:text-4xl font-bold text-[#17464F] mb-4">常見問題</h2>
-        <p className="text-[#33393C]/80 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-          看到這裡，你可能還有一些問題想問清楚。
-          <br className="hidden sm:block" />
-          以下整理了大家最常問的幾個問題，如果沒找到答案，歡迎私訊我們。
-        </p>
-      </div>
-
-      {/* FAQ Groups */}
-      <div className="space-y-8">
-        {/* Group 1: 適合對象 */}
-        <div>
-          <h3 className="text-sm font-semibold text-[#D4B483] uppercase tracking-wider mb-4 flex items-center gap-2">
-            <span className="w-8 h-px bg-[#D4B483]"></span>
-            適合對象
-          </h3>
-          <div className="space-y-3">
-            {/* Q1 */}
-            <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
-              <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
-                <span className="font-medium text-[#17464F] text-left pr-4">
-                  這堂學院適合什麼樣的人？我現在只是在上班，可以報名嗎？
-                </span>
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F]/10 flex items-center justify-center text-[#17464F] group-open:rotate-45 transition-transform duration-200">
-                  +
-                </span>
-              </summary>
-              <div className="px-5 pb-5 text-[#33393C]/80 leading-relaxed border-t border-[#C9D7D4]/50 pt-4">
-                當然可以！這堂學院就是為了「有正職、但想探索更多可能」的人設計的。你不需要先離職，也不需要有任何接案或遠距經驗。只要你願意在未來六個月裡，每週騰出
-                2-4 小時來學習和行動，這裡就適合你。
-              </div>
-            </details>
-
-            {/* Q2 */}
-            <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
-              <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
-                <span className="font-medium text-[#17464F] text-left pr-4">英文不好、程式不會，可以嗎？</span>
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F]/10 flex items-center justify-center text-[#17464F] group-open:rotate-45 transition-transform duration-200">
-                  +
-                </span>
-              </summary>
-              <div className="px-5 pb-5 text-[#33393C]/80 leading-relaxed border-t border-[#C9D7D4]/50 pt-4">
-                可以。我們的課程主要用中文進行，不會要求你一開始就具備流利英文或程式能力。選修課程中有「工作英文」和「AI
-                工具應用」，會幫助你從零建立這些技能。最重要的是「願意學」，而不是「已經會」。
-              </div>
-            </details>
-          </div>
-        </div>
-
-        {/* Group 2: 時間與節奏 */}
-        <div>
-          <h3 className="text-sm font-semibold text-[#D4B483] uppercase tracking-wider mb-4 flex items-center gap-2">
-            <span className="w-8 h-px bg-[#D4B483]"></span>
-            時間與節奏
-          </h3>
-          <div className="space-y-3">
-            {/* Q3 */}
-            <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
-              <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
-                <span className="font-medium text-[#17464F] text-left pr-4">
-                  3+3 個月的節奏大概是怎麼安排的？會不會太硬？
-                </span>
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F]/10 flex items-center justify-center text-[#17464F] group-open:rotate-45 transition-transform duration-200">
-                  +
-                </span>
-              </summary>
-              <div className="px-5 pb-5 text-[#33393C]/80 leading-relaxed border-t border-[#C9D7D4]/50 pt-4">
-                <p className="mb-3">
-                  前 3 個月是「共學探索期」，每週會有 1 堂主課（約 60-90 分鐘）+ 課後任務，預計每週投入 2-4
-                  小時。這段時間會比較密集，但節奏是設計給有正職的人跟得上的。
-                </p>
-                <p>
-                  後 3
-                  個月是「延伸累積期」，節奏放慢，以每月復盤工作坊、選修課程、社群任務為主，讓你有空間把學到的東西真的用出來。
-                </p>
-              </div>
-            </details>
-
-            {/* Q4 */}
-            <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
-              <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
-                <span className="font-medium text-[#17464F] text-left pr-4">
-                  我時間很不固定，有錄影可以回看嗎？作業一定要每週交嗎？
-                </span>
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F]/10 flex items-center justify-center text-[#17464F] group-open:rotate-45 transition-transform duration-200">
-                  +
-                </span>
-              </summary>
-              <div className="px-5 pb-5 text-[#33393C]/80 leading-relaxed border-t border-[#C9D7D4]/50 pt-4">
-                所有課程都會錄影，放在 Skool
-                社群讓你隨時回看。作業有建議繳交時間，但我們更鼓勵「完成比完美重要」——如果某週真的忙不過來，可以先跟上進度，之後再補。我們會有基本的及格門檻，但不會逼你每週都交滿。
-              </div>
-            </details>
-
-            {/* Q5 */}
-            <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
-              <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
-                <span className="font-medium text-[#17464F] text-left pr-4">
-                  如果這六個月中途真的發生變故（工作太忙、人生事件），怎麼辦？
-                </span>
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F]/10 flex items-center justify-center text-[#17464F] group-open:rotate-45 transition-transform duration-200">
-                  +
-                </span>
-              </summary>
-              <div className="px-5 pb-5 text-[#33393C]/80 leading-relaxed border-t border-[#C9D7D4]/50 pt-4">
-                我們理解人生不會照劇本走。如果中途遇到重大變故，可以先私訊我們討論。錄影內容會保留讓你補課，部分情況也可以申請轉到下一梯次。詳細的退費與轉班規則會在報名後提供完整說明。
-              </div>
-            </details>
-          </div>
-        </div>
-
-        {/* Group 3: 內容與線路 */}
-        <div>
-          <h3 className="text-sm font-semibold text-[#D4B483] uppercase tracking-wider mb-4 flex items-center gap-2">
-            <span className="w-8 h-px bg-[#D4B483]"></span>
-            內容與線路
-          </h3>
-          <div className="space-y-3">
-            {/* Q6 */}
-            <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
-              <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
-                <span className="font-medium text-[#17464F] text-left pr-4">
-                  自媒體接案線路與遠端上班線路有什麼差別？我不知道要選哪一個。
-                </span>
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F]/10 flex items-center justify-center text-[#17464F] group-open:rotate-45 transition-transform duration-200">
-                  +
-                </span>
-              </summary>
-              <div className="px-5 pb-5 text-[#33393C]/80 leading-relaxed border-t border-[#C9D7D4]/50 pt-4">
-                <p className="mb-3">
-                  <strong>自媒體接案線路</strong>
-                  ：適合想透過內容創作、個人品牌來獲得收入與自由的人。課程會教你怎麼從零開始經營自媒體、找到變現模式、接到第一個案子。
-                </p>
-                <p className="mb-3">
-                  <strong>遠端上班線路</strong>
-                  ：適合想找到一份可以遠距工作的正職或長期合作的人。課程會教你怎麼打造國際履歷、在哪裡找遠距職缺、如何通過面試。
-                </p>
-                <p>
-                  如果你還不確定，建議先選一條「現在比較有感覺」的線路走走看。六個月很長，你會在過程中慢慢釐清自己要的是什麼。
-                </p>
-              </div>
-            </details>
-
-            {/* Q7 */}
-            <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
-              <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
-                <span className="font-medium text-[#17464F] text-left pr-4">可以中途換線、改成雙線並進嗎？</span>
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F]/10 flex items-center justify-center text-[#17464F] group-open:rotate-45 transition-transform duration-200">
-                  +
-                </span>
-              </summary>
-              <div className="px-5 pb-5 text-[#33393C]/80 leading-relaxed border-t border-[#C9D7D4]/50 pt-4">
-                可以。如果你在前 3
-                個月發現另一條線路更適合自己，可以申請換線或升級成雙線並進方案（需補差額）。我們希望你選到真正適合的路，而不是被綁在一開始的選擇。
-              </div>
-            </details>
-          </div>
-        </div>
-
-        {/* Group 4: 其他 */}
-        <div>
-          <h3 className="text-sm font-semibold text-[#D4B483] uppercase tracking-wider mb-4 flex items-center gap-2">
-            <span className="w-8 h-px bg-[#D4B483]"></span>
-            其他
-          </h3>
-          <div className="space-y-3">
-            {/* Q8 */}
-            <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
-              <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
-                <span className="font-medium text-[#17464F] text-left pr-4">有發票／公司報帳、分期付款的選項嗎？</span>
-                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F]/10 flex items-center justify-center text-[#17464F] group-open:rotate-45 transition-transform duration-200">
-                  +
-                </span>
-              </summary>
-              <div className="px-5 pb-5 text-[#33393C]/80 leading-relaxed border-t border-[#C9D7D4]/50 pt-4">
-                我們可以開立電子發票（含統編），適合需要公司報帳的學員。分期付款部分，目前支援信用卡分期（視發卡銀行而定）。如果有特殊需求，歡迎私訊我們討論。
-              </div>
-            </details>
-          </div>
-        </div>
-      </div>
-
-      {/* Closing note */}
-      <div className="mt-12 text-center">
-        <p className="text-[#33393C]/70 text-sm leading-relaxed">
-          還有其他問題？歡迎到{" "}
-          <a
-            href="https://www.instagram.com/travelwithwork_/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#17464F] underline hover:text-[#D4B483] transition-colors"
-          >
-            Instagram
-          </a>{" "}
-          私訊我們，或寄信到 Academy@travelwork.life
-        </p>
-      </div>
-    </div>
-  </section>
-  ;<footer className="py-8 bg-[#17464F] text-white text-center">
-    <p className="text-sm text-white/80">
-      &copy; 2025 遠距遊牧學院 Travel With Work Academy. All rights reserved.
-      <br />
-      任何疑問請洽 Instagram:{" "}
-      <a
-        href="https://www.instagram.com/travelwithwork_/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-[#D4B483] hover:text-[#D4B483]/80 transition-colors"
-      >
-        遠距遊牧學院
-      </a>{" "}
-      / Email: Academy@travelwork.life
-    </p>
-  </footer>
-  isGalleryOpen && (
-    <div
-      className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4 z-50"
-      onClick={() => setIsGalleryOpen(false)}
-    >
-      <div className="relative max-w-4xl w-full max-h-[90vh] flex items-center justify-center">
-        {/* Close Button */}
-        <button
+      </footer>isGalleryOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4 z-50"
           onClick={() => setIsGalleryOpen(false)}
-          className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-xl flex items-center justify-center text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-all duration-200 z-10 text-xl font-bold"
         >
-          ✕
-        </button>
-
-        {/* Previous Button */}
-        {stagePhotos[currentStage].length > 1 && (
-          <button
-            onClick={(e) => {
-              e.stopPropagation()
-              prevPhoto()
-            }}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full shadow-xl flex items-center justify-center text-gray-800 hover:text-orange-500 transition-all duration-200 z-10 group"
-          >
-            <svg
-              className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-200"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+          <div className="relative max-w-4xl w-full max-h-[90vh] flex items-center justify-center">
+            {/* Close Button */}
+            <button
+              onClick={() => setIsGalleryOpen(false)}
+              className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-xl flex items-center justify-center text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-all duration-200 z-10 text-xl font-bold"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-        )}
+              ✕
+            </button>
 
-        {/* Next Button */}
-        {stagePhotos[currentStage].length > 1 && (
-          <button
-            onClick={(e) => {
-              e.stopPropagation()
-              nextPhoto()
-            }}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full shadow-xl flex items-center justify-center text-gray-800 hover:text-orange-500 transition-all duration-200 z-10 group"
-          >
-            <svg
-              className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-200"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        )}
+            {/* Previous Button */}
+            {stagePhotos[currentStage].length > 1 && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation()
+                  prevPhoto()
+                }}
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full shadow-xl flex items-center justify-center text-gray-800 hover:text-orange-500 transition-all duration-200 z-10 group"
+              >
+                <svg
+                  className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-200"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+            )}
 
-        {/* Image Container */}
-        <div className="relative w-full h-full flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
-          <div className="relative max-w-full max-h-full">
-            <Image
-              src={stagePhotos[currentStage][currentPhotoIndex]?.src || "/placeholder.svg"}
-              alt={stagePhotos[currentStage][currentPhotoIndex]?.alt || ""}
-              width={800}
-              height={600}
-              className="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl"
-            />
+            {/* Next Button */}
+            {stagePhotos[currentStage].length > 1 && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation()
+                  nextPhoto()
+                }}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full shadow-xl flex items-center justify-center text-gray-800 hover:text-orange-500 transition-all duration-200 z-10 group"
+              >
+                <svg
+                  className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-200"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            )}
 
-            {/* Caption */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent text-white p-6 rounded-b-lg">
-              <p className="text-center text-sm sm:text-base font-medium leading-relaxed">
-                {stagePhotos[currentStage][currentPhotoIndex]?.alt}
-              </p>
+            {/* Image Container */}
+            <div className="relative w-full h-full flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
+              <div className="relative max-w-full max-h-full">
+                <Image
+                  src={stagePhotos[currentStage][currentPhotoIndex]?.src || "/placeholder.svg"}
+                  alt={stagePhotos[currentStage][currentPhotoIndex]?.alt || ""}
+                  width={800}
+                  height={600}
+                  className="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl"
+                />
+
+                {/* Caption */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent text-white p-6 rounded-b-lg">
+                  <p className="text-center text-sm sm:text-base font-medium leading-relaxed">
+                    {stagePhotos[currentStage][currentPhotoIndex]?.alt}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Photo Counter */}
+            {stagePhotos[currentStage].length > 1 && (
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-80 text-white px-6 py-3 rounded-full text-sm font-medium shadow-lg">
+                <span className="text-orange-400">{currentPhotoIndex + 1}</span>
+                <span className="mx-2 text-gray-300">/</span>
+                <span>{stagePhotos[currentStage].length}</span>
+              </div>
+            )}
+
+            {/* Keyboard navigation hint */}
+            <div className="absolute top-4 left-4 bg-black bg-opacity-60 text-white px-3 py-2 rounded-lg text-xs opacity-70">
+              使用 ← → 鍵或點擊按鈕切換圖片
             </div>
           </div>
         </div>
+      )
 
-        {/* Photo Counter */}
-        {stagePhotos[currentStage].length > 1 && (
-          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-80 text-white px-6 py-3 rounded-full text-sm font-medium shadow-lg">
-            <span className="text-orange-400">{currentPhotoIndex + 1}</span>
-            <span className="mx-2 text-gray-300">/</span>
-            <span>{stagePhotos[currentStage].length}</span>
+      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white border-t border-[#C9D7D4] shadow-[0_-4px_20px_rgba(0,0,0,0.1)] px-4 py-3">
+        <div className="flex items-center justify-between gap-3">
+          {/* Left: Price Info */}
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-2">
+              <span className="text-[#D4B483] font-bold text-base">{currentTier.stage}</span>
+              <span className="font-bold text-[#17464F] text-lg">{currentTier.price}</span>
+            </div>
+            <p className="text-xs text-[#33393C]/70">
+              剩 {String(timeLeft.days).padStart(2, "0")} 天 {String(timeLeft.hours).padStart(2, "0")} 小時
+            </p>
           </div>
-        )}
 
-        {/* Keyboard navigation hint */}
-        <div className="absolute top-4 left-4 bg-black bg-opacity-60 text-white px-3 py-2 rounded-lg text-xs opacity-70">
-          使用 ← → 鍵或點擊按鈕切換圖片
+          {/* Right: CTA Button */}
+          <a
+            href={getCheckoutURLWithTracking()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-shrink-0 bg-[#17464F] text-white px-5 py-3 rounded-full text-sm font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-md"
+            onClick={() => {
+              if (typeof window !== "undefined" && window.trackInitiateCheckout) {
+                window.trackInitiateCheckout(0)
+              }
+            }}
+          >
+            立即報名
+          </a>
         </div>
       </div>
-    </div>
-  )
-  ;<div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white border-t border-[#C9D7D4] shadow-[0_-4px_20px_rgba(0,0,0,0.1)] px-4 py-3">
-    <div className="flex items-center justify-between gap-3">
-      {/* Left: Price Info */}
-      <div className="flex-1 min-w-0">
-        <div className="flex items-center gap-2">
-          <span className="text-[#D4B483] font-bold text-base">{currentTier.stage}</span>
-          <span className="font-bold text-[#17464F] text-lg">{currentTier.price}</span>
-        </div>
-        <p className="text-xs text-[#33393C]/70">
-          剩 {String(timeLeft.days).padStart(2, "0")} 天 {String(timeLeft.hours).padStart(2, "0")} 小時
-        </p>
-      </div>
-
-      {/* Right: CTA Button */}
-      <a
-        href={getCheckoutURLWithTracking()}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-shrink-0 bg-[#17464F] text-white px-5 py-3 rounded-full text-sm font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-md"
-        onClick={() => {
-          if (typeof window !== "undefined" && window.trackInitiateCheckout) {
-            window.trackInitiateCheckout(0)
-          }
-        }}
-      >
-        立即報名
-      </a>
-    </div>
-  </div>
-  ;<div className="h-20 md:hidden"></div>
-  </main>
-  )
-}
+      <div className="h-20 md:hidden"></div>
+    </main>
+  )\
