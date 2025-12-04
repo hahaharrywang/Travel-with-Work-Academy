@@ -564,17 +564,12 @@ export default function HomePage() {
     },
   ]
 
-  // const pricingTiers = [ ... ] // Removed
-  // const getCurrentPricingTier = () => { ... } // Removed
-  // const currentTier = getCurrentPricingTier() // Removed
-
   return (
     <main className="min-h-screen bg-white">
       {/* ANNOUNCEMENT BAR - Desktop Only */}
       {currentStageData && (
         <div className="sticky top-0 z-50 bg-[#17464F] text-white py-3 px-4 hidden md:block">
           <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
-            {/* Left: Stage + Discount */}
             <div className="flex items-center gap-2 text-sm">
               <span>🔥</span>
               <span>
@@ -586,7 +581,6 @@ export default function HomePage() {
               </span>
             </div>
 
-            {/* Center: Countdown + Lowest Price */}
             <div className="flex items-center gap-4 text-sm">
               {timeLeft.days > 0 || timeLeft.hours > 0 || timeLeft.minutes > 0 ? (
                 <span>
@@ -606,7 +600,6 @@ export default function HomePage() {
               </span>
             </div>
 
-            {/* Right: CTA */}
             <button
               onClick={scrollToPricing}
               className="bg-[#D4B483] text-[#17464F] px-4 py-2 rounded-full text-sm font-bold hover:bg-[#c9a673] transition-colors flex-shrink-0"
@@ -619,7 +612,6 @@ export default function HomePage() {
 
       {/* SECTION 1 HERO START */}
       <section className="relative min-h-screen flex items-center overflow-hidden bg-[#F5F3ED]">
-        {/* Decorative Elements - 三個小圓點 */}
         <div className="absolute top-20 left-10 flex gap-2 z-10">
           <div className="w-2 h-2 rounded-full bg-[#D4B483]" />
           <div className="w-2 h-2 rounded-full bg-[#D4B483]/60" />
@@ -631,17 +623,13 @@ export default function HomePage() {
           <div className="w-2 h-2 rounded-full bg-[#17464F]" />
         </div>
 
-        {/* Main Content - Left Text, Right Image */}
         <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left Column - Text Content */}
             <div className="space-y-6 text-center lg:text-left">
-              {/* 頂部小句 */}
               <p className="text-sm sm:text-base text-[#17464F]/70 font-medium tracking-wide">
                 六個月後的你，可能會變成這樣的人：
               </p>
 
-              {/* 三個「未來狀態」chips */}
               <div className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3">
                 <span className="inline-flex items-center px-4 py-2 rounded-full bg-white border border-[#C9D7D4] text-sm text-[#33393C] shadow-sm">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483] mr-2" />
@@ -657,18 +645,15 @@ export default function HomePage() {
                 </span>
               </div>
 
-              {/* 主標 */}
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#17464F] leading-tight tracking-wide">
                 用六個月，
                 <span className="block mt-2 text-[#D4B483]">把「也許有一天」變成「我正在路上」</span>
               </h1>
 
-              {/* 副標 */}
               <p className="text-base sm:text-lg text-[#33393C] leading-relaxed max-w-xl mx-auto lg:mx-0">
                 不用先辭職。透過線上課程、課後行動任務、共學社群，再搭配選修工作坊與國內外遊牧生態資源，在這六個月嘗試一連串的小行動與體驗，幫你一步步摸清楚：遠距／接案／遊牧是不是你要追的方向。
               </p>
 
-              {/* 路線 Tag Bar */}
               <div className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3">
                 <span className="px-4 py-2 rounded-full bg-[#17464F] text-white text-sm font-medium">
                   自媒體接案線路
@@ -679,12 +664,10 @@ export default function HomePage() {
                 </span>
               </div>
 
-              {/* 安心小句 */}
               <p className="text-sm text-[#33393C]/60 max-w-lg mx-auto lg:mx-0">
                 這不是一張離職門票，而是一段可以在保有現職下完成的六個月行動旅程。
               </p>
 
-              {/* CTA 區 */}
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
                 <Button
                   asChild
@@ -705,7 +688,6 @@ export default function HomePage() {
                     {currentStageData ? formatPrice(currentStageData.plans?.singleLine.price) : "--"}起】
                   </a>
                 </Button>
-                {/* Secondary CTA */}
                 <button
                   onClick={() => {
                     document.getElementById("course-highlights")?.scrollIntoView({ behavior: "smooth" })
@@ -740,10 +722,8 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Column - Image Collage */}
             <div className="relative hidden lg:block">
               <div className="grid grid-cols-2 gap-4">
-                {/* Main large image */}
                 <div className="col-span-2 rounded-2xl overflow-hidden shadow-lg">
                   <div className="aspect-[16/9] bg-[#C9D7D4] relative">
                     <Image
@@ -755,7 +735,6 @@ export default function HomePage() {
                     />
                   </div>
                 </div>
-                {/* Two smaller images */}
                 <div className="rounded-2xl overflow-hidden shadow-md">
                   <div className="aspect-square bg-[#C9D7D4] relative">
                     <Image src="/images/2-1.jpeg" alt="遠距工作場景 - 旅途中工作" fill className="object-cover" />
@@ -767,7 +746,6 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              {/* Decorative element - 細金色線條 */}
               <div className="absolute -bottom-4 -left-4 w-24 h-24 border-2 border-[#D4B483]/40 rounded-2xl -z-10" />
               <div className="absolute -top-4 -right-4 w-16 h-16 border-2 border-[#17464F]/20 rounded-full -z-10" />
             </div>
@@ -776,17 +754,14 @@ export default function HomePage() {
       </section>
       {/* SECTION 1 HERO END */}
 
-      {/* SECTION 2 COURSE HIGHLIGHTS START */}
+      {/* SECTION 2 COURSE HIGHLIGHTS START - 適合誰 */}
       <section id="course-highlights" className="py-16 sm:py-24 bg-[#F5F3ED]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Upper Section: 適合誰 */}
           <div className="mb-16 sm:mb-24">
-            {/* Section Title */}
             <div className="text-center mb-10 sm:mb-14">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-4 text-balance">
                 正在尋找「下一步」的你
               </h2>
-              {/* Three dots decoration */}
               <div className="flex items-center justify-center gap-2 mb-6">
                 <span className="w-2 h-2 rounded-full bg-[#D4B483]" />
                 <span className="w-2 h-2 rounded-full bg-[#17464F]" />
@@ -794,14 +769,11 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Content Block */}
             <div className="max-w-3xl mx-auto text-left">
-              {/* Subtitle */}
               <p className="text-lg sm:text-xl text-[#17464F] font-medium mb-6 text-balance">
                 不管你現在在哪個階段，你都有機會在這裡找到開始的位置
               </p>
 
-              {/* Opening Paragraph */}
               <div className="text-[#33393C] leading-relaxed mb-10 space-y-2">
                 <p>你不一定已經想好要不要辭職、要不要成為全職 Nomad。</p>
                 <p>但你心裡大概知道——</p>
@@ -809,9 +781,7 @@ export default function HomePage() {
                 <p className="pt-2 text-[#17464F] font-medium">在這裡，你可能會在這幾種狀態裡，看到自己的影子：</p>
               </div>
 
-              {/* Three Personas */}
               <div className="space-y-8 mb-10">
-                {/* Persona 1 */}
                 <div className="border-l-4 border-[#D4B483] pl-5 sm:pl-6">
                   <h4 className="text-lg sm:text-xl font-bold text-[#17464F] mb-2">想要更有選擇權的職涯主線</h4>
                   <p className="text-[#33393C] leading-relaxed">
@@ -819,7 +789,6 @@ export default function HomePage() {
                   </p>
                 </div>
 
-                {/* Persona 2 */}
                 <div className="border-l-4 border-[#D4B483] pl-5 sm:pl-6">
                   <h4 className="text-lg sm:text-xl font-bold text-[#17464F] mb-2">想多一條安全感，不想只靠一份薪水</h4>
                   <p className="text-[#33393C] leading-relaxed">
@@ -828,7 +797,6 @@ export default function HomePage() {
                   </p>
                 </div>
 
-                {/* Persona 3 */}
                 <div className="border-l-4 border-[#D4B483] pl-5 sm:pl-6">
                   <h4 className="text-lg sm:text-xl font-bold text-[#17464F] mb-2">答案還不確定，但不想再只是想想</h4>
                   <p className="text-[#33393C] leading-relaxed">
@@ -837,7 +805,6 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Closing Paragraph */}
               <div className="bg-white/60 rounded-2xl p-6 sm:p-8 border border-[#C9D7D4]">
                 <p className="text-[#33393C] leading-relaxed">
                   不需要完美符合其中一個分類，
@@ -853,7 +820,6 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Divider with decoration */}
           <div className="flex items-center justify-center gap-4 mb-16 sm:mb-20">
             <div className="h-px w-16 bg-[#D4B483]/50" />
             <span className="w-2 h-2 rounded-full bg-[#D4B483]" />
@@ -863,15 +829,13 @@ export default function HomePage() {
       </section>
       {/* SECTION 2 COURSE HIGHLIGHTS END (Part 1: 適合誰) */}
 
-      {/* SECTION 3 PAIN POINTS START */}
+      {/* SECTION 3 PAIN POINTS START - 三大痛點 */}
       <section className="py-16 sm:py-24 bg-[#F5F3ED]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Title */}
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-4 text-balance">
               不是你不夠努力，而是一直一個人亂撞
             </h2>
-            {/* Three dots decoration */}
             <div className="flex items-center justify-center gap-2 mt-6">
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
@@ -879,9 +843,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Three Pain Point Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
-            {/* Card 1: 方向斷裂 */}
             <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-[#C9D7D4]/50 hover:shadow-md transition-shadow duration-300">
               <div className="w-12 h-12 bg-[#C9D7D4]/30 rounded-full flex items-center justify-center mb-5">
                 <svg className="w-6 h-6 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -905,7 +867,6 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Card 2: 方法斷裂 */}
             <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-[#C9D7D4]/50 hover:shadow-md transition-shadow duration-300">
               <div className="w-12 h-12 bg-[#C9D7D4]/30 rounded-full flex items-center justify-center mb-5">
                 <svg className="w-6 h-6 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -929,7 +890,6 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Card 3: 同伴斷裂 */}
             <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-[#C9D7D4]/50 hover:shadow-md transition-shadow duration-300">
               <div className="w-12 h-12 bg-[#C9D7D4]/30 rounded-full flex items-center justify-center mb-5">
                 <svg className="w-6 h-6 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -954,7 +914,6 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Summary Sentence */}
           <div className="text-center">
             <p className="text-base sm:text-lg text-[#17464F] font-medium leading-relaxed max-w-3xl mx-auto px-4">
               你缺的不是更多資訊，而是一個地方，
@@ -966,276 +925,9 @@ export default function HomePage() {
       </section>
       {/* SECTION 3 PAIN POINTS END */}
 
-      {/* SECTION 3.5 PRICING TIMELINE START */}
-      <section id="pricing" className="py-16 sm:py-24 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Header */}
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-4 text-balance">
-              價格階段｜早點決定，省更多
-            </h2>
-            <p className="text-[#33393C]/80 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-              我們用分階段定價，讓早點下決定的人可以拿到更好的價格。
-              <br className="hidden sm:block" />
-              以下是各階段的價格與截止時間。
-            </p>
-          </div>
-
-          {/* Pricing Timeline */}
-          <div className="relative">
-            <div className="hidden md:block">
-              {/* Timeline Line */}
-              <div className="absolute top-8 left-0 right-0 h-1 bg-[#C9D7D4]"></div>
-
-              {/* Timeline Nodes - Show every other stage (6 nodes) or all */}
-              <div className={`grid gap-2 ${showAllStages ? "grid-cols-6 lg:grid-cols-12" : "grid-cols-6"}`}>
-                {(showAllStages ? stages : stages.filter((_, i) => i % 2 === 0)).map((stage, index) => {
-                  const now = new Date()
-                  const isPast = now > stage.endAt
-                  const isCurrent = now >= stage.startAt && now <= stage.endAt
-
-                  return (
-                    <div key={stage.id} className="relative flex flex-col items-center">
-                      {/* Node */}
-                      <div
-                        className={`relative z-10 w-14 h-14 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 ${
-                          isCurrent
-                            ? "bg-[#D4B483] text-white ring-4 ring-[#D4B483]/30 scale-110"
-                            : isPast
-                              ? "bg-[#C9D7D4] text-[#33393C]/50"
-                              : "bg-white border-2 border-[#C9D7D4] text-[#17464F]"
-                        }`}
-                      >
-                        {formatPrice(stage.prices.dualLine.stagePrice)}
-                      </div>
-
-                      {/* Card */}
-                      <div
-                        className={`mt-4 p-3 rounded-xl text-center transition-all duration-300 w-full ${
-                          isCurrent
-                            ? "bg-[#17464F] text-white shadow-lg"
-                            : isPast
-                              ? "bg-[#F5F3ED] text-[#33393C]/50"
-                              : "bg-white border border-[#C9D7D4] text-[#33393C]"
-                        }`}
-                      >
-                        <p className={`font-semibold text-xs mb-1 ${isCurrent ? "text-[#D4B483]" : ""}`}>
-                          {stage.name}
-                        </p>
-                        <p className="text-xs mb-1">
-                          截止 {stage.endAt.getMonth() + 1}/{stage.endAt.getDate()}
-                        </p>
-                        {stage.discountLabel !== "原價" && (
-                          <p className={`text-xs ${isCurrent ? "text-white/80" : "text-[#33393C]/60"}`}>
-                            {stage.discountLabel}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-
-              {/* Expand/Collapse Button */}
-              <div className="text-center mt-6">
-                <button
-                  onClick={() => setShowAllStages(!showAllStages)}
-                  className="text-[#17464F] hover:text-[#D4B483] transition-colors text-sm font-medium inline-flex items-center gap-2"
-                >
-                  {showAllStages ? (
-                    <>
-                      收起
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7-7" />
-                      </svg>
-                    </>
-                  ) : (
-                    <>
-                      展開全部 12 個階段
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </>
-                  )}
-                </button>
-              </div>
-            </div>
-
-            <div className="md:hidden space-y-3">
-              {(showAllStages ? stages : stages.slice(0, 4)).map((stage, index) => {
-                const now = new Date()
-                const isPast = now > stage.endAt
-                const isCurrent = now >= stage.startAt && now <= stage.endAt
-
-                return (
-                  <div
-                    key={stage.id}
-                    className={`flex items-center gap-4 p-4 rounded-xl transition-all duration-300 ${
-                      isCurrent
-                        ? "bg-[#17464F] text-white shadow-lg"
-                        : isPast
-                          ? "bg-[#F5F3ED] text-[#33393C]/50"
-                          : "bg-white border border-[#C9D7D4] text-[#33393C]"
-                    }`}
-                  >
-                    {/* Price Circle */}
-                    <div
-                      className={`w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 ${
-                        isCurrent
-                          ? "bg-[#D4B483] text-white"
-                          : isPast
-                            ? "bg-[#C9D7D4] text-[#33393C]/50"
-                            : "bg-white border-2 border-[#C9D7D4] text-[#17464F]"
-                      }`}
-                    >
-                      {formatPrice(stage.prices.selfMedia.stagePrice)}
-                    </div>
-
-                    {/* Info */}
-                    <div className="flex-1 min-w-0">
-                      <p className={`font-semibold text-sm ${isCurrent ? "text-[#D4B483]" : ""}`}>{stage.name}</p>
-                      <p className="text-xs">
-                        截止 {stage.endAt.getMonth() + 1}/{stage.endAt.getDate()} ・ {stage.discountLabel}
-                      </p>
-                    </div>
-
-                    {/* Current Indicator */}
-                    {isCurrent && (
-                      <div className="bg-[#D4B483] text-white text-xs px-2 py-1 rounded-full font-medium flex-shrink-0">
-                        目前
-                      </div>
-                    )}
-                  </div>
-                )
-              })}
-
-              {/* Expand Button for Mobile */}
-              {!showAllStages && stages.length > 4 && (
-                <button
-                  onClick={() => setShowAllStages(true)}
-                  className="w-full py-3 text-center text-[#17464F] hover:text-[#D4B483] transition-colors text-sm font-medium border border-dashed border-[#C9D7D4] rounded-xl"
-                >
-                  展開看全部 {stages.length} 個階段 ↓
-                </button>
-              )}
-              {showAllStages && (
-                <button
-                  onClick={() => setShowAllStages(false)}
-                  className="w-full py-3 text-center text-[#17464F] hover:text-[#D4B483] transition-colors text-sm font-medium"
-                >
-                  收起 ↑
-                </button>
-              )}
-            </div>
-          </div>
-
-          {/* Current Stage Summary Card */}
-          {currentStageData && (
-            <div className="mt-10 bg-gradient-to-br from-[#17464F] to-[#0f3339] rounded-2xl p-6 sm:p-8 text-white shadow-xl">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
-                <div>
-                  <p className="text-[#D4B483] text-sm font-medium mb-1">目前階段</p>
-                  <h3 className="text-xl sm:text-2xl font-bold">{currentStageData.name}</h3>
-                  <p className="text-white/70 text-sm mt-1">
-                    {currentStageData.discountLabel} ・ 截止 {currentStageData.endAt.getMonth() + 1}/
-                    {currentStageData.endAt.getDate()}
-                  </p>
-                </div>
-                <div className="text-left sm:text-right">
-                  <p className="text-white/70 text-sm">距離下一階段還有</p>
-                  <p className="text-2xl sm:text-3xl font-bold text-[#D4B483]">
-                    {timeLeft.days} 天 {timeLeft.hours} 時 {timeLeft.minutes} 分
-                  </p>
-                </div>
-              </div>
-
-              {/* Three Plan Prices */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {/* Single Line - Self Media */}
-                <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                  <p className="text-white/80 text-sm mb-2">自媒體接案線路</p>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-2xl font-bold text-white">
-                      NT$ {formatPrice(currentStageData.prices.selfMedia.stagePrice)}
-                    </span>
-                  </div>
-                  <p className="text-white/50 text-xs line-through mt-1">
-                    原價 NT$ {formatPrice(currentStageData.prices.selfMedia.original)}
-                  </p>
-                  <p className="text-[#D4B483] text-sm mt-2">
-                    省 NT$ {formatPrice(currentStageData.prices.selfMedia.savingAmount)}
-                  </p>
-                </div>
-
-                {/* Single Line - Remote Job */}
-                <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                  <p className="text-white/80 text-sm mb-2">遠端上班線路</p>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-2xl font-bold text-white">
-                      NT$ {formatPrice(currentStageData.prices.remoteJob.stagePrice)}
-                    </span>
-                  </div>
-                  <p className="text-white/50 text-xs line-through mt-1">
-                    原價 NT$ {formatPrice(currentStageData.prices.remoteJob.original)}
-                  </p>
-                  <p className="text-[#D4B483] text-sm mt-2">
-                    省 NT$ {formatPrice(currentStageData.prices.remoteJob.savingAmount)}
-                  </p>
-                </div>
-
-                {/* Dual Line */}
-                <div className="bg-[#D4B483]/20 backdrop-blur rounded-xl p-4 ring-2 ring-[#D4B483]">
-                  <div className="flex items-center justify-between mb-2">
-                    <p className="text-white/80 text-sm">雙線並進方案</p>
-                    <span className="bg-[#D4B483] text-[#17464F] text-xs px-2 py-0.5 rounded-full font-medium">
-                      推薦
-                    </span>
-                  </div>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-2xl font-bold text-white">
-                      NT$ {formatPrice(currentStageData.prices.dualLine.stagePrice)}
-                    </span>
-                  </div>
-                  <p className="text-white/50 text-xs line-through mt-1">
-                    原價 NT$ {formatPrice(currentStageData.prices.dualLine.original)}
-                  </p>
-                  <p className="text-[#D4B483] text-sm mt-2">
-                    省 NT$ {formatPrice(currentStageData.prices.dualLine.savingAmount)}
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Lock-in Note */}
-          <div className="mt-8 text-center">
-            <p className="text-[#33393C]/70 text-sm sm:text-base">現在報名 ＝ 鎖定此價格，即使之後課程漲價也不影響你</p>
-          </div>
-
-          {/* CTA */}
-          <div className="mt-8 text-center">
-            <a
-              href={getCheckoutURLWithTracking()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-[#D4B483] text-[#17464F] px-8 py-4 rounded-full text-lg font-bold hover:bg-[#c9a66f] transition-all duration-300 shadow-lg"
-              onClick={() => {
-                if (typeof window !== "undefined" && (window as any).trackInitiateCheckout) {
-                  ;(window as any).trackInitiateCheckout(0)
-                }
-              }}
-            >
-              以【{currentStageData?.name || "正式售價"}】加入本屆學員
-            </a>
-          </div>
-        </div>
-      </section>
-      {/* SECTION 3.5 PRICING TIMELINE END */}
-
       {/* SECTION 2 COURSE HIGHLIGHTS CONTINUED (Part 2: 六個月路線｜3+3 × 三大亮點) START */}
       <section className="py-16 sm:py-24 bg-[#F5F3ED]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Header */}
           <div className="text-center mb-10 sm:mb-12">
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#17464F] mb-6 text-balance">
               六個月路線｜3+3 月 × 三大亮點，讓改變真的走得完
@@ -1246,9 +938,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Three Highlight Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {/* Card 1: 雙軌資源 */}
             <div className="bg-white/60 rounded-2xl border border-slate-200 p-6 md:p-7 shadow-sm flex flex-col gap-4">
               <h4 className="text-base md:text-lg font-semibold text-[#17464F]">雙軌資源：副業增收 × 遠端上班</h4>
               <div className="text-sm md:text-base leading-relaxed text-slate-700 space-y-4">
@@ -1264,7 +954,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Card 2: 行動導向 */}
             <div className="bg-white/60 rounded-2xl border border-slate-200 p-6 md:p-7 shadow-sm flex flex-col gap-4">
               <h4 className="text-base md:text-lg font-semibold text-[#17464F]">行動導向：課後任務 × 實作工作坊</h4>
               <div className="text-sm md:text-base leading-relaxed text-slate-700 space-y-4">
@@ -1282,7 +971,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Card 3: 社群支持 */}
             <div className="bg-white/60 rounded-2xl border border-slate-200 p-6 md:p-7 shadow-sm flex flex-col gap-4">
               <h4 className="text-base md:text-lg font-semibold text-[#17464F]">社群支持：Skool × 同學會 × 校友連結</h4>
               <div className="text-sm md:text-base leading-relaxed text-slate-700 space-y-4">
@@ -1303,19 +991,16 @@ export default function HomePage() {
       </section>
       {/* SECTION 2 COURSE HIGHLIGHTS CONTINUED (Part 2) END */}
 
-      {/* SECTION 2.1 ECOSYSTEM PARTNERSHIP START */}
+      {/* SECTION 2.1 ECOSYSTEM PARTNERSHIP START - 生態系 */}
       <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* 遊牧資源生態系 */}
           <div className="text-center mb-6">
             <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-4">遊牧資源生態系</h2>
             <p className="text-lg text-[#33393C]">線上教育 | 線下社群 | 國際鏈結</p>
           </div>
 
           <div className="p-4 sm:p-6">
-            {/* Partners Grid */}
             <div className="grid grid-cols-3 gap-2 lg:flex lg:flex-row lg:items-center lg:justify-center lg:gap-12 mb-8">
-              {/* Partner 1 - Taiwan Digital Nomad */}
               <div className="text-center">
                 <a
                   href="https://www.instagram.com/digitalnomadstaiwan/"
@@ -1338,7 +1023,6 @@ export default function HomePage() {
 
               <div className="hidden lg:flex text-[#D4B483] text-7xl items-center justify-center h-32">×</div>
 
-              {/* Partner 2 - 成長營 */}
               <div className="text-center">
                 <a
                   href="https://www.instagram.com/elsacampus/"
@@ -1361,7 +1045,6 @@ export default function HomePage() {
 
               <div className="hidden lg:flex text-[#D4B483] text-7xl items-center justify-center h-32">×</div>
 
-              {/* Partner 3 - 生鮮時書 */}
               <div className="text-center">
                 <a
                   href="https://newsveg.tw/"
@@ -1391,12 +1074,10 @@ export default function HomePage() {
       </section>
       {/* SECTION 2.1 ECOSYSTEM PARTNERSHIP END */}
 
-      {/* SECTION 4 INSTRUCTORS START */}
+      {/* SECTION 4 INSTRUCTORS START - 師資 */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Title */}
           <div className="text-center mb-12">
-            {/* Three dots decoration */}
             <div className="flex justify-center gap-2 mb-6">
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
               <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
@@ -1536,15 +1217,13 @@ export default function HomePage() {
       </section>
       {/* SECTION 4 INSTRUCTORS END */}
 
-      {/* SECTION 5 COURSE OUTLINE START */}
+      {/* SECTION 5 COURSE OUTLINE START - 課程地圖 */}
       <section id="course-map" className="py-16 sm:py-24 bg-[#F5F3ED]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Title */}
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-4 text-balance">
               課程地圖｜3+3 個月，先打底，再累積
             </h2>
-            {/* Three dots decoration */}
             <div className="flex items-center justify-center gap-2 mt-6 mb-8">
               <span className="w-2 h-2 rounded-full bg-[#D4B483]" />
               <span className="w-2 h-2 rounded-full bg-[#17464F]" />
@@ -1556,15 +1235,12 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* 前 3 個月區塊標題 */}
           <div className="mb-8">
             <h3 className="text-xl sm:text-2xl font-bold text-[#17464F] mb-2">前 3 個月｜行動共學期</h3>
             <p className="text-[#33393C]/80">選線路、修共同必修、搭配選修課程</p>
           </div>
 
-          {/* Three Column Course Map Grid - 前 3 個月 */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12">
-            {/* Card 1: 線路課程 */}
             <div className="bg-white rounded-2xl p-6 sm:p-7 shadow-sm border border-slate-200">
               <div className="w-12 h-12 bg-[#17464F] rounded-xl flex items-center justify-center mb-5">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1579,7 +1255,6 @@ export default function HomePage() {
               <h3 className="text-xl font-semibold text-[#17464F] mb-3">線路課程</h3>
               <p className="text-sm text-[#A06E56] font-medium mb-4">自媒體接案線路 × 遠端上班線路</p>
               <div className="text-[#33393C] text-sm md:text-base leading-relaxed space-y-5">
-                {/* 自媒體接案線路 */}
                 <div className="border-l-2 border-[#D4B483] pl-4">
                   <p className="font-semibold text-[#17464F] mb-2">A 線｜自媒體接案</p>
                   <p className="text-[#33393C]/80 mb-2">想透過內容、短影音、個人品牌，累積讀者與客戶</p>
@@ -1590,7 +1265,6 @@ export default function HomePage() {
                     <li>• 短影音實作</li>
                   </ul>
                 </div>
-                {/* 遠端上班線路 */}
                 <div className="border-l-2 border-[#17464F] pl-4">
                   <p className="font-semibold text-[#17464F] mb-2">B 線｜遠端上班</p>
                   <p className="text-[#33393C]/80 mb-2">想往遠端團隊、外商或更彈性職涯前進</p>
@@ -1604,7 +1278,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Card 2: 共同必修 */}
             <div className="bg-white rounded-2xl p-6 sm:p-7 shadow-sm border border-slate-200">
               <div className="w-12 h-12 bg-[#D4B483] rounded-xl flex items-center justify-center mb-5">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1619,7 +1292,6 @@ export default function HomePage() {
               <h3 className="text-xl font-semibold text-[#17464F] mb-3">共同必修</h3>
               <p className="text-sm text-[#A06E56] font-medium mb-4">Direction × General 通識</p>
               <div className="text-[#33393C] text-sm md:text-base leading-relaxed space-y-5">
-                {/* Direction 模組 */}
                 <div className="border-l-2 border-[#D4B483] pl-4">
                   <p className="font-semibold text-[#17464F] mb-2">Direction｜方向定位</p>
                   <p className="text-[#33393C]/80 mb-2">幫你找到核心價值，定位自己的方向</p>
@@ -1629,7 +1301,6 @@ export default function HomePage() {
                     <li>• 知識變現起步</li>
                   </ul>
                 </div>
-                {/* General 模組 */}
                 <div className="border-l-2 border-[#17464F] pl-4">
                   <p className="font-semibold text-[#17464F] mb-2">General｜通識技能</p>
                   <p className="text-[#33393C]/80 mb-2">遠距人生必備的基礎能力</p>
@@ -1642,7 +1313,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Card 3: 選修課程 */}
             <div className="bg-white rounded-2xl p-6 sm:p-7 shadow-sm border border-slate-200">
               <div className="w-12 h-12 bg-[#C9D7D4] rounded-xl flex items-center justify-center mb-5">
                 <svg className="w-6 h-6 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1685,13 +1355,11 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* 後 3 個月橫幅卡片 */}
           <div className="bg-gradient-to-r from-[#17464F] to-[#1a5259] rounded-2xl p-6 md:p-8 shadow-lg">
             <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
               後 3 個月｜延伸累積期：復盤、加強、銜接機會
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-              {/* Bullet 1 */}
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                 <div className="flex items-start gap-3">
                   <div className="w-8 h-8 bg-[#D4B483] rounded-full flex items-center justify-center flex-shrink-0">
@@ -1710,7 +1378,6 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              {/* Bullet 2 */}
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                 <div className="flex items-start gap-3">
                   <div className="w-8 h-8 bg-[#D4B483] rounded-full flex items-center justify-center flex-shrink-0">
@@ -1731,7 +1398,6 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              {/* Bullet 3 */}
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                 <div className="flex items-start gap-3">
                   <div className="w-8 h-8 bg-[#D4B483] rounded-full flex items-center justify-center flex-shrink-0">
@@ -1757,7 +1423,6 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Expand Button for Full Schedule */}
           <div className="text-center mt-10">
             <button
               onClick={() => setShowFullSchedule(!showFullSchedule)}
@@ -1775,10 +1440,8 @@ export default function HomePage() {
             </button>
           </div>
 
-          {/* Collapsible Full Schedule */}
           {showFullSchedule && (
             <div className="mt-12 space-y-8 animate-in fade-in slide-in-from-top-4 duration-500">
-              {/* Month 1: 通識課程 + 自媒體接案 */}
               <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
                 <div className="p-6 bg-[#17464F]">
                   <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">第一個月：通識打底 + 自媒體接案啟動</h3>
@@ -1845,7 +1508,6 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Month 2 */}
               <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
                 <div className="p-6 bg-[#17464F]">
                   <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">第二個月：遠端上班線路深挖</h3>
@@ -1906,7 +1568,6 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Month 3 */}
               <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
                 <div className="p-6 bg-[#17464F]">
                   <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">第三個月：系統整合與可持續規劃</h3>
@@ -1992,7 +1653,6 @@ export default function HomePage() {
             </button>
 
             <div className="p-6 pr-12">
-              {/* Modal Header */}
               <div className="flex items-center gap-4 mb-6">
                 <Image
                   src={selectedWeek.instructorData?.image || "/placeholder.svg"}
@@ -2012,13 +1672,11 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Course Title */}
               <div className="mb-6">
                 <h2 className="text-2xl font-bold text-[#17464F] mb-4 text-balance">{selectedWeek.title}</h2>
                 <div className="w-full h-1 rounded-full bg-[#D4B483]"></div>
               </div>
 
-              {/* 課程目標 */}
               <div className="mb-6">
                 <h4 className="text-lg font-semibold text-[#17464F] mb-3">課程目標</h4>
                 <div className="bg-[#F5F3ED] p-4 rounded-xl">
@@ -2063,7 +1721,6 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* 講師更多資訊 */}
               <div className="mb-6">
                 <h4 className="text-lg font-semibold text-[#17464F] mb-3">講師更多資訊</h4>
                 <a
@@ -2084,9 +1741,7 @@ export default function HomePage() {
       {/* SECTION 6 PODCAST LEADERS START */}
       <section className="py-16 sm:py-24 bg-[#F5F3ED]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Header */}
           <div className="text-center mb-12">
-            {/* Three dots decoration */}
             <div className="flex justify-center gap-2 mb-6">
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
               <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
@@ -2107,9 +1762,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Guest Cards - 3 columns on desktop */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            {/* Card 1 - Osera Ryo */}
             <div className="bg-white rounded-2xl shadow-md p-6 border border-[#C9D7D4] hover:shadow-lg transition-shadow">
               <div className="flex flex-col items-center text-center">
                 <div className="w-24 h-24 rounded-full overflow-hidden ring-4 ring-[#D4B483]/30 mb-4">
@@ -2128,7 +1781,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Card 2 - Johannes Völkner */}
             <div className="bg-white rounded-2xl shadow-md p-6 border border-[#C9D7D4] hover:shadow-lg transition-shadow">
               <div className="flex flex-col items-center text-center">
                 <div className="w-24 h-24 rounded-full overflow-hidden ring-4 ring-[#D4B483]/30 mb-4">
@@ -2151,7 +1803,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Card 3 - Harry Wang / Nomad Leaders Podcast */}
             <div className="bg-white rounded-2xl shadow-md p-6 border border-[#C9D7D4] hover:shadow-lg transition-shadow">
               <div className="flex flex-col items-center text-center">
                 <div className="w-24 h-24 rounded-full overflow-hidden ring-4 ring-[#D4B483]/30 mb-4">
@@ -2171,7 +1822,6 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Podcast CTA */}
           <div className="bg-white rounded-2xl shadow-md p-8 border border-[#C9D7D4] mb-12">
             <div className="flex flex-col md:flex-row items-center gap-6">
               <div className="flex-shrink-0">
@@ -2205,7 +1855,6 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Section Footer */}
           <div className="text-center">
             <p className="text-lg text-[#33393C] leading-relaxed max-w-2xl mx-auto">
               你不只是在上「一門課」，
@@ -2220,9 +1869,7 @@ export default function HomePage() {
       {/* SECTION 7 LEARNING RESOURCES START */}
       <section className="py-16 sm:py-24 bg-[#F5F3ED]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Title */}
           <div className="text-center mb-12">
-            {/* Three dots decoration */}
             <div className="flex items-center justify-center gap-2 mb-6">
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
               <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
@@ -2238,9 +1885,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Resource Cards - 2x2 grid on desktop, single column on mobile */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Card 1: 主課程 & 課後任務 */}
             <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
               <div className="p-6 sm:p-8">
                 <div className="flex items-center gap-4 mb-4">
@@ -2260,7 +1905,6 @@ export default function HomePage() {
                 <p className="text-[#33393C]/80 leading-relaxed mb-6">
                   通識課程＋雙線路主課程，是你六個月的主軸。每一堂課後都有設計好的必修作業與進階挑戰，讓你不會只停在「聽懂」，而是每週都完成一個小行動。
                 </p>
-                {/* Photo gallery */}
                 <div className="hidden sm:grid sm:grid-cols-3 gap-3">
                   {stagePhotos[0].slice(0, 3).map((photo, index) => (
                     <div
@@ -2300,7 +1944,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Card 2: 實作工作坊 & 選修課程 */}
             <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
               <div className="p-6 sm:p-8">
                 <div className="flex items-center gap-4 mb-4">
@@ -2321,7 +1964,6 @@ export default function HomePage() {
                   依照你的目標與卡關點，你可以選修不同主題的實作工作坊：影音剪輯、AI、自動化、工作英文、網站 / Vibe
                   Coding⋯這些課都是「邊看邊做」，幫你把主課程裡學到的東西，變成看得見、用得出的成果。
                 </p>
-                {/* Photo gallery */}
                 <div className="hidden sm:grid sm:grid-cols-3 gap-3">
                   {stagePhotos[3].slice(0, 3).map((photo, index) => (
                     <div
@@ -2361,7 +2003,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Card 3: 共學社群 & 校友 network */}
             <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
               <div className="p-6 sm:p-8">
                 <div className="flex items-center gap-4 mb-4">
@@ -2382,7 +2023,6 @@ export default function HomePage() {
                   Skool
                   共學空間、線上同學會、專屬群組，讓你可以在六個月裡隨時提問、分享、找人討論。結業後，還有校友與城市群組，持續交換機會與經驗。
                 </p>
-                {/* Photo gallery */}
                 <div className="hidden sm:grid sm:grid-cols-3 gap-3">
                   {stagePhotos[1].slice(0, 3).map((photo, index) => (
                     <div
@@ -2422,7 +2062,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Card 4: 旅居 & 機會生態 */}
             <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
               <div className="p-6 sm:p-8">
                 <div className="flex items-center gap-4 mb-4">
@@ -2443,7 +2082,6 @@ export default function HomePage() {
                   學院背後連結的是完整的 Nomad 生態系：國內外 Nomad Journey 旅居活動、生態系內部機會、未來 Job
                   Board⋯當你準備好，這裡有下一步可以嘗試的舞台。
                 </p>
-                {/* Photo gallery */}
                 <div className="hidden sm:grid sm:grid-cols-3 gap-3">
                   {stagePhotos[2].slice(0, 3).map((photo, index) => (
                     <div
@@ -2487,12 +2125,10 @@ export default function HomePage() {
       </section>
       {/* SECTION 7 LEARNING RESOURCES END */}
 
-      {/* SECTION 8 PRICING START */}
-      <section className="py-16 sm:py-24 bg-[#F5F3ED]">
+      {/* SECTION 8 PRICING & TIMELINE START */}
+      <section id="pricing" className="py-16 sm:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Title */}
           <div className="text-center mb-12">
-            {/* Three dots decoration */}
             <div className="flex justify-center gap-2 mb-6">
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
               <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
@@ -2517,9 +2153,7 @@ export default function HomePage() {
             )}
           </div>
 
-          {/* Three Pricing Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
-            {/* Plan 1: 自媒體接案線路 */}
             <div
               className={`bg-white rounded-2xl border shadow-sm overflow-hidden flex flex-col transition-all duration-300 ${
                 selectedPlanId === "selfMedia"
@@ -2571,7 +2205,6 @@ export default function HomePage() {
                       </div>
                     </>
                   )}
-                  {/* Desktop: Direct checkout / Mobile: Set selectedPlanId */}
                   <div className="hidden md:block">
                     <a href={getCheckoutURLWithTracking("selfMedia")} target="_blank" rel="noopener noreferrer">
                       <Button className="w-full bg-[#17464F] hover:bg-[#0f3339] text-white py-3 rounded-full font-medium">
@@ -2595,7 +2228,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Plan 2: 雙線並進方案 (Featured) */}
             <div
               className={`bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col relative transition-all duration-300 ${
                 selectedPlanId === "dualLine"
@@ -2654,7 +2286,6 @@ export default function HomePage() {
                       </div>
                     </>
                   )}
-                  {/* Desktop: Direct checkout / Mobile: Set selectedPlanId */}
                   <div className="hidden md:block">
                     <a href={getCheckoutURLWithTracking("dualLine")} target="_blank" rel="noopener noreferrer">
                       <Button className="w-full bg-[#D4B483] hover:bg-[#c9a673] text-[#17464F] py-3 rounded-full font-bold">
@@ -2678,7 +2309,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Plan 3: 遠端上班線路 */}
             <div
               className={`bg-white rounded-2xl border shadow-sm overflow-hidden flex flex-col transition-all duration-300 ${
                 selectedPlanId === "remoteJob"
@@ -2730,7 +2360,6 @@ export default function HomePage() {
                       </div>
                     </>
                   )}
-                  {/* Desktop: Direct checkout / Mobile: Set selectedPlanId */}
                   <div className="hidden md:block">
                     <a href={getCheckoutURLWithTracking("remoteJob")} target="_blank" rel="noopener noreferrer">
                       <Button className="w-full bg-[#17464F] hover:bg-[#0f3339] text-white py-3 rounded-full font-medium">
@@ -2755,8 +2384,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Shared Benefits */}
-          <div className="bg-white/60 rounded-2xl border border-slate-200 p-6 md:p-8 text-center">
+          <div className="bg-white/60 rounded-2xl border border-slate-200 p-6 md:p-8 text-center mb-12">
             <h4 className="text-lg font-bold text-[#17464F] mb-4">所有方案皆包含</h4>
             <div className="flex flex-wrap justify-center gap-3 text-sm text-[#33393C]">
               <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">六個月 3+3 成長節奏</span>
@@ -2768,8 +2396,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Scholarship Note */}
-          <div className="mt-8 bg-gradient-to-r from-[#17464F] to-[#1a5561] rounded-2xl p-6 text-center text-white shadow-lg">
+          <div className="bg-gradient-to-r from-[#17464F] to-[#1a5561] rounded-2xl p-6 text-center text-white shadow-lg">
             <div className="text-lg font-bold mb-2">績優學員專屬獎勵</div>
             <div className="text-sm opacity-90">
               課程期間成長表現優異的學員，將有機會獲得<span className="font-semibold">學費的部分或全額</span>
@@ -2779,13 +2406,12 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* SECTION 8 PRICING END */}
+      {/* SECTION 8 PRICING & TIMELINE END */}
 
-      {/* SECTION 9 LIMITED OFFER START */}
+      {/* SECTION 9 LIMITED OFFER + SECTION 10 FAQ COMBINED START */}
       <section className="py-16 sm:py-20 bg-gradient-to-br from-[#17464F] to-[#1a5561]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-white/95 backdrop-blur rounded-2xl p-8 sm:p-12 shadow-xl border border-[#C9D7D4]">
-            {/* Three dots decoration */}
             <div className="flex justify-center gap-2 mb-6">
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
               <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
@@ -2800,7 +2426,6 @@ export default function HomePage() {
               每一梯次的名額與優惠都會做控管，以下是這一梯的安排：
             </p>
 
-            {/* Bullet points */}
             <div className="bg-[#F5F3ED] rounded-xl p-6 mb-8 text-left max-w-xl mx-auto">
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
@@ -2827,7 +2452,6 @@ export default function HomePage() {
               </ul>
             </div>
 
-            {/* CTA */}
             <a
               href={getCheckoutURLWithTracking()}
               target="_blank"
@@ -2842,7 +2466,6 @@ export default function HomePage() {
               我要加入本梯
             </a>
 
-            {/* Soft closing note */}
             <p className="mt-8 text-sm text-[#33393C]/80 leading-relaxed max-w-lg mx-auto">
               如果你還在觀望，也可以先把問題整理下來，
               <br className="hidden sm:block" />
@@ -2860,14 +2483,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* SECTION 9 LIMITED OFFER END */}
 
-      {/* SECTION 10 FAQ START */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Title */}
           <div className="text-center mb-12">
-            {/* Three dots decoration */}
             <div className="flex items-center justify-center gap-2 mb-6">
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
               <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
@@ -2881,16 +2500,13 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* FAQ Groups */}
           <div className="space-y-8">
-            {/* Group 1: 適合對象 */}
             <div>
               <h3 className="text-sm font-semibold text-[#D4B483] uppercase tracking-wider mb-4 flex items-center gap-2">
                 <span className="w-8 h-px bg-[#D4B483]"></span>
                 適合對象
               </h3>
               <div className="space-y-3">
-                {/* Q1 */}
                 <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
                   <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
                     <span className="font-medium text-[#17464F] text-left pr-4">
@@ -2906,7 +2522,6 @@ export default function HomePage() {
                   </div>
                 </details>
 
-                {/* Q2 */}
                 <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
                   <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
                     <span className="font-medium text-[#17464F] text-left pr-4">英文不好、程式不會，可以嗎？</span>
@@ -2922,14 +2537,12 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Group 2: 時間與節奏 */}
             <div>
               <h3 className="text-sm font-semibold text-[#D4B483] uppercase tracking-wider mb-4 flex items-center gap-2">
                 <span className="w-8 h-px bg-[#D4B483]"></span>
                 時間與節奏
               </h3>
               <div className="space-y-3">
-                {/* Q3 */}
                 <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
                   <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
                     <span className="font-medium text-[#17464F] text-left pr-4">
@@ -2951,7 +2564,6 @@ export default function HomePage() {
                   </div>
                 </details>
 
-                {/* Q4 */}
                 <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
                   <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
                     <span className="font-medium text-[#17464F] text-left pr-4">
@@ -2967,7 +2579,6 @@ export default function HomePage() {
                   </div>
                 </details>
 
-                {/* Q5 */}
                 <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
                   <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
                     <span className="font-medium text-[#17464F] text-left pr-4">
@@ -2984,14 +2595,12 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Group 3: 內容與線路 */}
             <div>
               <h3 className="text-sm font-semibold text-[#D4B483] uppercase tracking-wider mb-4 flex items-center gap-2">
                 <span className="w-8 h-px bg-[#D4B483]"></span>
                 內容與線路
               </h3>
               <div className="space-y-3">
-                {/* Q6 */}
                 <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
                   <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
                     <span className="font-medium text-[#17464F] text-left pr-4">
@@ -3016,7 +2625,6 @@ export default function HomePage() {
                   </div>
                 </details>
 
-                {/* Q7 */}
                 <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
                   <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
                     <span className="font-medium text-[#17464F] text-left pr-4">可以中途換線、改成雙線並進嗎？</span>
@@ -3032,14 +2640,12 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Group 4: 其他 */}
             <div>
               <h3 className="text-sm font-semibold text-[#D4B483] uppercase tracking-wider mb-4 flex items-center gap-2">
                 <span className="w-8 h-px bg-[#D4B483]"></span>
                 其他
               </h3>
               <div className="space-y-3">
-                {/* Q8 */}
                 <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
                   <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
                     <span className="font-medium text-[#17464F] text-left pr-4">
@@ -3057,7 +2663,6 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Closing note */}
           <div className="mt-12 text-center">
             <p className="text-[#33393C]/70 text-sm leading-relaxed">
               還有其他問題？歡迎到{" "}
@@ -3074,7 +2679,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* SECTION 10 FAQ END */}
+      {/* SECTION 9 LIMITED OFFER + SECTION 10 FAQ COMBINED END */}
 
       {/* FOOTER START */}
       <footer className="py-8 bg-[#17464F] text-white text-center">
@@ -3102,7 +2707,6 @@ export default function HomePage() {
           onClick={() => setIsGalleryOpen(false)}
         >
           <div className="relative max-w-4xl w-full max-h-[90vh] flex items-center justify-center">
-            {/* Close Button */}
             <button
               onClick={() => setIsGalleryOpen(false)}
               className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-xl flex items-center justify-center text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-all duration-200 z-10 text-xl font-bold"
@@ -3110,7 +2714,6 @@ export default function HomePage() {
               ✕
             </button>
 
-            {/* Previous Button */}
             {stagePhotos[currentStage].length > 1 && (
               <button
                 onClick={(e) => {
@@ -3130,7 +2733,6 @@ export default function HomePage() {
               </button>
             )}
 
-            {/* Next Button */}
             {stagePhotos[currentStage].length > 1 && (
               <button
                 onClick={(e) => {
@@ -3150,7 +2752,6 @@ export default function HomePage() {
               </button>
             )}
 
-            {/* Image Container */}
             <div
               className="relative w-full h-full flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
@@ -3164,7 +2765,6 @@ export default function HomePage() {
                   className="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl"
                 />
 
-                {/* Caption */}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent text-white p-6 rounded-b-lg">
                   <p className="text-center text-sm sm:text-base font-medium leading-relaxed">
                     {stagePhotos[currentStage][currentPhotoIndex]?.alt}
@@ -3173,7 +2773,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Photo Counter */}
             {stagePhotos[currentStage].length > 1 && (
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-80 text-white px-6 py-3 rounded-full text-sm font-medium shadow-lg">
                 <span className="text-orange-400">{currentPhotoIndex + 1}</span>
@@ -3182,7 +2781,6 @@ export default function HomePage() {
               </div>
             )}
 
-            {/* Keyboard navigation hint */}
             <div className="absolute top-4 left-4 bg-black bg-opacity-60 text-white px-3 py-2 rounded-lg text-xs opacity-70">
               使用 ← → 鍵或點擊按鈕切換圖片
             </div>
@@ -3194,7 +2792,6 @@ export default function HomePage() {
         <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white border-t border-[#C9D7D4] shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
           {!selectedPlanId ? (
             <div className="px-4 py-3">
-              {/* Top row: Stage + Discount + Countdown */}
               <div className="flex items-center justify-center gap-2 text-xs text-[#33393C] mb-2">
                 <span className="text-[#D4B483] font-bold">{currentStageData.name}</span>
                 <span>·</span>
@@ -3208,7 +2805,6 @@ export default function HomePage() {
                   </span>
                 </span>
               </div>
-              {/* Bottom row: Lowest price + CTA */}
               <div className="flex items-center justify-between gap-3">
                 <div className="flex-1 min-w-0">
                   <span className="text-sm text-[#33393C]">
@@ -3228,9 +2824,7 @@ export default function HomePage() {
               </div>
             </div>
           ) : (
-            /* State B: Plan selected - show selected plan info + checkout CTA */
             <div className="px-4 py-3">
-              {/* Top row: Stage info */}
               <div className="flex items-center justify-center gap-2 text-xs text-[#33393C] mb-2">
                 <span className="text-[#D4B483] font-bold">{currentStageData.name}</span>
                 <span>·</span>
@@ -3244,7 +2838,6 @@ export default function HomePage() {
                   </span>
                 </span>
               </div>
-              {/* Bottom row: Selected plan info + Checkout CTA */}
               <div className="flex items-center justify-between gap-3">
                 <div className="flex-1 min-w-0">
                   <div className="text-xs text-[#33393C]">已選擇：{planConfig[selectedPlanId].name}</div>
@@ -3276,7 +2869,6 @@ export default function HomePage() {
           )}
         </div>
       )}
-      {/* Add bottom padding to account for sticky bar on mobile */}
       <div className="h-24 md:hidden"></div>
     </main>
   )
