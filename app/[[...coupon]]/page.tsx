@@ -1,23 +1,148 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { useParams } from "next/navigation"
 
-const getCheckoutURL = (couponCode?: string) => {
-  const baseURL = "https://travelworkacademy.myteachify.com/checkout?planId=be56b4ae-6f31-43be-8bfb-68fda4294a9a"
+type PlanId = "selfMedia" | "remoteJob" | "dualLine"
+
+interface StagePricing {
+  original: number
+  stagePrice: number
+  savingAmount: number
+}
+
+interface Stage {
+  id: string
+  order: number
+  name: string
+  tagLine: string
+  discountLabel: string
+  discountRate: number
+  startAt: Date
+  endAt: Date
+  prices: {
+    [key in PlanId]: StagePricing
+  }
+}
+
+const stages: Stage[] = [
+  {
+    id: "stage_1",
+    order: 1,
+    name: "夢想試飛價",
+    tagLine: "願意先試飛、還在觀望的人專屬票價",
+    discountLabel: "58 折",
+    discountRate: 0.58,
+    startAt: new Date("2025-07-01T00:00:00"),
+    endAt: new Date("2025-08-15T23:59:59"),
+    prices: {
+      selfMedia: { original: 13500, stagePrice: 7830, savingAmount: 5670 },
+      remoteJob: { original: 13500, stagePrice: 7830, savingAmount: 5670 },
+      dualLine: { original: 19800, stagePrice: 11484, savingAmount: 8316 },
+    },
+  },
+  {
+    id: "stage_2",
+    order: 2,
+    name: "早鳥一階",
+    tagLine: "確定要加入的早鳥學員專屬價",
+    discountLabel: "65 折",
+    discountRate: 0.65,
+    startAt: new Date("2025-08-16T00:00:00"),
+    endAt: new Date("2025-08-29T23:59:59"),
+    prices: {
+      selfMedia: { original: 13500, stagePrice: 8775, savingAmount: 4725 },
+      remoteJob: { original: 13500, stagePrice: 8775, savingAmount: 4725 },
+      dualLine: { original: 19800, stagePrice: 12870, savingAmount: 6930 },
+    },
+  },
+  {
+    id: "stage_3",
+    order: 3,
+    name: "早鳥二階",
+    tagLine: "第二波早鳥優惠",
+    discountLabel: "72 折",
+    discountRate: 0.72,
+    startAt: new Date("2025-08-30T00:00:00"),
+    endAt: new Date("2025-09-05T23:59:59"),
+    prices: {
+      selfMedia: { original: 13500, stagePrice: 9720, savingAmount: 3780 },
+      remoteJob: { original: 13500, stagePrice: 9720, savingAmount: 3780 },
+      dualLine: { original: 19800, stagePrice: 14256, savingAmount: 5544 },
+    },
+  },
+  {
+    id: "stage_4",
+    order: 4,
+    name: "早鳥三階",
+    tagLine: "最後早鳥優惠",
+    discountLabel: "80 折",
+    discountRate: 0.8,
+    startAt: new Date("2025-09-06T00:00:00"),
+    endAt: new Date("2025-09-12T23:59:59"),
+    prices: {
+      selfMedia: { original: 13500, stagePrice: 10800, savingAmount: 2700 },
+      remoteJob: { original: 13500, stagePrice: 10800, savingAmount: 2700 },
+      dualLine: { original: 19800, stagePrice: 15840, savingAmount: 3960 },
+    },
+  },
+  {
+    id: "stage_5",
+    order: 5,
+    name: "預購價",
+    tagLine: "開課前最後預購優惠",
+    discountLabel: "88 折",
+    discountRate: 0.88,
+    startAt: new Date("2025-09-13T00:00:00"),
+    endAt: new Date("2025-09-26T23:59:59"),
+    prices: {
+      selfMedia: { original: 13500, stagePrice: 11880, savingAmount: 1620 },
+      remoteJob: { original: 13500, stagePrice: 11880, savingAmount: 1620 },
+      dualLine: { original: 19800, stagePrice: 17424, savingAmount: 2376 },
+    },
+  },
+  {
+    id: "stage_final",
+    order: 6,
+    name: "正式售價",
+    tagLine: "正式售價",
+    discountLabel: "原價",
+    discountRate: 1,
+    startAt: new Date("2025-09-27T00:00:00"),
+    endAt: new Date("2099-12-31T23:59:59"),
+    prices: {
+      selfMedia: { original: 13500, stagePrice: 13500, savingAmount: 0 },
+      remoteJob: { original: 13500, stagePrice: 13500, savingAmount: 0 },
+      dualLine: { original: 19800, stagePrice: 19800, savingAmount: 0 },
+    },
+  },
+]
+
+const planConfig: Record<PlanId, { name: string; checkoutPath: string }> = {
+  selfMedia: { name: "自媒體線路方案", checkoutPath: "planId=selfmedia" },
+  remoteJob: { name: "遠端上班線路方案", checkoutPath: "planId=remotejob" },
+  dualLine: { name: "雙線整合方案", checkoutPath: "planId=be56b4ae-6f31-43be-8bfb-68fda4294a9a" },
+}
+
+const popularPlanId: PlanId = "dualLine"
+
+const formatPrice = (price: number): string => {
+  return price.toLocaleString("zh-TW")
+}
+
+const getCheckoutURL = (planId: PlanId, couponCode?: string) => {
+  const baseURL = `https://travelworkacademy.myteachify.com/checkout?${planConfig[planId].checkoutPath}`
   return couponCode ? `${baseURL}&coupon=${encodeURIComponent(couponCode)}` : baseURL
 }
 
 const getTrackingParams = () => {
   if (typeof window === "undefined") return ""
 
-  // 讀取 URL 中的 fbclid
   const urlParams = new URLSearchParams(window.location.search)
   const fbclid = urlParams.get("fbclid")
 
-  // 讀取 cookie 中的 fbc 和 fbp
   const getCookie = (name: string) => {
     const value = `; ${document.cookie}`
     const parts = value.split(`; ${name}=`)
@@ -28,7 +153,6 @@ const getTrackingParams = () => {
   const fbc = getCookie("_fbc")
   const fbp = getCookie("_fbp")
 
-  // 組合參數
   const params = new URLSearchParams()
   if (fbclid) params.append("fbclid", fbclid)
   if (fbc) params.append("fbc", fbc)
@@ -40,6 +164,14 @@ const getTrackingParams = () => {
 export default function HomePage() {
   const params = useParams()
   const [couponCode, setCouponCode] = useState<string | null>(null)
+
+  const [selectedPlanId, setSelectedPlanId] = useState<PlanId | null>(null)
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  })
 
   const [selectedWeek, setSelectedWeek] = useState<{
     week: number
@@ -57,11 +189,61 @@ export default function HomePage() {
     }
   }, [params])
 
-  const checkoutURL = getCheckoutURL(couponCode || undefined)
+  const currentStageData = useMemo((): Stage | null => {
+    const now = new Date()
+    for (const stage of stages) {
+      if (now >= stage.startAt && now <= stage.endAt) {
+        return stage
+      }
+    }
+    // If past all stages, return final stage
+    return stages[stages.length - 1]
+  }, [])
+
+  const lowestPrice = useMemo((): number | null => {
+    if (!currentStageData) return null
+    const prices = Object.values(currentStageData.prices).map((p) => p.stagePrice)
+    return Math.min(...prices)
+  }, [currentStageData])
+
+  useEffect(() => {
+    if (!currentStageData || !currentStageData.endAt) return
+
+    const targetDate = currentStageData.endAt.getTime()
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime()
+      const difference = targetDate - now
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000),
+        })
+      } else {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 })
+      }
+    }, 1000)
+
+    return () => clearInterval(timer)
+  }, [currentStageData])
+
+  const getCheckoutURLWithTracking = (planId: PlanId = "dualLine") => {
+    const baseURL = getCheckoutURL(planId, couponCode || undefined)
+    const trackingParams = getTrackingParams()
+    return `${baseURL}${trackingParams}`
+  }
+
+  const scrollToPricing = () => {
+    document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" })
+  }
+
   const [isGalleryOpen, setIsGalleryOpen] = useState(false)
   const [currentStage, setCurrentStage] = useState(0)
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
-  const [showFullSchedule, setShowFullSchedule] = useState(false) // State to control schedule visibility
+  const [showFullSchedule, setShowFullSchedule] = useState(false)
 
   const stagePhotos = [
     [
@@ -146,36 +328,6 @@ export default function HomePage() {
   const prevPhoto = () => {
     setCurrentPhotoIndex((prev) => (prev === 0 ? stagePhotos[currentStage].length - 1 : prev - 1))
   }
-
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  })
-
-  useEffect(() => {
-    // Set target date to August 15, 2025 (超早鳥價結束)
-    const targetDate = new Date("2025-08-15T23:59:59").getTime()
-
-    const timer = setInterval(() => {
-      const now = new Date().getTime()
-      const difference = targetDate - now
-
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((difference % (1000 * 60)) / 1000),
-        })
-      } else {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 })
-      }
-    }, 1000)
-
-    return () => clearInterval(timer)
-  }, [])
 
   const instructors = [
     {
@@ -282,12 +434,6 @@ export default function HomePage() {
     { stage: "正式售價", deadline: "10/1起", price: "$400", discount: "--", savings: "--" },
   ]
 
-  const getCheckoutURLWithTracking = () => {
-    const baseURL = checkoutURL
-    const trackingParams = getTrackingParams()
-    return `${baseURL}${trackingParams}`
-  }
-
   const getCurrentPricingTier = () => {
     const now = new Date()
     // Target dates for each tier (August 15th for super early bird)
@@ -310,34 +456,52 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen bg-white">
-      <div className="sticky top-0 z-50 bg-[#17464F] text-white py-3 px-4 hidden md:block">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4">
-          <div className="flex items-center gap-2 text-sm sm:text-base text-center sm:text-left">
-            <span>現在是</span>
-            <span className="text-[#D4B483] font-bold">🔥 {currentTier.stage}</span>
-            <span className="font-bold">{currentTier.price}</span>
-            <span className="text-white/70 line-through text-sm">（原價 {currentTier.originalPrice}）</span>
-            {currentTier.deadline && (
-              <span className="hidden sm:inline text-white/80">
-                ，剩下 {String(timeLeft.days).padStart(2, "0")} 天 {String(timeLeft.hours).padStart(2, "0")} 小時調漲
+      {/* ANNOUNCEMENT BAR - Desktop Only */}
+      {currentStageData && (
+        <div className="sticky top-0 z-50 bg-[#17464F] text-white py-3 px-4 hidden md:block">
+          <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+            {/* Left: Stage + Discount */}
+            <div className="flex items-center gap-2 text-sm">
+              <span>🔥</span>
+              <span>
+                本梯【<span className="text-[#D4B483] font-bold">{currentStageData.name}</span>】進行中
               </span>
-            )}
+              <span className="mx-1">·</span>
+              <span>
+                全方案 <span className="text-[#D4B483] font-bold">{currentStageData.discountLabel}</span>
+              </span>
+            </div>
+
+            {/* Center: Countdown + Lowest Price */}
+            <div className="flex items-center gap-4 text-sm">
+              {timeLeft.days > 0 || timeLeft.hours > 0 || timeLeft.minutes > 0 ? (
+                <span>
+                  距離下一階段價格調整還有：
+                  <span className="font-bold text-[#D4B483] ml-1">
+                    {String(timeLeft.days).padStart(2, "0")} 天 {String(timeLeft.hours).padStart(2, "0")} 小時{" "}
+                    {String(timeLeft.minutes).padStart(2, "0")} 分
+                  </span>
+                </span>
+              ) : (
+                <span className="text-white/80">本階段已結束，價格即將切換至下一階段</span>
+              )}
+              <span className="mx-1">|</span>
+              <span>
+                單線方案本階段最低{" "}
+                <span className="font-bold text-[#D4B483]">NT$ {lowestPrice ? formatPrice(lowestPrice) : "--"}</span> 起
+              </span>
+            </div>
+
+            {/* Right: CTA */}
+            <button
+              onClick={scrollToPricing}
+              className="bg-[#D4B483] text-[#17464F] px-4 py-2 rounded-full text-sm font-bold hover:bg-[#c9a673] transition-colors flex-shrink-0"
+            >
+              查看三種方案
+            </button>
           </div>
-          <a
-            href={getCheckoutURLWithTracking()}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => {
-              if (typeof window !== "undefined" && window.trackInitiateCheckout) {
-                window.trackInitiateCheckout(0)
-              }
-            }}
-            className="inline-flex items-center px-4 py-1.5 bg-[#D4B483] hover:bg-[#D4B483]/90 text-[#17464F] font-semibold text-sm rounded-full transition-colors"
-          >
-            立即鎖定{currentTier.stage}
-          </a>
         </div>
-      </div>
+      )}
 
       {/* SECTION 1 HERO START */}
       <section className="relative min-h-screen flex items-center overflow-hidden bg-[#F5F3ED]">
@@ -418,8 +582,8 @@ export default function HomePage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => {
-                      if (typeof window !== "undefined" && window.trackInitiateCheckout) {
-                        window.trackInitiateCheckout(0)
+                      if (typeof window !== "undefined" && (window as any).trackInitiateCheckout) {
+                        ;(window as any).trackInitiateCheckout(0)
                       }
                     }}
                   >
@@ -684,7 +848,7 @@ export default function HomePage() {
       {/* SECTION 3 PAIN POINTS END */}
 
       {/* SECTION 3.5 PRICING TIMELINE START */}
-      <section className="py-16 sm:py-24 bg-white">
+      <section id="pricing" className="py-16 sm:py-24 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-12 sm:mb-16">
@@ -707,21 +871,13 @@ export default function HomePage() {
 
               {/* Timeline Nodes */}
               <div className="grid grid-cols-6 gap-2">
-                {pricingTiers.map((tier, index) => {
+                {stages.map((stage, index) => {
                   const now = new Date()
-                  const tierDates = [
-                    new Date("2025-08-15T23:59:59"),
-                    new Date("2025-08-29T23:59:59"),
-                    new Date("2025-09-05T23:59:59"),
-                    new Date("2025-09-12T23:59:59"),
-                    new Date("2025-09-26T23:59:59"),
-                    new Date("2025-10-01T00:00:00"),
-                  ]
-                  const isPast = now > tierDates[index]
-                  const isCurrent = index === pricingTiers.findIndex((_, i) => now <= tierDates[i])
+                  const isPast = now > stage.endAt
+                  const isCurrent = now >= stage.startAt && now <= stage.endAt
 
                   return (
-                    <div key={index} className="relative flex flex-col items-center">
+                    <div key={stage.id} className="relative flex flex-col items-center">
                       {/* Node */}
                       <div
                         className={`relative z-10 w-16 h-16 rounded-full flex items-center justify-center text-lg font-bold transition-all duration-300 ${
@@ -732,7 +888,9 @@ export default function HomePage() {
                               : "bg-white border-2 border-[#C9D7D4] text-[#17464F]"
                         }`}
                       >
-                        {tier.price}
+                        {stage.prices.dualLine.stagePrice % 1 === 0
+                          ? formatPrice(stage.prices.dualLine.stagePrice)
+                          : stage.prices.dualLine.stagePrice}
                       </div>
 
                       {/* Card */}
@@ -746,12 +904,14 @@ export default function HomePage() {
                         }`}
                       >
                         <p className={`font-semibold text-sm mb-1 ${isCurrent ? "text-[#D4B483]" : ""}`}>
-                          {tier.stage}
+                          {stage.name}
                         </p>
-                        <p className="text-xs mb-2">截止 {tier.deadline}</p>
-                        {tier.savings !== "--" && (
+                        <p className="text-xs mb-2">
+                          截止 {stage.endAt.getMonth() + 1}/{stage.endAt.getDate()}
+                        </p>
+                        {stage.discountLabel !== "原價" && (
                           <p className={`text-xs ${isCurrent ? "text-white/80" : "text-[#33393C]/60"}`}>
-                            {tier.savings}（{tier.discount}）
+                            省 ${formatPrice(stage.prices.dualLine.savingAmount)} （{stage.discountLabel}）
                           </p>
                         )}
                       </div>
@@ -763,22 +923,14 @@ export default function HomePage() {
 
             {/* Mobile: Vertical Timeline */}
             <div className="md:hidden space-y-4">
-              {pricingTiers.map((tier, index) => {
+              {stages.map((stage, index) => {
                 const now = new Date()
-                const tierDates = [
-                  new Date("2025-08-15T23:59:59"),
-                  new Date("2025-08-29T23:59:59"),
-                  new Date("2025-09-05T23:59:59"),
-                  new Date("2025-09-12T23:59:59"),
-                  new Date("2025-09-26T23:59:59"),
-                  new Date("2025-10-01T00:00:00"),
-                ]
-                const isPast = now > tierDates[index]
-                const isCurrent = index === pricingTiers.findIndex((_, i) => now <= tierDates[i])
+                const isPast = now > stage.endAt
+                const isCurrent = now >= stage.startAt && now <= stage.endAt
 
                 return (
                   <div
-                    key={index}
+                    key={stage.id}
                     className={`flex items-center gap-4 p-4 rounded-xl transition-all duration-300 ${
                       isCurrent
                         ? "bg-[#17464F] text-white shadow-lg"
@@ -797,16 +949,20 @@ export default function HomePage() {
                             : "bg-white border-2 border-[#C9D7D4] text-[#17464F]"
                       }`}
                     >
-                      {tier.price}
+                      {stage.prices.dualLine.stagePrice % 1 === 0
+                        ? formatPrice(stage.prices.dualLine.stagePrice)
+                        : stage.prices.dualLine.stagePrice}
                     </div>
 
                     {/* Info */}
                     <div className="flex-1">
-                      <p className={`font-semibold ${isCurrent ? "text-[#D4B483]" : ""}`}>{tier.stage}</p>
-                      <p className="text-sm">截止 {tier.deadline}</p>
-                      {tier.savings !== "--" && (
+                      <p className={`font-semibold ${isCurrent ? "text-[#D4B483]" : ""}`}>{stage.name}</p>
+                      <p className="text-sm">
+                        截止 {stage.endAt.getMonth() + 1}/{stage.endAt.getDate()}
+                      </p>
+                      {stage.discountLabel !== "原價" && (
                         <p className={`text-xs ${isCurrent ? "text-white/70" : "text-[#33393C]/60"}`}>
-                          {tier.savings}（{tier.discount}）
+                          省 ${formatPrice(stage.prices.dualLine.savingAmount)} （{stage.discountLabel}）
                         </p>
                       )}
                     </div>
@@ -832,19 +988,19 @@ export default function HomePage() {
               rel="noopener noreferrer"
               className="inline-block bg-[#17464F] text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-lg"
               onClick={() => {
-                if (typeof window !== "undefined" && window.trackInitiateCheckout) {
-                  window.trackInitiateCheckout(0)
+                if (typeof window !== "undefined" && (window as any).trackInitiateCheckout) {
+                  ;(window as any).trackInitiateCheckout(0)
                 }
               }}
             >
-              以【{currentTier.stage} {currentTier.price}】加入本屆學員
+              以【{currentStageData?.name || "正式售價"} {lowestPrice ? `NT$ ${formatPrice(lowestPrice)}` : "--"}
+              】加入本屆學員
             </a>
           </div>
         </div>
       </section>
       {/* SECTION 3.5 PRICING TIMELINE END */}
 
-      {/* SECTION 2 COURSE HIGHLIGHTS CONTINUED (Part 2: 學院怎麼幫你) START */}
       {/* SECTION 2 COURSE HIGHLIGHTS CONTINUED (Part 2: 六個月路線｜3+3 × 三大亮點) START */}
       <section className="py-16 sm:py-24 bg-[#F5F3ED]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -2045,7 +2201,7 @@ export default function HomePage() {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth={2}
-                        d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                        d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
                   </div>
@@ -2119,12 +2275,27 @@ export default function HomePage() {
               <br className="hidden sm:block" />
               差別只在於：你想先專心走哪一條主線，或是一次打開兩種可能。
             </p>
+            {currentStageData && (
+              <div className="mt-6 inline-flex items-center gap-2 bg-[#17464F] text-white px-4 py-2 rounded-full text-sm">
+                <span>🔥</span>
+                <span>
+                  目前為「<span className="text-[#D4B483] font-bold">{currentStageData.name}</span>」·{" "}
+                  {currentStageData.discountLabel}
+                </span>
+              </div>
+            )}
           </div>
 
           {/* Three Pricing Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
             {/* Plan 1: 自媒體接案線路 */}
-            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+            <div
+              className={`bg-white rounded-2xl border shadow-sm overflow-hidden flex flex-col transition-all duration-300 ${
+                selectedPlanId === "selfMedia"
+                  ? "border-[#D4B483] border-2 shadow-lg ring-2 ring-[#D4B483]/20"
+                  : "border-slate-200"
+              }`}
+            >
               <div className="bg-[#17464F] text-white py-4 px-6 text-center">
                 <h3 className="text-xl font-bold">自媒體接案線路</h3>
               </div>
@@ -2155,19 +2326,52 @@ export default function HomePage() {
                   </li>
                 </ul>
                 <div className="text-center pt-4 border-t border-slate-100">
-                  <div className="text-sm text-gray-500 line-through mb-1">原價 TWD 13,500</div>
-                  <div className="text-3xl font-bold text-[#17464F] mb-4">TWD 12,500</div>
-                  <a href={getCheckoutURLWithTracking()} target="_blank" rel="noopener noreferrer">
-                    <Button className="w-full bg-[#17464F] hover:bg-[#0f3339] text-white py-3 rounded-full font-medium">
-                      選擇此方案
+                  {currentStageData && (
+                    <>
+                      <div className="text-sm text-gray-500 line-through mb-1">
+                        原價 NT$ {formatPrice(currentStageData.prices.selfMedia.original)}
+                      </div>
+                      <div className="text-3xl font-bold text-[#17464F] mb-1">
+                        NT$ {formatPrice(currentStageData.prices.selfMedia.stagePrice)}
+                      </div>
+                      <div className="text-xs text-[#D4B483] font-medium mb-4">
+                        目前為「{currentStageData.name}」· {currentStageData.discountLabel}（省 NT${" "}
+                        {formatPrice(currentStageData.prices.selfMedia.savingAmount)}）
+                      </div>
+                    </>
+                  )}
+                  {/* Desktop: Direct checkout / Mobile: Set selectedPlanId */}
+                  <div className="hidden md:block">
+                    <a href={getCheckoutURLWithTracking("selfMedia")} target="_blank" rel="noopener noreferrer">
+                      <Button className="w-full bg-[#17464F] hover:bg-[#0f3339] text-white py-3 rounded-full font-medium">
+                        選擇此方案
+                      </Button>
+                    </a>
+                  </div>
+                  <div className="md:hidden">
+                    <Button
+                      onClick={() => setSelectedPlanId("selfMedia")}
+                      className={`w-full py-3 rounded-full font-medium ${
+                        selectedPlanId === "selfMedia"
+                          ? "bg-[#D4B483] text-[#17464F]"
+                          : "bg-[#17464F] hover:bg-[#0f3339] text-white"
+                      }`}
+                    >
+                      {selectedPlanId === "selfMedia" ? "✓ 已選擇" : "選擇此方案"}
                     </Button>
-                  </a>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Plan 2: 雙線並進方案 (Featured) */}
-            <div className="bg-white rounded-2xl border-2 border-[#D4B483] shadow-lg overflow-hidden flex flex-col relative">
+            <div
+              className={`bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col relative transition-all duration-300 ${
+                selectedPlanId === "dualLine"
+                  ? "border-4 border-[#D4B483] ring-4 ring-[#D4B483]/20"
+                  : "border-2 border-[#D4B483]"
+              }`}
+            >
               <div className="absolute top-0 right-0 bg-[#D4B483] text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
                 推薦方案
               </div>
@@ -2205,19 +2409,52 @@ export default function HomePage() {
                   </li>
                 </ul>
                 <div className="text-center pt-4 border-t border-slate-100">
-                  <div className="text-sm text-gray-500 line-through mb-1">原價 TWD 19,800</div>
-                  <div className="text-3xl font-bold text-[#17464F] mb-4">TWD 16,800</div>
-                  <a href={checkoutURL + getTrackingParams()} target="_blank" rel="noopener noreferrer">
-                    <Button className="w-full bg-[#D4B483] hover:bg-[#c9a673] text-[#17464F] py-3 rounded-full font-bold">
-                      選擇雙線方案
+                  {currentStageData && (
+                    <>
+                      <div className="text-sm text-gray-500 line-through mb-1">
+                        原價 NT$ {formatPrice(currentStageData.prices.dualLine.original)}
+                      </div>
+                      <div className="text-3xl font-bold text-[#17464F] mb-1">
+                        NT$ {formatPrice(currentStageData.prices.dualLine.stagePrice)}
+                      </div>
+                      <div className="text-xs text-[#D4B483] font-medium mb-4">
+                        目前為「{currentStageData.name}」· {currentStageData.discountLabel}（省 NT${" "}
+                        {formatPrice(currentStageData.prices.dualLine.savingAmount)}）
+                      </div>
+                    </>
+                  )}
+                  {/* Desktop: Direct checkout / Mobile: Set selectedPlanId */}
+                  <div className="hidden md:block">
+                    <a href={getCheckoutURLWithTracking("dualLine")} target="_blank" rel="noopener noreferrer">
+                      <Button className="w-full bg-[#D4B483] hover:bg-[#c9a673] text-[#17464F] py-3 rounded-full font-bold">
+                        選擇雙線方案
+                      </Button>
+                    </a>
+                  </div>
+                  <div className="md:hidden">
+                    <Button
+                      onClick={() => setSelectedPlanId("dualLine")}
+                      className={`w-full py-3 rounded-full font-bold ${
+                        selectedPlanId === "dualLine"
+                          ? "bg-[#17464F] text-white"
+                          : "bg-[#D4B483] hover:bg-[#c9a673] text-[#17464F]"
+                      }`}
+                    >
+                      {selectedPlanId === "dualLine" ? "✓ 已選擇" : "選擇雙線方案"}
                     </Button>
-                  </a>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Plan 3: 遠端上班線路 */}
-            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+            <div
+              className={`bg-white rounded-2xl border shadow-sm overflow-hidden flex flex-col transition-all duration-300 ${
+                selectedPlanId === "remoteJob"
+                  ? "border-[#D4B483] border-2 shadow-lg ring-2 ring-[#D4B483]/20"
+                  : "border-slate-200"
+              }`}
+            >
               <div className="bg-[#17464F] text-white py-4 px-6 text-center">
                 <h3 className="text-xl font-bold">遠端上班線路</h3>
               </div>
@@ -2248,13 +2485,40 @@ export default function HomePage() {
                   </li>
                 </ul>
                 <div className="text-center pt-4 border-t border-slate-100">
-                  <div className="text-sm text-gray-500 line-through mb-1">原價 TWD 13,500</div>
-                  <div className="text-3xl font-bold text-[#17464F] mb-4">TWD 12,500</div>
-                  <a href={getCheckoutURLWithTracking()} target="_blank" rel="noopener noreferrer">
-                    <Button className="w-full bg-[#17464F] hover:bg-[#0f3339] text-white py-3 rounded-full font-medium">
-                      選擇此方案
+                  {currentStageData && (
+                    <>
+                      <div className="text-sm text-gray-500 line-through mb-1">
+                        原價 NT$ {formatPrice(currentStageData.prices.remoteJob.original)}
+                      </div>
+                      <div className="text-3xl font-bold text-[#17464F] mb-1">
+                        NT$ {formatPrice(currentStageData.prices.remoteJob.stagePrice)}
+                      </div>
+                      <div className="text-xs text-[#D4B483] font-medium mb-4">
+                        目前為「{currentStageData.name}」· {currentStageData.discountLabel}（省 NT${" "}
+                        {formatPrice(currentStageData.prices.remoteJob.savingAmount)}）
+                      </div>
+                    </>
+                  )}
+                  {/* Desktop: Direct checkout / Mobile: Set selectedPlanId */}
+                  <div className="hidden md:block">
+                    <a href={getCheckoutURLWithTracking("remoteJob")} target="_blank" rel="noopener noreferrer">
+                      <Button className="w-full bg-[#17464F] hover:bg-[#0f3339] text-white py-3 rounded-full font-medium">
+                        選擇此方案
+                      </Button>
+                    </a>
+                  </div>
+                  <div className="md:hidden">
+                    <Button
+                      onClick={() => setSelectedPlanId("remoteJob")}
+                      className={`w-full py-3 rounded-full font-medium ${
+                        selectedPlanId === "remoteJob"
+                          ? "bg-[#D4B483] text-[#17464F]"
+                          : "bg-[#17464F] hover:bg-[#0f3339] text-white"
+                      }`}
+                    >
+                      {selectedPlanId === "remoteJob" ? "✓ 已選擇" : "選擇此方案"}
                     </Button>
-                  </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -2339,8 +2603,8 @@ export default function HomePage() {
               rel="noopener noreferrer"
               className="inline-block bg-[#17464F] text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-lg"
               onClick={() => {
-                if (typeof window !== "undefined" && window.trackInitiateCheckout) {
-                  window.trackInitiateCheckout(0)
+                if (typeof window !== "undefined" && (window as any).trackInitiateCheckout) {
+                  ;(window as any).trackInitiateCheckout(0)
                 }
               }}
             >
@@ -2695,38 +2959,95 @@ export default function HomePage() {
         </div>
       )}
 
-      {/* MOBILE STICKY BOTTOM BAR */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white border-t border-[#C9D7D4] shadow-[0_-4px_20px_rgba(0,0,0,0.1)] px-4 py-3">
-        <div className="flex items-center justify-between gap-3">
-          {/* Left: Price Info */}
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2">
-              <span className="text-[#D4B483] font-bold text-base">{currentTier.stage}</span>
-              <span className="font-bold text-[#17464F] text-lg">{currentTier.price}</span>
+      {/* MOBILE STICKY BOTTOM BAR - Mobile Only */}
+      {currentStageData && (
+        <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white border-t border-[#C9D7D4] shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
+          {!selectedPlanId ? (
+            <div className="px-4 py-3">
+              {/* Top row: Stage + Discount + Countdown */}
+              <div className="flex items-center justify-center gap-2 text-xs text-[#33393C] mb-2">
+                <span className="text-[#D4B483] font-bold">{currentStageData.name}</span>
+                <span>·</span>
+                <span>全方案 {currentStageData.discountLabel}</span>
+                <span>·</span>
+                <span>
+                  倒數{" "}
+                  <span className="font-bold">
+                    {String(timeLeft.hours).padStart(2, "0")}:{String(timeLeft.minutes).padStart(2, "0")}:
+                    {String(timeLeft.seconds).padStart(2, "0")}
+                  </span>
+                </span>
+              </div>
+              {/* Bottom row: Lowest price + CTA */}
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex-1 min-w-0">
+                  <span className="text-sm text-[#33393C]">
+                    單線方案本階段{" "}
+                    <span className="font-bold text-[#17464F]">
+                      NT$ {lowestPrice ? formatPrice(lowestPrice) : "--"}
+                    </span>{" "}
+                    起
+                  </span>
+                </div>
+                <button
+                  onClick={scrollToPricing}
+                  className="flex-shrink-0 bg-[#17464F] text-white px-5 py-3 rounded-full text-sm font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-md"
+                >
+                  查看三種方案
+                </button>
+              </div>
             </div>
-            <p className="text-xs text-[#33393C]/70">
-              剩 {String(timeLeft.days).padStart(2, "0")} 天 {String(timeLeft.hours).padStart(2, "0")} 小時
-            </p>
-          </div>
-
-          {/* Right: CTA Button */}
-          <a
-            href={getCheckoutURLWithTracking()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-shrink-0 bg-[#17464F] text-white px-5 py-3 rounded-full text-sm font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-md"
-            onClick={() => {
-              if (typeof window !== "undefined" && window.trackInitiateCheckout) {
-                window.trackInitiateCheckout(0)
-              }
-            }}
-          >
-            立即報名
-          </a>
+          ) : (
+            /* State B: Plan selected - show selected plan info + checkout CTA */
+            <div className="px-4 py-3">
+              {/* Top row: Stage info */}
+              <div className="flex items-center justify-center gap-2 text-xs text-[#33393C] mb-2">
+                <span className="text-[#D4B483] font-bold">{currentStageData.name}</span>
+                <span>·</span>
+                <span>全方案 {currentStageData.discountLabel}</span>
+                <span>·</span>
+                <span>
+                  倒數{" "}
+                  <span className="font-bold">
+                    {String(timeLeft.hours).padStart(2, "0")}:{String(timeLeft.minutes).padStart(2, "0")}:
+                    {String(timeLeft.seconds).padStart(2, "0")}
+                  </span>
+                </span>
+              </div>
+              {/* Bottom row: Selected plan info + Checkout CTA */}
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex-1 min-w-0">
+                  <div className="text-xs text-[#33393C]">已選擇：{planConfig[selectedPlanId].name}</div>
+                  <div className="text-sm">
+                    <span className="font-bold text-[#17464F]">
+                      NT$ {formatPrice(currentStageData.prices[selectedPlanId].stagePrice)}
+                    </span>
+                    <span className="text-xs text-gray-500 ml-1">
+                      （原價 NT$ {formatPrice(currentStageData.prices[selectedPlanId].original)}｜省 NT${" "}
+                      {formatPrice(currentStageData.prices[selectedPlanId].savingAmount)}）
+                    </span>
+                  </div>
+                </div>
+                <a
+                  href={getCheckoutURLWithTracking(selectedPlanId)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-shrink-0 bg-[#D4B483] text-[#17464F] px-5 py-3 rounded-full text-sm font-bold hover:bg-[#c9a673] transition-all duration-300 shadow-md"
+                  onClick={() => {
+                    if (typeof window !== "undefined" && (window as any).trackInitiateCheckout) {
+                      ;(window as any).trackInitiateCheckout(selectedPlanId)
+                    }
+                  }}
+                >
+                  以此價格加入本梯
+                </a>
+              </div>
+            </div>
+          )}
         </div>
-      </div>
+      )}
       {/* Add bottom padding to account for sticky bar on mobile */}
-      <div className="h-20 md:hidden"></div>
+      <div className="h-24 md:hidden"></div>
     </main>
   )
 }
