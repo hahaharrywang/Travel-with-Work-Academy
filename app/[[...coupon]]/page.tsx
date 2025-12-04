@@ -35,8 +35,8 @@ const stages: Stage[] = [
     tagLine: "最早的一批，只有少部分人知道的方案，有「一起開始學院」的感覺",
     discountLabel: "51 折",
     discountRate: 0.51,
-    startAt: new Date("2025-07-01T00:00:00"),
-    endAt: new Date("2025-07-14T23:59:59"),
+    startAt: new Date("2025-12-04T00:00:00"),
+    endAt: new Date("2025-12-10T23:59:59"),
     prices: {
       selfMedia: { original: 16500, stagePrice: 8499, savingAmount: 8001 },
       remoteJob: { original: 16500, stagePrice: 8499, savingAmount: 8001 },
@@ -50,8 +50,8 @@ const stages: Stage[] = [
     tagLine: "願意先試飛的人，給你最輕的票價",
     discountLabel: "58 折",
     discountRate: 0.58,
-    startAt: new Date("2025-07-15T00:00:00"),
-    endAt: new Date("2025-07-28T23:59:59"),
+    startAt: new Date("2025-12-11T00:00:00"),
+    endAt: new Date("2025-12-24T23:59:59"),
     prices: {
       selfMedia: { original: 16500, stagePrice: 9499, savingAmount: 7001 },
       remoteJob: { original: 16500, stagePrice: 9499, savingAmount: 7001 },
@@ -65,8 +65,8 @@ const stages: Stage[] = [
     tagLine: "已經決定要上路、開始準備的人",
     discountLabel: "61 折",
     discountRate: 0.61,
-    startAt: new Date("2025-07-29T00:00:00"),
-    endAt: new Date("2025-08-11T23:59:59"),
+    startAt: new Date("2025-12-25T00:00:00"),
+    endAt: new Date("2026-01-07T23:59:59"),
     prices: {
       selfMedia: { original: 16500, stagePrice: 9999, savingAmount: 6501 },
       remoteJob: { original: 16500, stagePrice: 9999, savingAmount: 6501 },
@@ -80,8 +80,8 @@ const stages: Stage[] = [
     tagLine: "對標「機票開票」的那一刻，再晚就要變貴了",
     discountLabel: "64 折",
     discountRate: 0.64,
-    startAt: new Date("2025-08-12T00:00:00"),
-    endAt: new Date("2025-08-25T23:59:59"),
+    startAt: new Date("2026-01-08T00:00:00"),
+    endAt: new Date("2026-01-21T23:59:59"),
     prices: {
       selfMedia: { original: 16500, stagePrice: 10499, savingAmount: 6001 },
       remoteJob: { original: 16500, stagePrice: 10499, savingAmount: 6001 },
@@ -95,8 +95,8 @@ const stages: Stage[] = [
     tagLine: "再不上機就要關門了",
     discountLabel: "67 折",
     discountRate: 0.67,
-    startAt: new Date("2025-08-26T00:00:00"),
-    endAt: new Date("2025-09-08T23:59:59"),
+    startAt: new Date("2026-01-22T00:00:00"),
+    endAt: new Date("2026-02-04T23:59:59"),
     prices: {
       selfMedia: { original: 16500, stagePrice: 10999, savingAmount: 5501 },
       remoteJob: { original: 16500, stagePrice: 10999, savingAmount: 5501 },
@@ -110,8 +110,8 @@ const stages: Stage[] = [
     tagLine: "進入中段，還是早鳥，但已經離最便宜一段距離",
     discountLabel: "70 折",
     discountRate: 0.7,
-    startAt: new Date("2025-09-09T00:00:00"),
-    endAt: new Date("2025-09-22T23:59:59"),
+    startAt: new Date("2026-02-05T00:00:00"),
+    endAt: new Date("2026-02-18T23:59:59"),
     prices: {
       selfMedia: { original: 16500, stagePrice: 11499, savingAmount: 5001 },
       remoteJob: { original: 16500, stagePrice: 11499, savingAmount: 5001 },
@@ -125,8 +125,8 @@ const stages: Stage[] = [
     tagLine: "隊伍已經在路上",
     discountLabel: "73 折",
     discountRate: 0.73,
-    startAt: new Date("2025-09-23T00:00:00"),
-    endAt: new Date("2025-10-06T23:59:59"),
+    startAt: new Date("2026-02-19T00:00:00"),
+    endAt: new Date("2026-03-04T23:59:59"),
     prices: {
       selfMedia: { original: 16500, stagePrice: 11999, savingAmount: 4501 },
       remoteJob: { original: 16500, stagePrice: 11999, savingAmount: 4501 },
@@ -140,8 +140,8 @@ const stages: Stage[] = [
     tagLine: "你還趕得上這班機，但不是最早那批價",
     discountLabel: "76 折",
     discountRate: 0.76,
-    startAt: new Date("2025-10-07T00:00:00"),
-    endAt: new Date("2025-10-20T23:59:59"),
+    startAt: new Date("2026-03-05T00:00:00"),
+    endAt: new Date("2026-03-11T23:59:59"),
     prices: {
       selfMedia: { original: 16500, stagePrice: 12499, savingAmount: 4001 },
       remoteJob: { original: 16500, stagePrice: 12499, savingAmount: 4001 },
@@ -155,8 +155,8 @@ const stages: Stage[] = [
     tagLine: "快要入境學院",
     discountLabel: "82 折",
     discountRate: 0.82,
-    startAt: new Date("2025-10-21T00:00:00"),
-    endAt: new Date("2025-11-03T23:59:59"),
+    startAt: new Date("2026-03-12T00:00:00"),
+    endAt: new Date("2026-03-18T23:59:59"),
     prices: {
       selfMedia: { original: 16500, stagePrice: 13499, savingAmount: 3001 },
       remoteJob: { original: 16500, stagePrice: 13499, savingAmount: 3001 },
@@ -170,8 +170,8 @@ const stages: Stage[] = [
     tagLine: "最後加速衝進這一梯",
     discountLabel: "88 折",
     discountRate: 0.88,
-    startAt: new Date("2025-11-04T00:00:00"),
-    endAt: new Date("2025-11-17T23:59:59"),
+    startAt: new Date("2026-03-19T00:00:00"),
+    endAt: new Date("2026-03-25T23:59:59"),
     prices: {
       selfMedia: { original: 16500, stagePrice: 14499, savingAmount: 2001 },
       remoteJob: { original: 16500, stagePrice: 14499, savingAmount: 2001 },
@@ -185,8 +185,8 @@ const stages: Stage[] = [
     tagLine: "給還在猶豫但真的想上的你",
     discountLabel: "94 折",
     discountRate: 0.94,
-    startAt: new Date("2025-11-18T00:00:00"),
-    endAt: new Date("2025-11-30T23:59:59"),
+    startAt: new Date("2026-03-26T00:00:00"),
+    endAt: new Date("2026-03-30T23:59:59"),
     prices: {
       selfMedia: { original: 16500, stagePrice: 15499, savingAmount: 1001 },
       remoteJob: { original: 16500, stagePrice: 15499, savingAmount: 1001 },
@@ -200,8 +200,8 @@ const stages: Stage[] = [
     tagLine: "正常標價",
     discountLabel: "原價",
     discountRate: 1,
-    startAt: new Date("2025-12-01T00:00:00"),
-    endAt: new Date("2026-01-15T23:59:59"), // Set a reasonable enrollment deadline
+    startAt: new Date("2026-03-31T00:00:00"),
+    endAt: new Date("2026-04-30T23:59:59"), // Enrollment deadline
     prices: {
       selfMedia: { original: 16500, stagePrice: 16500, savingAmount: 0 },
       remoteJob: { original: 16500, stagePrice: 16500, savingAmount: 0 },
