@@ -288,9 +288,58 @@ export default function HomePage() {
     return `${baseURL}${trackingParams}`
   }
 
+  const getCurrentPricingTier = () => {
+    const now = new Date()
+    // Target dates for each tier (August 15th for super early bird)
+    const tiers = [
+      { stage: "🔥 超早鳥價", deadline: new Date("2025-08-15T23:59:59"), price: "$149", originalPrice: "$400" },
+      // Note: Added "早鳥第一波" which was missing in original pricingTiers but implied by its absence in example
+      { stage: "早鳥第一波", deadline: new Date("2025-08-29T23:59:59"), price: "$179", originalPrice: "$400" },
+      { stage: "早鳥第二波", deadline: new Date("2025-09-05T23:59:59"), price: "$209", originalPrice: "$400" },
+      { stage: "早鳥第三波", deadline: new Date("2025-09-12T23:59:59"), price: "$249", originalPrice: "$400" },
+      { stage: "預購價", deadline: new Date("2025-09-26T23:59:59"), price: "$349", originalPrice: "$400" },
+    ]
+    for (const tier of tiers) {
+      if (now < tier.deadline) return tier
+    }
+    // If no tier matches, it's the final price
+    return { stage: "正式售價", deadline: null, price: "$400", originalPrice: "$400" }
+  }
+
+  const currentTier = getCurrentPricingTier()
+
   return (
     <main className="min-h-screen bg-white">
-      {/* // SECTION 1 HERO START */}
+      <div className="sticky top-0 z-50 bg-[#17464F] text-white py-3 px-4">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4">
+          <div className="flex items-center gap-2 text-sm sm:text-base text-center sm:text-left">
+            <span>現在是</span>
+            <span className="text-[#D4B483] font-bold">🔥 {currentTier.stage}</span>
+            <span className="font-bold">{currentTier.price}</span>
+            <span className="text-white/70 line-through text-sm">（原價 {currentTier.originalPrice}）</span>
+            {currentTier.deadline && (
+              <span className="hidden sm:inline text-white/80">
+                ，剩下 {String(timeLeft.days).padStart(2, "0")} 天 {String(timeLeft.hours).padStart(2, "0")} 小時調漲
+              </span>
+            )}
+          </div>
+          <a
+            href={getCheckoutURLWithTracking()}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => {
+              if (typeof window !== "undefined" && window.trackInitiateCheckout) {
+                window.trackInitiateCheckout(0)
+              }
+            }}
+            className="inline-flex items-center px-4 py-1.5 bg-[#D4B483] hover:bg-[#D4B483]/90 text-[#17464F] font-semibold text-sm rounded-full transition-colors"
+          >
+            立即鎖定{currentTier.stage}
+          </a>
+        </div>
+      </div>
+
+      {/* SECTION 1 HERO START */}
       <section className="relative min-h-screen flex items-center overflow-hidden bg-[#F5F3ED]">
         {/* Decorative Elements - 三個小圓點 */}
         <div className="absolute top-20 left-10 flex gap-2 z-10">
@@ -359,11 +408,10 @@ export default function HomePage() {
 
               {/* CTA 區 */}
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-                {/* Primary CTA - 保留原有邏輯 */}
                 <Button
                   asChild
                   size="lg"
-                  className="bg-[#17464F] hover:bg-[#17464F]/90 text-white font-semibold px-10 py-7 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  className="bg-[#17464F] hover:bg-[#17464F]/90 text-white font-semibold px-8 py-7 text-base sm:text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                 >
                   <a
                     href={getCheckoutURLWithTracking()}
@@ -375,7 +423,7 @@ export default function HomePage() {
                       }
                     }}
                   >
-                    我要加入本屆學員
+                    立刻鎖定【{currentTier.stage} {currentTier.price}】
                   </a>
                 </Button>
                 {/* Secondary CTA */}
@@ -387,6 +435,25 @@ export default function HomePage() {
                 >
                   還在觀望？先看六個月怎麼走 ↓
                 </button>
+              </div>
+
+              <div className="text-center lg:text-left pt-2">
+                <p className="text-sm text-[#33393C]/70">
+                  目前為{" "}
+                  <span className="text-[#D4B483] font-semibold">
+                    🔥 {currentTier.stage}｜{currentTier.price}
+                  </span>
+                  <span className="text-[#33393C]/50 line-through ml-1">（原價 {currentTier.originalPrice}）</span>
+                </p>
+                {currentTier.deadline && (
+                  <p className="text-sm text-[#33393C]/60 mt-1">
+                    截止：{currentTier.deadline.getMonth() + 1}/{currentTier.deadline.getDate()}（台北時間
+                    23:59）｜剩餘：
+                    <span className="font-medium text-[#17464F]">
+                      {String(timeLeft.days).padStart(2, "0")} 天 {String(timeLeft.hours).padStart(2, "0")} 小時
+                    </span>
+                  </p>
+                )}
               </div>
             </div>
 
@@ -424,9 +491,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* // SECTION 1 HERO END */}
+      {/* SECTION 1 HERO END */}
 
-      {/* // SECTION 2 COURSE HIGHLIGHTS START */}
+      {/* SECTION 2 COURSE HIGHLIGHTS START */}
       <section id="course-highlights" className="py-16 sm:py-24 bg-[#F5F3ED]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Upper Section: 適合誰 */}
@@ -511,9 +578,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* // SECTION 2 COURSE HIGHLIGHTS END (Part 1: 適合誰) */}
+      {/* SECTION 2 COURSE HIGHLIGHTS END (Part 1: 適合誰) */}
 
-      {/* // SECTION 3 PAIN POINTS START */}
+      {/* SECTION 3 PAIN POINTS START */}
       <section className="py-16 sm:py-24 bg-[#F5F3ED]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Title */}
@@ -614,10 +681,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* // SECTION 3 PAIN POINTS END */}
+      {/* SECTION 3 PAIN POINTS END */}
 
-      {/* // SECTION 2 COURSE HIGHLIGHTS CONTINUED (Part 2: 學院怎麼幫你) START */}
-      {/* // SECTION 2 COURSE HIGHLIGHTS CONTINUED (Part 2: 六個月路線｜3+3 × 三大亮點) START */}
+      {/* SECTION 2 COURSE HIGHLIGHTS CONTINUED (Part 2: 學院怎麼幫你) START */}
+      {/* SECTION 2 COURSE HIGHLIGHTS CONTINUED (Part 2: 六個月路線｜3+3 × 三大亮點) START */}
       <section className="py-16 sm:py-24 bg-[#F5F3ED]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
@@ -686,9 +753,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* // SECTION 2 COURSE HIGHLIGHTS CONTINUED (Part 2) END */}
+      {/* SECTION 2 COURSE HIGHLIGHTS CONTINUED (Part 2) END */}
 
-      {/* // SECTION 2.1 ECOSYSTEM PARTNERSHIP START */}
+      {/* SECTION 2.1 ECOSYSTEM PARTNERSHIP START */}
       <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* 遊牧資源生態系 */}
@@ -774,9 +841,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* // SECTION 2.1 ECOSYSTEM PARTNERSHIP END */}
+      {/* SECTION 2.1 ECOSYSTEM PARTNERSHIP END */}
 
-      {/* // SECTION 4 INSTRUCTORS START */}
+      {/* SECTION 4 INSTRUCTORS START */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Title */}
@@ -919,9 +986,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* // SECTION 4 INSTRUCTORS END */}
+      {/* SECTION 4 INSTRUCTORS END */}
 
-      {/* // SECTION 5 COURSE OUTLINE START */}
+      {/* SECTION 5 COURSE OUTLINE START */}
       <section id="course-map" className="py-16 sm:py-24 bg-[#F5F3ED]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Title */}
@@ -1357,9 +1424,9 @@ export default function HomePage() {
           )}
         </div>
       </section>
-      {/* // SECTION 5 COURSE OUTLINE END */}
+      {/* SECTION 5 COURSE OUTLINE END */}
 
-      {/* // SECTION 5.1 COURSE DETAIL MODAL START */}
+      {/* SECTION 5.1 COURSE DETAIL MODAL START */}
       {selectedWeek && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
@@ -1464,9 +1531,9 @@ export default function HomePage() {
           </div>
         </div>
       )}
-      {/* // SECTION 5.1 COURSE DETAIL MODAL END */}
+      {/* SECTION 5.1 COURSE DETAIL MODAL END */}
 
-      {/* // SECTION 6 PODCAST LEADERS START */}
+      {/* SECTION 6 PODCAST LEADERS START */}
       <section className="py-16 sm:py-24 bg-[#F5F3ED]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
@@ -1600,9 +1667,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* // SECTION 6 PODCAST LEADERS END */}
+      {/* SECTION 6 PODCAST LEADERS END */}
 
-      {/* // SECTION 7 LEARNING RESOURCES START */}
+      {/* SECTION 7 LEARNING RESOURCES START */}
       <section className="py-16 sm:py-24 bg-[#F5F3ED]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Title */}
@@ -1870,9 +1937,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* // SECTION 7 LEARNING RESOURCES END */}
+      {/* SECTION 7 LEARNING RESOURCES END */}
 
-      {/* // SECTION 8 PRICING START */}
+      {/* SECTION 8 PRICING START */}
       <section className="py-16 sm:py-24 bg-[#F5F3ED]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Title */}
@@ -2056,9 +2123,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* // SECTION 8 PRICING END */}
+      {/* SECTION 8 PRICING END */}
 
-      {/* // SECTION 9 LIMITED OFFER START */}
+      {/* SECTION 9 LIMITED OFFER START */}
       <section className="py-16 sm:py-20 bg-gradient-to-br from-[#17464F] to-[#1a5561]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-white/95 backdrop-blur rounded-2xl p-8 sm:p-12 shadow-xl border border-[#C9D7D4]">
@@ -2137,9 +2204,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* // SECTION 9 LIMITED OFFER END */}
+      {/* SECTION 9 LIMITED OFFER END */}
 
-      {/* // SECTION 10 FAQ START */}
+      {/* SECTION 10 FAQ START */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Title */}
@@ -2351,9 +2418,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* // SECTION 10 FAQ END */}
+      {/* SECTION 10 FAQ END */}
 
-      {/* // FOOTER START */}
+      {/* FOOTER START */}
       <footer className="py-8 bg-[#17464F] text-white text-center">
         <p className="text-sm text-white/80">
           &copy; 2025 遠距遊牧學院 Travel With Work Academy. All rights reserved.
@@ -2370,7 +2437,7 @@ export default function HomePage() {
           / Email: Academy@travelwork.life
         </p>
       </footer>
-      {/* // FOOTER END */}
+      {/* FOOTER END */}
 
       {/* Image Gallery Modal */}
       {isGalleryOpen && (
