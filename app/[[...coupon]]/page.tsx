@@ -2273,28 +2273,6 @@ export default function HomePage() {
               )}
             </div>
 
-            {/* 當前階段摘要卡 */}
-            {currentStageData && (
-              <div className="mt-8 bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-2xl p-6 sm:p-8 text-white">
-                <div className="text-center">
-                  <div className="inline-flex items-center gap-2 bg-[#D4B483] text-[#17464F] px-4 py-1 rounded-full text-sm font-bold mb-3">
-                    <span>🔥</span>
-                    <span>目前階段</span>
-                  </div>
-                  <h4 className="text-2xl font-bold">{currentStageData.name}</h4>
-                  <p className="text-white/70 text-sm mt-2">
-                    截止日期：{currentStageData.endAt.getMonth() + 1}/{currentStageData.endAt.getDate()}
-                  </p>
-                  <p className="text-[#D4B483] font-medium mt-2">
-                    距離下一階段：{timeLeft.days} 天 {timeLeft.hours} 小時 {timeLeft.minutes} 分
-                  </p>
-                  <p className="text-white/60 text-sm mt-3">{currentStageData.discountLabel} · 下方選擇適合你的方案</p>
-                </div>
-              </div>
-            )}
-          </div>
-          {/* 價格階段時間軸結束 */}
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
             <div
               className={`bg-white rounded-2xl border shadow-sm overflow-hidden flex flex-col transition-all duration-300 ${
