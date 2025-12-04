@@ -2029,57 +2029,86 @@ export default function HomePage() {
       </section>
       {/* // SECTION 8 PRICING END */}
 
-      {/* // SECTION 9 BONUS START */}
-      <section className="py-16 sm:py-20 bg-gradient-to-br from-orange-50 to-red-50">
+      {/* // SECTION 9 LIMITED OFFER START */}
+      <section className="py-16 sm:py-20 bg-gradient-to-br from-[#17464F] to-[#1a5561]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-white rounded-2xl p-8 sm:p-12 shadow-lg border-2 border-orange-200">
-            <h3 className="text-2xl sm:text-3xl font-bold text-black mb-4">🎁 獨享加贈</h3>
-
-            <div className="bg-orange-50 rounded-xl p-6 mb-6">
-              <div className="text-xl sm:text-2xl font-bold text-orange-600 mb-2">
-                現在報名享有 「限量免費」
-                <br />
-                人脈社群互助交流社群
-              </div>
-              <div className="text-lg text-gray-600 line-through mb-2">原價 399/月 × 7個月 = 2,793元</div>
+          <div className="bg-white/95 backdrop-blur rounded-2xl p-8 sm:p-12 shadow-xl border border-[#C9D7D4]">
+            {/* Three dots decoration */}
+            <div className="flex justify-center gap-2 mb-6">
+              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
             </div>
 
-            {/* 手機版 */}
-            <p className="block sm:hidden text-gray-600 mb-8 leading-relaxed">
-              3 個月課程後
-              <br />
-              追加 7 個月線上社群延續學習熱度
-              <br />
-              讓你的遠距遊牧之路不孤單
-              <br />
-              持續成長與進步。
+            <h3 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-4">本梯限定的優惠與名額</h3>
+
+            <p className="text-[#33393C] mb-8 leading-relaxed max-w-2xl mx-auto">
+              為了讓教學與陪跑品質維持在好的狀態，
+              <br className="hidden sm:block" />
+              每一梯次的名額與優惠都會做控管，以下是這一梯的安排：
             </p>
 
-            {/* 電腦版 */}
-            <p className="hidden sm:block text-gray-600 mb-8 leading-relaxed">
-              3 個月連續課程後，追加 7 個月線上社群，延續學習熱度
-              <br /> 讓你的遠距遊牧之路不孤單，持續成長與進步。
-            </p>
+            {/* Bullet points */}
+            <div className="bg-[#F5F3ED] rounded-xl p-6 mb-8 text-left max-w-xl mx-auto">
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-2 flex-shrink-0"></span>
+                  <div>
+                    <span className="font-semibold text-[#17464F]">早鳥專屬價格</span>
+                    <span className="text-[#33393C]">：限時優惠倒數中，把握內部名單專屬折扣</span>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-2 flex-shrink-0"></span>
+                  <div>
+                    <span className="font-semibold text-[#17464F]">加贈共學社群延長權限</span>
+                    <span className="text-[#33393C]">：前 3 個月課程後，再享後 3 個月社群陪伴與資源</span>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-2 flex-shrink-0"></span>
+                  <div>
+                    <span className="font-semibold text-[#17464F]">名額上限控管</span>
+                    <span className="text-[#33393C]">：為維持教學品質，本梯名額有限，額滿即收班</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
 
+            {/* CTA */}
             <a
               href={getCheckoutURLWithTracking()}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-full text-lg font-bold hover:from-orange-600 hover:to-red-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
+              className="inline-block bg-[#17464F] text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-lg"
               onClick={() => {
                 if (typeof window !== "undefined" && window.trackInitiateCheckout) {
                   window.trackInitiateCheckout(0)
                 }
               }}
             >
-              立即搶購限量優惠 →
+              我要加入本梯
             </a>
 
-            <div className="mt-4 text-sm text-gray-500">⏰ 名額有限贈完為止！</div>
+            {/* Soft closing note */}
+            <p className="mt-8 text-sm text-[#33393C]/80 leading-relaxed max-w-lg mx-auto">
+              如果你還在觀望，也可以先把問題整理下來，
+              <br className="hidden sm:block" />
+              在下方 FAQ 或{" "}
+              <a
+                href="https://www.instagram.com/travelwithwork_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#17464F] underline hover:text-[#D4B483] transition-colors"
+              >
+                Instagram
+              </a>{" "}
+              問清楚，再決定這六個月要不要一起走。
+            </p>
           </div>
         </div>
       </section>
-      {/* // SECTION 9 BONUS END */}
+      {/* // SECTION 9 LIMITED OFFER END */}
 
       {/* // SECTION 10 FAQ START */}
       <section className="py-16 sm:py-24 bg-white">
