@@ -424,16 +424,6 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-
-        {/* Scroll Indicator - 向下箭頭提示 */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-xs text-[#17464F]/60 tracking-wider">往下滑動</span>
-            <svg className="w-6 h-6 text-[#17464F]/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </div>
-        </div>
       </section>
       {/* // SECTION 1 HERO END */}
 
@@ -1854,141 +1844,185 @@ export default function HomePage() {
       {/* // SECTION 7 LEARNING RESOURCES END */}
 
       {/* // SECTION 8 PRICING START */}
-      <section className="py-16 sm:py-24 bg-gray-50">
+      <section className="py-16 sm:py-24 bg-[#F5F3ED]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Title */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-[#FF6B35] to-[#FF8C42] bg-clip-text text-transparent">
-                完整課程學籍內容
-              </span>
+          <div className="text-center mb-12">
+            {/* Three dots decoration */}
+            <div className="flex justify-center gap-2 mb-6">
+              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#17464F] mb-6">
+              選一條先走，也可以雙線並進
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              幫助你擺脫朝九晚五、地點限制
-              <br className="sm:hidden" />
-              ，讓工作帶你去世界每一個想去的角落！
+            <p className="text-lg sm:text-xl text-[#33393C] max-w-3xl mx-auto leading-relaxed">
+              所有方案都包含六個月的 3+3 成長節奏、通識課程、Skool 共學社群，
+              <br className="hidden sm:block" />
+              差別只在於：你想先專心走哪一條主線，或是一次打開兩種可能。
             </p>
           </div>
 
-          {/* Course Highlights */}
-          <div className="mb-16">
-            <div className="bg-gray-50 rounded-2xl p-8 sm:p-12 border border-gray-200">
-              <div className="text-center mb-8">
-                <div className="inline-block bg-black text-white px-6 py-3 rounded-full text-lg font-bold">
-                  首屆學員限定內容組合
+          {/* Three Pricing Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
+            {/* Plan 1: 自媒體接案線路 */}
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+              <div className="bg-[#17464F] text-white py-4 px-6 text-center">
+                <h3 className="text-xl font-bold">自媒體接案線路</h3>
+              </div>
+              <div className="p-6 flex-1 flex flex-col">
+                <p className="text-[#33393C] text-sm mb-4 pb-4 border-b border-slate-100">
+                  適合想用內容與個人品牌，慢慢建立第二條收入的人。
+                </p>
+                <ul className="space-y-3 text-sm text-[#33393C] mb-6 flex-1">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5">●</span>
+                    <span>
+                      <strong>通識課程</strong>（Direction＋General）：人生藍圖、AI、自動化、旅居財務
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5">●</span>
+                    <span>
+                      <strong>自媒體接案主課程</strong>：定位、內容系統、作品集、短影音實作
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5">●</span>
+                    <span>六個月 Skool 共學社群與同學會</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5">●</span>
+                    <span>選修實作工作坊（剪輯、AI、自動化、工作英文等）</span>
+                  </li>
+                </ul>
+                <div className="text-center pt-4 border-t border-slate-100">
+                  <div className="text-sm text-gray-500 line-through mb-1">原價 TWD 13,500</div>
+                  <div className="text-3xl font-bold text-[#17464F] mb-4">TWD 12,500</div>
+                  <a href={getCheckoutURLWithTracking()} target="_blank" rel="noopener noreferrer">
+                    <Button className="w-full bg-[#17464F] hover:bg-[#0f3339] text-white py-3 rounded-full font-medium">
+                      選擇此方案
+                    </Button>
+                  </a>
                 </div>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100">
-                  <div className="text-xl font-bold text-black mb-2">12週 線上衝刺實踐班</div>
-                  <div className="text-xs text-gray-600">
-                    12位導師每週三晚間直播課程+QA、課程終身回放：
-                    分享最真實的遠距工作與副業經驗，助你少走彎路。搭配課後任務，提升執行力。{" "}
-                  </div>
-                </div>
-                <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100">
-                  <div className="text-xl font-bold text-black mb-2">學習資源統整</div>
-                  <div className="text-xs text-gray-600">
-                    專屬工具包，效率倍增：
-                    獨家『副業斜槓啟動包』、『職涯躍升包』、『系統平衡包』，助你高效學習，快速上手
-                  </div>
-                </div>
-                <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100">
-                  <div className="text-xl font-bold text-black mb-2">破框者電子月刊 3本</div>
-                  <div className="text-xs text-gray-600">細膩的訪談內容，認識每月講者＆嘉賓的行動願景與故事</div>
-                </div>
-                <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100">
-                  <div className="text-xl font-bold text-black mb-2">課程期間 Skool線上社群論壇</div>
-                  <div className="text-xs text-gray-600">留言板心得交流、每月分享聚會、期末DemoDay</div>
-                </div>
-                <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100">
-                  <div className="text-xl font-bold text-black mb-2">Linkedin 校友網絡</div>
-                  <div className="text-xs text-gray-600">加入群組建立長期連結、商業合作職涯機會分享</div>
-                </div>
-                <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100">
-                  <div className="text-xl font-bold text-black mb-2">際遊牧領袖Podcast趨勢分享</div>
-                  <div className="text-xs text-gray-600">獨家現身說法，興趣、熱情事業的永續經營之道</div>
-                </div>
-              </div>
+            </div>
 
-              <div className="mt-8 bg-gradient-to-r from-[#FF6B35] to-[#FF6B35] rounded-xl p-6 text-center text-white shadow-lg">
-                <div className="text-lg font-bold mb-2">🏆 績優學員專屬獎勵</div>
-                <div className="text-sm">
-                  課程期間成長表現優異的學員，將有機會獲得<span className="font-semibold">學費的部分或全額</span>
-                  <span className="text-2xl font-bold text-yellow-200 mx-1">獎學金</span>， 以及
-                  <span className="text-2xl font-bold text-yellow-200 mx-1">2026年遊牧啟發之旅招待名額</span>！
+            {/* Plan 2: 雙線並進方案 (Featured) */}
+            <div className="bg-white rounded-2xl border-2 border-[#D4B483] shadow-lg overflow-hidden flex flex-col relative">
+              <div className="absolute top-0 right-0 bg-[#D4B483] text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+                推薦方案
+              </div>
+              <div className="bg-gradient-to-r from-[#17464F] to-[#1a5561] text-white py-4 px-6 text-center">
+                <h3 className="text-xl font-bold">雙線並進方案</h3>
+              </div>
+              <div className="p-6 flex-1 flex flex-col">
+                <p className="text-[#33393C] text-sm mb-4 pb-4 border-b border-slate-100">
+                  適合想同時為副業收入與職涯升級鋪路的人。
+                </p>
+                <ul className="space-y-3 text-sm text-[#33393C] mb-6 flex-1">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5">●</span>
+                    <span>
+                      <strong>通識課程</strong>（Direction＋General）：人生藍圖、AI、自動化、旅居財務
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5">●</span>
+                    <span>
+                      <strong>自媒體接案 + 遠端上班</strong> 雙主線課程全解鎖
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5">●</span>
+                    <span>六個月 Skool 共學社群與同學會</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5">●</span>
+                    <span>選修實作工作坊（全部工作坊優先報名）</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5">●</span>
+                    <span>專屬雙軌學員交流小組</span>
+                  </li>
+                </ul>
+                <div className="text-center pt-4 border-t border-slate-100">
+                  <div className="text-sm text-gray-500 line-through mb-1">原價 TWD 19,800</div>
+                  <div className="text-3xl font-bold text-[#17464F] mb-4">TWD 16,800</div>
+                  <a href={checkoutURL + getTrackingParams()} target="_blank" rel="noopener noreferrer">
+                    <Button className="w-full bg-[#D4B483] hover:bg-[#c9a673] text-[#17464F] py-3 rounded-full font-bold">
+                      選擇雙線方案
+                    </Button>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Plan 3: 遠端上班線路 */}
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+              <div className="bg-[#17464F] text-white py-4 px-6 text-center">
+                <h3 className="text-xl font-bold">遠端上班線路</h3>
+              </div>
+              <div className="p-6 flex-1 flex flex-col">
+                <p className="text-[#33393C] text-sm mb-4 pb-4 border-b border-slate-100">
+                  適合想往遠端團隊、外商或更有彈性的職涯前進的人。
+                </p>
+                <ul className="space-y-3 text-sm text-[#33393C] mb-6 flex-1">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5">●</span>
+                    <span>
+                      <strong>通識課程</strong>（Direction＋General）：人生藍圖、AI、自動化、旅居財務
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5">●</span>
+                    <span>
+                      <strong>遠端上班主課程</strong>：職涯藍圖、履歷、LinkedIn、面試與談薪、獵頭合作
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5">●</span>
+                    <span>六個月 Skool 共學社群與同學會</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5">●</span>
+                    <span>選修實作工作坊（剪輯、AI、自動化、工作英文等）</span>
+                  </li>
+                </ul>
+                <div className="text-center pt-4 border-t border-slate-100">
+                  <div className="text-sm text-gray-500 line-through mb-1">原價 TWD 13,500</div>
+                  <div className="text-3xl font-bold text-[#17464F] mb-4">TWD 12,500</div>
+                  <a href={getCheckoutURLWithTracking()} target="_blank" rel="noopener noreferrer">
+                    <Button className="w-full bg-[#17464F] hover:bg-[#0f3339] text-white py-3 rounded-full font-medium">
+                      選擇此方案
+                    </Button>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Course Outcomes */}
-          <div className="mb-16">
-            <div className="text-center mb-12">
-              <h3 className="text-2xl sm:text-3xl font-bold text-black mb-4">完整課程過後，你將會獲得</h3>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-white border-2 border-[#FF6B35] rounded-2xl p-6 shadow-sm">
-                <div className="text-3xl font-bold text-[#FF6B35] mb-2">01.</div>
-                <div className="border-b-2 border-[#FF6B35] mb-4"></div>
-                <h4 className="font-bold text-black mb-2">開啟副業斜槓</h4>
-                <p className="text-sm text-gray-600">
-                  開啟多元收入： 掌握個人定位與行動策略，啟航高收入副業，邁向財務自由！
-                </p>
-              </div>
-              <div className="bg-white border-2 border-[#FF6B35] rounded-2xl p-6 shadow-sm">
-                <div className="text-3xl font-bold text-[#FF6B35] mb-2">02.</div>
-                <div className="border-b-2 border-[#FF6B35] mb-4"></div>
-                <h4 className="font-bold text-black mb-2">國際、遠距職涯</h4>
-                <p className="text-sm text-gray-600">
-                  履歷更新與求職策略，助你成功進入國際遠距市場，獲得夢寐以求的職位！
-                </p>
-              </div>
-              <div className="bg-white border-2 border-[#FF6B35] rounded-2xl p-6 shadow-sm">
-                <div className="text-3xl font-bold text-[#FF6B35] mb-2">03.</div>
-                <div className="border-b-2 border-[#FF6B35] mb-4"></div>
-                <h4 className="font-bold text-black mb-2">全面規劃</h4>
-                <p className="text-sm text-gray-600">
-                  人生藍圖，清晰可見： 以終為始的生活職涯綜合考量，助你打造專屬人生藍圖，實現工作與生活的完美平衡。
-                </p>
-              </div>
-              <div className="bg-white border-2 border-[#FF6B35] rounded-2xl p-6 shadow-sm">
-                <div className="text-3xl font-bold text-[#FF6B35] mb-2">04.</div>
-                <div className="border-b-2 border-[#FF6B35] mb-4"></div>
-                <h4 className="font-bold text-black mb-2">成長路上的夥伴</h4>
-                <p className="text-sm text-gray-600">
-                  終身戰友，共同奔向自由： 加入頂尖遊牧社群，與一群志同道合的夥伴共同成長，你的自由人生從此不再孤單！
-                </p>
-              </div>
+          {/* Shared Benefits */}
+          <div className="bg-white/60 rounded-2xl border border-slate-200 p-6 md:p-8 text-center">
+            <h4 className="text-lg font-bold text-[#17464F] mb-4">所有方案皆包含</h4>
+            <div className="flex flex-wrap justify-center gap-3 text-sm text-[#33393C]">
+              <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">六個月 3+3 成長節奏</span>
+              <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">通識課程（Direction + General）</span>
+              <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">Skool 共學社群</span>
+              <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">課程終身回放</span>
+              <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">LinkedIn 校友網絡</span>
+              <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">Nomad Leaders Podcast</span>
             </div>
           </div>
 
-          {/* Pricing Section */}
-          <div className="text-center">
-            <h3 className="text-3xl sm:text-4xl font-bold text-white mb-12 bg-black rounded-2xl py-6 px-8 inline-block">
-              還有優惠！
-            </h3>
-            <div className="space-y-4 max-w-2xl mx-auto">
-              {/* Changed: Removed expired pricing cards (TWD 9,999 and TWD 11,500) and moved orange border to current price (TWD 12,500) */}
-              <div className="bg-gray-800 text-white rounded-2xl p-6 shadow-sm border-4 border-[#FF6B35]">
-                <div className="flex justify-between items-center">
-                  <div>
-                    <div className="text-orange-200 font-bold text-lg">10月28日-11月30日</div>
-                    <div className="text-sm">晚還是必須加入</div>
-                  </div>
-                  <div className="text-3xl font-bold">TWD 12,500</div>
-                </div>
-              </div>
-
-              <div className="bg-gray-700 text-white rounded-2xl p-6 shadow-sm">
-                <div className="flex justify-between items-center">
-                  <div>
-                    <div className="text-orange-200 font-bold text-lg">12月日起</div>
-                    <div className="text-sm">原價</div>
-                  </div>
-                  <div className="text-3xl font-bold">TWD 13,500</div>
-                </div>
-              </div>
+          {/* Scholarship Note */}
+          <div className="mt-8 bg-gradient-to-r from-[#17464F] to-[#1a5561] rounded-2xl p-6 text-center text-white shadow-lg">
+            <div className="text-lg font-bold mb-2">績優學員專屬獎勵</div>
+            <div className="text-sm opacity-90">
+              課程期間成長表現優異的學員，將有機會獲得<span className="font-semibold">學費的部分或全額</span>
+              <span className="text-[#D4B483] font-bold mx-1">獎學金</span>，以及
+              <span className="text-[#D4B483] font-bold mx-1">2026 年遊牧啟發之旅招待名額</span>！
             </div>
           </div>
         </div>
