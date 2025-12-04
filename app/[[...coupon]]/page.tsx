@@ -669,11 +669,12 @@ export default function HomePage() {
                 這不是一張離職門票，而是一段可以在保有現職下完成的六個月行動旅程。
               </p>
 
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+              {/* CTA Buttons */}
+              <div className="flex flex-col items-center lg:items-start gap-4">
                 <Button
                   asChild
                   size="lg"
-                  className="bg-[#17464F] hover:bg-[#17464F]/90 text-white font-semibold px-8 py-7 text-base sm:text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  className="hidden md:inline-flex bg-[#17464F] hover:bg-[#17464F]/90 text-white rounded-full px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   <a
                     href={getCheckoutURLWithTracking()}
@@ -699,7 +700,7 @@ export default function HomePage() {
                 </button>
               </div>
 
-              <div className="text-center lg:text-left pt-2">
+              <div className="hidden md:block text-center lg:text-left pt-2">
                 {currentStageData && (
                   <>
                     <p className="text-sm text-[#33393C]/70">
@@ -2272,10 +2273,11 @@ export default function HomePage() {
                 </button>
               )}
             </div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
             <div
-              className={`bg-white rounded-2xl border shadow-sm overflow-hidden flex flex-col transition-all duration-300 ${
+              className={`bg-white rounded-2xl border shadow-sm flex flex-col transition-all duration-300 ${
                 selectedPlanId === "selfMedia"
                   ? "border-[#D4B483] border-2 shadow-lg ring-2 ring-[#D4B483]/20"
                   : "border-slate-200"
@@ -2349,7 +2351,7 @@ export default function HomePage() {
             </div>
 
             <div
-              className={`bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col relative transition-all duration-300 ${
+              className={`bg-white rounded-2xl shadow-lg overflow-hidden relative flex flex-col transition-all duration-300 ${
                 selectedPlanId === "dualLine"
                   ? "border-4 border-[#D4B483] ring-4 ring-[#D4B483]/20"
                   : "border-2 border-[#D4B483]"
@@ -2433,7 +2435,7 @@ export default function HomePage() {
               className={`bg-white rounded-2xl border shadow-sm overflow-hidden flex flex-col transition-all duration-300 ${
                 selectedPlanId === "remoteJob"
                   ? "border-[#D4B483] border-2 shadow-lg ring-2 ring-[#D4B483]/20"
-                  : "border-slate-200"
+                  : "border-2 border-[#D4B483]"
               }`}
             >
               <div className="bg-[#17464F] text-white py-4 px-6 text-center">
@@ -2829,7 +2831,7 @@ export default function HomePage() {
           <div className="relative max-w-4xl w-full max-h-[90vh] flex items-center justify-center">
             <button
               onClick={() => setIsGalleryOpen(false)}
-              className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-xl flex items-center justify-center text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-all duration-200 z-10 text-xl font-bold"
+              className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-all duration-200 z-10 text-xl font-bold"
             >
               ✕
             </button>
