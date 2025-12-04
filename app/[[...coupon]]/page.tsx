@@ -617,119 +617,76 @@ export default function HomePage() {
       {/* // SECTION 3 PAIN POINTS END */}
 
       {/* // SECTION 2 COURSE HIGHLIGHTS CONTINUED (Part 2: 學院怎麼幫你) START */}
+      {/* // SECTION 2 COURSE HIGHLIGHTS CONTINUED (Part 2: 六個月路線｜3+3 × 三大亮點) START */}
       <section className="py-16 sm:py-24 bg-[#F5F3ED]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Lower Section: 學院怎麼幫你 */}
-          <div>
-            {/* Section Subtitle */}
-            <div className="text-center mb-10 sm:mb-12">
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#17464F] mb-4 text-balance">
-                學院提供的，不是一堆資訊，而是一條走得完的六個月路線
-              </h3>
-              <p className="text-[#33393C] max-w-2xl mx-auto">
-                我們先陪你選線路，再幫你打底能力，中間所有卡住的地方，就交給課程、社群和工作坊，一起拆開來看。
-              </p>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="text-center mb-10 sm:mb-12">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#17464F] mb-6 text-balance">
+              六個月路線｜3+3 月 × 三大亮點，讓改變真的走得完
+            </h3>
+            <div className="max-w-2xl mx-auto space-y-2">
+              <p className="text-[#33393C] leading-relaxed">前 3 個月，是一起打底、一起行動的「共學探索期」。</p>
+              <p className="text-[#33393C] leading-relaxed">後 3 個月，是把成果拉高、串起機會的「延伸累積期」。</p>
+            </div>
+          </div>
+
+          {/* Three Highlight Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {/* Card 1: 雙軌資源 */}
+            <div className="bg-white/60 rounded-2xl border border-slate-200 p-6 md:p-7 shadow-sm flex flex-col gap-4">
+              <h4 className="text-base md:text-lg font-semibold text-[#17464F]">雙軌資源：副業增收 × 遠端上班</h4>
+              <div className="text-sm md:text-base leading-relaxed text-slate-700 space-y-4">
+                <p>
+                  前 3 個月，你會在同一個學院裡，同時看見兩條路線的真實樣子：
+                  自媒體接案線路幫你練習作品集、內容與接案提案； 遠端上班線路幫你優化履歷、LinkedIn、求職信與面試準備。
+                  你可以先選一條線為主，也可以雙線並進，一邊學一邊試水溫。
+                </p>
+                <p>
+                  後 3 個月，我們會用每月復盤工作坊幫你檢查： 哪一條路現在比較有動能？接下來 1–2 個月要押在哪裡？
+                  也會優先把已經完成任務的學員，串接到 Journey 旅居活動， 以及未來生態系內部的 Job Board 機會池。
+                </p>
+              </div>
             </div>
 
-            {/* Three Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-              {/* Card 1: 雙線路設計 (Left) */}
-              <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-md hover:shadow-lg transition-shadow duration-300 border border-[#C9D7D4]/50">
-                <div className="w-12 h-12 bg-[#17464F] rounded-xl flex items-center justify-center mb-5">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
-                    />
-                  </svg>
-                </div>
-                <h4 className="text-xl font-bold text-[#17464F] mb-3">雙線路設計</h4>
-                <p className="text-sm text-[#A06E56] font-medium mb-4">先選一條主線，也可以雙線並進</p>
-                <div className="text-[#33393C] text-sm leading-relaxed space-y-3">
-                  <p>你會在兩條線路中選擇自己的主修方向：</p>
-                  <ul className="space-y-2 pl-1">
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483] mt-2 shrink-0" />
-                      <span>
-                        <strong className="text-[#17464F]">自媒體接案線路</strong>：內容／短影音、接案方案、作品集
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483] mt-2 shrink-0" />
-                      <span>
-                        <strong className="text-[#17464F]">遠端上班線路</strong>：履歷、LinkedIn、職涯藍圖、面試與談薪
-                      </span>
-                    </li>
-                  </ul>
-                  <p className="pt-1">
-                    你可以先選一條線試走，也可以選「雙線並進方案」，一邊為副業收入鋪路，一邊為職涯升級做準備。
-                  </p>
-                </div>
+            {/* Card 2: 行動導向 */}
+            <div className="bg-white/60 rounded-2xl border border-slate-200 p-6 md:p-7 shadow-sm flex flex-col gap-4">
+              <h4 className="text-base md:text-lg font-semibold text-[#17464F]">行動導向：課後任務 × 實作工作坊</h4>
+              <div className="text-sm md:text-base leading-relaxed text-slate-700 space-y-4">
+                <p>
+                  前 3 個月，每一堂課後都有做得到、但有一點挑戰的行動任務：
+                  發一支影片、寫一封信、更新履歷、完成一個小專案⋯⋯
+                  你不用自己猜下一步，只要跟著每週任務，把遠距上班或接案， 拆成一個一個可以完成的小步驟，並在 Skool
+                  上交作業、收到回饋。
+                </p>
+                <p>
+                  後 3 個月，重心會從「學新東西」轉向「把成果拉高」：
+                  依照你最卡的地方，選修影音剪輯、AI、自動化、英文、網站等實作工作坊，
+                  並把作業整理成可以對外公開的作品集、內容或提案， 讓別人看得到你的行動，也讓機會有機會找到你。
+                </p>
               </div>
+            </div>
 
-              {/* Card 2: 通識課程 (Middle) */}
-              <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-md hover:shadow-lg transition-shadow duration-300 border border-[#C9D7D4]/50">
-                <div className="w-12 h-12 bg-[#D4B483] rounded-xl flex items-center justify-center mb-5">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                    />
-                  </svg>
-                </div>
-                <h4 className="text-xl font-bold text-[#17464F] mb-3">通識課程</h4>
-                <p className="text-sm text-[#A06E56] font-medium mb-4">先把「自由人生的核心能力」打好</p>
-                <div className="text-[#33393C] text-sm leading-relaxed space-y-3">
-                  <p>不管你最後走向自媒體接案，還是遠端上班，所有學員都會一起完成 4 堂通識課程：</p>
-                  <div className="flex flex-wrap gap-2 py-1">
-                    <span className="px-3 py-1 bg-[#F5F3ED] rounded-full text-xs text-[#17464F] font-medium">
-                      知識變現
-                    </span>
-                    <span className="px-3 py-1 bg-[#F5F3ED] rounded-full text-xs text-[#17464F] font-medium">
-                      AI 自動化工作流
-                    </span>
-                    <span className="px-3 py-1 bg-[#F5F3ED] rounded-full text-xs text-[#17464F] font-medium">
-                      旅居財務規劃
-                    </span>
-                    <span className="px-3 py-1 bg-[#F5F3ED] rounded-full text-xs text-[#17464F] font-medium">
-                      人生 SOP
-                    </span>
-                  </div>
-                  <p>先幫你補齊「想過自由生活之前，應該先想清楚的事」。</p>
-                </div>
-              </div>
-
-              {/* Card 3: Skool 共學社群 (Right) */}
-              <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-md hover:shadow-lg transition-shadow duration-300 border border-[#C9D7D4]/50">
-                <div className="w-12 h-12 bg-[#17464F] rounded-xl flex items-center justify-center mb-5">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                    />
-                  </svg>
-                </div>
-                <h4 className="text-xl font-bold text-[#17464F] mb-3">Skool 共學社群</h4>
-                <p className="text-sm text-[#A06E56] font-medium mb-4">路線不同，但教室是同一間</p>
-                <div className="text-[#33393C] text-sm leading-relaxed space-y-3">
-                  <p>不論你選哪一條線，大家都會進到同一個 Skool 學習空間。</p>
-                  <p>你看得到兩條路線同學的作業、提問與成果，也會一起參與任務、討論、選修工作坊與線下聚會。</p>
-                  <p className="text-[#17464F] font-medium pt-1">
-                    很多學員都是在這裡，看著別人的嘗試，一點一滴長出自己的方向感和勇氣。
-                  </p>
-                </div>
+            {/* Card 3: 社群支持 */}
+            <div className="bg-white/60 rounded-2xl border border-slate-200 p-6 md:p-7 shadow-sm flex flex-col gap-4">
+              <h4 className="text-base md:text-lg font-semibold text-[#17464F]">社群支持：Skool × 同學會 × 校友連結</h4>
+              <div className="text-sm md:text-base leading-relaxed text-slate-700 space-y-4">
+                <p>
+                  前 3 個月，你不會一個人在房間裡上課、做作業。 所有學員都在同一個 Skool
+                  共學空間裡，看得到彼此的提問與成果， 再依線路與主題分成小隊與專屬群組，
+                  搭配線上同學會，分享每個月的心得、卡關與實驗結果。
+                </p>
+                <p>
+                  後 3 個月，這個社群會變成你的長期資源： 延伸的校友與城市群組（Skool、Line、LinkedIn），
+                  讓你在結業後，仍然有一群人可以一起交換機會、一起對齊方向； 線上線下聚會與 Journey
+                  活動，也會把螢幕前的同學， 變成世界各地真的一起走路的夥伴。
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
-      {/* // SECTION 2 COURSE HIGHLIGHTS CONTINUED END */}
+      {/* // SECTION 2 COURSE HIGHLIGHTS CONTINUED (Part 2) END */}
 
       {/* // SECTION 2.1 ECOSYSTEM PARTNERSHIP START */}
       <section className="py-12 sm:py-16 bg-white">
