@@ -286,9 +286,23 @@ export default function HomePage() {
         return stage
       }
     }
-    // If past all stages, return final stage
+    const firstStage = stages[0]
+    if (now < firstStage.startAt) {
+      return firstStage
+    }
     return stages[stages.length - 1]
   }, [])
+
+  const isPreLaunch = useMemo((): boolean => {
+    if (!currentStageData) return false
+    const now = new Date()
+    return now < stages[0].startAt
+  }, [currentStageData])
+
+  const isFinalStage = useMemo((): boolean => {
+    if (!currentStageData) return false
+    return currentStageData.id === "stage_final"
+  }, [currentStageData])
 
   const lowestPrice = useMemo((): number | null => {
     if (!currentStageData) return null
@@ -297,9 +311,14 @@ export default function HomePage() {
   }, [currentStageData])
 
   useEffect(() => {
-    if (!currentStageData || !currentStageData.endAt) return
+    if (!currentStageData) return
 
-    const targetDate = currentStageData.endAt.getTime()
+    if (isFinalStage) {
+      setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 })
+      return
+    }
+
+    const targetDate = isPreLaunch ? currentStageData.startAt.getTime() : currentStageData.endAt.getTime()
 
     const timer = setInterval(() => {
       const now = new Date().getTime()
@@ -318,7 +337,7 @@ export default function HomePage() {
     }, 1000)
 
     return () => clearInterval(timer)
-  }, [currentStageData])
+  }, [currentStageData, isPreLaunch, isFinalStage])
 
   const getCheckoutURLWithTracking = (planId: PlanId = "dualLine") => {
     const baseURL = getCheckoutURL(planId, couponCode || undefined)
@@ -385,7 +404,7 @@ export default function HomePage() {
         alt: "專業演講分享",
       },
       {
-        src: "/digital-learning-technology-application-with-lapto.jpg",
+        src: "/images/digital-learning-technology-application-with-lapto.jpg",
         alt: "數位學習科技應用",
       },
     ],
