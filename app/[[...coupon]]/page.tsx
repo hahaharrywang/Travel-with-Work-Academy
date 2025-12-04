@@ -201,7 +201,7 @@ const stages: Stage[] = [
     discountLabel: "原價",
     discountRate: 1,
     startAt: new Date("2025-12-01T00:00:00"),
-    endAt: new Date("2099-12-31T23:59:59"),
+    endAt: new Date("2026-01-15T23:59:59"), // Set a reasonable enrollment deadline
     prices: {
       selfMedia: { original: 16500, stagePrice: 16500, savingAmount: 0 },
       remoteJob: { original: 16500, stagePrice: 16500, savingAmount: 0 },
@@ -286,23 +286,9 @@ export default function HomePage() {
         return stage
       }
     }
-    const firstStage = stages[0]
-    if (now < firstStage.startAt) {
-      return firstStage
-    }
+    // If past all stages, return final stage
     return stages[stages.length - 1]
   }, [])
-
-  const isPreLaunch = useMemo((): boolean => {
-    if (!currentStageData) return false
-    const now = new Date()
-    return now < stages[0].startAt
-  }, [currentStageData])
-
-  const isFinalStage = useMemo((): boolean => {
-    if (!currentStageData) return false
-    return currentStageData.id === "stage_final"
-  }, [currentStageData])
 
   const lowestPrice = useMemo((): number | null => {
     if (!currentStageData) return null
@@ -311,14 +297,9 @@ export default function HomePage() {
   }, [currentStageData])
 
   useEffect(() => {
-    if (!currentStageData) return
+    if (!currentStageData || !currentStageData.endAt) return
 
-    if (isFinalStage) {
-      setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 })
-      return
-    }
-
-    const targetDate = isPreLaunch ? currentStageData.startAt.getTime() : currentStageData.endAt.getTime()
+    const targetDate = currentStageData.endAt.getTime()
 
     const timer = setInterval(() => {
       const now = new Date().getTime()
@@ -337,7 +318,7 @@ export default function HomePage() {
     }, 1000)
 
     return () => clearInterval(timer)
-  }, [currentStageData, isPreLaunch, isFinalStage])
+  }, [currentStageData])
 
   const getCheckoutURLWithTracking = (planId: PlanId = "dualLine") => {
     const baseURL = getCheckoutURL(planId, couponCode || undefined)
