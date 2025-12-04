@@ -27,95 +27,189 @@ interface Stage {
   }
 }
 
+// 原價：單路線 16500，雙路線 22500
+const ORIGINAL_SINGLE = 16500
+const ORIGINAL_DUAL = 22500
+
 const stages: Stage[] = [
   {
     id: "stage_1",
     order: 1,
-    name: "夢想試飛價",
-    tagLine: "願意先試飛、還在觀望的人專屬票價",
-    discountLabel: "58 折",
-    discountRate: 0.58,
+    name: "招生啟動價",
+    tagLine: "最早的一批，只有少部分人知道的方案，有「一起開始學院」的感覺",
+    discountLabel: "51 折",
+    discountRate: 0.51,
     startAt: new Date("2025-07-01T00:00:00"),
-    endAt: new Date("2025-08-15T23:59:59"),
+    endAt: new Date("2025-07-14T23:59:59"),
     prices: {
-      selfMedia: { original: 13500, stagePrice: 7830, savingAmount: 5670 },
-      remoteJob: { original: 13500, stagePrice: 7830, savingAmount: 5670 },
-      dualLine: { original: 19800, stagePrice: 11484, savingAmount: 8316 },
+      selfMedia: { original: ORIGINAL_SINGLE, stagePrice: 8499, savingAmount: ORIGINAL_SINGLE - 8499 },
+      remoteJob: { original: ORIGINAL_SINGLE, stagePrice: 8499, savingAmount: ORIGINAL_SINGLE - 8499 },
+      dualLine: { original: ORIGINAL_DUAL, stagePrice: 11500, savingAmount: ORIGINAL_DUAL - 11500 },
     },
   },
   {
     id: "stage_2",
     order: 2,
-    name: "早鳥一階",
-    tagLine: "確定要加入的早鳥學員專屬價",
-    discountLabel: "65 折",
-    discountRate: 0.65,
-    startAt: new Date("2025-08-16T00:00:00"),
-    endAt: new Date("2025-08-29T23:59:59"),
+    name: "夢想試飛價",
+    tagLine: "願意先試飛的人，給你最輕的票價",
+    discountLabel: "58 折",
+    discountRate: 0.58,
+    startAt: new Date("2025-07-15T00:00:00"),
+    endAt: new Date("2025-07-28T23:59:59"),
     prices: {
-      selfMedia: { original: 13500, stagePrice: 8775, savingAmount: 4725 },
-      remoteJob: { original: 13500, stagePrice: 8775, savingAmount: 4725 },
-      dualLine: { original: 19800, stagePrice: 12870, savingAmount: 6930 },
+      selfMedia: { original: ORIGINAL_SINGLE, stagePrice: 9499, savingAmount: ORIGINAL_SINGLE - 9499 },
+      remoteJob: { original: ORIGINAL_SINGLE, stagePrice: 9499, savingAmount: ORIGINAL_SINGLE - 9499 },
+      dualLine: { original: ORIGINAL_DUAL, stagePrice: 12999, savingAmount: ORIGINAL_DUAL - 12999 },
     },
   },
   {
     id: "stage_3",
     order: 3,
-    name: "早鳥二階",
-    tagLine: "第二波早鳥優惠",
-    discountLabel: "72 折",
-    discountRate: 0.72,
-    startAt: new Date("2025-08-30T00:00:00"),
-    endAt: new Date("2025-09-05T23:59:59"),
+    name: "打包行李價",
+    tagLine: "已經決定要上路、開始準備的人",
+    discountLabel: "61 折",
+    discountRate: 0.61,
+    startAt: new Date("2025-07-29T00:00:00"),
+    endAt: new Date("2025-08-11T23:59:59"),
     prices: {
-      selfMedia: { original: 13500, stagePrice: 9720, savingAmount: 3780 },
-      remoteJob: { original: 13500, stagePrice: 9720, savingAmount: 3780 },
-      dualLine: { original: 19800, stagePrice: 14256, savingAmount: 5544 },
+      selfMedia: { original: ORIGINAL_SINGLE, stagePrice: 9999, savingAmount: ORIGINAL_SINGLE - 9999 },
+      remoteJob: { original: ORIGINAL_SINGLE, stagePrice: 9999, savingAmount: ORIGINAL_SINGLE - 9999 },
+      dualLine: { original: ORIGINAL_DUAL, stagePrice: 13699, savingAmount: ORIGINAL_DUAL - 13699 },
     },
   },
   {
     id: "stage_4",
     order: 4,
-    name: "早鳥三階",
-    tagLine: "最後早鳥優惠",
-    discountLabel: "80 折",
-    discountRate: 0.8,
-    startAt: new Date("2025-09-06T00:00:00"),
-    endAt: new Date("2025-09-12T23:59:59"),
+    name: "開票起飛價",
+    tagLine: "對標「機票開票」的那一刻，再晚就要變貴了",
+    discountLabel: "64 折",
+    discountRate: 0.64,
+    startAt: new Date("2025-08-12T00:00:00"),
+    endAt: new Date("2025-08-25T23:59:59"),
     prices: {
-      selfMedia: { original: 13500, stagePrice: 10800, savingAmount: 2700 },
-      remoteJob: { original: 13500, stagePrice: 10800, savingAmount: 2700 },
-      dualLine: { original: 19800, stagePrice: 15840, savingAmount: 3960 },
+      selfMedia: { original: ORIGINAL_SINGLE, stagePrice: 10499, savingAmount: ORIGINAL_SINGLE - 10499 },
+      remoteJob: { original: ORIGINAL_SINGLE, stagePrice: 10499, savingAmount: ORIGINAL_SINGLE - 10499 },
+      dualLine: { original: ORIGINAL_DUAL, stagePrice: 14299, savingAmount: ORIGINAL_DUAL - 14299 },
     },
   },
   {
     id: "stage_5",
     order: 5,
-    name: "預購價",
-    tagLine: "開課前最後預購優惠",
+    name: "最後登機口價",
+    tagLine: "再不上機就要關門了",
+    discountLabel: "67 折",
+    discountRate: 0.67,
+    startAt: new Date("2025-08-26T00:00:00"),
+    endAt: new Date("2025-09-08T23:59:59"),
+    prices: {
+      selfMedia: { original: ORIGINAL_SINGLE, stagePrice: 10999, savingAmount: ORIGINAL_SINGLE - 10999 },
+      remoteJob: { original: ORIGINAL_SINGLE, stagePrice: 10999, savingAmount: ORIGINAL_SINGLE - 10999 },
+      dualLine: { original: ORIGINAL_DUAL, stagePrice: 14999, savingAmount: ORIGINAL_DUAL - 14999 },
+    },
+  },
+  {
+    id: "stage_6",
+    order: 6,
+    name: "起飛早鳥價",
+    tagLine: "進入中段，還是早鳥，但已經離最便宜一段距離",
+    discountLabel: "70 折",
+    discountRate: 0.7,
+    startAt: new Date("2025-09-09T00:00:00"),
+    endAt: new Date("2025-09-22T23:59:59"),
+    prices: {
+      selfMedia: { original: ORIGINAL_SINGLE, stagePrice: 11499, savingAmount: ORIGINAL_SINGLE - 11499 },
+      remoteJob: { original: ORIGINAL_SINGLE, stagePrice: 11499, savingAmount: ORIGINAL_SINGLE - 11499 },
+      dualLine: { original: ORIGINAL_DUAL, stagePrice: 15699, savingAmount: ORIGINAL_DUAL - 15699 },
+    },
+  },
+  {
+    id: "stage_7",
+    order: 7,
+    name: "雲端巡航價",
+    tagLine: "隊伍已經在路上",
+    discountLabel: "73 折",
+    discountRate: 0.73,
+    startAt: new Date("2025-09-23T00:00:00"),
+    endAt: new Date("2025-10-06T23:59:59"),
+    prices: {
+      selfMedia: { original: ORIGINAL_SINGLE, stagePrice: 11999, savingAmount: ORIGINAL_SINGLE - 11999 },
+      remoteJob: { original: ORIGINAL_SINGLE, stagePrice: 11999, savingAmount: ORIGINAL_SINGLE - 11999 },
+      dualLine: { original: ORIGINAL_DUAL, stagePrice: 16399, savingAmount: ORIGINAL_DUAL - 16399 },
+    },
+  },
+  {
+    id: "stage_8",
+    order: 8,
+    name: "中途轉機價",
+    tagLine: "給晚一點才發現的人：你還趕得上這班機",
+    discountLabel: "76 折",
+    discountRate: 0.76,
+    startAt: new Date("2025-10-07T00:00:00"),
+    endAt: new Date("2025-10-20T23:59:59"),
+    prices: {
+      selfMedia: { original: ORIGINAL_SINGLE, stagePrice: 12499, savingAmount: ORIGINAL_SINGLE - 12499 },
+      remoteJob: { original: ORIGINAL_SINGLE, stagePrice: 12499, savingAmount: ORIGINAL_SINGLE - 12499 },
+      dualLine: { original: ORIGINAL_DUAL, stagePrice: 16999, savingAmount: ORIGINAL_DUAL - 16999 },
+    },
+  },
+  {
+    id: "stage_9",
+    order: 9,
+    name: "入境前夕價",
+    tagLine: "快要入境學院",
+    discountLabel: "82 折",
+    discountRate: 0.82,
+    startAt: new Date("2025-10-21T00:00:00"),
+    endAt: new Date("2025-11-03T23:59:59"),
+    prices: {
+      selfMedia: { original: ORIGINAL_SINGLE, stagePrice: 13499, savingAmount: ORIGINAL_SINGLE - 13499 },
+      remoteJob: { original: ORIGINAL_SINGLE, stagePrice: 13499, savingAmount: ORIGINAL_SINGLE - 13499 },
+      dualLine: { original: ORIGINAL_DUAL, stagePrice: 18399, savingAmount: ORIGINAL_DUAL - 18399 },
+    },
+  },
+  {
+    id: "stage_10",
+    order: 10,
+    name: "落地衝刺價",
+    tagLine: "最後加速衝進這一梯",
     discountLabel: "88 折",
     discountRate: 0.88,
-    startAt: new Date("2025-09-13T00:00:00"),
-    endAt: new Date("2025-09-26T23:59:59"),
+    startAt: new Date("2025-11-04T00:00:00"),
+    endAt: new Date("2025-11-17T23:59:59"),
     prices: {
-      selfMedia: { original: 13500, stagePrice: 11880, savingAmount: 1620 },
-      remoteJob: { original: 13500, stagePrice: 11880, savingAmount: 1620 },
-      dualLine: { original: 19800, stagePrice: 17424, savingAmount: 2376 },
+      selfMedia: { original: ORIGINAL_SINGLE, stagePrice: 14499, savingAmount: ORIGINAL_SINGLE - 14499 },
+      remoteJob: { original: ORIGINAL_SINGLE, stagePrice: 14499, savingAmount: ORIGINAL_SINGLE - 14499 },
+      dualLine: { original: ORIGINAL_DUAL, stagePrice: 19699, savingAmount: ORIGINAL_DUAL - 19699 },
+    },
+  },
+  {
+    id: "stage_11",
+    order: 11,
+    name: "壓線報名價",
+    tagLine: "給還在猶豫但真的想上的你",
+    discountLabel: "94 折",
+    discountRate: 0.94,
+    startAt: new Date("2025-11-18T00:00:00"),
+    endAt: new Date("2025-11-30T23:59:59"),
+    prices: {
+      selfMedia: { original: ORIGINAL_SINGLE, stagePrice: 15499, savingAmount: ORIGINAL_SINGLE - 15499 },
+      remoteJob: { original: ORIGINAL_SINGLE, stagePrice: 15499, savingAmount: ORIGINAL_SINGLE - 15499 },
+      dualLine: { original: ORIGINAL_DUAL, stagePrice: 20999, savingAmount: ORIGINAL_DUAL - 20999 },
     },
   },
   {
     id: "stage_final",
-    order: 6,
-    name: "正式售價",
-    tagLine: "正式售價",
+    order: 12,
+    name: "原價",
+    tagLine: "正常標價",
     discountLabel: "原價",
     discountRate: 1,
-    startAt: new Date("2025-09-27T00:00:00"),
+    startAt: new Date("2025-12-01T00:00:00"),
     endAt: new Date("2099-12-31T23:59:59"),
     prices: {
-      selfMedia: { original: 13500, stagePrice: 13500, savingAmount: 0 },
-      remoteJob: { original: 13500, stagePrice: 13500, savingAmount: 0 },
-      dualLine: { original: 19800, stagePrice: 19800, savingAmount: 0 },
+      selfMedia: { original: ORIGINAL_SINGLE, stagePrice: ORIGINAL_SINGLE, savingAmount: 0 },
+      remoteJob: { original: ORIGINAL_SINGLE, stagePrice: ORIGINAL_SINGLE, savingAmount: 0 },
+      dualLine: { original: ORIGINAL_DUAL, stagePrice: ORIGINAL_DUAL, savingAmount: 0 },
     },
   },
 ]
@@ -333,7 +427,7 @@ export default function HomePage() {
     {
       name: "工具王阿璋",
       title: "『阿璋遊牧』電子報創辦人、數位遊牧陪跑計劃創辦人、IP 經營者",
-      image: "/images/e5-b7-a5-e5-85-b7-e7-8e-8b-e5-95-8a-e7-92-8b.png",
+      image: "/images/e5-b7-a5-e5-85-b7-e7-8e-8b-e5-95-8a-e7-82-8b.png",
       link: "https://www.johntool.com",
       background:
         "工具王阿璋是『阿璋遊牧』電子報創辦人、數位遊牧陪跑計劃創辦人、IP 經營者，擁有豐富的數位遊牧經驗與社群經營知識。",
@@ -438,18 +532,83 @@ export default function HomePage() {
     const now = new Date()
     // Target dates for each tier (August 15th for super early bird)
     const tiers = [
-      { stage: "🔥 超早鳥價", deadline: new Date("2025-08-15T23:59:59"), price: "$149", originalPrice: "$400" },
-      // Note: Added "早鳥第一波" which was missing in original pricingTiers but implied by its absence in example
-      { stage: "早鳥第一波", deadline: new Date("2025-08-29T23:59:59"), price: "$179", originalPrice: "$400" },
-      { stage: "早鳥第二波", deadline: new Date("2025-09-05T23:59:59"), price: "$209", originalPrice: "$400" },
-      { stage: "早鳥第三波", deadline: new Date("2025-09-12T23:59:59"), price: "$249", originalPrice: "$400" },
-      { stage: "預購價", deadline: new Date("2025-09-26T23:59:59"), price: "$349", originalPrice: "$400" },
+      {
+        stage: "招生啟動價",
+        deadline: new Date("2025-07-14T23:59:59"),
+        price: "$8499",
+        originalPrice: `$${formatPrice(ORIGINAL_SINGLE)}`,
+      },
+      {
+        stage: "夢想試飛價",
+        deadline: new Date("2025-07-28T23:59:59"),
+        price: "$9499",
+        originalPrice: `$${formatPrice(ORIGINAL_SINGLE)}`,
+      },
+      {
+        stage: "打包行李價",
+        deadline: new Date("2025-08-11T23:59:59"),
+        price: "$9999",
+        originalPrice: `$${formatPrice(ORIGINAL_SINGLE)}`,
+      },
+      {
+        stage: "開票起飛價",
+        deadline: new Date("2025-08-25T23:59:59"),
+        price: "$10499",
+        originalPrice: `$${formatPrice(ORIGINAL_SINGLE)}`,
+      },
+      {
+        stage: "最後登機口價",
+        deadline: new Date("2025-09-08T23:59:59"),
+        price: "$10999",
+        originalPrice: `$${formatPrice(ORIGINAL_SINGLE)}`,
+      },
+      {
+        stage: "起飛早鳥價",
+        deadline: new Date("2025-09-22T23:59:59"),
+        price: "$11499",
+        originalPrice: `$${formatPrice(ORIGINAL_SINGLE)}`,
+      },
+      {
+        stage: "雲端巡航價",
+        deadline: new Date("2025-10-06T23:59:59"),
+        price: "$11999",
+        originalPrice: `$${formatPrice(ORIGINAL_SINGLE)}`,
+      },
+      {
+        stage: "中途轉機價",
+        deadline: new Date("2025-10-20T23:59:59"),
+        price: "$12499",
+        originalPrice: `$${formatPrice(ORIGINAL_SINGLE)}`,
+      },
+      {
+        stage: "入境前夕價",
+        deadline: new Date("2025-11-03T23:59:59"),
+        price: "$13499",
+        originalPrice: `$${formatPrice(ORIGINAL_SINGLE)}`,
+      },
+      {
+        stage: "落地衝刺價",
+        deadline: new Date("2025-11-17T23:59:59"),
+        price: "$14499",
+        originalPrice: `$${formatPrice(ORIGINAL_SINGLE)}`,
+      },
+      {
+        stage: "壓線報名價",
+        deadline: new Date("2025-11-30T23:59:59"),
+        price: "$15499",
+        originalPrice: `$${formatPrice(ORIGINAL_SINGLE)}`,
+      },
     ]
     for (const tier of tiers) {
       if (now < tier.deadline) return tier
     }
     // If no tier matches, it's the final price
-    return { stage: "正式售價", deadline: null, price: "$400", originalPrice: "$400" }
+    return {
+      stage: "原價",
+      deadline: null,
+      price: `$${formatPrice(ORIGINAL_SINGLE)}`,
+      originalPrice: `$${formatPrice(ORIGINAL_SINGLE)}`,
+    }
   }
 
   const currentTier = getCurrentPricingTier()
@@ -875,6 +1034,7 @@ export default function HomePage() {
                   const now = new Date()
                   const isPast = now > stage.endAt
                   const isCurrent = now >= stage.startAt && now <= stage.endAt
+                  const priceForDisplay = stage.prices.dualLine.stagePrice // Display dualLine price on timeline
 
                   return (
                     <div key={stage.id} className="relative flex flex-col items-center">
@@ -888,9 +1048,7 @@ export default function HomePage() {
                               : "bg-white border-2 border-[#C9D7D4] text-[#17464F]"
                         }`}
                       >
-                        {stage.prices.dualLine.stagePrice % 1 === 0
-                          ? formatPrice(stage.prices.dualLine.stagePrice)
-                          : stage.prices.dualLine.stagePrice}
+                        {priceForDisplay % 1 === 0 ? formatPrice(priceForDisplay) : priceForDisplay}
                       </div>
 
                       {/* Card */}
@@ -927,6 +1085,7 @@ export default function HomePage() {
                 const now = new Date()
                 const isPast = now > stage.endAt
                 const isCurrent = now >= stage.startAt && now <= stage.endAt
+                const priceForDisplay = stage.prices.dualLine.stagePrice // Display dualLine price on timeline
 
                 return (
                   <div
@@ -949,9 +1108,7 @@ export default function HomePage() {
                             : "bg-white border-2 border-[#C9D7D4] text-[#17464F]"
                       }`}
                     >
-                      {stage.prices.dualLine.stagePrice % 1 === 0
-                        ? formatPrice(stage.prices.dualLine.stagePrice)
-                        : stage.prices.dualLine.stagePrice}
+                      {priceForDisplay % 1 === 0 ? formatPrice(priceForDisplay) : priceForDisplay}
                     </div>
 
                     {/* Info */}
@@ -1310,15 +1467,15 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Title */}
           <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-4 text-balance">
-              課程地圖｜3+3 個月，先打底，再累積
-            </h2>
             {/* Three dots decoration */}
             <div className="flex items-center justify-center gap-2 mt-6 mb-8">
               <span className="w-2 h-2 rounded-full bg-[#D4B483]" />
               <span className="w-2 h-2 rounded-full bg-[#17464F]" />
               <span className="w-2 h-2 rounded-full bg-[#D4B483]" />
             </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-4 text-balance">
+              課程地圖｜3+3 個月，先打底，再累積
+            </h2>
             <p className="text-[#33393C] max-w-2xl mx-auto leading-relaxed">
               前 3 個月，用線上課程＋課後任務打好基礎、走完一條主線；
               <br className="hidden sm:block" />後 3 個月，透過復盤、選修工作坊與社群機制，把成果累積成真正的改變。
