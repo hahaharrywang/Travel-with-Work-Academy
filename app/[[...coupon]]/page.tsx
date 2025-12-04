@@ -27,10 +27,6 @@ interface Stage {
   }
 }
 
-// 原價：單路線 16500，雙路線 22500
-const ORIGINAL_SINGLE = 16500
-const ORIGINAL_DUAL = 22500
-
 const stages: Stage[] = [
   {
     id: "stage_1",
@@ -42,9 +38,9 @@ const stages: Stage[] = [
     startAt: new Date("2025-07-01T00:00:00"),
     endAt: new Date("2025-07-14T23:59:59"),
     prices: {
-      selfMedia: { original: ORIGINAL_SINGLE, stagePrice: 8499, savingAmount: ORIGINAL_SINGLE - 8499 },
-      remoteJob: { original: ORIGINAL_SINGLE, stagePrice: 8499, savingAmount: ORIGINAL_SINGLE - 8499 },
-      dualLine: { original: ORIGINAL_DUAL, stagePrice: 11500, savingAmount: ORIGINAL_DUAL - 11500 },
+      selfMedia: { original: 16500, stagePrice: 8499, savingAmount: 8001 },
+      remoteJob: { original: 16500, stagePrice: 8499, savingAmount: 8001 },
+      dualLine: { original: 22500, stagePrice: 11500, savingAmount: 11000 },
     },
   },
   {
@@ -57,9 +53,9 @@ const stages: Stage[] = [
     startAt: new Date("2025-07-15T00:00:00"),
     endAt: new Date("2025-07-28T23:59:59"),
     prices: {
-      selfMedia: { original: ORIGINAL_SINGLE, stagePrice: 9499, savingAmount: ORIGINAL_SINGLE - 9499 },
-      remoteJob: { original: ORIGINAL_SINGLE, stagePrice: 9499, savingAmount: ORIGINAL_SINGLE - 9499 },
-      dualLine: { original: ORIGINAL_DUAL, stagePrice: 12999, savingAmount: ORIGINAL_DUAL - 12999 },
+      selfMedia: { original: 16500, stagePrice: 9499, savingAmount: 7001 },
+      remoteJob: { original: 16500, stagePrice: 9499, savingAmount: 7001 },
+      dualLine: { original: 22500, stagePrice: 12999, savingAmount: 9501 },
     },
   },
   {
@@ -72,9 +68,9 @@ const stages: Stage[] = [
     startAt: new Date("2025-07-29T00:00:00"),
     endAt: new Date("2025-08-11T23:59:59"),
     prices: {
-      selfMedia: { original: ORIGINAL_SINGLE, stagePrice: 9999, savingAmount: ORIGINAL_SINGLE - 9999 },
-      remoteJob: { original: ORIGINAL_SINGLE, stagePrice: 9999, savingAmount: ORIGINAL_SINGLE - 9999 },
-      dualLine: { original: ORIGINAL_DUAL, stagePrice: 13699, savingAmount: ORIGINAL_DUAL - 13699 },
+      selfMedia: { original: 16500, stagePrice: 9999, savingAmount: 6501 },
+      remoteJob: { original: 16500, stagePrice: 9999, savingAmount: 6501 },
+      dualLine: { original: 22500, stagePrice: 13699, savingAmount: 8801 },
     },
   },
   {
@@ -87,9 +83,9 @@ const stages: Stage[] = [
     startAt: new Date("2025-08-12T00:00:00"),
     endAt: new Date("2025-08-25T23:59:59"),
     prices: {
-      selfMedia: { original: ORIGINAL_SINGLE, stagePrice: 10499, savingAmount: ORIGINAL_SINGLE - 10499 },
-      remoteJob: { original: ORIGINAL_SINGLE, stagePrice: 10499, savingAmount: ORIGINAL_SINGLE - 10499 },
-      dualLine: { original: ORIGINAL_DUAL, stagePrice: 14299, savingAmount: ORIGINAL_DUAL - 14299 },
+      selfMedia: { original: 16500, stagePrice: 10499, savingAmount: 6001 },
+      remoteJob: { original: 16500, stagePrice: 10499, savingAmount: 6001 },
+      dualLine: { original: 22500, stagePrice: 14299, savingAmount: 8201 },
     },
   },
   {
@@ -102,9 +98,9 @@ const stages: Stage[] = [
     startAt: new Date("2025-08-26T00:00:00"),
     endAt: new Date("2025-09-08T23:59:59"),
     prices: {
-      selfMedia: { original: ORIGINAL_SINGLE, stagePrice: 10999, savingAmount: ORIGINAL_SINGLE - 10999 },
-      remoteJob: { original: ORIGINAL_SINGLE, stagePrice: 10999, savingAmount: ORIGINAL_SINGLE - 10999 },
-      dualLine: { original: ORIGINAL_DUAL, stagePrice: 14999, savingAmount: ORIGINAL_DUAL - 14999 },
+      selfMedia: { original: 16500, stagePrice: 10999, savingAmount: 5501 },
+      remoteJob: { original: 16500, stagePrice: 10999, savingAmount: 5501 },
+      dualLine: { original: 22500, stagePrice: 14999, savingAmount: 7501 },
     },
   },
   {
@@ -117,9 +113,9 @@ const stages: Stage[] = [
     startAt: new Date("2025-09-09T00:00:00"),
     endAt: new Date("2025-09-22T23:59:59"),
     prices: {
-      selfMedia: { original: ORIGINAL_SINGLE, stagePrice: 11499, savingAmount: ORIGINAL_SINGLE - 11499 },
-      remoteJob: { original: ORIGINAL_SINGLE, stagePrice: 11499, savingAmount: ORIGINAL_SINGLE - 11499 },
-      dualLine: { original: ORIGINAL_DUAL, stagePrice: 15699, savingAmount: ORIGINAL_DUAL - 15699 },
+      selfMedia: { original: 16500, stagePrice: 11499, savingAmount: 5001 },
+      remoteJob: { original: 16500, stagePrice: 11499, savingAmount: 5001 },
+      dualLine: { original: 22500, stagePrice: 15699, savingAmount: 6801 },
     },
   },
   {
@@ -132,24 +128,24 @@ const stages: Stage[] = [
     startAt: new Date("2025-09-23T00:00:00"),
     endAt: new Date("2025-10-06T23:59:59"),
     prices: {
-      selfMedia: { original: ORIGINAL_SINGLE, stagePrice: 11999, savingAmount: ORIGINAL_SINGLE - 11999 },
-      remoteJob: { original: ORIGINAL_SINGLE, stagePrice: 11999, savingAmount: ORIGINAL_SINGLE - 11999 },
-      dualLine: { original: ORIGINAL_DUAL, stagePrice: 16399, savingAmount: ORIGINAL_DUAL - 16399 },
+      selfMedia: { original: 16500, stagePrice: 11999, savingAmount: 4501 },
+      remoteJob: { original: 16500, stagePrice: 11999, savingAmount: 4501 },
+      dualLine: { original: 22500, stagePrice: 16399, savingAmount: 6101 },
     },
   },
   {
     id: "stage_8",
     order: 8,
     name: "中途轉機價",
-    tagLine: "給晚一點才發現的人：你還趕得上這班機",
+    tagLine: "你還趕得上這班機，但不是最早那批價",
     discountLabel: "76 折",
     discountRate: 0.76,
     startAt: new Date("2025-10-07T00:00:00"),
     endAt: new Date("2025-10-20T23:59:59"),
     prices: {
-      selfMedia: { original: ORIGINAL_SINGLE, stagePrice: 12499, savingAmount: ORIGINAL_SINGLE - 12499 },
-      remoteJob: { original: ORIGINAL_SINGLE, stagePrice: 12499, savingAmount: ORIGINAL_SINGLE - 12499 },
-      dualLine: { original: ORIGINAL_DUAL, stagePrice: 16999, savingAmount: ORIGINAL_DUAL - 16999 },
+      selfMedia: { original: 16500, stagePrice: 12499, savingAmount: 4001 },
+      remoteJob: { original: 16500, stagePrice: 12499, savingAmount: 4001 },
+      dualLine: { original: 22500, stagePrice: 16999, savingAmount: 5501 },
     },
   },
   {
@@ -162,9 +158,9 @@ const stages: Stage[] = [
     startAt: new Date("2025-10-21T00:00:00"),
     endAt: new Date("2025-11-03T23:59:59"),
     prices: {
-      selfMedia: { original: ORIGINAL_SINGLE, stagePrice: 13499, savingAmount: ORIGINAL_SINGLE - 13499 },
-      remoteJob: { original: ORIGINAL_SINGLE, stagePrice: 13499, savingAmount: ORIGINAL_SINGLE - 13499 },
-      dualLine: { original: ORIGINAL_DUAL, stagePrice: 18399, savingAmount: ORIGINAL_DUAL - 18399 },
+      selfMedia: { original: 16500, stagePrice: 13499, savingAmount: 3001 },
+      remoteJob: { original: 16500, stagePrice: 13499, savingAmount: 3001 },
+      dualLine: { original: 22500, stagePrice: 18399, savingAmount: 4101 },
     },
   },
   {
@@ -177,9 +173,9 @@ const stages: Stage[] = [
     startAt: new Date("2025-11-04T00:00:00"),
     endAt: new Date("2025-11-17T23:59:59"),
     prices: {
-      selfMedia: { original: ORIGINAL_SINGLE, stagePrice: 14499, savingAmount: ORIGINAL_SINGLE - 14499 },
-      remoteJob: { original: ORIGINAL_SINGLE, stagePrice: 14499, savingAmount: ORIGINAL_SINGLE - 14499 },
-      dualLine: { original: ORIGINAL_DUAL, stagePrice: 19699, savingAmount: ORIGINAL_DUAL - 19699 },
+      selfMedia: { original: 16500, stagePrice: 14499, savingAmount: 2001 },
+      remoteJob: { original: 16500, stagePrice: 14499, savingAmount: 2001 },
+      dualLine: { original: 22500, stagePrice: 19699, savingAmount: 2801 },
     },
   },
   {
@@ -192,9 +188,9 @@ const stages: Stage[] = [
     startAt: new Date("2025-11-18T00:00:00"),
     endAt: new Date("2025-11-30T23:59:59"),
     prices: {
-      selfMedia: { original: ORIGINAL_SINGLE, stagePrice: 15499, savingAmount: ORIGINAL_SINGLE - 15499 },
-      remoteJob: { original: ORIGINAL_SINGLE, stagePrice: 15499, savingAmount: ORIGINAL_SINGLE - 15499 },
-      dualLine: { original: ORIGINAL_DUAL, stagePrice: 20999, savingAmount: ORIGINAL_DUAL - 20999 },
+      selfMedia: { original: 16500, stagePrice: 15499, savingAmount: 1001 },
+      remoteJob: { original: 16500, stagePrice: 15499, savingAmount: 1001 },
+      dualLine: { original: 22500, stagePrice: 20999, savingAmount: 1501 },
     },
   },
   {
@@ -207,9 +203,9 @@ const stages: Stage[] = [
     startAt: new Date("2025-12-01T00:00:00"),
     endAt: new Date("2099-12-31T23:59:59"),
     prices: {
-      selfMedia: { original: ORIGINAL_SINGLE, stagePrice: ORIGINAL_SINGLE, savingAmount: 0 },
-      remoteJob: { original: ORIGINAL_SINGLE, stagePrice: ORIGINAL_SINGLE, savingAmount: 0 },
-      dualLine: { original: ORIGINAL_DUAL, stagePrice: ORIGINAL_DUAL, savingAmount: 0 },
+      selfMedia: { original: 16500, stagePrice: 16500, savingAmount: 0 },
+      remoteJob: { original: 16500, stagePrice: 16500, savingAmount: 0 },
+      dualLine: { original: 22500, stagePrice: 22500, savingAmount: 0 },
     },
   },
 ]
@@ -427,7 +423,7 @@ export default function HomePage() {
     {
       name: "工具王阿璋",
       title: "『阿璋遊牧』電子報創辦人、數位遊牧陪跑計劃創辦人、IP 經營者",
-      image: "/images/e5-b7-a5-e5-85-b7-e7-8e-8b-e5-95-8a-e7-82-8b.png",
+      image: "/images/e5-b7-a5-e5-85-b7-e7-8e-8b-e5-95-8a-e7-92-8b.png",
       link: "https://www.johntool.com",
       background:
         "工具王阿璋是『阿璋遊牧』電子報創辦人、數位遊牧陪跑計劃創辦人、IP 經營者，擁有豐富的數位遊牧經驗與社群經營知識。",
@@ -532,83 +528,18 @@ export default function HomePage() {
     const now = new Date()
     // Target dates for each tier (August 15th for super early bird)
     const tiers = [
-      {
-        stage: "招生啟動價",
-        deadline: new Date("2025-07-14T23:59:59"),
-        price: "$8499",
-        originalPrice: `$${formatPrice(ORIGINAL_SINGLE)}`,
-      },
-      {
-        stage: "夢想試飛價",
-        deadline: new Date("2025-07-28T23:59:59"),
-        price: "$9499",
-        originalPrice: `$${formatPrice(ORIGINAL_SINGLE)}`,
-      },
-      {
-        stage: "打包行李價",
-        deadline: new Date("2025-08-11T23:59:59"),
-        price: "$9999",
-        originalPrice: `$${formatPrice(ORIGINAL_SINGLE)}`,
-      },
-      {
-        stage: "開票起飛價",
-        deadline: new Date("2025-08-25T23:59:59"),
-        price: "$10499",
-        originalPrice: `$${formatPrice(ORIGINAL_SINGLE)}`,
-      },
-      {
-        stage: "最後登機口價",
-        deadline: new Date("2025-09-08T23:59:59"),
-        price: "$10999",
-        originalPrice: `$${formatPrice(ORIGINAL_SINGLE)}`,
-      },
-      {
-        stage: "起飛早鳥價",
-        deadline: new Date("2025-09-22T23:59:59"),
-        price: "$11499",
-        originalPrice: `$${formatPrice(ORIGINAL_SINGLE)}`,
-      },
-      {
-        stage: "雲端巡航價",
-        deadline: new Date("2025-10-06T23:59:59"),
-        price: "$11999",
-        originalPrice: `$${formatPrice(ORIGINAL_SINGLE)}`,
-      },
-      {
-        stage: "中途轉機價",
-        deadline: new Date("2025-10-20T23:59:59"),
-        price: "$12499",
-        originalPrice: `$${formatPrice(ORIGINAL_SINGLE)}`,
-      },
-      {
-        stage: "入境前夕價",
-        deadline: new Date("2025-11-03T23:59:59"),
-        price: "$13499",
-        originalPrice: `$${formatPrice(ORIGINAL_SINGLE)}`,
-      },
-      {
-        stage: "落地衝刺價",
-        deadline: new Date("2025-11-17T23:59:59"),
-        price: "$14499",
-        originalPrice: `$${formatPrice(ORIGINAL_SINGLE)}`,
-      },
-      {
-        stage: "壓線報名價",
-        deadline: new Date("2025-11-30T23:59:59"),
-        price: "$15499",
-        originalPrice: `$${formatPrice(ORIGINAL_SINGLE)}`,
-      },
+      { stage: "🔥 超早鳥價", deadline: new Date("2025-08-15T23:59:59"), price: "$149", originalPrice: "$400" },
+      // Note: Added "早鳥第一波" which was missing in original pricingTiers but implied by its absence in example
+      { stage: "早鳥第一波", deadline: new Date("2025-08-29T23:59:59"), price: "$179", originalPrice: "$400" },
+      { stage: "早鳥第二波", deadline: new Date("2025-09-05T23:59:59"), price: "$209", originalPrice: "$400" },
+      { stage: "早鳥第三波", deadline: new Date("2025-09-12T23:59:59"), price: "$249", originalPrice: "$400" },
+      { stage: "預購價", deadline: new Date("2025-09-26T23:59:59"), price: "$349", originalPrice: "$400" },
     ]
     for (const tier of tiers) {
       if (now < tier.deadline) return tier
     }
     // If no tier matches, it's the final price
-    return {
-      stage: "原價",
-      deadline: null,
-      price: `$${formatPrice(ORIGINAL_SINGLE)}`,
-      originalPrice: `$${formatPrice(ORIGINAL_SINGLE)}`,
-    }
+    return { stage: "正式售價", deadline: null, price: "$400", originalPrice: "$400" }
   }
 
   const currentTier = getCurrentPricingTier()
@@ -1034,7 +965,6 @@ export default function HomePage() {
                   const now = new Date()
                   const isPast = now > stage.endAt
                   const isCurrent = now >= stage.startAt && now <= stage.endAt
-                  const priceForDisplay = stage.prices.dualLine.stagePrice // Display dualLine price on timeline
 
                   return (
                     <div key={stage.id} className="relative flex flex-col items-center">
@@ -1048,7 +978,9 @@ export default function HomePage() {
                               : "bg-white border-2 border-[#C9D7D4] text-[#17464F]"
                         }`}
                       >
-                        {priceForDisplay % 1 === 0 ? formatPrice(priceForDisplay) : priceForDisplay}
+                        {stage.prices.dualLine.stagePrice % 1 === 0
+                          ? formatPrice(stage.prices.dualLine.stagePrice)
+                          : stage.prices.dualLine.stagePrice}
                       </div>
 
                       {/* Card */}
@@ -1085,7 +1017,6 @@ export default function HomePage() {
                 const now = new Date()
                 const isPast = now > stage.endAt
                 const isCurrent = now >= stage.startAt && now <= stage.endAt
-                const priceForDisplay = stage.prices.dualLine.stagePrice // Display dualLine price on timeline
 
                 return (
                   <div
@@ -1108,7 +1039,9 @@ export default function HomePage() {
                             : "bg-white border-2 border-[#C9D7D4] text-[#17464F]"
                       }`}
                     >
-                      {priceForDisplay % 1 === 0 ? formatPrice(priceForDisplay) : priceForDisplay}
+                      {stage.prices.dualLine.stagePrice % 1 === 0
+                        ? formatPrice(stage.prices.dualLine.stagePrice)
+                        : stage.prices.dualLine.stagePrice}
                     </div>
 
                     {/* Info */}
@@ -1467,15 +1400,15 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Title */}
           <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-4 text-balance">
+              課程地圖｜3+3 個月，先打底，再累積
+            </h2>
             {/* Three dots decoration */}
             <div className="flex items-center justify-center gap-2 mt-6 mb-8">
               <span className="w-2 h-2 rounded-full bg-[#D4B483]" />
               <span className="w-2 h-2 rounded-full bg-[#17464F]" />
               <span className="w-2 h-2 rounded-full bg-[#D4B483]" />
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-4 text-balance">
-              課程地圖｜3+3 個月，先打底，再累積
-            </h2>
             <p className="text-[#33393C] max-w-2xl mx-auto leading-relaxed">
               前 3 個月，用線上課程＋課後任務打好基礎、走完一條主線；
               <br className="hidden sm:block" />後 3 個月，透過復盤、選修工作坊與社群機制，把成果累積成真正的改變。
