@@ -1321,7 +1321,7 @@ export default function HomePage() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110-4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
                   />
                 </svg>
               </div>
@@ -1356,7 +1356,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-[#17464F] to-[#1a5259] rounded-2xl p-6 md:p-8 shadow-lg">
+          <div className="bg-gradient-to-r from-[#17464F] to-[#1a5952] rounded-2xl p-6 md:p-8 shadow-lg">
             <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
               後 3 個月｜延伸累積期：復盤、加強、銜接機會
             </h3>
@@ -2144,7 +2144,7 @@ export default function HomePage() {
               差別只在於：你想先專心走哪一條主線，或是一次打開兩種可能。
             </p>
             {currentStageData && (
-              <div className="mt-6 inline-flex items-center gap-2 bg-[#17464F] text-white px-4 py-2 rounded-full text-sm">
+              <div className="mt-6 inline-flex items-center gap-2 bg-[#17464F] text-white px-4 py-1 rounded-full text-sm">
                 <span>🔥</span>
                 <span>
                   目前為「<span className="text-[#D4B483] font-bold">{currentStageData.name}</span>」·{" "}
@@ -2276,59 +2276,19 @@ export default function HomePage() {
             {/* 當前階段摘要卡 */}
             {currentStageData && (
               <div className="mt-8 bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-2xl p-6 sm:p-8 text-white">
-                <div className="text-center mb-6">
+                <div className="text-center">
                   <div className="inline-flex items-center gap-2 bg-[#D4B483] text-[#17464F] px-4 py-1 rounded-full text-sm font-bold mb-3">
                     <span>🔥</span>
                     <span>目前階段</span>
                   </div>
                   <h4 className="text-2xl font-bold">{currentStageData.name}</h4>
                   <p className="text-white/70 text-sm mt-2">
-                    {currentStageData.endAt.getMonth() + 1}/{currentStageData.endAt.getDate()}
+                    截止日期：{currentStageData.endAt.getMonth() + 1}/{currentStageData.endAt.getDate()}
                   </p>
                   <p className="text-[#D4B483] font-medium mt-2">
                     距離下一階段：{timeLeft.days} 天 {timeLeft.hours} 小時 {timeLeft.minutes} 分
                   </p>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div className="bg-white/10 rounded-xl p-4 text-center">
-                    <div className="text-sm text-white/70 mb-1">自媒體接案</div>
-                    <div className="text-xs text-white/50 line-through">
-                      原價 NT$ {formatPrice(currentStageData.prices.selfMedia.original)}
-                    </div>
-                    <div className="text-xl font-bold text-white">
-                      NT$ {formatPrice(currentStageData.prices.selfMedia.stagePrice)}
-                    </div>
-                    <div className="text-xs text-[#D4B483]">
-                      省 NT$ {formatPrice(currentStageData.prices.selfMedia.savingAmount)}
-                    </div>
-                  </div>
-
-                  <div className="bg-[#D4B483]/20 rounded-xl p-4 text-center border-2 border-[#D4B483]">
-                    <div className="text-sm text-[#D4B483] font-medium mb-1">雙線並進（推薦）</div>
-                    <div className="text-xs text-white/50 line-through">
-                      原價 NT$ {formatPrice(currentStageData.prices.dualLine.original)}
-                    </div>
-                    <div className="text-2xl font-bold text-[#D4B483]">
-                      NT$ {formatPrice(currentStageData.prices.dualLine.stagePrice)}
-                    </div>
-                    <div className="text-xs text-[#D4B483]">
-                      省 NT$ {formatPrice(currentStageData.prices.dualLine.savingAmount)}
-                    </div>
-                  </div>
-
-                  <div className="bg-white/10 rounded-xl p-4 text-center">
-                    <div className="text-sm text-white/70 mb-1">遠端上班</div>
-                    <div className="text-xs text-white/50 line-through">
-                      原價 NT$ {formatPrice(currentStageData.prices.remoteJob.original)}
-                    </div>
-                    <div className="text-xl font-bold text-white">
-                      NT$ {formatPrice(currentStageData.prices.remoteJob.stagePrice)}
-                    </div>
-                    <div className="text-xs text-[#D4B483]">
-                      省 NT$ {formatPrice(currentStageData.prices.remoteJob.savingAmount)}
-                    </div>
-                  </div>
+                  <p className="text-white/60 text-sm mt-3">{currentStageData.discountLabel} · 下方選擇適合你的方案</p>
                 </div>
               </div>
             )}
@@ -2578,7 +2538,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-[#17464F] to-[#1a5561] rounded-2xl p-6 text-center text-white shadow-lg">
+          <div className="bg-gradient-to-r from-[#17464F] to-[#1a5259] rounded-2xl p-6 text-center text-white shadow-lg">
             <div className="text-lg font-bold mb-2">績優學員專屬獎勵</div>
             <div className="text-sm opacity-90">
               課程期間成長表現優異的學員，將有機會獲得<span className="font-semibold">學費的部分或全額</span>
