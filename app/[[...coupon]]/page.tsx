@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
 import { useParams } from "next/navigation"
 
@@ -1550,7 +1549,7 @@ export default function HomePage() {
                   href="https://open.spotify.com/show/nomadleaders"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-[#17464F] text-white px-6 py-3 rounded-full font-medium hover:bg-[#17464F]/90 transition-colors"
+                  className="inline-flex items-center gap-2 bg-[#17464F] text-white px-6 py-3 rounded-full font-medium hover:bg-[#0f3339] transition-colors"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
@@ -1587,7 +1586,7 @@ export default function HomePage() {
             <h2 className="text-3xl sm:text-4xl font-bold text-[#17464F] mb-4">
               你不只是買一門課，而是走進一個行動生態系
             </h2>
-            <p className="text-lg text-[#33393C]/80 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-[#33393C]/80 max-w-2xl mx-auto leading-relaxed">
               六個月裡，你會接觸到的不只是固定幾堂課，
               <br className="hidden sm:inline" />
               而是一整套幫你「學、做、問、連結」的資源組合。
@@ -2112,61 +2111,221 @@ export default function HomePage() {
 
       {/* // SECTION 10 FAQ START */}
       <section className="py-16 sm:py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Title */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-6">常見問題</h2>
-            <div className="w-24 h-1 bg-[#FF6B35] mx-auto rounded-full"></div>
+          <div className="text-center mb-12">
+            {/* Three dots decoration */}
+            <div className="flex items-center justify-center gap-2 mb-6">
+              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#17464F] mb-4">常見問題</h2>
+            <p className="text-[#33393C]/80 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+              看到這裡，你可能還有一些問題想問清楚。
+              <br className="hidden sm:block" />
+              以下整理了大家最常問的幾個問題，如果沒找到答案，歡迎私訊我們。
+            </p>
           </div>
 
-          {/* FAQ Items */}
-          <div className="space-y-6">
-            {/* FAQ 1 */}
-            <Card className="shadow-xl border-0 overflow-hidden">
-              <CardContent className="p-6 sm:p-8">
-                <h3 className="text-xl font-bold text-black mb-3">Q: 課程結束後，我能達到什麼程度？</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  A: 課程結束後，你將具備開始接案、跨國遠距工作的基礎能力，並擁有個人品牌和國際履歷。
-                </p>
-              </CardContent>
-            </Card>
+          {/* FAQ Groups */}
+          <div className="space-y-8">
+            {/* Group 1: 適合對象 */}
+            <div>
+              <h3 className="text-sm font-semibold text-[#D4B483] uppercase tracking-wider mb-4 flex items-center gap-2">
+                <span className="w-8 h-px bg-[#D4B483]"></span>
+                適合對象
+              </h3>
+              <div className="space-y-3">
+                {/* Q1 */}
+                <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
+                  <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
+                    <span className="font-medium text-[#17464F] text-left pr-4">
+                      這堂學院適合什麼樣的人？我現在只是在上班，可以報名嗎？
+                    </span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F]/10 flex items-center justify-center text-[#17464F] group-open:rotate-45 transition-transform duration-200">
+                      +
+                    </span>
+                  </summary>
+                  <div className="px-5 pb-5 text-[#33393C]/80 leading-relaxed border-t border-[#C9D7D4]/50 pt-4">
+                    當然可以！這堂學院就是為了「有正職、但想探索更多可能」的人設計的。你不需要先離職，也不需要有任何接案或遠距經驗。只要你願意在未來六個月裡，每週騰出
+                    2-4 小時來學習和行動，這裡就適合你。
+                  </div>
+                </details>
 
-            {/* FAQ 2 */}
-            <Card className="shadow-xl border-0 overflow-hidden">
-              <CardContent className="p-6 sm:p-8">
-                <h3 className="text-xl font-bold text-black mb-3">Q: 課程內容適合完全沒有經驗的新手嗎？</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  A: 課程設計從零開始，適合沒有經驗的新手。我們將提供初學者也能執行的第一步指導，讓你輕鬆入門。
-                </p>
-              </CardContent>
-            </Card>
+                {/* Q2 */}
+                <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
+                  <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
+                    <span className="font-medium text-[#17464F] text-left pr-4">英文不好、程式不會，可以嗎？</span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F]/10 flex items-center justify-center text-[#17464F] group-open:rotate-45 transition-transform duration-200">
+                      +
+                    </span>
+                  </summary>
+                  <div className="px-5 pb-5 text-[#33393C]/80 leading-relaxed border-t border-[#C9D7D4]/50 pt-4">
+                    可以。我們的課程主要用中文進行，不會要求你一開始就具備流利英文或程式能力。選修課程中有「工作英文」和「AI
+                    工具應用」，會幫助你從零建立這些技能。最重要的是「願意學」，而不是「已經會」。
+                  </div>
+                </details>
+              </div>
+            </div>
 
-            {/* FAQ 3 */}
-            <Card className="shadow-xl border-0 overflow-hidden">
-              <CardContent className="p-6 sm:p-8">
-                <h3 className="text-xl font-bold text-black mb-3">Q: 課程時間如何安排？</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  A:
-                  課程為期12週，每週有線上課程和課後實作任務。直播課程也會錄製下來提供回放，你可以根據自己的時間彈性安排學習進度。
-                </p>
-              </CardContent>
-            </Card>
+            {/* Group 2: 時間與節奏 */}
+            <div>
+              <h3 className="text-sm font-semibold text-[#D4B483] uppercase tracking-wider mb-4 flex items-center gap-2">
+                <span className="w-8 h-px bg-[#D4B483]"></span>
+                時間與節奏
+              </h3>
+              <div className="space-y-3">
+                {/* Q3 */}
+                <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
+                  <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
+                    <span className="font-medium text-[#17464F] text-left pr-4">
+                      3+3 個月的節奏大概是怎麼安排的？會不會太硬？
+                    </span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F]/10 flex items-center justify-center text-[#17464F] group-open:rotate-45 transition-transform duration-200">
+                      +
+                    </span>
+                  </summary>
+                  <div className="px-5 pb-5 text-[#33393C]/80 leading-relaxed border-t border-[#C9D7D4]/50 pt-4">
+                    <p className="mb-3">
+                      前 3 個月是「共學探索期」，每週會有 1 堂主課（約 60-90 分鐘）+ 課後任務，預計每週投入 2-4
+                      小時。這段時間會比較密集，但節奏是設計給有正職的人跟得上的。
+                    </p>
+                    <p>
+                      後 3
+                      個月是「延伸累積期」，節奏放慢，以每月復盤工作坊、選修課程、社群任務為主，讓你有空間把學到的東西真的用出來。
+                    </p>
+                  </div>
+                </details>
 
-            {/* FAQ 4 */}
-            <Card className="shadow-xl border-0 overflow-hidden">
-              <CardContent className="p-6 sm:p-8">
-                <h3 className="text-xl font-bold text-black mb-3">Q: 課程費用包含哪些內容？</h3>
-                <p className="text-gray-700 leading-relaxed">A: 課程費用包含所有線上課程、實作練習、社群資源。</p>
-              </CardContent>
-            </Card>
+                {/* Q4 */}
+                <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
+                  <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
+                    <span className="font-medium text-[#17464F] text-left pr-4">
+                      我時間很不固定，有錄影可以回看嗎？作業一定要每週交嗎？
+                    </span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F]/10 flex items-center justify-center text-[#17464F] group-open:rotate-45 transition-transform duration-200">
+                      +
+                    </span>
+                  </summary>
+                  <div className="px-5 pb-5 text-[#33393C]/80 leading-relaxed border-t border-[#C9D7D4]/50 pt-4">
+                    所有課程都會錄影，放在 Skool
+                    社群讓你隨時回看。作業有建議繳交時間，但我們更鼓勵「完成比完美重要」——如果某週真的忙不過來，可以先跟上進度，之後再補。我們會有基本的及格門檻，但不會逼你每週都交滿。
+                  </div>
+                </details>
+
+                {/* Q5 */}
+                <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
+                  <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
+                    <span className="font-medium text-[#17464F] text-left pr-4">
+                      如果這六個月中途真的發生變故（工作太忙、人生事件），怎麼辦？
+                    </span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F]/10 flex items-center justify-center text-[#17464F] group-open:rotate-45 transition-transform duration-200">
+                      +
+                    </span>
+                  </summary>
+                  <div className="px-5 pb-5 text-[#33393C]/80 leading-relaxed border-t border-[#C9D7D4]/50 pt-4">
+                    我們理解人生不會照劇本走。如果中途遇到重大變故，可以先私訊我們討論。錄影內容會保留讓你補課，部分情況也可以申請轉到下一梯次。詳細的退費與轉班規則會在報名後提供完整說明。
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            {/* Group 3: 內容與線路 */}
+            <div>
+              <h3 className="text-sm font-semibold text-[#D4B483] uppercase tracking-wider mb-4 flex items-center gap-2">
+                <span className="w-8 h-px bg-[#D4B483]"></span>
+                內容與線路
+              </h3>
+              <div className="space-y-3">
+                {/* Q6 */}
+                <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
+                  <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
+                    <span className="font-medium text-[#17464F] text-left pr-4">
+                      自媒體接案線路與遠端上班線路有什麼差別？我不知道要選哪一個。
+                    </span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F]/10 flex items-center justify-center text-[#17464F] group-open:rotate-45 transition-transform duration-200">
+                      +
+                    </span>
+                  </summary>
+                  <div className="px-5 pb-5 text-[#33393C]/80 leading-relaxed border-t border-[#C9D7D4]/50 pt-4">
+                    <p className="mb-3">
+                      <strong>自媒體接案線路</strong>
+                      ：適合想透過內容創作、個人品牌來獲得收入與自由的人。課程會教你怎麼從零開始經營自媒體、找到變現模式、接到第一個案子。
+                    </p>
+                    <p className="mb-3">
+                      <strong>遠端上班線路</strong>
+                      ：適合想找到一份可以遠距工作的正職或長期合作的人。課程會教你怎麼打造國際履歷、在哪裡找遠距職缺、如何通過面試。
+                    </p>
+                    <p>
+                      如果你還不確定，建議先選一條「現在比較有感覺」的線路走走看。六個月很長，你會在過程中慢慢釐清自己要的是什麼。
+                    </p>
+                  </div>
+                </details>
+
+                {/* Q7 */}
+                <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
+                  <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
+                    <span className="font-medium text-[#17464F] text-left pr-4">可以中途換線、改成雙線並進嗎？</span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F]/10 flex items-center justify-center text-[#17464F] group-open:rotate-45 transition-transform duration-200">
+                      +
+                    </span>
+                  </summary>
+                  <div className="px-5 pb-5 text-[#33393C]/80 leading-relaxed border-t border-[#C9D7D4]/50 pt-4">
+                    可以。如果你在前 3
+                    個月發現另一條線路更適合自己，可以申請換線或升級成雙線並進方案（需補差額）。我們希望你選到真正適合的路，而不是被綁在一開始的選擇。
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            {/* Group 4: 其他 */}
+            <div>
+              <h3 className="text-sm font-semibold text-[#D4B483] uppercase tracking-wider mb-4 flex items-center gap-2">
+                <span className="w-8 h-px bg-[#D4B483]"></span>
+                其他
+              </h3>
+              <div className="space-y-3">
+                {/* Q8 */}
+                <details className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden">
+                  <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
+                    <span className="font-medium text-[#17464F] text-left pr-4">
+                      有發票／公司報帳、分期付款的選項嗎？
+                    </span>
+                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F]/10 flex items-center justify-center text-[#17464F] group-open:rotate-45 transition-transform duration-200">
+                      +
+                    </span>
+                  </summary>
+                  <div className="px-5 pb-5 text-[#33393C]/80 leading-relaxed border-t border-[#C9D7D4]/50 pt-4">
+                    我們可以開立電子發票（含統編），適合需要公司報帳的學員。分期付款部分，目前支援信用卡分期（視發卡銀行而定）。如果有特殊需求，歡迎私訊我們討論。
+                  </div>
+                </details>
+              </div>
+            </div>
+          </div>
+
+          {/* Closing note */}
+          <div className="mt-12 text-center">
+            <p className="text-[#33393C]/70 text-sm leading-relaxed">
+              還有其他問題？歡迎到{" "}
+              <a
+                href="https://www.instagram.com/travelwithwork_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#17464F] underline hover:text-[#D4B483] transition-colors"
+              >
+                Instagram
+              </a>{" "}
+              私訊我們，或寄信到 Academy@travelwork.life
+            </p>
           </div>
         </div>
       </section>
       {/* // SECTION 10 FAQ END */}
 
       {/* // FOOTER START */}
-      <footer className="py-8 bg-gray-900 text-white text-center">
-        <p className="text-sm">
+      <footer className="py-8 bg-[#17464F] text-white text-center">
+        <p className="text-sm text-white/80">
           &copy; 2025 遠距遊牧學院 Travel With Work Academy. All rights reserved.
           <br />
           任何疑問請洽 Instagram:{" "}
@@ -2174,11 +2333,11 @@ export default function HomePage() {
             href="https://www.instagram.com/travelwithwork_/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-orange-400 hover:text-orange-300 transition-colors"
+            className="text-[#D4B483] hover:text-[#D4B483]/80 transition-colors"
           >
             遠距遊牧學院
           </a>{" "}
-          / Email: Academy@travelwithwork.life
+          / Email: Academy@travelwork.life
         </p>
       </footer>
       {/* // FOOTER END */}
