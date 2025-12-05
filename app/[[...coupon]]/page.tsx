@@ -617,155 +617,20 @@ export default function HomePage() {
         </div>
       </section>
       {/* SECTION 2 COURSE HIGHLIGHTS END */}
-      {/* SECTION 3 PAIN POINTS START - 三大痛點 (重製版) */}
-<section className="py-16 sm:py-24 bg-[#17464F] relative overflow-hidden">
-  {/* 背景裝飾：金色弧線 (極細微) */}
-  <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] border border-[#D4B483]/10 rounded-full -translate-y-1/2"></div>
-    <div className="absolute bottom-0 right-0 w-[600px] h-[600px] border border-[#D4B483]/10 rounded-full translate-y-1/3 translate-x-1/3"></div>
-  </div>
 
-  <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    {/* 區塊標題 */}
-    <div className="text-center mb-16 sm:mb-24">
-      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6 text-balance">
-        不是你不努力，而是拼圖還有缺
-      </h2>
-      {/* 裝飾用的三點改為金色 */}
-      <div className="flex items-center justify-center gap-2 opacity-80">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]"></span>
-        <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]"></span>
-        <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]"></span>
-      </div>
-    </div>
-
-    {/* 痛點路徑容器 */}
-    <div className="relative">
-      {/* 背景連接路徑 (Desktop Only) - 在手機版隱藏，改用簡單線條 */}
-      <div className="hidden md:block absolute top-20 left-[20%] right-[20%] h-[400px] pointer-events-none z-0">
-        {/* 請將此處替換為您生成的「圖像 4: 連接路徑與拼圖」的 URL */}
-        <img 
-          src="/path-to-your-images/golden-path-puzzle.png" 
-          alt="" 
-          className="w-full h-full object-contain opacity-60"
-        />
-      </div>
-
-      {/* 痛點 1: 方向斷裂 */}
-      <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-6 sm:gap-8 mb-12 md:mb-0 md:translate-x-[-5%]">
-        {/* Icon 容器 */}
-        <div className="w-24 h-24 sm:w-32 sm:h-32 flex-shrink-0 mx-auto md:mx-0">
-          {/* 請將此處替換為您生成的「圖像 1: 方向斷裂 Icon」的 URL */}
-          <img 
-            src="/path-to-your-images/icon-direction.png" 
-            alt="方向斷裂" 
-            className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(212,180,131,0.3)]"
+      {/* SECTION 3 PAIN POINTS START - 三大痛點 (切圖版) */}
+      <section className="bg-[#17464F] relative overflow-hidden">
+        <div className="w-full">
+          {/* Desktop version - SVG image */}
+          <img
+            src="/images/section3-painpoints-desktop.svg"
+            alt="不是你不努力，而是拼圖還有缺 - 方向斷裂、方法斷裂、同伴斷裂"
+            className="w-full h-auto"
+            loading="lazy"
           />
         </div>
-        {/* 文字內容 */}
-        <div className="text-center md:text-left md:max-w-md">
-          <h3 className="text-xl sm:text-2xl font-bold text-[#D4B483] mb-4">
-            方向斷裂
-          </h3>
-          <p className="text-white/80 leading-relaxed text-sm sm:text-base">
-            你是不是也想過很多種版本：<br className="hidden md:block"/>
-            有時想去外商、有時想接案當 freelancer，
-            但每次看到別人的故事就改變主意，
-            到最後，反而哪一條都沒真的走下去。
-          </p>
-        </div>
-      </div>
-
-      {/* 手機版連接線 1 */}
-      <div className="md:hidden w-0.5 h-12 bg-[#D4B483]/30 mx-auto my-4 relative">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-[#D4B483] rounded-full animate-pulse"></div>
-      </div>
-
-      {/* 痛點 2: 方法斷裂 (Desktop版向右偏移) */}
-      <div className="relative z-10 flex flex-col md:flex-row-reverse items-start md:items-center gap-6 sm:gap-8 mb-12 md:mb-0 md:translate-y-[-20px] md:translate-x-[5%]">
-        {/* Icon 容器 */}
-        <div className="w-24 h-24 sm:w-32 sm:h-32 flex-shrink-0 mx-auto md:mx-0">
-          {/* 請將此處替換為您生成的「圖像 2: 方法斷裂 Icon」的 URL */}
-          <img 
-            src="/path-to-your-images/icon-method.png" 
-            alt="方法斷裂" 
-            className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(212,180,131,0.3)]"
-          />
-        </div>
-        {/* 文字內容 */}
-        <div className="text-center md:text-right md:max-w-md">
-          <h3 className="text-xl sm:text-2xl font-bold text-[#D4B483] mb-4">
-            方法斷裂
-          </h3>
-          <p className="text-white/80 leading-relaxed text-sm sm:text-base">
-            你也不是沒學東西：買課、看影片、存下很多筆記，
-            真正卡住的是——<br className="hidden md:block"/>
-            「那我今天到底要做哪一個小步驟？」
-            所以日子一忙，又回到塬本的節奏。
-          </p>
-        </div>
-      </div>
-
-      {/* 手機版連接線 2 */}
-      <div className="md:hidden w-0.5 h-12 bg-[#D4B483]/30 mx-auto my-4 relative">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-[#D4B483] rounded-full animate-pulse"></div>
-      </div>
-
-      {/* 痛點 3: 同伴斷裂 */}
-      <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-6 sm:gap-8 mb-16 md:mb-24 md:translate-x-[-5%]">
-        {/* Icon 容器 */}
-        <div className="w-24 h-24 sm:w-32 sm:h-32 flex-shrink-0 mx-auto md:mx-0">
-          {/* 請將此處替換為您生成的「圖像 3: 同伴斷裂 Icon」的 URL */}
-          <img 
-            src="/path-to-your-images/icon-companion.png" 
-            alt="同伴斷裂" 
-            className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(212,180,131,0.3)]"
-          />
-        </div>
-        {/* 文字內容 */}
-        <div className="text-center md:text-left md:max-w-md">
-          <h3 className="text-xl sm:text-2xl font-bold text-[#D4B483] mb-4">
-            同伴斷裂
-          </h3>
-          <p className="text-white/80 leading-relaxed text-sm sm:text-base">
-            身邊的人大多走很標準的路，<br className="hidden md:block"/>
-            你很難跟他們分享「我其實想過不一樣的生活」。
-            不知道可以跟誰討論、問誰意見，
-            久了就習慣把這些想法藏在心裡。
-          </p>
-        </div>
-      </div>
-    </div>
-
-    {/* 結語區塊 (帶有金色邊框的強調容器) */}
-    <div className="relative mt-12 sm:mt-16">
-      {/* 手機版連接線 3 (指向結語) */}
-      <div className="md:hidden w-0.5 h-8 bg-[#D4B483]/30 mx-auto -mt-8 mb-8"></div>
-      
-      <div className="max-w-3xl mx-auto px-6 sm:px-10 py-8 sm:py-10 rounded-2xl border-2 border-[#D4B483]/30 bg-[#17464F]/50 backdrop-blur-sm text-center relative overflow-hidden group hover:border-[#D4B483]/50 transition-colors duration-300">
-        {/* 容器內部的微光效果 */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#D4B483]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
-        
-        <p className="text-lg sm:text-xl text-white font-bold leading-relaxed relative z-10">
-          你缺的不是更多資訊，而是一個地方，
-          <span className="block mt-2 text-[#D4B483]">
-            讓你在未來六個月裡，有人陪你一起試、
-            <span className="block sm:inline">一起走、一起調整方向。</span>
-          </span>
-        </p>
-        
-        {/* 底部箭頭裝飾 */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#D4B483] animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-{/* SECTION 3 PAIN POINTS END (重製版) */}
+      </section>
+      {/* SECTION 3 PAIN POINTS END (切圖版) */}
       {/* SECTION 2 COURSE HIGHLIGHTS CONTINUED (Part 2: 三大亮點) START */}
       <section className="py-16 sm:py-24 bg-[#F5F3ED]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
