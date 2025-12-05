@@ -318,7 +318,7 @@ export default function HomePage() {
               <div className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3">
                 <span className="inline-flex items-center px-4 py-2 rounded-full bg-white border border-[#C9D7D4] text-sm text-[#33393C] shadow-sm">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483] mr-2" />
-                  知道自己適合哪條遠距路線
+                  已經開始朝向自己適合的遠距路線
                 </span>
                 <span className="inline-flex items-center px-4 py-2 rounded-full bg-white border border-[#C9D7D4] text-sm text-[#33393C] shadow-sm">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483] mr-2" />
