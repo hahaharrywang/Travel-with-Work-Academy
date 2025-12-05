@@ -328,8 +328,8 @@ export default function HomePage() {
                 <Image
                   src="/images/academy-logo.png"
                   alt="遠距遊牧學院 Travel with Work Academy"
-                  width={280}
-                  height={147}
+                  width={560}
+                  height={294}
                   className="h-auto w-[200px] sm:w-[240px] lg:w-[280px]"
                   priority
                 />
