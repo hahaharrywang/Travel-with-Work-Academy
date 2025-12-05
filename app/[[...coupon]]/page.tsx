@@ -673,9 +673,9 @@ export default function HomePage() {
               <h4 className="text-base md:text-lg font-semibold text-[#17464F]">社群支持：Skool × 同學會 × 校友連結</h4>
               <div className="text-sm md:text-base leading-relaxed text-slate-700 space-y-4">
                 <p>
-                  你不會一個人在房間裡上課、做作業。 所有學員都在同一個 Skool
-                  共學空間裡，看得到彼此的提問與成果， 再依線路與主題分成小隊與專屬群組，
-                  搭配線上同學會，分享每個月的心得、卡關與實驗結果。
+                  不會像補習班補課，一個人在房間裡看影片、做作業。同學會在固定時間出現在 Skool
+                  線上共學空間，分享提問與成果。透過線上同學會分享每個月的心得、卡關與實驗結果，並結識志趣相投、可以一起成長的夥伴。
+                  
                 </p>
                 <p>
                   後 3 個月，這個社群會變成你的長期資源： 延伸的校友與城市群組（Skool、Line、LinkedIn），
