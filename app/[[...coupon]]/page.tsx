@@ -649,16 +649,11 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             <div className="bg-white/60 rounded-2xl border border-slate-200 p-6 md:p-7 shadow-sm flex flex-col gap-4">
-              <h4 className="text-base md:text-lg font-semibold text-[#17464F]">雙軌資源：副業增收 × 遠端上班</h4>
+              <h4 className="text-base md:text-xl font-semibold text-[#17464F]">雙軌資源：副業增收 × 遠端上班</h4>
               <div className="text-sm md:text-base leading-relaxed text-slate-700 space-y-4">
                 <p>
-                  前 3 個月，你會在同一個學院裡，同時看見兩條路線的真實樣子：
-                  自媒體接案線路幫你練習作品集、內容與接案提案； 遠端上班線路幫你優化履歷、LinkedIn、求職信與面試準備。
-                  你可以先選一條線為主，也可以雙線並進，一邊學一邊試水溫。
-                </p>
-                <p>
-                  後 3 個月，我們會用每月復盤工作坊幫你檢查： 哪一條路現在比較有動能？接下來 1–2 個月要押在哪裡？
-                  也會優先把已經完成任務的學員，串接到 Journey 旅居活動， 以及未來生態系內部的 Job Board 機會池。
+                  至少擇一路線作為開始。
+                  自媒體接案線路協助你定位、製作接案作品集、市場調查、內容與流量； 遠端上班線路幫你了解遠端求職市場、獵頭關係、優化履歷、LinkedIn、求職信、面試準備。
                 </p>
               </div>
             </div>
