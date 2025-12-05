@@ -649,7 +649,8 @@ export default function HomePage() {
               </h1>
 
               <p className="text-base sm:text-lg text-[#33393C] leading-relaxed max-w-xl mx-auto lg:mx-0">
-                不用先辭職。透過線上課程、課後行動任務、共學社群，再搭配選修工作坊與國內外遊牧生態資源，在這六個月嘗試一連串的小行動與體驗，幫你一步步摸清楚：遠距／接案／遊牧是不是你要追的方向。
+                不用先辭職，也不用一下子 all-in。
+透過 6 個月的遠距職涯探索旅途，結合線上課程、行動任務、共學社群與遊牧體驗資源，開啟探索最適合你生活型態。
               </p>
 
               <div className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3">
