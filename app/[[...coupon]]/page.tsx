@@ -1475,108 +1475,108 @@ export default function HomePage() {
           )}
         </div>
       </section>
-      selectedWeek && (
-      <div
-        className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
-        onClick={() => setSelectedWeek(null)}
-      >
+      {selectedWeek && (
         <div
-          className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative"
-          onClick={(e) => e.stopPropagation()}
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+          onClick={() => setSelectedWeek(null)}
         >
-          <button
-            onClick={() => setSelectedWeek(null)}
-            className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-400 hover:text-gray-600 text-xl font-bold z-10"
+          <div
+            className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative"
+            onClick={(e) => e.stopPropagation()}
           >
-            ×
-          </button>
+            <button
+              onClick={() => setSelectedWeek(null)}
+              className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-400 hover:text-gray-600 text-xl font-bold z-10"
+            >
+              ×
+            </button>
 
-          <div className="p-6 pr-12">
-            <div className="flex items-center gap-4 mb-6">
-              <Image
-                src={selectedWeek.instructorData?.image || "/placeholder.svg"}
-                alt={selectedWeek.instructor}
-                width={80}
-                height={80}
-                className="w-20 h-20 rounded-full object-cover shadow-lg ring-4 ring-[#D4B483]/30"
-              />
-              <div>
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="bg-[#17464F] px-3 py-1 rounded-full text-sm font-semibold text-white">
-                    第 {selectedWeek.week} 週
-                  </span>
+            <div className="p-6 pr-12">
+              <div className="flex items-center gap-4 mb-6">
+                <Image
+                  src={selectedWeek.instructorData?.image || "/placeholder.svg"}
+                  alt={selectedWeek.instructor}
+                  width={80}
+                  height={80}
+                  className="w-20 h-20 rounded-full object-cover shadow-lg ring-4 ring-[#D4B483]/30"
+                />
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="bg-[#17464F] px-3 py-1 rounded-full text-sm font-semibold text-white">
+                      第 {selectedWeek.week} 週
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold text-[#17464F] mb-1">{selectedWeek.instructor}</h3>
+                  <p className="text-[#33393C] text-sm">{selectedWeek.instructorData?.title}</p>
                 </div>
-                <h3 className="text-xl font-bold text-[#17464F] mb-1">{selectedWeek.instructor}</h3>
-                <p className="text-[#33393C] text-sm">{selectedWeek.instructorData?.title}</p>
               </div>
-            </div>
 
-            <div className="mb-6">
-              <h2 className="text-2xl font-bold text-[#17464F] mb-4 text-balance">{selectedWeek.title}</h2>
-              <div className="w-full h-1 rounded-full bg-[#D4B483]"></div>
-            </div>
-
-            <div className="mb-6">
-              <h4 className="text-lg font-semibold text-[#17464F] mb-3">課程目標</h4>
-              <div className="bg-[#F5F3ED] p-4 rounded-xl">
-                <p className="text-[#33393C] leading-relaxed">
-                  {selectedWeek.month === 1 &&
-                    selectedWeek.week === 1 &&
-                    "打開對數位遊牧生活的想像，理解不同型態的遠距人生可能樣貌。掌握多元收入模式，從自由接案、自媒體經營到被動收入。繪製專屬的遊牧起點地圖，找到屬於自己的第一步。"}
-                  {selectedWeek.month === 1 &&
-                    selectedWeek.week === 2 &&
-                    "掌握 AI 與自動化的實際應用，學會與 AI 有效溝通並設計串接流程，完成第一個「從對話到自動化」的完整任務。"}
-                  {selectedWeek.month === 1 &&
-                    selectedWeek.week === 3 &&
-                    "學會定位並經營個人品牌，設計內容架構，提升流量與轉化力，完成一篇具備爆紅潛力的作品。"}
-                  {selectedWeek.month === 1 &&
-                    selectedWeek.week === 4 &&
-                    "掌握短影片流量密碼，理解爆紅三要素，完成一支短影片，體驗從腳本到成片，建立內容規劃能力，規劃未來短影片腳本。"}
-                  {selectedWeek.month === 1 &&
-                    selectedWeek.week === 5 &&
-                    "學會將作品轉化為能銷售的方案，練習現場銷售話術與應對，完成第一個可推廣的接案方案。"}
-                  {selectedWeek.month === 2 &&
-                    selectedWeek.week === 6 &&
-                    "拓展國際視野，了解跨國企業工作的可能性，學習規劃跨國職涯並提升薪資談判力，從真實案例找到國際職涯突破點。"}
-                  {selectedWeek.month === 2 &&
-                    selectedWeek.week === 7 &&
-                    "優化 LinkedIn 個人檔案，提升能見度，打造專業形象與品牌，吸引企業與合作邀約，學會主動 + 被動並行策略，拓展高品質人脈，建立即時可用的 LinkedIn 實戰方法。"}
-                  {selectedWeek.month === 2 &&
-                    selectedWeek.week === 8 &&
-                    "精準分析 JD，掌握雇主需求，熟悉外商面試流程與關鍵環節，完成一份客製化履歷與 Cover Letter draft，模擬外商面試問答，展現關鍵能力。"}
-                  {selectedWeek.month === 2 &&
-                    selectedWeek.week === 9 &&
-                    "學會優化履歷，在國際獵頭眼中脫穎而出，掌握薪資談判技巧，提升談判成功率，了解跨國職缺申請流程並實際投遞，建立職涯成長策略，找到「下一步」。"}
-                  {selectedWeek.month === 3 &&
-                    selectedWeek.week === 10 &&
-                    "學會知識產品全景介紹，知識萃取技巧，快速驗證方法。"}
-                  {selectedWeek.month === 3 &&
-                    selectedWeek.week === 11 &&
-                    "制定旅居財務規劃表，掌握收支平衡，了解跨國移動中如何保持財務穩定，預備未來自由生活，降低財務焦慮。"}
-                  {selectedWeek.month === 3 &&
-                    selectedWeek.week === 12 &&
-                    "學會設計生活與工作 SOP，建立可持續的人生規劃，建立身心靈平衡，提升專注力與效能，學會自我覺察與有效溝通。"}
-                </p>
+              <div className="mb-6">
+                <h2 className="text-2xl font-bold text-[#17464F] mb-4 text-balance">{selectedWeek.title}</h2>
+                <div className="w-full h-1 rounded-full bg-[#D4B483]"></div>
               </div>
-            </div>
 
-            <div className="mb-6">
-              <h4 className="text-lg font-semibold text-[#17464F] mb-3">講師更多資訊</h4>
-              <a
-                href={selectedWeek.instructorData?.link || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-[#17464F] hover:bg-[#17464F]/80 px-6 py-3 rounded-lg text-white font-semibold transition-colors duration-200"
-              >
-                更多講師資訊
-              </a>
+              <div className="mb-6">
+                <h4 className="text-lg font-semibold text-[#17464F] mb-3">課程目標</h4>
+                <div className="bg-[#F5F3ED] p-4 rounded-xl">
+                  <p className="text-[#33393C] leading-relaxed">
+                    {selectedWeek.month === 1 &&
+                      selectedWeek.week === 1 &&
+                      "打開對數位遊牧生活的想像，理解不同型態的遠距人生可能樣貌。掌握多元收入模式，從自由接案、自媒體經營到被動收入。繪製專屬的遊牧起點地圖，找到屬於自己的第一步。"}
+                    {selectedWeek.month === 1 &&
+                      selectedWeek.week === 2 &&
+                      "掌握 AI 與自動化的實際應用，學會與 AI 有效溝通並設計串接流程，完成第一個「從對話到自動化」的完整任務。"}
+                    {selectedWeek.month === 1 &&
+                      selectedWeek.week === 3 &&
+                      "學會定位並經營個人品牌，設計內容架構，提升流量與轉化力，完成一篇具備爆紅潛力的作品。"}
+                    {selectedWeek.month === 1 &&
+                      selectedWeek.week === 4 &&
+                      "掌握短影片流量密碼，理解爆紅三要素，完成一支短影片，體驗從腳本到成片，建立內容規劃能力，規劃未來短影片腳本。"}
+                    {selectedWeek.month === 1 &&
+                      selectedWeek.week === 5 &&
+                      "學會將作品轉化為能銷售的方案，練習現場銷售話術與應對，完成第一個可推廣的接案方案。"}
+                    {selectedWeek.month === 2 &&
+                      selectedWeek.week === 6 &&
+                      "拓展國際視野，了解跨國企業工作的可能性，學習規劃跨國職涯並提升薪資談判力，從真實案例找到國際職涯突破點。"}
+                    {selectedWeek.month === 2 &&
+                      selectedWeek.week === 7 &&
+                      "優化 LinkedIn 個人檔案，提升能見度，打造專業形象與品牌，吸引企業與合作邀約，學會主動 + 被動並行策略，拓展高品質人脈，建立即時可用的 LinkedIn 實戰方法。"}
+                    {selectedWeek.month === 2 &&
+                      selectedWeek.week === 8 &&
+                      "精準分析 JD，掌握雇主需求，熟悉外商面試流程與關鍵環節，完成一份客製化履歷與 Cover Letter draft，模擬外商面試問答，展現關鍵能力。"}
+                    {selectedWeek.month === 2 &&
+                      selectedWeek.week === 9 &&
+                      "學會優化履歷，在國際獵頭眼中脫穎而出，掌握薪資談判技巧，提升談判成功率，了解跨國職缺申請流程並實際投遞，建立職涯成長策略，找到「下一步」。"}
+                    {selectedWeek.month === 3 &&
+                      selectedWeek.week === 10 &&
+                      "學會知識產品全景介紹，知識萃取技巧，快速驗證方法。"}
+                    {selectedWeek.month === 3 &&
+                      selectedWeek.week === 11 &&
+                      "制定旅居財務規劃表，掌握收支平衡，了解跨國移動中如何保持財務穩定，預備未來自由生活，降低財務焦慮。"}
+                    {selectedWeek.month === 3 &&
+                      selectedWeek.week === 12 &&
+                      "學會設計生活與工作 SOP，建立可持續的人生規劃，建立身心靈平衡，提升專注力與效能，學會自我覺察與有效溝通。"}
+                  </p>
+                </div>
+              </div>
+
+              <div className="mb-6">
+                <h4 className="text-lg font-semibold text-[#17464F] mb-3">講師更多資訊</h4>
+                <a
+                  href={selectedWeek.instructorData?.link || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-[#17464F] hover:bg-[#17464F]/80 px-6 py-3 rounded-lg text-white font-semibold transition-colors duration-200"
+                >
+                  更多講師資訊
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      ) ;
+      )}
+      {/* SECTION 6: PODCAST LEADERS */}
       <section className="py-16 sm:py-24 bg-[#17464F] relative overflow-hidden">
-        {/* Decorative elements */}
         <div className="absolute top-10 left-10 w-32 h-32 border border-[#D4B483]/20 rounded-full pointer-events-none" />
         <div className="absolute bottom-20 right-10 w-24 h-24 border border-[#D4B483]/15 rounded-full pointer-events-none" />
         <div className="absolute top-1/2 right-20 hidden lg:block">
@@ -1586,7 +1586,6 @@ export default function HomePage() {
         </div>
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Section Header */}
           <div className="text-center mb-10 sm:mb-14">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6 text-balance">
               正在尋找「下一步」的你
@@ -1601,16 +1600,12 @@ export default function HomePage() {
             <p className="text-[#D4B483] font-medium mt-6">在這裡，你可能會在這幾種狀態裡，看到自己的影子：</p>
           </div>
 
-          {/* Three Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12">
-            {/* Card 1 - 職涯主線 */}
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-[#D4B483]/30 hover:border-[#D4B483]/50 transition-all duration-300 relative group">
-              {/* Gold corner accents */}
               <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#D4B483]/60 rounded-tl-2xl" />
               <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#D4B483]/60 rounded-br-2xl" />
 
               <div className="flex flex-col items-center text-center">
-                {/* Icon */}
                 <div className="w-16 h-16 mb-6 flex items-center justify-center">
                   <svg
                     className="w-14 h-14 text-[#D4B483]"
@@ -1635,14 +1630,11 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Card 2 - 安全感 */}
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-[#D4B483]/30 hover:border-[#D4B483]/50 transition-all duration-300 relative group">
-              {/* Gold corner accents */}
               <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#D4B483]/60 rounded-tl-2xl" />
               <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#D4B483]/60 rounded-br-2xl" />
 
               <div className="flex flex-col items-center text-center">
-                {/* Icon - Coins */}
                 <div className="w-16 h-16 mb-6 flex items-center justify-center">
                   <svg
                     className="w-14 h-14 text-[#D4B483]"
@@ -1670,14 +1662,11 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Card 3 - 不確定 */}
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-[#D4B483]/30 hover:border-[#D4B483]/50 transition-all duration-300 relative group">
-              {/* Gold corner accents */}
               <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#D4B483]/60 rounded-tl-2xl" />
               <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#D4B483]/60 rounded-br-2xl" />
 
               <div className="flex flex-col items-center text-center">
-                {/* Icon - Map with pin */}
                 <div className="w-16 h-16 mb-6 flex items-center justify-center">
                   <svg
                     className="w-14 h-14 text-[#D4B483]"
@@ -1703,14 +1692,12 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Three dots separator */}
           <div className="flex items-center justify-center gap-3 mb-10">
             <span className="w-2 h-2 rounded-full bg-[#D4B483]" />
             <span className="w-2 h-2 rounded-full bg-[#17464F] border border-[#D4B483]" />
             <span className="w-2 h-2 rounded-full bg-[#D4B483]" />
           </div>
 
-          {/* Closing statement */}
           <div className="text-center max-w-3xl mx-auto">
             <p className="text-white/80 leading-relaxed mb-4">
               你缺的不是更多資訊，而是一個地方，
@@ -1721,7 +1708,6 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Bottom star decoration */}
         <div className="absolute bottom-10 right-16 hidden lg:block">
           <svg className="w-12 h-12 text-[#D4B483]/20" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
@@ -2586,8 +2572,7 @@ export default function HomePage() {
           )}
         </div>
       </section>
-      ;<PricingSection />
-      ;(
+      <PricingSection />;
       <section className="py-16 sm:py-20 bg-gradient-to-br from-[#17464F] to-[#1a5561]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-white/95 backdrop-blur rounded-2xl p-8 sm:p-12 shadow-xl border border-[#C9D7D4]">
@@ -2699,109 +2684,115 @@ export default function HomePage() {
           / Email: Academy@travelwork.life
         </p>
       </footer>
-      isGalleryOpen && (
-      <div
-        className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4 z-50"
-        onClick={() => setIsGalleryOpen(false)}
-      >
-        <div className="relative max-w-4xl w-full max-h-[90vh] flex items-center justify-center">
-          <button
-            onClick={() => setIsGalleryOpen(false)}
-            className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-all duration-200 z-10 text-xl font-bold"
-          >
-            ✕
-          </button>
-
-          <button
-            onClick={(e) => {
-              e.stopPropagation()
-              prevPhoto()
-            }}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full shadow-xl flex items-center justify-center text-gray-800 hover:text-orange-500 transition-all duration-200 z-10 group"
-          >
-            <svg
-              className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-200"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+      {isGalleryOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4 z-50"
+          onClick={() => setIsGalleryOpen(false)}
+        >
+          <div className="relative max-w-4xl w-full max-h-[90vh] flex items-center justify-center">
+            <button
+              onClick={() => setIsGalleryOpen(false)}
+              className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-all duration-200 z-10 text-xl font-bold"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
+              ✕
+            </button>
 
-          <button
-            onClick={(e) => {
-              e.stopPropagation()
-              nextPhoto()
-            }}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full shadow-xl flex items-center justify-center text-gray-800 hover:text-orange-500 transition-all duration-200 z-10 group"
-          >
-            <svg
-              className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-200"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                prevPhoto()
+              }}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full shadow-xl flex items-center justify-center text-gray-800 hover:text-orange-500 transition-all duration-200 z-10 group"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
+              <svg
+                className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-200"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
 
-          <div className="relative w-full h-full flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
-            <div className="relative max-w-full max-h-full">
-              <Image
-                src={stagePhotos[currentStage][currentPhotoIndex]?.src || "/placeholder.svg"}
-                alt={stagePhotos[currentStage][currentPhotoIndex]?.alt || ""}
-                width={800}
-                height={600}
-                className="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl"
-              />
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                nextPhoto()
+              }}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full shadow-xl flex items-center justify-center text-gray-800 hover:text-orange-500 transition-all duration-200 z-10 group"
+            >
+              <svg
+                className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-200"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
 
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent text-white p-6 rounded-b-lg">
-                <p className="text-center text-sm sm:text-base font-medium leading-relaxed">
-                  {stagePhotos[currentStage][currentPhotoIndex]?.alt}
-                </p>
+            <div
+              className="relative w-full h-full flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="relative max-w-full max-h-full">
+                <Image
+                  src={stagePhotos[currentStage][currentPhotoIndex]?.src || "/placeholder.svg"}
+                  alt={stagePhotos[currentStage][currentPhotoIndex]?.alt || ""}
+                  width={800}
+                  height={600}
+                  className="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl"
+                />
+
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent text-white p-6 rounded-b-lg">
+                  <p className="text-center text-sm sm:text-base font-medium leading-relaxed">
+                    {stagePhotos[currentStage][currentPhotoIndex]?.alt}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
 
-          {stagePhotos[currentStage].length > 1 && (
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-80 text-white px-6 py-3 rounded-full text-sm font-medium shadow-lg">
-              <span className="text-orange-400">{currentPhotoIndex + 1}</span>
-              <span className="mx-2 text-gray-300">/</span>
-              <span>{stagePhotos[currentStage].length}</span>
+            {stagePhotos[currentStage].length > 1 && (
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-80 text-white px-6 py-3 rounded-full text-sm font-medium shadow-lg">
+                <span className="text-orange-400">{currentPhotoIndex + 1}</span>
+                <span className="mx-2 text-gray-300">/</span>
+                <span>{stagePhotos[currentStage].length}</span>
+              </div>
+            )}
+
+            <div className="absolute top-4 left-4 bg-black bg-opacity-60 text-white px-3 py-2 rounded-lg text-xs opacity-70">
+              使用 ← → 鍵或點擊按鈕切換圖片
             </div>
-          )}
-
-          <div className="absolute top-4 left-4 bg-black bg-opacity-60 text-white px-3 py-2 rounded-lg text-xs opacity-70">
-            使用 ← → 鍵或點擊按鈕切換圖片
           </div>
         </div>
-      </div>
-      ) highlightPopup.isOpen && (
-      <div
-        className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
-        onClick={() => setHighlightPopup({ ...highlightPopup, isOpen: false })}
-      >
+      )}{" "}
+      {highlightPopup.isOpen && (
         <div
-          className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative p-6"
-          onClick={(e) => e.stopPropagation()}
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+          onClick={() => setHighlightPopup({ ...highlightPopup, isOpen: false })}
         >
-          <button
-            onClick={() => setHighlightPopup({ ...highlightPopup, isOpen: false })}
-            className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-400 hover:text-gray-600 text-xl font-bold z-10"
+          <div
+            className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative p-6"
+            onClick={(e) => e.stopPropagation()}
           >
-            ×
-          </button>
-          <h3 className="text-2xl font-bold text-[#17464F] mb-2">{highlightPopup.title}</h3>
-          <p className="text-sm font-medium text-[#D4B483] mb-6">{highlightPopup.subtitle}</p>
-          <div className="text-sm text-[#33393C] leading-relaxed space-y-4">
-            {highlightPopup.content.split("\n").map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
+            <button
+              onClick={() => setHighlightPopup({ ...highlightPopup, isOpen: false })}
+              className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-400 hover:text-gray-600 text-xl font-bold z-10"
+            >
+              ×
+            </button>
+            <h3 className="text-2xl font-bold text-[#17464F] mb-2">{highlightPopup.title}</h3>
+            <p className="text-sm font-medium text-[#D4B483] mb-6">{highlightPopup.subtitle}</p>
+            <div className="text-sm text-[#33393C] leading-relaxed space-y-4">
+              {highlightPopup.content.split("\n").map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-      ) ;<StickyBottomBar scrollToPricing={scrollToPricing} />
+      )}{" "}
+      ;
+      <StickyBottomBar scrollToPricing={scrollToPricing} />
     </main>
   )
 }
