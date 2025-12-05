@@ -2935,7 +2935,7 @@ export default function HomePage() {
                   onClick={scrollToPricing}
                   className="flex-shrink-0 bg-[#17464F] text-white px-5 py-3 rounded-full text-sm font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-md"
                 >
-                  查看三種方案
+                  查看方案
                 </button>
               </div>
             </div>
