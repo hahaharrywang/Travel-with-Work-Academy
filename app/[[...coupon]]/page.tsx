@@ -434,7 +434,7 @@ export default function HomePage() {
                     }}
                   >
                     立刻鎖定【{currentStageData?.name} NT$
-                    {currentStageData ? formatPrice(currentStageData.plans?.singleLine.price) : "--"}起】
+                    {currentStageData ? formatPrice(currentStageData.prices.selfMedia.stagePrice) : "--"}起】
                   </a>
                 </Button>
                 <button
@@ -453,7 +453,8 @@ export default function HomePage() {
                     <p className="text-sm text-[#33393C]/70">
                       目前為{" "}
                       <span className="text-[#D4B483] font-semibold">
-                        🔥 {currentStageData.name}｜單線 NT${formatPrice(currentStageData.plans.singleLine.price)} 起
+                        🔥 {currentStageData.name}｜單線 NT${formatPrice(currentStageData.prices.selfMedia.stagePrice)}{" "}
+                        起
                       </span>
                       <span className="text-[#33393C]/50 line-through ml-1">
                         （原價 NT${formatPrice(currentStageData.prices.selfMedia.original)}）
@@ -2662,7 +2663,6 @@ export default function HomePage() {
                 <span>·</span>
                 <span>全方案 {currentStageData.discountLabel}</span>
                 <span>·</span>
-                {/* CHANGE: Unified countdown format with days, hours, minutes, seconds */}
                 <span>
                   倒數{" "}
                   <span className="font-bold">
