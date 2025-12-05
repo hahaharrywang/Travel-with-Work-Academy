@@ -574,9 +574,9 @@ export default function HomePage() {
             <div className="flex items-center gap-2 text-sm">
               <span>🔥</span>
               <span>
-                【<span className="text-[#D4B483] font-bold">{currentStageData.name}</span>】 <span className="text-[#D4B483] font-bold">{currentStageData.discountLabel}</span>
+                <span className="text-[#D4B483] font-bold">{currentStageData.name}</span> <span className="text-[#D4B483] font-bold">{currentStageData.discountLabel}</span>
               </span>
-              <span className="mx-1">·</span>
+              <span className="mx-1">｜</span>
             </div>
 
             <div className="flex items-center gap-4 text-sm">
