@@ -670,17 +670,12 @@ export default function HomePage() {
             </div>
 
             <div className="bg-white/60 rounded-2xl border border-slate-200 p-6 md:p-7 shadow-sm flex flex-col gap-4">
-              <h4 className="text-base md:text-lg font-semibold text-[#17464F]">社群支持：Skool × 同學會 × 校友連結</h4>
+              <h4 className="text-base md:text-lg font-semibold text-[#17464F]">社群支持：共學閒聊群 × LinkedIn群 × 線下聚會</h4>
               <div className="text-sm md:text-base leading-relaxed text-slate-700 space-y-4">
                 <p>
-                  不會像補習班補課，一個人在房間裡看影片、做作業。同學會在固定時間出現在 Skool
-                  線上共學空間，分享提問與成果。透過線上同學會分享每個月的心得、卡關與實驗結果，並結識志趣相投、可以一起成長的夥伴。
-                  
-                </p>
-                <p>
-                  後 3 個月，這個社群會變成你的長期資源： 延伸的校友與城市群組（Skool、Line、LinkedIn），
-                  讓你在結業後，仍然有一群人可以一起交換機會、一起對齊方向； 線上線下聚會與 Journey
-                  活動，也會把螢幕前的同學， 變成世界各地真的一起走路的夥伴。
+                  不會像補習班補課，一個人在房間裡看影片、做作業。同學會在固定時間出現在 Skool 
+                  線上共學空間，分享提問與成果。透過線上同學會＆閒聊 Line 群，分享每個月的酸甜苦辣，病結識志趣相投、可以一起成長的夥伴。
+                  甚至第一次加入校友專屬 LinkedIn 群，與校友連結。也可以每月參加線下遊牧小聚 or 遊牧之旅，與國內外不同文化背景、在遠距遊牧路上的同胞交流。
                 </p>
               </div>
             </div>
