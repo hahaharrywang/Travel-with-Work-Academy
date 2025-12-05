@@ -21,16 +21,16 @@ export function AnnouncementBar({ scrollToPricing }: AnnouncementBarProps) {
   ]
 
   return (
-    <div className="sticky top-0 z-50 bg-[#17464F] text-white py-2 px-4 hidden md:block">
+    <div className="sticky top-0 z-50 bg-[#17464F] text-white py-2 px-4 hidden md:block overflow-visible">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
         <div className="flex items-center gap-3 flex-shrink-0">
-          <div className="relative -ml-2">
+          <div className="relative -ml-4 -my-4">
             <Image
               src="/images/academy-logo.png"
               alt="遠距遊牧學院"
-              width={160}
-              height={50}
-              className="h-10 w-auto object-contain"
+              width={240}
+              height={60}
+              className="h-14 w-auto object-contain brightness-0 invert"
               priority
             />
           </div>
