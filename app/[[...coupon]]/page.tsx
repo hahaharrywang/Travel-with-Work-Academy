@@ -171,7 +171,7 @@ export default function HomePage() {
     {
       name: "工具王阿璋",
       title: "『阿璋遊牧』電子報創辦人、數位遊牧陪跑計劃創辦人、IP 經營者",
-      image: "/images/e5-b7-a5-e5-85-b7-e7-8e-8b-e5-95-8a-e7-92-8b.png",
+      image: "/images/e5-b7-a5-e5-85-b7-e7-8e-8b-e5-95-8a-e7-8e-8b.png",
       link: "https://www.johntool.com",
       background:
         "工具王阿璋是『阿璋遊牧』電子報創辦人、數位遊牧陪跑計劃創辦人、IP 經營者，擁有豐富的數位遊牧經驗與社群經營知識。",
@@ -324,13 +324,14 @@ export default function HomePage() {
         <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="space-y-6 text-center lg:text-left">
+              {/* CHANGE: Double the logo size */}
               <div className="flex justify-center lg:justify-start mb-4">
                 <Image
                   src="/images/academy-logo.png"
                   alt="遠距遊牧學院 Travel with Work Academy"
                   width={560}
                   height={294}
-                  className="h-auto w-[200px] sm:w-[240px] lg:w-[280px]"
+                  className="h-auto w-[400px] sm:w-[480px] lg:w-[560px]"
                   priority
                 />
               </div>
