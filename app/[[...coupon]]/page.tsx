@@ -574,14 +574,15 @@ export default function HomePage() {
             <div className="flex items-center gap-2 text-sm">
               <span>🔥</span>
               <span>
-                <span className="text-[#D4B483] font-bold">{currentStageData.name}</span> <span className="text-[#D4B483] font-bold">{currentStageData.discountLabel}</span>
+                <span className="text-[#D4B483] font-bold">{currentStageData.name}</span> 
+                <span className="text-[#D4B483] font-bold">{currentStageData.discountLabel}</span>
               </span>
             </div>
 
             <div className="flex items-center gap-4 text-sm">
               {timeLeft.days > 0 || timeLeft.hours > 0 || timeLeft.minutes > 0 || timeLeft.seconds > 0 ? (
                 <span>
-                  距離距離下次價格調：
+                  距離下次價格調整還有：
                   <span className="font-bold text-[#D4B483] ml-1">
                     {String(timeLeft.days).padStart(2, "0")} 天 {String(timeLeft.hours).padStart(2, "0")} 小時{" "}
                     {String(timeLeft.minutes).padStart(2, "0")} 分 {String(timeLeft.seconds).padStart(2, "0")} 秒
