@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { usePricing, formatPrice } from "@/contexts/pricing-context"
+import { usePricing } from "@/contexts/pricing-context"
 import { AnnouncementBar } from "@/components/announcement-bar"
 import { StickyBottomBar } from "@/components/sticky-bottom-bar"
 import { useParams } from "next/navigation"
@@ -324,6 +324,17 @@ export default function HomePage() {
         <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="space-y-6 text-center lg:text-left">
+              <div className="flex justify-center lg:justify-start mb-4">
+                <Image
+                  src="/images/academy-logo.png"
+                  alt="遠距遊牧學院 Travel with Work Academy"
+                  width={280}
+                  height={147}
+                  className="h-auto w-[200px] sm:w-[240px] lg:w-[280px]"
+                  priority
+                />
+              </div>
+
               <p className="text-sm sm:text-base text-[#17464F]/70 font-medium tracking-wide">
                 六個月後的你，可能會變成這樣的人：
               </p>
@@ -400,12 +411,10 @@ export default function HomePage() {
               <div className="hidden md:block text-center lg:text-left pt-2">
                 {currentStageData && (
                   <>
-                    <p className="text-sm text-[#33393C]/70">
-                      本梯次學費，隨內容增加及時間調漲
-                    </p>
+                    <p className="text-sm text-[#33393C]/70">本梯次學費，隨內容增加及時間調漲</p>
                     <p className="text-sm text-[#33393C]/60 mt-1">
-                      距離下次條調漲：{currentStageData.endAt.getMonth() + 1}/{currentStageData.endAt.getDate()}（台北時間
-                      23:59）｜剩餘：
+                      距離下次條調漲：{currentStageData.endAt.getMonth() + 1}/{currentStageData.endAt.getDate()}
+                      （台北時間 23:59）｜剩餘：
                       <span className="font-medium text-[#17464F]">
                         {String(timeLeft.days).padStart(2, "0")} 天 {String(timeLeft.hours).padStart(2, "0")} 小時
                       </span>
