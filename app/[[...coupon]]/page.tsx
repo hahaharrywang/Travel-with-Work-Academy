@@ -524,7 +524,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Card 2 - 安全感 */}
+            {/* Card 2: 安全感 */}
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-[#D4B483]/30 hover:border-[#D4B483]/50 transition-all duration-300 relative group">
               {/* Gold corner accents */}
               <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#D4B483]/60 rounded-tl-2xl" />
@@ -619,1200 +619,283 @@ export default function HomePage() {
       </section>
       {/* SECTION 2 COURSE HIGHLIGHTS END */}
       {/* SECTION 3 PAIN POINTS START - 三大痛點 */}
-      <section className="py-16 sm:py-24 bg-[#F5F3ED]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-4 text-balance">
-              不是你不努力，而是拼圖還有缺
-            </h2>
-            <div className="flex items-center justify-center gap-2 mt-6">
-              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
-            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-[#C9D7D4]/50 hover:shadow-md transition-shadow duration-300">
-              <div className="flex items-center gap-4 mb-5">
-                <div className="w-12 h-12 bg-[#C9D7D4]/30 rounded-full flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-xl sm:text-2xl font-semibold text-[#17464F]">方向斷裂</h3>
-              </div>
-              <p className="text-[#33393C] leading-relaxed text-sm sm:text-base">
-                你是不是也想過很多種版本：
-                <br />
-                有時想去外商、有時想接案當 freelancer，
-                <br />
-                但每次看到別人的故事就改變主意，
-                <br />
-                到最後，反而哪一條都沒真的走下去。
-              </p>
-            </div>
-
-            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-[#C9D7D4]/50 hover:shadow-md transition-shadow duration-300">
-              <div className="flex items-center gap-4 mb-5">
-                <div className="w-12 h-12 bg-[#C9D7D4]/30 rounded-full flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-xl sm:text-2xl font-semibold text-[#17464F]">方法斷裂</h3>
-              </div>
-              <p className="text-[#33393C] leading-relaxed text-sm sm:text-base">
-                你也不是沒學東西：買課、看影片、存下很多筆記，
-                <br />
-                真正卡住的是——
-                <br />
-                「那我今天到底要做哪一個小步驟？」
-                <br />
-                所以日子一忙，又回到塬本的節奏。
-              </p>
-            </div>
-
-            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-[#C9D7D4]/50 hover:shadow-md transition-shadow duration-300">
-              <div className="flex items-center gap-4 mb-5">
-                <div className="w-12 h-12 bg-[#C9D7D4]/30 rounded-full flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-xl sm:text-2xl font-semibold text-[#17464F]">同伴斷裂</h3>
-              </div>
-              <p className="text-[#33393C] leading-relaxed text-sm sm:text-base">
-                身邊的人大多走很標準的路，
-                <br />
-                你很難跟他們分享「我其實想過不一樣的生活」。
-                <br />
-                不知道可以跟誰討論、問誰意見，
-                <br />
-                久了就習慣把這些想法藏在心裡。
-              </p>
-            </div>
-          </div>
-
-          <div className="text-center">
-            <p className="text-base sm:text-lg text-[#17464F] font-medium leading-relaxed max-w-3xl mx-auto px-4">
-              你缺的不是更多資訊，而是一個地方，
-              <br className="sm:hidden" />
-              <span className="block md:inline">讓你在未來六個月裡，有人陪你一起試、</span>
-              <span className="block md:inline">一起走、一起調整方向。</span>
-            </p>
-          </div>
-        </div>
-      </section>
-      {/* SECTION 3 PAIN POINTS END */}
-      {/* SECTION 2 COURSE HIGHLIGHTS CONTINUED (Part 2: 三大亮點) START */}
-      <section className="py-16 sm:py-24 bg-[#F5F3ED]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 sm:mb-12">
-            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#17464F] mb-6 text-balance">
-              三大亮點，讓改變真的走起來
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {/* Card 1: 雙軌資源 */}
-            <div className="bg-white/60 rounded-2xl border border-slate-200 p-6 md:p-7 shadow-sm flex flex-col gap-4">
-              <div className="text-center">
-                <h4 className="text-xl md:text-2xl font-bold text-[#17464F] mb-1">雙軌資源</h4>
-                <p className="text-sm md:text-base text-[#D4B483] font-medium">副業增收 × 遠端上班</p>
-              </div>
-              {/* Desktop: show content directly */}
-              <div className="hidden md:block text-sm md:text-base leading-relaxed text-slate-700">
-                <p>
-                  自媒體接案線路協助你定位、製作接案作品集、市場調查、內容與流量；
-                  遠端上班線路幫你了解遠端求職市場、獵頭關係、優化履歷、LinkedIn、求職信、面試準備。你可以先選一條為主，也可以雙線並進，邊學邊試水溫。
-                </p>
-              </div>
-              {/* Mobile: show button to open popup */}
-              <button
-                onClick={() =>
-                  setHighlightPopup({
-                    isOpen: true,
-                    title: "雙軌資源",
-                    subtitle: "副業增收 × 遠端上班",
-                    content:
-                      "自媒體接案線路協助你定位、製作接案作品集、市場調查、內容與流量； 遠端上班線路幫你了解遠端求職市場、獵頭關係、優化履歷、LinkedIn、求職信、面試準備。你可以先選一條為主，也可以雙線並進，邊學邊試水溫。",
-                  })
-                }
-                className="md:hidden text-sm text-[#17464F] underline underline-offset-2 text-center hover:text-[#D4B483] transition-colors"
-              >
-                了解更多 →
-              </button>
-            </div>
-
-            {/* Card 2: 行動導向設計 */}
-            <div className="bg-white/60 rounded-2xl border border-slate-200 p-6 md:p-7 shadow-sm flex flex-col gap-4">
-              <div className="text-center">
-                <h4 className="text-xl md:text-2xl font-bold text-[#17464F] mb-1">行動導向設計</h4>
-                <p className="text-sm md:text-base text-[#D4B483] font-medium">課後任務 × 實作工作坊</p>
-              </div>
-              {/* Desktop: show content directly */}
-              <div className="hidden md:block text-sm md:text-base leading-relaxed text-slate-700">
-                <p>
-                  每一堂課後，都有做得到、但有一點挑戰的行動任務：
-                  在發出一支影片貼文、進行市場調查、寫一封求職信、更新履歷、製作一個知識產品之前...會被先拆解成策略定位學習單等模板。
-                  還有實作工作坊，講師陪同把想法落地成操作與行動。
-                  你不用在繁忙的生活中還要自己猜下一步，只要跟著課後任務，把遠距上班或自媒體接案，
-                  循著一個一個可以完成的小步驟前進。
-                </p>
-              </div>
-              {/* Mobile: show button to open popup */}
-              <button
-                onClick={() =>
-                  setHighlightPopup({
-                    isOpen: true,
-                    title: "行動導向設計",
-                    subtitle: "課後任務 × 實作工作坊",
-                    content:
-                      "每一堂課後，都有做得到、但有一點挑戰的行動任務：在發出一支影片貼文、進行市場調查、寫一封求職信、更新履歷、製作一個知識產品之前...會被先拆解成策略定位學習單等模板。還有實作工作坊，講師陪同把想法落地成操作與行動。你不用在繁忙的生活中還要自己猜下一步，只要跟著課後任務，把遠距上班或自媒體接案，循著一個一個可以完成的小步驟前進。",
-                  })
-                }
-                className="md:hidden text-sm text-[#17464F] underline underline-offset-2 text-center hover:text-[#D4B483] transition-colors"
-              >
-                了解更多 →
-              </button>
-            </div>
-
-            {/* Card 3: 社群支持 */}
-            <div className="bg-white/60 rounded-2xl border border-slate-200 p-6 md:p-7 shadow-sm flex flex-col gap-4">
-              <div className="text-center">
-                <h4 className="text-xl md:text-2xl font-bold text-[#17464F] mb-1">社群支持</h4>
-                <p className="text-sm md:text-base text-[#D4B483] font-medium">共學閒聊群 × LinkedIn群 × 線下聚會</p>
-              </div>
-              {/* Desktop: show content directly */}
-              <div className="hidden md:block text-sm md:text-base leading-relaxed text-slate-700">
-                <p>
-                  不會像補習班補課，一個人在房間裡看影片、做作業。同學會在固定時間出現在 Skool
-                  線上共學空間，分享提問與成果。透過線上同學會＆閒聊 Line
-                  群，分享每個月的酸甜苦辣，並結識志趣相投、可以一起成長的夥伴。 甚至第一次加入校友專屬 LinkedIn
-                  群，與校友連結。也可以每月參加線下遊牧小聚 or
-                  遊牧之旅，與國內外不同文化背景、在遠距遊牧路上的同胞交流。
-                </p>
-              </div>
-              {/* Mobile: show button to open popup */}
-              <button
-                onClick={() =>
-                  setHighlightPopup({
-                    isOpen: true,
-                    title: "社群支持",
-                    subtitle: "共學閒聊群 × LinkedIn群 × 線下聚會",
-                    content:
-                      "不會像補習班補課，一個人在房間裡看影片、做作業。同學會在固定時間出現在 Skool 線上共學空間，分享提問與成果。透過線上同學會＆閒聊 Line 群，分享每個月的酸甜苦辣，並結識志趣相投、可以一起成長的夥伴。甚至第一次加入校友專屬 LinkedIn 群，與校友連結。也可以每月參加線下遊牧小聚 or 遊牧之旅，與國內外不同文化背景、在遠距遊牧路上的同胞交流。",
-                  })
-                }
-                className="md:hidden text-sm text-[#17464F] underline underline-offset-2 text-center hover:text-[#D4B483] transition-colors"
-              >
-                了解更多 →
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* SECTION 2 COURSE HIGHLIGHTS CONTINUED (Part 2) END */}
-      {/* SECTION 2.1 ECOSYSTEM PARTNERSHIP START - 生態系 */}
-      <section className="py-12 sm:py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-6">
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-4">遊牧資源生態系</h2>
-            <p className="text-lg text-[#33393C]">線上教育 | 線下社群 | 國際鏈結</p>
-          </div>
-
-          <div className="p-4 sm:p-6">
-            <div className="grid grid-cols-3 gap-2 lg:flex lg:flex-row lg:items-center lg:justify-center lg:gap-12 mb-8">
-              <div className="text-center">
-                <a
-                  href="https://www.instagram.com/digitalnomadstaiwan/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block hover:scale-105 transition-transform duration-200"
-                >
-                  <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4 border border-[#C9D7D4]">
-                    <Image
-                      src="/images/design-mode/%E6%95%B8%E4%BD%8D%E9%81%8A%E7%89%A7%E5%8F%B0%E7%81%A3%20Logo%281%29%281%29%281%29%281%29.png"
-                      alt="Taiwan Digital Nomad"
-                      width={96}
-                      height={96}
-                      className="w-full h-full object-contain"
-                      loading="lazy"
-                    />
-                  </div>
-                </a>
-                <p className="text-[#17464F] font-medium text-xs sm:text-sm">#台灣最大數位遊牧社群</p>
-              </div>
-
-              <div className="hidden lg:flex text-[#D4B483] text-7xl items-center justify-center h-32">×</div>
-
-              <div className="text-center">
-                <a
-                  href="https://www.instagram.com/elsacampus/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block hover:scale-105 transition-transform duration-200"
-                >
-                  <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4 border border-[#C9D7D4]">
-                    <Image
-                      src="/images/design-mode/%E6%88%90%E9%95%B7%E7%87%97Logo.jpg"
-                      alt="艾兒莎成長營"
-                      width={96}
-                      height={96}
-                      className="w-full h-full object-contain"
-                      loading="lazy"
-                    />
-                  </div>
-                </a>
-                <p className="text-[#17464F] font-medium text-xs sm:text-sm">#多年不同學院創建經驗</p>
-              </div>
-
-              <div className="hidden lg:flex text-[#D4B483] text-7xl items-center justify-center h-32">×</div>
-
-              <div className="text-center">
-                <a
-                  href="https://newsveg.tw/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block hover:scale-105 transition-transform duration-200"
-                >
-                  <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4 border border-[#C9D7D4]">
-                    <Image
-                      src="/images/design-mode/%E7%94%9F%E9%AE%AE%E6%99%82%E6%9B%B8%20Logo%281%29%281%29%281%29%281%29.png"
-                      alt="生鮮時書 NEWSVEG"
-                      width={96}
-                      height={96}
-                      className="w-full h-full object-contain"
-                      loading="lazy"
-                    />
-                  </div>
-                </a>
-                <p className="text-[#17464F] font-medium text-xs sm:text-sm">#知識萃取專家</p>
-              </div>
-            </div>
-
-            <div className="text-center">
-              <h3 className="text-xl sm:text-2xl font-bold text-[#17464F]">強強聯手，全面資源整合</h3>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* SECTION 2.1 ECOSYSTEM PARTNERSHIP END */}
-      {/* SECTION 4 INSTRUCTORS START - 師資 */}
-      <section className="py-16 sm:py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <div className="flex justify-center gap-2 mb-6">
-              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-              <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
-              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#17464F] mb-6">
-              你的路線，不會只有一位老師在陪你走
-            </h2>
-            <p className="text-[#33393C] text-lg leading-relaxed max-w-2xl mx-auto">
-              這堂學院不是把所有主題塞給同一個講師，
-              <br className="hidden sm:block" />
-              而是找了一群真的在路上走的人，一起陪你打底、選方向、走路線。
-            </p>
-          </div>
-
-          <div className="mb-16">
-            <div className="flex items-center justify-center gap-3 mb-8">
-              <div className="h-px w-12 bg-[#17464F]"></div>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#17464F]">
-                <span className="text-[#D4B483]">A 線｜</span>自媒體接案線路導師
-              </h3>
-              <div className="h-px w-12 bg-[#17464F]"></div>
-            </div>
-            <p className="text-center text-[#33393C] mb-8 max-w-xl mx-auto">
-              帶你建立個人品牌、經營內容、從零開始接案變現
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
-              {instructors
-                .filter((i) => ["工具王阿璋", "林佳 Zoe", "三分鐘", "西打藍"].includes(i.name))
-                .map((instructor, index) => (
-                  <div key={index} className="group text-center">
-                    <div className="relative mb-4">
-                      <a
-                        href={instructor.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block w-28 h-28 sm:w-32 sm:h-32 mx-auto rounded-full overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300 cursor-pointer ring-4 ring-[#17464F]/20"
-                      >
-                        <Image
-                          src={instructor.image || "/placeholder.svg"}
-                          alt={instructor.name}
-                          width={128}
-                          height={128}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          loading="lazy"
-                        />
-                      </a>
-                    </div>
-                    <h4 className="text-base sm:text-lg font-bold text-[#17464F] mb-1">{instructor.name}</h4>
-                    <p className="text-[#33393C] text-xs sm:text-sm leading-relaxed line-clamp-2 px-2">
-                      {instructor.title.split("，")[0]}
-                    </p>
-                  </div>
-                ))}
-            </div>
-          </div>
-
-          <div className="mb-16">
-            <div className="flex items-center justify-center gap-3 mb-8">
-              <div className="h-px w-12 bg-[#17464F]"></div>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#17464F]">
-                <span className="text-[#D4B483]">B 線｜</span>遠端上班線路導師
-              </h3>
-              <div className="h-px w-12 bg-[#17464F]"></div>
-            </div>
-            <p className="text-center text-[#33393C] mb-8 max-w-xl mx-auto">
-              帶你建立國際職涯視野、遠端求職策略、跨國人脈經營
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
-              {instructors
-                .filter((i) => ["許詮", "Shelley", "讀者太太", "Emilia"].includes(i.name))
-                .map((instructor, index) => (
-                  <div key={index} className="group text-center">
-                    <div className="relative mb-4">
-                      <a
-                        href={instructor.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block w-28 h-28 sm:w-32 sm:h-32 mx-auto rounded-full overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300 cursor-pointer ring-4 ring-[#17464F]/20"
-                      >
-                        <Image
-                          src={instructor.image || "/placeholder.svg"}
-                          alt={instructor.name}
-                          width={128}
-                          height={128}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          loading="lazy"
-                        />
-                      </a>
-                    </div>
-                    <h4 className="text-base sm:text-lg font-bold text-[#17464F] mb-1">{instructor.name}</h4>
-                    <p className="text-[#33393C] text-xs sm:text-sm leading-relaxed line-clamp-2 px-2">
-                      {instructor.title.split("，")[0]}
-                    </p>
-                  </div>
-                ))}
-            </div>
-          </div>
-
-          <div className="mb-8">
-            <div className="flex items-center justify-center gap-3 mb-8">
-              <div className="h-px w-12 bg-[#D4B483]"></div>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#17464F]">共同必修</h3>
-              <div className="h-px w-12 bg-[#D4B483]"></div>
-            </div>
-            <p className="text-center text-[#33393C] mb-8 max-w-xl mx-auto">
-              打底知識變現、AI 工具、財務思維、人生 SOP 的核心講師
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
-              {instructors
-                .filter((i) => ["林上哲", "鮪魚", "Joyce Weng", "Angela Feng"].includes(i.name))
-                .map((instructor, index) => (
-                  <div key={index} className="group text-center">
-                    <div className="relative mb-4">
-                      <a
-                        href={instructor.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block w-28 h-28 sm:w-32 sm:h-32 mx-auto rounded-full overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300 cursor-pointer ring-4 ring-[#D4B483]/30"
-                      >
-                        <Image
-                          src={instructor.image || "/placeholder.svg"}
-                          alt={instructor.name}
-                          width={128}
-                          height={128}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          loading="lazy"
-                        />
-                      </a>
-                    </div>
-                    <h4 className="text-base sm:text-lg font-bold text-[#17464F] mb-1">{instructor.name}</h4>
-                    <p className="text-[#33393C] text-xs sm:text-sm leading-relaxed line-clamp-2 px-2">
-                      {instructor.title.split("，")[0]}
-                    </p>
-                  </div>
-                ))}
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* SECTION 4 INSTRUCTORS END */}
-      {/* SECTION 5 COURSE OUTLINE START - 課程地圖 */}
-      <section id="course-map" className="py-16 sm:py-24 bg-[#F5F3ED]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-4 text-balance">
-              課程地圖｜3+3 個月，先打底，再累積
-            </h2>
-            <div className="flex items-center justify-center gap-2 mt-6 mb-8">
-              <span className="w-2 h-2 rounded-full bg-[#D4B483]" />
-              <span className="w-2 h-2 rounded-full bg-[#17464F]" />
-              <span className="w-2 h-2 rounded-full bg-[#D4B483]" />
-            </div>
-            <p className="text-[#33393C] max-w-2xl mx-auto leading-relaxed">
-              前 3 個月，用線上課程＋課後任務打好基礎、走完一條主線；
-              <br className="hidden sm:block" />後 3 個月，透過復盤、選修工作坊與社群機制，把成果累積成真正的改變。
-            </p>
-          </div>
-
-          <div className="mb-8">
-            <h3 className="text-xl sm:text-2xl font-bold text-[#17464F] mb-2">前 3 個月｜行動共學期</h3>
-            <p className="text-[#33393C]/80">選線路、修共同必修、搭配選修課程</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12">
-            <div className="bg-white rounded-2xl p-6 sm:p-7 shadow-sm border border-slate-200">
-              <div className="w-12 h-12 bg-[#17464F] rounded-xl flex items-center justify-center mb-5">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-[#17464F] mb-3">線路課程</h3>
-              <p className="text-sm text-[#A06E56] font-medium mb-4">自媒體接案線路 × 遠端上班線路</p>
-              <div className="text-[#33393C] text-sm md:text-base leading-relaxed space-y-5">
-                <div className="border-l-2 border-[#D4B483] pl-4">
-                  <p className="font-semibold text-[#17464F] mb-2">A 線｜自媒體接案</p>
-                  <p className="text-[#33393C]/80 mb-2">想透過內容、短影音、個人品牌，累積讀者與客戶</p>
-                  <ul className="space-y-1 text-[#33393C]/70 text-sm">
-                    <li>• 自媒體變現攻略</li>
-                    <li>• 接案作品集與市場調查</li>
-                    <li>• 自媒體定位與內容</li>
-                    <li>• 短影音實作</li>
-                  </ul>
-                </div>
-                <div className="border-l-2 border-[#17464F] pl-4">
-                  <p className="font-semibold text-[#17464F] mb-2">B 線｜遠端上班</p>
-                  <p className="text-[#33393C]/80 mb-2">想往遠端團隊、外商或更彈性職涯前進</p>
-                  <ul className="space-y-1 text-[#33393C]/70 text-sm">
-                    <li>• 職涯成長藍圖與目標設定</li>
-                    <li>• LinkedIn 經營攻略</li>
-                    <li>• 履歷與求職信秘笈</li>
-                    <li>• 獵頭與面試談薪策略</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-2xl p-6 sm:p-7 shadow-sm border border-slate-200">
-              <div className="w-12 h-12 bg-[#D4B483] rounded-xl flex items-center justify-center mb-5">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-[#17464F] mb-3">共同必修</h3>
-              <p className="text-sm text-[#A06E56] font-medium mb-4">Direction × General 通識</p>
-              <div className="text-[#33393C] text-sm md:text-base leading-relaxed space-y-5">
-                <div className="border-l-2 border-[#D4B483] pl-4">
-                  <p className="font-semibold text-[#17464F] mb-2">Direction｜方向定位</p>
-                  <p className="text-[#33393C]/80 mb-2">幫你找到核心價值，定位自己的方向</p>
-                  <ul className="space-y-1 text-[#33393C]/70 text-sm">
-                    <li>• 人生自由藍圖</li>
-                    <li>• 自我盤點與定位</li>
-                    <li>• 知識變現起步</li>
-                  </ul>
-                </div>
-                <div className="border-l-2 border-[#17464F] pl-4">
-                  <p className="font-semibold text-[#17464F] mb-2">General｜通識技能</p>
-                  <p className="text-[#33393C]/80 mb-2">遠距人生必備的基礎能力</p>
-                  <ul className="space-y-1 text-[#33393C]/70 text-sm">
-                    <li>• AI 與自動化工作流</li>
-                    <li>• 旅居財務規劃</li>
-                    <li>• 人生 SOP 與身心平衡</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-2xl p-6 sm:p-7 shadow-sm border border-slate-200">
-              <div className="w-12 h-12 bg-[#C9D7D4] rounded-xl flex items-center justify-center mb-5">
-                <svg className="w-6 h-6 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110-4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-[#17464F] mb-3">選修課程</h3>
-              <p className="text-sm text-[#A06E56] font-medium mb-4">依你的目標，加上需要的實作肌肉</p>
-              <div className="text-[#33393C] text-sm md:text-base leading-relaxed">
-                <p className="text-[#33393C]/80 mb-4">
-                  不是為了修滿學分，而是補上自己現在最缺的能力。依據你的目標，選擇需要的實作工作坊：
-                </p>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="bg-[#F5F3ED] rounded-lg p-3 text-center">
-                    <span className="text-[#17464F] font-medium text-sm">工作英文</span>
-                  </div>
-                  <div className="bg-[#F5F3ED] rounded-lg p-3 text-center">
-                    <span className="text-[#17464F] font-medium text-sm">Coffee Chat</span>
-                  </div>
-                  <div className="bg-[#F5F3ED] rounded-lg p-3 text-center">
-                    <span className="text-[#17464F] font-medium text-sm">跨文化協作</span>
-                  </div>
-                  <div className="bg-[#F5F3ED] rounded-lg p-3 text-center">
-                    <span className="text-[#17464F] font-medium text-sm">Vibe Coding</span>
-                  </div>
-                  <div className="bg-[#F5F3ED] rounded-lg p-3 text-center">
-                    <span className="text-[#17464F] font-medium text-sm">影音剪輯</span>
-                  </div>
-                  <div className="bg-[#F5F3ED] rounded-lg p-3 text-center">
-                    <span className="text-[#17464F] font-medium text-sm">AI 實作</span>
-                  </div>
-                </div>
-                <p className="text-[#33393C]/70 text-sm mt-4">＊ 選修課程會依據學員需求持續更新</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-gradient-to-r from-[#17464F] to-[#1a5561] rounded-2xl p-6 md:p-8 shadow-lg">
-            <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
-              後 3 個月｜延伸累積期：復盤、加強、銜接機會
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 bg-[#D4B483] rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-white font-semibold mb-1">每月復盤工作坊</p>
-                    <p className="text-white/80 text-sm leading-relaxed">一起檢視進度，調整你的接案／求職／旅居策略</p>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 bg-[#D4B483] rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-white font-semibold mb-1">選修課程與延伸實作工作坊</p>
-                    <p className="text-white/80 text-sm leading-relaxed">
-                      針對影音剪輯、AI、自動化、英文、網站…做針對性加強
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 bg-[#D4B483] rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-white font-semibold mb-1">講師團隊 QA ＋ 線上線下聚會</p>
-                    <p className="text-white/80 text-sm leading-relaxed">
-                      在
-                      Skool、共學群組與同學會中，把作業變成對外可公開的作品集、履歷或內容。完成任務的同學未來也會優先被推薦參與
-                      Journey 旅居活動或 Job Board 相關機會。
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center mt-10">
-            <button
-              onClick={() => setShowFullSchedule(!showFullSchedule)}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-[#17464F] text-[#17464F] rounded-full font-medium hover:bg-[#17464F] hover:text-white transition-all duration-300"
-            >
-              {showFullSchedule ? "收起完整課程時間表" : "查看完整每週安排"}
-              <svg
-                className={`w-5 h-5 transition-transform duration-300 ${showFullSchedule ? "rotate-180" : ""}`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-          </div>
-
-          {showFullSchedule && (
-            <div className="mt-12 space-y-8 animate-in fade-in slide-in-from-top-4 duration-500">
-              <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div className="p-6 bg-[#17464F]">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">第一個月：通識打底 + 自媒體接案啟動</h3>
-                  <p className="text-white/80">核心目標：建立遠距基礎認知，踏出內容創作與接案的第一步</p>
-                </div>
-                <div className="p-6 space-y-4">
-                  {[
-                    {
-                      week: 1,
-                      title: "從零到第一步的遠距人生：打造你的數位遊牧起跑線",
-                      instructor: "工具王阿璋",
-                      type: "通識",
-                    },
-                    {
-                      week: 2,
-                      title: "讓 AI 成為你的實習生：從對話到自動化的第一個完整流程",
-                      instructor: "林上哲",
-                      type: "通識",
-                    },
-                    { week: 3, title: "爆款內容養成術：上班族也能做出會紅的作品", instructor: "三分鐘", type: "A線" },
-                    { week: 4, title: "30 秒變人氣：短影片爆紅腳本全攻略", instructor: "林佳 Zoe", type: "A線" },
-                    { week: 5, title: "立即開始：打磨你的第一個接案方案", instructor: "西打藍", type: "A線" },
-                  ].map((item) => (
-                    <div key={item.week} className="flex items-center gap-4 p-4 bg-[#F5F3ED] rounded-xl">
-                      <div className="flex-shrink-0">
-                        <Image
-                          src={instructors.find((i) => i.name === item.instructor)?.image || "/placeholder.svg"}
-                          alt={item.instructor}
-                          width={56}
-                          height={56}
-                          className="w-14 h-14 rounded-full object-cover shadow-md"
-                        />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="bg-[#17464F] text-white px-2 py-0.5 rounded-full text-xs font-semibold">
-                            第 {item.week} 週
-                          </span>
-                          <span
-                            className={`px-2 py-0.5 rounded-full text-xs font-semibold ${item.type === "通識" ? "bg-[#D4B483] text-white" : "bg-[#C9D7D4] text-[#17464F]"}`}
-                          >
-                            {item.type}
-                          </span>
-                          <span className="text-[#17464F] font-medium text-sm">{item.instructor}</span>
-                        </div>
-                        <h4 className="text-sm sm:text-base font-semibold text-[#33393C] truncate">{item.title}</h4>
-                      </div>
-                      <button
-                        onClick={() =>
-                          setSelectedWeek({
-                            week: item.week,
-                            title: item.title,
-                            instructor: item.instructor,
-                            instructorData: instructors.find((i) => i.name === item.instructor),
-                            month: 1,
-                          })
-                        }
-                        className="flex-shrink-0 bg-[#17464F] hover:bg-[#17464F]/80 text-white px-3 py-1.5 rounded-lg text-xs font-medium transition-colors"
-                      >
-                        詳情
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div className="p-6 bg-[#17464F]">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">第二個月：遠端上班線路深挖</h3>
-                  <p className="text-white/80">核心目標：打造國際履歷、LinkedIn 品牌，掌握外商面試與談薪策略</p>
-                </div>
-                <div className="p-6 space-y-4">
-                  {[
-                    { week: 6, title: "突破薪資天花板：跨國職涯的高薪祕訣", instructor: "許詮", type: "通識" },
-                    { week: 7, title: "讓機會找上你：LinkedIn 國際個人品牌攻略", instructor: "Shelley", type: "B線" },
-                    {
-                      week: 8,
-                      title: "外商面試全拆解：讀懂雇主需求，打造讓 HR 馬上點頭的履歷與回答",
-                      instructor: "讀者太太",
-                      type: "B線",
-                    },
-                    { week: 9, title: "獵頭不告訴你的祕密：談薪與職涯跳躍策略", instructor: "Emilia", type: "B線" },
-                  ].map((item) => (
-                    <div key={item.week} className="flex items-center gap-4 p-4 bg-[#F5F3ED] rounded-xl">
-                      <div className="flex-shrink-0">
-                        <Image
-                          src={instructors.find((i) => i.name === item.instructor)?.image || "/placeholder.svg"}
-                          alt={item.instructor}
-                          width={56}
-                          height={56}
-                          className="w-14 h-14 rounded-full object-cover shadow-md"
-                        />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="bg-[#17464F] text-white px-2 py-0.5 rounded-full text-xs font-semibold">
-                            第 {item.week} 週
-                          </span>
-                          <span
-                            className={`px-2 py-0.5 rounded-full text-xs font-semibold ${item.type === "通識" ? "bg-[#D4B483] text-white" : "bg-[#C9D7D4] text-[#17464F]"}`}
-                          >
-                            {item.type}
-                          </span>
-                          <span className="text-[#17464F] font-medium text-sm">{item.instructor}</span>
-                        </div>
-                        <h4 className="text-sm sm:text-base font-semibold text-[#33393C] truncate">{item.title}</h4>
-                      </div>
-                      <button
-                        onClick={() =>
-                          setSelectedWeek({
-                            week: item.week,
-                            title: item.title,
-                            instructor: item.instructor,
-                            instructorData: instructors.find((i) => i.name === item.instructor),
-                            month: 2,
-                          })
-                        }
-                        className="flex-shrink-0 bg-[#17464F] hover:bg-[#17464F]/80 text-white px-3 py-1.5 rounded-lg text-xs font-medium transition-colors"
-                      >
-                        詳情
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div className="p-6 bg-[#17464F]">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">第三個月：系統整合與可持續規劃</h3>
-                  <p className="text-white/80">核心目標：整合所學，建立長期發展策略，打造可持續的遠距人生</p>
-                </div>
-                <div className="p-6 space-y-4">
-                  {[
-                    {
-                      week: 10,
-                      title: "從零到第一步的遠距人生：打造你的數位遊牧起跑線",
-                      instructor: "鮪魚",
-                      type: "通識",
-                    },
-                    { week: 11, title: "邊旅行邊安心：旅居人生的財務自由設計", instructor: "Joyce Weng", type: "通識" },
-                    {
-                      week: 12,
-                      title: "可持續的自由：身心靈平衡的遠距人生 SOP",
-                      instructor: "Angela Feng",
-                      type: "通識",
-                    },
-                  ].map((item) => (
-                    <div key={item.week} className="flex items-center gap-4 p-4 bg-[#F5F3ED] rounded-xl">
-                      <div className="flex-shrink-0">
-                        <Image
-                          src={instructors.find((i) => i.name === item.instructor)?.image || "/placeholder.svg"}
-                          alt={item.instructor}
-                          width={56}
-                          height={56}
-                          className="w-14 h-14 rounded-full object-cover shadow-md"
-                        />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="bg-[#17464F] text-white px-2 py-0.5 rounded-full text-xs font-semibold">
-                            第 {item.week} 週
-                          </span>
-                          <span className="bg-[#D4B483] px-2 py-0.5 rounded-full text-xs font-semibold">
-                            {item.type}
-                          </span>
-                          <span className="text-[#17464F] font-medium text-sm">{item.instructor}</span>
-                        </div>
-                        <h4 className="text-sm sm:text-base font-semibold text-[#33393C] truncate">{item.title}</h4>
-                      </div>
-                      <button
-                        onClick={() =>
-                          setSelectedWeek({
-                            week: item.week,
-                            title: item.title,
-                            instructor: item.instructor,
-                            instructorData: instructors.find((i) => i.name === item.instructor),
-                            month: 3,
-                          })
-                        }
-                        className="flex-shrink-0 bg-[#17464F] hover:bg-[#17464F]/80 text-white px-3 py-1.5 rounded-lg text-xs font-medium transition-colors"
-                      >
-                        詳情
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-      </section>
-      {selectedWeek && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
-          onClick={() => setSelectedWeek(null)}
-        >
-          <div
-            className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={() => setSelectedWeek(null)}
-              className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-400 hover:text-gray-600 text-xl font-bold z-10"
-            >
-              ×
-            </button>
-
-            <div className="p-6 pr-12">
-              <div className="flex items-center gap-4 mb-6">
-                <Image
-                  src={selectedWeek.instructorData?.image || "/placeholder.svg"}
-                  alt={selectedWeek.instructor}
-                  width={80}
-                  height={80}
-                  className="w-20 h-20 rounded-full object-cover shadow-lg ring-4 ring-[#D4B483]/30"
-                />
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="bg-[#17464F] px-3 py-1 rounded-full text-sm font-semibold text-white">
-                      第 {selectedWeek.week} 週
-                    </span>
-                  </div>
-                  <h3 className="text-xl font-bold text-[#17464F] mb-1">{selectedWeek.instructor}</h3>
-                  <p className="text-[#33393C] text-sm">{selectedWeek.instructorData?.title}</p>
-                </div>
-              </div>
-
-              <div className="mb-6">
-                <h2 className="text-2xl font-bold text-[#17464F] mb-4 text-balance">{selectedWeek.title}</h2>
-                <div className="w-full h-1 rounded-full bg-[#D4B483]"></div>
-              </div>
-
-              <div className="mb-6">
-                <h4 className="text-lg font-semibold text-[#17464F] mb-3">課程目標</h4>
-                <div className="bg-[#F5F3ED] p-4 rounded-xl">
-                  <p className="text-[#33393C] leading-relaxed">
-                    {selectedWeek.month === 1 &&
-                      selectedWeek.week === 1 &&
-                      "打開對數位遊牧生活的想像，理解不同型態的遠距人生可能樣貌。掌握多元收入模式，從自由接案、自媒體經營到被動收入。繪製專屬的遊牧起點地圖，找到屬於自己的第一步。"}
-                    {selectedWeek.month === 1 &&
-                      selectedWeek.week === 2 &&
-                      "掌握 AI 與自動化的實際應用，學會與 AI 有效溝通並設計串接流程，完成第一個「從對話到自動化」的完整任務。"}
-                    {selectedWeek.month === 1 &&
-                      selectedWeek.week === 3 &&
-                      "學會定位並經營個人品牌，設計內容架構，提升流量與轉化力，完成一篇具備爆紅潛力的作品。"}
-                    {selectedWeek.month === 1 &&
-                      selectedWeek.week === 4 &&
-                      "掌握短影片流量密碼，理解爆紅三要素，完成一支短影片，體驗從腳本到成片，建立內容規劃能力，規劃未來短影片腳本。"}
-                    {selectedWeek.month === 1 &&
-                      selectedWeek.week === 5 &&
-                      "學會將作品轉化為能銷售的方案，練習現場銷售話術與應對，完成第一個可推廣的接案方案。"}
-                    {selectedWeek.month === 2 &&
-                      selectedWeek.week === 6 &&
-                      "拓展國際視野，了解跨國企業工作的可能性，學習規劃跨國職涯並提升薪資談判力，從真實案例找到國際職涯突破點。"}
-                    {selectedWeek.month === 2 &&
-                      selectedWeek.week === 7 &&
-                      "優化 LinkedIn 個人檔案，提升能見度，打造專業形象與品牌，吸引企業與合作邀約，學會主動 + 被動並行策略，拓展高品質人脈，建立即時可用的 LinkedIn 實戰方法。"}
-                    {selectedWeek.month === 2 &&
-                      selectedWeek.week === 8 &&
-                      "精準分析 JD，掌握雇主需求，熟悉外商面試流程與關鍵環節，完成一份客製化履歷與 Cover Letter draft，模擬外商面試問答，展現關鍵能力。"}
-                    {selectedWeek.month === 2 &&
-                      selectedWeek.week === 9 &&
-                      "學會優化履歷，在國際獵頭眼中脫穎而出，掌握薪資談判技巧，提升談判成功率，了解跨國職缺申請流程並實際投遞，建立職涯成長策略，找到「下一步」。"}
-                    {selectedWeek.month === 3 &&
-                      selectedWeek.week === 10 &&
-                      "學會知識產品全景介紹，知識萃取技巧，快速驗證方法。"}
-                    {selectedWeek.month === 3 &&
-                      selectedWeek.week === 11 &&
-                      "制定旅居財務規劃表，掌握收支平衡，了解跨國移動中如何保持財務穩定，預備未來自由生活，降低財務焦慮。"}
-                    {selectedWeek.month === 3 &&
-                      selectedWeek.week === 12 &&
-                      "學會設計生活與工作 SOP，建立可持續的人生規劃，建立身心靈平衡，提升專注力與效能，學會自我覺察與有效溝通。"}
-                  </p>
-                </div>
-              </div>
-
-              <div className="mb-6">
-                <h4 className="text-lg font-semibold text-[#17464F] mb-3">講師更多資訊</h4>
-                <a
-                  href={selectedWeek.instructorData?.link || "#"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-[#17464F] hover:bg-[#17464F]/80 px-6 py-3 rounded-lg text-white font-semibold transition-colors duration-200"
-                >
-                  更多講師資訊
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-      {/* SECTION 6: PODCAST LEADERS */}
       <section className="py-16 sm:py-24 bg-[#17464F] relative overflow-hidden">
-        <div className="absolute top-10 left-10 w-32 h-32 border border-[#D4B483]/20 rounded-full pointer-events-none" />
-        <div className="absolute bottom-20 right-10 w-24 h-24 border border-[#D4B483]/15 rounded-full pointer-events-none" />
-        <div className="absolute top-1/2 right-20 hidden lg:block">
-          <svg className="w-8 h-8 text-[#D4B483]/30" viewBox="0 0 24 24" fill="currentColor">
+        {/* Background decorative elements */}
+        <div className="absolute top-10 right-10 w-4 h-4 text-[#D4B483]">
+          <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
           </svg>
         </div>
 
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-10 sm:mb-14">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6 text-balance">
-              正在尋找「下一步」的你
-            </h2>
-            <p className="text-white/80 leading-relaxed max-w-2xl mx-auto mb-4">
-              不管你現在在哪個階段，你都有機會在這裡找到開始的位置。
-              <br className="hidden sm:block" />
-              你不一定已經想好要不要辭職、要不要成為全職 Nomad。但你心裡大概知道——
-              <br className="hidden sm:block" />
-              接下來的人生，應該不只有「每天通勤、等著放假」這一種選項。
-            </p>
-            <p className="text-[#D4B483] font-medium mt-6">在這裡，你可能會在這幾種狀態裡，看到自己的影子：</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12">
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-[#D4B483]/30 hover:border-[#D4B483]/50 transition-all duration-300 relative group">
-              <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#D4B483]/60 rounded-tl-2xl" />
-              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#D4B483]/60 rounded-br-2xl" />
-
-              <div className="flex flex-col items-center text-center">
-                <div className="w-16 h-16 mb-6 flex items-center justify-center">
-                  <svg
-                    className="w-14 h-14 text-[#D4B483]"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  >
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
-                    <circle cx="12" cy="12" r="3" />
-                    <path d="M12 9l2 3-2 3-2-3 2-3z" fill="currentColor" />
-                  </svg>
-                </div>
-
-                <h3 className="text-lg sm:text-xl font-bold text-[#D4B483] mb-4 leading-snug">
-                  想要更有選擇權的職涯主線
-                </h3>
-                <p className="text-white/70 leading-relaxed text-sm sm:text-base">
-                  有穩定工作、不一定討厭現在公司，但看得到天花板；正在思考能否換到更彈性、可遠距的團隊，或讓履歷在未來更有選擇。
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-[#D4B483]/30 hover:border-[#D4B483]/50 transition-all duration-300 relative group">
-              <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#D4B483]/60 rounded-tl-2xl" />
-              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#D4B483]/60 rounded-br-2xl" />
-
-              <div className="flex flex-col items-center text-center">
-                <div className="w-16 h-16 mb-6 flex items-center justify-center">
-                  <svg
-                    className="w-14 h-14 text-[#D4B483]"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  >
-                    <ellipse cx="12" cy="6" rx="8" ry="3" />
-                    <path d="M4 6v4c0 1.66 3.58 3 8 3s8-1.34 8-3V6" />
-                    <path d="M4 10v4c0 1.66 3.58 3 8 3s8-1.34 8-3v-4" />
-                    <path d="M4 14v4c0 1.66 3.58 3 8 3s8-1.34 8-3v-4" />
-                    <path d="M12 9v3M12 15v3" stroke="currentColor" strokeWidth="2" />
-                    <path d="M12 3l2 3h-4l2-3z" fill="currentColor" />
-                  </svg>
-                </div>
-
-                <h3 className="text-lg sm:text-xl font-bold text-[#D4B483] mb-4 leading-snug">
-                  想多一條安全感，不想只靠一份薪水
-                </h3>
-                <p className="text-white/70 leading-relaxed text-sm sm:text-base">
-                  想用內容、接案、知識服務慢慢累積第二條收入線；希望在不壓垮自己的前提下，踏出有感的一步，而不是一次
-                  all-in。
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-[#D4B483]/30 hover:border-[#D4B483]/50 transition-all duration-300 relative group">
-              <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#D4B483]/60 rounded-tl-2xl" />
-              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#D4B483]/60 rounded-br-2xl" />
-
-              <div className="flex flex-col items-center text-center">
-                <div className="w-16 h-16 mb-6 flex items-center justify-center">
-                  <svg
-                    className="w-14 h-14 text-[#D4B483]"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  >
-                    <rect x="3" y="5" width="18" height="14" rx="2" />
-                    <path d="M3 10h18M8 5v14M16 5v14" />
-                    <circle cx="18" cy="8" r="3" fill="currentColor" />
-                    <path d="M18 11v3" stroke="currentColor" strokeWidth="2" />
-                  </svg>
-                </div>
-
-                <h3 className="text-lg sm:text-xl font-bold text-[#D4B483] mb-4 leading-snug">
-                  答案還不確定，但不想再只是想想
-                </h3>
-                <p className="text-white/70 leading-relaxed text-sm sm:text-base">
-                  現在的路看起來還行，但常被旅居、遠距、遊牧故事勾起一點遺憾；想在未來六個月裡，用比較踏實的方法去體驗、去嘗試，而不是只滑過別人的人生。
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex items-center justify-center gap-3 mb-10">
-            <span className="w-2 h-2 rounded-full bg-[#D4B483]" />
-            <span className="w-2 h-2 rounded-full bg-[#17464F] border border-[#D4B483]" />
-            <span className="w-2 h-2 rounded-full bg-[#D4B483]" />
-          </div>
-
-          <div className="text-center max-w-3xl mx-auto">
-            <p className="text-white/80 leading-relaxed mb-4">
-              你缺的不是更多資訊，而是一個地方，
-              <br className="sm:hidden" />
-              <span className="block md:inline">讓你在未來六個月裡，有人陪你一起試、</span>
-              <span className="block md:inline">一起走、一起調整方向。</span>
-            </p>
-          </div>
-        </div>
-
-        <div className="absolute bottom-10 right-16 hidden lg:block">
-          <svg className="w-12 h-12 text-[#D4B483]/20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-          </svg>
-        </div>
-      </section>
-      {/* SECTION 2 COURSE HIGHLIGHTS END */}
-      {/* SECTION 3 PAIN POINTS START - 三大痛點 */}
-      <section className="py-16 sm:py-24 bg-[#F5F3ED]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-4 text-balance">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          {/* Title */}
+          <div className="text-center mb-12 sm:mb-20">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 text-balance">
               不是你不努力，而是拼圖還有缺
             </h2>
-            <div className="flex items-center justify-center gap-2 mt-6">
-              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
+          </div>
+
+          {/* Desktop: Flowing path layout */}
+          <div className="hidden lg:block relative min-h-[500px]">
+            {/* SVG Path connecting all points */}
+            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet">
+              {/* Main flowing path */}
+              <path
+                d="M 80 400 Q 150 400 200 350 Q 250 300 200 250 Q 150 200 200 150 Q 300 50 450 100 Q 600 150 650 250 Q 700 350 800 300"
+                fill="none"
+                stroke="#D4B483"
+                strokeWidth="2"
+                strokeDasharray="8 6"
+                opacity="0.8"
+              />
+              {/* Arrow at the end */}
+              <polygon points="800,295 815,300 800,305" fill="#D4B483" opacity="0.8" />
+            </svg>
+
+            {/* Person icon at start */}
+            <div className="absolute left-[5%] bottom-[15%]">
+              <svg
+                className="w-12 h-16 text-[#D4B483]"
+                viewBox="0 0 48 64"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              >
+                <circle cx="24" cy="12" r="10" />
+                <path d="M24 24 L24 45" />
+                <path d="M24 45 L14 60" />
+                <path d="M24 45 L34 60" />
+                <path d="M10 35 L24 30 L38 35" />
+              </svg>
+            </div>
+
+            {/* Pain Point 1: 方向斷裂 - Top Left */}
+            <div className="absolute left-[10%] top-[5%] max-w-[280px]">
+              {/* Compass with question marks icon */}
+              <div className="mb-4">
+                <svg
+                  className="w-16 h-16 text-[#D4B483]"
+                  viewBox="0 0 64 64"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
+                  <circle cx="32" cy="32" r="20" />
+                  <circle cx="32" cy="32" r="4" fill="currentColor" />
+                  <path d="M32 16 L32 12" />
+                  <path d="M32 52 L32 48" />
+                  <path d="M16 32 L12 32" />
+                  <path d="M52 32 L48 32" />
+                  <path d="M32 28 L28 36 L32 32 L36 36 Z" fill="currentColor" />
+                  {/* Question marks */}
+                  <text x="50" y="15" fontSize="12" fill="currentColor">
+                    ?
+                  </text>
+                  <text x="8" y="50" fontSize="10" fill="currentColor">
+                    ?
+                  </text>
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-[#D4B483] mb-3">方向斷裂</h3>
+              <p className="text-white/80 text-sm leading-relaxed">
+                你是不是也想過很多種版本：有時想去外商、有時想接案當
+                freelancer，但每次看到別人的故事就改變主意，到最後，反而哪一條都沒真的走下去。
+              </p>
+            </div>
+
+            {/* Pain Point 2: 方法斷裂 - Top Right */}
+            <div className="absolute right-[10%] top-[10%] max-w-[280px]">
+              {/* Puzzle pieces and books icon */}
+              <div className="mb-4 flex justify-center">
+                <svg
+                  className="w-20 h-16 text-[#D4B483]"
+                  viewBox="0 0 80 64"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
+                  {/* Puzzle pieces */}
+                  <path d="M10 25 L25 25 L25 20 Q30 20 30 25 L30 25 L45 25 L45 40 L40 40 Q40 45 45 45 L45 45 L45 55 L10 55 L10 45 Q15 45 15 40 L10 40 Z" />
+                  {/* Books/ladder */}
+                  <rect x="50" y="30" width="20" height="25" />
+                  <path d="M50 40 L70 40" />
+                  <path d="M50 48 L70 48" />
+                  {/* Ladder */}
+                  <path d="M72 20 L72 55" />
+                  <path d="M78 20 L78 55" />
+                  <path d="M72 25 L78 25" />
+                  <path d="M72 35 L78 35" />
+                  <path d="M72 45 L78 45" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-[#D4B483] mb-3 text-center">方法斷裂</h3>
+              <p className="text-white/80 text-sm leading-relaxed text-center">
+                你也不是沒學東西：買課、看影片、存下很多筆記，真正卡住的是——「那我今天到底要做哪一個小步驟？」所以日子一忙，又回到塬本的節奏。
+              </p>
+            </div>
+
+            {/* Pain Point 3: 同伴斷裂 - Bottom Left */}
+            <div className="absolute left-[10%] bottom-[5%] max-w-[280px]">
+              {/* Person with door/mirror icon */}
+              <div className="mb-4">
+                <svg
+                  className="w-16 h-16 text-[#D4B483]"
+                  viewBox="0 0 64 64"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
+                  {/* Person */}
+                  <circle cx="20" cy="15" r="6" />
+                  <path d="M20 22 L20 38" />
+                  <path d="M20 38 L14 50" />
+                  <path d="M20 38 L26 50" />
+                  <path d="M12 28 L20 25 L28 28" />
+                  {/* Door/mirror frame */}
+                  <rect x="38" y="8" width="18" height="40" rx="2" />
+                  <path d="M38 28 L56 28" strokeDasharray="2 2" />
+                  {/* Group of people silhouette */}
+                  <circle cx="47" cy="18" r="3" opacity="0.5" />
+                  <circle cx="52" cy="20" r="2" opacity="0.3" />
+                  <circle cx="43" cy="20" r="2" opacity="0.3" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-[#D4B483] mb-3">同伴斷裂</h3>
+              <p className="text-white/80 text-sm leading-relaxed">
+                身邊的人大多走很標準的路，你很難跟他們分享「我其實想過不一樣的生活」。不知道可以跟誰討論、問誰意見，久了就習慣把這些想法藏在心裡。
+              </p>
+            </div>
+
+            {/* Conclusion box - Bottom Center */}
+            <div className="absolute left-1/2 -translate-x-1/2 bottom-[5%] max-w-[400px]">
+              <div className="border-2 border-[#D4B483] rounded-xl p-6 bg-[#17464F]/80 backdrop-blur-sm">
+                <p className="text-white text-center leading-relaxed">
+                  你缺的不是更多資訊，而是一個地方，
+                  <br />
+                  讓你在未來六個月裡，有人陪你一起試、一起走、一起調整方向。
+                </p>
+                {/* Arrow pointing down */}
+                <div className="flex justify-center mt-4">
+                  <svg
+                    className="w-6 h-6 text-[#D4B483]"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M12 5 L12 19 M5 12 L12 19 L19 12" />
+                  </svg>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
-            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-[#C9D7D4]/50 hover:shadow-md transition-shadow duration-300">
-              <div className="flex items-center gap-4 mb-5">
-                <div className="w-12 h-12 bg-[#C9D7D4]/30 rounded-full flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-xl sm:text-2xl font-semibold text-[#17464F]">方向斷裂</h3>
+          {/* Mobile/Tablet: Vertical stacked layout */}
+          <div className="lg:hidden space-y-8">
+            {/* Pain Point 1 */}
+            <div className="text-center">
+              <div className="flex justify-center mb-4">
+                <svg
+                  className="w-14 h-14 text-[#D4B483]"
+                  viewBox="0 0 64 64"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
+                  <circle cx="32" cy="32" r="20" />
+                  <circle cx="32" cy="32" r="4" fill="currentColor" />
+                  <path d="M32 16 L32 12" />
+                  <path d="M32 52 L32 48" />
+                  <path d="M16 32 L12 32" />
+                  <path d="M52 32 L48 32" />
+                  <path d="M32 28 L28 36 L32 32 L36 36 Z" fill="currentColor" />
+                  <text x="50" y="15" fontSize="12" fill="currentColor">
+                    ?
+                  </text>
+                </svg>
               </div>
-              <p className="text-[#33393C] leading-relaxed text-sm sm:text-base">
-                你是不是也想過很多種版本：
-                <br />
-                有時想去外商、有時想接案當 freelancer，
-                <br />
-                但每次看到別人的故事就改變主意，
-                <br />
-                到最後，反而哪一條都沒真的走下去。
+              <h3 className="text-lg font-bold text-[#D4B483] mb-2">方向斷裂</h3>
+              <p className="text-white/80 text-sm leading-relaxed max-w-sm mx-auto">
+                你是不是也想過很多種版本：有時想去外商、有時想接案當
+                freelancer，但每次看到別人的故事就改變主意，到最後，反而哪一條都沒真的走下去。
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-[#C9D7D4]/50 hover:shadow-md transition-shadow duration-300">
-              <div className="flex items-center gap-4 mb-5">
-                <div className="w-12 h-12 bg-[#C9D7D4]/30 rounded-full flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-xl sm:text-2xl font-semibold text-[#17464F]">方法斷裂</h3>
+            {/* Pain Point 2 */}
+            <div className="text-center">
+              <div className="flex justify-center mb-4">
+                <svg
+                  className="w-16 h-14 text-[#D4B483]"
+                  viewBox="0 0 80 64"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
+                  <path d="M15 25 L30 25 L30 20 Q35 20 35 25 L35 25 L50 25 L50 40 L45 40 Q45 45 50 45 L50 45 L50 55 L15 55 L15 45 Q20 45 20 40 L15 40 Z" />
+                  <rect x="55" y="30" width="15" height="20" />
+                  <path d="M55 38 L70 38" />
+                  <path d="M55 46 L70 46" />
+                </svg>
               </div>
-              <p className="text-[#33393C] leading-relaxed text-sm sm:text-base">
-                你也不是沒學東西：買課、看影片、存下很多筆記，
-                <br />
-                真正卡住的是——
-                <br />
-                「那我今天到底要做哪一個小步驟？」
-                <br />
-                所以日子一忙，又回到塬本的節奏。
+              <h3 className="text-lg font-bold text-[#D4B483] mb-2">方法斷裂</h3>
+              <p className="text-white/80 text-sm leading-relaxed max-w-sm mx-auto">
+                你也不是沒學東西：買課、看影片、存下很多筆記，真正卡住的是——「那我今天到底要做哪一個小步驟？」所以日子一忙，又回到塬本的節奏。
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-[#C9D7D4]/50 hover:shadow-md transition-shadow duration-300">
-              <div className="flex items-center gap-4 mb-5">
-                <div className="w-12 h-12 bg-[#C9D7D4]/30 rounded-full flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-xl sm:text-2xl font-semibold text-[#17464F]">同伴斷裂</h3>
+            {/* Pain Point 3 */}
+            <div className="text-center">
+              <div className="flex justify-center mb-4">
+                <svg
+                  className="w-14 h-14 text-[#D4B483]"
+                  viewBox="0 0 64 64"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
+                  <circle cx="20" cy="15" r="6" />
+                  <path d="M20 22 L20 38" />
+                  <path d="M20 38 L14 50" />
+                  <path d="M20 38 L26 50" />
+                  <path d="M12 28 L20 25 L28 28" />
+                  <rect x="38" y="8" width="18" height="40" rx="2" />
+                  <circle cx="47" cy="18" r="3" opacity="0.5" />
+                  <circle cx="52" cy="20" r="2" opacity="0.3" />
+                  <circle cx="43" cy="20" r="2" opacity="0.3" />
+                </svg>
               </div>
-              <p className="text-[#33393C] leading-relaxed text-sm sm:text-base">
-                身邊的人大多走很標準的路，
-                <br />
-                你很難跟他們分享「我其實想過不一樣的生活」。
-                <br />
-                不知道可以跟誰討論、問誰意見，
-                <br />
-                久了就習慣把這些想法藏在心裡。
+              <h3 className="text-lg font-bold text-[#D4B483] mb-2">同伴斷裂</h3>
+              <p className="text-white/80 text-sm leading-relaxed max-w-sm mx-auto">
+                身邊的人大多走很標準的路，你很難跟他們分享「我其實想過不一樣的生活」。不知道可以跟誰討論、問誰意見，久了就習慣把這些想法藏在心裡。
               </p>
             </div>
-          </div>
 
-          <div className="text-center">
-            <p className="text-base sm:text-lg text-[#17464F] font-medium leading-relaxed max-w-3xl mx-auto px-4">
-              你缺的不是更多資訊，而是一個地方，
-              <br className="sm:hidden" />
-              <span className="block md:inline">讓你在未來六個月裡，有人陪你一起試、</span>
-              <span className="block md:inline">一起走、一起調整方向。</span>
-            </p>
+            {/* Conclusion box */}
+            <div className="mt-8 pt-8">
+              <div className="border-2 border-[#D4B483] rounded-xl p-5 mx-auto max-w-sm">
+                <p className="text-white text-center text-sm leading-relaxed">
+                  你缺的不是更多資訊，而是一個地方，讓你在未來六個月裡，有人陪你一起試、一起走、一起調整方向。
+                </p>
+                <div className="flex justify-center mt-3">
+                  <svg
+                    className="w-5 h-5 text-[#D4B483]"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M12 5 L12 19 M5 12 L12 19 L19 12" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            {/* Decorative star */}
+            <div className="flex justify-end pr-4">
+              <svg className="w-6 h-6 text-[#D4B483]" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+              </svg>
+            </div>
           </div>
         </div>
       </section>
@@ -2572,7 +1655,7 @@ export default function HomePage() {
           )}
         </div>
       </section>
-      <PricingSection />;
+      <PricingSection />
       <section className="py-16 sm:py-20 bg-gradient-to-br from-[#17464F] to-[#1a5561]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-white/95 backdrop-blur rounded-2xl p-8 sm:p-12 shadow-xl border border-[#C9D7D4]">
