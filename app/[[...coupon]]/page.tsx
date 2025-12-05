@@ -4,253 +4,7 @@ import { useState, useEffect, useMemo } from "react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { useParams } from "next/navigation"
-
-type PlanId = "selfMedia" | "remoteJob" | "dualLine"
-
-interface StagePricing {
-  original: number
-  stagePrice: number
-  savingAmount: number
-}
-
-interface Stage {
-  id: string
-  order: number
-  name: string
-  tagLine: string
-  discountLabel: string
-  discountRate: number
-  startAt: Date
-  endAt: Date
-  prices: {
-    [key in PlanId]: StagePricing
-  }
-  plans?: {
-    singleLine: {
-      price: number
-      originalPrice: number
-    }
-  }
-}
-
-const stages: Stage[] = [
-  {
-    id: "stage_1",
-    order: 1,
-    name: "招生啟動價",
-    tagLine: "最早的一批，只有少部分人知道的方案，有「一起開始學院」的感覺",
-    discountLabel: "51 折",
-    discountRate: 0.51,
-    startAt: new Date("2025-12-04T00:00:00"),
-    endAt: new Date("2025-12-10T23:59:59"),
-    prices: {
-      selfMedia: { original: 16500, stagePrice: 8499, savingAmount: 8001 },
-      remoteJob: { original: 16500, stagePrice: 8499, savingAmount: 8001 },
-      dualLine: { original: 22500, stagePrice: 11500, savingAmount: 11000 },
-    },
-    plans: {
-      singleLine: { price: 8499, originalPrice: 16500 },
-    },
-  },
-  {
-    id: "stage_2",
-    order: 2,
-    name: "夢想試飛價",
-    tagLine: "願意先試飛的人，給你最輕的票價",
-    discountLabel: "58 折",
-    discountRate: 0.58,
-    startAt: new Date("2025-12-11T00:00:00"),
-    endAt: new Date("2025-12-24T23:59:59"),
-    prices: {
-      selfMedia: { original: 16500, stagePrice: 9499, savingAmount: 7001 },
-      remoteJob: { original: 16500, stagePrice: 9499, savingAmount: 7001 },
-      dualLine: { original: 22500, stagePrice: 12999, savingAmount: 9501 },
-    },
-    plans: {
-      singleLine: { price: 9499, originalPrice: 16500 },
-    },
-  },
-  {
-    id: "stage_3",
-    order: 3,
-    name: "打包行李價",
-    tagLine: "已經決定要上路、開始準備的人",
-    discountLabel: "61 折",
-    discountRate: 0.61,
-    startAt: new Date("2025-12-25T00:00:00"),
-    endAt: new Date("2026-01-07T23:59:59"),
-    prices: {
-      selfMedia: { original: 16500, stagePrice: 9999, savingAmount: 6501 },
-      remoteJob: { original: 16500, stagePrice: 9999, savingAmount: 6501 },
-      dualLine: { original: 22500, stagePrice: 13699, savingAmount: 8801 },
-    },
-    plans: {
-      singleLine: { price: 9999, originalPrice: 16500 },
-    },
-  },
-  {
-    id: "stage_4",
-    order: 4,
-    name: "開票起飛價",
-    tagLine: "對標「機票開票」的那一刻，再晚就要變貴了",
-    discountLabel: "64 折",
-    discountRate: 0.64,
-    startAt: new Date("2026-01-08T00:00:00"),
-    endAt: new Date("2026-01-21T23:59:59"),
-    prices: {
-      selfMedia: { original: 16500, stagePrice: 10499, savingAmount: 6001 },
-      remoteJob: { original: 16500, stagePrice: 10499, savingAmount: 6001 },
-      dualLine: { original: 22500, stagePrice: 14299, savingAmount: 8201 },
-    },
-    plans: {
-      singleLine: { price: 10499, originalPrice: 16500 },
-    },
-  },
-  {
-    id: "stage_5",
-    order: 5,
-    name: "最後登機口價",
-    tagLine: "再不上機就要關門了",
-    discountLabel: "67 折",
-    discountRate: 0.67,
-    startAt: new Date("2026-01-22T00:00:00"),
-    endAt: new Date("2026-02-04T23:59:59"),
-    prices: {
-      selfMedia: { original: 16500, stagePrice: 10999, savingAmount: 5501 },
-      remoteJob: { original: 16500, stagePrice: 10999, savingAmount: 5501 },
-      dualLine: { original: 22500, stagePrice: 14999, savingAmount: 7501 },
-    },
-    plans: {
-      singleLine: { price: 10999, originalPrice: 16500 },
-    },
-  },
-  {
-    id: "stage_6",
-    order: 6,
-    name: "起飛早鳥價",
-    tagLine: "進入中段，還是早鳥，但已經離最便宜一段距離",
-    discountLabel: "70 折",
-    discountRate: 0.7,
-    startAt: new Date("2026-02-05T00:00:00"),
-    endAt: new Date("2026-02-18T23:59:59"),
-    prices: {
-      selfMedia: { original: 16500, stagePrice: 11499, savingAmount: 5001 },
-      remoteJob: { original: 16500, stagePrice: 11499, savingAmount: 5001 },
-      dualLine: { original: 22500, stagePrice: 15699, savingAmount: 6801 },
-    },
-    plans: {
-      singleLine: { price: 11499, originalPrice: 16500 },
-    },
-  },
-  {
-    id: "stage_7",
-    order: 7,
-    name: "雲端巡航價",
-    tagLine: "隊伍已經在路上",
-    discountLabel: "73 折",
-    discountRate: 0.73,
-    startAt: new Date("2026-02-19T00:00:00"),
-    endAt: new Date("2026-03-04T23:59:59"),
-    prices: {
-      selfMedia: { original: 16500, stagePrice: 11999, savingAmount: 4501 },
-      remoteJob: { original: 16500, stagePrice: 11999, savingAmount: 4501 },
-      dualLine: { original: 22500, stagePrice: 16399, savingAmount: 6101 },
-    },
-    plans: {
-      singleLine: { price: 11999, originalPrice: 16500 },
-    },
-  },
-  {
-    id: "stage_8",
-    order: 8,
-    name: "中途轉機價",
-    tagLine: "你還趕得上這班機，但不是最早那批價",
-    discountLabel: "76 折",
-    discountRate: 0.76,
-    startAt: new Date("2026-03-05T00:00:00"),
-    endAt: new Date("2026-03-11T23:59:59"),
-    prices: {
-      selfMedia: { original: 16500, stagePrice: 12499, savingAmount: 4001 },
-      remoteJob: { original: 16500, stagePrice: 12499, savingAmount: 4001 },
-      dualLine: { original: 22500, stagePrice: 16999, savingAmount: 5501 },
-    },
-    plans: {
-      singleLine: { price: 12499, originalPrice: 16500 },
-    },
-  },
-  {
-    id: "stage_9",
-    order: 9,
-    name: "入境前夕價",
-    tagLine: "快要入境學院",
-    discountLabel: "82 折",
-    discountRate: 0.82,
-    startAt: new Date("2026-03-12T00:00:00"),
-    endAt: new Date("2026-03-18T23:59:59"),
-    prices: {
-      selfMedia: { original: 16500, stagePrice: 13499, savingAmount: 3001 },
-      remoteJob: { original: 16500, stagePrice: 13499, savingAmount: 3001 },
-      dualLine: { original: 22500, stagePrice: 18399, savingAmount: 4101 },
-    },
-    plans: {
-      singleLine: { price: 13499, originalPrice: 16500 },
-    },
-  },
-  {
-    id: "stage_10",
-    order: 10,
-    name: "落地衝刺價",
-    tagLine: "最後加速衝進這一梯",
-    discountLabel: "88 折",
-    discountRate: 0.88,
-    startAt: new Date("2026-03-19T00:00:00"),
-    endAt: new Date("2026-03-25T23:59:59"),
-    prices: {
-      selfMedia: { original: 16500, stagePrice: 14499, savingAmount: 2001 },
-      remoteJob: { original: 16500, stagePrice: 14499, savingAmount: 2001 },
-      dualLine: { original: 22500, stagePrice: 19699, savingAmount: 2801 },
-    },
-    plans: {
-      singleLine: { price: 14499, originalPrice: 16500 },
-    },
-  },
-  {
-    id: "stage_11",
-    order: 11,
-    name: "壓線報名價",
-    tagLine: "給還在猶豫但真的想上的你",
-    discountLabel: "94 折",
-    discountRate: 0.94,
-    startAt: new Date("2026-03-26T00:00:00"),
-    endAt: new Date("2026-03-30T23:59:59"),
-    prices: {
-      selfMedia: { original: 16500, stagePrice: 15499, savingAmount: 1001 },
-      remoteJob: { original: 16500, stagePrice: 15499, savingAmount: 1001 },
-      dualLine: { original: 22500, stagePrice: 20999, savingAmount: 1501 },
-    },
-    plans: {
-      singleLine: { price: 15499, originalPrice: 16500 },
-    },
-  },
-  {
-    id: "stage_final",
-    order: 12,
-    name: "原價",
-    tagLine: "正常標價",
-    discountLabel: "原價",
-    discountRate: 1,
-    startAt: new Date("2026-03-31T00:00:00"),
-    endAt: new Date("2026-04-30T23:59:59"), // Enrollment deadline
-    prices: {
-      selfMedia: { original: 16500, stagePrice: 16500, savingAmount: 0 },
-      remoteJob: { original: 16500, stagePrice: 16500, savingAmount: 0 },
-      dualLine: { original: 22500, stagePrice: 22500, savingAmount: 0 },
-    },
-    plans: {
-      singleLine: { price: 16500, originalPrice: 16500 },
-    },
-  },
-]
+import { usePricing, stages, type PlanId } from "@/contexts/pricing-context"
 
 const planConfig: Record<PlanId, { name: string; checkoutPath: string }> = {
   selfMedia: { name: "自媒體線路方案", checkoutPath: "planId=selfmedia" },
@@ -313,6 +67,9 @@ export default function HomePage() {
     month: number
   } | null>(null)
 
+  // usePricing hook to get stages and currentStageData
+  const { currentStageData } = usePricing()
+
   useEffect(() => {
     if (params.coupon && Array.isArray(params.coupon) && params.coupon.length > 0) {
       setCouponCode(params.coupon[0])
@@ -321,18 +78,10 @@ export default function HomePage() {
     }
   }, [params])
 
-  const currentStageData = useMemo((): Stage | null => {
-    const now = new Date()
-    for (const stage of stages) {
-      if (now >= stage.startAt && now <= stage.endAt) {
-        return stage
-      }
-    }
-    // If past all stages, return final stage
-    return stages[stages.length - 1]
-  }, [])
+  // Removed local useMemo for currentStageData
+  // Removed local useMemo for lowestPrice calculation, this will be part of context
 
-  const lowestPrice = useMemo((): number | null => {
+  const lowestPrice = useMemo(() => {
     if (!currentStageData) return null
     // Get the lowest price among single-line plans (selfMedia and remoteJob)
     const singleLinePrices = [
@@ -574,7 +323,7 @@ export default function HomePage() {
             <div className="flex items-center gap-2 text-sm">
               <span>🔥</span>
               <span>
-                <span className="text-[#D4B483] font-bold">{currentStageData.name}</span> 
+                <span className="text-[#D4B483] font-bold">{currentStageData.name}</span>
                 <span className="text-[#D4B483] font-bold">{currentStageData.discountLabel}</span>
               </span>
             </div>
@@ -649,8 +398,8 @@ export default function HomePage() {
               </h1>
 
               <p className="text-base sm:text-lg text-[#33393C] leading-relaxed max-w-xl mx-auto lg:mx-0">
-                不用先辭職，也不用一下子 all-in。
-                透過 6 個月的遠距職涯探索旅途，結合線上課程、行動任務、共學社群與遊牧體驗資源，開啟探索最適合你生活與成長。
+                不用先辭職，也不用一下子 all-in。 透過 6
+                個月的遠距職涯探索旅途，結合線上課程、行動任務、共學社群與遊牧體驗資源，開啟探索最適合你生活與成長。
               </p>
 
               <div className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3">
@@ -1032,7 +781,7 @@ export default function HomePage() {
                 >
                   <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4 border border-[#C9D7D4]">
                     <Image
-                      src="/images/design-mode/%E6%88%90%E9%95%B7%E7%87%9FLogo.jpg"
+                      src="/images/design-mode/%E6%88%90%E9%95%B7%E7%87%97Logo.jpg"
                       alt="艾兒莎成長營"
                       width={96}
                       height={96}
@@ -1859,7 +1608,7 @@ export default function HomePage() {
             <p className="text-lg text-[#33393C] leading-relaxed max-w-2xl mx-auto">
               你不只是在上「一門課」，
               <br />
-              而是在和一群分散在世界各地的人，一起思考怎麼活出更自由的版本。
+              而在是和一群分散在世界各地的人，一起思考怎麼活出更自由的版本。
             </p>
           </div>
         </div>
@@ -2265,7 +2014,7 @@ export default function HomePage() {
               {timelineExpanded && (
                 <button
                   onClick={() => setTimelineExpanded(false)}
-                  className="w-full mt-4 py-3 text-[#17464F] hover:text-[#D4B483] text-sm font-medium transition-colors"
+                  className="w-full mt-4 py-3 text-[#17464F] hover:text-[#D4B483] text-sm font-medium border border-[#17464F] rounded-full transition-colors"
                 >
                   收合
                 </button>
