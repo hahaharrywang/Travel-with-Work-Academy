@@ -345,9 +345,6 @@ export default function HomePage() {
                   自媒體接案線路
                 </span>
                 <span className="px-4 py-2 rounded-full bg-[#17464F] text-white text-sm font-medium">遠端上班線路</span>
-                <span className="px-4 py-2 rounded-full bg-[#D4B483] text-[#17464F] text-sm font-medium">
-                  也可以雙線並進
-                </span>
               </div>
 
               <p className="text-sm text-[#33393C]/60 max-w-lg mx-auto lg:mx-0">
@@ -537,7 +534,7 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-4 text-balance">
-              不是你不夠努力，而是一直一個人亂撞
+              不是你不努力，而是拼圖還有缺
             </h2>
             <div className="flex items-center justify-center gap-2 mt-6">
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
