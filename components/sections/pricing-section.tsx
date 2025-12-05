@@ -14,46 +14,9 @@ const formatPrice = (price: number): string => {
   return price.toLocaleString("zh-TW")
 }
 
-const getCheckoutURL = (planId: PlanId, couponCode?: string) => {
-  const baseURL = `https://travelworkacademy.myteachify.com/checkout?${planConfig[planId].checkoutPath}`
-  return couponCode ? `${baseURL}&coupon=${encodeURIComponent(couponCode)}` : baseURL
-}
-
-const getTrackingParams = () => {
-  if (typeof window === "undefined") return ""
-  const urlParams = new URLSearchParams(window.location.search)
-  const fbclid = urlParams.get("fbclid")
-  const getCookie = (name: string) => {
-    const value = `; ${document.cookie}`
-    const parts = value.split(`; ${name}=`)
-    if (parts.length === 2) return parts.pop()?.split(";").shift()
-    return null
-  }
-  const fbc = getCookie("_fbc")
-  const fbp = getCookie("_fbp")
-  const params = new URLSearchParams()
-  if (fbclid) params.append("fbclid", fbclid)
-  if (fbc) params.append("fbc", fbc)
-  if (fbp) params.append("fbp", fbp)
-  return params.toString() ? `&${params.toString()}` : ""
-}
-
-interface PricingSectionProps {
-  couponCode?: string | null
-  selectedPlanId: PlanId | null
-  setSelectedPlanId: (planId: PlanId | null) => void
-}
-
-export function PricingSection({ couponCode, selectedPlanId, setSelectedPlanId }: PricingSectionProps) {
-  const { currentStageData } = usePricing()
+export function PricingSection() {
+  const { currentStageData, timeLeft, selectedPlanId, setSelectedPlanId, getCheckoutURLWithTracking } = usePricing()
   const [timelineExpanded, setTimelineExpanded] = useState(false)
-
-  const getCheckoutURLWithTracking = (planId: PlanId = "dualLine") => {
-    const effectivePlanId = selectedPlanId || planId
-    const baseURL = getCheckoutURL(effectivePlanId, couponCode || undefined)
-    const trackingParams = getTrackingParams()
-    return `${baseURL}${trackingParams}`
-  }
 
   return (
     <section id="pricing" className="py-16 sm:py-24 bg-white">
@@ -72,7 +35,7 @@ export function PricingSection({ couponCode, selectedPlanId, setSelectedPlanId }
             差別只在於：你想先專心走哪一條主線，或是一次打開兩種可能。
           </p>
           {currentStageData && (
-            <div className="mt-6 inline-flex items-center gap-2 bg-[#17464F] text-white px-4 py-1 rounded-full text-sm">
+            <div className="mt-6 inline-flex items-center gap-2 bg-[#17464F] text-white px-4 py-2 rounded-full text-sm">
               <span>🔥</span>
               <span>
                 目前為「<span className="text-[#D4B483] font-bold">{currentStageData.name}</span>」·{" "}
@@ -102,32 +65,28 @@ export function PricingSection({ couponCode, selectedPlanId, setSelectedPlanId }
                           <div
                             className={`w-4 h-4 rounded-full border-2 ${
                               isCurrent
-                                ? "bg-[#D4B483] border-[#D4B483] ring-4 ring-[#D4B483]/30"
+                                ? "bg-[#D4B483] border-[#D4B483] ring-4 ring-[#D4B483]/20"
                                 : isPast
                                   ? "bg-gray-300 border-gray-300"
                                   : "bg-white border-[#17464F]"
                             }`}
                           />
-                          <div
-                            className={`mt-3 text-center ${
-                              isCurrent ? "text-[#17464F] font-bold" : isPast ? "text-gray-400" : "text-[#33393C]"
-                            }`}
-                          >
-                            <div className="text-xs sm:text-sm whitespace-nowrap">{stage.name}</div>
-                            <div className="text-xs text-gray-500 mt-1">
-                              {stage.startAt.getMonth() + 1}/{stage.startAt.getDate()}
+                          <div className="mt-2 text-center">
+                            <div
+                              className={`text-xs font-medium ${isCurrent ? "text-[#D4B483]" : isPast ? "text-gray-400" : "text-[#17464F]"}`}
+                            >
+                              {stage.name}
                             </div>
-                            {isCurrent && (
-                              <div className="text-xs text-[#D4B483] font-medium mt-1">{stage.discountLabel}</div>
-                            )}
+                            <div className={`text-xs ${isPast ? "text-gray-400" : "text-[#33393C]"}`}>
+                              {stage.discountLabel}
+                            </div>
+                            <div className={`text-xs ${isPast ? "text-gray-400" : "text-[#33393C]/60"}`}>
+                              ~{stage.endAt.getMonth() + 1}/{stage.endAt.getDate()}
+                            </div>
                           </div>
                         </div>
                         {index < arr.length - 1 && (
-                          <div
-                            className={`w-12 sm:w-16 h-0.5 mx-2 ${
-                              isPast ? "bg-gray-300" : isCurrent ? "bg-[#D4B483]" : "bg-gray-200"
-                            }`}
-                          />
+                          <div className={`w-16 h-0.5 mx-2 ${isPast ? "bg-gray-300" : "bg-[#17464F]/20"}`} />
                         )}
                       </div>
                     )
@@ -138,16 +97,16 @@ export function PricingSection({ couponCode, selectedPlanId, setSelectedPlanId }
             <div className="text-center mt-4">
               <button
                 onClick={() => setTimelineExpanded(!timelineExpanded)}
-                className="text-[#17464F] hover:text-[#D4B483] text-sm font-medium transition-colors"
+                className="text-sm text-[#17464F] hover:text-[#D4B483] transition-colors underline"
               >
-                {timelineExpanded ? "收合時間軸" : `展開全部 ${stages.length} 個階段`}
+                {timelineExpanded ? "收起時間軸" : "展開全部 12 個階段"}
               </button>
             </div>
           </div>
 
           {/* Mobile Timeline */}
           <div className="md:hidden">
-            <div className="space-y-4">
+            <div className="space-y-3">
               {(timelineExpanded ? stages : stages.slice(0, 4)).map((stage) => {
                 const now = new Date()
                 const isPast = now > stage.endAt
@@ -156,57 +115,72 @@ export function PricingSection({ couponCode, selectedPlanId, setSelectedPlanId }
                 return (
                   <div
                     key={stage.id}
-                    className={`flex items-center gap-4 p-4 rounded-xl border ${
+                    className={`p-4 rounded-xl border ${
                       isCurrent
-                        ? "bg-[#17464F] text-white border-[#17464F]"
+                        ? "border-[#D4B483] bg-[#D4B483]/10"
                         : isPast
-                          ? "bg-gray-100 text-gray-400 border-gray-200"
-                          : "bg-white text-[#33393C] border-slate-200"
+                          ? "border-gray-200 bg-gray-50"
+                          : "border-[#C9D7D4] bg-white"
                     }`}
                   >
-                    <div
-                      className={`w-3 h-3 rounded-full flex-shrink-0 ${
-                        isCurrent ? "bg-[#D4B483]" : isPast ? "bg-gray-300" : "bg-[#17464F]"
-                      }`}
-                    />
-                    <div className="flex-1">
-                      <div className="font-medium">{stage.name}</div>
-                      <div className={`text-xs ${isCurrent ? "text-white/70" : "text-gray-500"}`}>
-                        {stage.startAt.getMonth() + 1}/{stage.startAt.getDate()} ~ {stage.endAt.getMonth() + 1}/
-                        {stage.endAt.getDate()}
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div
+                          className={`font-medium ${isCurrent ? "text-[#D4B483]" : isPast ? "text-gray-400" : "text-[#17464F]"}`}
+                        >
+                          {stage.name}
+                        </div>
+                        <div className={`text-sm ${isPast ? "text-gray-400" : "text-[#33393C]"}`}>
+                          {stage.discountLabel} · ~{stage.endAt.getMonth() + 1}/{stage.endAt.getDate()}
+                        </div>
                       </div>
-                    </div>
-                    <div className="text-right">
-                      <div className={`font-bold ${isCurrent ? "text-[#D4B483]" : ""}`}>{stage.discountLabel}</div>
+                      {isCurrent && (
+                        <span className="text-xs bg-[#D4B483] text-white px-2 py-1 rounded-full">目前階段</span>
+                      )}
                     </div>
                   </div>
                 )
               })}
             </div>
             {!timelineExpanded && stages.length > 4 && (
-              <button
-                onClick={() => setTimelineExpanded(true)}
-                className="w-full mt-4 py-3 text-[#17464F] hover:text-[#D4B483] text-sm font-medium border border-[#17464F] rounded-full transition-colors"
-              >
-                展開看全部 {stages.length} 個階段
-              </button>
-            )}
-            {timelineExpanded && (
-              <button
-                onClick={() => setTimelineExpanded(false)}
-                className="w-full mt-4 py-3 text-[#17464F] hover:text-[#D4B483] text-sm font-medium border border-[#17464F] rounded-full transition-colors"
-              >
-                收合
-              </button>
+              <div className="text-center mt-4">
+                <button
+                  onClick={() => setTimelineExpanded(true)}
+                  className="text-sm text-[#17464F] hover:text-[#D4B483] transition-colors underline"
+                >
+                  展開看全部 {stages.length} 個階段
+                </button>
+              </div>
             )}
           </div>
         </div>
 
-        {/* Plan Cards */}
+        {/* Current Stage Summary Card */}
+        {currentStageData && (
+          <div className="bg-gradient-to-br from-[#17464F] to-[#1a5259] rounded-2xl p-6 md:p-8 text-white text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-[#D4B483]/20 text-[#D4B483] px-4 py-1 rounded-full text-sm mb-4">
+              <span>🔥</span>
+              <span>目前階段</span>
+            </div>
+            <h3 className="text-2xl md:text-3xl font-bold mb-2">{currentStageData.name}</h3>
+            <p className="text-white/80 mb-4">
+              截止：{currentStageData.endAt.getMonth() + 1}/{currentStageData.endAt.getDate()}
+            </p>
+            <p className="text-lg">
+              距離下一階段：
+              <span className="font-bold text-[#D4B483]">
+                {timeLeft.days} 天 {timeLeft.hours} 小時 {timeLeft.minutes} 分 {timeLeft.seconds} 秒
+              </span>
+            </p>
+            <p className="text-sm text-white/60 mt-4">選擇下方任一方案，即可以目前階段價格加入本梯</p>
+          </div>
+        )}
+
+        {/* Three Plan Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
           {/* Self Media Plan */}
           <div
-            className={`bg-white rounded-2xl border shadow-sm flex flex-col transition-all duration-300 ${
+            className={`bg-white rounded-2xl border shadow-sm overflow-hidden flex flex-col transition-all duration-300 ${
               selectedPlanId === "selfMedia"
                 ? "border-[#D4B483] border-2 shadow-lg ring-2 ring-[#D4B483]/20"
                 : "border-slate-200"
@@ -217,7 +191,7 @@ export function PricingSection({ couponCode, selectedPlanId, setSelectedPlanId }
             </div>
             <div className="p-6 flex-1 flex flex-col">
               <p className="text-[#33393C] text-sm mb-4 pb-4 border-b border-slate-100">
-                適合想用內容與個人品牌，慢慢建立第二條收入的人。
+                適合想透過自媒體、個人品牌或接案獲得收入自由的人。
               </p>
               <ul className="space-y-3 text-sm text-[#33393C] mb-6 flex-1">
                 <li className="flex items-start gap-2">
@@ -229,7 +203,7 @@ export function PricingSection({ couponCode, selectedPlanId, setSelectedPlanId }
                 <li className="flex items-start gap-2">
                   <span className="text-[#D4B483] mt-0.5">●</span>
                   <span>
-                    <strong>自媒體接案主課程</strong>：定位、內容系統、作品集、短影音實作
+                    <strong>自媒體接案主課程</strong>：內容創作、品牌定位、接案談判、變現模式
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
@@ -366,7 +340,7 @@ export function PricingSection({ couponCode, selectedPlanId, setSelectedPlanId }
             className={`bg-white rounded-2xl border shadow-sm overflow-hidden flex flex-col transition-all duration-300 ${
               selectedPlanId === "remoteJob"
                 ? "border-[#D4B483] border-2 shadow-lg ring-2 ring-[#D4B483]/20"
-                : "border-2 border-[#D4B483]"
+                : "border-slate-200"
             }`}
           >
             <div className="bg-[#17464F] text-white py-4 px-6 text-center">
@@ -437,7 +411,7 @@ export function PricingSection({ couponCode, selectedPlanId, setSelectedPlanId }
           </div>
         </div>
 
-        {/* Included in all plans */}
+        {/* All Plans Include */}
         <div className="bg-white/60 rounded-2xl border border-slate-200 p-6 md:p-8 text-center mb-12">
           <h4 className="text-lg font-bold text-[#17464F] mb-4">所有方案皆包含</h4>
           <div className="flex flex-wrap justify-center gap-3 text-sm text-[#33393C]">
@@ -454,9 +428,9 @@ export function PricingSection({ couponCode, selectedPlanId, setSelectedPlanId }
         <div className="bg-gradient-to-r from-[#17464F] to-[#1a5259] rounded-2xl p-6 text-center text-white shadow-lg">
           <div className="text-lg font-bold mb-2">績優學員專屬獎勵</div>
           <div className="text-sm opacity-90">
-            課程期間成長表現優異的學員，將有機會獲得<span className="font-semibold">學費的部分或全額</span>
-            <span className="text-[#D4B483] font-bold mx-1">獎學金</span>，以及
-            <span className="text-[#D4B483] font-bold mx-1">2026 年遊牧啟發之旅招待名額</span>！
+            每梯次結業時，我們會選出最積極參與、最有行動力的學員，
+            <br className="hidden sm:block" />
+            頒發「遠距遊牧實踐者」認證，並優先邀請成為下一梯的助教或社群管理員。
           </div>
         </div>
       </div>
