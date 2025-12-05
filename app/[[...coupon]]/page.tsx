@@ -583,12 +583,12 @@ export default function HomePage() {
             </div>
 
             <div className="flex items-center gap-4 text-sm">
-              {timeLeft.days > 0 || timeLeft.hours > 0 || timeLeft.minutes > 0 ? (
+              {timeLeft.days > 0 || timeLeft.hours > 0 || timeLeft.minutes > 0 || timeLeft.seconds > 0 ? (
                 <span>
                   距離下一階段價格調整還有：
                   <span className="font-bold text-[#D4B483] ml-1">
                     {String(timeLeft.days).padStart(2, "0")} 天 {String(timeLeft.hours).padStart(2, "0")} 小時{" "}
-                    {String(timeLeft.minutes).padStart(2, "0")} 分
+                    {String(timeLeft.minutes).padStart(2, "0")} 分 {String(timeLeft.seconds).padStart(2, "0")} 秒
                   </span>
                 </span>
               ) : (
@@ -2836,43 +2836,39 @@ export default function HomePage() {
               ✕
             </button>
 
-            {stagePhotos[currentStage].length > 1 && (
-              <button
-                onClick={(e) => {
-                  e.stopPropagation()
-                  prevPhoto()
-                }}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full shadow-xl flex items-center justify-center text-gray-800 hover:text-orange-500 transition-all duration-200 z-10 group"
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                prevPhoto()
+              }}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full shadow-xl flex items-center justify-center text-gray-800 hover:text-orange-500 transition-all duration-200 z-10 group"
+            >
+              <svg
+                className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-200"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-200"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-            )}
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
 
-            {stagePhotos[currentStage].length > 1 && (
-              <button
-                onClick={(e) => {
-                  e.stopPropagation()
-                  nextPhoto()
-                }}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full shadow-xl flex items-center justify-center text-gray-800 hover:text-orange-500 transition-all duration-200 z-10 group"
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                nextPhoto()
+              }}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full shadow-xl flex items-center justify-center text-gray-800 hover:text-orange-500 transition-all duration-200 z-10 group"
+            >
+              <svg
+                className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-200"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-                <svg
-                  className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-200"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            )}
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
 
             <div
               className="relative w-full h-full flex items-center justify-center"
@@ -2919,11 +2915,12 @@ export default function HomePage() {
                 <span>·</span>
                 <span>全方案 {currentStageData.discountLabel}</span>
                 <span>·</span>
+                {/* CHANGE: Unified countdown format with days, hours, minutes, seconds */}
                 <span>
                   倒數{" "}
                   <span className="font-bold">
-                    {String(timeLeft.hours).padStart(2, "0")}:{String(timeLeft.minutes).padStart(2, "0")}:
-                    {String(timeLeft.seconds).padStart(2, "0")}
+                    {String(timeLeft.days).padStart(2, "0")}天 {String(timeLeft.hours).padStart(2, "0")}:
+                    {String(timeLeft.minutes).padStart(2, "0")}:{String(timeLeft.seconds).padStart(2, "0")}
                   </span>
                 </span>
               </div>
@@ -2955,8 +2952,8 @@ export default function HomePage() {
                 <span>
                   倒數{" "}
                   <span className="font-bold">
-                    {String(timeLeft.hours).padStart(2, "0")}:{String(timeLeft.minutes).padStart(2, "0")}:
-                    {String(timeLeft.seconds).padStart(2, "0")}
+                    {String(timeLeft.days).padStart(2, "0")}天 {String(timeLeft.hours).padStart(2, "0")}:
+                    {String(timeLeft.minutes).padStart(2, "0")}:{String(timeLeft.seconds).padStart(2, "0")}
                   </span>
                 </span>
               </div>
