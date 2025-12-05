@@ -673,7 +673,7 @@ export default function HomePage() {
               <h4 className="text-base md:text-lg font-semibold text-[#17464F]">社群支持：Skool × 同學會 × 校友連結</h4>
               <div className="text-sm md:text-base leading-relaxed text-slate-700 space-y-4">
                 <p>
-                  前 3 個月，你不會一個人在房間裡上課、做作業。 所有學員都在同一個 Skool
+                  你不會一個人在房間裡上課、做作業。 所有學員都在同一個 Skool
                   共學空間裡，看得到彼此的提問與成果， 再依線路與主題分成小隊與專屬群組，
                   搭配線上同學會，分享每個月的心得、卡關與實驗結果。
                 </p>
