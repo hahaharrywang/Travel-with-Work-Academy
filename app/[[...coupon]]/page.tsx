@@ -9,6 +9,7 @@ import { StickyBottomBar } from "@/components/sticky-bottom-bar"
 import { useParams } from "next/navigation"
 import { FAQSection } from "@/components/sections/faq-section"
 import { PricingSection } from "@/components/sections/pricing-section"
+import { TrendingUp, FileText, Users } from "lucide-react" // Import Lucide Icons
 
 // Define PlanId type here or import it if it's defined elsewhere
 type PlanId = "selfMedia" | "remoteJob" | "dualLine"
@@ -310,29 +311,52 @@ export default function HomePage() {
 
       {/* SECTION 1 HERO START */}
       <section className="relative min-h-screen flex items-center overflow-hidden bg-[#17464F]">
-        {/* Golden decorative curves */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 right-1/3 w-[600px] h-[600px] border border-[#D4B483]/30 rounded-full" />
-          <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] border border-[#D4B483]/20 rounded-full" />
-          <div className="absolute bottom-1/4 right-1/2 w-[300px] h-[300px] border border-[#D4B483]/10 rounded-full" />
+          <div className="absolute top-1/4 right-1/3 w-[600px] h-[600px] border border-[#D4AF37]/30 rounded-full" />
+          <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] border border-[#D4AF37]/20 rounded-full" />
+          <div className="absolute bottom-1/4 right-1/2 w-[300px] h-[300px] border border-[#D4AF37]/10 rounded-full" />
+          <div className="absolute bottom-0 left-0 right-0 h-40">
+            <div className="absolute bottom-8 left-[10%] w-1 h-1 bg-[#D4AF37] rounded-full animate-pulse" />
+            <div className="absolute bottom-16 left-[20%] w-1.5 h-1.5 bg-[#D4AF37]/80 rounded-full animate-pulse delay-100" />
+            <div className="absolute bottom-12 left-[35%] w-1 h-1 bg-[#D4AF37]/60 rounded-full animate-pulse delay-200" />
+            <div className="absolute bottom-20 left-[45%] w-2 h-2 bg-[#D4AF37]/70 rounded-full animate-pulse delay-300" />
+            <div className="absolute bottom-6 left-[55%] w-1 h-1 bg-[#D4AF37] rounded-full animate-pulse delay-150" />
+            <div className="absolute bottom-14 left-[65%] w-1.5 h-1.5 bg-[#D4AF37]/80 rounded-full animate-pulse delay-250" />
+            <div className="absolute bottom-10 left-[75%] w-1 h-1 bg-[#D4AF37]/60 rounded-full animate-pulse delay-100" />
+            <div className="absolute bottom-18 left-[85%] w-1.5 h-1.5 bg-[#D4AF37]/70 rounded-full animate-pulse delay-200" />
+            <div className="absolute bottom-4 left-[90%] w-1 h-1 bg-[#D4AF37] rounded-full animate-pulse delay-300" />
+          </div>
         </div>
 
         <div className="absolute top-0 left-0 z-30 py-4 px-4 sm:px-6 lg:px-8">
-          <Image
-            src="/images/academy-logo.png"
-            alt="遠距遊牧學院 Travel with Work Academy"
-            width={200}
-            height={105}
-            className="h-auto w-[140px] sm:w-[180px] brightness-0 invert"
-            priority
-          />
+          <div className="relative">
+            <Image
+              src="/images/academy-logo.png"
+              alt="遠距遊牧學院 Travel with Work Academy"
+              width={200}
+              height={105}
+              className="h-auto w-[140px] sm:w-[180px] brightness-0 invert"
+              priority
+            />
+            {/* Airplane trajectory dotted line */}
+            <svg
+              className="absolute -bottom-20 left-4 w-16 h-24 text-white/40"
+              viewBox="0 0 60 100"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeDasharray="4 4"
+            >
+              <path d="M30 0 Q 10 30, 20 50 Q 30 70, 15 100" />
+            </svg>
+          </div>
         </div>
 
         <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left content */}
             <div className="space-y-6 text-center lg:text-left">
-              <p className="text-sm sm:text-base text-[#D4B483] font-medium tracking-wide">
+              <p className="text-sm sm:text-base text-[#D4AF37] font-medium tracking-wide">
                 華語世界第一個以「行動」設計的遠距遊牧學院
               </p>
 
@@ -341,7 +365,7 @@ export default function HomePage() {
                 <br />
                 把「也許有一天」
                 <br />
-                變成「<span className="text-[#D4B483]">我正在路上</span>」
+                變成「<span className="text-[#D4AF37]">我正在路上</span>」
               </h1>
 
               <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-xl mx-auto lg:mx-0">
@@ -363,18 +387,17 @@ export default function HomePage() {
                 </span>
               </div>
 
-              {/* Bullet points with emoji */}
               <div className="space-y-3 text-left max-w-xl mx-auto lg:mx-0">
                 <div className="flex items-start gap-3">
-                  <span className="text-xl">👉</span>
+                  <TrendingUp className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" />
                   <p className="text-white/90">梳理你的遠距職涯藍圖與下一步行動</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-xl">🔥</span>
+                  <FileText className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" />
                   <p className="text-white/90">完成履歷、作品集、個人頁面等可見成果</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-xl">👥</span>
+                  <Users className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" />
                   <p className="text-white/90">加入一群真的在為自由生活行動的夥伴</p>
                 </div>
               </div>
@@ -384,7 +407,7 @@ export default function HomePage() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-[#D4B483] hover:bg-[#c9a673] text-[#17464F] rounded-full px-8 py-6 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
+                  className="bg-[#D4AF37] hover:bg-[#C9A227] text-[#17464F] rounded-full px-8 py-6 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
                 >
                   <a
                     href={getCheckoutURLWithTracking()}
@@ -403,7 +426,7 @@ export default function HomePage() {
                   onClick={() => {
                     document.getElementById("course-highlights")?.scrollIntoView({ behavior: "smooth" })
                   }}
-                  className="text-white/70 hover:text-[#D4B483] font-medium text-base transition-colors duration-200"
+                  className="text-white/70 hover:text-[#D4AF37] font-medium text-base transition-colors duration-200"
                 >
                   還在觀望？先看六個月怎麼走 ↓
                 </button>
@@ -412,15 +435,14 @@ export default function HomePage() {
               {/* Social proof */}
               <div className="pt-4 text-center lg:text-left">
                 <p className="text-sm text-white/60">
-                  2024-2025 已累積 <span className="text-[#D4B483] font-semibold">400+</span> 付費學員與{" "}
-                  <span className="text-[#D4B483] font-semibold">1,000+</span> 社群成員，
+                  2024-2025 已累積 <span className="text-[#D4AF37] font-semibold">400+</span> 付費學員與{" "}
+                  <span className="text-[#D4AF37] font-semibold">1,000+</span> 社群成員，
                   <br className="hidden sm:block" />
                   一起在台灣與世界各地行動中。
                 </p>
               </div>
             </div>
 
-            {/* Right image */}
             <div className="relative hidden lg:block">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <div className="aspect-[4/5] bg-[#C9D7D4] relative">
@@ -430,29 +452,14 @@ export default function HomePage() {
                     fill
                     className="object-cover"
                     priority
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="50vw"
                   />
                 </div>
               </div>
-              {/* Decorative golden arc around image */}
-              <div className="absolute -top-8 -right-8 w-full h-full border-2 border-[#D4B483]/40 rounded-2xl pointer-events-none" />
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 border-2 border-[#D4B483]/30 rounded-full pointer-events-none" />
-            </div>
-
-            {/* Mobile image */}
-            <div className="relative lg:hidden">
-              <div className="relative rounded-2xl overflow-hidden shadow-xl mx-auto max-w-md">
-                <div className="aspect-[4/3] bg-[#C9D7D4] relative">
-                  <Image
-                    src="/images/hero-background.png"
-                    alt="遠距工作場景 - 共同工作空間"
-                    fill
-                    className="object-cover"
-                    priority
-                    sizes="100vw"
-                  />
-                </div>
-              </div>
+              <div className="absolute -top-6 -right-6 w-full h-full border-2 border-[#D4AF37]/50 rounded-2xl pointer-events-none" />
+              <div className="absolute -top-10 -right-10 w-full h-full border border-[#D4AF37]/25 rounded-2xl pointer-events-none" />
+              <div className="absolute -bottom-4 -left-4 w-28 h-28 border-2 border-[#D4AF37]/40 rounded-full pointer-events-none" />
+              <div className="absolute -bottom-8 -left-8 w-36 h-36 border border-[#D4AF37]/20 rounded-full pointer-events-none" />
             </div>
           </div>
         </div>
