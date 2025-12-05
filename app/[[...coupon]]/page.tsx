@@ -401,17 +401,10 @@ export default function HomePage() {
                 {currentStageData && (
                   <>
                     <p className="text-sm text-[#33393C]/70">
-                      目前為{" "}
-                      <span className="text-[#D4B483] font-semibold">
-                        🔥 {currentStageData.name}｜單線 NT${formatPrice(currentStageData.prices.selfMedia.stagePrice)}{" "}
-                        起
-                      </span>
-                      <span className="text-[#33393C]/50 line-through ml-1">
-                        （原價 NT${formatPrice(currentStageData.prices.selfMedia.original)}）
-                      </span>
+                      本梯次學費，隨內容增加及時間調漲
                     </p>
                     <p className="text-sm text-[#33393C]/60 mt-1">
-                      截止：{currentStageData.endAt.getMonth() + 1}/{currentStageData.endAt.getDate()}（台北時間
+                      距離下次條調漲：{currentStageData.endAt.getMonth() + 1}/{currentStageData.endAt.getDate()}（台北時間
                       23:59）｜剩餘：
                       <span className="font-medium text-[#17464F]">
                         {String(timeLeft.days).padStart(2, "0")} 天 {String(timeLeft.hours).padStart(2, "0")} 小時
