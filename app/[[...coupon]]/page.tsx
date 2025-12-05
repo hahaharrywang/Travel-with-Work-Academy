@@ -420,17 +420,32 @@ export default function HomePage() {
                       fill
                       className="object-cover"
                       priority
+                      sizes="(max-width: 768px) 100vw, 66vw"
                     />
                   </div>
                 </div>
                 <div className="rounded-2xl overflow-hidden shadow-md">
                   <div className="aspect-square bg-[#C9D7D4] relative">
-                    <Image src="/images/2-1.jpeg" alt="遠距工作場景 - 旅途中工作" fill className="object-cover" />
+                    <Image
+                      src="/images/2-1.jpeg"
+                      alt="遠距工作場景 - 旅途中工作"
+                      fill
+                      className="object-cover"
+                      loading="lazy"
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                    />
                   </div>
                 </div>
                 <div className="rounded-2xl overflow-hidden shadow-md">
                   <div className="aspect-square bg-[#C9D7D4] relative">
-                    <Image src="/images/2-2.jpeg" alt="遠距工作場景 - 小聚互動" fill className="object-cover" />
+                    <Image
+                      src="/images/2-2.jpeg"
+                      alt="遠距工作場景 - 小聚互動"
+                      fill
+                      className="object-cover"
+                      loading="lazy"
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                    />
                   </div>
                 </div>
               </div>
@@ -703,6 +718,7 @@ export default function HomePage() {
                       width={96}
                       height={96}
                       className="w-full h-full object-contain"
+                      loading="lazy"
                     />
                   </div>
                 </a>
@@ -725,6 +741,7 @@ export default function HomePage() {
                       width={96}
                       height={96}
                       className="w-full h-full object-contain"
+                      loading="lazy"
                     />
                   </div>
                 </a>
@@ -747,6 +764,7 @@ export default function HomePage() {
                       width={96}
                       height={96}
                       className="w-full h-full object-contain"
+                      loading="lazy"
                     />
                   </div>
                 </a>
@@ -810,6 +828,7 @@ export default function HomePage() {
                           width={128}
                           height={128}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          loading="lazy"
                         />
                       </a>
                     </div>
@@ -851,6 +870,7 @@ export default function HomePage() {
                           width={128}
                           height={128}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          loading="lazy"
                         />
                       </a>
                     </div>
@@ -890,6 +910,7 @@ export default function HomePage() {
                           width={128}
                           height={128}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          loading="lazy"
                         />
                       </a>
                     </div>
@@ -1043,7 +1064,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-[#17464F] to-[#1a5952] rounded-2xl p-6 md:p-8 shadow-lg">
+          <div className="bg-gradient-to-r from-[#17464F] to-[#1a5561] rounded-2xl p-6 md:p-8 shadow-lg">
             <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
               後 3 個月｜延伸累積期：復盤、加強、銜接機會
             </h3>
