@@ -317,45 +317,16 @@ export default function HomePage() {
           <div className="absolute bottom-1/4 right-1/2 w-[300px] h-[300px] border border-[#D4B483]/10 rounded-full" />
         </div>
 
-        {/* Navigation */}
-        <nav className="absolute top-0 left-0 right-0 z-30 py-4 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto flex items-center justify-between">
-            <Image
-              src="/images/academy-logo.png"
-              alt="遠距遊牧學院 Travel with Work Academy"
-              width={200}
-              height={105}
-              className="h-auto w-[140px] sm:w-[180px] brightness-0 invert"
-              priority
-            />
-            <div className="hidden md:flex items-center gap-8">
-              <button
-                onClick={() => document.getElementById("course-highlights")?.scrollIntoView({ behavior: "smooth" })}
-                className="text-white/80 hover:text-white text-sm font-medium transition-colors"
-              >
-                課程介紹
-              </button>
-              <button
-                onClick={() => document.getElementById("six-month-path")?.scrollIntoView({ behavior: "smooth" })}
-                className="text-white/80 hover:text-white text-sm font-medium transition-colors"
-              >
-                六個月路線
-              </button>
-              <button
-                onClick={() => document.getElementById("testimonials")?.scrollIntoView({ behavior: "smooth" })}
-                className="text-white/80 hover:text-white text-sm font-medium transition-colors"
-              >
-                學員回饋
-              </button>
-              <button
-                onClick={() => document.getElementById("faq")?.scrollIntoView({ behavior: "smooth" })}
-                className="text-white/80 hover:text-white text-sm font-medium transition-colors"
-              >
-                常見問題
-              </button>
-            </div>
-          </div>
-        </nav>
+        <div className="absolute top-0 left-0 z-30 py-4 px-4 sm:px-6 lg:px-8">
+          <Image
+            src="/images/academy-logo.png"
+            alt="遠距遊牧學院 Travel with Work Academy"
+            width={200}
+            height={105}
+            className="h-auto w-[140px] sm:w-[180px] brightness-0 invert"
+            priority
+          />
+        </div>
 
         <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
