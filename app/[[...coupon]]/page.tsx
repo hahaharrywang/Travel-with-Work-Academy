@@ -638,17 +638,13 @@ export default function HomePage() {
       </section>
       {/* SECTION 3 PAIN POINTS END */}
 
-      {/* SECTION 2 COURSE HIGHLIGHTS CONTINUED (Part 2: 六個月路線｜3+3 × 三大亮點) START */}
+      {/* SECTION 2 COURSE HIGHLIGHTS CONTINUED (Part 2: 三大亮點) START */}
       <section className="py-16 sm:py-24 bg-[#F5F3ED]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-12">
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#17464F] mb-6 text-balance">
-              六個月路線｜3+3 月 × 三大亮點，讓改變真的走得完
+              三大亮點，讓改變真的走起來
             </h3>
-            <div className="max-w-2xl mx-auto space-y-2">
-              <p className="text-[#33393C] leading-relaxed">前 3 個月，是一起打底、一起行動的「共學探索期」。</p>
-              <p className="text-[#33393C] leading-relaxed">後 3 個月，是把成果拉高、串起機會的「延伸累積期」。</p>
-            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
