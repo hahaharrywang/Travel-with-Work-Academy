@@ -312,19 +312,19 @@ export default function HomePage() {
       {/* SECTION 1 HERO START */}
       <section className="relative min-h-screen flex items-center overflow-hidden bg-[#17464F]">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 right-1/3 w-[600px] h-[600px] border border-[#D4AF37]/30 rounded-full" />
-          <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] border border-[#D4AF37]/20 rounded-full" />
-          <div className="absolute bottom-1/4 right-1/2 w-[300px] h-[300px] border border-[#D4AF37]/10 rounded-full" />
+          <div className="absolute top-1/4 right-1/3 w-[600px] h-[600px] border border-[#E8C547]/30 rounded-full" />
+          <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] border border-[#E8C547]/20 rounded-full" />
+          <div className="absolute bottom-1/4 right-1/2 w-[300px] h-[300px] border border-[#E8C547]/10 rounded-full" />
           <div className="absolute bottom-0 left-0 right-0 h-40">
-            <div className="absolute bottom-8 left-[10%] w-1 h-1 bg-[#D4AF37] rounded-full animate-pulse" />
-            <div className="absolute bottom-16 left-[20%] w-1.5 h-1.5 bg-[#D4AF37]/80 rounded-full animate-pulse delay-100" />
-            <div className="absolute bottom-12 left-[35%] w-1 h-1 bg-[#D4AF37]/60 rounded-full animate-pulse delay-200" />
-            <div className="absolute bottom-20 left-[45%] w-2 h-2 bg-[#D4AF37]/70 rounded-full animate-pulse delay-300" />
-            <div className="absolute bottom-6 left-[55%] w-1 h-1 bg-[#D4AF37] rounded-full animate-pulse delay-150" />
-            <div className="absolute bottom-14 left-[65%] w-1.5 h-1.5 bg-[#D4AF37]/80 rounded-full animate-pulse delay-250" />
-            <div className="absolute bottom-10 left-[75%] w-1 h-1 bg-[#D4AF37]/60 rounded-full animate-pulse delay-100" />
-            <div className="absolute bottom-18 left-[85%] w-1.5 h-1.5 bg-[#D4AF37]/70 rounded-full animate-pulse delay-200" />
-            <div className="absolute bottom-4 left-[90%] w-1 h-1 bg-[#D4AF37] rounded-full animate-pulse delay-300" />
+            <div className="absolute bottom-8 left-[10%] w-1 h-1 bg-[#E8C547] rounded-full animate-pulse" />
+            <div className="absolute bottom-16 left-[20%] w-1.5 h-1.5 bg-[#E8C547]/80 rounded-full animate-pulse delay-100" />
+            <div className="absolute bottom-12 left-[35%] w-1 h-1 bg-[#E8C547]/60 rounded-full animate-pulse delay-200" />
+            <div className="absolute bottom-20 left-[45%] w-2 h-2 bg-[#E8C547]/70 rounded-full animate-pulse delay-300" />
+            <div className="absolute bottom-6 left-[55%] w-1 h-1 bg-[#E8C547] rounded-full animate-pulse delay-150" />
+            <div className="absolute bottom-14 left-[65%] w-1.5 h-1.5 bg-[#E8C547]/80 rounded-full animate-pulse delay-250" />
+            <div className="absolute bottom-10 left-[75%] w-1 h-1 bg-[#E8C547]/60 rounded-full animate-pulse delay-100" />
+            <div className="absolute bottom-18 left-[85%] w-1.5 h-1.5 bg-[#E8C547]/70 rounded-full animate-pulse delay-200" />
+            <div className="absolute bottom-4 left-[90%] w-1 h-1 bg-[#E8C547] rounded-full animate-pulse delay-300" />
           </div>
         </div>
 
@@ -356,7 +356,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left content */}
             <div className="space-y-6 text-center lg:text-left">
-              <p className="text-sm sm:text-base text-[#D4AF37] font-medium tracking-wide">
+              <p className="text-sm sm:text-base text-[#D4B483] font-medium tracking-wide">
                 華語世界第一個以「行動」設計的遠距遊牧學院
               </p>
 
@@ -365,7 +365,7 @@ export default function HomePage() {
                 <br />
                 把「也許有一天」
                 <br />
-                變成「<span className="text-[#D4AF37]">我正在路上</span>」
+                變成「<span className="text-[#D4B483]">我正在路上</span>」
               </h1>
 
               <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-xl mx-auto lg:mx-0">
@@ -389,15 +389,15 @@ export default function HomePage() {
 
               <div className="space-y-3 text-left max-w-xl mx-auto lg:mx-0">
                 <div className="flex items-start gap-3">
-                  <TrendingUp className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" />
+                  <TrendingUp className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
                   <p className="text-white/90">梳理你的遠距職涯藍圖與下一步行動</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <FileText className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" />
+                  <FileText className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
                   <p className="text-white/90">完成履歷、作品集、個人頁面等可見成果</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Users className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" />
+                  <Users className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
                   <p className="text-white/90">加入一群真的在為自由生活行動的夥伴</p>
                 </div>
               </div>
@@ -407,7 +407,7 @@ export default function HomePage() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-[#D4AF37] hover:bg-[#C9A227] text-[#17464F] rounded-full px-8 py-6 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
+                  className="bg-[#E8C547] hover:bg-[#D4B483] text-[#17464F] rounded-full px-8 py-6 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
                 >
                   <a
                     href={getCheckoutURLWithTracking()}
@@ -426,7 +426,7 @@ export default function HomePage() {
                   onClick={() => {
                     document.getElementById("course-highlights")?.scrollIntoView({ behavior: "smooth" })
                   }}
-                  className="text-white/70 hover:text-[#D4AF37] font-medium text-base transition-colors duration-200"
+                  className="text-white/70 hover:text-[#D4B483] font-medium text-base transition-colors duration-200"
                 >
                   還在觀望？先看六個月怎麼走 ↓
                 </button>
@@ -435,8 +435,8 @@ export default function HomePage() {
               {/* Social proof */}
               <div className="pt-4 text-center lg:text-left">
                 <p className="text-sm text-white/60">
-                  2024-2025 已累積 <span className="text-[#D4AF37] font-semibold">400+</span> 付費學員與{" "}
-                  <span className="text-[#D4AF37] font-semibold">1,000+</span> 社群成員，
+                  2024-2025 已累積 <span className="text-[#D4B483] font-semibold">400+</span> 付費學員與{" "}
+                  <span className="text-[#D4B483] font-semibold">1,000+</span> 社群成員，
                   <br className="hidden sm:block" />
                   一起在台灣與世界各地行動中。
                 </p>
