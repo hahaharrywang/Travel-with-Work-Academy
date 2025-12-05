@@ -384,8 +384,7 @@ export default function HomePage() {
                       }
                     }}
                   >
-                    立刻鎖定【{currentStageData?.name} NT$
-                    {currentStageData ? formatPrice(currentStageData.prices.selfMedia.stagePrice) : "--"}起】
+                    立刻鎖定【{currentStageData?.name}】
                   </a>
                 </Button>
                 <button
