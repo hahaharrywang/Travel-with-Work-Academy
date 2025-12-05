@@ -1,10 +1,15 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
+import { useState, useEffect, useCallback } from "react"
 import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import { usePricing, formatPrice, stages } from "@/contexts/pricing-context"
+import { AnnouncementBar } from "@/components/announcement-bar"
+import { StickyBottomBar } from "@/components/sticky-bottom-bar"
 import { useParams } from "next/navigation"
-import { usePricing, stages, type PlanId } from "@/contexts/pricing-context"
+
+// Define PlanId type here or import it if it's defined elsewhere
+type PlanId = "selfMedia" | "remoteJob" | "dualLine"
 
 const planConfig: Record<PlanId, { name: string; checkoutPath: string }> = {
   selfMedia: { name: "自媒體線路方案", checkoutPath: "planId=selfmedia" },
@@ -14,9 +19,9 @@ const planConfig: Record<PlanId, { name: string; checkoutPath: string }> = {
 
 const popularPlanId: PlanId = "dualLine"
 
-const formatPrice = (price: number): string => {
-  return price.toLocaleString("zh-TW")
-}
+// const formatPrice = (price: number): string => {
+//   return price.toLocaleString("zh-TW")
+// }
 
 const getCheckoutURL = (planId: PlanId, couponCode?: string) => {
   const baseURL = `https://travelworkacademy.myteachify.com/checkout?${planConfig[planId].checkoutPath}`
@@ -52,9 +57,9 @@ export default function HomePage() {
     return `${baseURL}${trackingParams}`
   }
 
-  const scrollToPricing = () => {
-    document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" })
-  }
+  const scrollToPricing = useCallback(() => {
+    document.getElementById("pricing-section")?.scrollIntoView({ behavior: "smooth" })
+  }, [])
 
   const [isGalleryOpen, setIsGalleryOpen] = useState(false)
   const [currentStage, setCurrentStage] = useState(0)
@@ -245,8 +250,10 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen bg-white">
+      <AnnouncementBar scrollToPricing={scrollToPricing} />
+
       {/* ANNOUNCEMENT BAR - Desktop Only */}
-      {currentStageData && (
+      {/* {currentStageData && (
         <div className="sticky top-0 z-50 bg-[#17464F] text-white py-3 px-4 hidden md:block">
           <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
             <div className="flex items-center gap-2 text-sm">
@@ -284,7 +291,7 @@ export default function HomePage() {
             </button>
           </div>
         </div>
-      )}
+      )} */}
 
       {/* SECTION 1 HERO START */}
       <section className="relative min-h-screen flex items-center overflow-hidden bg-[#F5F3ED]">
@@ -1283,7 +1290,7 @@ export default function HomePage() {
                           <span className="bg-[#17464F] text-white px-2 py-0.5 rounded-full text-xs font-semibold">
                             第 {item.week} 週
                           </span>
-                          <span className="bg-[#D4B483] text-white px-2 py-0.5 rounded-full text-xs font-semibold">
+                          <span className="bg-[#D4B483] px-2 py-0.5 rounded-full text-xs font-semibold">
                             {item.type}
                           </span>
                           <span className="text-[#17464F] font-medium text-sm">{item.instructor}</span>
@@ -1805,7 +1812,7 @@ export default function HomePage() {
       {/* SECTION 7 LEARNING RESOURCES END */}
 
       {/* SECTION 8 PRICING & TIMELINE START */}
-      <section id="pricing" className="py-16 sm:py-24 bg-white">
+      <section id="pricing-section" className="py-16 sm:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="flex justify-center gap-2 mb-6">
@@ -2582,89 +2589,7 @@ export default function HomePage() {
           </div>
         </div>
       )}
-      {/* MOBILE STICKY BOTTOM BAR - Mobile Only */}
-      {currentStageData && (
-        <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white border-t border-[#C9D7D4] shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
-          {!selectedPlanId ? (
-            <div className="px-4 py-3">
-              <div className="flex items-center justify-center gap-2 text-xs text-[#33393C] mb-2">
-                <span className="text-[#D4B483] font-bold">{currentStageData.name}</span>
-                <span>·</span>
-                <span>全方案 {currentStageData.discountLabel}</span>
-                <span>·</span>
-                <span>
-                  倒數{" "}
-                  <span className="font-bold">
-                    {String(timeLeft.days).padStart(2, "0")}天 {String(timeLeft.hours).padStart(2, "0")}:
-                    {String(timeLeft.minutes).padStart(2, "0")}:{String(timeLeft.seconds).padStart(2, "0")}
-                  </span>
-                </span>
-              </div>
-              <div className="flex items-center justify-between gap-3">
-                <div className="flex-1 min-w-0">
-                  <span className="text-sm text-[#33393C]">
-                    單線方案本階段{" "}
-                    <span className="font-bold text-[#17464F]">
-                      NT$ {lowestPrice ? formatPrice(lowestPrice) : "--"}
-                    </span>{" "}
-                    起
-                  </span>
-                </div>
-                <button
-                  onClick={scrollToPricing}
-                  className="flex-shrink-0 bg-[#17464F] text-white px-5 py-3 rounded-full text-sm font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-md"
-                >
-                  查看方案
-                </button>
-              </div>
-            </div>
-          ) : (
-            <div className="px-4 py-3">
-              <div className="flex items-center justify-center gap-2 text-xs text-[#33393C] mb-2">
-                <span className="text-[#D4B483] font-bold">{currentStageData.name}</span>
-                <span>·</span>
-                <span>全方案 {currentStageData.discountLabel}</span>
-                <span>·</span>
-                <span>
-                  倒數{" "}
-                  <span className="font-bold">
-                    {String(timeLeft.days).padStart(2, "0")}天 {String(timeLeft.hours).padStart(2, "0")}:
-                    {String(timeLeft.minutes).padStart(2, "0")}:{String(timeLeft.seconds).padStart(2, "0")}
-                  </span>
-                </span>
-              </div>
-              <div className="flex items-center justify-between gap-3">
-                <div className="flex-1 min-w-0">
-                  <div className="text-xs text-[#33393C]">已選擇：{planConfig[selectedPlanId].name}</div>
-                  <div className="text-sm">
-                    <span className="font-bold text-[#17464F]">
-                      NT$ {formatPrice(currentStageData.prices[selectedPlanId].stagePrice)}
-                    </span>
-                    <span className="text-xs text-gray-500 ml-1">
-                      （原價 NT$ {formatPrice(currentStageData.prices[selectedPlanId].original)}｜省 NT${" "}
-                      {formatPrice(currentStageData.prices[selectedPlanId].savingAmount)}）
-                    </span>
-                  </div>
-                </div>
-                <a
-                  href={getCheckoutURLWithTracking(selectedPlanId)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-shrink-0 bg-[#D4B483] text-[#17464F] px-5 py-3 rounded-full text-sm font-bold hover:bg-[#c9a66f] transition-all duration-300 shadow-md"
-                  onClick={() => {
-                    if (typeof window !== "undefined" && (window as any).trackInitiateCheckout) {
-                      ;(window as any).trackInitiateCheckout(selectedPlanId)
-                    }
-                  }}
-                >
-                  以此價格加入本梯
-                </a>
-              </div>
-            </div>
-          )}
-        </div>
-      )}
-      <div className="h-24 md:hidden"></div>
+      <StickyBottomBar scrollToPricing={scrollToPricing} />
     </main>
   )
 }
