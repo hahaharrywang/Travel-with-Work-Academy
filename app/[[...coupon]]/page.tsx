@@ -7,6 +7,7 @@ import { usePricing } from "@/contexts/pricing-context"
 import { AnnouncementBar } from "@/components/announcement-bar"
 import { StickyBottomBar } from "@/components/sticky-bottom-bar"
 import { useParams } from "next/navigation"
+import { FAQSection } from "@/components/sections/faq-section"
 import { PricingSection } from "@/components/sections/pricing-section"
 import { TrendingUp, FileText, Users } from "lucide-react" // Import Lucide Icons
 
@@ -481,8 +482,7 @@ export default function HomePage() {
             </h2>
             <p className="text-white/80 leading-relaxed max-w-2xl mx-auto mb-4">
               不管你現在在哪個階段，你都有機會在這裡找到開始的位置。
-              <br className="hidden sm:block" />
-              你 ندار一定已經想好要不要辭職、要不要成為全職 Nomad。但你心裡大概知道——
+              <br className="hidden sm:block" />你 ندار一定已經想好要不要辭職、要不要成為全職 Nomad。但你心裡大概知道——
               <br className="hidden sm:block" />
               接下來的人生，應該不只有「每天通勤、等著放假」這一種選項。
             </p>
@@ -617,210 +617,108 @@ export default function HomePage() {
         </div>
       </section>
       {/* SECTION 2 COURSE HIGHLIGHTS END */}
-      {/* SECTION 3 PAIN POINTS START - 不是你不努力，而是拼圖還有缺 */}
-      <section className="py-16 sm:py-24 bg-[#17464F] relative overflow-hidden">
-        {/* Background decorative elements */}
-        <div className="absolute inset-0 pointer-events-none">
-          {/* Curved dotted path - Desktop only */}
-          <svg className="hidden lg:block absolute inset-0 w-full h-full" viewBox="0 0 1200 800" fill="none" preserveAspectRatio="xMidYMid slice">
-            <path
-              d="M 150 200 Q 300 150, 400 250 Q 500 350, 650 300 Q 800 250, 900 350 Q 1000 450, 850 550 Q 700 650, 550 600"
-              stroke="#D4B483"
-              strokeWidth="2"
-              strokeDasharray="8 8"
-              fill="none"
-              opacity="0.6"
-            />
-            {/* Arrow at the end */}
-            <path d="M 545 605 L 555 620 L 565 605" stroke="#D4B483" strokeWidth="2" fill="none" opacity="0.6" />
-          </svg>
-        </div>
-
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Title */}
-          <div className="text-center mb-12 lg:mb-16">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 text-balance">
+      {/* SECTION 3 PAIN POINTS START - 三大痛點 */}
+      <section className="py-16 sm:py-24 bg-[#F5F3ED]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-4 text-balance">
               不是你不努力，而是拼圖還有缺
             </h2>
-          </div>
-
-          {/* Desktop Layout - Positioned cards with flowing path */}
-          <div className="hidden lg:block relative h-[600px]">
-            {/* 方向斷裂 - Top Left */}
-            <div className="absolute top-0 left-0 w-[320px]">
-              <div className="flex flex-col items-center text-center">
-                {/* Custom compass icon with question marks */}
-                <div className="mb-4 relative">
-                  <svg className="w-20 h-20" viewBox="0 0 80 80" fill="none">
-                    {/* Question marks */}
-                    <text x="10" y="20" fill="#D4B483" fontSize="14" opacity="0.6">?</text>
-                    <text x="60" y="25" fill="#D4B483" fontSize="12" opacity="0.5">?</text>
-                    {/* Compass circle */}
-                    <circle cx="40" cy="45" r="22" stroke="#D4B483" strokeWidth="1.5" fill="none" />
-                    {/* Compass inner */}
-                    <circle cx="40" cy="45" r="4" fill="#D4B483" />
-                    {/* Compass needle */}
-                    <path d="M 40 30 L 44 45 L 40 50 L 36 45 Z" fill="#D4B483" />
-                    {/* Direction marks */}
-                    <circle cx="40" cy="27" r="2" fill="#D4B483" />
-                    <circle cx="40" cy="63" r="2" fill="#D4B483" />
-                    <circle cx="22" cy="45" r="2" fill="#D4B483" />
-                    <circle cx="58" cy="45" r="2" fill="#D4B483" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-[#D4B483] mb-3">方向斷裂</h3>
-                <p className="text-white/70 text-sm leading-relaxed">
-                  你是不是也想過很多種版本：有時想去外商、有時想接案當 freelancer，但每次看到別人的故事就改變主意，到最後，反而哪一條都沒真的走下去。
-                </p>
-              </div>
-            </div>
-
-            {/* 方法斷裂 - Center Right */}
-            <div className="absolute top-[80px] right-[80px] w-[320px]">
-              <div className="flex flex-col items-center text-center">
-                {/* Custom puzzle + books icon */}
-                <div className="mb-4">
-                  <svg className="w-20 h-20" viewBox="0 0 80 80" fill="none">
-                    {/* Puzzle pieces */}
-                    <path d="M 20 35 L 20 25 Q 25 20, 30 25 L 30 35 L 40 35 L 40 45 Q 35 50, 40 55 L 40 65 L 20 65 L 20 55 Q 15 50, 20 45 Z" stroke="#D4B483" strokeWidth="1.5" fill="none" />
-                    <path d="M 42 35 L 42 25 Q 47 20, 52 25 L 52 35 L 62 35 L 62 55 L 52 55 L 52 65 L 42 65 L 42 55 Q 37 50, 42 45 Z" stroke="#D4B483" strokeWidth="1.5" fill="none" />
-                    {/* Books/ladder on right */}
-                    <rect x="58" y="20" width="12" height="8" stroke="#D4B483" strokeWidth="1.5" fill="none" />
-                    <rect x="58" y="30" width="12" height="8" stroke="#D4B483" strokeWidth="1.5" fill="none" />
-                    <line x1="64" y1="40" x2="64" y2="55" stroke="#D4B483" strokeWidth="1.5" />
-                    <line x1="60" y1="45" x2="68" y2="45" stroke="#D4B483" strokeWidth="1.5" />
-                    <line x1="60" y1="50" x2="68" y2="50" stroke="#D4B483" strokeWidth="1.5" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-[#D4B483] mb-3">方法斷裂</h3>
-                <p className="text-white/70 text-sm leading-relaxed">
-                  你也不是沒學東西：買課、看影片、存下很多筆記，真正卡住的是——「那我今天到底要做哪一個小步驟？」所以日子一忙，又回到塬本的節奏。
-                </p>
-              </div>
-            </div>
-
-            {/* 同伴斷裂 - Bottom Left */}
-            <div className="absolute bottom-[100px] left-[60px] w-[300px]">
-              <div className="flex flex-col items-center text-center">
-                {/* Custom person + door icon */}
-                <div className="mb-4">
-                  <svg className="w-20 h-20" viewBox="0 0 80 80" fill="none">
-                    {/* Person figure */}
-                    <circle cx="25" cy="25" r="8" stroke="#D4B483" strokeWidth="1.5" fill="none" />
-                    <path d="M 25 35 L 25 55 M 15 45 L 35 45 M 25 55 L 15 70 M 25 55 L 35 70" stroke="#D4B483" strokeWidth="1.5" />
-                    {/* Door/portal frame */}
-                    <rect x="45" y="15" width="25" height="50" stroke="#D4B483" strokeWidth="1.5" fill="none" />
-                    <rect x="50" y="20" width="15" height="40" stroke="#D4B483" strokeWidth="1" fill="none" opacity="0.6" />
-                    {/* Arrow pointing to door */}
-                    <path d="M 38 40 L 44 40 M 42 37 L 45 40 L 42 43" stroke="#D4B483" strokeWidth="1.5" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-[#D4B483] mb-3">同伴斷裂</h3>
-                <p className="text-white/70 text-sm leading-relaxed">
-                  身邊的人大多走很標準的路，你很難跟他們分享「我其實想過不一樣的生活」。不知道可以跟誰討論、問誰意見，久了就習慣把這些想法藏在心裡。
-                </p>
-              </div>
-            </div>
-
-            {/* Center conclusion box */}
-            <div className="absolute bottom-[60px] left-1/2 transform -translate-x-1/2 translate-x-[60px]">
-              <div className="border-2 border-[#D4B483] rounded-xl px-8 py-6 max-w-md bg-[#17464F]/80 backdrop-blur-sm">
-                <p className="text-white text-center leading-relaxed">
-                  你缺的不是更多資訊，而是一個地方，<br />
-                  讓你在未來六個月裡，有人陪你一起試、一起走、一起調整方向。
-                </p>
-              </div>
-              {/* Down arrow */}
-              <div className="flex justify-center mt-4">
-                <svg className="w-8 h-8 text-[#D4B483]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M12 5v14M5 12l7 7 7-7" />
-                </svg>
-              </div>
+            <div className="flex items-center justify-center gap-2 mt-6">
+              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
             </div>
           </div>
 
-          {/* Mobile Layout - Vertical stack */}
-          <div className="lg:hidden space-y-8">
-            {/* 方向斷裂 */}
-            <div className="flex flex-col items-center text-center">
-              <div className="mb-4">
-                <svg className="w-16 h-16" viewBox="0 0 80 80" fill="none">
-                  <text x="10" y="20" fill="#D4B483" fontSize="14" opacity="0.6">?</text>
-                  <text x="60" y="25" fill="#D4B483" fontSize="12" opacity="0.5">?</text>
-                  <circle cx="40" cy="45" r="22" stroke="#D4B483" strokeWidth="1.5" fill="none" />
-                  <circle cx="40" cy="45" r="4" fill="#D4B483" />
-                  <path d="M 40 30 L 44 45 L 40 50 L 36 45 Z" fill="#D4B483" />
-                  <circle cx="40" cy="27" r="2" fill="#D4B483" />
-                  <circle cx="40" cy="63" r="2" fill="#D4B483" />
-                  <circle cx="22" cy="45" r="2" fill="#D4B483" />
-                  <circle cx="58" cy="45" r="2" fill="#D4B483" />
-                </svg>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
+            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-[#C9D7D4]/50 hover:shadow-md transition-shadow duration-300">
+              <div className="flex items-center gap-4 mb-5">
+                <div className="w-12 h-12 bg-[#C9D7D4]/30 rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg className="w-6 h-6 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-semibold text-[#17464F]">方向斷裂</h3>
               </div>
-              <h3 className="text-lg font-bold text-[#D4B483] mb-2">方向斷裂</h3>
-              <p className="text-white/70 text-sm leading-relaxed max-w-xs">
-                你是不是也想過很多種版本：有時想去外商、有時想接案當 freelancer，但每次看到別人的故事就改變主意，到最後，反而哪一條都沒真的走下去。
+              <p className="text-[#33393C] leading-relaxed text-sm sm:text-base">
+                你是不是也想過很多種版本：
+                <br />
+                有時想去外商、有時想接案當 freelancer，
+                <br />
+                但每次看到別人的故事就改變主意，
+                <br />
+                到最後，反而哪一條都沒真的走下去。
               </p>
             </div>
 
-            {/* 方法斷裂 */}
-            <div className="flex flex-col items-center text-center">
-              <div className="mb-4">
-                <svg className="w-16 h-16" viewBox="0 0 80 80" fill="none">
-                  <path d="M 20 35 L 20 25 Q 25 20, 30 25 L 30 35 L 40 35 L 40 45 Q 35 50, 40 55 L 40 65 L 20 65 L 20 55 Q 15 50, 20 45 Z" stroke="#D4B483" strokeWidth="1.5" fill="none" />
-                  <path d="M 42 35 L 42 25 Q 47 20, 52 25 L 52 35 L 62 35 L 62 55 L 52 55 L 52 65 L 42 65 L 42 55 Q 37 50, 42 45 Z" stroke="#D4B483" strokeWidth="1.5" fill="none" />
-                  <rect x="58" y="20" width="12" height="8" stroke="#D4B483" strokeWidth="1.5" fill="none" />
-                  <rect x="58" y="30" width="12" height="8" stroke="#D4B483" strokeWidth="1.5" fill="none" />
-                  <line x1="64" y1="40" x2="64" y2="55" stroke="#D4B483" strokeWidth="1.5" />
-                  <line x1="60" y1="45" x2="68" y2="45" stroke="#D4B483" strokeWidth="1.5" />
-                  <line x1="60" y1="50" x2="68" y2="50" stroke="#D4B483" strokeWidth="1.5" />
-                </svg>
+            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-[#C9D7D4]/50 hover:shadow-md transition-shadow duration-300">
+              <div className="flex items-center gap-4 mb-5">
+                <div className="w-12 h-12 bg-[#C9D7D4]/30 rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg className="w-6 h-6 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-semibold text-[#17464F]">方法斷裂</h3>
               </div>
-              <h3 className="text-lg font-bold text-[#D4B483] mb-2">方法斷裂</h3>
-              <p className="text-white/70 text-sm leading-relaxed max-w-xs">
-                你也不是沒學東西：買課、看影片、存下很多筆記，真正卡住的是——「那我今天到底要做哪一個小步驟？」所以日子一忙，又回到塬本的節奏。
+              <p className="text-[#33393C] leading-relaxed text-sm sm:text-base">
+                你也不是沒學東西：買課、看影片、存下很多筆記，
+                <br />
+                真正卡住的是——
+                <br />
+                「那我今天到底要做哪一個小步驟？」
+                <br />
+                所以日子一忙，又回到塬本的節奏。
               </p>
             </div>
 
-            {/* 同伴斷裂 */}
-            <div className="flex flex-col items-center text-center">
-              <div className="mb-4">
-                <svg className="w-16 h-16" viewBox="0 0 80 80" fill="none">
-                  <circle cx="25" cy="25" r="8" stroke="#D4B483" strokeWidth="1.5" fill="none" />
-                  <path d="M 25 35 L 25 55 M 15 45 L 35 45 M 25 55 L 15 70 M 25 55 L 35 70" stroke="#D4B483" strokeWidth="1.5" />
-                  <rect x="45" y="15" width="25" height="50" stroke="#D4B483" strokeWidth="1.5" fill="none" />
-                  <rect x="50" y="20" width="15" height="40" stroke="#D4B483" strokeWidth="1" fill="none" opacity="0.6" />
-                  <path d="M 38 40 L 44 40 M 42 37 L 45 40 L 42 43" stroke="#D4B483" strokeWidth="1.5" />
-                </svg>
+            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-[#C9D7D4]/50 hover:shadow-md transition-shadow duration-300">
+              <div className="flex items-center gap-4 mb-5">
+                <div className="w-12 h-12 bg-[#C9D7D4]/30 rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg className="w-6 h-6 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-semibold text-[#17464F]">同伴斷裂</h3>
               </div>
-              <h3 className="text-lg font-bold text-[#D4B483] mb-2">同伴斷裂</h3>
-              <p className="text-white/70 text-sm leading-relaxed max-w-xs">
-                身邊的人大多走很標準的路，你很難跟他們分享「我其實想過不一樣的生活」。不知道可以跟誰討論、問誰意見，久了就習慣把這些想法藏在心裡。
+              <p className="text-[#33393C] leading-relaxed text-sm sm:text-base">
+                身邊的人大多走很標準的路，
+                <br />
+                你很難跟他們分享「我其實想過不一樣的生活」。
+                <br />
+                不知道可以跟誰討論、問誰意見，
+                <br />
+                久了就習慣把這些想法藏在心裡。
               </p>
-            </div>
-
-            {/* Mobile conclusion box */}
-            <div className="pt-4">
-              <div className="border-2 border-[#D4B483] rounded-xl px-6 py-5 mx-auto max-w-sm bg-[#17464F]/80">
-                <p className="text-white text-center text-sm leading-relaxed">
-                  你缺的不是更多資訊，而是一個地方，讓你在未來六個月裡，有人陪你一起試、一起走、一起調整方向。
-                </p>
-              </div>
-              <div className="flex justify-center mt-4">
-                <svg className="w-6 h-6 text-[#D4B483]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M12 5v14M5 12l7 7 7-7" />
-                </svg>
-              </div>
             </div>
           </div>
 
-          {/* Star decoration - bottom right */}
-          <div className="absolute bottom-10 right-10 hidden lg:block">
-            <svg className="w-10 h-10 text-[#D4B483]/30" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-            </svg>
+          <div className="text-center">
+            <p className="text-base sm:text-lg text-[#17464F] font-medium leading-relaxed max-w-3xl mx-auto px-4">
+              你缺的不是更多資訊，而是一個地方，
+              <br className="sm:hidden" />
+              <span className="block md:inline">讓你在未來六個月裡，有人陪你一起試、</span>
+              <span className="block md:inline">一起走、一起調整方向。</span>
+            </p>
           </div>
         </div>
       </section>
+      {/* SECTION 3 PAIN POINTS END */}
       {/* SECTION 2 COURSE HIGHLIGHTS CONTINUED (Part 2: 三大亮點) START */}
       <section className="py-16 sm:py-24 bg-[#F5F3ED]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -929,6 +827,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* SECTION 2 COURSE HIGHLIGHTS CONTINUED (Part 2) END */}
       {/* SECTION 2.1 ECOSYSTEM PARTNERSHIP START - 生態系 */}
       <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1173,8 +1072,7 @@ export default function HomePage() {
             </div>
             <p className="text-[#33393C] max-w-2xl mx-auto leading-relaxed">
               前 3 個月，用線上課程＋課後任務打好基礎、走完一條主線；
-              <br className="hidden sm:block" />
-              後 3 個月，透過復盤、選修工作坊與社群機制，把成果累積成真正的改變。
+              <br className="hidden sm:block" />後 3 個月，透過復盤、選修工作坊與社群機制，把成果累積成真正的改變。
             </p>
           </div>
 
@@ -1349,7 +1247,7 @@ export default function HomePage() {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth={2}
-                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
                       />
                     </svg>
                   </div>
@@ -1675,89 +1573,88 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+      )}
+
+      {/* SECTION 5: COURSE MAP END */}
+
+      {/* SECTION 6: PODCAST LEADERS */}
+      <section className="py-16 sm:py-24 bg-[#17464F] relative overflow-hidden">
+        <PricingSection />
       </section>
-  ;(
-    <section className="py-16 sm:py-24 bg-[#17464F] relative overflow-hidden">
-      <PricingSection />
-    </section>
-  ) < section
-  className =
-    "py-16 sm:py-20 bg-gradient-to-br from-[#17464F] to-[#1a5561]" >
-    (
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="bg-white/95 backdrop-blur rounded-2xl p-8 sm:p-12 shadow-xl border border-[#C9D7D4]">
-          <div className="flex justify-center gap-2 mb-6">
-            <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-            <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
-            <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-          </div>
+      <section className="py-16 sm:py-20 bg-gradient-to-br from-[#17464F] to-[#1a5561]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="bg-white/95 backdrop-blur rounded-2xl p-8 sm:p-12 shadow-xl border border-[#C9D7D4]">
+            <div className="flex justify-center gap-2 mb-6">
+              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
+            </div>
 
-          <h3 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-4">本梯限定的優惠與名額</h3>
+            <h3 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-4">本梯限定的優惠與名額</h3>
 
-          <p className="text-[#33393C] mb-8 leading-relaxed max-w-2xl mx-auto">
-            為了讓教學與陪跑品質維持在好的狀態，
-            <br className="hidden sm:block" />
-            每一梯次的名額與優惠都會做控管，以下是這一梯的安排：
-          </p>
+            <p className="text-[#33393C] mb-8 leading-relaxed max-w-2xl mx-auto">
+              為了讓教學與陪跑品質維持在好的狀態，
+              <br className="hidden sm:block" />
+              每一梯次的名額與優惠都會做控管，以下是這一梯的安排：
+            </p>
 
-          <div className="bg-[#F5F3ED] rounded-xl p-6 mb-8 text-left max-w-xl mx-auto">
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-2 flex-shrink-0"></span>
-                <div>
-                  <span className="font-semibold text-[#17464F]">早鳥專屬價格</span>
-                  <span className="text-[#33393C]">：限時優惠倒數中，把握內部名單專屬折扣</span>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-2 flex-shrink-0"></span>
-                <div>
-                  <span className="font-semibold text-[#17464F]">加贈共學社群延長權限</span>
-                  <span className="text-[#33393C]">：前 3 個月課程後，再享後 3 個月社群陪伴與資源</span>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-2 flex-shrink-0"></span>
-                <div>
-                  <span className="font-semibold text-[#17464F]">名額上限控管</span>
-                  <span className="text-[#33393C]">：為維持教學品質，本梯名額有限，額滿即收班</span>
-                </div>
-              </li>
-            </ul>
-          </div>
+            <div className="bg-[#F5F3ED] rounded-xl p-6 mb-8 text-left max-w-xl mx-auto">
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-2 flex-shrink-0"></span>
+                  <div>
+                    <span className="font-semibold text-[#17464F]">早鳥專屬價格</span>
+                    <span className="text-[#33393C]">：限時優惠倒數中，把握內部名單專屬折扣</span>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-2 flex-shrink-0"></span>
+                  <div>
+                    <span className="font-semibold text-[#17464F]">加贈共學社群延長權限</span>
+                    <span className="text-[#33393C]">：前 3 個月課程後，再享後 3 個月社群陪伴與資源</span>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-2 flex-shrink-0"></span>
+                  <div>
+                    <span className="font-semibold text-[#17464F]">名額上限控管</span>
+                    <span className="text-[#33393C]">：為維持教學品質，本梯名額有限，額滿即收班</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
 
-          <a
-            href={getCheckoutURLWithTracking()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-[#17464F] text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-lg"
-            onClick={() => {
-              if (typeof window !== "undefined" && (window as any).trackInitiateCheckout) {
-                ;(window as any).trackInitiateCheckout(0)
-              }
-            }}
-          >
-            我要加入本梯
-          </a>
-
-          <p className="mt-8 text-sm text-[#33393C]/80 leading-relaxed max-w-lg mx-auto">
-            如果你還在觀望，也可以先把問題整理下來，
-            <br className="hidden sm:block" />
-            在下方 FAQ 或{" "}
             <a
-              href="https://www.instagram.com/travelwithwork_/"
+              href={getCheckoutURLWithTracking()}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#17464F] underline hover:text-[#D4B483] transition-colors"
+              className="inline-block bg-[#17464F] text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-lg"
+              onClick={() => {
+                if (typeof window !== "undefined" && (window as any).trackInitiateCheckout) {
+                  ;(window as any).trackInitiateCheckout(0)
+                }
+              }}
             >
-              Instagram
-            </a>{" "}
-            問清楚，再決定這六個月要不要一起走。
-          </p>
+              我要加入本梯
+            </a>
+
+            <p className="mt-8 text-sm text-[#33393C]/80 leading-relaxed max-w-lg mx-auto">
+              如果你還在觀望，也可以先把問題整理下來，
+              <br className="hidden sm:block" />
+              在下方 FAQ 或{" "}
+              <a
+                href="https://www.instagram.com/travelwithwork_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#17464F] underline hover:text-[#D4B483] transition-colors"
+              >
+                Instagram
+              </a>{" "}
+              問清楚，再決定這六個月要不要一起走。
+            </p>
+          </div>
         </div>
-      </div>
-    )
-  </section>
+      </section>
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -1778,136 +1675,128 @@ export default function HomePage() {
       </section>
       <footer className="py-8 bg-[#17464F] text-white text-center">
         <p className="text-sm text-white/80">
-          &copy
-  2025
-  遠距遊牧學院
-  Travel
-  With
-  Work
-  Academy.All
-  rights
-  reserved.
+          &copy; 2025 遠距遊牧學院 Travel With Work Academy. All rights reserved.
           <br />
-          任何疑問請洽
-  Instagram:
-  ;(" ")
-  ;<a
-    href="https://www.instagram.com/travelwithwork_/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-[#D4B483] hover:text-[#D4B483]/80 transition-colors"
-  >
-    遠距遊牧學院
-  </a>
-  ;(" ")
-  ;/ .2:@AEaaacdeeefiiklllmmorrtvwy{}
-  </p>
+          任何疑問請洽 Instagram:{" "}
+          <a
+            href="https://www.instagram.com/travelwithwork_/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#D4B483] hover:text-[#D4B483]/80 transition-colors"
+          >
+            遠距遊牧學院
+          </a>{" "}
+          / Email: Academy@travelwork.life
+        </p>
       </footer>
-  isGalleryOpen && (
-    <div
-      className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4 z-50"
-      onClick={() => setIsGalleryOpen(false)}
-    >
-      <div className="relative max-w-4xl w-full max-h-[90vh] flex items-center justify-center">
-        <button
+      {isGalleryOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4 z-50"
           onClick={() => setIsGalleryOpen(false)}
-          className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-all duration-200 z-10 text-xl font-bold"
         >
-          ✕
-        </button>
+          <div className="relative max-w-4xl w-full max-h-[90vh] flex items-center justify-center">
+            <button
+              onClick={() => setIsGalleryOpen(false)}
+              className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-all duration-200 z-10 text-xl font-bold"
+            >
+              ✕
+            </button>
 
-        <button
-          onClick={(e) => {
-            e.stopPropagation()
-            prevPhoto()
-          }}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full shadow-xl flex items-center justify-center text-gray-800 hover:text-orange-500 transition-all duration-200 z-10 group"
-        >
-          <svg
-            className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-200"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                prevPhoto()
+              }}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full shadow-xl flex items-center justify-center text-gray-800 hover:text-orange-500 transition-all duration-200 z-10 group"
+            >
+              <svg
+                className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-200"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
 
-        <button
-          onClick={(e) => {
-            e.stopPropagation()
-            nextPhoto()
-          }}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full shadow-xl flex items-center justify-center text-gray-800 hover:text-orange-500 transition-all duration-200 z-10 group"
-        >
-          <svg
-            className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-200"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                nextPhoto()
+              }}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full shadow-xl flex items-center justify-center text-gray-800 hover:text-orange-500 transition-all duration-200 z-10 group"
+            >
+              <svg
+                className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-200"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
 
-        <div className="relative w-full h-full flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
-          <div className="relative max-w-full max-h-full">
-            <Image
-              src={stagePhotos[currentStage][currentPhotoIndex]?.src || "/placeholder.svg"}
-              alt={stagePhotos[currentStage][currentPhotoIndex]?.alt || ""}
-              width={800}
-              height={600}
-              className="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl"
-            />
+            <div
+              className="relative w-full h-full flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="relative max-w-full max-h-full">
+                <Image
+                  src={stagePhotos[currentStage][currentPhotoIndex]?.src || "/placeholder.svg"}
+                  alt={stagePhotos[currentStage][currentPhotoIndex]?.alt || ""}
+                  width={800}
+                  height={600}
+                  className="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl"
+                />
 
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent text-white p-6 rounded-b-lg">
-              <p className="text-center text-sm sm:text-base font-medium leading-relaxed">
-                {stagePhotos[currentStage][currentPhotoIndex]?.alt}
-              </p>
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent text-white p-6 rounded-b-lg">
+                  <p className="text-center text-sm sm:text-base font-medium leading-relaxed">
+                    {stagePhotos[currentStage][currentPhotoIndex]?.alt}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {stagePhotos[currentStage].length > 1 && (
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-80 text-white px-6 py-3 rounded-full text-sm font-medium shadow-lg">
+                <span className="text-orange-400">{currentPhotoIndex + 1}</span>
+                <span className="mx-2 text-gray-300">/</span>
+                <span>{stagePhotos[currentStage].length}</span>
+              </div>
+            )}
+
+            <div className="absolute top-4 left-4 bg-black bg-opacity-60 text-white px-3 py-2 rounded-lg text-xs opacity-70">
+              使用 ← → 鍵或點擊按鈕切換圖片
             </div>
           </div>
         </div>
-
-        {stagePhotos[currentStage].length > 1 && (
-          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-80 text-white px-6 py-3 rounded-full text-sm font-medium shadow-lg">
-            <span className="text-orange-400">{currentPhotoIndex + 1}</span>
-            <span className="mx-2 text-gray-300">/</span>
-            <span>{stagePhotos[currentStage].length}</span>
-          </div>
-        )}
-
-        <div className="absolute top-4 left-4 bg-black bg-opacity-60 text-white px-3 py-2 rounded-lg text-xs opacity-70">
-          使用 ← → 鍵或點擊按鈕切換圖片
-        </div>
-      </div>
-    </div>
-  )
-  highlightPopup.isOpen && (
-    <div
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
-      onClick={() => setHighlightPopup({ ...highlightPopup, isOpen: false })}
-    >
-      <div
-        className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative p-6"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <button
+      )}
+      {highlightPopup.isOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
           onClick={() => setHighlightPopup({ ...highlightPopup, isOpen: false })}
-          className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-400 hover:text-gray-600 text-xl font-bold z-10"
         >
-          ×
-        </button>
-        <h3 className="text-2xl font-bold text-[#17464F] mb-2">{highlightPopup.title}</h3>
-        <p className="text-sm font-medium text-[#D4B483] mb-6">{highlightPopup.subtitle}</p>
-        <div className="text-sm text-[#33393C] leading-relaxed space-y-4">
-          {highlightPopup.content.split("\n").map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
-          ))}
+          <div
+            className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative p-6"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setHighlightPopup({ ...highlightPopup, isOpen: false })}
+              className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-400 hover:text-gray-600 text-xl font-bold z-10"
+            >
+              ×
+            </button>
+            <h3 className="text-2xl font-bold text-[#17464F] mb-2">{highlightPopup.title}</h3>
+            <p className="text-sm font-medium text-[#D4B483] mb-6">{highlightPopup.subtitle}</p>
+            <div className="text-sm text-[#33393C] leading-relaxed space-y-4">
+              {highlightPopup.content.split("\n").map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+      <StickyBottomBar scrollToPricing={scrollToPricing} />
+    </main>
   )
-  ;<StickyBottomBar scrollToPricing={scrollToPricing} />
-  </main>
-  )\
 }
