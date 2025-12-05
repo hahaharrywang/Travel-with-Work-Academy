@@ -22,12 +22,6 @@ export interface Stage {
   prices: {
     [key in PlanId]: StagePricing
   }
-  plans?: {
-    singleLine: {
-      price: number
-      originalPrice: number
-    }
-  }
 }
 
 export interface TimeLeft {
@@ -44,7 +38,10 @@ interface PricingContextValue {
   timeLeft: TimeLeft
   lowestPrice: number
   checkoutURL: string
+  selectedPlanId: PlanId | null
+  setSelectedPlanId: (id: PlanId | null) => void
   getTrackingParams: () => string
+  getCheckoutURLWithTracking: () => string
 }
 
 export const stages: Stage[] = [
@@ -52,7 +49,7 @@ export const stages: Stage[] = [
     id: "stage_1",
     order: 1,
     name: "招生啟動價",
-    tagLine: "最早的一批，只有少部分人知道的方案，有「一起開始學院」的感覺",
+    tagLine: "最早的一批，只有少部分人知道的方案",
     discountLabel: "51 折",
     discountRate: 0.51,
     startAt: new Date("2025-12-04T00:00:00+08:00"),
@@ -62,7 +59,6 @@ export const stages: Stage[] = [
       remoteJob: { original: 16500, stagePrice: 8499, savingAmount: 8001 },
       dualLine: { original: 22500, stagePrice: 11500, savingAmount: 11000 },
     },
-    plans: { singleLine: { price: 8499, originalPrice: 16500 } },
   },
   {
     id: "stage_2",
@@ -78,7 +74,6 @@ export const stages: Stage[] = [
       remoteJob: { original: 16500, stagePrice: 9499, savingAmount: 7001 },
       dualLine: { original: 22500, stagePrice: 12999, savingAmount: 9501 },
     },
-    plans: { singleLine: { price: 9499, originalPrice: 16500 } },
   },
   {
     id: "stage_3",
@@ -94,13 +89,12 @@ export const stages: Stage[] = [
       remoteJob: { original: 16500, stagePrice: 9999, savingAmount: 6501 },
       dualLine: { original: 22500, stagePrice: 13699, savingAmount: 8801 },
     },
-    plans: { singleLine: { price: 9999, originalPrice: 16500 } },
   },
   {
     id: "stage_4",
     order: 4,
     name: "開票起飛價",
-    tagLine: "對標「機票開票」的那一刻，再晚就要變貴了",
+    tagLine: "已確認機票、準備起飛",
     discountLabel: "64 折",
     discountRate: 0.64,
     startAt: new Date("2026-01-08T00:00:00+08:00"),
@@ -110,13 +104,12 @@ export const stages: Stage[] = [
       remoteJob: { original: 16500, stagePrice: 10499, savingAmount: 6001 },
       dualLine: { original: 22500, stagePrice: 14399, savingAmount: 8101 },
     },
-    plans: { singleLine: { price: 10499, originalPrice: 16500 } },
   },
   {
     id: "stage_5",
     order: 5,
     name: "最後登機口價",
-    tagLine: "登機門即將關閉，最後一刻的機會",
+    tagLine: "倒數中的壓力，讓人行動",
     discountLabel: "67 折",
     discountRate: 0.67,
     startAt: new Date("2026-01-22T00:00:00+08:00"),
@@ -126,103 +119,96 @@ export const stages: Stage[] = [
       remoteJob: { original: 16500, stagePrice: 10999, savingAmount: 5501 },
       dualLine: { original: 22500, stagePrice: 15099, savingAmount: 7401 },
     },
-    plans: { singleLine: { price: 10999, originalPrice: 16500 } },
   },
   {
     id: "stage_6",
     order: 6,
     name: "起飛早鳥價",
-    tagLine: "飛機已經起飛，歡迎登機",
+    tagLine: "起飛前還想趕上的人",
     discountLabel: "70 折",
     discountRate: 0.7,
     startAt: new Date("2026-02-05T00:00:00+08:00"),
-    endAt: new Date("2026-02-11T23:59:59+08:00"),
+    endAt: new Date("2026-02-18T23:59:59+08:00"),
     prices: {
       selfMedia: { original: 16500, stagePrice: 11499, savingAmount: 5001 },
       remoteJob: { original: 16500, stagePrice: 11499, savingAmount: 5001 },
       dualLine: { original: 22500, stagePrice: 15799, savingAmount: 6701 },
     },
-    plans: { singleLine: { price: 11499, originalPrice: 16500 } },
   },
   {
     id: "stage_7",
     order: 7,
     name: "雲端巡航價",
-    tagLine: "在雲端巡航，穩定飛行中",
+    tagLine: "已在空中，穩定前進",
     discountLabel: "73 折",
     discountRate: 0.73,
-    startAt: new Date("2026-02-12T00:00:00+08:00"),
-    endAt: new Date("2026-02-25T23:59:59+08:00"),
+    startAt: new Date("2026-02-19T00:00:00+08:00"),
+    endAt: new Date("2026-03-04T23:59:59+08:00"),
     prices: {
       selfMedia: { original: 16500, stagePrice: 11999, savingAmount: 4501 },
       remoteJob: { original: 16500, stagePrice: 11999, savingAmount: 4501 },
       dualLine: { original: 22500, stagePrice: 16499, savingAmount: 6001 },
     },
-    plans: { singleLine: { price: 11999, originalPrice: 16500 } },
   },
   {
     id: "stage_8",
     order: 8,
     name: "中途轉機價",
-    tagLine: "轉機等待中，還有時間上機",
+    tagLine: "還在猶豫要不要換航班的人",
     discountLabel: "76 折",
     discountRate: 0.76,
-    startAt: new Date("2026-02-26T00:00:00+08:00"),
-    endAt: new Date("2026-03-11T23:59:59+08:00"),
+    startAt: new Date("2026-03-05T00:00:00+08:00"),
+    endAt: new Date("2026-03-18T23:59:59+08:00"),
     prices: {
       selfMedia: { original: 16500, stagePrice: 12499, savingAmount: 4001 },
       remoteJob: { original: 16500, stagePrice: 12499, savingAmount: 4001 },
       dualLine: { original: 22500, stagePrice: 17199, savingAmount: 5301 },
     },
-    plans: { singleLine: { price: 12499, originalPrice: 16500 } },
   },
   {
     id: "stage_9",
     order: 9,
     name: "入境前夕價",
-    tagLine: "即將抵達目的地，倒數計時",
+    tagLine: "快要落地了，把握最後機會",
     discountLabel: "79 折",
     discountRate: 0.79,
-    startAt: new Date("2026-03-12T00:00:00+08:00"),
-    endAt: new Date("2026-03-18T23:59:59+08:00"),
+    startAt: new Date("2026-03-19T00:00:00+08:00"),
+    endAt: new Date("2026-04-01T23:59:59+08:00"),
     prices: {
       selfMedia: { original: 16500, stagePrice: 12999, savingAmount: 3501 },
       remoteJob: { original: 16500, stagePrice: 12999, savingAmount: 3501 },
       dualLine: { original: 22500, stagePrice: 17899, savingAmount: 4601 },
     },
-    plans: { singleLine: { price: 12999, originalPrice: 16500 } },
   },
   {
     id: "stage_10",
     order: 10,
     name: "落地衝刺價",
-    tagLine: "飛機已經落地，最後衝刺",
+    tagLine: "已經落地，最後衝刺",
     discountLabel: "82 折",
     discountRate: 0.82,
-    startAt: new Date("2026-03-19T00:00:00+08:00"),
-    endAt: new Date("2026-03-25T23:59:59+08:00"),
+    startAt: new Date("2026-04-02T00:00:00+08:00"),
+    endAt: new Date("2026-04-15T23:59:59+08:00"),
     prices: {
       selfMedia: { original: 16500, stagePrice: 13499, savingAmount: 3001 },
       remoteJob: { original: 16500, stagePrice: 13499, savingAmount: 3001 },
       dualLine: { original: 22500, stagePrice: 18599, savingAmount: 3901 },
     },
-    plans: { singleLine: { price: 13499, originalPrice: 16500 } },
   },
   {
     id: "stage_11",
     order: 11,
     name: "壓線報名價",
-    tagLine: "最後一刻，壓線報名",
-    discountLabel: "85 折",
-    discountRate: 0.85,
-    startAt: new Date("2026-03-26T00:00:00+08:00"),
-    endAt: new Date("2026-03-30T23:59:59+08:00"),
+    tagLine: "最後一刻的決定",
+    discountLabel: "88 折",
+    discountRate: 0.88,
+    startAt: new Date("2026-04-16T00:00:00+08:00"),
+    endAt: new Date("2026-04-29T23:59:59+08:00"),
     prices: {
-      selfMedia: { original: 16500, stagePrice: 13999, savingAmount: 2501 },
-      remoteJob: { original: 16500, stagePrice: 13999, savingAmount: 2501 },
-      dualLine: { original: 22500, stagePrice: 19299, savingAmount: 3201 },
+      selfMedia: { original: 16500, stagePrice: 14499, savingAmount: 2001 },
+      remoteJob: { original: 16500, stagePrice: 14499, savingAmount: 2001 },
+      dualLine: { original: 22500, stagePrice: 19899, savingAmount: 2601 },
     },
-    plans: { singleLine: { price: 13999, originalPrice: 16500 } },
   },
   {
     id: "stage_final",
@@ -231,16 +217,23 @@ export const stages: Stage[] = [
     tagLine: "正式售價",
     discountLabel: "原價",
     discountRate: 1.0,
-    startAt: new Date("2026-03-31T00:00:00+08:00"),
-    endAt: new Date("2026-04-30T23:59:59+08:00"),
+    startAt: new Date("2026-04-30T00:00:00+08:00"),
+    endAt: new Date("2026-06-30T23:59:59+08:00"),
     prices: {
       selfMedia: { original: 16500, stagePrice: 16500, savingAmount: 0 },
       remoteJob: { original: 16500, stagePrice: 16500, savingAmount: 0 },
       dualLine: { original: 22500, stagePrice: 22500, savingAmount: 0 },
     },
-    plans: { singleLine: { price: 16500, originalPrice: 16500 } },
   },
 ]
+
+export function getSingleLinePrice(stage: Stage): number {
+  return stage.prices.selfMedia.stagePrice
+}
+
+export function formatPrice(price: number): string {
+  return price.toLocaleString("zh-TW")
+}
 
 const PricingContext = createContext<PricingContextValue | null>(null)
 
@@ -251,39 +244,37 @@ export function PricingProvider({
   children: ReactNode
   couponCode?: string
 }) {
+  const [selectedPlanId, setSelectedPlanId] = useState<PlanId | null>(null)
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 })
 
-  const { currentStageData, currentStageIndex } = useMemo(() => {
+  const currentStageIndex = useMemo(() => {
     const now = new Date()
-    const index = stages.findIndex((stage) => now >= stage.startAt && now <= stage.endAt)
-    if (index !== -1) {
-      return { currentStageData: stages[index], currentStageIndex: index }
-    }
-    return { currentStageData: stages[stages.length - 1], currentStageIndex: stages.length - 1 }
+    const idx = stages.findIndex((stage) => now >= stage.startAt && now <= stage.endAt)
+    return idx >= 0 ? idx : stages.length - 1
   }, [])
 
-  const lowestPrice = useMemo(() => {
-    return Math.min(
-      currentStageData.prices.selfMedia.stagePrice,
-      currentStageData.prices.remoteJob.stagePrice,
-      currentStageData.prices.dualLine.stagePrice,
-    )
-  }, [currentStageData])
+  const currentStageData = stages[currentStageIndex]
+
+  const lowestPrice = getSingleLinePrice(currentStageData)
 
   const checkoutURL = useMemo(() => {
-    const baseURL = "https://theremoteworkacademy.teachify.tw/checkout"
+    const baseURL = "https://travelwithwork.teachify.tw/checkout"
     return couponCode ? `${baseURL}?coupon=${couponCode}` : baseURL
   }, [couponCode])
 
   const getTrackingParams = () => {
     if (typeof window === "undefined") return ""
     const urlParams = new URLSearchParams(window.location.search)
-    const trackingParams = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "ref"]
-    const params = trackingParams
-      .filter((param) => urlParams.has(param))
-      .map((param) => `${param}=${urlParams.get(param)}`)
-      .join("&")
-    return params ? `&${params}` : ""
+    const params: string[] = []
+    ;["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "ref"].forEach((key) => {
+      const value = urlParams.get(key)
+      if (value) params.push(`${key}=${encodeURIComponent(value)}`)
+    })
+    return params.length > 0 ? `&${params.join("&")}` : ""
+  }
+
+  const getCheckoutURLWithTracking = () => {
+    return `${checkoutURL}${getTrackingParams()}`
   }
 
   useEffect(() => {
@@ -296,7 +287,7 @@ export function PricingProvider({
         setTimeLeft({
           days: Math.floor(difference / (1000 * 60 * 60 * 24)),
           hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
+          minutes: Math.floor((difference / (1000 * 60)) % 60),
           seconds: Math.floor((difference / 1000) % 60),
         })
       } else {
@@ -309,17 +300,24 @@ export function PricingProvider({
     return () => clearInterval(timer)
   }, [currentStageData])
 
-  const value: PricingContextValue = {
-    stages,
-    currentStageData,
-    currentStageIndex,
-    timeLeft,
-    lowestPrice,
-    checkoutURL,
-    getTrackingParams,
-  }
-
-  return <PricingContext.Provider value={value}>{children}</PricingContext.Provider>
+  return (
+    <PricingContext.Provider
+      value={{
+        stages,
+        currentStageData,
+        currentStageIndex,
+        timeLeft,
+        lowestPrice,
+        checkoutURL,
+        selectedPlanId,
+        setSelectedPlanId,
+        getTrackingParams,
+        getCheckoutURLWithTracking,
+      }}
+    >
+      {children}
+    </PricingContext.Provider>
+  )
 }
 
 export function usePricing() {
