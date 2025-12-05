@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useMemo } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { useParams } from "next/navigation"
@@ -23,41 +23,9 @@ const getCheckoutURL = (planId: PlanId, couponCode?: string) => {
   return couponCode ? `${baseURL}&coupon=${encodeURIComponent(couponCode)}` : baseURL
 }
 
-const getTrackingParams = () => {
-  if (typeof window === "undefined") return ""
-
-  const urlParams = new URLSearchParams(window.location.search)
-  const fbclid = urlParams.get("fbclid")
-
-  const getCookie = (name: string) => {
-    const value = `; ${document.cookie}`
-    const parts = value.split(`; ${name}=`)
-    if (parts.length === 2) return parts.pop()?.split(";").shift()
-    return null
-  }
-
-  const fbc = getCookie("_fbc")
-  const fbp = getCookie("_fbp")
-
-  const params = new URLSearchParams()
-  if (fbclid) params.append("fbclid", fbclid)
-  if (fbc) params.append("fbc", fbc)
-  if (fbp) params.append("fbp", fbp)
-
-  return params.toString() ? `&${params.toString()}` : ""
-}
-
 export default function HomePage() {
   const params = useParams()
   const [couponCode, setCouponCode] = useState<string | null>(null)
-
-  const [selectedPlanId, setSelectedPlanId] = useState<PlanId | null>(null)
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  })
 
   const [selectedWeek, setSelectedWeek] = useState<{
     week: number
@@ -67,8 +35,7 @@ export default function HomePage() {
     month: number
   } | null>(null)
 
-  // usePricing hook to get stages and currentStageData
-  const { currentStageData } = usePricing()
+  const { currentStageData, timeLeft, lowestPrice, selectedPlanId, setSelectedPlanId, getTrackingParams } = usePricing()
 
   useEffect(() => {
     if (params.coupon && Array.isArray(params.coupon) && params.coupon.length > 0) {
@@ -78,45 +45,7 @@ export default function HomePage() {
     }
   }, [params])
 
-  // Removed local useMemo for currentStageData
-  // Removed local useMemo for lowestPrice calculation, this will be part of context
-
-  const lowestPrice = useMemo(() => {
-    if (!currentStageData) return null
-    // Get the lowest price among single-line plans (selfMedia and remoteJob)
-    const singleLinePrices = [
-      currentStageData.prices.selfMedia.stagePrice,
-      currentStageData.prices.remoteJob.stagePrice,
-    ]
-    return Math.min(...singleLinePrices)
-  }, [currentStageData])
-
-  useEffect(() => {
-    if (!currentStageData || !currentStageData.endAt) return
-
-    const targetDate = currentStageData.endAt.getTime()
-
-    const timer = setInterval(() => {
-      const now = new Date().getTime()
-      const difference = targetDate - now
-
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((difference % (1000 * 60)) / 1000),
-        })
-      } else {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 })
-      }
-    }, 1000)
-
-    return () => clearInterval(timer)
-  }, [currentStageData])
-
   const getCheckoutURLWithTracking = (planId: PlanId = "dualLine") => {
-    // If a plan is selected (e.g., from mobile view), use that planId. Otherwise, default to dualLine.
     const effectivePlanId = selectedPlanId || planId
     const baseURL = getCheckoutURL(effectivePlanId, couponCode || undefined)
     const trackingParams = getTrackingParams()
