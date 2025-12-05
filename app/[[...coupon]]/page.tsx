@@ -1,4 +1,4 @@
-"use client"
+一樣在遠距遊牧路上"use client"
 
 import { useState, useEffect, useCallback } from "react"
 import Image from "next/image"
