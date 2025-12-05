@@ -652,25 +652,19 @@ export default function HomePage() {
               <h4 className="text-base md:text-xl font-semibold text-[#17464F]">雙軌資源：副業增收 × 遠端上班</h4>
               <div className="text-sm md:text-base leading-relaxed text-slate-700 space-y-4">
                 <p>
-                  至少擇一路線作為開始。
-                  自媒體接案線路協助你定位、製作接案作品集、市場調查、內容與流量； 遠端上班線路幫你了解遠端求職市場、獵頭關係、優化履歷、LinkedIn、求職信、面試準備。
+                  自媒體接案線路協助你定位、製作接案作品集、市場調查、內容與流量； 遠端上班線路幫你了解遠端求職市場、獵頭關係、優化履歷、LinkedIn、求職信、面試準備。你可以先選一條為主，也可以雙線並進，邊學邊試水溫。
                 </p>
               </div>
             </div>
 
             <div className="bg-white/60 rounded-2xl border border-slate-200 p-6 md:p-7 shadow-sm flex flex-col gap-4">
-              <h4 className="text-base md:text-lg font-semibold text-[#17464F]">行動導向：課後任務 × 實作工作坊</h4>
+              <h4 className="text-base md:text-lg font-semibold text-[#17464F]">行動導向設計：課後任務 × 實作工作坊</h4>
               <div className="text-sm md:text-base leading-relaxed text-slate-700 space-y-4">
                 <p>
-                  前 3 個月，每一課後都有做得到、但有一點挑戰的行動任務：
-                  發一支影片、寫一封信、更新履歷、完成一個小專案⋯⋯
-                  你不用自己猜下一步，只要跟著每週任務，把遠距上班或接案， 拆成一個一個可以完成的小步驟，並在 Skool
-                  上交作業、收到回饋。
-                </p>
-                <p>
-                  後 3 個月，重心會從「學新東西」轉向「把成果拉高」：
-                  依照你最卡的地方，選修影音剪輯、AI、自動化、英文、網站等實作工作坊，
-                  並把作業整理成可以對外公開的作品集、內容或提案， 讓別人看得到你的行動，也讓機會有機會找到你。
+                  每一堂課後，都有做得到、但有一點挑戰的行動任務：
+                  在發出一支影片貼文、進行市場調查、寫一封求職信、更新履歷、製作一個知識產品之前...會被先拆解成策略定位學習單等模板。
+                  還有實作工作坊，講師陪同把想法落地成操作與行動。
+                  你不用在繁忙的生活中還要自己猜下一步，只要跟著課後任務，把遠距上班或自媒體接案， 循著一個一個可以完成的小步驟前進。
                 </p>
               </div>
             </div>
