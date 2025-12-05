@@ -348,7 +348,8 @@ export default function HomePage() {
               </div>
 
               <p className="text-sm text-[#33393C]/60 max-w-lg mx-auto lg:mx-0">
-                這不是一張離職門票，而是一段可以在保有現職下完成的六個月行動旅程。
+                <span className="block md:inline">這不是一張離職門票，</span>
+                <span className="block md:inline">而是一段可以在保有現職下完成的六個月行動旅程。</span>
               </p>
 
               {/* CTA Buttons */}
