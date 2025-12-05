@@ -309,82 +309,111 @@ export default function HomePage() {
       )} */}
 
       {/* SECTION 1 HERO START */}
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-[#F5F3ED]">
-        <div className="absolute top-20 left-10 flex gap-2 z-10">
-          <div className="w-2 h-2 rounded-full bg-[#D4B483]" />
-          <div className="w-2 h-2 rounded-full bg-[#D4B483]/60" />
-          <div className="w-2 h-2 rounded-full bg-[#D4B483]/30" />
-        </div>
-        <div className="absolute top-40 right-20 flex gap-2 z-10 hidden lg:flex">
-          <div className="w-2 h-2 rounded-full bg-[#17464F]/30" />
-          <div className="w-2 h-2 rounded-full bg-[#17464F]/60" />
-          <div className="w-2 h-2 rounded-full bg-[#17464F]" />
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-[#17464F]">
+        {/* Golden decorative curves */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 right-1/3 w-[600px] h-[600px] border border-[#D4B483]/30 rounded-full" />
+          <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] border border-[#D4B483]/20 rounded-full" />
+          <div className="absolute bottom-1/4 right-1/2 w-[300px] h-[300px] border border-[#D4B483]/10 rounded-full" />
         </div>
 
-        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        {/* Navigation */}
+        <nav className="absolute top-0 left-0 right-0 z-30 py-4 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto flex items-center justify-between">
+            <Image
+              src="/images/academy-logo.png"
+              alt="遠距遊牧學院 Travel with Work Academy"
+              width={200}
+              height={105}
+              className="h-auto w-[140px] sm:w-[180px] brightness-0 invert"
+              priority
+            />
+            <div className="hidden md:flex items-center gap-8">
+              <button
+                onClick={() => document.getElementById("course-highlights")?.scrollIntoView({ behavior: "smooth" })}
+                className="text-white/80 hover:text-white text-sm font-medium transition-colors"
+              >
+                課程介紹
+              </button>
+              <button
+                onClick={() => document.getElementById("six-month-path")?.scrollIntoView({ behavior: "smooth" })}
+                className="text-white/80 hover:text-white text-sm font-medium transition-colors"
+              >
+                六個月路線
+              </button>
+              <button
+                onClick={() => document.getElementById("testimonials")?.scrollIntoView({ behavior: "smooth" })}
+                className="text-white/80 hover:text-white text-sm font-medium transition-colors"
+              >
+                學員回饋
+              </button>
+              <button
+                onClick={() => document.getElementById("faq")?.scrollIntoView({ behavior: "smooth" })}
+                className="text-white/80 hover:text-white text-sm font-medium transition-colors"
+              >
+                常見問題
+              </button>
+            </div>
+          </div>
+        </nav>
+
+        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 lg:py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Left content */}
             <div className="space-y-6 text-center lg:text-left">
-              {/* CHANGE: Double the logo size */}
-              <div className="flex justify-center lg:justify-start mb-4">
-                <Image
-                  src="/images/academy-logo.png"
-                  alt="遠距遊牧學院 Travel with Work Academy"
-                  width={560}
-                  height={294}
-                  className="h-auto w-[400px] sm:w-[480px] lg:w-[560px]"
-                  priority
-                />
-              </div>
-
-              <p className="text-sm sm:text-base text-[#17464F]/70 font-medium tracking-wide">
-                六個月後的你，可能會變成這樣的人：
+              <p className="text-sm sm:text-base text-[#D4B483] font-medium tracking-wide">
+                華語世界第一個以「行動」設計的遠距遊牧學院
               </p>
 
-              <div className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3">
-                <span className="inline-flex items-center px-4 py-2 rounded-full bg-white border border-[#C9D7D4] text-sm text-[#33393C] shadow-sm">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483] mr-2" />
-                  已經開始朝向自己適合的遠距路線
-                </span>
-                <span className="inline-flex items-center px-4 py-2 rounded-full bg-white border border-[#C9D7D4] text-sm text-[#33393C] shadow-sm">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483] mr-2" />
-                  有一份能被看見、邏輯清楚的接案作品集
-                </span>
-                <span className="inline-flex items-center px-4 py-2 rounded-full bg-white border border-[#C9D7D4] text-sm text-[#33393C] shadow-sm">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483] mr-2" />
-                  身邊有一群正在前進的成長夥伴
-                </span>
-              </div>
-
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#17464F] leading-tight tracking-wide">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-wide">
                 用六個月，
-                <span className="block mt-2 text-[#D4B483]">把「也許有一天」變成「我正在路上」</span>
+                <br />
+                把「也許有一天」
+                <br />
+                變成「<span className="text-[#D4B483]">我正在路上</span>」
               </h1>
 
-              <p className="text-base sm:text-lg text-[#33393C] leading-relaxed max-w-xl mx-auto lg:mx-0">
-                <span className="block md:inline">不用先辭職，也不用一下子 all-in。</span>
-                <span className="block md:inline">
-                  透過 6 個月的探索旅途，結合線上課程、行動任務、共學與遊牧社群資源，開始邁向適合自己的生活。
-                </span>
+              <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                遠距遊牧學院結合線上課程、行動任務、共學社群與旅居體驗，
+                幫助已經準備行動的上班族，在不辭職、不斷線收入的前提下，
+                驗證自己適合的遠距路線：遠端上班、自媒體接案，或雙線並行。
               </p>
 
+              {/* Route tags */}
               <div className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3">
-                <span className="px-4 py-2 rounded-full bg-[#17464F] text-white text-sm font-medium">
+                <span className="px-4 py-2 rounded-full border border-white/40 text-white text-sm font-medium">
                   自媒體接案線路
                 </span>
-                <span className="px-4 py-2 rounded-full bg-[#17464F] text-white text-sm font-medium">遠端上班線路</span>
+                <span className="px-4 py-2 rounded-full border border-white/40 text-white text-sm font-medium">
+                  遠端上班線路
+                </span>
+                <span className="px-4 py-2 rounded-full border border-white/40 text-white text-sm font-medium">
+                  雙線整合線路
+                </span>
               </div>
 
-              <p className="text-sm text-[#33393C]/60 max-w-lg mx-auto lg:mx-0">
-                <span className="block md:inline">這不是一張離職門票，</span>
-                <span className="block md:inline">而是一段可以在保有現職下完成的六個月行動旅程。</span>
-              </p>
+              {/* Bullet points with emoji */}
+              <div className="space-y-3 text-left max-w-xl mx-auto lg:mx-0">
+                <div className="flex items-start gap-3">
+                  <span className="text-xl">👉</span>
+                  <p className="text-white/90">梳理你的遠距職涯藍圖與下一步行動</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-xl">🔥</span>
+                  <p className="text-white/90">完成履歷、作品集、個人頁面等可見成果</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-xl">👥</span>
+                  <p className="text-white/90">加入一群真的在為自由生活行動的夥伴</p>
+                </div>
+              </div>
 
-              {/* CTA Buttons */}
-              <div className="flex flex-col items-center lg:items-start gap-4">
+              {/* CTA Button */}
+              <div className="flex flex-col items-center lg:items-start gap-4 pt-2">
                 <Button
                   asChild
                   size="lg"
-                  className="hidden md:inline-flex bg-[#17464F] hover:bg-[#17464F]/90 text-white rounded-full px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="bg-[#D4B483] hover:bg-[#c9a673] text-[#17464F] rounded-full px-8 py-6 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
                 >
                   <a
                     href={getCheckoutURLWithTracking()}
@@ -396,76 +425,63 @@ export default function HomePage() {
                       }
                     }}
                   >
-                    立刻鎖定【{currentStageData?.name}】
+                    我要加入這一梯學員
                   </a>
                 </Button>
                 <button
                   onClick={() => {
                     document.getElementById("course-highlights")?.scrollIntoView({ behavior: "smooth" })
                   }}
-                  className="text-[#17464F] hover:text-[#D4B483] font-medium text-base underline underline-offset-4 transition-colors duration-200"
+                  className="text-white/70 hover:text-[#D4B483] font-medium text-base transition-colors duration-200"
                 >
                   還在觀望？先看六個月怎麼走 ↓
                 </button>
               </div>
 
-              <div className="hidden md:block text-center lg:text-left pt-2">
-                {currentStageData && (
-                  <>
-                    <p className="text-sm text-[#33393C]/70">本梯次學費，隨內容增加及時間調漲</p>
-                    <p className="text-sm text-[#33393C]/60 mt-1">
-                      距離下次條調漲：{currentStageData.endAt.getMonth() + 1}/{currentStageData.endAt.getDate()}
-                      （台北時間 23:59）｜剩餘：
-                      <span className="font-medium text-[#17464F]">
-                        {String(timeLeft.days).padStart(2, "0")} 天 {String(timeLeft.hours).padStart(2, "0")} 小時
-                      </span>
-                    </p>
-                  </>
-                )}
+              {/* Social proof */}
+              <div className="pt-4 text-center lg:text-left">
+                <p className="text-sm text-white/60">
+                  2024-2025 已累積 <span className="text-[#D4B483] font-semibold">400+</span> 付費學員與{" "}
+                  <span className="text-[#D4B483] font-semibold">1,000+</span> 社群成員，
+                  <br className="hidden sm:block" />
+                  一起在台灣與世界各地行動中。
+                </p>
               </div>
             </div>
 
+            {/* Right image */}
             <div className="relative hidden lg:block">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="col-span-2 rounded-2xl overflow-hidden shadow-lg">
-                  <div className="aspect-[16/9] bg-[#C9D7D4] relative">
-                    <Image
-                      src="/images/hero-background.png"
-                      alt="遠距工作場景 - 共同工作空間"
-                      fill
-                      className="object-cover"
-                      priority
-                      sizes="(max-width: 768px) 100vw, 66vw"
-                    />
-                  </div>
-                </div>
-                <div className="rounded-2xl overflow-hidden shadow-md">
-                  <div className="aspect-square bg-[#C9D7D4] relative">
-                    <Image
-                      src="/images/2-1.jpeg"
-                      alt="遠距工作場景 - 旅途中工作"
-                      fill
-                      className="object-cover"
-                      loading="lazy"
-                      sizes="(max-width: 768px) 50vw, 25vw"
-                    />
-                  </div>
-                </div>
-                <div className="rounded-2xl overflow-hidden shadow-md">
-                  <div className="aspect-square bg-[#C9D7D4] relative">
-                    <Image
-                      src="/images/2-2.jpeg"
-                      alt="遠距工作場景 - 小聚互動"
-                      fill
-                      className="object-cover"
-                      loading="lazy"
-                      sizes="(max-width: 768px) 50vw, 25vw"
-                    />
-                  </div>
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <div className="aspect-[4/5] bg-[#C9D7D4] relative">
+                  <Image
+                    src="/images/hero-background.png"
+                    alt="遠距工作場景 - 共同工作空間"
+                    fill
+                    className="object-cover"
+                    priority
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
                 </div>
               </div>
-              <div className="absolute -bottom-4 -left-4 w-24 h-24 border-2 border-[#D4B483]/40 rounded-2xl -z-10" />
-              <div className="absolute -top-4 -right-4 w-16 h-16 border-2 border-[#17464F]/20 rounded-full -z-10" />
+              {/* Decorative golden arc around image */}
+              <div className="absolute -top-8 -right-8 w-full h-full border-2 border-[#D4B483]/40 rounded-2xl pointer-events-none" />
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 border-2 border-[#D4B483]/30 rounded-full pointer-events-none" />
+            </div>
+
+            {/* Mobile image */}
+            <div className="relative lg:hidden">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl mx-auto max-w-md">
+                <div className="aspect-[4/3] bg-[#C9D7D4] relative">
+                  <Image
+                    src="/images/hero-background.png"
+                    alt="遠距工作場景 - 共同工作空間"
+                    fill
+                    className="object-cover"
+                    priority
+                    sizes="100vw"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1632,7 +1648,7 @@ export default function HomePage() {
 
           <div className="text-center">
             <p className="text-lg text-[#33393C] leading-relaxed max-w-2xl mx-auto">
-              你不只是在上「一門課」，
+              你不只是在上一「門課」，
               <br />
               而在是和一群分散在世界各地的人，一起思考怎麼活出更自由的版本。
             </p>
