@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import { Button } from "@/components/ui/button"
 import { usePricing, formatPrice, stages } from "@/contexts/pricing-context"
 
@@ -8,6 +8,58 @@ export function PricingSection() {
   const { currentStageData, timeLeft, selectedPlanId, setSelectedPlanId, getCheckoutURLWithTracking } = usePricing()
   const [timelineExpanded, setTimelineExpanded] = useState(false)
   const [showAllStagesMobile, setShowAllStagesMobile] = useState(false)
+
+  const collapsedStages = useMemo(() => {
+    const now = new Date()
+    const currentIndex = stages.findIndex((s) => now >= s.startAt && now <= s.endAt)
+    const nextIndex = currentIndex + 1 < stages.length ? currentIndex + 1 : -1
+    const originalIndex = stages.length - 1 // Last stage is "原價"
+
+    // Always include: current, next (if exists), and original price
+    const mustShowIndices = new Set<number>()
+    if (currentIndex >= 0) mustShowIndices.add(currentIndex)
+    if (nextIndex >= 0 && nextIndex !== originalIndex) mustShowIndices.add(nextIndex)
+    mustShowIndices.add(originalIndex)
+
+    // Calculate remaining slots (target ~6 total)
+    const targetTotal = 6
+    const remainingSlots = targetTotal - mustShowIndices.size
+
+    // Evenly distribute remaining stages
+    const otherIndices = stages.map((_, i) => i).filter((i) => !mustShowIndices.has(i))
+
+    const step = Math.max(1, Math.floor(otherIndices.length / remainingSlots))
+    const distributedIndices: number[] = []
+    for (let i = 0; i < otherIndices.length && distributedIndices.length < remainingSlots; i += step) {
+      distributedIndices.push(otherIndices[i])
+    }
+
+    // Combine and sort
+    const allIndices = [...mustShowIndices, ...distributedIndices].sort((a, b) => a - b)
+    return allIndices.map((i) => stages[i])
+  }, [])
+
+  const collapsedStagesMobile = useMemo(() => {
+    const now = new Date()
+    const currentIndex = stages.findIndex((s) => now >= s.startAt && now <= s.endAt)
+    const nextIndex = currentIndex + 1 < stages.length ? currentIndex + 1 : -1
+    const originalIndex = stages.length - 1
+
+    const indices = new Set<number>()
+    if (currentIndex >= 0) indices.add(currentIndex)
+    if (nextIndex >= 0 && nextIndex !== originalIndex) indices.add(nextIndex)
+    indices.add(originalIndex)
+
+    // Add one more stage between next and original if there's room
+    if (indices.size < 4 && nextIndex >= 0) {
+      const midIndex = Math.floor((nextIndex + originalIndex) / 2)
+      if (midIndex !== nextIndex && midIndex !== originalIndex) {
+        indices.add(midIndex)
+      }
+    }
+
+    return [...indices].sort((a, b) => a - b).map((i) => stages[i])
+  }, [])
 
   return (
     <section id="pricing-section" className="py-16 sm:py-24 bg-white">
@@ -40,49 +92,69 @@ export function PricingSection() {
         <div className="mb-16">
           <h3 className="text-xl sm:text-2xl font-bold text-[#17464F] text-center mb-8">價格階段時間軸</h3>
 
-          {/* Desktop: 橫向時間軸，預設顯示 6 個，可展開全部 */}
+          {/* Desktop: 橫向時間軸，預設顯示關鍵階段（現在、下一個、原價、平均分配），可展開全部 */}
           <div className="hidden md:block">
             <div className="relative overflow-x-auto pb-4">
               <div className="flex items-center justify-between min-w-max px-4">
-                {(timelineExpanded ? stages : stages.filter((_, i) => i % 2 === 0 || i === stages.length - 1)).map(
-                  (stage, index, arr) => {
-                    const now = new Date()
-                    const isPast = now > stage.endAt
-                    const isCurrent = now >= stage.startAt && now <= stage.endAt
+                {(timelineExpanded ? stages : collapsedStages).map((stage, index, arr) => {
+                  const now = new Date()
+                  const isPast = now > stage.endAt
+                  const isCurrent = now >= stage.startAt && now <= stage.endAt
+                  const isNext =
+                    !isCurrent &&
+                    !isPast &&
+                    stages.findIndex((s) => s.id === stage.id) ===
+                      stages.findIndex((s) => now >= s.startAt && now <= s.endAt) + 1
+                  const isOriginal = stage.id === "stage_12"
 
-                    return (
-                      <div key={stage.id} className="flex items-center">
-                        <div className="flex flex-col items-center">
-                          <div
-                            className={`w-4 h-4 rounded-full border-2 ${
-                              isCurrent
-                                ? "bg-[#D4B483] border-[#D4B483] ring-4 ring-[#D4B483]/20"
+                  return (
+                    <div key={stage.id} className="flex items-center">
+                      <div className="flex flex-col items-center">
+                        <div
+                          className={`w-4 h-4 rounded-full border-2 ${
+                            isCurrent
+                              ? "bg-[#D4B483] border-[#D4B483] ring-4 ring-[#D4B483]/20"
+                              : isNext
+                                ? "bg-[#17464F] border-[#17464F]"
                                 : isPast
                                   ? "bg-gray-300 border-gray-300"
-                                  : "bg-white border-[#17464F]"
+                                  : isOriginal
+                                    ? "bg-[#A06E56] border-[#A06E56]"
+                                    : "bg-white border-[#17464F]"
+                          }`}
+                        />
+                        <div className="mt-2 text-center">
+                          <div
+                            className={`text-xs font-medium ${
+                              isCurrent
+                                ? "text-[#D4B483]"
+                                : isNext
+                                  ? "text-[#17464F] font-bold"
+                                  : isPast
+                                    ? "text-gray-400"
+                                    : isOriginal
+                                      ? "text-[#A06E56]"
+                                      : "text-[#17464F]"
                             }`}
-                          />
-                          <div className="mt-2 text-center">
-                            <div
-                              className={`text-xs font-medium ${isCurrent ? "text-[#D4B483]" : isPast ? "text-gray-400" : "text-[#17464F]"}`}
-                            >
-                              {stage.name}
-                            </div>
-                            <div className={`text-xs ${isPast ? "text-gray-400" : "text-[#33393C]"}`}>
-                              {stage.discountLabel}
-                            </div>
-                            <div className={`text-xs ${isPast ? "text-gray-400" : "text-[#33393C]/60"}`}>
-                              ~{stage.endAt.getMonth() + 1}/{stage.endAt.getDate()}
-                            </div>
+                          >
+                            {stage.name}
+                            {isCurrent && <span className="block text-[10px]">(目前)</span>}
+                            {isNext && <span className="block text-[10px]">(下一階段)</span>}
+                          </div>
+                          <div className={`text-xs ${isPast ? "text-gray-400" : "text-[#33393C]"}`}>
+                            {stage.discountLabel}
+                          </div>
+                          <div className={`text-xs ${isPast ? "text-gray-400" : "text-[#33393C]/60"}`}>
+                            ~{stage.endAt.getMonth() + 1}/{stage.endAt.getDate()}
                           </div>
                         </div>
-                        {index < arr.length - 1 && (
-                          <div className={`w-16 h-0.5 mx-2 ${isPast ? "bg-gray-300" : "bg-[#17464F]/20"}`} />
-                        )}
                       </div>
-                    )
-                  },
-                )}
+                      {index < arr.length - 1 && (
+                        <div className={`w-16 h-0.5 mx-2 ${isPast ? "bg-gray-300" : "bg-[#17464F]/20"}`} />
+                      )}
+                    </div>
+                  )
+                })}
               </div>
             </div>
             <div className="text-center mt-4">
@@ -95,12 +167,18 @@ export function PricingSection() {
             </div>
           </div>
 
-          {/* Mobile: 垂直卡片，預設顯示 4 個 */}
+          {/* Mobile: 垂直卡片，預設顯示關鍵階段（現在、下一個、原價） */}
           <div className="md:hidden space-y-3">
-            {(showAllStagesMobile ? stages : stages.slice(0, 4)).map((stage) => {
+            {(showAllStagesMobile ? stages : collapsedStagesMobile).map((stage) => {
               const now = new Date()
               const isPast = now > stage.endAt
               const isCurrent = now >= stage.startAt && now <= stage.endAt
+              const isNext =
+                !isCurrent &&
+                !isPast &&
+                stages.findIndex((s) => s.id === stage.id) ===
+                  stages.findIndex((s) => now >= s.startAt && now <= s.endAt) + 1
+              const isOriginal = stage.id === "stage_12"
 
               return (
                 <div
@@ -108,18 +186,33 @@ export function PricingSection() {
                   className={`p-4 rounded-xl border ${
                     isCurrent
                       ? "border-[#D4B483] bg-[#D4B483]/10"
-                      : isPast
-                        ? "border-gray-200 bg-gray-50"
-                        : "border-[#17464F]/20 bg-white"
+                      : isNext
+                        ? "border-[#17464F] bg-[#17464F]/5"
+                        : isPast
+                          ? "border-gray-200 bg-gray-50"
+                          : isOriginal
+                            ? "border-[#A06E56]/50 bg-[#A06E56]/5"
+                            : "border-[#17464F]/20 bg-white"
                   }`}
                 >
                   <div className="flex justify-between items-center">
                     <div>
                       <div
-                        className={`font-medium ${isCurrent ? "text-[#D4B483]" : isPast ? "text-gray-400" : "text-[#17464F]"}`}
+                        className={`font-medium ${
+                          isCurrent
+                            ? "text-[#D4B483]"
+                            : isNext
+                              ? "text-[#17464F] font-bold"
+                              : isPast
+                                ? "text-gray-400"
+                                : isOriginal
+                                  ? "text-[#A06E56]"
+                                  : "text-[#17464F]"
+                        }`}
                       >
                         {stage.name}
                         {isCurrent && <span className="ml-2 text-xs">(目前)</span>}
+                        {isNext && <span className="ml-2 text-xs">(下一階段)</span>}
                       </div>
                       <div className={`text-sm ${isPast ? "text-gray-400" : "text-[#33393C]/70"}`}>
                         {stage.discountLabel} · ~{stage.endAt.getMonth() + 1}/{stage.endAt.getDate()}
@@ -148,15 +241,15 @@ export function PricingSection() {
                 <span>🔥</span>
                 <span>目前階段</span>
               </div>
-              <h4 className="text-2xl sm:text-3xl font-bold mb-2">{currentStageData.name}</h4>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-2">{currentStageData.name}</h3>
               <p className="text-white/80 mb-4">
-                截止：{currentStageData.endAt.getMonth() + 1}/{currentStageData.endAt.getDate()}
+                截止：{currentStageData.endAt.getMonth() + 1}/{currentStageData.endAt.getDate()}（台北時間 23:59）
               </p>
-              <p className="text-[#D4B483] font-medium">
+              <p className="text-lg text-[#D4B483]">
                 距離下一階段：{timeLeft.days} 天 {String(timeLeft.hours).padStart(2, "0")}:
                 {String(timeLeft.minutes).padStart(2, "0")}:{String(timeLeft.seconds).padStart(2, "0")}
               </p>
-              <p className="text-sm text-white/60 mt-4">請在下方選擇適合你的方案</p>
+              <p className="mt-4 text-sm text-white/60">下方選擇方案查看詳細價格</p>
             </div>
           )}
         </div>
