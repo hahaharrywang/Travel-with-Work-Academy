@@ -113,7 +113,7 @@ export function PricingSection() {
         {/* Pricing Cards */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           {/* 自媒體接案線路 */}
-          <div className="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-xl transition-shadow duration-300 flex flex-col">
+          <div className="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-xl transition-shadow duration-300 flex flex-col order-1">
             <div className="mb-6">
               <h4 className="text-xl font-bold text-[#17464F] mb-2">自媒體接案線路</h4>
               <p className="text-sm text-[#33393C]/70">適合想要經營個人品牌、接案或創作者</p>
@@ -174,7 +174,7 @@ export function PricingSection() {
           </div>
 
           {/* 雙線並進（推薦） */}
-          <div className="bg-white rounded-2xl border-2 border-[#D4B483] p-6 hover:shadow-xl transition-shadow duration-300 flex flex-col relative">
+          <div className="bg-white rounded-2xl border-2 border-[#D4B483] p-6 hover:shadow-xl transition-shadow duration-300 flex flex-col relative order-3 md:order-2">
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#D4B483] text-[#17464F] px-4 py-1 rounded-full text-sm font-bold">
               推薦
             </div>
@@ -242,7 +242,7 @@ export function PricingSection() {
           </div>
 
           {/* 遠端上班線路 */}
-          <div className="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-xl transition-shadow duration-300 flex flex-col">
+          <div className="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-xl transition-shadow duration-300 flex flex-col order-2 md:order-3">
             <div className="mb-6">
               <h4 className="text-xl font-bold text-[#17464F] mb-2">遠端上班線路</h4>
               <p className="text-sm text-[#33393C]/70">想找到一份遠端工作、時間地點自由的你</p>
