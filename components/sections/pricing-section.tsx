@@ -237,19 +237,17 @@ export function PricingSection() {
           {/* 當前階段摘要卡 */}
           {currentStageData && (
             <div className="mt-8 bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-2xl p-6 sm:p-8 text-white text-center">
-              <div className="inline-flex items-center gap-2 bg-[#D4B483] text-[#17464F] px-4 py-1 rounded-full text-sm font-medium mb-4">
-                <span>🔥</span>
-                <span>目前階段</span>
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-2">{currentStageData.name}</h3>
-              <p className="text-white/80 mb-4">
-                截止：{currentStageData.endAt.getMonth() + 1}/{currentStageData.endAt.getDate()}（台北時間 23:59）
+              <p className="text-lg text-white/80 mb-2">
+                目前階段{" "}
+                <span className="text-[#D4B483] font-bold">
+                  {currentStageData.name} {currentStageData.discount}折
+                </span>
               </p>
-              <p className="text-lg text-[#D4B483]">
-                距離下一階段：{timeLeft.days} 天 {String(timeLeft.hours).padStart(2, "0")}:
-                {String(timeLeft.minutes).padStart(2, "0")}:{String(timeLeft.seconds).padStart(2, "0")}
+              <p className="text-sm text-white/60 mb-3">漲價倒數</p>
+              <p className="text-3xl sm:text-4xl font-bold text-[#D4B483]">
+                {timeLeft.days} 天 {String(timeLeft.hours).padStart(2, "0")} 時{" "}
+                {String(timeLeft.minutes).padStart(2, "0")} 分 {String(timeLeft.seconds).padStart(2, "0")} 秒
               </p>
-              <p className="mt-4 text-sm text-white/60">下方選擇方案查看詳細價格</p>
             </div>
           )}
         </div>
