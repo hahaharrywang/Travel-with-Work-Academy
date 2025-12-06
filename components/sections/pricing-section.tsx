@@ -79,15 +79,7 @@ export function PricingSection() {
             <br className="hidden sm:block" />
             差別只在於：你想先專心走哪一條主線，或是一次打開兩種可能。
           </p>
-          {currentStageData && (
-            <div className="mt-6 inline-flex items-center gap-2 bg-[#17464F] text-white px-4 py-1 rounded-full text-sm">
-              <span>🔥</span>
-              <span>
-                目前為「<span className="text-[#D4B483] font-bold">{currentStageData.name}</span>」·{" "}
-                {currentStageData.discountLabel}
-              </span>
-            </div>
-          )}
+          {/* Removed 🔥目前為「招生啟動價」· 51 折 badge */}
         </div>
 
         {/* Countdown Card */}
@@ -95,10 +87,11 @@ export function PricingSection() {
           {/* 當前階段摘要卡 */}
           {currentStageData && (
             <div className="bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-2xl p-6 sm:p-8 text-white text-center max-w-2xl mx-auto">
+              {/* Corrected discount display, using discountLabel instead of discount */}
               <p className="text-lg text-white/80 mb-2">
                 目前階段{" "}
                 <span className="text-[#D4B483] font-bold">
-                  {currentStageData.name} {currentStageData.discount}折
+                  {currentStageData.name} {currentStageData.discountLabel}
                 </span>
               </p>
               <p className="text-sm text-white/60 mb-3">漲價倒數</p>
