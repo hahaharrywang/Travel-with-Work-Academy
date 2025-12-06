@@ -620,15 +620,12 @@ export default function HomePage() {
 
       {/* SECTION 3 PAIN POINTS START - 切圖版本 */}
       <section className="w-full bg-[#17464F]">
-        <div className="w-full max-w-[1920px] mx-auto">
-          {/* Desktop version - SVG image */}
-          <img
-            src="/images/section3-painpoints-desktop.svg"
-            alt="不是你不努力，而是拼圖還有缺 - 方向斷裂、方法斷裂、同伴斷裂"
-            className="w-full h-auto"
-            loading="lazy"
-          />
-        </div>
+        <img
+          src="/images/section3-painpoints-desktop.svg"
+          alt="不是你不努力，而是拼圖還有缺 - 方向斷裂、方法斷裂、同伴斷裂"
+          className="w-full h-auto block"
+          loading="lazy"
+        />
       </section>
       {/* SECTION 3 PAIN POINTS END */}
 
@@ -1269,7 +1266,7 @@ export default function HomePage() {
                 </div>
                 <div className="p-6 space-y-4">
                   {[
-                    { week: 6, title: "突破薪資天花板：跨國職涯的高薪祕訣", instructor: "許詮", type: "通識" },
+                    { week: 6, title: "突破薪資天花板：跨國職涯的高薪祕訣", instructor: "許詮", type: "B線" },
                     { week: 7, title: "讓機會找上你：LinkedIn 國際個人品牌攻略", instructor: "Shelley", type: "B線" },
                     {
                       week: 8,
