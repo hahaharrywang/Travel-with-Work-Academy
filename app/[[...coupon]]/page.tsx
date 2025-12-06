@@ -523,7 +523,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Card 2 - 安全感 */}
+            {/* Card 2: 安全感 */}
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-[#D4B483]/30 hover:border-[#D4B483]/50 transition-all duration-300 relative group">
               {/* Gold corner accents */}
               <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#D4B483]/60 rounded-tl-2xl" />
@@ -608,24 +608,20 @@ export default function HomePage() {
             </p>
           </div>
         </div>
-
-        {/* Bottom star decoration */}
-        <div className="absolute bottom-10 right-16 hidden lg:block">
-          <svg className="w-12 h-12 text-[#D4B483]/20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-          </svg>
-        </div>
       </section>
       {/* SECTION 2 COURSE HIGHLIGHTS END */}
 
       {/* SECTION 3 PAIN POINTS START - 切圖版本 */}
-      <section className="w-full bg-[#17464F]">
-        <img
-          src="/images/section3-painpoints-desktop.svg"
-          alt="不是你不努力，而是拼圖還有缺 - 方向斷裂、方法斷裂、同伴斷裂"
-          className="w-full h-auto block"
-          loading="lazy"
-        />
+      <section className="w-full bg-[#17464F] overflow-hidden">
+        {/* 桌面版 - 使用 aspect ratio 確保正確比例 */}
+        <div className="w-full" style={{ aspectRatio: "1440 / 925.5" }}>
+          <img
+            src="/images/section3-painpoints-desktop.svg"
+            alt="不是你不努力，而是拼圖還有缺 - 方向斷裂、方法斷裂、同伴斷裂"
+            className="w-full h-full object-cover object-center block"
+            loading="lazy"
+          />
+        </div>
       </section>
       {/* SECTION 3 PAIN POINTS END */}
 
@@ -1071,7 +1067,7 @@ export default function HomePage() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110-4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 014 0m0 4v2m0-6V4"
+                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110-4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 11-4 0 2 2 0 014 0m0 4v2m0-6V4"
                   />
                 </svg>
               </div>
