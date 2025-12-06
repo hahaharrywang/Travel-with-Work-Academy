@@ -3,11 +3,13 @@
 import { useState, useMemo } from "react"
 import { Button } from "@/components/ui/button"
 import { usePricing, formatPrice, stages } from "@/contexts/pricing-context"
+import { X } from "lucide-react"
 
 export function PricingSection() {
   const { currentStageData, timeLeft, selectedPlanId, setSelectedPlanId, getCheckoutURLWithTracking } = usePricing()
   const [timelineExpanded, setTimelineExpanded] = useState(false)
   const [showAllStagesMobile, setShowAllStagesMobile] = useState(false)
+  const [showTimelineModal, setShowTimelineModal] = useState(false)
 
   const collapsedStages = useMemo(() => {
     const now = new Date()
@@ -88,155 +90,11 @@ export function PricingSection() {
           )}
         </div>
 
-        {/* Timeline Section */}
+        {/* Countdown Card */}
         <div className="mb-16">
-          <h3 className="text-xl sm:text-2xl font-bold text-[#17464F] text-center mb-8">價格階段時間軸</h3>
-
-          {/* Desktop: 橫向時間軸，預設顯示關鍵階段（現在、下一個、原價、平均分配），可展開全部 */}
-          <div className="hidden md:block">
-            <div className="relative overflow-x-auto pb-4">
-              <div className="flex items-center justify-between min-w-max px-4">
-                {(timelineExpanded ? stages : collapsedStages).map((stage, index, arr) => {
-                  const now = new Date()
-                  const isPast = now > stage.endAt
-                  const isCurrent = now >= stage.startAt && now <= stage.endAt
-                  const isNext =
-                    !isCurrent &&
-                    !isPast &&
-                    stages.findIndex((s) => s.id === stage.id) ===
-                      stages.findIndex((s) => now >= s.startAt && now <= s.endAt) + 1
-                  const isOriginal = stage.id === "stage_12"
-
-                  return (
-                    <div key={stage.id} className="flex items-center">
-                      <div className="flex flex-col items-center">
-                        <div
-                          className={`w-4 h-4 rounded-full border-2 ${
-                            isCurrent
-                              ? "bg-[#D4B483] border-[#D4B483] ring-4 ring-[#D4B483]/20"
-                              : isNext
-                                ? "bg-[#17464F] border-[#17464F]"
-                                : isPast
-                                  ? "bg-gray-300 border-gray-300"
-                                  : isOriginal
-                                    ? "bg-[#A06E56] border-[#A06E56]"
-                                    : "bg-white border-[#17464F]"
-                          }`}
-                        />
-                        <div className="mt-2 text-center">
-                          <div
-                            className={`text-xs font-medium ${
-                              isCurrent
-                                ? "text-[#D4B483]"
-                                : isNext
-                                  ? "text-[#17464F] font-bold"
-                                  : isPast
-                                    ? "text-gray-400"
-                                    : isOriginal
-                                      ? "text-[#A06E56]"
-                                      : "text-[#17464F]"
-                            }`}
-                          >
-                            {stage.name}
-                            {isCurrent && <span className="block text-[10px]">(目前)</span>}
-                            {isNext && <span className="block text-[10px]">(下一階段)</span>}
-                          </div>
-                          <div className={`text-xs ${isPast ? "text-gray-400" : "text-[#33393C]"}`}>
-                            {stage.discountLabel}
-                          </div>
-                          <div className={`text-xs ${isPast ? "text-gray-400" : "text-[#33393C]/60"}`}>
-                            ~{stage.endAt.getMonth() + 1}/{stage.endAt.getDate()}
-                          </div>
-                        </div>
-                      </div>
-                      {index < arr.length - 1 && (
-                        <div className={`w-16 h-0.5 mx-2 ${isPast ? "bg-gray-300" : "bg-[#17464F]/20"}`} />
-                      )}
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-            <div className="text-center mt-4">
-              <button
-                onClick={() => setTimelineExpanded(!timelineExpanded)}
-                className="text-sm text-[#17464F] hover:text-[#D4B483] transition-colors underline"
-              >
-                {timelineExpanded ? "收起" : "展開全部 12 個階段"}
-              </button>
-            </div>
-          </div>
-
-          {/* Mobile: 垂直卡片，預設顯示關鍵階段（現在、下一個、原價） */}
-          <div className="md:hidden space-y-3">
-            {(showAllStagesMobile ? stages : collapsedStagesMobile).map((stage) => {
-              const now = new Date()
-              const isPast = now > stage.endAt
-              const isCurrent = now >= stage.startAt && now <= stage.endAt
-              const isNext =
-                !isCurrent &&
-                !isPast &&
-                stages.findIndex((s) => s.id === stage.id) ===
-                  stages.findIndex((s) => now >= s.startAt && now <= s.endAt) + 1
-              const isOriginal = stage.id === "stage_12"
-
-              return (
-                <div
-                  key={stage.id}
-                  className={`p-4 rounded-xl border ${
-                    isCurrent
-                      ? "border-[#D4B483] bg-[#D4B483]/10"
-                      : isNext
-                        ? "border-[#17464F] bg-[#17464F]/5"
-                        : isPast
-                          ? "border-gray-200 bg-gray-50"
-                          : isOriginal
-                            ? "border-[#A06E56]/50 bg-[#A06E56]/5"
-                            : "border-[#17464F]/20 bg-white"
-                  }`}
-                >
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <div
-                        className={`font-medium ${
-                          isCurrent
-                            ? "text-[#D4B483]"
-                            : isNext
-                              ? "text-[#17464F] font-bold"
-                              : isPast
-                                ? "text-gray-400"
-                                : isOriginal
-                                  ? "text-[#A06E56]"
-                                  : "text-[#17464F]"
-                        }`}
-                      >
-                        {stage.name}
-                        {isCurrent && <span className="ml-2 text-xs">(目前)</span>}
-                        {isNext && <span className="ml-2 text-xs">(下一階段)</span>}
-                      </div>
-                      <div className={`text-sm ${isPast ? "text-gray-400" : "text-[#33393C]/70"}`}>
-                        {stage.discountLabel} · ~{stage.endAt.getMonth() + 1}/{stage.endAt.getDate()}
-                      </div>
-                    </div>
-                    <div className={`text-right ${isPast ? "text-gray-400" : "text-[#17464F]"}`}>
-                      <div className="text-sm font-bold">NT$ {formatPrice(stage.prices.selfMedia.stagePrice)}</div>
-                      <div className="text-xs">單線起</div>
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-            <button
-              onClick={() => setShowAllStagesMobile(!showAllStagesMobile)}
-              className="w-full py-3 text-sm text-[#17464F] hover:text-[#D4B483] transition-colors underline"
-            >
-              {showAllStagesMobile ? "收起" : "展開看全部"}
-            </button>
-          </div>
-
           {/* 當前階段摘要卡 */}
           {currentStageData && (
-            <div className="mt-8 bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-2xl p-6 sm:p-8 text-white text-center">
+            <div className="bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-2xl p-6 sm:p-8 text-white text-center max-w-2xl mx-auto">
               <p className="text-lg text-white/80 mb-2">
                 目前階段{" "}
                 <span className="text-[#D4B483] font-bold">
@@ -244,10 +102,17 @@ export function PricingSection() {
                 </span>
               </p>
               <p className="text-sm text-white/60 mb-3">漲價倒數</p>
-              <p className="text-3xl sm:text-4xl font-bold text-[#D4B483]">
+              <p className="text-3xl sm:text-4xl font-bold text-[#D4B483] mb-4">
                 {timeLeft.days} 天 {String(timeLeft.hours).padStart(2, "0")} 時{" "}
                 {String(timeLeft.minutes).padStart(2, "0")} 分 {String(timeLeft.seconds).padStart(2, "0")} 秒
               </p>
+              {/* Button to open timeline modal */}
+              <button
+                onClick={() => setShowTimelineModal(true)}
+                className="text-sm text-white/70 hover:text-[#D4B483] transition-colors underline underline-offset-4"
+              >
+                漲價時間軸
+              </button>
             </div>
           )}
         </div>
@@ -468,6 +333,170 @@ export function PricingSection() {
           </div>
         </div>
       </div>
+
+      {showTimelineModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          {/* Backdrop */}
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setShowTimelineModal(false)} />
+
+          {/* Modal Content */}
+          <div className="relative bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            {/* Close Button */}
+            <button
+              onClick={() => setShowTimelineModal(false)}
+              className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition-colors z-10"
+            >
+              <X className="w-5 h-5 text-[#33393C]" />
+            </button>
+
+            <div className="p-6 sm:p-8">
+              <h3 className="text-xl sm:text-2xl font-bold text-[#17464F] text-center mb-8">價格階段時間軸</h3>
+
+              {/* Desktop: 橫向時間軸 */}
+              <div className="hidden md:block">
+                <div className="relative overflow-x-auto pb-4">
+                  <div className="flex items-center justify-between min-w-max px-4">
+                    {(timelineExpanded ? stages : collapsedStages).map((stage, index, arr) => {
+                      const now = new Date()
+                      const isPast = now > stage.endAt
+                      const isCurrent = now >= stage.startAt && now <= stage.endAt
+                      const isNext =
+                        !isCurrent &&
+                        !isPast &&
+                        stages.findIndex((s) => s.id === stage.id) ===
+                          stages.findIndex((s) => now >= s.startAt && now <= s.endAt) + 1
+                      const isOriginal = stage.id === "stage_12"
+
+                      return (
+                        <div key={stage.id} className="flex items-center">
+                          <div className="flex flex-col items-center">
+                            <div
+                              className={`w-4 h-4 rounded-full border-2 ${
+                                isCurrent
+                                  ? "bg-[#D4B483] border-[#D4B483] ring-4 ring-[#D4B483]/20"
+                                  : isNext
+                                    ? "bg-[#17464F] border-[#17464F]"
+                                    : isPast
+                                      ? "bg-gray-300 border-gray-300"
+                                      : isOriginal
+                                        ? "bg-[#A06E56] border-[#A06E56]"
+                                        : "bg-white border-[#17464F]"
+                              }`}
+                            />
+                            <div className="mt-2 text-center">
+                              <div
+                                className={`text-xs font-medium ${
+                                  isCurrent
+                                    ? "text-[#D4B483]"
+                                    : isNext
+                                      ? "text-[#17464F] font-bold"
+                                      : isPast
+                                        ? "text-gray-400"
+                                        : isOriginal
+                                          ? "text-[#A06E56]"
+                                          : "text-[#17464F]"
+                                }`}
+                              >
+                                {stage.name}
+                                {isCurrent && <span className="block text-[10px]">(目前)</span>}
+                                {isNext && <span className="block text-[10px]">(下一階段)</span>}
+                              </div>
+                              <div className={`text-xs ${isPast ? "text-gray-400" : "text-[#33393C]"}`}>
+                                {stage.discountLabel}
+                              </div>
+                              <div className={`text-xs ${isPast ? "text-gray-400" : "text-[#33393C]/60"}`}>
+                                ~{stage.endAt.getMonth() + 1}/{stage.endAt.getDate()}
+                              </div>
+                            </div>
+                          </div>
+                          {index < arr.length - 1 && (
+                            <div className={`w-16 h-0.5 mx-2 ${isPast ? "bg-gray-300" : "bg-[#17464F]/20"}`} />
+                          )}
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+                <div className="text-center mt-4">
+                  <button
+                    onClick={() => setTimelineExpanded(!timelineExpanded)}
+                    className="text-sm text-[#17464F] hover:text-[#D4B483] transition-colors underline"
+                  >
+                    {timelineExpanded ? "收起" : "展開全部 12 個階段"}
+                  </button>
+                </div>
+              </div>
+
+              {/* Mobile: 垂直卡片 */}
+              <div className="md:hidden space-y-3">
+                {(showAllStagesMobile ? stages : collapsedStagesMobile).map((stage) => {
+                  const now = new Date()
+                  const isPast = now > stage.endAt
+                  const isCurrent = now >= stage.startAt && now <= stage.endAt
+                  const isNext =
+                    !isCurrent &&
+                    !isPast &&
+                    stages.findIndex((s) => s.id === stage.id) ===
+                      stages.findIndex((s) => now >= s.startAt && now <= s.endAt) + 1
+                  const isOriginal = stage.id === "stage_12"
+
+                  return (
+                    <div
+                      key={stage.id}
+                      className={`p-4 rounded-xl border ${
+                        isCurrent
+                          ? "border-[#D4B483] bg-[#D4B483]/10"
+                          : isNext
+                            ? "border-[#17464F] bg-[#17464F]/5"
+                            : isPast
+                              ? "border-gray-200 bg-gray-50"
+                              : isOriginal
+                                ? "border-[#A06E56]/50 bg-[#A06E56]/5"
+                                : "border-[#17464F]/20 bg-white"
+                      }`}
+                    >
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <div
+                            className={`font-medium ${
+                              isCurrent
+                                ? "text-[#D4B483]"
+                                : isNext
+                                  ? "text-[#17464F] font-bold"
+                                  : isPast
+                                    ? "text-gray-400"
+                                    : isOriginal
+                                      ? "text-[#A06E56]"
+                                      : "text-[#17464F]"
+                            }`}
+                          >
+                            {stage.name}
+                            {isCurrent && <span className="ml-2 text-xs">(目前)</span>}
+                            {isNext && <span className="ml-2 text-xs">(下一階段)</span>}
+                          </div>
+                          <div className={`text-sm ${isPast ? "text-gray-400" : "text-[#33393C]/70"}`}>
+                            {stage.discountLabel} · ~{stage.endAt.getMonth() + 1}/{stage.endAt.getDate()}
+                          </div>
+                        </div>
+                        <div className={`text-right ${isPast ? "text-gray-400" : "text-[#17464F]"}`}>
+                          <div className="text-sm font-bold">NT$ {formatPrice(stage.prices.selfMedia.stagePrice)}</div>
+                          <div className="text-xs">單線起</div>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
+                <button
+                  onClick={() => setShowAllStagesMobile(!showAllStagesMobile)}
+                  className="w-full py-3 text-sm text-[#17464F] hover:text-[#D4B483] transition-colors underline"
+                >
+                  {showAllStagesMobile ? "收起" : "展開看全部"}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
