@@ -104,7 +104,7 @@ export function PricingSection() {
                 onClick={() => setShowTimelineModal(true)}
                 className="text-sm text-white/70 hover:text-[#D4B483] transition-colors underline underline-offset-4"
               >
-                漲價時間軸
+                查看漲價時間軸
               </button>
             </div>
           )}
