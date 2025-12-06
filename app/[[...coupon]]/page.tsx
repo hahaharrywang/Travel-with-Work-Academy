@@ -523,7 +523,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Card 2: 安全感 */}
+            {/* Card 2 - 安全感 */}
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-[#D4B483]/30 hover:border-[#D4B483]/50 transition-all duration-300 relative group">
               {/* Gold corner accents */}
               <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#D4B483]/60 rounded-tl-2xl" />
@@ -608,23 +608,168 @@ export default function HomePage() {
             </p>
           </div>
         </div>
-      </section>
-      {/* SECTION 2 COURSE HIGHLIGHTS END */}
 
-      {/* SECTION 3 PAIN POINTS START - 切圖版本 */}
-      <section className="w-full bg-[#17464F] overflow-hidden">
-        {/* 桌面版 - 使用 aspect ratio 確保正確比例 */}
-        <div className="w-full" style={{ aspectRatio: "1440 / 925.5" }}>
-          <img
-            src="/images/section3-painpoints-desktop.svg"
-            alt="不是你不努力，而是拼圖還有缺 - 方向斷裂、方法斷裂、同伴斷裂"
-            className="w-full h-full object-cover object-center block"
-            loading="lazy"
-          />
+        {/* Bottom star decoration */}
+        <div className="absolute bottom-10 right-16 hidden lg:block">
+          <svg className="w-12 h-12 text-[#D4B483]/20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+          </svg>
         </div>
       </section>
-      {/* SECTION 3 PAIN POINTS END */}
 
+      {/* SECTION 3 PAIN POINTS START - 三大痛點 (重製版) */}
+      <section className="bg-[#17464F] relative overflow-hidden">
+        {/* 桌面版：顯示切圖 */}
+        <div className="hidden lg:block">
+          <img
+            src="/images/section3-painpoints-desktop.png"
+            alt="不是你不努力，而是拼圖還有缺 - 方向斷裂、方法斷裂、同伴斷裂"
+            className="w-full h-auto"
+          />
+        </div>
+
+        {/* 手機版/平板版：保持原有程式碼佈局 */}
+        <div className="lg:hidden py-16 sm:py-24">
+          {/* 背景裝飾：金色弧線 (極細微) */}
+          <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] border border-[#D4B483]/10 rounded-full -translate-y-1/2"></div>
+            <div className="absolute bottom-0 right-0 w-[600px] h-[600px] border border-[#D4B483]/10 rounded-full translate-y-1/3 translate-x-1/3"></div>
+          </div>
+
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+            {/* 區塊標題 */}
+            <div className="text-center mb-16">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 text-balance">
+                不是你不努力，而是拼圖還有缺
+              </h2>
+              {/* 裝飾用的三點 */}
+              <div className="flex items-center justify-center gap-2 opacity-80">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]"></span>
+              </div>
+            </div>
+
+            {/* 痛點路徑容器 */}
+            <div className="relative">
+              {/* 痛點 1: 方向斷裂 */}
+              <div className="relative z-10 flex flex-col items-center gap-6 mb-8">
+                <div className="w-20 h-20 flex items-center justify-center">
+                  <svg
+                    className="w-16 h-16 text-[#D4B483]"
+                    viewBox="0 0 64 64"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  >
+                    <circle cx="32" cy="32" r="20" />
+                    <circle cx="32" cy="32" r="4" fill="currentColor" />
+                    <path d="M32 16V12M32 52V48M16 32H12M52 32H48" strokeWidth="2" />
+                    <path d="M32 32L42 22" strokeWidth="2" />
+                    <text x="48" y="16" fontSize="12" fill="currentColor">
+                      ?
+                    </text>
+                    <text x="8" y="52" fontSize="10" fill="currentColor">
+                      ?
+                    </text>
+                  </svg>
+                </div>
+                <div className="text-center max-w-sm">
+                  <h3 className="text-xl font-bold text-[#D4B483] mb-3">方向斷裂</h3>
+                  <p className="text-white/80 leading-relaxed text-sm">
+                    你是不是也想過很多種版本：有時想去外商、有時想接案當
+                    freelancer，但每次看到別人的故事就改變主意，到最後，反而哪一條都沒真的走下去。
+                  </p>
+                </div>
+              </div>
+
+              {/* 連接線 1 */}
+              <div className="w-0.5 h-10 bg-[#D4B483]/30 mx-auto my-2 relative">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-[#D4B483] rounded-full"></div>
+              </div>
+
+              {/* 痛點 2: 方法斷裂 */}
+              <div className="relative z-10 flex flex-col items-center gap-6 mb-8">
+                <div className="w-20 h-20 flex items-center justify-center">
+                  <svg
+                    className="w-16 h-16 text-[#D4B483]"
+                    viewBox="0 0 64 64"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  >
+                    <rect x="8" y="28" width="20" height="16" rx="2" />
+                    <rect x="36" y="28" width="20" height="16" rx="2" />
+                    <rect x="22" y="12" width="20" height="16" rx="2" />
+                    <path d="M52 20L56 16M56 16V24M56 16H48" strokeWidth="2" />
+                  </svg>
+                </div>
+                <div className="text-center max-w-sm">
+                  <h3 className="text-xl font-bold text-[#D4B483] mb-3">方法斷裂</h3>
+                  <p className="text-white/80 leading-relaxed text-sm">
+                    你也不是沒學東西：買課、看影片、存下很多筆記，真正卡住的是——「那我今天到底要做哪一個小步驟？」所以日子一忙，又回到原本的節奏。
+                  </p>
+                </div>
+              </div>
+
+              {/* 連接線 2 */}
+              <div className="w-0.5 h-10 bg-[#D4B483]/30 mx-auto my-2 relative">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-[#D4B483] rounded-full"></div>
+              </div>
+
+              {/* 痛點 3: 同伴斷裂 */}
+              <div className="relative z-10 flex flex-col items-center gap-6 mb-12">
+                <div className="w-20 h-20 flex items-center justify-center">
+                  <svg
+                    className="w-16 h-16 text-[#D4B483]"
+                    viewBox="0 0 64 64"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  >
+                    <rect x="8" y="16" width="20" height="32" rx="2" />
+                    <circle cx="18" cy="28" r="6" />
+                    <path d="M12 40h12" />
+                    <circle cx="44" cy="24" r="4" fill="currentColor" />
+                    <circle cx="36" cy="32" r="4" fill="currentColor" />
+                    <circle cx="52" cy="32" r="4" fill="currentColor" />
+                    <circle cx="40" cy="40" r="4" fill="currentColor" />
+                    <circle cx="48" cy="40" r="4" fill="currentColor" />
+                  </svg>
+                </div>
+                <div className="text-center max-w-sm">
+                  <h3 className="text-xl font-bold text-[#D4B483] mb-3">同伴斷裂</h3>
+                  <p className="text-white/80 leading-relaxed text-sm">
+                    身邊的人大多走很標準的路，你很難跟他們分享「我其實想過不一樣的生活」。不知道可以跟誰討論、問誰意見，久了就習慣把這些想法藏在心裡。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 結語區塊 */}
+            <div className="relative mt-8">
+              <div className="w-0.5 h-6 bg-[#D4B483]/30 mx-auto mb-6"></div>
+
+              <div className="max-w-2xl mx-auto px-6 py-8 rounded-2xl border-2 border-[#D4B483]/30 bg-[#17464F]/50 backdrop-blur-sm text-center relative">
+                <p className="text-base sm:text-lg text-white font-bold leading-relaxed">
+                  你缺的不是更多資訊，而是一個地方，
+                  <span className="block mt-2 text-[#D4B483]">
+                    讓你在未來六個月裡，有人陪你一起試、一起走、一起調整方向。
+                  </span>
+                </p>
+
+                {/* 底部箭頭 */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
+                  <svg className="h-5 w-5 text-[#D4B483]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* SECTION 3 PAIN POINTS END (重製版) */}
       {/* SECTION 2 COURSE HIGHLIGHTS CONTINUED (Part 2: 三大亮點) START */}
       <section className="py-16 sm:py-24 bg-[#F5F3ED]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1067,7 +1212,7 @@ export default function HomePage() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110-4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 11-4 0 2 2 0 014 0m0 4v2m0-6V4"
+                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110-4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
                   />
                 </svg>
               </div>
@@ -1153,7 +1298,7 @@ export default function HomePage() {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth={2}
-                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
                       />
                     </svg>
                   </div>
@@ -1262,7 +1407,7 @@ export default function HomePage() {
                 </div>
                 <div className="p-6 space-y-4">
                   {[
-                    { week: 6, title: "突破薪資天花板：跨國職涯的高薪祕訣", instructor: "許詮", type: "B線" },
+                    { week: 6, title: "突破薪資天花板：跨國職涯的高薪祕訣", instructor: "許詮", type: "通識" },
                     { week: 7, title: "讓機會找上你：LinkedIn 國際個人品牌攻略", instructor: "Shelley", type: "B線" },
                     {
                       week: 8,
@@ -1380,6 +1525,107 @@ export default function HomePage() {
           )}
         </div>
       </section>
+      {selectedWeek && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+          onClick={() => setSelectedWeek(null)}
+        >
+          <div
+            className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedWeek(null)}
+              className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-400 hover:text-gray-600 text-xl font-bold z-10"
+            >
+              ×
+            </button>
+
+            <div className="p-6 pr-12">
+              <div className="flex items-center gap-4 mb-6">
+                <Image
+                  src={selectedWeek.instructorData?.image || "/placeholder.svg"}
+                  alt={selectedWeek.instructor}
+                  width={80}
+                  height={80}
+                  className="w-20 h-20 rounded-full object-cover shadow-lg ring-4 ring-[#D4B483]/30"
+                />
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="bg-[#17464F] px-3 py-1 rounded-full text-sm font-semibold text-white">
+                      第 {selectedWeek.week} 週
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold text-[#17464F] mb-1">{selectedWeek.instructor}</h3>
+                  <p className="text-[#33393C] text-sm">{selectedWeek.instructorData?.title}</p>
+                </div>
+              </div>
+
+              <div className="mb-6">
+                <h2 className="text-2xl font-bold text-[#17464F] mb-4 text-balance">{selectedWeek.title}</h2>
+                <div className="w-full h-1 rounded-full bg-[#D4B483]"></div>
+              </div>
+
+              <div className="mb-6">
+                <h4 className="text-lg font-semibold text-[#17464F] mb-3">課程目標</h4>
+                <div className="bg-[#F5F3ED] p-4 rounded-xl">
+                  <p className="text-[#33393C] leading-relaxed">
+                    {selectedWeek.month === 1 &&
+                      selectedWeek.week === 1 &&
+                      "打開對數位遊牧生活的想像，理解不同型態的遠距人生可能樣貌。掌握多元收入模式，從自由接案、自媒體經營到被動收入。繪製專屬的遊牧起點地圖，找到屬於自己的第一步。"}
+                    {selectedWeek.month === 1 &&
+                      selectedWeek.week === 2 &&
+                      "掌握 AI 與自動化的實際應用，學會與 AI 有效溝通並設計串接流程，完成第一個「從對話到自動化」的完整任務。"}
+                    {selectedWeek.month === 1 &&
+                      selectedWeek.week === 3 &&
+                      "學會定位並經營個人品牌，設計內容架構，提升流量與轉化力，完成一篇具備爆紅潛力的作品。"}
+                    {selectedWeek.month === 1 &&
+                      selectedWeek.week === 4 &&
+                      "掌握短影片流量密碼，理解爆紅三要素，完成一支短影片，體驗從腳本到成片，建立內容規劃能力，規劃未來短影片腳本。"}
+                    {selectedWeek.month === 1 &&
+                      selectedWeek.week === 5 &&
+                      "學會將作品轉化為能銷售的方案，練習現場銷售話術與應對，完成第一個可推廣的接案方案。"}
+                    {selectedWeek.month === 2 &&
+                      selectedWeek.week === 6 &&
+                      "拓展國際視野，了解跨國企業工作的可能性，學習規劃跨國職涯並提升薪資談判力，從真實案例找到國際職涯突破點。"}
+                    {selectedWeek.month === 2 &&
+                      selectedWeek.week === 7 &&
+                      "優化 LinkedIn 個人檔案，提升能見度，打造專業形象與品牌，吸引企業與合作邀約，學會主動 + 被動並行策略，拓展高品質人脈，建立即時可用的 LinkedIn 實戰方法。"}
+                    {selectedWeek.month === 2 &&
+                      selectedWeek.week === 8 &&
+                      "精準分析 JD，掌握雇主需求，熟悉外商面試流程與關鍵環節，完成一份客製化履歷與 Cover Letter draft，模擬外商面試問答，展現關鍵能力。"}
+                    {selectedWeek.month === 2 &&
+                      selectedWeek.week === 9 &&
+                      "學會優化履歷，在國際獵頭眼中脫穎而出，掌握薪資談判技巧，提升談判成功率，了解跨國職缺申請流程並實際投遞，建立職涯成長策略，找到「下一步」。"}
+                    {selectedWeek.month === 3 &&
+                      selectedWeek.week === 10 &&
+                      "學會知識產品全景介紹，知識萃取技巧，快速驗證方法。"}
+                    {selectedWeek.month === 3 &&
+                      selectedWeek.week === 11 &&
+                      "制定旅居財務規劃表，掌握收支平衡，了解跨國移動中如何保持財務穩定，預備未來自由生活，降低財務焦慮。"}
+                    {selectedWeek.month === 3 &&
+                      selectedWeek.week === 12 &&
+                      "學會設計生活與工作 SOP，建立可持續的人生規劃，建立身心靈平衡，提升專注力與效能，學會自我覺察與有效溝通。"}
+                  </p>
+                </div>
+              </div>
+
+              <div className="mb-6">
+                <h4 className="text-lg font-semibold text-[#17464F] mb-3">講師更多資訊</h4>
+                <a
+                  href={selectedWeek.instructorData?.link || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-[#17464F] hover:bg-[#17464F]/80 px-6 py-3 rounded-lg text-white font-semibold transition-colors duration-200"
+                >
+                  更多講師資訊
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* SECTION 5: COURSE MAP END */}
 
       {/* SECTION 6: PODCAST LEADERS */}
