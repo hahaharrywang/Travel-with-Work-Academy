@@ -462,7 +462,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* SECTION 1 HERO END */}
       {/* SECTION 2 COURSE HIGHLIGHTS START - 正在尋找「下一步」的你 */}
       <section id="course-highlights" className="py-16 sm:py-24 bg-[#17464F] relative overflow-hidden">
         {/* Decorative elements */}
@@ -911,15 +910,17 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* SECTION 2 COURSE HIGHLIGHTS CONTINUED (Part 2) END */}
       {/* SECTION 3 PAIN POINTS START - 三大痛點 (重製版) */}
       <section className="bg-[#17464F] relative overflow-hidden">
         {/* 桌面版：顯示切圖 */}
         <div className="hidden lg:block">
-          <img
+          <Image
             src="/images/section3-painpoints-desktop.png"
             alt="不是你不努力，而是拼圖還有缺 - 方向斷裂、方法斷裂、同伴斷裂"
+            width={1920}
+            height={800}
             className="w-full h-auto"
+            priority
           />
         </div>
 
@@ -1064,9 +1065,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* SECTION 3 PAIN POINTS END (重製版) */}
-
-      {/* SECTION 2 COURSE HIGHLIGHTS CONTINUED (Part 2) END */}
+      {/* SECTION 4 COURSE HIGHLIGHTS CONTINUED (Part 2) END */}
       {/* SECTION 2.1 ECOSYSTEM PARTNERSHIP START - 生態系 */}
       <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1151,8 +1150,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* SECTION 2.1 ECOSYSTEM PARTNERSHIP END */}
-      {/* SECTION 4 INSTRUCTORS START - 師資 */}
+      {/* SECTION 5 INSTRUCTORS START - 師資 */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -1296,8 +1294,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* SECTION 4 INSTRUCTORS END */}
-      {/* SECTION 5 COURSE OUTLINE START - 課程地圖 */}
+      {/* SECTION 6 COURSE OUTLINE START - 課程地圖 */}
       <section id="course-map" className="py-16 sm:py-24 bg-[#F5F3ED]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -1448,7 +1445,7 @@ export default function HomePage() {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth={2}
-                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
                       />
                     </svg>
                   </div>
@@ -1713,113 +1710,16 @@ export default function HomePage() {
           )}
         </div>
       </section>
-      {selectedWeek && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
-          onClick={() => setSelectedWeek(null)}
-        >
-          <div
-            className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={() => setSelectedWeek(null)}
-              className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-400 hover:text-gray-600 text-xl font-bold z-10"
-            >
-              ×
-            </button>
+      {/* SECTION 6: COURSE MAP END */}
 
-            <div className="p-6 pr-12">
-              <div className="flex items-center gap-4 mb-6">
-                <Image
-                  src={selectedWeek.instructorData?.image || "/placeholder.svg"}
-                  alt={selectedWeek.instructor}
-                  width={80}
-                  height={80}
-                  className="w-20 h-20 rounded-full object-cover shadow-lg ring-4 ring-[#D4B483]/30"
-                />
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="bg-[#17464F] px-3 py-1 rounded-full text-sm font-semibold text-white">
-                      第 {selectedWeek.week} 週
-                    </span>
-                  </div>
-                  <h3 className="text-xl font-bold text-[#17464F] mb-1">{selectedWeek.instructor}</h3>
-                  <p className="text-[#33393C] text-sm">{selectedWeek.instructorData?.title}</p>
-                </div>
-              </div>
+      {/* SECTIONS CONTINUED... */}
 
-              <div className="mb-6">
-                <h2 className="text-2xl font-bold text-[#17464F] mb-4 text-balance">{selectedWeek.title}</h2>
-                <div className="w-full h-1 rounded-full bg-[#D4B483]"></div>
-              </div>
-
-              <div className="mb-6">
-                <h4 className="text-lg font-semibold text-[#17464F] mb-3">課程目標</h4>
-                <div className="bg-[#F5F3ED] p-4 rounded-xl">
-                  <p className="text-[#33393C] leading-relaxed">
-                    {selectedWeek.month === 1 &&
-                      selectedWeek.week === 1 &&
-                      "打開對數位遊牧生活的想像，理解不同型態的遠距人生可能樣貌。掌握多元收入模式，從自由接案、自媒體經營到被動收入。繪製專屬的遊牧起點地圖，找到屬於自己的第一步。"}
-                    {selectedWeek.month === 1 &&
-                      selectedWeek.week === 2 &&
-                      "掌握 AI 與自動化的實際應用，學會與 AI 有效溝通並設計串接流程，完成第一個「從對話到自動化」的完整任務。"}
-                    {selectedWeek.month === 1 &&
-                      selectedWeek.week === 3 &&
-                      "學會定位並經營個人品牌，設計內容架構，提升流量與轉化力，完成一篇具備爆紅潛力的作品。"}
-                    {selectedWeek.month === 1 &&
-                      selectedWeek.week === 4 &&
-                      "掌握短影片流量密碼，理解爆紅三要素，完成一支短影片，體驗從腳本到成片，建立內容規劃能力，規劃未來短影片腳本。"}
-                    {selectedWeek.month === 1 &&
-                      selectedWeek.week === 5 &&
-                      "學會將作品轉化為能銷售的方案，練習現場銷售話術與應對，完成第一個可推廣的接案方案。"}
-                    {selectedWeek.month === 2 &&
-                      selectedWeek.week === 6 &&
-                      "拓展國際視野，了解跨國企業工作的可能性，學習規劃跨國職涯並提升薪資談判力，從真實案例找到國際職涯突破點。"}
-                    {selectedWeek.month === 2 &&
-                      selectedWeek.week === 7 &&
-                      "優化 LinkedIn 個人檔案，提升能見度，打造專業形象與品牌，吸引企業與合作邀約，學會主動 + 被動並行策略，拓展高品質人脈，建立即時可用的 LinkedIn 實戰方法。"}
-                    {selectedWeek.month === 2 &&
-                      selectedWeek.week === 8 &&
-                      "精準分析 JD，掌握雇主需求，熟悉外商面試流程與關鍵環節，完成一份客製化履歷與 Cover Letter draft，模擬外商面試問答，展現關鍵能力。"}
-                    {selectedWeek.month === 2 &&
-                      selectedWeek.week === 9 &&
-                      "學會優化履歷，在國際獵頭眼中脫穎而出，掌握薪資談判技巧，提升談判成功率，了解跨國職缺申請流程並實際投遞，建立職涯成長策略，找到「下一步」。"}
-                    {selectedWeek.month === 3 &&
-                      selectedWeek.week === 10 &&
-                      "學會知識產品全景介紹，知識萃取技巧，快速驗證方法。"}
-                    {selectedWeek.month === 3 &&
-                      selectedWeek.week === 11 &&
-                      "制定旅居財務規劃表，掌握收支平衡，了解跨國移動中如何保持財務穩定，預備未來自由生活，降低財務焦慮。"}
-                    {selectedWeek.month === 3 &&
-                      selectedWeek.week === 12 &&
-                      "學會設計生活與工作 SOP，建立可持續的人生規劃，建立身心靈平衡，提升專注力與效能，學會自我覺察與有效溝通。"}
-                  </p>
-                </div>
-              </div>
-
-              <div className="mb-6">
-                <h4 className="text-lg font-semibold text-[#17464F] mb-3">講師更多資訊</h4>
-                <a
-                  href={selectedWeek.instructorData?.link || "#"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-[#17464F] hover:bg-[#17464F]/80 px-6 py-3 rounded-lg text-white font-semibold transition-colors duration-200"
-                >
-                  更多講師資訊
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* SECTION 5: COURSE MAP END */}
-
-      {/* SECTION 6: PODCAST LEADERS */}
+      {/* PRICING SECTION */}
       <section className="py-16 sm:py-24 bg-[#17464F] relative overflow-hidden">
         <PricingSection />
       </section>
+
+      {/* LIMITED OFFER SECTION */}
       <section className="py-16 sm:py-20 bg-gradient-to-br from-[#17464F] to-[#1a5561]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-white/95 backdrop-blur rounded-2xl p-8 sm:p-12 shadow-xl border border-[#C9D7D4]">
@@ -1894,6 +1794,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ SECTION */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -1912,6 +1814,8 @@ export default function HomePage() {
           <FAQSection />
         </div>
       </section>
+
+      {/* FOOTER */}
       <footer className="py-8 bg-[#17464F] text-white text-center">
         <p className="text-sm text-white/80">
           &copy; 2025 遠距遊牧學院 Travel With Work Academy. All rights reserved.
@@ -1928,6 +1832,8 @@ export default function HomePage() {
           / Email: Academy@travelwork.life
         </p>
       </footer>
+
+      {/* GALLERY MODAL */}
       {isGalleryOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4 z-50"
@@ -2010,6 +1916,8 @@ export default function HomePage() {
           </div>
         </div>
       )}
+
+      {/* HIGHLIGHT POPUP */}
       {highlightPopup.isOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
@@ -2035,6 +1943,7 @@ export default function HomePage() {
           </div>
         </div>
       )}
+
       <StickyBottomBar scrollToPricing={scrollToPricing} />
     </main>
   )
