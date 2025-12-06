@@ -608,7 +608,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* SECTION 2 COURSE HIGHLIGHTS CONTINUED (Part 2: 三大亮點) START */}
+      {/* SECTION 2.1 COURSE HIGHLIGHTS CONTINUED (Part 2: 三大亮點) START */}
       <section className="py-16 sm:py-24 bg-[#F7F2EA]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
@@ -941,7 +941,7 @@ export default function HomePage() {
               {/* 裝飾用的三點 */}
               <div className="flex items-center justify-center gap-2 opacity-80">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]"></span>
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#17464F]"></span>
                 <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]"></span>
               </div>
             </div>
@@ -1065,7 +1065,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* SECTION 4 COURSE HIGHLIGHTS CONTINUED (Part 2) END */}
       {/* SECTION 2.1 ECOSYSTEM PARTNERSHIP START - 生態系 */}
       <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1710,16 +1709,11 @@ export default function HomePage() {
           )}
         </div>
       </section>
-      {/* SECTION 6: COURSE MAP END */}
-
-      {/* SECTIONS CONTINUED... */}
-
-      {/* PRICING SECTION */}
-      <section className="py-16 sm:py-24 bg-[#17464F] relative overflow-hidden">
+      <section id="pricing-section" className="py-16 sm:py-24 bg-[#17464F] relative overflow-hidden">
         <PricingSection />
       </section>
 
-      {/* LIMITED OFFER SECTION */}
+      {/* SECTION LIMITED OFFER */}
       <section className="py-16 sm:py-20 bg-gradient-to-br from-[#17464F] to-[#1a5561]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-white/95 backdrop-blur rounded-2xl p-8 sm:p-12 shadow-xl border border-[#C9D7D4]">
@@ -1794,8 +1788,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* FAQ SECTION */}
+      {/* SECTION FAQ */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -1917,7 +1910,7 @@ export default function HomePage() {
         </div>
       )}
 
-      {/* HIGHLIGHT POPUP */}
+      {/* HIGHLIGHT POPUP MODAL */}
       {highlightPopup.isOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
@@ -1939,6 +1932,45 @@ export default function HomePage() {
               {highlightPopup.content.split("\n").map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* SELECTED WEEK MODAL */}
+      {selectedWeek && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+          onClick={() => setSelectedWeek(null)}
+        >
+          <div
+            className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative p-6"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedWeek(null)}
+              className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-400 hover:text-gray-600 text-xl font-bold z-10"
+            >
+              ×
+            </button>
+            <div className="flex items-center gap-4 mb-6">
+              <Image
+                src={selectedWeek.instructorData?.image || "/placeholder.svg"}
+                alt={selectedWeek.instructor}
+                width={80}
+                height={80}
+                className="w-20 h-20 rounded-full object-cover shadow-md"
+              />
+              <div>
+                <span className="bg-[#17464F] text-white px-3 py-1 rounded-full text-sm font-semibold">
+                  第 {selectedWeek.week} 週
+                </span>
+                <h3 className="text-xl font-bold text-[#17464F] mt-2">{selectedWeek.title}</h3>
+                <p className="text-[#D4B483] font-medium">{selectedWeek.instructor}</p>
+              </div>
+            </div>
+            <div className="text-sm text-[#33393C] leading-relaxed">
+              <p>{selectedWeek.instructorData?.background}</p>
             </div>
           </div>
         </div>
