@@ -608,7 +608,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* SECTION 3 PAIN POINTS START - 三大痛點 (重製版) */}
       <section className="bg-[#17464F] relative overflow-hidden">
         {/* 桌面版：顯示切圖 */}
@@ -1068,7 +1067,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* SECTION 2.1 COURSE HIGHLIGHTS CONTINUED (Part 2: 三大亮點) END */}
       {/* SECTION 3 PAIN POINTS START - 三大痛點 (重製版) */}
       <section className="bg-[#17464F] relative overflow-hidden">
         {/* 桌面版：顯示切圖 */}
