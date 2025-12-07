@@ -608,6 +608,125 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* SECTION 3 PAINPOINTS - 不是你不努力，而是拼圖還有缺 */}
+      <section className="relative bg-[#17464F] overflow-hidden">
+        {/* Desktop: Show image */}
+        <div className="hidden lg:block">
+          <img
+            src="/images/section3-painpoints-desktop.png"
+            alt="不是你不努力，而是拼圖還有缺 - 方向斷裂、方法斷裂、同伴斷裂"
+            className="w-full h-auto"
+          />
+        </div>
+
+        {/* Mobile: Code-based layout */}
+        <div className="lg:hidden py-16 px-4 sm:px-6">
+          <div className="max-w-lg mx-auto">
+            {/* Title */}
+            <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-10">
+              不是你不努力，
+              <br />
+              而是拼圖還有缺
+            </h2>
+
+            {/* Pain Point Cards */}
+            <div className="space-y-6 mb-10">
+              {/* Card 1: 方向斷裂 */}
+              <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-[#D4B483]/30">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-full bg-[#D4B483]/20 flex items-center justify-center">
+                    <svg
+                      className="w-5 h-5 text-[#D4B483]"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-bold text-[#D4B483]">方向斷裂</h3>
+                </div>
+                <p className="text-white/70 text-sm leading-relaxed">
+                  你是不是也想過很多種版本：有時想去外商、有時想接案當
+                  freelancer，但每次看到別人的故事就改變主意，到最後，反而哪一條都沒真的走下去。
+                </p>
+              </div>
+
+              {/* Card 2: 方法斷裂 */}
+              <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-[#D4B483]/30">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-full bg-[#D4B483]/20 flex items-center justify-center">
+                    <svg
+                      className="w-5 h-5 text-[#D4B483]"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                    >
+                      <rect x="3" y="3" width="7" height="7" rx="1" />
+                      <rect x="14" y="3" width="7" height="7" rx="1" />
+                      <rect x="3" y="14" width="7" height="7" rx="1" />
+                      <rect x="14" y="14" width="7" height="7" rx="1" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-bold text-[#D4B483]">方法斷裂</h3>
+                </div>
+                <p className="text-white/70 text-sm leading-relaxed">
+                  你也不是沒學東西：買課、看影片、存下很多筆記，真正卡住的是——『那我今天到底要做哪一個小步驟？』所以日子一忙，又回到原本的節奏。
+                </p>
+              </div>
+
+              {/* Card 3: 同伴斷裂 */}
+              <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-[#D4B483]/30">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-full bg-[#D4B483]/20 flex items-center justify-center">
+                    <svg
+                      className="w-5 h-5 text-[#D4B483]"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                    >
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-bold text-[#D4B483]">同伴斷裂</h3>
+                </div>
+                <p className="text-white/70 text-sm leading-relaxed">
+                  身邊的人大多走很標準的路，你很難跟他們分享『我其實想過不一樣的生活』。不知道可以跟誰討論、問誰意見，久了就習慣把這些想法藏在心裡。
+                </p>
+              </div>
+            </div>
+
+            {/* Conclusion Box */}
+            <div className="border-2 border-[#D4B483] rounded-xl p-6 text-center">
+              <p className="text-white leading-relaxed">
+                你缺的不是更多資訊，而是一個地方，讓你在未來六個月裡，有人陪你一起試、一起走、一起調整方向。
+              </p>
+              {/* Down Arrow */}
+              <div className="mt-4 flex justify-center">
+                <svg
+                  className="w-6 h-6 text-[#D4B483] animate-bounce"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* END SECTION 3 PAINPOINTS */}
+
       {/* SECTION 2.1 COURSE HIGHLIGHTS CONTINUED (Part 2: 三大亮點) START */}
       <section className="py-16 sm:py-24 bg-[#F7F2EA]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -910,6 +1029,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
       {/* SECTION 3 PAIN POINTS START - 三大痛點 (重製版) */}
       <section className="bg-[#17464F] relative overflow-hidden">
         {/* 桌面版：顯示切圖 */}
