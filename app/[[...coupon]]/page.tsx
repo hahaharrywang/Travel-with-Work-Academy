@@ -2,7 +2,7 @@
 
 import { useParams } from "next/navigation"
 
-import { useState, useEffect, useCallback, useMemo } from "react"
+import { useState, useEffect, useCallback, useMemo, useRef } from "react" // Import useRef
 import Image from "next/image"
 import { ChevronDown, ChevronUp, X, Calendar, TrendingUp, FileText, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -171,6 +171,8 @@ export default function HomePage() {
   }
 
   const [showCalendarModal, setShowCalendarModal] = useState(false)
+  const [showCalendarInline, setShowCalendarInline] = useState(false)
+  const calendarSectionRef = useRef<HTMLDivElement>(null)
   const [expandedWeeks, setExpandedWeeks] = useState<Set<number>>(new Set())
   const [calendarPhaseFilter, setCalendarPhaseFilter] = useState<string>("全部")
   const [calendarTrackFilter, setCalendarTrackFilter] = useState<string>("雙軌")
@@ -427,7 +429,7 @@ export default function HomePage() {
       type: "學院功能",
       track: "全體共同",
       title: "交流／成果發表（月末）＋共創成員募集",
-      focusShort: "用一個月的尾聲，把出擊成果與共創意向說清楚。",
+      focusShort: "用一個月的尾聲，把出擊成果與共 ক্রমাগত意向說清楚。",
       focusDetail:
         "準備一個小 recap：① 這一個月你投了多少 JD、發了多少內容、② 最有成就感的一件事、③ 想參與或已加入的共創專案。最低行動：在交流會上分享你的數字與故事，並針對共創專案提出至少 1 個你想參與的角色或任務。",
       instructors: [
@@ -1167,7 +1169,7 @@ export default function HomePage() {
               三大亮點，讓改變真的走起來
             </h2>
             <p className="text-base sm:text-lg text-[#33393C] max-w-2xl mx-auto leading-relaxed">
-              不只是多上一門課，而是同時給你：
+              不只是多上一門課，而是同時 તમને：
               <br />
               雙軌資源、行動任務和一群真的在實驗新生活的同伴。
             </p>
@@ -1782,7 +1784,7 @@ export default function HomePage() {
                     </span>
                     <p className="text-xs text-[#33393C]/70 mb-1">第 1–8 週</p>
                     <p className="text-xs text-[#33393C] leading-relaxed">
-                      遠端職涯地圖、目標設定、AI 工作流 demo；盤點經歷、改寫 LinkedIn 與履歷骨架。
+                      遠距職涯地圖、目標設定、AI 工作流 demo；盤點經歷、改寫 LinkedIn 與履歷骨架。
                     </p>
                   </div>
                   {/* Phase 2 */}
@@ -2029,9 +2031,17 @@ export default function HomePage() {
           )}
 
           {/* CTA Button */}
-          <div className="text-center mt-10">
+          <div id="learning-map-cta" className="text-center mt-10">
             <button
-              onClick={() => setShowCalendarModal(true)}
+              onClick={() => {
+                setShowCalendarInline(!showCalendarInline)
+                // Scroll to calendar section after a brief delay for render
+                if (!showCalendarInline) {
+                  setTimeout(() => {
+                    calendarSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
+                  }, 100)
+                }
+              }}
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#17464F] text-white rounded-full font-medium hover:bg-[#17464F]/90 transition-all duration-300 shadow-lg"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2042,10 +2052,189 @@ export default function HomePage() {
                   d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                 />
               </svg>
-              打開完整 3+3 學習行事曆
+              {showCalendarInline ? "收合學習行事曆" : "展開完整 3+3 學習行事曆"}
+              {showCalendarInline ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
             </button>
             <p className="text-sm text-[#33393C]/60 mt-2">看看 24 週每一週三，實際在做什麼</p>
           </div>
+
+          {showCalendarInline && (
+            <div ref={calendarSectionRef} className="mt-12 animate-in slide-in-from-top-4 fade-in duration-500">
+              <div className="bg-white rounded-2xl shadow-xl border border-[#C9D7D4] overflow-hidden">
+                {/* Header */}
+                <div className="bg-gradient-to-r from-[#17464F] to-[#1a5561] px-6 py-6 text-white">
+                  <h3 className="text-xl md:text-2xl font-bold">完整 3+3 學習行事曆</h3>
+                  <p className="text-sm text-white/80 mt-1">
+                    24 週的課程與行動任務，分成三個階段：起步打底、出擊試水、累積整合。
+                  </p>
+
+                  {/* Track Filter */}
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    <span className="text-xs text-white/70 self-center mr-1">路線：</span>
+                    {["雙軌", "遠端上班", "自媒體接案"].map((track) => (
+                      <button
+                        key={track}
+                        onClick={() => setCalendarTrackFilter(track)}
+                        className={`px-3 py-1.5 text-xs rounded-full transition-all ${
+                          calendarTrackFilter === track
+                            ? "bg-white text-[#17464F] font-medium"
+                            : "bg-white/20 text-white hover:bg-white/30"
+                        }`}
+                      >
+                        {track}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Timeline Content */}
+                <div className="px-4 md:px-6 py-6">
+                  <div className="space-y-4">
+                    {filteredCalendarData.map((week) => {
+                      const isExpanded = expandedWeeks.has(week.id)
+                      const phaseColor = getPhaseColor(week.phase)
+                      const trackColor = getTrackColor(week.track)
+
+                      return (
+                        <div
+                          key={week.id}
+                          className={`relative border rounded-xl overflow-hidden transition-all ${
+                            isExpanded ? "shadow-md" : "shadow-sm hover:shadow-md"
+                          } ${phaseColor.border}`}
+                        >
+                          {/* Week Header (always visible) */}
+                          <div className="p-4 cursor-pointer" onClick={() => toggleWeekExpansion(week.id)}>
+                            {/* Phase & Month/Week */}
+                            <div className="flex flex-wrap items-center gap-2 mb-2">
+                              <span
+                                className={`px-2 py-0.5 text-xs font-medium rounded ${phaseColor.bg} ${phaseColor.text}`}
+                              >
+                                {week.phase.replace("Phase ", "P")}
+                              </span>
+                              <span className="text-sm text-gray-500">{week.monthWeek}</span>
+                              <span className={`px-2 py-0.5 text-xs rounded ${trackColor.bg} ${trackColor.text}`}>
+                                {week.track}
+                              </span>
+                            </div>
+
+                            {/* Title & Type */}
+                            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+                              <h4 className="text-base md:text-lg font-semibold text-[#17464F]">{week.title}</h4>
+                              <span className="text-xs text-gray-400 shrink-0">{week.type}</span>
+                            </div>
+
+                            {/* Focus Short */}
+                            <p className="text-sm text-gray-600 mt-2 leading-relaxed">{week.focusShort}</p>
+
+                            {/* Instructors & Expand Button */}
+                            <div className="flex items-center justify-between mt-3">
+                              <div className="flex items-center gap-2">
+                                {week.instructors.map((instructor, idx) => (
+                                  <div key={idx} className="flex items-center gap-1.5">
+                                    <div className="w-7 h-7 rounded-full overflow-hidden border-2 border-[#D4B483]/30">
+                                      <Image
+                                        src={instructor.image || "/placeholder.svg"}
+                                        alt={instructor.name}
+                                        width={28}
+                                        height={28}
+                                        className="w-full h-full object-cover"
+                                      />
+                                    </div>
+                                    <span className="text-xs text-gray-600">{instructor.name}</span>
+                                  </div>
+                                ))}
+                              </div>
+                              <button className="flex items-center gap-1 text-xs text-[#17464F] hover:text-[#D4B483] transition-colors">
+                                {isExpanded ? (
+                                  <>
+                                    收合 <ChevronUp className="w-4 h-4" />
+                                  </>
+                                ) : (
+                                  <>
+                                    展開 <ChevronDown className="w-4 h-4" />
+                                  </>
+                                )}
+                              </button>
+                            </div>
+                          </div>
+
+                          {/* Expanded Content */}
+                          {isExpanded && (
+                            <div className="px-4 pb-4 pt-0 border-t border-gray-100">
+                              {/* Focus Detail */}
+                              <div className="mt-4 p-4 bg-[#F7F2EA] rounded-lg">
+                                <h5 className="text-sm font-semibold text-[#17464F] mb-2">本週行動任務</h5>
+                                <p className="text-sm text-gray-700 leading-relaxed">{week.focusDetail}</p>
+                              </div>
+
+                              {/* Instructor Details */}
+                              <div className="mt-4">
+                                <h5 className="text-sm font-semibold text-[#17464F] mb-3">講師資訊</h5>
+                                <div className="flex flex-wrap gap-4">
+                                  {week.instructors.map((instructor, idx) => (
+                                    <div
+                                      key={idx}
+                                      className="flex items-start gap-3 p-3 bg-white border border-gray-100 rounded-lg shadow-sm"
+                                    >
+                                      <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#D4B483]/50 shrink-0">
+                                        <Image
+                                          src={instructor.image || "/placeholder.svg"}
+                                          alt={instructor.name}
+                                          width={48}
+                                          height={48}
+                                          className="w-full h-full object-cover"
+                                        />
+                                      </div>
+                                      <div>
+                                        <p className="font-medium text-[#17464F]">{instructor.name}</p>
+                                        <p className="text-xs text-gray-500">{instructor.title}</p>
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      )
+                    })}
+
+                    {filteredCalendarData.length === 0 && (
+                      <div className="text-center py-12 text-gray-500">
+                        <Calendar className="w-12 h-12 mx-auto mb-3 opacity-30" />
+                        <p>沒有符合篩選條件的週次</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Footer with collapse button */}
+                <div className="bg-[#F5F3ED] px-6 py-4 border-t border-[#C9D7D4]">
+                  <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+                    <p className="text-xs text-gray-500">
+                      共 {filteredCalendarData.length} 週 ·{" "}
+                      {calendarPhaseFilter !== "全部" && `${calendarPhaseFilter} · `}
+                      {calendarTrackFilter !== "全部" && `${calendarTrackFilter}`}
+                    </p>
+                    <button
+                      onClick={() => {
+                        setShowCalendarInline(false)
+                        // Scroll back to the CTA button area
+                        setTimeout(() => {
+                          const ctaButton = document.querySelector("#learning-map-cta")
+                          ctaButton?.scrollIntoView({ behavior: "smooth", block: "center" })
+                        }, 100)
+                      }}
+                      className="inline-flex items-center gap-2 px-4 py-2 text-sm text-[#17464F] hover:text-[#D4B483] transition-colors"
+                    >
+                      <ChevronUp className="w-4 h-4" />
+                      收合行事曆
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </section>
       {/* SECTION 6 COURSE OUTLINE END */}
@@ -2317,6 +2506,7 @@ export default function HomePage() {
         </div>
       )}
 
+      {/* CALENDAR MODAL */}
       {showCalendarModal && (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4"
