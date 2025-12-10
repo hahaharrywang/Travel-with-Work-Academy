@@ -9,8 +9,8 @@ import { Button } from "@/components/ui/button"
 import { usePricing } from "@/contexts/pricing-context"
 import { AnnouncementBar } from "@/components/announcement-bar"
 import { StickyBottomBar } from "@/components/sticky-bottom-bar"
-import PricingSection from "@/components/PricingSection" // Import PricingSection
-import FAQSection from "@/components/FAQSection" // Import FAQSection
+import { PricingSection } from "@/components/sections/pricing-section" // Import PricingSection
+import FAQSection from "@/components/sections/faq-section" // Import FAQSection
 
 // Define PlanId type here or import it if it's defined elsewhere
 type PlanId = "selfMedia" | "remoteJob" | "dualLine"
@@ -1314,6 +1314,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <span className="text-xs font-medium text-[#D4B483] tracking-wide">亮點三｜社群支持</span>
+                    <h3 className="text-xl font-bold text-[#17464F] mt-1">社群支持</h3>
                     <h3 className="text-xl font-bold text-[#17464F] mt-1">共學閒聊群 × LinkedIn群 × 線下聚會</h3>
                   </div>
                 </div>
@@ -2028,223 +2029,21 @@ export default function HomePage() {
           {/* CTA Button */}
           <div className="text-center mt-10">
             <button
-              onClick={() => setShowFullSchedule(!showFullSchedule)}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-[#17464F] text-[#17464F] rounded-full font-medium hover:bg-[#17464F] hover:text-white transition-all duration-300"
+              onClick={() => setShowCalendarModal(true)}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#17464F] text-white rounded-full font-medium hover:bg-[#17464F]/90 transition-all duration-300 shadow-lg"
             >
-              {showFullSchedule ? "收起完整 3+3 學習行事曆" : "打開完整 3+3 學習行事曆"}
-              <svg
-                className={`w-5 h-5 transition-transform duration-300 ${showFullSchedule ? "rotate-180" : ""}`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
               </svg>
+              打開完整 3+3 學習行事曆
             </button>
+            <p className="text-sm text-[#33393C]/60 mt-2">看看 24 週每一週三，實際在做什麼</p>
           </div>
-
-          {/* Full Schedule (existing) */}
-          {showFullSchedule && (
-            <div className="mt-12 space-y-8 animate-in fade-in slide-in-from-top-4 duration-500">
-              <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div className="p-6 bg-[#17464F]">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">第一個月：通識打底 + 自媒體接案啟動</h3>
-                  <p className="text-white/80">核心目標：建立遠距基礎認知，踏出內容創作與接案的第一步</p>
-                </div>
-                <div className="p-6 space-y-4">
-                  {[
-                    {
-                      week: 1,
-                      title: "開學典禮 ＆ 遠距遊牧概論",
-                      instructor: "工具王阿璋",
-                      type: "學院功能｜開學典禮",
-                    },
-                    {
-                      week: 2,
-                      title: "AI ＆ 自動化工具",
-                      instructor: "林上哲",
-                      type: "共同必修",
-                    },
-                    {
-                      week: 3,
-                      title: "自媒體接案變現地圖 & 目標設定",
-                      instructor: "西打藍",
-                      type: "路線必修 – 自媒線",
-                    },
-                    { week: 4, title: "遠端自由職涯地圖 & 目標設定", instructor: "許詮", type: "路線必修 – 上班線" },
-                    { week: 5, title: "交流／成果發表（月末）", instructor: "工具王阿璋", type: "學院功能" },
-                  ].map((item) => (
-                    <div key={item.week} className="flex items-center gap-4 p-4 bg-[#F5F3ED] rounded-xl">
-                      <div className="flex-shrink-0">
-                        <Image
-                          src={instructors.find((i) => i.name === item.instructor)?.image || "/placeholder.svg"}
-                          alt={item.instructor}
-                          width={56}
-                          height={56}
-                          className="w-14 h-14 rounded-full object-cover shadow-md"
-                        />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="bg-[#17464F] text-white px-2 py-0.5 rounded-full text-xs font-semibold">
-                            第 {item.week} 週
-                          </span>
-                          <span
-                            className={`px-2 py-0.5 rounded-full text-xs font-semibold ${item.type.includes("自媒線") ? "bg-[#D4B483] text-white" : item.type.includes("上班線") ? "bg-[#17464F] text-white" : "bg-gray-300 text-gray-800"}`}
-                          >
-                            {item.type.includes("自媒線") ? "自媒線" : item.type.includes("上班線") ? "上班線" : "共同"}
-                          </span>
-                          <span className="text-[#17464F] font-medium text-sm">{item.instructor}</span>
-                        </div>
-                        <h4 className="text-sm sm:text-base font-semibold text-[#33393C] truncate">{item.title}</h4>
-                      </div>
-                      <button
-                        onClick={() =>
-                          setSelectedWeek({
-                            week: item.week,
-                            title: item.title,
-                            instructor: item.instructor,
-                            instructorData: instructors.find((i) => i.name === item.instructor),
-                            month: 1,
-                          })
-                        }
-                        className="flex-shrink-0 bg-[#17464F] hover:bg-[#17464F]/80 text-white px-3 py-1.5 rounded-lg text-xs font-medium transition-colors"
-                      >
-                        詳情
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div className="p-6 bg-[#17464F]">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">第二個月：遠端上班線路深挖</h3>
-                  <p className="text-white/80">核心目標：打造國際履歷、LinkedIn 品牌，掌握外商面試與談薪策略</p>
-                </div>
-                <div className="p-6 space-y-4">
-                  {[
-                    { week: 6, title: "知識變現", instructor: "鮪魚", type: "共同必修" },
-                    { week: 7, title: "LinkedIn 經營全攻略", instructor: "Shelley", type: "路線必修 – 上班線" },
-                    {
-                      week: 8,
-                      title: "外商面試全拆解：讀懂雇主需求，打造讓 HR 馬上點頭的履歷與回答",
-                      instructor: "讀者太太",
-                      type: "路線必修 – 上班線",
-                    },
-                    { week: 9, title: "獵頭與面試談薪策略", instructor: "Emilia", type: "路線必修 – 上班線" },
-                  ].map((item) => (
-                    <div key={item.week} className="flex items-center gap-4 p-4 bg-[#F5F3ED] rounded-xl">
-                      <div className="flex-shrink-0">
-                        <Image
-                          src={instructors.find((i) => i.name === item.instructor)?.image || "/placeholder.svg"}
-                          alt={item.instructor}
-                          width={56}
-                          height={56}
-                          className="w-14 h-14 rounded-full object-cover shadow-md"
-                        />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="bg-[#17464F] text-white px-2 py-0.5 rounded-full text-xs font-semibold">
-                            第 {item.week} 週
-                          </span>
-                          <span
-                            className={`px-2 py-0.5 rounded-full text-xs font-semibold ${item.type.includes("自媒線") ? "bg-[#D4B483] text-white" : item.type.includes("上班線") ? "bg-[#17464F] text-white" : "bg-gray-300 text-gray-800"}`}
-                          >
-                            {item.type.includes("自媒線") ? "自媒線" : item.type.includes("上班線") ? "上班線" : "共同"}
-                          </span>
-                          <span className="text-[#17464F] font-medium text-sm">{item.instructor}</span>
-                        </div>
-                        <h4 className="text-sm sm:text-base font-semibold text-[#33393C] truncate">{item.title}</h4>
-                      </div>
-                      <button
-                        onClick={() =>
-                          setSelectedWeek({
-                            week: item.week,
-                            title: item.title,
-                            instructor: item.instructor,
-                            instructorData: instructors.find((i) => i.name === item.instructor),
-                            month: 2,
-                          })
-                        }
-                        className="flex-shrink-0 bg-[#17464F] hover:bg-[#17464F]/80 text-white px-3 py-1.5 rounded-lg text-xs font-medium transition-colors"
-                      >
-                        詳情
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div className="p-6 bg-[#17464F]">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">第三個月：系統整合與可持續規劃</h3>
-                  <p className="text-white/80">核心目標：整合所學，建立長期發展策略，打造可持續的遠距人生</p>
-                </div>
-                <div className="p-6 space-y-4">
-                  {[
-                    {
-                      week: 10,
-                      title: "知識變現（延續）",
-                      instructor: "鮪魚",
-                      type: "共同必修",
-                    },
-                    {
-                      week: 11,
-                      title: "邊旅行邊安心：旅居人生的財務自由設計",
-                      instructor: "Joyce Weng",
-                      type: "共同必修",
-                    },
-                    {
-                      week: 12,
-                      title: "可持續的自由：身心靈平衡的遠距人生 SOP",
-                      instructor: "Angela Feng",
-                      type: "共同必修",
-                    },
-                  ].map((item) => (
-                    <div key={item.week} className="flex items-center gap-4 p-4 bg-[#F5F3ED] rounded-xl">
-                      <div className="flex-shrink-0">
-                        <Image
-                          src={instructors.find((i) => i.name === item.instructor)?.image || "/placeholder.svg"}
-                          alt={item.instructor}
-                          width={56}
-                          height={56}
-                          className="w-14 h-14 rounded-full object-cover shadow-md"
-                        />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="bg-[#17464F] text-white px-2 py-0.5 rounded-full text-xs font-semibold">
-                            第 {item.week} 週
-                          </span>
-                          <span className="bg-[#D4B483] text-white px-2 py-0.5 rounded-full text-xs font-semibold">
-                            {item.type}
-                          </span>
-                          <span className="text-[#17464F] font-medium text-sm">{item.instructor}</span>
-                        </div>
-                        <h4 className="text-sm sm:text-base font-semibold text-[#33393C] truncate">{item.title}</h4>
-                      </div>
-                      <button
-                        onClick={() =>
-                          setSelectedWeek({
-                            week: item.week,
-                            title: item.title,
-                            instructor: item.instructor,
-                            instructorData: instructors.find((i) => i.name === item.instructor),
-                            month: 3,
-                          })
-                        }
-                        className="flex-shrink-0 bg-[#17464F] hover:bg-[#17464F]/80 text-white px-3 py-1.5 rounded-lg text-xs font-medium transition-colors"
-                      >
-                        詳情
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
         </div>
       </section>
       {/* SECTION 6 COURSE OUTLINE END */}
