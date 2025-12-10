@@ -34,6 +34,7 @@ const getCheckoutURL = (planId: PlanId, couponCode?: string) => {
 export default function HomePage() {
   const params = useParams()
   const [couponCode, setCouponCode] = useState<string | null>(null)
+  const [activeMapTab, setActiveMapTab] = useState<string>("遠端上班") // State for Learning Map tabs
 
   const [selectedWeek, setSelectedWeek] = useState<{
     week: number
@@ -763,8 +764,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* SECTION 3 PAIN POINTS END */}
-
       {/* SECTION 2.1 COURSE HIGHLIGHTS CONTINUED (Part 2: 三大亮點) START */}
       <section className="py-16 sm:py-24 bg-[#F7F2EA]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -980,11 +979,11 @@ export default function HomePage() {
               </summary>
               <div className="px-5 pb-5 text-sm text-[#33393C] leading-relaxed space-y-2">
                 <p>
-                  – <strong>自媒體接案線路：</strong>
+                  –<strong>自媒體接案線路：</strong>
                   幫你釐清主題定位，做出第一份接案作品集，學會基本市場調查、內容與流量思維。
                 </p>
                 <p>
-                  – <strong>遠端上班線路：</strong>認識遠端求職市場，調整履歷與 LinkedIn，練習求職信、面試與獵頭溝通。
+                  –<strong>遠端上班線路：</strong>認識遠端求職市場，調整履歷與 LinkedIn，練習求職信、面試與獵頭溝通。
                 </p>
                 <p>– 你可以先選一條當主線，另一條當選修；也可以雙線並進，在原本的工作之上慢慢開出第二條路。</p>
               </div>
@@ -1067,8 +1066,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-    
-
       {/* SECTION 2.1 ECOSYSTEM PARTNERSHIP START - 生態系 */}
       <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1298,217 +1295,492 @@ export default function HomePage() {
         </div>
       </section>
       {/* SECTION 6 COURSE OUTLINE START - 課程地圖 */}
-      <section id="course-map" className="py-16 sm:py-24 bg-[#F5F3ED]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-4 text-balance">
-              課程地圖｜3+3 個月，先打底，再累積
+      <section id="learning-map" className="py-16 sm:py-20 bg-[#F5F3ED]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-10">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-6 text-balance">
+              學習地圖｜選一條路，6 個月一起走完
             </h2>
-            <div className="flex items-center justify-center gap-2 mt-6 mb-8">
-              <span className="w-2 h-2 rounded-full bg-[#D4B483]" />
-              <span className="w-2 h-2 rounded-full bg-[#17464F]" />
-              <span className="w-2 h-2 rounded-full bg-[#D4B483]" />
-            </div>
-            <p className="text-[#33393C] max-w-2xl mx-auto leading-relaxed">
-              前 3 個月，用線上課程＋課後任務打好基礎、走完一條主線；
-              <br className="hidden sm:block" />後 3 個月，透過復盤、選修工作坊與社群機制，把成果累積成真正的改變。
+            <p className="text-[#33393C] max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
+              這 6 個月會分成三個階段：<span className="font-semibold text-[#17464F]">Phase 1 起步打底</span>、
+              <span className="font-semibold text-[#17464F]">Phase 2 出擊試水</span>、
+              <span className="font-semibold text-[#17464F]">Phase 3 累積整合</span>。
+              <br className="hidden sm:block" />
+              <br className="hidden sm:block" />
+              前半約 3
+              個月，用每週三線上課程＋行動任務完成起步打底與第一次出擊，做出履歷、作品集、內容與第一波投遞／發佈；後半約
+              3 個月，用復盤、財務與人生 SOP、講師 QA 和共創專案，把這些行動整合成可以長期運作的生活與工作系統。
             </p>
           </div>
 
-          <div className="mb-8">
-            <h3 className="text-xl sm:text-2xl font-bold text-[#17464F] mb-2">前 3 個月｜行動共學期</h3>
-            <p className="text-[#33393C]/80">選線路、修共同必修、搭配選修課程</p>
+          {/* Tabs 前導文字 */}
+          <p className="text-center text-[#33393C]/70 text-sm mb-4">先選一條你現在最想嘗試的路線：</p>
+
+          {/* Tabs */}
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
+            {["遠端上班", "自媒體接案", "我還在觀望"].map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveMapTab(tab)}
+                className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-sm sm:text-base font-medium transition-all duration-300 border-2 ${
+                  activeMapTab === tab
+                    ? "bg-[#17464F] text-white border-[#17464F]"
+                    : "bg-white text-[#17464F] border-[#17464F]/30 hover:border-[#17464F]"
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12">
-            <div className="bg-white rounded-2xl p-6 sm:p-7 shadow-sm border border-slate-200">
-              <div className="w-12 h-12 bg-[#17464F] rounded-xl flex items-center justify-center mb-5">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-[#17464F] mb-3">線路課程</h3>
-              <p className="text-sm text-[#A06E56] font-medium mb-4">自媒體接案線路 × 遠端上班線路</p>
-              <div className="text-[#33393C] text-sm md:text-base leading-relaxed space-y-5">
-                <div className="border-l-2 border-[#D4B483] pl-4">
-                  <p className="font-semibold text-[#17464F] mb-2">A 線｜自媒體接案</p>
-                  <p className="text-[#33393C]/80 mb-2">想透過內容、短影音、個人品牌，累積讀者與客戶</p>
-                  <ul className="space-y-1 text-[#33393C]/70 text-sm">
-                    <li>• 自媒體變現攻略</li>
-                    <li>• 接案作品集與市場調查</li>
-                    <li>• 自媒體定位與內容</li>
-                    <li>• 短影音實作</li>
-                  </ul>
+          {/* Tab Content: 遠端上班 */}
+          {activeMapTab === "遠端上班" && (
+            <div className="space-y-6 animate-in fade-in duration-300">
+              {/* 卡片 1 */}
+              <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-xs font-semibold text-[#D4B483] bg-[#D4B483]/10 px-2 py-1 rounded">
+                    上班線 × 三階段成果
+                  </span>
                 </div>
-                <div className="border-l-2 border-[#17464F] pl-4">
-                  <p className="font-semibold text-[#17464F] mb-2">B 線｜遠端上班</p>
-                  <p className="text-[#33393C]/80 mb-2">想往遠端團隊、外商或更彈性職涯前進</p>
-                  <ul className="space-y-1 text-[#33393C]/70 text-sm">
-                    <li>• 職涯成長藍圖與目標設定</li>
-                    <li>• LinkedIn 經營攻略</li>
-                    <li>• 履歷與求職信秘笈</li>
-                    <li>• 獵頭與面試談薪策略</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-2xl p-6 sm:p-7 shadow-sm border border-slate-200">
-              <div className="w-12 h-12 bg-[#D4B483] rounded-xl flex items-center justify-center mb-5">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-[#17464F] mb-3">共同必修</h3>
-              <p className="text-sm text-[#A06E56] font-medium mb-4">Direction × General 通識</p>
-              <div className="text-[#33393C] text-sm md:text-base leading-relaxed space-y-5">
-                <div className="border-l-2 border-[#D4B483] pl-4">
-                  <p className="font-semibold text-[#17464F] mb-2">Direction｜方向定位</p>
-                  <p className="text-[#33393C]/80 mb-2">幫你找到核心價值，定位自己的方向</p>
-                  <ul className="space-y-1 text-[#33393C]/70 text-sm">
-                    <li>• 人生自由藍圖</li>
-                    <li>• 自我盤點與定位</li>
-                    <li>• 知識變現起步</li>
-                  </ul>
-                </div>
-                <div className="border-l-2 border-[#17464F] pl-4">
-                  <p className="font-semibold text-[#17464F] mb-2">General｜通識技能</p>
-                  <p className="text-[#33393C]/80 mb-2">遠距人生必備的基礎能力</p>
-                  <ul className="space-y-1 text-[#33393C]/70 text-sm">
-                    <li>• AI 與自動化工作流</li>
-                    <li>• 旅居財務規劃</li>
-                    <li>• 人生 SOP 與身心平衡</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-2xl p-6 sm:p-7 shadow-sm border border-slate-200">
-              <div className="w-12 h-12 bg-[#C9D7D4] rounded-xl flex items-center justify-center mb-5">
-                <svg className="w-6 h-6 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110-4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-[#17464F] mb-3">選修課程</h3>
-              <p className="text-sm text-[#A06E56] font-medium mb-4">依你的目標，加上需要的實作肌肉</p>
-              <div className="text-[#33393C] text-sm md:text-base leading-relaxed">
-                <p className="text-[#33393C]/80 mb-4">
-                  不是為了修滿學分，而是補上自己現在最缺的能力。依據你的目標，選擇需要的實作工作坊：
-                </p>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="bg-[#F5F3ED] rounded-lg p-3 text-center">
-                    <span className="text-[#17464F] font-medium text-sm">工作英文</span>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#17464F] mb-5">這 3+3 個月，你會走到哪裡？</h3>
+                <div className="space-y-4 text-[#33393C] leading-relaxed">
+                  <div className="flex gap-3">
+                    <span className="flex-shrink-0 w-6 h-6 bg-[#17464F] text-white rounded-full flex items-center justify-center text-xs font-bold">
+                      1
+                    </span>
+                    <p>
+                      <span className="font-semibold text-[#17464F]">Phase 1 起步打底：</span>
+                      看懂遠端市場，釐清目標職缺與個人優勢，整理出之後要寫進履歷與 LinkedIn 的關鍵素材。
+                    </p>
                   </div>
-                  <div className="bg-[#F5F3ED] rounded-lg p-3 text-center">
-                    <span className="text-[#17464F] font-medium text-sm">Coffee Chat</span>
+                  <div className="flex gap-3">
+                    <span className="flex-shrink-0 w-6 h-6 bg-[#17464F] text-white rounded-full flex items-center justify-center text-xs font-bold">
+                      2
+                    </span>
+                    <p>
+                      <span className="font-semibold text-[#17464F]">Phase 2 出擊試水：</span>
+                      做出一份「遠端友善」履歷與一封可重複使用的求職信模板，完整優化 LinkedIn，實際投遞至少 3 則
+                      JD，練習一次完整的面試流程。
+                    </p>
                   </div>
-                  <div className="bg-[#F5F3ED] rounded-lg p-3 text-center">
-                    <span className="text-[#17464F] font-medium text-sm">跨文化協作</span>
-                  </div>
-                  <div className="bg-[#F5F3ED] rounded-lg p-3 text-center">
-                    <span className="text-[#17464F] font-medium text-sm">Vibe Coding</span>
-                  </div>
-                  <div className="bg-[#F5F3ED] rounded-lg p-3 text-center">
-                    <span className="text-[#17464F] font-medium text-sm">影音剪輯</span>
-                  </div>
-                  <div className="bg-[#F5F3ED] rounded-lg p-3 text-center">
-                    <span className="text-[#17464F] font-medium text-sm">AI 實作</span>
-                  </div>
-                </div>
-                <p className="text-[#33393C]/70 text-sm mt-4">＊ 選修課程會依據學員需求持續更新</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-gradient-to-r from-[#17464F] to-[#1a5561] rounded-2xl p-6 md:p-8 shadow-lg">
-            <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
-              後 3 個月｜延伸累積期：復盤、加強、銜接機會
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 bg-[#D4B483] rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-white font-semibold mb-1">每月復盤工作坊</p>
-                    <p className="text-white/80 text-sm leading-relaxed">一起檢視進度，調整你的接案／求職／旅居策略</p>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 bg-[#D4B483] rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-white font-semibold mb-1">選修課程與延伸實作工作坊</p>
-                    <p className="text-white/80 text-sm leading-relaxed">
-                      針對影音剪輯、AI、自動化、英文、網站…做針對性加強
+                  <div className="flex gap-3">
+                    <span className="flex-shrink-0 w-6 h-6 bg-[#17464F] text-white rounded-full flex items-center justify-center text-xs font-bold">
+                      3
+                    </span>
+                    <p>
+                      <span className="font-semibold text-[#17464F]">Phase 3 累積整合：</span>
+                      根據投遞與面試結果復盤，調整下一輪策略，並把 AI 工作流、投遞節奏與財務規劃整理成你自己的遠端求職
+                      SOP。
                     </p>
                   </div>
                 </div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 bg-[#D4B483] rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+              {/* 卡片 2 */}
+              <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#17464F] mb-5">每週三，大概在做什麼？</h3>
+                <div className="space-y-6">
+                  {/* Phase 1 */}
+                  <div className="border-l-4 border-[#D4B483] pl-4">
+                    <span className="inline-block bg-[#D4B483]/20 text-[#A06E56] text-xs font-semibold px-2 py-1 rounded mb-2">
+                      P1 起步打底
+                    </span>
+                    <p className="text-sm text-[#33393C]/70 mb-2">大約第 1–8 週</p>
+                    <ul className="space-y-2 text-[#33393C] text-sm leading-relaxed">
+                      <li>
+                        • <span className="font-medium">上班線路線必修：</span>
+                        遠端自由職涯地圖、目標設定，認識不同類型的遠端公司與職缺。
+                      </li>
+                      <li>
+                        • <span className="font-medium">共同必修：</span>遠距遊牧概論、AI 工作流
+                        demo、知識變現入門，讓你先搞清楚「為什麼要開始」，也有一套更聰明工作的工具。
+                      </li>
+                      <li>
+                        • <span className="font-medium">每週三都有明確任務：</span>盤點經歷、整理職涯故事、開始改寫
+                        LinkedIn 與履歷骨架。
+                      </li>
+                    </ul>
+                  </div>
+                  {/* Phase 2 */}
+                  <div className="border-l-4 border-[#17464F] pl-4">
+                    <span className="inline-block bg-[#17464F]/10 text-[#17464F] text-xs font-semibold px-2 py-1 rounded mb-2">
+                      P2 出擊試水
+                    </span>
+                    <p className="text-sm text-[#33393C]/70 mb-2">大約第 9–16 週</p>
+                    <ul className="space-y-2 text-[#33393C] text-sm leading-relaxed">
+                      <li>
+                        • <span className="font-medium">上班線路線必修：</span>LinkedIn
+                        全攻略、履歷與求職信秘笈、獵頭與面試談薪策略。
+                      </li>
+                      <li>
+                        • <span className="font-medium">實際出擊：</span>完成履歷與 Cover Letter 樣板，投出第一批
+                        JD，安排模擬面試或真實面試，把上課內容直接用在市場上。
+                      </li>
+                    </ul>
+                  </div>
+                  {/* Phase 3 */}
+                  <div className="border-l-4 border-[#C9D7D4] pl-4">
+                    <span className="inline-block bg-[#C9D7D4]/30 text-[#17464F] text-xs font-semibold px-2 py-1 rounded mb-2">
+                      P3 累積整合
+                    </span>
+                    <p className="text-sm text-[#33393C]/70 mb-2">大約第 17–24 週</p>
+                    <ul className="space-y-2 text-[#33393C] text-sm leading-relaxed">
+                      <li>
+                        • <span className="font-medium">每月復盤工作坊：</span>整理投遞紀錄與回覆狀況，調整下一輪攻勢。
+                      </li>
+                      <li>
+                        • <span className="font-medium">財務課與人生 SOP：</span>
+                        把遠端工作、收入結構與旅居想像放進同一張藍圖。
+                      </li>
+                      <li>
+                        • <span className="font-medium">講師團體 QA：</span>針對真實 JD
+                        與面試問題微調說法，不用一個人猜。
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* 共用卡片：共同必修 & 社群支持 */}
+              <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-[#C9D7D4] rounded-full flex items-center justify-center">
+                    <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth={2}
-                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
                       />
                     </svg>
                   </div>
-                  <div>
-                    <p className="text-white font-semibold mb-1">講師團隊 QA ＋ 線上線下聚會</p>
-                    <p className="text-white/80 text-sm leading-relaxed">
-                      在
-                      Skool、共學群組與同學會中，把作業變成對外可公開的作品集、履歷或內容。完成任務的同學未來也會優先被推薦參與
-                      Journey 旅居活動或 Job Board 相關機會。
+                  <h3 className="text-xl font-bold text-[#17464F]">共同必修 & 社群支持</h3>
+                </div>
+                <div className="text-[#33393C] text-sm sm:text-base leading-relaxed space-y-3">
+                  <p>不管你選哪一條路線，都會一起上：</p>
+                  <ul className="space-y-2 ml-1">
+                    <li>
+                      • <span className="font-medium">遠距遊牧概論＆目標設定：</span>先把「為什麼是現在」說清楚，寫下這
+                      6 個月的行動方向。
+                    </li>
+                    <li>
+                      • <span className="font-medium">AI ＆ 自動化工作流 demo：</span>學會用 AI 幫忙拆
+                      JD、寫履歷與內容，讓後面的任務都變輕一點。
+                    </li>
+                    <li>
+                      • <span className="font-medium">知識變現、財務規劃、自我理解溝通＆人生 SOP：</span>
+                      把職涯選擇、收入組合與生活節奏放在同一張圖上看。
+                    </li>
+                  </ul>
+                  <p className="pt-2">
+                    每月最後一個週三，會有作業交流同學會與講師團體
+                    QA；線下則有數位遊牧小聚，讓你在咖啡館裡遇到正在路上的同伴，而不是一個人在房間裡上課。
+                  </p>
+                  <p className="text-[#A06E56] font-medium pt-2">
+                    這些節奏會貫穿 Phase 1、Phase 2、Phase 3，確保你不是孤單行動。
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Tab Content: 自媒體接案 */}
+          {activeMapTab === "自媒體接案" && (
+            <div className="space-y-6 animate-in fade-in duration-300">
+              {/* 卡片 1 */}
+              <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-xs font-semibold text-[#D4B483] bg-[#D4B483]/10 px-2 py-1 rounded">
+                    自媒線 × 三階段成果
+                  </span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-[#17464F] mb-5">這 3+3 個月，你會走到哪裡？</h3>
+                <div className="space-y-4 text-[#33393C] leading-relaxed">
+                  <div className="flex gap-3">
+                    <span className="flex-shrink-0 w-6 h-6 bg-[#D4B483] text-white rounded-full flex items-center justify-center text-xs font-bold">
+                      1
+                    </span>
+                    <p>
+                      <span className="font-semibold text-[#17464F]">Phase 1 起步打底：</span>
+                      看懂自媒體與接案市場，釐清你要服務的 TA、主題與價值，整理出第一版服務項目與作品集雛形。
+                    </p>
+                  </div>
+                  <div className="flex gap-3">
+                    <span className="flex-shrink-0 w-6 h-6 bg-[#D4B483] text-white rounded-full flex items-center justify-center text-xs font-bold">
+                      2
+                    </span>
+                    <p>
+                      <span className="font-semibold text-[#17464F]">Phase 2 出擊試水：</span>
+                      做出一份可以拿去接案的作品集，規劃一輪有主題的內容發佈，完成並公開發佈至少 1
+                      支短影音或內容作品，讓市場第一次看到你。
+                    </p>
+                  </div>
+                  <div className="flex gap-3">
+                    <span className="flex-shrink-0 w-6 h-6 bg-[#D4B483] text-white rounded-full flex items-center justify-center text-xs font-bold">
+                      3
+                    </span>
+                    <p>
+                      <span className="font-semibold text-[#17464F]">Phase 3 累積整合：</span>
+                      用數據與回饋復盤內容成績，調整定位與主打服務，把 AI 工作流、內容節奏與收入規劃整理成你自己的接案
+                      SOP。
                     </p>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
 
+              {/* 卡片 2 */}
+              <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#17464F] mb-5">每週三，大概在做什麼？</h3>
+                <div className="space-y-6">
+                  {/* Phase 1 */}
+                  <div className="border-l-4 border-[#D4B483] pl-4">
+                    <span className="inline-block bg-[#D4B483]/20 text-[#A06E56] text-xs font-semibold px-2 py-1 rounded mb-2">
+                      P1 起步打底
+                    </span>
+                    <p className="text-sm text-[#33393C]/70 mb-2">大約第 1–8 週</p>
+                    <ul className="space-y-2 text-[#33393C] text-sm leading-relaxed">
+                      <li>
+                        • <span className="font-medium">自媒線路線必修：</span>
+                        接案變現地圖、作品集與市場調查，了解你可以賣什麼、要賣給誰。
+                      </li>
+                      <li>
+                        • <span className="font-medium">共同必修：</span>遠距遊牧概論、AI 工作流
+                        demo、知識變現入門，把內容、服務與未來生活方式放在一起思考。
+                      </li>
+                      <li>
+                        • <span className="font-medium">每週三都有明確任務：</span>整理過往作品、設定主題與
+                        TA、完成第一版作品集框架。
+                      </li>
+                    </ul>
+                  </div>
+                  {/* Phase 2 */}
+                  <div className="border-l-4 border-[#17464F] pl-4">
+                    <span className="inline-block bg-[#17464F]/10 text-[#17464F] text-xs font-semibold px-2 py-1 rounded mb-2">
+                      P2 出擊試水
+                    </span>
+                    <p className="text-sm text-[#33393C]/70 mb-2">大約第 9–16 週</p>
+                    <ul className="space-y-2 text-[#33393C] text-sm leading-relaxed">
+                      <li>
+                        • <span className="font-medium">自媒線路線必修：</span>
+                        自媒體定位與內容企劃、短影音腳本＋拍攝剪輯。
+                      </li>
+                      <li>
+                        • <span className="font-medium">實際出擊：</span>
+                        規劃一小輪內容排程，寫文案、拍片、剪輯，至少發佈一支短影音與一篇主題貼文。
+                      </li>
+                    </ul>
+                  </div>
+                  {/* Phase 3 */}
+                  <div className="border-l-4 border-[#C9D7D4] pl-4">
+                    <span className="inline-block bg-[#C9D7D4]/30 text-[#17464F] text-xs font-semibold px-2 py-1 rounded mb-2">
+                      P3 累積整合
+                    </span>
+                    <p className="text-sm text-[#33393C]/70 mb-2">大約第 17–24 週</p>
+                    <ul className="space-y-2 text-[#33393C] text-sm leading-relaxed">
+                      <li>
+                        • <span className="font-medium">每月復盤內容成績：</span>
+                        檢視觀看、互動與詢問數字，找出對你有效的題材與形式。
+                      </li>
+                      <li>
+                        • <span className="font-medium">財務與人生 SOP：</span>
+                        評估接案在你人生中要佔多少比例，要不要再多走幾步。
+                      </li>
+                      <li>
+                        • <span className="font-medium">共創專案（選擇參與）：</span>
+                        跟其他學員一起做活動、內容或小產品，在真實協作裡磨練遠距合作。
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* 共用卡片：共同必修 & 社群支持 */}
+              <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-[#C9D7D4] rounded-full flex items-center justify-center">
+                    <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold text-[#17464F]">共同必修 & 社群支持</h3>
+                </div>
+                <div className="text-[#33393C] text-sm sm:text-base leading-relaxed space-y-3">
+                  <p>不管你選哪一條路線，都會一起上：</p>
+                  <ul className="space-y-2 ml-1">
+                    <li>
+                      • <span className="font-medium">遠距遊牧概論＆目標設定：</span>先把「為什麼是現在」說清楚，寫下這
+                      6 個月的行動方向。
+                    </li>
+                    <li>
+                      • <span className="font-medium">AI ＆ 自動化工作流 demo：</span>學會用 AI 幫忙拆
+                      JD、寫履歷與內容，讓後面的任務都變輕一點。
+                    </li>
+                    <li>
+                      • <span className="font-medium">知識變現、財務規劃、自我理解溝通＆人生 SOP：</span>
+                      把職涯選擇、收入組合與生活節奏放在同一張圖上看。
+                    </li>
+                  </ul>
+                  <p className="pt-2">
+                    每月最後一個週三，會有作業交流同學會與講師團體
+                    QA；線下則有數位遊牧小聚，讓你在咖啡館裡遇到正在路上的同伴，而不是一個人在房間裡上課。
+                  </p>
+                  <p className="text-[#A06E56] font-medium pt-2">
+                    這些節奏會貫穿 Phase 1、Phase 2、Phase 3，確保你不是孤單行動。
+                  </p>
+                  <p className="text-[#33393C]/70 text-sm pt-2 italic">
+                    很多自媒線同學，也會在同學會和小聚裡找到第一批合作對象、剪輯師、設計師，甚至是 beta 客戶。
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Tab Content: 我還在觀望 */}
+          {activeMapTab === "我還在觀望" && (
+            <div className="space-y-6 animate-in fade-in duration-300">
+              {/* 卡片 1 */}
+              <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#17464F] mb-5">還沒決定路線也沒關係</h3>
+                <div className="text-[#33393C] leading-relaxed space-y-4">
+                  <p>很多人加入學院時，也還在想：「我適合遠端上班，還是自媒接案？」</p>
+                  <p>所以我們把 6 個月設計成三個階段：</p>
+                  <div className="space-y-3 pl-1">
+                    <div className="flex gap-3">
+                      <span className="flex-shrink-0 w-6 h-6 bg-[#D4B483] text-white rounded-full flex items-center justify-center text-xs font-bold">
+                        1
+                      </span>
+                      <p>
+                        <span className="font-semibold text-[#17464F]">Phase 1 起步打底：</span>
+                        先幫你釐清方向，盤點資源，了解兩條路線的差別。
+                      </p>
+                    </div>
+                    <div className="flex gap-3">
+                      <span className="flex-shrink-0 w-6 h-6 bg-[#17464F] text-white rounded-full flex items-center justify-center text-xs font-bold">
+                        2
+                      </span>
+                      <p>
+                        <span className="font-semibold text-[#17464F]">Phase 2 出擊試水：</span>
+                        選一條主線，真的做出履歷或作品集、內容與第一波投遞／發佈。
+                      </p>
+                    </div>
+                    <div className="flex gap-3">
+                      <span className="flex-shrink-0 w-6 h-6 bg-[#C9D7D4] text-[#17464F] rounded-full flex items-center justify-center text-xs font-bold">
+                        3
+                      </span>
+                      <p>
+                        <span className="font-semibold text-[#17464F]">Phase 3 累積整合：</span>用復盤、財務視角與人生
+                        SOP，把這些行動整理成你自己的下一步。
+                      </p>
+                    </div>
+                  </div>
+                  <p className="pt-2">若你選雙軌，6 個月內會上完兩條線的必修，從履歷、作品集到內容與投遞都走一輪。</p>
+                  <p className="font-semibold text-[#17464F]">
+                    用 6 個月的行動，而不是 6 個月的猶豫，幫你找到比較適合的那條路。
+                  </p>
+                </div>
+              </div>
+
+              {/* 卡片 2 */}
+              <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#17464F] mb-5">不管最後選哪條路，你至少會得到…</h3>
+                <div className="space-y-4 text-[#33393C] leading-relaxed">
+                  <div className="flex gap-3">
+                    <span className="flex-shrink-0 w-6 h-6 bg-[#D4B483] text-white rounded-full flex items-center justify-center text-xs font-bold">
+                      1
+                    </span>
+                    <p>
+                      <span className="font-semibold text-[#17464F]">Phase 1 起步打底：</span>
+                      一份重新盤點過的職涯與能力地圖，知道自己手上有哪些可以被好好使用的資源。
+                    </p>
+                  </div>
+                  <div className="flex gap-3">
+                    <span className="flex-shrink-0 w-6 h-6 bg-[#17464F] text-white rounded-full flex items-center justify-center text-xs font-bold">
+                      2
+                    </span>
+                    <p>
+                      <span className="font-semibold text-[#17464F]">Phase 2 出擊試水：</span>
+                      一份更新過、可以拿去投遞的履歷，或可以拿去接案用的作品集；再加上一個對外可公開的作品（內容、短影音或專案成果），真的在市場上試一次水溫。
+                    </p>
+                  </div>
+                  <div className="flex gap-3">
+                    <span className="flex-shrink-0 w-6 h-6 bg-[#C9D7D4] text-[#17464F] rounded-full flex items-center justify-center text-xs font-bold">
+                      3
+                    </span>
+                    <p>
+                      <span className="font-semibold text-[#17464F]">Phase 3 累積整合：</span>一套適合自己的
+                      AI＋自學工作流與人生 SOP，把你學到的東西變成可重複使用的習慣與流程。
+                    </p>
+                  </div>
+                  <div className="flex gap-3 pt-2 border-t border-slate-200 mt-4">
+                    <span className="flex-shrink-0 w-6 h-6 bg-[#A06E56] text-white rounded-full flex items-center justify-center text-xs font-bold">
+                      ★
+                    </span>
+                    <p>
+                      <span className="font-semibold text-[#A06E56]">貫穿三個階段：</span>
+                      一個可以討論工作與生活選擇的社群，以及一次完整的「從好奇到行動」的 6
+                      個月紀錄，未來每次想調整方向時，都可以回來對照。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 共用卡片：共同必修 & 社群支持 */}
+              <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-[#C9D7D4] rounded-full flex items-center justify-center">
+                    <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold text-[#17464F]">共同必修 & 社群支持</h3>
+                </div>
+                <div className="text-[#33393C] text-sm sm:text-base leading-relaxed space-y-3">
+                  <p>不管你選哪一條路線，都會一起上：</p>
+                  <ul className="space-y-2 ml-1">
+                    <li>
+                      • <span className="font-medium">遠距遊牧概論＆目標設定：</span>先把「為什麼是現在」說清楚，寫下這
+                      6 個月的行動方向。
+                    </li>
+                    <li>
+                      • <span className="font-medium">AI ＆ 自動化工作流 demo：</span>學會用 AI 幫忙拆
+                      JD、寫履歷與內容，讓後面的任務都變輕一點。
+                    </li>
+                    <li>
+                      • <span className="font-medium">知識變現、財務規劃、自我理解溝通＆人生 SOP：</span>
+                      把職涯選擇、收入組合與生活節奏放在同一張圖上看。
+                    </li>
+                  </ul>
+                  <p className="pt-2">
+                    每月最後一個週三，會有作業交流同學會與講師團體
+                    QA；線下則有數位遊牧小聚，讓你在咖啡館裡遇到正在路上的同伴，而不是一個人在房間裡上課。
+                  </p>
+                  <p className="text-[#A06E56] font-medium pt-2">
+                    這些節奏會貫穿 Phase 1、Phase 2、Phase 3，確保你不是孤單行動。
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* CTA Button */}
           <div className="text-center mt-10">
             <button
               onClick={() => setShowFullSchedule(!showFullSchedule)}
               className="inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-[#17464F] text-[#17464F] rounded-full font-medium hover:bg-[#17464F] hover:text-white transition-all duration-300"
             >
-              {showFullSchedule ? "收起完整課程時間表" : "查看完整每週安排"}
+              {showFullSchedule ? "收起完整 3+3 學習行事曆" : "打開完整 3+3 學習行事曆"}
               <svg
                 className={`w-5 h-5 transition-transform duration-300 ${showFullSchedule ? "rotate-180" : ""}`}
                 fill="none"
@@ -1520,6 +1792,7 @@ export default function HomePage() {
             </button>
           </div>
 
+          {/* Full Schedule (existing) */}
           {showFullSchedule && (
             <div className="mt-12 space-y-8 animate-in fade-in slide-in-from-top-4 duration-500">
               <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
@@ -1684,7 +1957,7 @@ export default function HomePage() {
                           <span className="bg-[#17464F] text-white px-2 py-0.5 rounded-full text-xs font-semibold">
                             第 {item.week} 週
                           </span>
-                          <span className="bg-[#D4B483] px-2 py-0.5 rounded-full text-xs font-semibold">
+                          <span className="bg-[#D4B483] text-white px-2 py-0.5 rounded-full text-xs font-semibold">
                             {item.type}
                           </span>
                           <span className="text-[#17464F] font-medium text-sm">{item.instructor}</span>
@@ -1713,6 +1986,8 @@ export default function HomePage() {
           )}
         </div>
       </section>
+      {/* SECTION 6 LEARNING MAP END */}
+
       <section id="pricing-section" className="py-16 sm:py-24 bg-[#17464F] relative overflow-hidden">
         <PricingSection />
       </section>
