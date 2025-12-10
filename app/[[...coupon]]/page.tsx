@@ -526,16 +526,17 @@ export default function HomePage() {
 
   const filteredCalendarData = useMemo(() => {
     return calendarData.filter((week) => {
-      // For "雙軌" filter, include all tracks. This is a simplification as dual-track implies both.
-      // We'll rely on the content of the weeks to show relevance rather than strict track matching for "雙軌".
-      if (calendarTrackFilter === "雙軌") return true
-      if (calendarTrackFilter === "遠端上班")
-        return week.track === "遠端上班線" || week.track === "全體共同" || week.track === "共創專案"
-      if (calendarTrackFilter === "自媒體接案")
-        return week.track === "自媒體接案線" || week.track === "全體共同" || week.track === "共創專案"
-      return true // Should not happen with the defined filters
+      const phaseMatch = calendarPhaseFilter === "全部" || week.phase === calendarPhaseFilter
+      // 雙軌 = 顯示全部；遠端上班 = 只顯示遠端上班線；自媒體接案 = 只顯示自媒體接案線
+      const trackMatch =
+        calendarTrackFilter === "雙軌" ||
+        (calendarTrackFilter === "遠端上班" &&
+          (week.track === "遠端上班線" || week.track === "全體共同" || week.track === "共創專案")) ||
+        (calendarTrackFilter === "自媒體接案" &&
+          (week.track === "自媒體接案線" || week.track === "全體共同" || week.track === "共創專案"))
+      return phaseMatch && trackMatch
     })
-  }, [calendarTrackFilter])
+  }, [calendarPhaseFilter, calendarTrackFilter])
 
   const toggleWeekExpansion = (weekId: number) => {
     setExpandedWeeks((prev) => {
@@ -2339,21 +2340,24 @@ export default function HomePage() {
               </p>
 
               {/* Filters */}
-              <div className="flex flex-wrap gap-2 mt-4">
-                <span className="text-xs text-gray-500 self-center mr-1">路線：</span>
-                {["雙軌", "遠端上班", "自媒體接案"].map((track) => (
-                  <button
-                    key={track}
-                    onClick={() => setCalendarTrackFilter(track)}
-                    className={`px-4 py-2 text-sm rounded-full transition-all ${
-                      calendarTrackFilter === track
-                        ? "bg-[#17464F] text-white"
-                        : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                    }`}
-                  >
-                    {track}
-                  </button>
-                ))}
+              <div className="flex flex-col md:flex-row gap-4 mt-4">
+                {/* Track Filter Only */}
+                <div className="flex flex-wrap gap-2">
+                  <span className="text-xs text-gray-500 self-center mr-1">路線：</span>
+                  {["雙軌", "遠端上班", "自媒體接案"].map((track) => (
+                    <button
+                      key={track}
+                      onClick={() => setCalendarTrackFilter(track)}
+                      className={`px-3 py-1.5 text-xs rounded-full transition-all ${
+                        calendarTrackFilter === track
+                          ? "bg-[#17464F] text-white"
+                          : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                      }`}
+                    >
+                      {track}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -2481,7 +2485,8 @@ export default function HomePage() {
             {/* Modal Footer */}
             <div className="sticky bottom-0 bg-white border-t border-gray-100 px-6 py-4">
               <p className="text-xs text-gray-500 text-center">
-                共 {filteredCalendarData.length} 週 · {calendarTrackFilter} 路線
+                共 {filteredCalendarData.length} 週 · {calendarPhaseFilter !== "全部" && `${calendarPhaseFilter} · `}
+                {calendarTrackFilter !== "全部" && `${calendarTrackFilter}`}
               </p>
             </div>
           </div>
