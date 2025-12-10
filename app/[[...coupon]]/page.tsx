@@ -173,7 +173,7 @@ export default function HomePage() {
   const [showCalendarModal, setShowCalendarModal] = useState(false)
   const [expandedWeeks, setExpandedWeeks] = useState<Set<number>>(new Set())
   const [calendarPhaseFilter, setCalendarPhaseFilter] = useState<string>("全部")
-  const [calendarTrackFilter, setCalendarTrackFilter] = useState<string>("全部")
+  const [calendarTrackFilter, setCalendarTrackFilter] = useState<string>("雙軌")
 
   const calendarData = [
     {
@@ -526,15 +526,16 @@ export default function HomePage() {
 
   const filteredCalendarData = useMemo(() => {
     return calendarData.filter((week) => {
-      const phaseMatch = calendarPhaseFilter === "全部" || week.phase === calendarPhaseFilter
-      const trackMatch =
-        calendarTrackFilter === "全部" ||
-        (calendarTrackFilter === "遠端上班" && week.track === "遠端上班線") ||
-        (calendarTrackFilter === "自媒體接案" && week.track === "自媒體接案線") ||
-        (calendarTrackFilter === "共同必修／學院功能" && (week.track === "全體共同" || week.track === "共創專案"))
-      return phaseMatch && trackMatch
+      // For "雙軌" filter, include all tracks. This is a simplification as dual-track implies both.
+      // We'll rely on the content of the weeks to show relevance rather than strict track matching for "雙軌".
+      if (calendarTrackFilter === "雙軌") return true
+      if (calendarTrackFilter === "遠端上班")
+        return week.track === "遠端上班線" || week.track === "全體共同" || week.track === "共創專案"
+      if (calendarTrackFilter === "自媒體接案")
+        return week.track === "自媒體接案線" || week.track === "全體共同" || week.track === "共創專案"
+      return true // Should not happen with the defined filters
     })
-  }, [calendarPhaseFilter, calendarTrackFilter])
+  }, [calendarTrackFilter])
 
   const toggleWeekExpansion = (weekId: number) => {
     setExpandedWeeks((prev) => {
@@ -2338,41 +2339,21 @@ export default function HomePage() {
               </p>
 
               {/* Filters */}
-              <div className="flex flex-col md:flex-row gap-4 mt-4">
-                {/* Phase Filter */}
-                <div className="flex flex-wrap gap-2">
-                  <span className="text-xs text-gray-500 self-center mr-1">階段：</span>
-                  {["全部", "Phase 1 起步打底", "Phase 2 出擊試水", "Phase 3 累積整合"].map((phase) => (
-                    <button
-                      key={phase}
-                      onClick={() => setCalendarPhaseFilter(phase)}
-                      className={`px-3 py-1.5 text-xs rounded-full transition-all ${
-                        calendarPhaseFilter === phase
-                          ? "bg-[#17464F] text-white"
-                          : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                      }`}
-                    >
-                      {phase === "全部" ? "全部階段" : phase.replace("Phase ", "P")}
-                    </button>
-                  ))}
-                </div>
-                {/* Track Filter */}
-                <div className="flex flex-wrap gap-2">
-                  <span className="text-xs text-gray-500 self-center mr-1">路線：</span>
-                  {["全部", "遠端上班", "自媒體接案", "共同必修／學院功能"].map((track) => (
-                    <button
-                      key={track}
-                      onClick={() => setCalendarTrackFilter(track)}
-                      className={`px-3 py-1.5 text-xs rounded-full transition-all ${
-                        calendarTrackFilter === track
-                          ? "bg-[#17464F] text-white"
-                          : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                      }`}
-                    >
-                      {track === "全部" ? "全部路線" : track}
-                    </button>
-                  ))}
-                </div>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <span className="text-xs text-gray-500 self-center mr-1">路線：</span>
+                {["雙軌", "遠端上班", "自媒體接案"].map((track) => (
+                  <button
+                    key={track}
+                    onClick={() => setCalendarTrackFilter(track)}
+                    className={`px-4 py-2 text-sm rounded-full transition-all ${
+                      calendarTrackFilter === track
+                        ? "bg-[#17464F] text-white"
+                        : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                    }`}
+                  >
+                    {track}
+                  </button>
+                ))}
               </div>
             </div>
 
@@ -2500,8 +2481,7 @@ export default function HomePage() {
             {/* Modal Footer */}
             <div className="sticky bottom-0 bg-white border-t border-gray-100 px-6 py-4">
               <p className="text-xs text-gray-500 text-center">
-                共 {filteredCalendarData.length} 週 · {calendarPhaseFilter !== "全部" && `${calendarPhaseFilter} · `}
-                {calendarTrackFilter !== "全部" && `${calendarTrackFilter}`}
+                共 {filteredCalendarData.length} 週 · {calendarTrackFilter} 路線
               </p>
             </div>
           </div>
