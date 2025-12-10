@@ -4,7 +4,7 @@ import { useParams } from "next/navigation"
 
 import { useState, useEffect, useCallback, useMemo, useRef } from "react" // Import useRef
 import Image from "next/image"
-import { ChevronDown, ChevronUp, X, Calendar, TrendingUp, FileText, Users } from "lucide-react"
+import { ChevronDown, ChevronUp, X, Calendar, TrendingUp, FileText, Users, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { usePricing } from "@/contexts/pricing-context"
 import { AnnouncementBar } from "@/components/announcement-bar"
@@ -176,6 +176,7 @@ export default function HomePage() {
   const [expandedWeeks, setExpandedWeeks] = useState<Set<number>>(new Set())
   const [calendarPhaseFilter, setCalendarPhaseFilter] = useState<string>("全部")
   const [calendarTrackFilter, setCalendarTrackFilter] = useState<string>("雙軌")
+  const [selectedCalendarWeek, setSelectedCalendarWeek] = useState<(typeof calendarData)[0] | null>(null)
 
   const calendarData = [
     {
@@ -2144,57 +2145,16 @@ export default function HomePage() {
                                   </div>
                                 ))}
                               </div>
-                              <button className="flex items-center gap-1 text-xs text-[#17464F] hover:text-[#D4B483] transition-colors">
-                                {isExpanded ? (
-                                  <>
-                                    收合 <ChevronUp className="w-4 h-4" />
-                                  </>
-                                ) : (
-                                  <>
-                                    展開 <ChevronDown className="w-4 h-4" />
-                                  </>
-                                )}
+                              <button
+                                onClick={() => setSelectedCalendarWeek(week)}
+                                className="flex items-center gap-1 text-xs text-[#17464F] hover:text-[#D4B483] transition-colors"
+                              >
+                                查看詳情 <ChevronRight className="w-4 h-4" />
                               </button>
                             </div>
                           </div>
 
-                          {/* Expanded Content */}
-                          {isExpanded && (
-                            <div className="px-4 pb-4 pt-0 border-t border-gray-100">
-                              {/* Focus Detail */}
-                              <div className="mt-4 p-4 bg-[#F7F2EA] rounded-lg">
-                                <h5 className="text-sm font-semibold text-[#17464F] mb-2">本週行動任務</h5>
-                                <p className="text-sm text-gray-700 leading-relaxed">{week.focusDetail}</p>
-                              </div>
-
-                              {/* Instructor Details */}
-                              <div className="mt-4">
-                                <h5 className="text-sm font-semibold text-[#17464F] mb-3">講師資訊</h5>
-                                <div className="flex flex-wrap gap-4">
-                                  {week.instructors.map((instructor, idx) => (
-                                    <div
-                                      key={idx}
-                                      className="flex items-start gap-3 p-3 bg-white border border-gray-100 rounded-lg shadow-sm"
-                                    >
-                                      <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#D4B483]/50 shrink-0">
-                                        <Image
-                                          src={instructor.image || "/placeholder.svg"}
-                                          alt={instructor.name}
-                                          width={48}
-                                          height={48}
-                                          className="w-full h-full object-cover"
-                                        />
-                                      </div>
-                                      <div>
-                                        <p className="font-medium text-[#17464F]">{instructor.name}</p>
-                                        <p className="text-xs text-gray-500">{instructor.title}</p>
-                                      </div>
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            </div>
-                          )}
+                          {/* Expanded Content is removed as it's now handled by the modal */}
                         </div>
                       )
                     })}
@@ -2483,24 +2443,11 @@ export default function HomePage() {
             >
               ×
             </button>
-            <div className="flex items-center gap-4 mb-6">
-              <Image
-                src={selectedWeek.instructorData?.image || "/placeholder.svg"}
-                alt={selectedWeek.instructor}
-                width={80}
-                height={80}
-                className="w-20 h-20 rounded-full object-cover shadow-md"
-              />
-              <div>
-                <span className="bg-[#17464F] text-white px-3 py-1 rounded-full text-sm font-semibold">
-                  第 {selectedWeek.week} 週
-                </span>
-                <h3 className="text-xl font-bold text-[#17464F] mt-2">{selectedWeek.title}</h3>
-                <p className="text-[#D4B483] font-medium">{selectedWeek.instructor}</p>
-              </div>
-            </div>
-            <div className="text-sm text-[#33393C] leading-relaxed">
-              <p>{selectedWeek.instructorData?.background}</p>
+            <h3 className="text-2xl font-bold text-[#17464F] mb-2">{selectedWeek.title}</h3>
+            <p className="text-sm font-medium text-[#D4B483] mb-6">{selectedWeek.instructor}</p>
+            <div className="text-sm text-[#33393C] leading-relaxed space-y-4">
+              {/* Render instructorData or other details as needed */}
+              {selectedWeek.instructorData && <pre>{JSON.stringify(selectedWeek.instructorData, null, 2)}</pre>}
             </div>
           </div>
         </div>
@@ -2608,7 +2555,299 @@ export default function HomePage() {
                               </div>
                             ))}
                           </div>
-                          <button className="flex items-center gap-1 text-xs text-[#17464F] hover:text-[#D4B483] transition-colors">
+                          <button
+                            className="flex items-center gap-1 text-xs text-[#17464F] hover:text-[#D4B483] transition-colors"
+                            onClick={() => toggleWeekExpansion(week.id)}
+                          >
+                            {isExpanded ? (
+                              <>
+                                收合 <ChevronUp className="w-4 h-4" />
+                              </>
+                            ) : (
+                              <>
+                                展開 <ChevronDown className="w-4 h-4" />
+                              </>
+                            )}
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Expanded Content */}
+                      {isExpanded && (
+                        <div className="px-4 pb-4 pt-0 border-t border-gray-100">
+                          {/* Focus Detail */}
+                          <div className="mt-4 p-4 bg-[#F7F2EA] rounded-lg">
+                            <h5 className="text-sm font-semibold text-[#17464F] mb-2">本週行動任務</h5>
+                            <p className="text-sm text-gray-700 leading-relaxed">{week.focusDetail}</p>
+                          </div>
+
+                          {/* Instructor Details */}
+                          <div className="mt-4">
+                            <h5 className="text-sm font-semibold text-[#17464F] mb-3">講師資訊</h5>
+                            <div className="flex flex-wrap gap-4">
+                              {week.instructors.map((instructor, idx) => (
+                                <div
+                                  key={idx}
+                                  className="flex items-start gap-3 p-3 bg-white border border-gray-100 rounded-lg shadow-sm"
+                                >
+                                  <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#D4B483]/50 shrink-0">
+                                    <Image
+                                      src={instructor.image || "/placeholder.svg"}
+                                      alt={instructor.name}
+                                      width={48}
+                                      height={48}
+                                      className="w-full h-full object-cover"
+                                    />
+                                  </div>
+                                  <div>
+                                    <p className="font-medium text-[#17464F]">{instructor.name}</p>
+                                    <p className="text-xs text-gray-500">{instructor.title}</p>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )
+                })}
+
+                {filteredCalendarData.length === 0 && (
+                  <div className="text-center py-12 text-gray-500">
+                    <Calendar className="w-12 h-12 mx-auto mb-3 opacity-30" />
+                    <p>沒有符合篩選條件的週次</p>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Modal Footer */}
+            <div className="sticky bottom-0 bg-white border-t border-gray-100 px-6 py-4">
+              <p className="text-xs text-gray-500 text-center">
+                共 {filteredCalendarData.length} 週 · {calendarPhaseFilter !== "全部" && `${calendarPhaseFilter} · `}
+                {calendarTrackFilter !== "全部" && `${calendarTrackFilter}`}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* SELECTED WEEK MODAL */}
+      {selectedCalendarWeek && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+          onClick={() => setSelectedCalendarWeek(null)}
+        >
+          <div
+            className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header with Phase Color */}
+            <div
+              className={`px-6 py-5 ${
+                selectedCalendarWeek.phase.includes("1")
+                  ? "bg-[#D4B483]/10"
+                  : selectedCalendarWeek.phase.includes("2")
+                    ? "bg-[#17464F]/10"
+                    : "bg-[#A06E56]/10"
+              }`}
+            >
+              <button
+                onClick={() => setSelectedCalendarWeek(null)}
+                className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-400 hover:text-gray-600 text-xl font-bold z-10"
+              >
+                ×
+              </button>
+
+              {/* Phase & Week Tags */}
+              <div className="flex flex-wrap items-center gap-2 mb-3">
+                <span
+                  className={`px-3 py-1 text-xs font-semibold rounded-full ${
+                    selectedCalendarWeek.phase.includes("1")
+                      ? "bg-[#D4B483] text-white"
+                      : selectedCalendarWeek.phase.includes("2")
+                        ? "bg-[#17464F] text-white"
+                        : "bg-[#A06E56] text-white"
+                  }`}
+                >
+                  {selectedCalendarWeek.phase}
+                </span>
+                <span className="text-sm text-gray-500">{selectedCalendarWeek.monthWeek}</span>
+              </div>
+
+              {/* Title */}
+              <h3 className="text-xl md:text-2xl font-bold text-[#17464F]">{selectedCalendarWeek.title}</h3>
+              <p className="text-sm text-gray-500 mt-1">{selectedCalendarWeek.type}</p>
+            </div>
+
+            {/* Modal Body */}
+            <div className="px-6 py-5 space-y-6">
+              {/* Track Label */}
+              <div className="flex items-center gap-2">
+                <span className="text-sm text-gray-500">路線：</span>
+                <span
+                  className={`px-2 py-0.5 text-xs rounded ${
+                    selectedCalendarWeek.track === "遠端上班線"
+                      ? "bg-[#17464F]/10 text-[#17464F]"
+                      : selectedCalendarWeek.track === "自媒體接案線"
+                        ? "bg-[#D4B483]/20 text-[#A06E56]"
+                        : "bg-gray-100 text-gray-600"
+                  }`}
+                >
+                  {selectedCalendarWeek.track}
+                </span>
+              </div>
+
+              {/* Focus Short */}
+              <div>
+                <h4 className="text-sm font-semibold text-[#17464F] mb-2">本週重點</h4>
+                <p className="text-sm text-gray-700 leading-relaxed">{selectedCalendarWeek.focusShort}</p>
+              </div>
+
+              {/* Focus Detail */}
+              <div className="p-4 bg-[#F7F2EA] rounded-lg">
+                <h4 className="text-sm font-semibold text-[#17464F] mb-2">本週行動任務</h4>
+                <p className="text-sm text-gray-700 leading-relaxed">{selectedCalendarWeek.focusDetail}</p>
+              </div>
+
+              {/* Instructors */}
+              <div>
+                <h4 className="text-sm font-semibold text-[#17464F] mb-3">講師資訊</h4>
+                <div className="space-y-3">
+                  {selectedCalendarWeek.instructors.map((instructor, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center gap-4 p-4 bg-white border border-gray-100 rounded-xl shadow-sm"
+                    >
+                      <div className="w-16 h-16 rounded-full overflow-hidden border-3 border-[#D4B483]/50 shrink-0">
+                        <Image
+                          src={instructor.image || "/placeholder.svg"}
+                          alt={instructor.name}
+                          width={64}
+                          height={64}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-[#17464F] text-lg">{instructor.name}</p>
+                        <p className="text-sm text-gray-500">{instructor.title}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* CALENDAR MODAL */}
+      {showCalendarModal && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4"
+          onClick={() => setShowCalendarModal(false)}
+        >
+          <div
+            className="relative w-full max-w-[1040px] max-h-[85vh] bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="sticky top-0 z-10 bg-white border-b border-gray-100 px-6 py-5">
+              <button
+                onClick={() => setShowCalendarModal(false)}
+                className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition-colors"
+              >
+                <X className="w-5 h-5 text-gray-500" />
+              </button>
+              <h3 className="text-xl md:text-2xl font-bold text-[#17464F]">完整 3+3 學習行事曆</h3>
+              <p className="text-sm text-gray-600 mt-1">
+                24 週的課程與行動任務，分成三個階段：起步打底、出擊試水、累積整合。
+              </p>
+
+              {/* Filters */}
+              <div className="flex flex-col md:flex-row gap-4 mt-4">
+                {/* Track Filter Only */}
+                <div className="flex flex-wrap gap-2">
+                  <span className="text-xs text-gray-500 self-center mr-1">路線：</span>
+                  {["雙軌", "遠端上班", "自媒體接案"].map((track) => (
+                    <button
+                      key={track}
+                      onClick={() => setCalendarTrackFilter(track)}
+                      className={`px-3 py-1.5 text-xs rounded-full transition-all ${
+                        calendarTrackFilter === track
+                          ? "bg-[#17464F] text-white"
+                          : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                      }`}
+                    >
+                      {track}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Modal Content - Timeline */}
+            <div className="flex-1 overflow-y-auto px-6 py-4">
+              <div className="space-y-4">
+                {filteredCalendarData.map((week, index) => {
+                  const isExpanded = expandedWeeks.has(week.id)
+                  const phaseColor = getPhaseColor(week.phase)
+                  const trackColor = getTrackColor(week.track)
+
+                  return (
+                    <div
+                      key={week.id}
+                      className={`relative border rounded-xl overflow-hidden transition-all ${
+                        isExpanded ? "shadow-md" : "shadow-sm hover:shadow-md"
+                      } ${phaseColor.border}`}
+                    >
+                      {/* Week Header (always visible) */}
+                      <div className="p-4 cursor-pointer" onClick={() => toggleWeekExpansion(week.id)}>
+                        {/* Phase & Month/Week */}
+                        <div className="flex flex-wrap items-center gap-2 mb-2">
+                          <span
+                            className={`px-2 py-0.5 text-xs font-medium rounded ${phaseColor.bg} ${phaseColor.text}`}
+                          >
+                            {week.phase.replace("Phase ", "P")}
+                          </span>
+                          <span className="text-sm text-gray-500">{week.monthWeek}</span>
+                          <span className={`px-2 py-0.5 text-xs rounded ${trackColor.bg} ${trackColor.text}`}>
+                            {week.track}
+                          </span>
+                        </div>
+
+                        {/* Title & Type */}
+                        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+                          <h4 className="text-base md:text-lg font-semibold text-[#17464F]">{week.title}</h4>
+                          <span className="text-xs text-gray-400 shrink-0">{week.type}</span>
+                        </div>
+
+                        {/* Focus Short */}
+                        <p className="text-sm text-gray-600 mt-2 leading-relaxed">{week.focusShort}</p>
+
+                        {/* Instructors & Expand Button */}
+                        <div className="flex items-center justify-between mt-3">
+                          <div className="flex items-center gap-2">
+                            {week.instructors.map((instructor, idx) => (
+                              <div key={idx} className="flex items-center gap-1.5">
+                                <div className="w-7 h-7 rounded-full overflow-hidden border-2 border-[#D4B483]/30">
+                                  <Image
+                                    src={instructor.image || "/placeholder.svg"}
+                                    alt={instructor.name}
+                                    width={28}
+                                    height={28}
+                                    className="w-full h-full object-cover"
+                                  />
+                                </div>
+                                <span className="text-xs text-gray-600">{instructor.name}</span>
+                              </div>
+                            ))}
+                          </div>
+                          <button
+                            className="flex items-center gap-1 text-xs text-[#17464F] hover:text-[#D4B483] transition-colors"
+                            onClick={() => toggleWeekExpansion(week.id)}
+                          >
                             {isExpanded ? (
                               <>
                                 收合 <ChevronUp className="w-4 h-4" />
