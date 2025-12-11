@@ -879,7 +879,8 @@ export default function HomePage() {
             </h2>
             <p className="text-white/80 leading-relaxed max-w-2xl mx-auto mb-4">
               不管你現在在哪個階段，你都有機會在這裡找到開始的位置。
-              <br className="hidden sm:block" />你不一定已經想好要不要辭職、要不要成為全職 Nomad。但你心裡大概知道——
+              <br className="hidden sm:block" />
+              你不一定已經想好要不要辭職、要不要成為全職 Nomad。但你心裡大概知道——
               <br className="hidden sm:block" />
               接下來的人生，應該不只有「每天通勤、等著放假」這一種選項。
             </p>
@@ -994,7 +995,6 @@ export default function HomePage() {
             <span className="w-2 h-2 rounded-full bg-[#17464F] border border-[#D4B483]" />
             <span className="w-2 h-2 rounded-full bg-[#D4B483]" />
           </div>
-
         </div>
       </section>
       {/* SECTION 3 PAIN POINTS START - 三大痛點 (重製版) */}
@@ -1037,7 +1037,7 @@ export default function HomePage() {
             <div className="relative">
               {/* 痛點 1: 方向斷裂 */}
               <div className="relative z-10 flex flex-col items-center gap-6 mb-8">
-                <div className="w-20 h-20 flex items-center justify-center">
+                <div className="w-20 h-20 hidden md:flex items-center justify-center">
                   <svg
                     className="w-16 h-16 text-[#D4B483]"
                     viewBox="0 0 64 64"
@@ -1073,7 +1073,7 @@ export default function HomePage() {
 
               {/* 痛點 2: 方法斷裂 */}
               <div className="relative z-10 flex flex-col items-center gap-6 mb-8">
-                <div className="w-20 h-20 flex items-center justify-center">
+                <div className="w-20 h-20 hidden md:flex items-center justify-center">
                   <svg
                     className="w-16 h-16 text-[#D4B483]"
                     viewBox="0 0 64 64"
@@ -1102,7 +1102,7 @@ export default function HomePage() {
 
               {/* 痛點 3: 同伴斷裂 */}
               <div className="relative z-10 flex flex-col items-center gap-6 mb-12">
-                <div className="w-20 h-20 flex items-center justify-center">
+                <div className="w-20 h-20 hidden md:flex items-center justify-center">
                   <svg
                     className="w-16 h-16 text-[#D4B483]"
                     viewBox="0 0 64 64"
@@ -2649,12 +2649,41 @@ export default function HomePage() {
               ×
             </button>
             <h3 className="text-2xl font-bold text-[#17464F] mb-2">{selectedCalendarWeek.title}</h3>
-            <p className="text-sm font-medium text-[#D4B483] mb-6">{selectedCalendarWeek.instructor}</p>
+            <p className="text-sm font-medium text-[#D4B483] mb-6">{selectedCalendarWeek.monthWeek}</p>
             <div className="text-sm text-[#33393C] leading-relaxed space-y-4">
               {/* Render instructorData or other details as needed */}
-              {selectedCalendarWeek.instructorData && (
-                <pre>{JSON.stringify(selectedCalendarWeek.instructorData, null, 2)}</pre>
-              )}
+              {/* {selectedCalendarWeek.instructorData && <pre>{JSON.stringify(selectedCalendarWeek.instructorData, null, 2)}</pre>} */}
+              <p>
+                <span className="font-semibold text-[#17464F]">當週目標：</span>
+                {selectedCalendarWeek.focusShort}
+              </p>
+              <p>
+                <span className="font-semibold text-[#17464F]">詳細內容：</span>
+                {selectedCalendarWeek.focusDetail}
+              </p>
+              <h5 className="text-sm font-semibold text-[#17464F] mb-2 pt-4">講師</h5>
+              <div className="flex flex-wrap gap-4">
+                {selectedCalendarWeek.instructors.map((instructor, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-start gap-3 p-3 bg-white border border-gray-100 rounded-lg shadow-sm"
+                  >
+                    <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#D4B483]/50 shrink-0">
+                      <Image
+                        src={instructor.image || "/placeholder.svg"}
+                        alt={instructor.name}
+                        width={48}
+                        height={48}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div>
+                      <p className="font-medium text-[#17464F]">{instructor.name}</p>
+                      <p className="text-xs text-gray-500">{instructor.title}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
