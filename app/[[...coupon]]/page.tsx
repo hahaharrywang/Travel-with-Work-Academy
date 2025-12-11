@@ -995,15 +995,6 @@ export default function HomePage() {
             <span className="w-2 h-2 rounded-full bg-[#D4B483]" />
           </div>
 
-          {/* Closing statement */}
-          <div className="text-center max-w-3xl mx-auto">
-            <p className="text-white/80 leading-relaxed mb-4">
-              你缺的不是更多資訊，而是一個地方，
-              <br className="sm:hidden" />
-              <span className="block md:inline">讓你在未來六個月裡，有人陪你一起試、</span>
-              <span className="block md:inline">一起走、一起調整方向。</span>
-            </p>
-          </div>
         </div>
       </section>
       {/* SECTION 3 PAIN POINTS START - 三大痛點 (重製版) */}
