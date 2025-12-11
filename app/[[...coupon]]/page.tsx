@@ -2054,86 +2054,93 @@ export default function HomePage() {
           </div>
 
           {showCalendarInline && (
-            <div ref={calendarSectionRef} className="mt-12 animate-in slide-in-from-top-4 fade-in duration-500">
-              <div className="bg-white rounded-2xl shadow-xl border border-[#C9D7D4] overflow-hidden">
-                {/* Header */}
-                <div className="bg-gradient-to-r from-[#17464F] to-[#1a5561] px-6 py-6 text-white">
-                  <h3 className="text-xl md:text-2xl font-bold">完整 3+3 學習行事曆</h3>
-                  <p className="text-sm text-white/80 mt-1">
-                    24 週的課程與行動任務，分成三個階段：起步打底、出擊試水、累積整合。
-                  </p>
+            <div ref={calendarSectionRef} className="mt-8 animate-in slide-in-from-top-4 fade-in duration-500">
+              {/* Description and Track Filter */}
+              <div className="mb-6">
+                <p className="text-sm md:text-base text-[#33393C]/80 text-center mb-4">
+                  24 週的課程與行動任務，分成三個階段：起步打底、出擊試水、累積整合。
+                </p>
 
-                  {/* Track Filter */}
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    <span className="text-xs text-white/70 self-center mr-1">路線：</span>
-                    {["雙軌", "遠端上班", "自媒體接案"].map((track) => (
-                      <button
-                        key={track}
-                        onClick={() => setCalendarTrackFilter(track)}
-                        className={`px-3 py-1.5 text-xs rounded-full transition-all ${
-                          calendarTrackFilter === track
-                            ? "bg-white text-[#17464F] font-medium"
-                            : "bg-white/20 text-white hover:bg-white/30"
-                        }`}
-                      >
-                        {track}
-                      </button>
-                    ))}
-                  </div>
+                {/* Track Filter */}
+                <div className="flex flex-wrap justify-center gap-2">
+                  <span className="text-xs text-[#33393C]/60 self-center mr-1">路線：</span>
+                  {["雙軌", "遠端上班", "自媒體接案"].map((track) => (
+                    <button
+                      key={track}
+                      onClick={() => setCalendarTrackFilter(track)}
+                      className={`px-3 py-1.5 text-xs rounded-full transition-all border ${
+                        calendarTrackFilter === track
+                          ? "bg-[#17464F] text-white border-[#17464F] font-medium"
+                          : "bg-white text-[#33393C] border-[#C9D7D4] hover:border-[#17464F]/50"
+                      }`}
+                    >
+                      {track}
+                    </button>
+                  ))}
                 </div>
+              </div>
 
-                {/* Timeline Content - Grouped by Phase */}
-                <div className="px-4 md:px-6 py-6">
-                  {/* Group weeks by phase */}
-                  {(() => {
-                    const phaseGroups = [
-                      {
-                        phase: "階段一 起步打底",
-                        phaseKey: "Phase 1 起步打底",
-                        months: ["4 月", "5 月"],
-                        weeks: [1, 2, 3, 4, 5, 6, 7, 8],
-                        description: "看懂市場、釐清方向、整理素材",
-                      },
-                      {
-                        phase: "階段二 出擊試水",
-                        phaseKey: "Phase 2 出擊試水",
-                        months: ["6 月", "7 月"],
-                        weeks: [9, 10, 11, 12, 13, 14, 15, 16],
-                        description: "做出履歷或作品集，實際投遞或發佈",
-                      },
-                      {
-                        phase: "階段三 累積整合",
-                        phaseKey: "Phase 3 累積整合",
-                        months: ["8 月", "9 月"],
-                        weeks: [17, 18, 19, 20, 21, 22, 23, 24],
-                        description: "復盤調整，建立長期可運作的系統",
-                      },
-                    ]
+              {/* Timeline Content - Grouped by Phase */}
+              <div className="space-y-4">
+                {(() => {
+                  const phaseGroups = [
+                    {
+                      phase: "階段一 起步打底",
+                      phaseKey: "Phase 1 起步打底",
+                      months: ["4 月", "5 月"],
+                      weeks: [1, 2, 3, 4, 5, 6, 7, 8],
+                      description: "看懂市場、釐清方向、整理素材",
+                    },
+                    {
+                      phase: "階段二 出擊試水",
+                      phaseKey: "Phase 2 出擊試水",
+                      months: ["6 月", "7 月"],
+                      weeks: [9, 10, 11, 12, 13, 14, 15, 16],
+                      description: "做出履歷或作品集，實際投遞或發佈",
+                    },
+                    {
+                      phase: "階段三 累積整合",
+                      phaseKey: "Phase 3 累積整合",
+                      months: ["8 月", "9 月"],
+                      weeks: [17, 18, 19, 20, 21, 22, 23, 24],
+                      description: "復盤調整，建立長期可運作的系統",
+                    },
+                  ]
 
-                    const togglePhase = (phase: string) => {
-                      setExpandedPhases((prev) => {
-                        const newSet = new Set(prev)
-                        if (newSet.has(phase)) {
-                          newSet.delete(phase)
-                        } else {
-                          newSet.add(phase)
-                        }
-                        return newSet
-                      })
-                    }
+                  const togglePhase = (phase: string) => {
+                    setExpandedPhases((prev) => {
+                      const newSet = new Set(prev)
+                      if (newSet.has(phase)) {
+                        newSet.delete(phase)
+                      } else {
+                        newSet.add(phase)
+                      }
+                      return newSet
+                    })
+                  }
 
-                    return (
-                      <div className="space-y-8">
-                        {phaseGroups.map((group) => {
-                          const phaseWeeks = filteredCalendarData.filter((week) => week.phase === group.phaseKey)
-                          const phaseColor = getPhaseColor(group.phaseKey)
+                  return (
+                    <>
+                      {phaseGroups.map((group) => {
+                        const phaseWeeks = filteredCalendarData.filter((week) => week.phase === group.phaseKey)
+                        const isPhaseExpanded = expandedPhases.has(group.phase)
+                        const phaseColor = getPhaseColor(group.phaseKey)
 
-                          if (phaseWeeks.length === 0) return null
+                        if (phaseWeeks.length === 0) return null
 
-                          return (
-                            <div key={group.phase} className="space-y-4">
-                              {/* Phase Header - Static (not clickable) */}
-                              <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 px-2">
+                        return (
+                          <div
+                            key={group.phase}
+                            className="border border-[#C9D7D4] rounded-xl overflow-hidden bg-white"
+                          >
+                            {/* Phase Header - Clickable */}
+                            <button
+                              onClick={() => togglePhase(group.phase)}
+                              className={`w-full px-4 md:px-6 py-4 flex items-center justify-between transition-colors ${
+                                isPhaseExpanded ? "bg-[#F5F3ED]" : "bg-white hover:bg-[#F5F3ED]/50"
+                              }`}
+                            >
+                              <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 text-left">
                                 <div className="flex items-center gap-3">
                                   <span
                                     className={`px-3 py-1 text-sm font-semibold rounded-lg ${phaseColor.bg} ${phaseColor.text}`}
@@ -2144,105 +2151,118 @@ export default function HomePage() {
                                     {group.months.join("、")} · {phaseWeeks.length} 週
                                   </span>
                                 </div>
-                                <p className="text-sm text-gray-600">{group.description}</p>
+                                <p className="text-sm text-gray-600 hidden md:block">{group.description}</p>
                               </div>
+                              <ChevronDown
+                                className={`w-5 h-5 text-[#17464F] transition-transform flex-shrink-0 ${
+                                  isPhaseExpanded ? "rotate-180" : ""
+                                }`}
+                              />
+                            </button>
 
-                              {/* Week Cards Grid - Always visible */}
-                              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                                {phaseWeeks.map((week) => {
-                                  const trackColor = getTrackColor(week.track)
+                            {/* Phase Content - Expandable */}
+                            {isPhaseExpanded && (
+                              <div className="px-4 md:px-6 py-4 border-t border-[#C9D7D4] animate-in slide-in-from-top-2 fade-in duration-300">
+                                {/* Mobile description */}
+                                <p className="text-sm text-gray-600 mb-4 md:hidden">{group.description}</p>
 
-                                  return (
-                                    <div
-                                      key={week.id}
-                                      className="border border-[#C9D7D4] rounded-lg p-4 bg-white hover:shadow-md transition-shadow cursor-pointer"
-                                      onClick={() => setSelectedCalendarWeek(week)}
-                                    >
-                                      {/* Week Header */}
-                                      <div className="flex items-center justify-between mb-2">
-                                        <span className="text-sm font-bold text-[#17464F]">{week.monthWeek}</span>
-                                        <span
-                                          className={`px-2 py-0.5 text-xs rounded ${trackColor.bg} ${trackColor.text}`}
-                                        >
-                                          {week.track}
-                                        </span>
-                                      </div>
+                                {/* Week Cards Grid */}
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                                  {phaseWeeks.map((week) => {
+                                    const trackColor = getTrackColor(week.track)
 
-                                      {/* Title */}
-                                      <h4 className="text-sm font-semibold text-[#17464F] mb-2 line-clamp-2">
-                                        {week.title}
-                                      </h4>
-
-                                      {/* Focus Short */}
-                                      <p className="text-xs text-gray-600 mb-3 line-clamp-2">{week.focusShort}</p>
-
-                                      {/* Instructors */}
-                                      <div className="flex items-center justify-between">
-                                        <div className="flex items-center -space-x-2">
-                                          {week.instructors.slice(0, 3).map((instructor, idx) => (
-                                            <div
-                                              key={idx}
-                                              className="w-6 h-6 rounded-full overflow-hidden border-2 border-white"
-                                            >
-                                              <Image
-                                                src={instructor.image || "/placeholder.svg"}
-                                                alt={instructor.name}
-                                                width={24}
-                                                height={24}
-                                                className="w-full h-full object-cover"
-                                              />
-                                            </div>
-                                          ))}
-                                          {week.instructors.length > 3 && (
-                                            <span className="text-xs text-gray-500 ml-2">
-                                              +{week.instructors.length - 3}
-                                            </span>
-                                          )}
+                                    return (
+                                      <div
+                                        key={week.id}
+                                        className="border border-[#C9D7D4] rounded-lg p-4 bg-white hover:shadow-md transition-shadow cursor-pointer"
+                                        onClick={() => setSelectedCalendarWeek(week)}
+                                      >
+                                        {/* Week Header */}
+                                        <div className="flex items-center justify-between mb-2">
+                                          <span className="text-sm font-bold text-[#17464F]">{week.monthWeek}</span>
+                                          <span
+                                            className={`px-2 py-0.5 text-xs rounded ${trackColor.bg} ${trackColor.text}`}
+                                          >
+                                            {week.track}
+                                          </span>
                                         </div>
-                                        <ChevronRight className="w-4 h-4 text-[#17464F]/50" />
+
+                                        {/* Title */}
+                                        <h4 className="text-sm font-semibold text-[#17464F] mb-2 line-clamp-2">
+                                          {week.title}
+                                        </h4>
+
+                                        {/* Focus Short */}
+                                        <p className="text-xs text-gray-600 mb-3 line-clamp-2">{week.focusShort}</p>
+
+                                        {/* Instructors */}
+                                        <div className="flex items-center justify-between">
+                                          <div className="flex items-center -space-x-2">
+                                            {week.instructors.slice(0, 3).map((instructor, idx) => (
+                                              <div
+                                                key={idx}
+                                                className="w-6 h-6 rounded-full overflow-hidden border-2 border-white"
+                                              >
+                                                <Image
+                                                  src={instructor.image || "/placeholder.svg"}
+                                                  alt={instructor.name}
+                                                  width={24}
+                                                  height={24}
+                                                  className="w-full h-full object-cover"
+                                                />
+                                              </div>
+                                            ))}
+                                            {week.instructors.length > 3 && (
+                                              <span className="text-xs text-gray-500 ml-2">
+                                                +{week.instructors.length - 3}
+                                              </span>
+                                            )}
+                                          </div>
+                                          <ChevronRight className="w-4 h-4 text-[#17464F]/50" />
+                                        </div>
                                       </div>
-                                    </div>
-                                  )
-                                })}
+                                    )
+                                  })}
+                                </div>
                               </div>
-                            </div>
-                          )
-                        })}
-
-                        {filteredCalendarData.length === 0 && (
-                          <div className="text-center py-12 text-gray-500">
-                            <Calendar className="w-12 h-12 mx-auto mb-3 opacity-30" />
-                            <p>沒有符合篩選條件的週次</p>
+                            )}
                           </div>
-                        )}
-                      </div>
-                    )
-                  })()}
-                </div>
+                        )
+                      })}
 
-                {/* Footer with collapse button */}
-                <div className="bg-[#F5F3ED] px-6 py-4 border-t border-[#C9D7D4]">
-                  <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-                    <p className="text-xs text-gray-500">
-                      共 {filteredCalendarData.length} 週 ·{" "}
-                      {calendarPhaseFilter !== "全部" && `${calendarPhaseFilter} · `}
-                      {calendarTrackFilter !== "全部" && `${calendarTrackFilter}`}
-                    </p>
-                    <button
-                      onClick={() => {
-                        setShowCalendarInline(false)
-                        // Scroll back to the CTA button area
-                        setTimeout(() => {
-                          const ctaButton = document.querySelector("#learning-map-cta")
-                          ctaButton?.scrollIntoView({ behavior: "smooth", block: "center" })
-                        }, 100)
-                      }}
-                      className="inline-flex items-center gap-2 px-4 py-2 text-sm text-[#17464F] hover:text-[#D4B483] transition-colors"
-                    >
-                      <ChevronUp className="w-4 h-4" />
-                      收合行事曆
-                    </button>
-                  </div>
+                      {filteredCalendarData.length === 0 && (
+                        <div className="text-center py-12 text-gray-500">
+                          <Calendar className="w-12 h-12 mx-auto mb-3 opacity-30" />
+                          <p>沒有符合篩選條件的週次</p>
+                        </div>
+                      )}
+                    </>
+                  )
+                })()}
+              </div>
+
+              {/* Footer with collapse button */}
+              <div className="bg-[#F5F3ED] px-6 py-4 border-t border-[#C9D7D4]">
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+                  <p className="text-xs text-gray-500">
+                    共 {filteredCalendarData.length} 週 ·{" "}
+                    {calendarPhaseFilter !== "全部" && `${calendarPhaseFilter} · `}
+                    {calendarTrackFilter !== "全部" && `${calendarTrackFilter}`}
+                  </p>
+                  <button
+                    onClick={() => {
+                      setShowCalendarInline(false)
+                      // Scroll back to the CTA button area
+                      setTimeout(() => {
+                        const ctaButton = document.querySelector("#learning-map-cta")
+                        ctaButton?.scrollIntoView({ behavior: "smooth", block: "center" })
+                      }, 100)
+                    }}
+                    className="inline-flex items-center gap-2 px-4 py-2 text-sm text-[#17464F] hover:text-[#D4B483] transition-colors"
+                  >
+                    <ChevronUp className="w-4 h-4" />
+                    收合行事曆
+                  </button>
                 </div>
               </div>
             </div>
@@ -2705,7 +2725,6 @@ export default function HomePage() {
             <p className="text-sm font-medium text-[#D4B483] mb-6">{selectedCalendarWeek.monthWeek}</p>
             <div className="text-sm text-[#33393C] leading-relaxed space-y-4">
               {/* Render instructorData or other details as needed */}
-              {/* {selectedCalendarWeek.instructorData && <pre>{JSON.stringify(selectedCalendarWeek.instructorData, null, 2)}</pre>} */}
               <p>
                 <span className="font-semibold text-[#17464F]">當週目標：</span>
                 {selectedCalendarWeek.focusShort}
