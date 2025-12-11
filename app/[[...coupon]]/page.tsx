@@ -2082,8 +2082,6 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                {/* Replace the calendar Timeline Content section (around line 2083-2170) */}
-                {/* Replace the entire "Timeline Content" div with new phase-grouped structure */}
                 {/* Timeline Content - Grouped by Phase */}
                 <div className="px-4 md:px-6 py-6">
                   {/* Group weeks by phase */}
@@ -2125,112 +2123,88 @@ export default function HomePage() {
                     }
 
                     return (
-                      <div className="space-y-4">
+                      <div className="space-y-8">
                         {phaseGroups.map((group) => {
                           const phaseWeeks = filteredCalendarData.filter((week) => week.phase === group.phaseKey)
-                          const isPhaseExpanded = expandedPhases.has(group.phase)
                           const phaseColor = getPhaseColor(group.phaseKey)
 
                           if (phaseWeeks.length === 0) return null
 
                           return (
-                            <div
-                              key={group.phase}
-                              className="border border-[#C9D7D4] rounded-xl overflow-hidden bg-white"
-                            >
-                              {/* Phase Header - Clickable */}
-                              <button
-                                onClick={() => togglePhase(group.phase)}
-                                className={`w-full px-4 md:px-6 py-4 flex items-center justify-between transition-colors ${
-                                  isPhaseExpanded ? "bg-[#F5F3ED]" : "bg-white hover:bg-[#F5F3ED]/50"
-                                }`}
-                              >
-                                <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 text-left">
-                                  <div className="flex items-center gap-3">
-                                    <span
-                                      className={`px-3 py-1 text-sm font-semibold rounded-lg ${phaseColor.bg} ${phaseColor.text}`}
+                            <div key={group.phase} className="space-y-4">
+                              {/* Phase Header - Static (not clickable) */}
+                              <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 px-2">
+                                <div className="flex items-center gap-3">
+                                  <span
+                                    className={`px-3 py-1 text-sm font-semibold rounded-lg ${phaseColor.bg} ${phaseColor.text}`}
+                                  >
+                                    {group.phase}
+                                  </span>
+                                  <span className="text-sm text-gray-500">
+                                    {group.months.join("、")} · {phaseWeeks.length} 週
+                                  </span>
+                                </div>
+                                <p className="text-sm text-gray-600">{group.description}</p>
+                              </div>
+
+                              {/* Week Cards Grid - Always visible */}
+                              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                                {phaseWeeks.map((week) => {
+                                  const trackColor = getTrackColor(week.track)
+
+                                  return (
+                                    <div
+                                      key={week.id}
+                                      className="border border-[#C9D7D4] rounded-lg p-4 bg-white hover:shadow-md transition-shadow cursor-pointer"
+                                      onClick={() => setSelectedCalendarWeek(week)}
                                     >
-                                      {group.phase}
-                                    </span>
-                                    <span className="text-sm text-gray-500">
-                                      {group.months.join("、")} · {phaseWeeks.length} 週
-                                    </span>
-                                  </div>
-                                  <p className="text-sm text-gray-600 hidden md:block">{group.description}</p>
-                                </div>
-                                <ChevronDown
-                                  className={`w-5 h-5 text-[#17464F] transition-transform flex-shrink-0 ${
-                                    isPhaseExpanded ? "rotate-180" : ""
-                                  }`}
-                                />
-                              </button>
-
-                              {/* Phase Content - Expandable */}
-                              {isPhaseExpanded && (
-                                <div className="px-4 md:px-6 py-4 border-t border-[#C9D7D4] animate-in slide-in-from-top-2 fade-in duration-300">
-                                  {/* Mobile description */}
-                                  <p className="text-sm text-gray-600 mb-4 md:hidden">{group.description}</p>
-
-                                  {/* Week Cards Grid */}
-                                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                                    {phaseWeeks.map((week) => {
-                                      const trackColor = getTrackColor(week.track)
-
-                                      return (
-                                        <div
-                                          key={week.id}
-                                          className="border border-[#C9D7D4] rounded-lg p-4 bg-white hover:shadow-md transition-shadow cursor-pointer"
-                                          onClick={() => setSelectedCalendarWeek(week)}
+                                      {/* Week Header */}
+                                      <div className="flex items-center justify-between mb-2">
+                                        <span className="text-sm font-bold text-[#17464F]">{week.monthWeek}</span>
+                                        <span
+                                          className={`px-2 py-0.5 text-xs rounded ${trackColor.bg} ${trackColor.text}`}
                                         >
-                                          {/* Week Header */}
-                                          <div className="flex items-center justify-between mb-2">
-                                            <span className="text-sm font-bold text-[#17464F]">{week.monthWeek}</span>
-                                            <span
-                                              className={`px-2 py-0.5 text-xs rounded ${trackColor.bg} ${trackColor.text}`}
+                                          {week.track}
+                                        </span>
+                                      </div>
+
+                                      {/* Title */}
+                                      <h4 className="text-sm font-semibold text-[#17464F] mb-2 line-clamp-2">
+                                        {week.title}
+                                      </h4>
+
+                                      {/* Focus Short */}
+                                      <p className="text-xs text-gray-600 mb-3 line-clamp-2">{week.focusShort}</p>
+
+                                      {/* Instructors */}
+                                      <div className="flex items-center justify-between">
+                                        <div className="flex items-center -space-x-2">
+                                          {week.instructors.slice(0, 3).map((instructor, idx) => (
+                                            <div
+                                              key={idx}
+                                              className="w-6 h-6 rounded-full overflow-hidden border-2 border-white"
                                             >
-                                              {week.track}
-                                            </span>
-                                          </div>
-
-                                          {/* Title */}
-                                          <h4 className="text-sm font-semibold text-[#17464F] mb-2 line-clamp-2">
-                                            {week.title}
-                                          </h4>
-
-                                          {/* Focus Short */}
-                                          <p className="text-xs text-gray-600 mb-3 line-clamp-2">{week.focusShort}</p>
-
-                                          {/* Instructors */}
-                                          <div className="flex items-center justify-between">
-                                            <div className="flex items-center -space-x-2">
-                                              {week.instructors.slice(0, 3).map((instructor, idx) => (
-                                                <div
-                                                  key={idx}
-                                                  className="w-6 h-6 rounded-full overflow-hidden border-2 border-white"
-                                                >
-                                                  <Image
-                                                    src={instructor.image || "/placeholder.svg"}
-                                                    alt={instructor.name}
-                                                    width={24}
-                                                    height={24}
-                                                    className="w-full h-full object-cover"
-                                                  />
-                                                </div>
-                                              ))}
-                                              {week.instructors.length > 3 && (
-                                                <span className="text-xs text-gray-500 ml-2">
-                                                  +{week.instructors.length - 3}
-                                                </span>
-                                              )}
+                                              <Image
+                                                src={instructor.image || "/placeholder.svg"}
+                                                alt={instructor.name}
+                                                width={24}
+                                                height={24}
+                                                className="w-full h-full object-cover"
+                                              />
                                             </div>
-                                            <ChevronRight className="w-4 h-4 text-[#17464F]/50" />
-                                          </div>
+                                          ))}
+                                          {week.instructors.length > 3 && (
+                                            <span className="text-xs text-gray-500 ml-2">
+                                              +{week.instructors.length - 3}
+                                            </span>
+                                          )}
                                         </div>
-                                      )
-                                    })}
-                                  </div>
-                                </div>
-                              )}
+                                        <ChevronRight className="w-4 h-4 text-[#17464F]/50" />
+                                      </div>
+                                    </div>
+                                  )
+                                })}
+                              </div>
                             </div>
                           )
                         })}
