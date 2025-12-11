@@ -2096,6 +2096,13 @@ export default function HomePage() {
                       const phaseColor = getPhaseColor(week.phase)
                       const trackColor = getTrackColor(week.track)
 
+                      const phaseChineseMap: Record<string, string> = {
+                        "Phase 1 起步打底": "階段一 起步打底",
+                        "Phase 2 出擊試水": "階段二 出擊試水",
+                        "Phase 3 累積整合": "階段三 累積整合",
+                      }
+                      const phaseChinese = phaseChineseMap[week.phase] || week.phase
+
                       return (
                         <div
                           key={week.id}
@@ -2105,23 +2112,24 @@ export default function HomePage() {
                         >
                           {/* Week Header (always visible) */}
                           <div className="p-4 cursor-pointer" onClick={() => toggleWeekExpansion(week.id)}>
-                            {/* Phase & Month/Week */}
-                            <div className="flex flex-wrap items-center gap-2 mb-2">
-                              <span
-                                className={`px-2 py-0.5 text-xs font-medium rounded ${phaseColor.bg} ${phaseColor.text}`}
-                              >
-                                {week.phase.replace("Phase ", "P")}
-                              </span>
-                              <span className="text-sm text-gray-500">{week.monthWeek}</span>
+                            <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                              <div className="flex flex-wrap items-center gap-2">
+                                {/* Month/Week - emphasized */}
+                                <span className="text-base md:text-lg font-bold text-[#17464F]">{week.monthWeek}</span>
+                                {/* Phase tag - Chinese */}
+                                <span
+                                  className={`px-2 py-0.5 text-xs font-medium rounded ${phaseColor.bg} ${phaseColor.text}`}
+                                >
+                                  {phaseChinese}
+                                </span>
+                              </div>
                               <span className={`px-2 py-0.5 text-xs rounded ${trackColor.bg} ${trackColor.text}`}>
                                 {week.track}
                               </span>
                             </div>
 
-                            {/* Title & Type */}
                             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
                               <h4 className="text-base md:text-lg font-semibold text-[#17464F]">{week.title}</h4>
-                              <span className="text-xs text-gray-400 shrink-0">{week.type}</span>
                             </div>
 
                             {/* Focus Short */}
@@ -2640,103 +2648,22 @@ export default function HomePage() {
           onClick={() => setSelectedCalendarWeek(null)}
         >
           <div
-            className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative"
+            className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative p-6"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Modal Header with Phase Color */}
-            <div
-              className={`px-6 py-5 ${
-                selectedCalendarWeek.phase.includes("1")
-                  ? "bg-[#D4B483]/10"
-                  : selectedCalendarWeek.phase.includes("2")
-                    ? "bg-[#17464F]/10"
-                    : "bg-[#A06E56]/10"
-              }`}
+            <button
+              onClick={() => setSelectedCalendarWeek(null)}
+              className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-400 hover:text-gray-600 text-xl font-bold z-10"
             >
-              <button
-                onClick={() => setSelectedCalendarWeek(null)}
-                className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-400 hover:text-gray-600 text-xl font-bold z-10"
-              >
-                ×
-              </button>
-
-              {/* Phase & Week Tags */}
-              <div className="flex flex-wrap items-center gap-2 mb-3">
-                <span
-                  className={`px-3 py-1 text-xs font-semibold rounded-full ${
-                    selectedCalendarWeek.phase.includes("1")
-                      ? "bg-[#D4B483] text-white"
-                      : selectedCalendarWeek.phase.includes("2")
-                        ? "bg-[#17464F] text-white"
-                        : "bg-[#A06E56] text-white"
-                  }`}
-                >
-                  {selectedCalendarWeek.phase}
-                </span>
-                <span className="text-sm text-gray-500">{selectedCalendarWeek.monthWeek}</span>
-              </div>
-
-              {/* Title */}
-              <h3 className="text-xl md:text-2xl font-bold text-[#17464F]">{selectedCalendarWeek.title}</h3>
-              <p className="text-sm text-gray-500 mt-1">{selectedCalendarWeek.type}</p>
-            </div>
-
-            {/* Modal Body */}
-            <div className="px-6 py-5 space-y-6">
-              {/* Track Label */}
-              <div className="flex items-center gap-2">
-                <span className="text-sm text-gray-500">路線：</span>
-                <span
-                  className={`px-2 py-0.5 text-xs rounded ${
-                    selectedCalendarWeek.track === "遠端上班線"
-                      ? "bg-[#17464F]/10 text-[#17464F]"
-                      : selectedCalendarWeek.track === "自媒體接案線"
-                        ? "bg-[#D4B483]/20 text-[#A06E56]"
-                        : "bg-gray-100 text-gray-600"
-                  }`}
-                >
-                  {selectedCalendarWeek.track}
-                </span>
-              </div>
-
-              {/* Focus Short */}
-              <div>
-                <h4 className="text-sm font-semibold text-[#17464F] mb-2">本週重點</h4>
-                <p className="text-sm text-gray-700 leading-relaxed">{selectedCalendarWeek.focusShort}</p>
-              </div>
-
-              {/* Focus Detail */}
-              <div className="p-4 bg-[#F7F2EA] rounded-lg">
-                <h4 className="text-sm font-semibold text-[#17464F] mb-2">本週行動任務</h4>
-                <p className="text-sm text-gray-700 leading-relaxed">{selectedCalendarWeek.focusDetail}</p>
-              </div>
-
-              {/* Instructors */}
-              <div>
-                <h4 className="text-sm font-semibold text-[#17464F] mb-3">講師資訊</h4>
-                <div className="space-y-3">
-                  {selectedCalendarWeek.instructors.map((instructor, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-center gap-4 p-4 bg-white border border-gray-100 rounded-xl shadow-sm"
-                    >
-                      <div className="w-16 h-16 rounded-full overflow-hidden border-3 border-[#D4B483]/50 shrink-0">
-                        <Image
-                          src={instructor.image || "/placeholder.svg"}
-                          alt={instructor.name}
-                          width={64}
-                          height={64}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div>
-                        <p className="font-semibold text-[#17464F] text-lg">{instructor.name}</p>
-                        <p className="text-sm text-gray-500">{instructor.title}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              ×
+            </button>
+            <h3 className="text-2xl font-bold text-[#17464F] mb-2">{selectedCalendarWeek.title}</h3>
+            <p className="text-sm font-medium text-[#D4B483] mb-6">{selectedCalendarWeek.instructor}</p>
+            <div className="text-sm text-[#33393C] leading-relaxed space-y-4">
+              {/* Render instructorData or other details as needed */}
+              {selectedCalendarWeek.instructorData && (
+                <pre>{JSON.stringify(selectedCalendarWeek.instructorData, null, 2)}</pre>
+              )}
             </div>
           </div>
         </div>
