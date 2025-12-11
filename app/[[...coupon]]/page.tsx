@@ -1138,7 +1138,7 @@ export default function HomePage() {
 
               <div className="max-w-2xl mx-auto px-6 py-8 rounded-2xl border-2 border-[#D4B483]/30 bg-[#17464F]/50 backdrop-blur-sm text-center relative">
                 <p className="text-base sm:text-lg text-white font-bold leading-relaxed">
-                  你缺的不是更多資訊，而是一個地方，
+                  你缺的不是更多資訊，而是 _.
                   <span className="block mt-2 text-[#D4B483]">
                     讓你在未來六個月裡，有人陪你一起試、一起走、一起調整方向。
                   </span>
@@ -1164,7 +1164,7 @@ export default function HomePage() {
               三大亮點，讓改變真的走起來
             </h2>
             <p className="text-base sm:text-lg text-[#33393C] max-w-2xl mx-auto leading-relaxed">
-              不只是多上一門課，而是同時 તમને：
+              不只是多上一門課，而是同時給你：
               <br />
               雙軌資源、行動任務和一群真的在實驗新生活的同伴。
             </p>
@@ -2054,30 +2054,13 @@ export default function HomePage() {
           </div>
 
           {showCalendarInline && (
-            <div ref={calendarSectionRef} className="mt-8 animate-in slide-in-from-top-4 fade-in duration-500">
-              {/* Description and Track Filter */}
-              <div className="mb-6">
-                <p className="text-sm md:text-base text-[#33393C]/80 text-center mb-4">
+            <div ref={calendarSectionRef} className="mt-12 animate-in slide-in-from-top-4 fade-in duration-500">
+              {/* Header text - now inline without card wrapper */}
+              <div className="text-center mb-8">
+                <h3 className="text-xl md:text-2xl font-bold text-[#17464F]">完整 3+3 學習行事曆</h3>
+                <p className="text-sm text-[#33393C]/70 mt-2 max-w-2xl mx-auto">
                   24 週的課程與行動任務，分成三個階段：起步打底、出擊試水、累積整合。
                 </p>
-
-                {/* Track Filter */}
-                <div className="flex flex-wrap justify-center gap-2">
-                  <span className="text-xs text-[#33393C]/60 self-center mr-1">路線：</span>
-                  {["雙軌", "遠端上班", "自媒體接案"].map((track) => (
-                    <button
-                      key={track}
-                      onClick={() => setCalendarTrackFilter(track)}
-                      className={`px-3 py-1.5 text-xs rounded-full transition-all border ${
-                        calendarTrackFilter === track
-                          ? "bg-[#17464F] text-white border-[#17464F] font-medium"
-                          : "bg-white text-[#33393C] border-[#C9D7D4] hover:border-[#17464F]/50"
-                      }`}
-                    >
-                      {track}
-                    </button>
-                  ))}
-                </div>
               </div>
 
               {/* Timeline Content - Grouped by Phase */}
@@ -2122,7 +2105,7 @@ export default function HomePage() {
                   return (
                     <>
                       {phaseGroups.map((group) => {
-                        const phaseWeeks = filteredCalendarData.filter((week) => week.phase === group.phaseKey)
+                        const phaseWeeks = calendarData.filter((week) => week.phase === group.phaseKey)
                         const isPhaseExpanded = expandedPhases.has(group.phase)
                         const phaseColor = getPhaseColor(group.phaseKey)
 
@@ -2229,41 +2212,25 @@ export default function HomePage() {
                           </div>
                         )
                       })}
-
-                      {filteredCalendarData.length === 0 && (
-                        <div className="text-center py-12 text-gray-500">
-                          <Calendar className="w-12 h-12 mx-auto mb-3 opacity-30" />
-                          <p>沒有符合篩選條件的週次</p>
-                        </div>
-                      )}
                     </>
                   )
                 })()}
               </div>
 
-              {/* Footer with collapse button */}
-              <div className="bg-[#F5F3ED] px-6 py-4 border-t border-[#C9D7D4]">
-                <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-                  <p className="text-xs text-gray-500">
-                    共 {filteredCalendarData.length} 週 ·{" "}
-                    {calendarPhaseFilter !== "全部" && `${calendarPhaseFilter} · `}
-                    {calendarTrackFilter !== "全部" && `${calendarTrackFilter}`}
-                  </p>
-                  <button
-                    onClick={() => {
-                      setShowCalendarInline(false)
-                      // Scroll back to the CTA button area
-                      setTimeout(() => {
-                        const ctaButton = document.querySelector("#learning-map-cta")
-                        ctaButton?.scrollIntoView({ behavior: "smooth", block: "center" })
-                      }, 100)
-                    }}
-                    className="inline-flex items-center gap-2 px-4 py-2 text-sm text-[#17464F] hover:text-[#D4B483] transition-colors"
-                  >
-                    <ChevronUp className="w-4 h-4" />
-                    收合行事曆
-                  </button>
-                </div>
+              <div className="mt-8 text-center">
+                <button
+                  onClick={() => {
+                    setShowCalendarInline(false)
+                    setTimeout(() => {
+                      const ctaButton = document.querySelector("#learning-map-cta")
+                      ctaButton?.scrollIntoView({ behavior: "smooth", block: "center" })
+                    }, 100)
+                  }}
+                  className="inline-flex items-center gap-2 px-6 py-3 text-sm text-[#17464F] hover:text-[#D4B483] transition-colors border border-[#C9D7D4] rounded-full hover:border-[#D4B483]"
+                >
+                  <ChevronUp className="w-4 h-4" />
+                  收合行事曆
+                </button>
               </div>
             </div>
           )}
@@ -2725,6 +2692,7 @@ export default function HomePage() {
             <p className="text-sm font-medium text-[#D4B483] mb-6">{selectedCalendarWeek.monthWeek}</p>
             <div className="text-sm text-[#33393C] leading-relaxed space-y-4">
               {/* Render instructorData or other details as needed */}
+              {/* {selectedCalendarWeek.instructorData && <pre>{JSON.stringify(selectedCalendarWeek.instructorData, null, 2)}</pre>} */}
               <p>
                 <span className="font-semibold text-[#17464F]">當週目標：</span>
                 {selectedCalendarWeek.focusShort}
