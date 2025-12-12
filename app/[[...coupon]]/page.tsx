@@ -365,7 +365,7 @@ export default function HomePage() {
               </p>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-wide">
-                今年4月，
+                6個月，
                 <br />
                 一起把「也許有一天」
                 <br />
