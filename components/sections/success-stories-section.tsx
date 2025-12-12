@@ -7,6 +7,7 @@ const successStories = [
   {
     id: "case-a",
     title: "案例 A｜從 0 到 1 的作品集突破",
+    identity: "A 同學｜內向工程師，從沒公開過自己作品",
     tags: ["#遠距遊牧學院"],
     content: [
       "加入之前，他完全沒有作品集，頂多只有幾個零散的 side project 想法，每次想到要投履歷或嘗試接案，就卡在：「我好像沒有什麼可以拿得出來。」",
@@ -17,6 +18,7 @@ const successStories = [
   {
     id: "case-b",
     title: "案例 B｜開啟自媒體變現之路",
+    identity: "B 同學｜邊上班邊經營 IG 的行銷人",
     tags: ["#遠距遊牧學院", "#自媒體接案線"],
     content: [
       "過去他一直有在發文、分享想法，卻從來沒有收集過電子報名單，也不知道要怎麼把內容變成真正的付費產品。",
@@ -27,6 +29,7 @@ const successStories = [
   {
     id: "case-c",
     title: "案例 C｜第一次邊工作邊旅居",
+    identity: "C 同學｜在台北工作 7 年、第一次帶著工作出國",
     tags: ["#Journey", "#邊工作邊旅行"],
     content: [
       "一開始，他只是在社群活動裡聽別人分享清邁、峴港、福岡的故事，心裡想著：「好羨慕，但應該不會輪到我吧。」",
@@ -82,7 +85,10 @@ export function SuccessStoriesSection() {
               </div>
 
               {/* Title */}
-              <h3 className="text-lg font-bold text-[#17464F] mb-4">{story.title}</h3>
+              <h3 className="text-lg font-bold text-[#17464F] mb-3">{story.title}</h3>
+
+              {/* Identity */}
+              <p className="text-sm font-medium text-[#A06E56] mb-4 pb-3 border-b border-[#C9D7D4]">{story.identity}</p>
 
               {/* Content */}
               <div className="text-sm text-[#33393C] leading-relaxed space-y-3 mb-6 flex-grow">
@@ -135,7 +141,12 @@ export function SuccessStoriesSection() {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-lg font-bold text-[#17464F] mb-4">{story.title}</h3>
+                    <h3 className="text-lg font-bold text-[#17464F] mb-3">{story.title}</h3>
+
+                    {/* Identity */}
+                    <p className="text-sm font-medium text-[#A06E56] mb-4 pb-3 border-b border-[#C9D7D4]">
+                      {story.identity}
+                    </p>
 
                     {/* Content */}
                     <div className="text-sm text-[#33393C] leading-relaxed space-y-3 mb-6 flex-grow">
