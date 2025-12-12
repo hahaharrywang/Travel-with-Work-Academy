@@ -338,7 +338,7 @@ export default function HomePage() {
               alt="遠距遊牧學院 Travel with Work Academy"
               width={200}
               height={105}
-              className="h-auto w-[180px] sm:w-[240px] lg:w-[600px] brightness-0 invert"
+              className="h-auto w-[180px] sm:w-[240px] lg:w-[300px] brightness-0 invert"
               priority
             />
             {/* Airplane trajectory dotted line */}
