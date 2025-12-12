@@ -11,6 +11,7 @@ import { AnnouncementBar } from "@/components/announcement-bar"
 import { StickyBottomBar } from "@/components/sticky-bottom-bar"
 import { PricingSection } from "@/components/sections/pricing-section" // Import PricingSection
 import FAQSection from "@/components/sections/faq-section" // Import FAQSection
+import { SuccessStoriesSection } from "@/components/sections/success-stories-section"
 
 import { type PlanId, getCheckoutURL } from "@/data/plan-config"
 import { calendarData, getPhaseColor, getTrackColor, type CalendarWeek } from "@/data/calendar"
@@ -1582,7 +1583,7 @@ export default function HomePage() {
                 <div className="text-[#33393C] text-sm leading-relaxed space-y-3">
                   <div>
                     <span className="font-semibold text-[#17464F]">Phase 1 起步打底：</span>
-                    一份重新盤點過的職涯與能力地圖，知道自己手上有哪些可以被好好使用的資源。
+                    一份重新盤點過的職涯與能力地圖，知道自己手上一點可以被好好使用的資源。
                   </div>
                   <div>
                     <span className="font-semibold text-[#17464F]">Phase 2 出擊試水：</span>
@@ -1818,6 +1819,9 @@ export default function HomePage() {
           )}
         </div>
       </section>
+
+      {/* Success Stories Section */}
+      <SuccessStoriesSection />
 
       {/* PRICING SECTION */}
       <section id="pricing-section" className="py-16 sm:py-24 bg-[#17464F] relative overflow-hidden">
