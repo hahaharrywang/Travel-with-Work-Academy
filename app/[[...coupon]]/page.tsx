@@ -331,7 +331,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="absolute top-0 left-0 z-30 py-1 px-4 sm:px-6 lg:px-8">
+        <div className="absolute top--2 left-0 z-30 py-4 px-4 sm:px-6 lg:px-8">
           <div className="relative">
             <Image
               src="/images/academy-logo.png"
