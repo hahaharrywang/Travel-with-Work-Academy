@@ -360,10 +360,6 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left content */}
             <div className="space-y-6 text-center lg:text-left">
-              <p className="text-sm sm:text-base text-[#D4B483] font-medium tracking-wide">
-                華語世界第一個以「行動導向」設計的遠距遊牧學院
-              </p>
-
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-wide">
                 6個月，
                 <br />
@@ -371,6 +367,10 @@ export default function HomePage() {
                 <br />
                 變成「<span className="text-[#D4B483]">我也正在路上</span>」
               </h1>
+
+              <p className="text-sm sm:text-base text-[#D4B483] font-medium tracking-wide">
+                華語世界第一個以「行動導向」設計的遠距遊牧學院
+              </p>
 
               <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-xl mx-auto lg:mx-0">
                 遠距遊牧學院結合線上課程、行動任務、共學社群與旅居體驗，
