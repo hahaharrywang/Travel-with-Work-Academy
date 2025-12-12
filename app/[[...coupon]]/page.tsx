@@ -373,27 +373,13 @@ export default function HomePage() {
               </p>
 
               <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                遠距遊牧學院結合線上課程、行動任務、共學社群與旅居體驗，
-                幫助已經準備行動的探索者，在不需要辭職、不斷線收入的前提下， 也能快速尋找適合自己的遠距路徑。
+                透過線上學習、行動任務和社群支持，幫你在不停薪、不斷線的情況下，透過實際行動，找到適合自己的遠距路徑。
               </p>
-
-              {/* Route tags */}
-              <div className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3">
-                <span className="px-4 py-2 rounded-full border border-white/40 text-white text-sm font-medium">
-                  自媒體接案線路
-                </span>
-                <span className="px-4 py-2 rounded-full border border-white/40 text-white text-sm font-medium">
-                  遠端上班線路
-                </span>
-                <span className="px-4 py-2 rounded-full border border-white/40 text-white text-sm font-medium">
-                  雙線整合線路
-                </span>
-              </div>
 
               <div className="space-y-3 text-left max-w-xl mx-auto lg:mx-0">
                 <div className="flex items-start gap-3">
                   <TrendingUp className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">梳理你的遠距職涯藍圖與下一步行動</p>
+                  <p className="text-white/90">梳理你的遠距遊牧藍圖與下一步行動</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <FileText className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
