@@ -13,6 +13,8 @@ import { PricingSection } from "@/components/sections/pricing-section" // Import
 import FAQSection from "@/components/sections/faq-section" // Import FAQSection
 import { SuccessStoriesSection } from "@/components/sections/success-stories-section"
 
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+
 import { type PlanId, getCheckoutURL } from "@/data/plan-config"
 import { calendarData, getPhaseColor, getTrackColor, type CalendarWeek } from "@/data/calendar"
 import { stagePhotos } from "@/data/stage-photos"
@@ -44,7 +46,7 @@ export default function HomePage() {
   const [activeMapTab, setActiveMapTab] = useState<string>("遠端上班") // State for Learning Map tabs
   const [selectedWeek, setSelectedWeek] = useState<CalendarWeek | null>(null)
 
-  const [expandedFeatures, setExpandedFeatures] = useState<Set<number>>(new Set())
+  const [openFeatureDialog, setOpenFeatureDialog] = useState<number | null>(null)
 
   const { currentStageData, timeLeft, lowestPrice, selectedPlanId, setSelectedPlanId, getTrackingParams } = usePricing()
 
@@ -311,17 +313,18 @@ export default function HomePage() {
     })
   }
 
-  const toggleFeature = (index: number) => {
-    setExpandedFeatures((prev) => {
-      const newSet = new Set(prev)
-      if (newSet.has(index)) {
-        newSet.delete(index)
-      } else {
-        newSet.add(index)
-      }
-      return newSet
-    })
-  }
+  // Removed toggleFeature as it's replaced by Dialog popups
+  // const toggleFeature = (index: number) => {
+  //   setExpandedFeatures((prev) => {
+  //     const newSet = new Set(prev)
+  //     if (newSet.has(index)) {
+  //       newSet.delete(index)
+  //     } else {
+  //       newSet.add(index)
+  //     }
+  //     return newSet
+  //   })
+  // }
 
   return (
     <main className="min-h-screen bg-white">
@@ -768,7 +771,7 @@ export default function HomePage() {
             </h2>
             <p className="text-base sm:text-lg text-[#33393C] max-w-2xl mx-auto leading-relaxed">
               不只是多上一門課，而是行動起來探索
-              <br />
+              <br className="hidden sm:block" />
               雙軌資源、行動任務和一群真的在實驗新生活的同伴。
             </p>
           </div>
@@ -795,50 +798,14 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out ${expandedFeatures.has(0) ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"}`}
-              >
-                <div className="pt-4 border-t border-[#17464F]/10 space-y-4">
-                  <div className="text-[#33393C] text-sm leading-relaxed space-y-3">
-                    <p className="flex items-start gap-2">
-                      <span className="text-[#D4B483] mt-1">–</span>
-                      <span>
-                        <strong>自媒體接案線路：</strong>
-                        幫你釐清主題定位，做出接案作品集，學會基本市場調查、內容與流量思維。
-                      </span>
-                    </p>
-                    <p className="flex items-start gap-2">
-                      <span className="text-[#D4B483] mt-1">–</span>
-                      <span>
-                        <strong>遠端上班線路：</strong>認識遠端求職市場，調整履歷與
-                        LinkedIn，練習求職信、面試與獵頭溝通。
-                      </span>
-                    </p>
-                    <p className="flex items-start gap-2">
-                      <span className="text-[#D4B483] mt-1">–</span>
-                      <span>你可以選一條當主線；也可以雙線並進，快速全面探索。</span>
-                    </p>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-3 pt-2">
-                    <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-                      <Image src="/students-working-together-in-coworking-space.jpg" alt="共同工作空間" fill className="object-cover" />
-                    </div>
-                    <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-                      <Image src="/one-on-one-consultation-session-for-career-guidanc.jpg" alt="一對一諮詢" fill className="object-cover" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
               <button
-                onClick={() => toggleFeature(0)}
+                onClick={() => setOpenFeatureDialog(0)}
                 className="w-full mt-4 flex items-center justify-center gap-2 text-[#D4B483] hover:text-[#17464F] font-medium text-sm transition-colors"
               >
-                {expandedFeatures.has(0) ? "收起" : "了解更多"}
-                <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-300 ${expandedFeatures.has(0) ? "rotate-180" : ""}`}
-                />
+                了解更多
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
               </button>
             </div>
 
@@ -863,51 +830,14 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out ${expandedFeatures.has(1) ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"}`}
-              >
-                <div className="pt-4 border-t border-[#17464F]/10 space-y-4">
-                  <div className="text-[#33393C] text-sm leading-relaxed space-y-3">
-                    <p className="flex items-start gap-2">
-                      <span className="text-[#D4B483] mt-1">–</span>
-                      <span>
-                        每一堂課後，都會有一個做得到的行動任務：目標設定、發一篇文、做ㄧ支影片、更新履歷、寫求職信...等等。
-                      </span>
-                    </p>
-                    <p className="flex items-start gap-2">
-                      <span className="text-[#D4B483] mt-1">–</span>
-                      <span>
-                        任務會拆成學習單＆模板，透過具體指示與範例，協助你先完成例如策略定位、影片腳本、JD拆解、面試STAR故事庫，等階段性行動。
-                      </span>
-                    </p>
-                    <p className="flex items-start gap-2">
-                      <span className="text-[#D4B483] mt-1">–</span>
-                      <span>
-                        若希望進一步延伸學習或加速行動落地，選修的工作坊包括短影音剪輯、Coffee Chat、vibe
-                        coding、工作英語等。
-                      </span>
-                    </p>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-3 pt-2">
-                    <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-                      <Image src="/students-attending-online-workshop-and-learning.jpg" alt="線上工作坊" fill className="object-cover" />
-                    </div>
-                    <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-                      <Image src="/student-completing-action-tasks-and-assignments.jpg" alt="完成行動任務" fill className="object-cover" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
               <button
-                onClick={() => toggleFeature(1)}
+                onClick={() => setOpenFeatureDialog(1)}
                 className="w-full mt-4 flex items-center justify-center gap-2 text-[#D4B483] hover:text-[#17464F] font-medium text-sm transition-colors"
               >
-                {expandedFeatures.has(1) ? "收起" : "了解更多"}
-                <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-300 ${expandedFeatures.has(1) ? "rotate-180" : ""}`}
-                />
+                了解更多
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
               </button>
             </div>
 
@@ -932,58 +862,173 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out ${expandedFeatures.has(2) ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"}`}
-              >
-                <div className="pt-4 border-t border-[#17464F]/10 space-y-4">
-                  <div className="text-[#33393C] text-sm leading-relaxed space-y-3">
-                    <p className="flex items-start gap-2">
-                      <span className="text-[#D4B483] mt-1">–</span>
-                      <span>
-                        不再是一個人在房間裡看影片、被進度追著跑，而是固定出現在 Skool
-                        線上共學空間，一起打開鏡頭工作、分享卡關與成果。
-                      </span>
-                    </p>
-                    <p className="flex items-start gap-2">
-                      <span className="text-[#D4B483] mt-1">–</span>
-                      <span>閒聊群和校友專屬 LinkedIn 群，讓你在通勤、午休也能和同路人交換資訊、互相打氣。</span>
-                    </p>
-                    <p className="flex items-start gap-2">
-                      <span className="text-[#D4B483] mt-1">–</span>
-                      <span>
-                        每月線下遊牧小聚、不同城市 meetup，還有國內外 Nomad
-                        旅程，讓你真的遇到那些已經在清邁、峴港、台北之間移動的人。
-                      </span>
-                    </p>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-3 pt-2">
-                    <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-                      <Image src="/offline-meetup-group-gathering-and-networking.jpg" alt="線下小聚" fill className="object-cover" />
-                    </div>
-                    <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-                      <Image src="/online-community-discussion-and-support-group.jpg" alt="線上社群討論" fill className="object-cover" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
               <button
-                onClick={() => toggleFeature(2)}
+                onClick={() => setOpenFeatureDialog(2)}
                 className="w-full mt-4 flex items-center justify-center gap-2 text-[#D4B483] hover:text-[#17464F] font-medium text-sm transition-colors"
               >
-                {expandedFeatures.has(2) ? "收起" : "了解更多"}
-                <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-300 ${expandedFeatures.has(2) ? "rotate-180" : ""}`}
-                />
+                了解更多
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
               </button>
             </div>
           </div>
 
+          <Dialog open={openFeatureDialog === 0} onOpenChange={(open) => !open && setOpenFeatureDialog(null)}>
+            <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+              <DialogHeader>
+                <DialogTitle className="text-2xl text-[#17464F]">雙軌資源</DialogTitle>
+              </DialogHeader>
+              <div className="space-y-4">
+                <p className="text-[#33393C] leading-relaxed">
+                  不知道選上班還是接案？先選一條主線，也可以雙線並進試水溫。
+                </p>
+                <div className="text-[#33393C] text-sm leading-relaxed space-y-3">
+                  <p className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-1">–</span>
+                    <span>
+                      <strong>自媒體接案線路：</strong>
+                      幫你釐清主題定位，做出接案作品集，學會基本市場調查、內容與流量思維。
+                    </span>
+                  </p>
+                  <p className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-1">–</span>
+                    <span>
+                      <strong>遠端上班線路：</strong>認識遠端求職市場，調整履歷與 LinkedIn，練習求職信、面試與獵頭溝通。
+                    </span>
+                  </p>
+                  <p className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-1">–</span>
+                    <span>你可以選一條當主線；也可以雙線並進，快速全面探索。</span>
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 pt-4">
+                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
+                    <Image
+                      src="/students-working-together-in-coworking-space.jpg"
+                      alt="共同工作空間"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
+                    <Image
+                      src="/one-on-one-consultation-session-for-career-guidanc.jpg"
+                      alt="一對一諮詢"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+            </DialogContent>
+          </Dialog>
+
+          <Dialog open={openFeatureDialog === 1} onOpenChange={(open) => !open && setOpenFeatureDialog(null)}>
+            <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+              <DialogHeader>
+                <DialogTitle className="text-2xl text-[#17464F]">行動導向設計</DialogTitle>
+              </DialogHeader>
+              <div className="space-y-4">
+                <p className="text-[#33393C] leading-relaxed">每堂課都有做得到的行動任務，拆成模板和小步驟。</p>
+                <div className="text-[#33393C] text-sm leading-relaxed space-y-3">
+                  <p className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-1">–</span>
+                    <span>
+                      每一堂課後，都會有一個做得到的行動任務：目標設定、發一篇文、做ㄧ支影片、更新履歷、寫求職信...等等。
+                    </span>
+                  </p>
+                  <p className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-1">–</span>
+                    <span>
+                      任務會拆成學習單＆模板，透過具體指示與範例，協助你先完成例如策略定位、影片腳本、JD拆解、面試STAR故事庫，等階段性行動。
+                    </span>
+                  </p>
+                  <p className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-1">–</span>
+                    <span>
+                      若希望進一步延伸學習或加速行動落地，選修的工作坊包括短影音剪輯、Coffee Chat、vibe
+                      coding、工作英語等。
+                    </span>
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 pt-4">
+                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
+                    <Image
+                      src="/students-attending-online-workshop-and-learning.jpg"
+                      alt="線上工作坊"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
+                    <Image
+                      src="/student-completing-action-tasks-and-assignments.jpg"
+                      alt="完成行動任務"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+            </DialogContent>
+          </Dialog>
+
+          <Dialog open={openFeatureDialog === 2} onOpenChange={(open) => !open && setOpenFeatureDialog(null)}>
+            <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+              <DialogHeader>
+                <DialogTitle className="text-2xl text-[#17464F]">社群支持</DialogTitle>
+              </DialogHeader>
+              <div className="space-y-4">
+                <p className="text-[#33393C] leading-relaxed">共學空間＋Line 群＋線下小聚，讓你不再一個人猜下一步。</p>
+                <div className="text-[#33393C] text-sm leading-relaxed space-y-3">
+                  <p className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-1">–</span>
+                    <span>
+                      不再是一個人在房間裡看影片、被進度追著跑，而是固定出現在 Skool
+                      線上共學空間，一起打開鏡頭工作、分享卡關與成果。
+                    </span>
+                  </p>
+                  <p className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-1">–</span>
+                    <span>閒聊群和校友專屬 LinkedIn 群，讓你在通勤、午休也能和同路人交換資訊、互相打氣。</span>
+                  </p>
+                  <p className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-1">–</span>
+                    <span>
+                      每月線下遊牧小聚、不同城市 meetup，還有國內外 Nomad
+                      旅程，讓你真的遇到那些已經在清邁、峴港、台北之間移動的人。
+                    </span>
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 pt-4">
+                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
+                    <Image
+                      src="/offline-meetup-group-gathering-and-networking.jpg"
+                      alt="線下小聚"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
+                    <Image
+                      src="/online-community-discussion-and-support-group.jpg"
+                      alt="線上社群討論"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+            </DialogContent>
+          </Dialog>
+
           <div className="lg:hidden space-y-4">
-            {/* Feature 1: 雙軌資源 */}
             <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
-              <button onClick={() => toggleFeature(0)} className="w-full flex items-center gap-4 p-5 text-left">
+              <button onClick={() => setOpenFeatureDialog(0)} className="w-full flex items-center gap-4 p-5 text-left">
                 <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center flex-shrink-0">
                   <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
@@ -1000,42 +1045,12 @@ export default function HomePage() {
                     不知道選上班還是接案？先選一條主線，也可以雙線並進試水溫。
                   </p>
                 </div>
-                <ChevronDown
-                  className={`w-5 h-5 text-[#17464F] flex-shrink-0 transition-transform duration-300 ${expandedFeatures.has(0) ? "rotate-180" : ""}`}
-                />
+                <ChevronRight className="w-5 h-5 text-[#17464F] flex-shrink-0" />
               </button>
-
-              <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out ${expandedFeatures.has(0) ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"}`}
-              >
-                <div className="px-5 pb-5 space-y-4">
-                  <div className="text-sm text-[#33393C] leading-relaxed space-y-2 pt-2 border-t border-[#17464F]/10">
-                    <p>
-                      – <strong>自媒體接案線路：</strong>
-                      幫你釐清主題定位，做出第一份接案作品集，學會基本市場調查、內容與流量思維。
-                    </p>
-                    <p>
-                      – <strong>遠端上班線路：</strong>認識遠端求職市場，調整履歷與
-                      LinkedIn，練習求職信、面試與獵頭溝通。
-                    </p>
-                    <p>– 你可以先選一條當主線，另一條當選修；也可以雙線並進，在原本的工作之上慢慢開出第二條路。</p>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-                      <Image src="/students-working-together-in-coworking-space.jpg" alt="共同工作空間" fill className="object-cover" />
-                    </div>
-                    <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-                      <Image src="/one-on-one-consultation-session-for-career-guidanc.jpg" alt="一對一諮詢" fill className="object-cover" />
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
 
-            {/* Feature 2: 行動導向設計 */}
             <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
-              <button onClick={() => toggleFeature(1)} className="w-full flex items-center gap-4 p-5 text-left">
+              <button onClick={() => setOpenFeatureDialog(1)} className="w-full flex items-center gap-4 p-5 text-left">
                 <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center flex-shrink-0">
                   <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
@@ -1050,39 +1065,12 @@ export default function HomePage() {
                   <p className="font-bold text-[#17464F]">行動導向設計</p>
                   <p className="text-sm text-[#33393C] mt-1">每堂課都有做得到的行動任務，拆成模板和小步驟。</p>
                 </div>
-                <ChevronDown
-                  className={`w-5 h-5 text-[#17464F] flex-shrink-0 transition-transform duration-300 ${expandedFeatures.has(1) ? "rotate-180" : ""}`}
-                />
+                <ChevronRight className="w-5 h-5 text-[#17464F] flex-shrink-0" />
               </button>
-
-              <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out ${expandedFeatures.has(1) ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"}`}
-              >
-                <div className="px-5 pb-5 space-y-4">
-                  <div className="text-sm text-[#33393C] leading-relaxed space-y-2 pt-2 border-t border-[#17464F]/10">
-                    <p>
-                      –
-                      每一堂課後，都會有一個做得到、但需要一點勇氣的行動任務：發一支影片、寫一封求職信、更新履歷、做一個小產品。
-                    </p>
-                    <p>– 大任務會被拆成學習單與模板，例如策略定位、影片腳本、JD 拆解，不會只丟一句「去做就對了」。</p>
-                    <p>– 在實作工作坊裡，講師會陪你把想法落地成具體操作，不用在下班後還一個人猜下一步要幹嘛。</p>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-                      <Image src="/students-attending-online-workshop-and-learning.jpg" alt="線上工作坊" fill className="object-cover" />
-                    </div>
-                    <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-                      <Image src="/student-completing-action-tasks-and-assignments.jpg" alt="完成行動任務" fill className="object-cover" />
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
 
-            {/* Feature 3: 社群支持 */}
             <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
-              <button onClick={() => toggleFeature(2)} className="w-full flex items-center gap-4 p-5 text-left">
+              <button onClick={() => setOpenFeatureDialog(2)} className="w-full flex items-center gap-4 p-5 text-left">
                 <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center flex-shrink-0">
                   <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
@@ -1097,42 +1085,12 @@ export default function HomePage() {
                   <p className="font-bold text-[#17464F]">社群支持</p>
                   <p className="text-sm text-[#33393C] mt-1">共學空間＋Line 群＋線下小聚，讓你不再一個人猜下一步。</p>
                 </div>
-                <ChevronDown
-                  className={`w-5 h-5 text-[#17464F] flex-shrink-0 transition-transform duration-300 ${expandedFeatures.has(2) ? "rotate-180" : ""}`}
-                />
+                <ChevronRight className="w-5 h-5 text-[#17464F] flex-shrink-0" />
               </button>
-
-              <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out ${expandedFeatures.has(2) ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"}`}
-              >
-                <div className="px-5 pb-5 space-y-4">
-                  <div className="text-sm text-[#33393C] leading-relaxed space-y-2 pt-2 border-t border-[#17464F]/10">
-                    <p>
-                      – 不再是一個人在房間裡看影片、被進度追著跑，而是固定出現在 Skool
-                      線上共學空間，一起打開鏡頭工作、分享卡關與成果。
-                    </p>
-                    <p>– 閒聊群和校友專屬 LinkedIn 群，讓你在通勤、午休也能和同路人交換資訊、互相打氣。</p>
-                    <p>
-                      – 每月線下遊牧小聚、不同城市 meetup，還有國內外 Nomad
-                      旅程，讓你真的遇到那些已經在清邁、峴港、台北之間移動的人。
-                    </p>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-                      <Image src="/offline-meetup-group-gathering-and-networking.jpg" alt="線下小聚" fill className="object-cover" />
-                    </div>
-                    <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-                      <Image src="/online-community-discussion-and-support-group.jpg" alt="線上社群討論" fill className="object-cover" />
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </section>
-      {/* SECTION 2.1 ECOSYSTEM PARTNERSHIP START - 生態系 */}
       <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6">
@@ -1216,7 +1174,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* SECTION 5 INSTRUCTORS START - 師資 */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -1360,7 +1317,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* SECTION 6 COURSE OUTLINE START - 課程地圖 */}
       <section id="learning-map" className="py-16 sm:py-20 bg-[#F5F3ED]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
@@ -1885,16 +1841,10 @@ export default function HomePage() {
           )}
         </div>
       </section>
-
-      {/* Success Stories Section */}
       <SuccessStoriesSection />
-
-      {/* PRICING SECTION */}
       <section id="pricing-section" className="py-16 sm:py-24 bg-[#17464F] relative overflow-hidden">
         <PricingSection />
       </section>
-
-      {/* LIMITED OFFER SECTION */}
       <section className="py-16 sm:py-20 bg-gradient-to-br from-[#17464F] to-[#1a5561]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-white/95 backdrop-blur rounded-2xl p-8 sm:p-12 shadow-xl border border-[#C9D7D4]">
@@ -1969,11 +1919,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* FAQ SECTION */}
       <FAQSection />
-
-      {/* FOOTER */}
       <footer className="py-8 bg-[#17464F] text-white text-center">
         <p className="text-sm text-white/80">
           &copy; 2025 遠距遊牧學院 Travel With Work Academy. All rights reserved.
@@ -1990,8 +1936,6 @@ export default function HomePage() {
           / Email: Academy@travelwork.life
         </p>
       </footer>
-
-      {/* GALLERY MODAL */}
       {isGalleryOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4 z-50"
@@ -2074,8 +2018,6 @@ export default function HomePage() {
           </div>
         </div>
       )}
-
-      {/* HIGHLIGHT POPUP MODAL */}
       {highlightPopup.isOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
@@ -2101,8 +2043,6 @@ export default function HomePage() {
           </div>
         </div>
       )}
-
-      {/* SELECTED CALENDAR WEEK MODAL */}
       {selectedWeek && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-[60]"
@@ -2169,8 +2109,6 @@ export default function HomePage() {
           </div>
         </div>
       )}
-
-      {/* CALENDAR MODAL */}
       {showCalendarModal && (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4"
@@ -2318,7 +2256,6 @@ export default function HomePage() {
           </div>
         </div>
       )}
-
       <StickyBottomBar scrollToPricing={scrollToPricing} />
     </main>
   )
