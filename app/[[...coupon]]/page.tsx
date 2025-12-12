@@ -338,7 +338,7 @@ export default function HomePage() {
               alt="遠距遊牧學院 Travel with Work Academy"
               width={200}
               height={105}
-              className="h-auto w-[140px] sm:w-[180px] brightness-0 invert"
+              className="h-auto w-[180px] sm:w-[240px] lg:w-[280px] brightness-0 invert"
               priority
             />
             {/* Airplane trajectory dotted line */}
@@ -373,8 +373,7 @@ export default function HomePage() {
 
               <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-xl mx-auto lg:mx-0">
                 遠距遊牧學院結合線上課程、行動任務、共學社群與旅居體驗，
-                幫助已經準備行動的探索者，在不需要辭職、不斷線收入的前提下，
-                也能快速尋找適合幾的遠距路徑。
+                幫助已經準備行動的探索者，在不需要辭職、不斷線收入的前提下， 也能快速尋找適合幾的遠距路徑。
               </p>
 
               {/* Route tags */}
