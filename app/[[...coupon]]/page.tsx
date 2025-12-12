@@ -13,7 +13,8 @@ import { PricingSection } from "@/components/sections/pricing-section" // Import
 import FAQSection from "@/components/sections/faq-section" // Import FAQSection
 import { SuccessStoriesSection } from "@/components/sections/success-stories-section"
 
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 
 import { type PlanId, getCheckoutURL } from "@/data/plan-config"
 import { calendarData, getPhaseColor, getTrackColor, type CalendarWeek } from "@/data/calendar"
@@ -46,7 +47,7 @@ export default function HomePage() {
   const [activeMapTab, setActiveMapTab] = useState<string>("遠端上班") // State for Learning Map tabs
   const [selectedWeek, setSelectedWeek] = useState<CalendarWeek | null>(null)
 
-  const [openFeatureDialog, setOpenFeatureDialog] = useState<number | null>(null)
+  const [featureDialogOpen, setFeatureDialogOpen] = useState<number | null>(null)
 
   const { currentStageData, timeLeft, lowestPrice, selectedPlanId, setSelectedPlanId, getTrackingParams } = usePricing()
 
@@ -179,6 +180,7 @@ export default function HomePage() {
   const [expandedWeeks, setExpandedWeeks] = useState<Set<number>>(new Set())
   // Find line with "const [expandedWeeks, setExpandedWeeks]" and add after it
   const [expandedPhases, setExpandedPhases] = useState<Set<string>>(new Set(["階段一 起步打底"])) // Default first phase expanded
+  const [expandedFeatures, setExpandedFeatures] = useState<Set<number>>(new Set()) // State for expanded features in Section 2.1
 
   const toggleWeekExpansion = (weekId: number) => {
     setExpandedWeeks((prev) => {
@@ -313,18 +315,89 @@ export default function HomePage() {
     })
   }
 
-  // Removed toggleFeature as it's replaced by Dialog popups
-  // const toggleFeature = (index: number) => {
-  //   setExpandedFeatures((prev) => {
-  //     const newSet = new Set(prev)
-  //     if (newSet.has(index)) {
-  //       newSet.delete(index)
-  //     } else {
-  //       newSet.add(index)
-  //     }
-  //     return newSet
-  //   })
-  // }
+  const toggleFeature = (index: number) => {
+    setExpandedFeatures((prev) => {
+      const newSet = new Set(prev)
+      if (newSet.has(index)) {
+        newSet.delete(index)
+      } else {
+        newSet.add(index)
+      }
+      return newSet
+    })
+  }
+
+  const featuresData = [
+    {
+      title: "雙軌資源",
+      icon: (
+        <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M8 7l4-4m0 0l4 4m-4-4v18M16 17l4 4m0 0l-4-4m4 4H4"
+          />
+        </svg>
+      ),
+      shortDesc: "不知道選上班還是接案？先選一條主線，也可以雙線並進試水溫。",
+      details: [
+        "<strong>自媒體接案線路：</strong>幫你釐清主題定位，做出接案作品集，學會基本市場調查、內容與流量思維。",
+        "<strong>遠端上班線路：</strong>認識遠端求職市場，調整履歷與 LinkedIn，練習求職信、面試與獵頭溝通。",
+        "你可以選一條當主線；也可以雙線並進，快速全面探索。",
+      ],
+      images: [
+        { src: "/students-working-together-in-coworking-space.jpg", alt: "共同工作空間" },
+        { src: "/one-on-one-consultation-session-for-career-guidanc.jpg", alt: "一對一諮詢" },
+      ],
+    },
+    {
+      title: "行動導向設計",
+      icon: (
+        <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+          />
+        </svg>
+      ),
+      shortDesc: "每堂課都有做得到的行動任務，拆成模板和小步驟。",
+      details: [
+        "每一堂課後，都會有一個做得到的行動任務：目標設定、發一篇文、做ㄧ支影片、更新履歷、寫求職信...等等。",
+        "任務會拆成學習單＆模板，透過具體指示與範例，協助你先完成例如策略定位、影片腳本、JD拆解、面試STAR故事庫，等階段性行動。",
+        "若希望進一步延伸學習或加速行動落地，選修的工作坊包括短影音剪輯、Coffee Chat、vibe coding、工作英語等。",
+      ],
+      images: [
+        { src: "/students-attending-online-workshop-and-learning.jpg", alt: "線上工作坊" },
+        { src: "/student-completing-action-tasks-and-assignments.jpg", alt: "完成行動任務" },
+      ],
+    },
+    {
+      title: "社群支持",
+      icon: (
+        <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+          />
+        </svg>
+      ),
+      shortDesc: "共學空間＋Line 群＋線下小聚，讓你不再一個人猜下一步。",
+      details: [
+        "不再是一個人在房間裡看影片、被進度追著跑，而是固定出現在 Skool 線上共學空間，一起打開鏡頭工作、分享卡關與成果。",
+        "閒聊群和校友專屬 LinkedIn 群，讓你在通勤、午休也能和同路人交換資訊、互相打氣。",
+        "不定期的線下小聚與活動，讓你認識台北、台中、高雄、新竹的同路人，在線下深度交流。",
+      ],
+      images: [
+        { src: "/offline-meetup-group-gathering-and-networking.jpg", alt: "線下小聚" },
+        { src: "/online-community-discussion-and-support-group.jpg", alt: "線上社群" },
+      ],
+    },
+  ]
 
   return (
     <main className="min-h-screen bg-white">
@@ -509,15 +582,21 @@ export default function HomePage() {
                 <div className="w-16 h-16 mb-6 flex items-center justify-center">
                   <svg
                     className="w-14 h-14 text-[#D4B483]"
-                    viewBox="0 0 24 24"
+                    viewBox="0 0 64 64"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="1.5"
                   >
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
-                    <circle cx="12" cy="12" r="3" />
-                    <path d="M12 9l2 3-2 3-2-3 2-3z" fill="currentColor" />
+                    <circle cx="32" cy="32" r="20" />
+                    <circle cx="32" cy="32" r="4" fill="currentColor" />
+                    <path d="M32 16V12M32 52V48M16 32H12M52 32H48" strokeWidth="2" />
+                    <path d="M32 32L42 22" strokeWidth="2" />
+                    <text x="48" y="16" fontSize="12" fill="currentColor">
+                      ?
+                    </text>
+                    <text x="8" y="52" fontSize="10" fill="currentColor">
+                      ?
+                    </text>
                   </svg>
                 </div>
 
@@ -541,17 +620,17 @@ export default function HomePage() {
                 <div className="w-16 h-16 mb-6 flex items-center justify-center">
                   <svg
                     className="w-14 h-14 text-[#D4B483]"
-                    viewBox="0 0 24 24"
+                    viewBox="0 0 64 64"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="1.5"
                   >
-                    <ellipse cx="12" cy="6" rx="8" ry="3" />
-                    <path d="M4 6v4c0 1.66 3.58 3 8 3s8-1.34 8-3V6" />
-                    <path d="M4 10v4c0 1.66 3.58 3 8 3s8-1.34 8-3v-4" />
-                    <path d="M4 14v4c0 1.66 3.58 3 8 3s8-1.34 8-3v-4" />
-                    <path d="M12 9v3M12 15v3" stroke="currentColor" strokeWidth="2" />
-                    <path d="M12 3l2 3h-4l2-3z" fill="currentColor" />
+                    <ellipse cx="32" cy="18" rx="20" ry="8" />
+                    <path d="M12 18v12c0 4.4 8.9 8 20 8s20-3.5 20-8V18" />
+                    <path d="M12 28v12c0 4.4 8.9 8 20 8s20-3.5 20-8v-12" />
+                    <path d="M12 38v12c0 4.4 8.9 8 20 8s20-3.5 20-8v-12" />
+                    <path d="M32 25v8M32 41v8" stroke="currentColor" strokeWidth="2" />
+                    <path d="M32 11l8 8h-16l8-8z" fill="currentColor" />
                   </svg>
                 </div>
 
@@ -576,15 +655,15 @@ export default function HomePage() {
                 <div className="w-16 h-16 mb-6 flex items-center justify-center">
                   <svg
                     className="w-14 h-14 text-[#D4B483]"
-                    viewBox="0 0 24 24"
+                    viewBox="0 0 64 64"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="1.5"
                   >
-                    <rect x="3" y="5" width="18" height="14" rx="2" />
-                    <path d="M3 10h18M8 5v14M16 5v14" />
-                    <circle cx="18" cy="8" r="3" fill="currentColor" />
-                    <path d="M18 11v3" stroke="currentColor" strokeWidth="2" />
+                    <rect x="6" y="14" width="52" height="36" rx="4" />
+                    <path d="M6 24h52M22 14v36M42 14v36" />
+                    <circle cx="50" cy="22" r="8" fill="currentColor" />
+                    <path d="M50 30v8" stroke="currentColor" strokeWidth="2" />
                   </svg>
                 </div>
 
@@ -762,335 +841,96 @@ export default function HomePage() {
         </div>
       </section>
       {/* SECTION 2.1 COURSE HIGHLIGHTS CONTINUED (Part 2: 三大亮點) START */}
-      <section className="py-16 sm:py-24 bg-[#F7F2EA]">
+      <section className="py-16 sm:py-24 bg-[#F7F3ED]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-10 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-4 text-balance">
               生態系三大特色，讓行動成為習慣
             </h2>
-            <p className="text-base sm:text-lg text-[#33393C] max-w-2xl mx-auto leading-relaxed">
+            <p className="text-[#33393C] max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
               不只是多上一門課，而是行動起來探索
-              <br className="hidden sm:block" />
+              <br />
               雙軌資源、行動任務和一群真的在實驗新生活的同伴。
             </p>
           </div>
 
-          <div className="hidden lg:grid lg:grid-cols-3 gap-6">
-            {/* Feature 1: 雙軌資源 */}
-            <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-              <div className="flex items-start gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M8 7l4-4m0 0l4 4m-4-4v18M16 17l4 4m0 0l-4-4m4 4H4"
-                    />
-                  </svg>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-[#17464F] mb-2">雙軌資源</h3>
-                  <p className="text-[#33393C] text-sm leading-relaxed">
-                    不知道選上班還是接案？先選一條主線，也可以雙線並進試水溫。
-                  </p>
-                </div>
-              </div>
-
-              <button
-                onClick={() => setOpenFeatureDialog(0)}
-                className="w-full mt-4 flex items-center justify-center gap-2 text-[#D4B483] hover:text-[#17464F] font-medium text-sm transition-colors"
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {featuresData.map((feature, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
               >
-                了解更多
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
+                <div className="flex items-start gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center flex-shrink-0">
+                    {feature.icon}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-[#17464F] mb-2">{feature.title}</h3>
+                    <p className="text-[#33393C] text-sm leading-relaxed">{feature.shortDesc}</p>
+                  </div>
+                </div>
 
-            {/* Feature 2: 行動導向設計 */}
-            <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-              <div className="flex items-start gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
-                    />
-                  </svg>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-[#17464F] mb-2">行動導向設計</h3>
-                  <p className="text-[#33393C] text-sm leading-relaxed">
-                    每堂課都有做得到的行動任務，拆成模板和小步驟。
-                  </p>
-                </div>
+                <button
+                  onClick={() => setFeatureDialogOpen(index)}
+                  className="w-full mt-4 flex items-center justify-center gap-2 text-[#D4B483] hover:text-[#17464F] font-medium text-sm transition-colors"
+                >
+                  了解更多
+                  <ChevronDown className="w-4 h-4" />
+                </button>
               </div>
-
-              <button
-                onClick={() => setOpenFeatureDialog(1)}
-                className="w-full mt-4 flex items-center justify-center gap-2 text-[#D4B483] hover:text-[#17464F] font-medium text-sm transition-colors"
-              >
-                了解更多
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
-
-            {/* Feature 3: 社群支持 */}
-            <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
-              <div className="flex items-start gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                    />
-                  </svg>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-[#17464F] mb-2">社群支持</h3>
-                  <p className="text-[#33393C] text-sm leading-relaxed">
-                    共學空間＋Line 群＋線下小聚，讓你不再一個人猜下一步。
-                  </p>
-                </div>
-              </div>
-
-              <button
-                onClick={() => setOpenFeatureDialog(2)}
-                className="w-full mt-4 flex items-center justify-center gap-2 text-[#D4B483] hover:text-[#17464F] font-medium text-sm transition-colors"
-              >
-                了解更多
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <Dialog open={openFeatureDialog === 0} onOpenChange={(open) => !open && setOpenFeatureDialog(null)}>
-            <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
-              <DialogHeader>
-                <DialogTitle className="text-2xl text-[#17464F]">雙軌資源</DialogTitle>
-              </DialogHeader>
-              <div className="space-y-4">
-                <p className="text-[#33393C] leading-relaxed">
-                  不知道選上班還是接案？先選一條主線，也可以雙線並進試水溫。
-                </p>
-                <div className="text-[#33393C] text-sm leading-relaxed space-y-3">
-                  <p className="flex items-start gap-2">
-                    <span className="text-[#D4B483] mt-1">–</span>
-                    <span>
-                      <strong>自媒體接案線路：</strong>
-                      幫你釐清主題定位，做出接案作品集，學會基本市場調查、內容與流量思維。
-                    </span>
-                  </p>
-                  <p className="flex items-start gap-2">
-                    <span className="text-[#D4B483] mt-1">–</span>
-                    <span>
-                      <strong>遠端上班線路：</strong>認識遠端求職市場，調整履歷與 LinkedIn，練習求職信、面試與獵頭溝通。
-                    </span>
-                  </p>
-                  <p className="flex items-start gap-2">
-                    <span className="text-[#D4B483] mt-1">–</span>
-                    <span>你可以選一條當主線；也可以雙線並進，快速全面探索。</span>
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4 pt-4">
-                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-                    <Image
-                      src="/students-working-together-in-coworking-space.jpg"
-                      alt="共同工作空間"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-                    <Image
-                      src="/one-on-one-consultation-session-for-career-guidanc.jpg"
-                      alt="一對一諮詢"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-            </DialogContent>
-          </Dialog>
-
-          <Dialog open={openFeatureDialog === 1} onOpenChange={(open) => !open && setOpenFeatureDialog(null)}>
-            <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
-              <DialogHeader>
-                <DialogTitle className="text-2xl text-[#17464F]">行動導向設計</DialogTitle>
-              </DialogHeader>
-              <div className="space-y-4">
-                <p className="text-[#33393C] leading-relaxed">每堂課都有做得到的行動任務，拆成模板和小步驟。</p>
-                <div className="text-[#33393C] text-sm leading-relaxed space-y-3">
-                  <p className="flex items-start gap-2">
-                    <span className="text-[#D4B483] mt-1">–</span>
-                    <span>
-                      每一堂課後，都會有一個做得到的行動任務：目標設定、發一篇文、做ㄧ支影片、更新履歷、寫求職信...等等。
-                    </span>
-                  </p>
-                  <p className="flex items-start gap-2">
-                    <span className="text-[#D4B483] mt-1">–</span>
-                    <span>
-                      任務會拆成學習單＆模板，透過具體指示與範例，協助你先完成例如策略定位、影片腳本、JD拆解、面試STAR故事庫，等階段性行動。
-                    </span>
-                  </p>
-                  <p className="flex items-start gap-2">
-                    <span className="text-[#D4B483] mt-1">–</span>
-                    <span>
-                      若希望進一步延伸學習或加速行動落地，選修的工作坊包括短影音剪輯、Coffee Chat、vibe
-                      coding、工作英語等。
-                    </span>
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4 pt-4">
-                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-                    <Image
-                      src="/students-attending-online-workshop-and-learning.jpg"
-                      alt="線上工作坊"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-                    <Image
-                      src="/student-completing-action-tasks-and-assignments.jpg"
-                      alt="完成行動任務"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-            </DialogContent>
-          </Dialog>
-
-          <Dialog open={openFeatureDialog === 2} onOpenChange={(open) => !open && setOpenFeatureDialog(null)}>
-            <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
-              <DialogHeader>
-                <DialogTitle className="text-2xl text-[#17464F]">社群支持</DialogTitle>
-              </DialogHeader>
-              <div className="space-y-4">
-                <p className="text-[#33393C] leading-relaxed">共學空間＋Line 群＋線下小聚，讓你不再一個人猜下一步。</p>
-                <div className="text-[#33393C] text-sm leading-relaxed space-y-3">
-                  <p className="flex items-start gap-2">
-                    <span className="text-[#D4B483] mt-1">–</span>
-                    <span>
-                      不再是一個人在房間裡看影片、被進度追著跑，而是固定出現在 Skool
-                      線上共學空間，一起打開鏡頭工作、分享卡關與成果。
-                    </span>
-                  </p>
-                  <p className="flex items-start gap-2">
-                    <span className="text-[#D4B483] mt-1">–</span>
-                    <span>閒聊群和校友專屬 LinkedIn 群，讓你在通勤、午休也能和同路人交換資訊、互相打氣。</span>
-                  </p>
-                  <p className="flex items-start gap-2">
-                    <span className="text-[#D4B483] mt-1">–</span>
-                    <span>
-                      每月線下遊牧小聚、不同城市 meetup，還有國內外 Nomad
-                      旅程，讓你真的遇到那些已經在清邁、峴港、台北之間移動的人。
-                    </span>
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4 pt-4">
-                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-                    <Image
-                      src="/offline-meetup-group-gathering-and-networking.jpg"
-                      alt="線下小聚"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-                    <Image
-                      src="/online-community-discussion-and-support-group.jpg"
-                      alt="線上社群討論"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-            </DialogContent>
-          </Dialog>
-
-          <div className="lg:hidden space-y-4">
-            <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
-              <button onClick={() => setOpenFeatureDialog(0)} className="w-full flex items-center gap-4 p-5 text-left">
-                <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M8 7l4-4m0 0l4 4m-4-4v18M16 17l4 4m0 0l-4-4m4 4H4"
-                    />
-                  </svg>
-                </div>
-                <div className="flex-1">
-                  <p className="font-bold text-[#17464F]">雙軌資源</p>
-                  <p className="text-sm text-[#33393C] mt-1">
-                    不知道選上班還是接案？先選一條主線，也可以雙線並進試水溫。
-                  </p>
-                </div>
-                <ChevronRight className="w-5 h-5 text-[#17464F] flex-shrink-0" />
-              </button>
-            </div>
-
-            <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
-              <button onClick={() => setOpenFeatureDialog(1)} className="w-full flex items-center gap-4 p-5 text-left">
-                <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
-                    />
-                  </svg>
-                </div>
-                <div className="flex-1">
-                  <p className="font-bold text-[#17464F]">行動導向設計</p>
-                  <p className="text-sm text-[#33393C] mt-1">每堂課都有做得到的行動任務，拆成模板和小步驟。</p>
-                </div>
-                <ChevronRight className="w-5 h-5 text-[#17464F] flex-shrink-0" />
-              </button>
-            </div>
-
-            <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
-              <button onClick={() => setOpenFeatureDialog(2)} className="w-full flex items-center gap-4 p-5 text-left">
-                <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                    />
-                  </svg>
-                </div>
-                <div className="flex-1">
-                  <p className="font-bold text-[#17464F]">社群支持</p>
-                  <p className="text-sm text-[#33393C] mt-1">共學空間＋Line 群＋線下小聚，讓你不再一個人猜下一步。</p>
-                </div>
-                <ChevronRight className="w-5 h-5 text-[#17464F] flex-shrink-0" />
-              </button>
-            </div>
+            ))}
           </div>
         </div>
       </section>
+
+      {featuresData.map((feature, index) => (
+        <Dialog
+          key={index}
+          open={featureDialogOpen === index}
+          onOpenChange={(open) => !open && setFeatureDialogOpen(null)}
+        >
+          <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto bg-[#F5F3ED]">
+            <DialogHeader>
+              <DialogTitle className="text-2xl font-bold text-[#17464F] flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center flex-shrink-0">
+                  {feature.icon}
+                </div>
+                {feature.title}
+              </DialogTitle>
+              <DialogDescription className="text-[#33393C] text-base leading-relaxed pt-4">
+                <div className="space-y-4">
+                  {feature.details.map((detail, idx) => (
+                    <p key={idx} className="flex items-start gap-2">
+                      <span className="text-[#D4B483] mt-1">–</span>
+                      <span dangerouslySetInnerHTML={{ __html: detail }} />
+                    </p>
+                  ))}
+                </div>
+              </DialogDescription>
+            </DialogHeader>
+
+            {/* Image Carousel */}
+            <div className="mt-6">
+              <Carousel className="w-full">
+                <CarouselContent>
+                  {feature.images.map((image, idx) => (
+                    <CarouselItem key={idx}>
+                      <div className="relative aspect-video rounded-xl overflow-hidden">
+                        <Image src={image.src || "/placeholder.svg"} alt={image.alt} fill className="object-cover" />
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="left-2" />
+                <CarouselNext className="right-2" />
+              </Carousel>
+            </div>
+          </DialogContent>
+        </Dialog>
+      ))}
+
+      {/* SECTION 2.1 ECOSYSTEM PARTNERSHIP START - 生態系 */}
       <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6">
@@ -1174,6 +1014,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* SECTION 5 INSTRUCTORS START - 師資 */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -1317,6 +1158,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* SECTION 6 COURSE OUTLINE START - 課程地圖 */}
       <section id="learning-map" className="py-16 sm:py-20 bg-[#F5F3ED]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
@@ -1841,10 +1683,16 @@ export default function HomePage() {
           )}
         </div>
       </section>
+
+      {/* Success Stories Section */}
       <SuccessStoriesSection />
+
+      {/* PRICING SECTION */}
       <section id="pricing-section" className="py-16 sm:py-24 bg-[#17464F] relative overflow-hidden">
         <PricingSection />
       </section>
+
+      {/* LIMITED OFFER SECTION */}
       <section className="py-16 sm:py-20 bg-gradient-to-br from-[#17464F] to-[#1a5561]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-white/95 backdrop-blur rounded-2xl p-8 sm:p-12 shadow-xl border border-[#C9D7D4]">
@@ -1919,7 +1767,11 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ SECTION */}
       <FAQSection />
+
+      {/* FOOTER */}
       <footer className="py-8 bg-[#17464F] text-white text-center">
         <p className="text-sm text-white/80">
           &copy; 2025 遠距遊牧學院 Travel With Work Academy. All rights reserved.
@@ -1936,6 +1788,8 @@ export default function HomePage() {
           / Email: Academy@travelwork.life
         </p>
       </footer>
+
+      {/* GALLERY MODAL */}
       {isGalleryOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4 z-50"
@@ -2018,6 +1872,8 @@ export default function HomePage() {
           </div>
         </div>
       )}
+
+      {/* HIGHLIGHT POPUP MODAL */}
       {highlightPopup.isOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
@@ -2043,6 +1899,8 @@ export default function HomePage() {
           </div>
         </div>
       )}
+
+      {/* SELECTED CALENDAR WEEK MODAL */}
       {selectedWeek && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-[60]"
@@ -2109,6 +1967,8 @@ export default function HomePage() {
           </div>
         </div>
       )}
+
+      {/* CALENDAR MODAL */}
       {showCalendarModal && (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4"
@@ -2256,6 +2116,7 @@ export default function HomePage() {
           </div>
         </div>
       )}
+
       <StickyBottomBar scrollToPricing={scrollToPricing} />
     </main>
   )
