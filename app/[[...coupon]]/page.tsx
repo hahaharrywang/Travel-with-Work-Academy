@@ -561,8 +561,7 @@ export default function HomePage() {
             </h2>
             <p className="text-white/80 leading-relaxed max-w-2xl mx-auto mb-4">
               不管你現在在哪個階段，你都有機會在這裡找到開始的位置。
-              <br className="hidden sm:block" />
-              你不一定已經想好要不要辭職、要不要成為全職 Nomad。但你心裡大概知道——
+              <br className="hidden sm:block" />你 Pn 不一定已經想好要不要辭職、要不要成為全職 Nomad。但你心裡大概知道——
               <br className="hidden sm:block" />
               接下來的人生，應該不只有「每天通勤、等著放假」這一種選項。
             </p>
@@ -1214,28 +1213,37 @@ export default function HomePage() {
                     <span className="flex-shrink-0 w-5 h-5 bg-[#17464F] text-white rounded-full flex items-center justify-center text-xs font-bold">
                       1
                     </span>
-                    <p>
-                      <span className="font-semibold text-[#17464F]">Phase 1 起步打底：</span>
-                      看懂遠端市場，釐清目標職缺與個人優勢，整理出之後要寫進履歷與 LinkedIn 的關鍵素材。
-                    </p>
+                    <div>
+                      <p>
+                        <span className="font-semibold text-[#17464F]">Phase 1 起步打底：</span>
+                        看懂遠端市場，釐清目標職缺與個人優勢，整理出之後要寫進履歷與 LinkedIn 的關鍵素材。
+                      </p>
+                      <p className="text-xs text-[#A06E56] mt-1 italic">→ 你至少會做出第一版履歷 / LinkedIn 雛形</p>
+                    </div>
                   </div>
                   <div className="flex gap-2">
                     <span className="flex-shrink-0 w-5 h-5 bg-[#17464F] text-white rounded-full flex items-center justify-center text-xs font-bold">
                       2
                     </span>
-                    <p>
-                      <span className="font-semibold text-[#17464F]">Phase 2 出擊試水：</span>
-                      做出一份「遠端友善」履歷與求職信模板，優化 LinkedIn，實際投遞至少 3 則 JD，練一次完整面試流程。
-                    </p>
+                    <div>
+                      <p>
+                        <span className="font-semibold text-[#17464F]">Phase 2 出擊試水：</span>
+                        做出一份「遠端友善」履歷與求職信模板，優化 LinkedIn，實際投遞至少 3 則 JD，練一次完整面試流程。
+                      </p>
+                      <p className="text-xs text-[#A06E56] mt-1 italic">→ 你至少會完成一次正式投遞</p>
+                    </div>
                   </div>
                   <div className="flex gap-2">
                     <span className="flex-shrink-0 w-5 h-5 bg-[#17464F] text-white rounded-full flex items-center justify-center text-xs font-bold">
                       3
                     </span>
-                    <p>
-                      <span className="font-semibold text-[#17464F]">Phase 3 累積整合：</span>
-                      根據投遞與面試結果復盤，把 AI 工作流、投遞節奏與財務規劃整理成你自己的遠端求職 SOP。
-                    </p>
+                    <div>
+                      <p>
+                        <span className="font-semibold text-[#17464F]">Phase 3 累積整合：</span>
+                        根據投遞與面試結果復盤，把 AI 工作流、投遞節奏與財務規劃整理成你自己的遠端求職 SOP。
+                      </p>
+                      <p className="text-xs text-[#A06E56] mt-1 italic">→ 你至少會完成期末發表，整理出自己的遠距 SOP</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1321,28 +1329,37 @@ export default function HomePage() {
                     <span className="flex-shrink-0 w-5 h-5 bg-[#17464F] text-white rounded-full flex items-center justify-center text-xs font-bold">
                       1
                     </span>
-                    <p>
-                      <span className="font-semibold text-[#17464F]">Phase 1 起步打底：</span>
-                      看懂自媒體與接案市場，釐清 TA、主題與價值，整理出第一版服務項目與作品集雛形。
-                    </p>
+                    <div>
+                      <p>
+                        <span className="font-semibold text-[#17464F]">Phase 1 起步打底：</span>
+                        看懂自媒體與接案市場，釐清 TA、主題與價值，整理出第一版服務項目與作品集雛形。
+                      </p>
+                      <p className="text-xs text-[#A06E56] mt-1 italic">→ 你至少會做出第一版作品集雛形</p>
+                    </div>
                   </div>
                   <div className="flex gap-2">
                     <span className="flex-shrink-0 w-5 h-5 bg-[#17464F] text-white rounded-full flex items-center justify-center text-xs font-bold">
                       2
                     </span>
-                    <p>
-                      <span className="font-semibold text-[#17464F]">Phase 2 出擊試水：</span>
-                      做出可接案的作品集，規劃一輪內容發佈，完成並公開至少 1 支短影音或內容作品。
-                    </p>
+                    <div>
+                      <p>
+                        <span className="font-semibold text-[#17464F]">Phase 2 出擊試水：</span>
+                        做出可接案的作品集，規劃一輪內容發佈，完成並公開至少 1 支短影音或內容作品。
+                      </p>
+                      <p className="text-xs text-[#A06E56] mt-1 italic">→ 你至少會完成一輪內容上線</p>
+                    </div>
                   </div>
                   <div className="flex gap-2">
                     <span className="flex-shrink-0 w-5 h-5 bg-[#17464F] text-white rounded-full flex items-center justify-center text-xs font-bold">
                       3
                     </span>
-                    <p>
-                      <span className="font-semibold text-[#17464F]">Phase 3 累積整合：</span>
-                      用數據與回饋復盤，調整定位，把 AI 工作流、內容節奏與收入規劃整理成你自己的接案 SOP。
-                    </p>
+                    <div>
+                      <p>
+                        <span className="font-semibold text-[#17464F]">Phase 3 累積整合：</span>
+                        用數據與回饋復盤，調整定位，把 AI 工作流、內容節奏與收入規劃整理成你自己的接案 SOP。
+                      </p>
+                      <p className="text-xs text-[#A06E56] mt-1 italic">→ 你至少會完成期末發表，整理出自己的遊牧 SOP</p>
+                    </div>
                   </div>
                 </div>
               </div>
