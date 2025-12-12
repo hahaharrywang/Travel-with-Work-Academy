@@ -3,7 +3,6 @@ import type { Metadata } from "next"
 import { Inter, JetBrains_Mono } from "next/font/google"
 import Script from "next/script"
 import "./globals.css"
-import { StructuredData } from "@/components/structured-data"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -30,13 +29,13 @@ export const metadata: Metadata = {
     siteName: "遠距遊牧學院 Travel With Work Academy",
     images: [
       {
-        url: "/images/fb-20metadata-20-20square.jpeg",
+        url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FB%20Metadata%20-%20Square.jpg-nw2lh41iL0uXsDncOotln0XjzQUnZA.jpeg",
         width: 1080,
         height: 1080,
         alt: "遠距遊牧學院 - 告別朝九晚五，解鎖遠距自由人生",
       },
       {
-        url: "/images/fb-20metadata.jpeg",
+        url: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FB%20Metadata.jpg-ME1NIL8bJeMlpv4o0BCk7jSUp3P5xe.jpeg",
         width: 1200,
         height: 630,
         alt: "遠距遊牧學院 - 告別朝九晚五，解鎖遠距自由人生",
@@ -50,7 +49,9 @@ export const metadata: Metadata = {
     title: "遠距遊牧學院 - 告別朝九晚五，解鎖遠距自由人生",
     description:
       "台灣首個系統化『遠距遊牧實戰學院』助你邊旅行邊實現人生價值。10個月學習與累積，讓你獲得開啟副業、遠距職涯的基礎能力。",
-    images: ["/images/fb-20metadata-20-20square.jpeg"],
+    images: [
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FB%20Metadata%20-%20Square.jpg-nw2lh41iL0uXsDncOotln0XjzQUnZA.jpeg",
+    ],
   },
   robots: {
     index: true,
@@ -69,8 +70,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}>
       <head>
-        <StructuredData />
-
         {gtmId && (
           <Script
             id="gtm-head"
@@ -87,12 +86,18 @@ export default function RootLayout({
           />
         )}
 
-        <meta property="og:image" content="/images/fb-20metadata-20-20square.jpeg" />
+        <meta
+          property="og:image"
+          content="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FB%20Metadata%20-%20Square.jpg-nw2lh41iL0uXsDncOotln0XjzQUnZA.jpeg"
+        />
         <meta property="og:image:width" content="1080" />
         <meta property="og:image:height" content="1080" />
         <meta property="og:image:alt" content="遠距遊牧學院 - 告別朝九晚五，解鎖遠距自由人生" />
         <meta property="og:image:type" content="image/jpeg" />
-        <meta name="twitter:image" content="/images/fb-20metadata-20-20square.jpeg" />
+        <meta
+          name="twitter:image"
+          content="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/FB%20Metadata%20-%20Square.jpg-nw2lh41iL0uXsDncOotln0XjzQUnZA.jpeg"
+        />
         <meta name="twitter:image:width" content="1080" />
         <meta name="twitter:image:height" content="1080" />
         <meta name="format-detection" content="telephone=no" />
