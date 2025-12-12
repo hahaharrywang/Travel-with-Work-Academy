@@ -364,7 +364,7 @@ export default function HomePage() {
               </p>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-wide">
-                2026年4月開始，
+                2026年4月，
                 <br />
                 一起把「也許有一天」
                 <br />
@@ -374,7 +374,7 @@ export default function HomePage() {
               <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-xl mx-auto lg:mx-0">
                 遠距遊牧學院結合線上課程、行動任務、共學社群與旅居體驗，
                 幫助已經準備行動的探索者，在不需要辭職、不斷線收入的前提下，
-                快速嘗試自己適合的遠距路線。
+                也能快速尋找適合幾的遠距路徑。
               </p>
 
               {/* Route tags */}
@@ -401,7 +401,7 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-start gap-3">
                   <Users className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">加入一群真的在為自由生活行動的夥伴</p>
+                  <p className="text-white/90">加入一群真的朝向自由生活行動的夥伴</p>
                 </div>
               </div>
 
