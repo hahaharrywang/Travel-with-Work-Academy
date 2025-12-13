@@ -387,18 +387,6 @@ export function PricingSection() {
             <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">通識課程（Direction + General）</span>
             <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">Skool 共學社群</span>
             <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">課程終身回放</span>
-            <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">LinkedIn 校友網絡</span>
-            <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">Nomad Leaders Podcast</span>
-          </div>
-        </div>
-
-        {/* Scholarship Banner */}
-        <div className="bg-gradient-to-r from-[#17464F] to-[#1a5259] rounded-2xl p-6 text-center text-white shadow-lg">
-          <div className="text-lg font-bold mb-2">績優學員專屬獎勵</div>
-          <div className="text-sm opacity-90">
-            課程期間成長表現優異的學員，將有機會獲得<span className="font-semibold">學費的部分或全額</span>
-            <span className="text-[#D4B483] font-bold mx-1">獎學金</span>，以及
-            <span className="text-[#D4B483] font-bold mx-1">2026 年遊牧啟發之旅招待名額</span>！
           </div>
         </div>
       </div>
@@ -433,7 +421,7 @@ export function PricingSection() {
                         !isCurrent &&
                         !isPast &&
                         stages.findIndex((s) => s.id === stage.id) ===
-                          stages.findIndex((s) => now >= s.startAt && now <= s.endAt) + 1
+                          stages.findIndex((s) => now >= s.startAt && now <= stage.endAt) + 1
                       const isOriginal = stage.id === "stage_12"
 
                       return (
@@ -506,7 +494,7 @@ export function PricingSection() {
                     !isCurrent &&
                     !isPast &&
                     stages.findIndex((s) => s.id === stage.id) ===
-                      stages.findIndex((s) => now >= s.startAt && now <= s.endAt) + 1
+                      stages.findIndex((s) => now >= s.startAt && now <= stage.endAt) + 1
                   const isOriginal = stage.id === "stage_12"
 
                   return (
