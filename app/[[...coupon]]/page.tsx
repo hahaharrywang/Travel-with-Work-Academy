@@ -367,7 +367,7 @@ export default function HomePage() {
       details: [
         "每堂課後都有一個「做得到」的任務：目標設定、發一篇文、做一支影片、更新履歷、寫求職信……不是看完就結束，而是立刻動手。",
         "任務拆成學習單與模板：透過清楚的步驟與範例，帶你完成策略定位、影片腳本、JD 拆解、面試 STAR 故事庫等關鍵輸出，讓行動不再只靠意志力。",
-        "想走更快，可以加選實作工作坊：短影音剪輯、Coffee Chat、Vibe Coding、工作英語等選修，讓你在需要時針對性加強，把任務變成真正落地的結果。",
+        "想走更快，可以加選實作工作坊：短影音剪輯、Coffee Chat、Vibe Coding、工作英語等選修，讓你在需要時針對性加強，把成長慾望落地成真實行動。",
       ],
       images: [
         { src: "/students-attending-online-workshop-and-learning.jpg", alt: "線上工作坊" },
