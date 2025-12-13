@@ -1705,7 +1705,7 @@ export default function HomePage() {
       <SuccessStoriesSection />
 
       {/* PRICING SECTION */}
-      <section id="pricing-section" className="pt-16 sm:pt-24 pb-0 bg-[#17464F] relative overflow-hidden">
+      <section id="pricing-section" className="pt-0 pb-0 bg-[#17464F] relative overflow-hidden">
         <PricingSection />
       </section>
 
