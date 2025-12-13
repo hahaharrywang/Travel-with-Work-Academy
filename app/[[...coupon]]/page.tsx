@@ -327,6 +327,9 @@ export default function HomePage() {
     })
   }
 
+  // const featuresData = [ ... ] was already defined above, so this is redundant.
+  // Assuming this was meant to be part of the previous featuresData definition, it's already covered.
+
   const featuresData = [
     {
       title: "雙軌資源",
@@ -398,6 +401,30 @@ export default function HomePage() {
       ],
     },
   ]
+
+  // const togglePhase = (phase: string) => {
+  //   setExpandedPhases((prev) => {
+  //     const newSet = new Set(prev)
+  //     if (newSet.has(phase)) {
+  //       newSet.delete(phase)
+  //     } else {
+  //       newSet.add(phase)
+  //     }
+  //     return newSet
+  //   })
+  // }
+
+  // const toggleFeature = (index: number) => {
+  //   setExpandedFeatures((prev) => {
+  //     const newSet = new Set(prev)
+  //     if (newSet.has(index)) {
+  //       newSet.delete(index)
+  //     } else {
+  //       newSet.add(index)
+  //     }
+  //     return newSet
+  //   })
+  // }
 
   return (
     <main className="min-h-screen bg-white">
@@ -561,7 +588,8 @@ export default function HomePage() {
             </h2>
             <p className="text-white/80 leading-relaxed max-w-2xl mx-auto mb-4">
               不管你現在在哪個階段，你都有機會在這裡找到開始的位置。
-              <br className="hidden sm:block" />你不一定已經想好要不要辭職、要不要成為全職 Nomad。但你心裡大概知道——
+              <br className="hidden sm:block" />
+              你不一定已經想好要不要辭職、要不要成為全職 Nomad。但你心裡大概知道——
               <br className="hidden sm:block" />
               接下來的人生，應該不只有「每天通勤、等著放假」這一種選項。
             </p>
@@ -866,9 +894,20 @@ export default function HomePage() {
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-bold text-[#17464F] mb-2">{feature.title}</h3>
-                    <p className="text-[#33393C] text-sm leading-relaxed">{feature.shortDesc}</p>
                   </div>
                 </div>
+
+                <div className="hidden md:block mb-4 rounded-xl overflow-hidden">
+                  <Image
+                    src={feature.images[0].src || "/placeholder.svg"}
+                    alt={feature.images[0].alt}
+                    width={400}
+                    height={300}
+                    className="w-full h-48 object-cover"
+                  />
+                </div>
+
+                <p className="text-[#33393C] text-sm leading-relaxed mb-4">{feature.shortDesc}</p>
 
                 <button
                   onClick={() => setFeatureDialogOpen(index)}
