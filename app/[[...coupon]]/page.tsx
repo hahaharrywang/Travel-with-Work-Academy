@@ -576,11 +576,10 @@ export default function HomePage() {
             </h2>
             <p className="text-white/80 leading-relaxed max-w-2xl mx-auto mb-4">
               不管你現在在哪個階段，你都有機會在這裡找到開始的位置。
-              <br className="hidden sm:block" />你 chắc chắn không chắc chắn đã có ý định từ chức, hay muốn trở thành
-              Nomad toàn thời gian. Nhưng trong lòng bạn hiểu rằng—
+              <br className="hidden sm:block" />你不一定已經想好要不要辭職、要不要成為全職 Nomad。
+
               <br className="hidden sm:block" />
-              Lựa chọn cho cuộc sống tiếp theo, không chỉ có "đi làm mỗi ngày, chờ ngày nghỉ phép".
-            </p>
+但你心裡大概知道——接下來的人生，應該不只有「每天通勤、等著放假」這一種選項。            </p>
             <p className="text-[#D4B483] font-medium mt-6">在這裡，你可能會在這幾種狀態裡，看到自己的影子：</p>
           </div>
 
