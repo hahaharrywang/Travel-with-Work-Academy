@@ -886,7 +886,8 @@ export default function HomePage() {
             {featuresData.map((feature, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
+                onClick={() => setFeatureDialogOpen(index)}
+                className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
               >
                 <div className="flex items-start gap-3 mb-4">
                   <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center flex-shrink-0">
@@ -909,19 +910,17 @@ export default function HomePage() {
 
                 <p className="text-[#33393C] text-sm leading-relaxed mb-4">{feature.shortDesc}</p>
 
-                <button
-                  onClick={() => setFeatureDialogOpen(index)}
-                  className="w-full mt-4 flex items-center justify-center gap-2 text-[#D4B483] hover:text-[#17464F] font-medium text-sm transition-colors"
-                >
+                <div className="w-full mt-4 flex items-center justify-center gap-2 text-[#D4B483] font-medium text-sm">
                   了解更多
                   <ChevronDown className="w-4 h-4" />
-                </button>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* MODAL FOR FEATURES */}
       {featuresData.map((feature, index) => (
         <Dialog
           key={index}
