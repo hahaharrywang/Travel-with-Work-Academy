@@ -587,7 +587,7 @@ export default function HomePage() {
               <br className="hidden sm:block" />
               但你心裡大概知道——接下來的人生，應該不只有「每天通勤、等著放假」這一種選項。
             </p>
-            <p className="text-[#D4B483] font-medium mt-6">在這裡，你可能會在這幾種狀態裡，看到自己的影子：</p>
+            <p className="text-[#D4B483] font-medium mt-6">你可能會在這幾種狀態裡，看到自己的影子：</p>
           </div>
 
           {/* Three Cards */}
