@@ -867,10 +867,10 @@ export default function HomePage() {
           {/* Section Header */}
           <div className="text-center mb-10 sm:mb-16">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-4 text-balance">
-              生態系三大特色，讓行動成為習慣
+              學院三大特色，讓行動成為習慣
             </h2>
             <p className="text-[#33393C] max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
-              不只是多上一門課，而是行動起來探索
+              不只是上一門課，而是行動起來探索
               <br />
               雙軌資源、行動任務和一群真的在實驗新生活的同伴。
             </p>
