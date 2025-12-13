@@ -47,7 +47,83 @@ export default function HomePage() {
   const [activeMapTab, setActiveMapTab] = useState<string>("遠端上班") // State for Learning Map tabs
   const [selectedWeek, setSelectedWeek] = useState<CalendarWeek | null>(null)
 
+  // Feature dialog state
   const [featureDialogOpen, setFeatureDialogOpen] = useState<number | null>(null)
+  // Add state for features data
+  const featuresData = [
+    {
+      id: 0,
+      title: "雙軌資源",
+      icon: (
+        <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M8 7l4-4m0 0l4 4m-4-4v18M16 17l4 4m0 0l-4-4m4 4H4"
+          />
+        </svg>
+      ),
+      shortDesc: "不知道選上班還是接案？先選一條主線，也可以雙線並進試水溫。",
+      details: [
+        "<strong>自媒體接案線路：</strong>幫你釐清主題定位，做出接案作品集，學會基本市場調查、內容與流量思維。",
+        "<strong>遠端上班線路：</strong>認識遠端求職市場，調整履歷與 LinkedIn，練習求職信、面試與獵頭溝通。",
+        "你可以選一條當主線；也可以雙線並進，快速全面探索。",
+      ],
+      images: [
+        { src: "/students-working-together-in-coworking-space.jpg", alt: "共同工作空間" },
+        { src: "/one-on-one-consultation-session-for-career-guidanc.jpg", alt: "一對一諮詢" },
+      ],
+    },
+    {
+      id: 1,
+      title: "行動導向設計",
+      icon: (
+        <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+          />
+        </svg>
+      ),
+      shortDesc: "每堂課都有做得到的行動任務，拆成模板和小步驟，不再只聽懂卻做不出來。",
+      details: [
+        "每堂課後都有一個「做得到」的任務：目標設定、發一篇文、做一支影片、更新履歷、寫求職信……不是看完就結束，而是立刻動手。",
+        "任務拆成學習單與模板：透過清楚的步驟與範例，帶你完成策略定位、影片腳本、JD 拆解、面試 STAR 故事庫等關鍵輸出，讓行動不再只靠意志力。",
+        "想走更快，可以加選實作工作坊：短影音剪輯、Coffee Chat、Vibe Coding、工作英語等選修，讓你在需要時針對性加強，把成長慾望落地成真實行動。",
+      ],
+      images: [
+        { src: "/students-attending-online-workshop-and-learning.jpg", alt: "線上工作坊" },
+        { src: "/student-completing-action-tasks-and-assignments.jpg", alt: "完成行動任務" },
+      ],
+    },
+    {
+      id: 2,
+      title: "社群支持",
+      icon: (
+        <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+          />
+        </svg>
+      ),
+      shortDesc: "線上共學＋閒聊群＋線下小聚，一路上都有人一起問、一起試、一起走。",
+      details: [
+        "線上共學空間，不再一個人被影片追進度：固定出現在 Skool 線上共學空間，一起打開鏡頭工作、分享卡關與成果，讓「學習」變成日常節奏的一部分。",
+        "線上共學，不再一個人被影片追進度：固定出現在 Skool 線上共學空間，一起打開鏡頭工作、分享卡關與成果，讓「學習」變成日常節奏的一部分。",
+        "線下小聚與 Nomad 活動：台北、高定期小聚，加上國內外 Nomad 旅程，讓你真的遇見那些在清邁、峴港、台北之間移動的人，把遠距生活從想像變成現場。",
+      ],
+      images: [
+        { src: "/offline-meetup-group-gathering-and-networking.jpg", alt: "線下小聚" },
+        { src: "/online-community-discussion-and-support-group.jpg", alt: "線上社群" },
+      ],
+    },
+  ]
 
   const { currentStageData, timeLeft, lowestPrice, selectedPlanId, setSelectedPlanId, getTrackingParams } = usePricing()
 
@@ -181,6 +257,8 @@ export default function HomePage() {
   // Find line with "const [expandedWeeks, setExpandedWeeks]" and add after it
   const [expandedPhases, setExpandedPhases] = useState<Set<string>>(new Set(["階段一 起步打底"])) // Default first phase expanded
   const [expandedFeatures, setExpandedFeatures] = useState<Set<number>>(new Set()) // State for expanded features in Section 2.1
+  // Add state for dialogs
+  const [openDialog, setOpenDialog] = useState<number | null>(null)
 
   const toggleWeekExpansion = (weekId: number) => {
     setExpandedWeeks((prev) => {
@@ -330,101 +408,11 @@ export default function HomePage() {
   // const featuresData = [ ... ] was already defined above, so this is redundant.
   // Assuming this was meant to be part of the previous featuresData definition, it's already covered.
 
-  const featuresData = [
-    {
-      title: "雙軌資源",
-      icon: (
-        <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.5}
-            d="M8 7l4-4m0 0l4 4m-4-4v18M16 17l4 4m0 0l-4-4m4 4H4"
-          />
-        </svg>
-      ),
-      shortDesc: "不知道選上班還是接案？先選一條主線，也可以雙線並進試水溫。",
-      details: [
-        "<strong>自媒體接案線路：</strong>幫你釐清主題定位，做出接案作品集，學會基本市場調查、內容與流量思維。",
-        "<strong>遠端上班線路：</strong>認識遠端求職市場，調整履歷與 LinkedIn，練習求職信、面試與獵頭溝通。",
-        "你可以選一條當主線；也可以雙線並進，快速全面探索。",
-      ],
-      images: [
-        { src: "/students-working-together-in-coworking-space.jpg", alt: "共同工作空間" },
-        { src: "/one-on-one-consultation-session-for-career-guidanc.jpg", alt: "一對一諮詢" },
-      ],
-    },
-    {
-      title: "行動導向設計",
-      icon: (
-        <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.5}
-            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
-          />
-        </svg>
-      ),
-      shortDesc: "每堂課都有做得到的行動任務，拆成模板和小步驟，不再只聽懂卻做不出來。",
-      details: [
-        "每堂課後都有一個「做得到」的任務：目標設定、發一篇文、做一支影片、更新履歷、寫求職信……不是看完就結束，而是立刻動手。",
-        "任務拆成學習單與模板：透過清楚的步驟與範例，帶你完成策略定位、影片腳本、JD 拆解、面試 STAR 故事庫等關鍵輸出，讓行動不再只靠意志力。",
-        "想走更快，可以加選實作工作坊：短影音剪輯、Coffee Chat、Vibe Coding、工作英語等選修，讓你在需要時針對性加強，把成長慾望落地成真實行動。",
-      ],
-      images: [
-        { src: "/students-attending-online-workshop-and-learning.jpg", alt: "線上工作坊" },
-        { src: "/student-completing-action-tasks-and-assignments.jpg", alt: "完成行動任務" },
-      ],
-    },
-    {
-      title: "社群支持",
-      icon: (
-        <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.5}
-            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-          />
-        </svg>
-      ),
-      shortDesc: "線上共學＋閒聊群＋線下小聚，一路上都有人一起問、一起試、一起走。",
-      details: [
-        "線上共學空間，不再一個人被影片追進度：固定出現在 Skool 線上共學空間，一起打開鏡頭工作、分享卡關與成果，讓「學習」變成日常節奏的一部分。",
-        "線上共學，不再一個人被影片追進度：固定出現在 Skool 線上共學空間，一起打開鏡頭工作、分享卡關與成果，讓「學習」變成日常節奏的一部分。",
-        "線下小聚與 Nomad 活動：台北、高定期小聚，加上國內外 Nomad 旅程，讓你真的遇見那些在清邁、峴港、台北之間移動的人，把遠距生活從想像變成現場。",
-      ],
-      images: [
-        { src: "/offline-meetup-group-gathering-and-networking.jpg", alt: "線下小聚" },
-        { src: "/online-community-discussion-and-support-group.jpg", alt: "線上社群" },
-      ],
-    },
-  ]
+  // const featuresData = [ ... ] // This is already defined above, no need to redefine.
 
-  // const togglePhase = (phase: string) => {
-  //   setExpandedPhases((prev) => {
-  //     const newSet = new Set(prev)
-  //     if (newSet.has(phase)) {
-  //       newSet.delete(phase)
-  //     } else {
-  //       newSet.add(phase)
-  //     }
-  //     return newSet
-  //   })
-  // }
-
-  // const toggleFeature = (index: number) => {
-  //   setExpandedFeatures((prev) => {
-  //     const newSet = new Set(prev)
-  //     if (newSet.has(index)) {
-  //       newSet.delete(index)
-  //     } else {
-  //       newSet.add(index)
-  //     }
-  //     return newSet
-  //   })
-  // }
+  const toggleFeatureDialog = (featureId: number | null) => {
+    setOpenDialog(featureId)
+  }
 
   return (
     <main className="min-h-screen bg-white">
@@ -588,10 +576,10 @@ export default function HomePage() {
             </h2>
             <p className="text-white/80 leading-relaxed max-w-2xl mx-auto mb-4">
               不管你現在在哪個階段，你都有機會在這裡找到開始的位置。
+              <br className="hidden sm:block" />你 chắc chắn không chắc chắn đã có ý định từ chức, hay muốn trở thành
+              Nomad toàn thời gian. Nhưng trong lòng bạn hiểu rằng—
               <br className="hidden sm:block" />
-              你不一定已經想好要不要辭職、要不要成為全職 Nomad。但你心裡大概知道——
-              <br className="hidden sm:block" />
-              接下來的人生，應該不只有「每天通勤、等著放假」這一種選項。
+              Lựa chọn cho cuộc sống tiếp theo, không chỉ có "đi làm mỗi ngày, chờ ngày nghỉ phép".
             </p>
             <p className="text-[#D4B483] font-medium mt-6">在這裡，你可能會在這幾種狀態裡，看到自己的影子：</p>
           </div>
@@ -883,10 +871,10 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {featuresData.map((feature, index) => (
+            {featuresData.map((feature) => (
               <div
-                key={index}
-                onClick={() => setFeatureDialogOpen(index)}
+                key={feature.id}
+                onClick={() => toggleFeatureDialog(feature.id)}
                 className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
               >
                 <div className="flex items-start gap-3 mb-4">
@@ -921,13 +909,32 @@ export default function HomePage() {
       </section>
 
       {/* MODAL FOR FEATURES */}
-      {featuresData.map((feature, index) => (
-        <Dialog
-          key={index}
-          open={featureDialogOpen === index}
-          onOpenChange={(open) => !open && setFeatureDialogOpen(null)}
-        >
-          <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto bg-[#F5F3ED]">
+      {featuresData.map((feature) => (
+        <Dialog key={feature.id} open={openDialog === feature.id} onOpenChange={(open) => !open && setOpenDialog(null)}>
+          <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-[#F5F3ED]">
+            {/* Fixed Close Button */}
+            <button
+              onClick={() => setOpenDialog(null)}
+              className="absolute top-4 right-4 z-50 rounded-full bg-white/90 p-2 shadow-lg hover:bg-white transition-colors"
+              aria-label="Close"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-[#17464F]"
+              >
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+
             <DialogHeader>
               <DialogTitle className="text-2xl font-bold text-[#17464F] flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center flex-shrink-0">
@@ -947,14 +954,28 @@ export default function HomePage() {
               </DialogDescription>
             </DialogHeader>
 
-            {/* Image Carousel */}
+            {/* Image Carousel with Gallery */}
             <div className="mt-6">
               <Carousel className="w-full">
                 <CarouselContent>
                   {feature.images.map((image, idx) => (
                     <CarouselItem key={idx}>
-                      <div className="relative aspect-video rounded-xl overflow-hidden">
-                        <Image src={image.src || "/placeholder.svg"} alt={image.alt} fill className="object-cover" />
+                      <div
+                        className="relative aspect-video rounded-xl overflow-hidden cursor-pointer group"
+                        onClick={() => window.open(image.src, "_blank")}
+                      >
+                        <Image
+                          src={image.src || "/placeholder.svg"}
+                          alt={image.alt}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        {/* Gallery hint overlay */}
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                          <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-medium">
+                            点击放大查看
+                          </span>
+                        </div>
                       </div>
                     </CarouselItem>
                   ))}
@@ -967,7 +988,7 @@ export default function HomePage() {
         </Dialog>
       ))}
 
-      {/* SECTION 2.1 ECOSYSTEM PARTNERSHIP START - 生態系 */}
+      {/* SECTION 2.1 ECOSYSTEM PARTNERSHIP - 生態系 (moved after learning map) */}
       <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6">
@@ -1052,7 +1073,7 @@ export default function HomePage() {
         </div>
       </section>
       {/* SECTION 5 INSTRUCTORS START - 師資 */}
-      <section className="py-16 sm:py-24 bg-white">
+      <section className="hidden py-16 sm:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="flex justify-center gap-2 mb-6">
