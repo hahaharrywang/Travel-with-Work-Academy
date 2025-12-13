@@ -561,7 +561,7 @@ export default function HomePage() {
             </h2>
             <p className="text-white/80 leading-relaxed max-w-2xl mx-auto mb-4">
               不管你現在在哪個階段，你都有機會在這裡找到開始的位置。
-              <br className="hidden sm:block" />你 Pn 不一定已經想好要不要辭職、要不要成為全職 Nomad。但你心裡大概知道——
+              <br className="hidden sm:block" />你不一定已經想好要不要辭職、要不要成為全職 Nomad。但你心裡大概知道——
               <br className="hidden sm:block" />
               接下來的人生，應該不只有「每天通勤、等著放假」這一種選項。
             </p>
