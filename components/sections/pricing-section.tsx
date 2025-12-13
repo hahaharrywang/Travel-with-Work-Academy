@@ -303,7 +303,83 @@ export function PricingSection() {
           </div>
         </div>
 
-        {/* All Plans Include */}
+        {/* Limited Offer Section */}
+        <div className="mb-12 max-w-4xl mx-auto">
+          <div className="bg-[#F5F3ED]/80 backdrop-blur rounded-2xl p-8 sm:p-10 shadow-lg border border-[#D4B483]/30">
+            <div className="flex justify-center gap-2 mb-6">
+              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
+            </div>
+
+            <h3 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-4 text-center">本梯限定的優惠與名額</h3>
+
+            <p className="text-[#33393C] mb-8 leading-relaxed max-w-2xl mx-auto text-center">
+              為了讓教學與陪跑品質維持在好的狀態，
+              <br className="hidden sm:block" />
+              每一梯次的名額與優惠都會做控管，以下是這一梯的安排：
+            </p>
+
+            <div className="bg-white/80 rounded-xl p-6 mb-8 text-left max-w-xl mx-auto border border-[#C9D7D4]/50">
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-2 flex-shrink-0"></span>
+                  <div>
+                    <span className="font-semibold text-[#17464F]">早鳥專屬價格</span>
+                    <span className="text-[#33393C]">：限時優惠倒數中，把握內部名單專屬折扣</span>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-2 flex-shrink-0"></span>
+                  <div>
+                    <span className="font-semibold text-[#17464F]">加贈共學社群延長權限</span>
+                    <span className="text-[#33393C]">：前 3 個月課程後，再享後 3 個月社群陪伴與資源</span>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-2 flex-shrink-0"></span>
+                  <div>
+                    <span className="font-semibold text-[#17464F]">名額上限控管</span>
+                    <span className="text-[#33393C]">：為維持教學品質，本梯名額有限，額滿即收班</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div className="text-center">
+              <a
+                href={getCheckoutURLWithTracking()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-[#17464F] text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+                onClick={() => {
+                  if (typeof window !== "undefined" && (window as any).trackInitiateCheckout) {
+                    ;(window as any).trackInitiateCheckout(0)
+                  }
+                }}
+              >
+                我要加入本梯
+              </a>
+            </div>
+
+            <p className="mt-8 text-sm text-[#33393C]/80 leading-relaxed max-w-lg mx-auto text-center">
+              如果你還在觀望，也可以先把問題整理下來，
+              <br className="hidden sm:block" />
+              在下方 FAQ 或{" "}
+              <a
+                href="https://www.instagram.com/travelwithwork_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#17464F] underline hover:text-[#D4B483] transition-colors"
+              >
+                Instagram
+              </a>{" "}
+              問清楚，再決定這六個月要不要一起走。
+            </p>
+          </div>
+        </div>
+
+        {/* All Plans Include Section */}
         <div className="bg-white/60 rounded-2xl border border-slate-200 p-6 md:p-8 text-center mb-12">
           <h4 className="text-lg font-bold text-[#17464F] mb-4">所有方案皆包含</h4>
           <div className="flex flex-wrap justify-center gap-3 text-sm text-[#33393C]">
