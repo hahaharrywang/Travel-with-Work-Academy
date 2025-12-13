@@ -13,7 +13,14 @@ import { PricingSection } from "@/components/sections/pricing-section" // Import
 import FAQSection from "@/components/sections/faq-section" // Import FAQSection
 import { SuccessStoriesSection } from "@/components/sections/success-stories-section"
 
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 
 import { type PlanId, getCheckoutURL } from "@/data/plan-config"
@@ -576,10 +583,10 @@ export default function HomePage() {
             </h2>
             <p className="text-white/80 leading-relaxed max-w-2xl mx-auto mb-4">
               不管你現在在哪個階段，你都有機會在這裡找到開始的位置。
-              <br className="hidden sm:block" />你不一定已經想好要不要辭職、要不要成為全職 Nomad。
-
+              <br className="hidden sm:block" /> 你不一定已經想好要不要辭職、要不要成為全職 Nomad。
               <br className="hidden sm:block" />
-但你心裡大概知道——接下來的人生，應該不只有「每天通勤、等著放假」這一種選項。            </p>
+              但你心裡大概知道——接下來的人生，應該不只有「每天通勤、等著放假」這一種選項。
+            </p>
             <p className="text-[#D4B483] font-medium mt-6">在這裡，你可能會在這幾種狀態裡，看到自己的影子：</p>
           </div>
 
@@ -911,10 +918,9 @@ export default function HomePage() {
       {featuresData.map((feature) => (
         <Dialog key={feature.id} open={openDialog === feature.id} onOpenChange={(open) => !open && setOpenDialog(null)}>
           <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-[#F5F3ED]">
-            {/* Fixed Close Button */}
             <button
               onClick={() => setOpenDialog(null)}
-              className="absolute top-4 right-4 z-50 rounded-full bg-white/90 p-2 shadow-lg hover:bg-white transition-colors"
+              className="sticky top-4 left-full -mr-4 z-50 rounded-full bg-white/90 p-2 shadow-lg hover:bg-white transition-colors"
               aria-label="Close"
             >
               <svg
@@ -953,29 +959,39 @@ export default function HomePage() {
               </DialogDescription>
             </DialogHeader>
 
-            {/* Image Carousel with Gallery */}
             <div className="mt-6">
               <Carousel className="w-full">
                 <CarouselContent>
                   {feature.images.map((image, idx) => (
                     <CarouselItem key={idx}>
-                      <div
-                        className="relative aspect-video rounded-xl overflow-hidden cursor-pointer group"
-                        onClick={() => window.open(image.src, "_blank")}
-                      >
-                        <Image
-                          src={image.src || "/placeholder.svg"}
-                          alt={image.alt}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                        {/* Gallery hint overlay */}
-                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                          <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-medium">
-                            点击放大查看
-                          </span>
-                        </div>
-                      </div>
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <div className="relative aspect-video rounded-xl overflow-hidden cursor-pointer group">
+                            <Image
+                              src={image.src || "/placeholder.svg"}
+                              alt={image.alt}
+                              fill
+                              className="object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
+                            {/* Gallery hint overlay */}
+                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                              <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-medium">
+                                点击放大查看
+                              </span>
+                            </div>
+                          </div>
+                        </DialogTrigger>
+                        <DialogContent className="max-w-7xl w-[95vw] h-[95vh] p-0 bg-black/95 border-0">
+                          <div className="relative w-full h-full flex items-center justify-center p-4">
+                            <Image
+                              src={image.src || "/placeholder.svg"}
+                              alt={image.alt}
+                              fill
+                              className="object-contain"
+                            />
+                          </div>
+                        </DialogContent>
+                      </Dialog>
                     </CarouselItem>
                   ))}
                 </CarouselContent>
