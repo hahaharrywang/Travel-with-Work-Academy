@@ -920,7 +920,7 @@ export default function HomePage() {
           <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-[#F5F3ED]">
             <button
               onClick={() => setOpenDialog(null)}
-              className="sticky top-4 left-full -mr-4 z-50 rounded-full bg-white/90 p-2 shadow-lg hover:bg-white transition-colors"
+              className="fixed top-4 right-4 z-50 rounded-full bg-white/90 p-2 shadow-lg hover:bg-white transition-colors"
               aria-label="Close"
             >
               <svg
