@@ -1286,7 +1286,7 @@ export default function HomePage() {
                     上班線 × 三階段成果
                   </span>
                 </div>
-                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">這 3+3 個月，你會走到哪裡？</h3>
+                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">這幾個月，你會走到哪裡？</h3>
                 <div className="space-y-3 text-[#33393C] leading-relaxed text-sm">
                   <div className="flex gap-2">
                     <span className="flex-shrink-0 w-5 h-5 bg-[#17464F] text-white rounded-full flex items-center justify-center text-xs font-bold">
@@ -1294,10 +1294,10 @@ export default function HomePage() {
                     </span>
                     <div>
                       <p>
-                        <span className="font-semibold text-[#17464F]">Phase 1 起步打底：</span>
-                        看懂遠端市場，釐清目標職缺與個人優勢，整理出之後要寫進履歷與 LinkedIn 的關鍵素材。
+                        <span className="font-semibold text-[#17464F]">階段一 起步打底：</span>
+                        對外看懂遠端市場，釐清目標職缺與個人優勢，同時理解自己人生的定位與為什麼。
                       </p>
-                      <p className="text-xs text-[#A06E56] mt-1 italic">→ 你至少會做出第一版履歷 / LinkedIn 雛形</p>
+                      <p className="text-xs text-[#A06E56] mt-1 italic">→ 你會擁有方向</p>
                     </div>
                   </div>
                   <div className="flex gap-2">
