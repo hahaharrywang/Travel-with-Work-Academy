@@ -1478,17 +1478,17 @@ export default function HomePage() {
                     </span>
                     <p className="text-xs text-[#33393C]/70 mb-1">第 9–16 週</p>
                     <p className="text-xs text-[#33393C] leading-relaxed">
-                      自媒體定位與內容企劃、短影音製作；規劃內容排程，至少發佈一支短影音。
+                      市場價值定位、內容企劃＆框架、短影音流量攻略。
                     </p>
                   </div>
                   {/* Phase 3 */}
                   <div className="border-l-3 border-[#C9D7D4] pl-3">
                     <span className="inline-block bg-[#C9D7D4]/30 text-[#17464F] text-xs font-semibold px-2 py-0.5 rounded mb-1">
-                      P3 累積整合
+                      階段三 累積整合
                     </span>
                     <p className="text-xs text-[#33393C]/70 mb-1">第 17–24 週</p>
                     <p className="text-xs text-[#33393C] leading-relaxed">
-                      每月復盤內容成績、財務與人生 SOP、共創專案（選擇參與）。
+                      復盤內容成效，調整服務與定價，搭配財務與人生 SOP、把這一輪嘗試整理成下一季可複製的內容與接案計畫。
                     </p>
                   </div>
                 </div>
