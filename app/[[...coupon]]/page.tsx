@@ -79,8 +79,14 @@ export default function HomePage() {
         "你可以選一條當主線；也可以雙線並進，快速全面探索。",
       ],
       images: [
-        { src: "/students-working-together-in-coworking-space.jpg", alt: "共同工作空間" },
-        { src: "/one-on-one-consultation-session-for-career-guidanc.jpg", alt: "一對一諮詢" },
+        {
+          src: "/images/e8-87-aa-e5-aa-92-e9-ab-94-e6-8e-a5-e6-a1-88-e8-b7-af-e7-b7-9a-ef-bc-bfreels-e9-87-8d-e8-a6-81-e6-8c-87-e6-a8-99.png",
+          alt: "自媒體接案路線：Reels演算法重要指標",
+        },
+        {
+          src: "/images/e4-b8-8a-e7-8f-ad-e8-b7-af-e7-b7-9a-ef-bc-bf-e9-9b-87-e4-b8-bb-e7-84-a1-e5-8b-95-e6-96-bc-e8-a1-b7.png",
+          alt: "上班路線：讓雇主無動於衷的答案",
+        },
       ],
     },
     {
