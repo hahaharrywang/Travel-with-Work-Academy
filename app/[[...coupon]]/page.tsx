@@ -921,87 +921,91 @@ export default function HomePage() {
         <Dialog key={feature.id} open={openDialog === feature.id} onOpenChange={(open) => !open && setOpenDialog(null)}>
           <DialogPortal>
             <DialogOverlay />
-            <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-[#F5F3ED]">
-              <button
-                onClick={() => setOpenDialog(null)}
-                className="sticky top-0 float-right -mr-2 -mt-2 mb-4 z-10 rounded-full bg-white/90 p-2 shadow-lg hover:bg-white transition-colors"
-                aria-label="Close"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-[#17464F]"
+            <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-[#F5F3ED] p-0">
+              <div className="sticky top-0 z-50 flex justify-end bg-[#F5F3ED] pt-6 pr-6 pb-2">
+                <button
+                  onClick={() => setOpenDialog(null)}
+                  className="rounded-full bg-white/90 p-2 shadow-lg hover:bg-white transition-colors"
+                  aria-label="Close"
                 >
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-              </button>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-[#17464F]"
+                  >
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </button>
+              </div>
 
-              <DialogHeader>
-                <DialogTitle className="text-2xl font-bold text-[#17464F] flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center flex-shrink-0">
-                    {feature.icon}
-                  </div>
-                  {feature.title}
-                </DialogTitle>
-                <DialogDescription className="text-[#33393C] text-base leading-relaxed pt-4">
-                  <div className="space-y-4">
-                    {feature.details.map((detail, idx) => (
-                      <div key={idx} className="flex items-start gap-2">
-                        <span className="text-[#D4B483] mt-1">–</span>
-                        <span dangerouslySetInnerHTML={{ __html: detail }} />
-                      </div>
-                    ))}
-                  </div>
-                </DialogDescription>
-              </DialogHeader>
+              <div className="px-6 pb-6">
+                <DialogHeader>
+                  <DialogTitle className="text-2xl font-bold text-[#17464F] flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center flex-shrink-0">
+                      {feature.icon}
+                    </div>
+                    {feature.title}
+                  </DialogTitle>
+                  <DialogDescription className="text-[#33393C] text-base leading-relaxed pt-4">
+                    <div className="space-y-4">
+                      {feature.details.map((detail, idx) => (
+                        <div key={idx} className="flex items-start gap-2">
+                          <span className="text-[#D4B483] mt-1">–</span>
+                          <span dangerouslySetInnerHTML={{ __html: detail }} />
+                        </div>
+                      ))}
+                    </div>
+                  </DialogDescription>
+                </DialogHeader>
 
-              <div className="mt-6">
-                <Carousel className="w-full">
-                  <CarouselContent>
-                    {feature.images.map((image, idx) => (
-                      <CarouselItem key={idx}>
-                        <Dialog>
-                          <DialogTrigger asChild>
-                            <div className="relative aspect-video rounded-xl overflow-hidden cursor-pointer group">
-                              <Image
-                                src={image.src || "/placeholder.svg"}
-                                alt={image.alt}
-                                fill
-                                className="object-cover group-hover:scale-105 transition-transform duration-300"
-                              />
-                              {/* Gallery hint overlay */}
-                              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                                <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-medium">
-                                  点击放大查看
-                                </span>
+                <div className="mt-6">
+                  <Carousel className="w-full">
+                    <CarouselContent>
+                      {feature.images.map((image, idx) => (
+                        <CarouselItem key={idx}>
+                          <Dialog>
+                            <DialogTrigger asChild>
+                              <div className="relative aspect-video rounded-xl overflow-hidden cursor-pointer group">
+                                <Image
+                                  src={image.src || "/placeholder.svg"}
+                                  alt={image.alt}
+                                  fill
+                                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                />
+                                {/* Gallery hint overlay */}
+                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                                  <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-medium">
+                                    点击放大查看
+                                  </span>
+                                </div>
                               </div>
-                            </div>
-                          </DialogTrigger>
-                          <DialogContent className="max-w-7xl w-[95vw] h-[95vh] p-0 bg-black/95 border-0">
-                            <div className="relative w-full h-full flex items-center justify-center p-4">
-                              <Image
-                                src={image.src || "/placeholder.svg"}
-                                alt={image.alt}
-                                fill
-                                className="object-contain"
-                              />
-                            </div>
-                          </DialogContent>
-                        </Dialog>
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                  <CarouselPrevious className="left-2" />
-                  <CarouselNext className="right-2" />
-                </Carousel>
+                            </DialogTrigger>
+                            <DialogContent className="max-w-7xl w-[95vw] h-[95vh] p-0 bg-black/95 border-0">
+                              <div className="relative w-full h-full flex items-center justify-center p-4">
+                                <Image
+                                  src={image.src || "/placeholder.svg"}
+                                  alt={image.alt}
+                                  fill
+                                  className="object-contain"
+                                />
+                              </div>
+                            </DialogContent>
+                          </Dialog>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <CarouselPrevious className="left-2" />
+                    <CarouselNext className="right-2" />
+                  </Carousel>
+                </div>
               </div>
             </DialogContent>
           </DialogPortal>
