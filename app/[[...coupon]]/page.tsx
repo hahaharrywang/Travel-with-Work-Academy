@@ -1358,7 +1358,7 @@ export default function HomePage() {
                     </span>
                     <p className="text-xs text-[#33393C]/70 mb-1">第 17–24 週</p>
                     <p className="text-xs text-[#33393C] leading-relaxed">
-                      覆盤成長、調整方向、選修工作坊、期末成果發表。
+                      覆盤成長、調整方向、選修工作坊、期末成果檢視。
                     </p>
                   </div>
                 </div>
