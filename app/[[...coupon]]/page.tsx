@@ -1019,11 +1019,11 @@ export default function HomePage() {
                 </a>
                 {/* CHANGE: Emphasized main title with larger font and spacing */}
                 <p className="text-[#17464F] font-bold text-sm sm:text-base mb-2">數位遊牧 Lifestyle 社群</p>
-                  <p className="text-[#33393C] text-xs sm:text-sm leading-relaxed">
-                    # 台灣最大數位遊牧社群
-                    <br /># 線下聚會｜台北、高雄
-                    <br /># 國內外遊牧啟發之旅
-                  </p>
+                <p className="text-[#33393C] text-xs sm:text-sm leading-relaxed">
+                  # 台灣最大數位遊牧社群
+                  <br /># 線下聚會｜台北、高雄
+                  <br /># 國內外遊牧啟發之旅
+                </p>
               </div>
 
               <div className="hidden lg:flex text-[#D4B483] text-7xl items-center justify-center h-32">×</div>
@@ -1037,7 +1037,7 @@ export default function HomePage() {
                 >
                   <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4 border border-[#C9D7D4]">
                     <Image
-                      src="/images/design-mode/%E6%88%90%E9%95%B7%E7%87%97Logo.jpg"
+                      src="/images/logo.png"
                       alt="數位遊牧線上職涯成長社群"
                       width={96}
                       height={96}
