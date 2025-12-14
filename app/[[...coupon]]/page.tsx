@@ -80,11 +80,11 @@ export default function HomePage() {
       ],
       images: [
         {
-          src: "/images/e8-87-aa-e5-aa-92-e9-ab-94-e6-8e-a5-e6-a1-88-e8-b7-af-e7-b7-9a-ef-bc-bfreels-e9-87-8d-e8-a6-81-e6-8c-87-e6-a8-99.png",
+          src: "/images/e8-87-aa-e5-aa-92-e9-ab-94-e6-8e-a5-e6-a1-88-e8-b7-af-e7-b7-9a-ef-bc-bfreels-e9-87-8d-e8-a6-8f-e6-8c-87-e6-a8-99.png",
           alt: "自媒體接案路線：Reels演算法重要指標",
         },
         {
-          src: "/images/e4-b8-8a-e7-8f-ad-e8-b7-af-e7-b7-9a-ef-bc-bf-e9-9b-87-e4-b8-bb-e7-84-a1-e5-8b-95-e6-96-bc-e8-a1-b7.png",
+          src: "/images/e4-b8-8a-e7-8f-ad-e8-b7-af-e7-b7-9a-ef-bc-bf-e9-9b-87-e4-b8-bb-e7-84-a1-e5-8b-95-e6-96-bc-e8-a1-b0.png",
           alt: "上班路線：讓雇主無動於衷的答案",
         },
       ],
@@ -109,8 +109,18 @@ export default function HomePage() {
         "想走更快，可以加選實作工作坊：短影音剪輯、Coffee Chat、Vibe Coding、工作英語等選修，讓你在需要時針對性加強，把成長慾望落地成真實行動。",
       ],
       images: [
-        { src: "/students-attending-online-workshop-and-learning.jpg", alt: "線上工作坊" },
-        { src: "/student-completing-action-tasks-and-assignments.jpg", alt: "完成行動任務" },
+        {
+          src: "/images/e8-a1-8c-e5-8b-95-e5-b0-8e-e5-90-91-ef-bc-bf-e4-bb-bb-e5-8b-99-e6-8b-86-e8-a7-a3.png",
+          alt: "任務拆解",
+        },
+        {
+          src: "/images/e8-a1-8c-e5-8b-95-e5-b0-8e-e5-90-91-ef-bc-bf-e4-bd-9c-e6-a5-ad-e5-b9-b3-e5-8f-b0.png",
+          alt: "作業平台",
+        },
+        {
+          src: "/images/e8-a1-8c-e5-8b-95-e5-b0-8e-e5-90-91-ef-bc-bfvibe-20coding-20-e5-b7-a5-e4-bd-9c-e5-9d-8a-20.png",
+          alt: "Vibe Coding 工作坊",
+        },
       ],
     },
     {
@@ -1479,7 +1489,7 @@ export default function HomePage() {
                       <span className="text-[#33393C]/70 text-[10px] sm:text-xs">依據個別需求，額外加速成長：</span>
                     </div>
                     <ul className="space-y-1 pl-4">
-                      <li>• 線上面試、工作英文口說</li>
+                      <li>• 線上面試、工作英語口說</li>
                       <li>• Coffee Chat</li>
                       <li>• 商業思維、口播價值銷售攻略</li>
                       <li>• AI vibe coding、n8n 自動化工作流</li>
@@ -1731,7 +1741,7 @@ export default function HomePage() {
                         </svg>
                         共同必修
                       </span>
-                      <span className="text-[#33393C]/70 text-[10px] sm:text-xs">不管哪一條路線，都會一起上。</span>
+                      <span className="text-[#33393C]/70 text-[10px] sm:text-xs">共同必修 & 選修</span>
                     </div>
                     <ul className="space-y-1 pl-4">
                       <li>• 遠距遊牧概論＆目標設定</li>
