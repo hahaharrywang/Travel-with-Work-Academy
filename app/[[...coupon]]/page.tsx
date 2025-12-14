@@ -922,7 +922,6 @@ export default function HomePage() {
           <DialogPortal>
             <DialogOverlay />
             <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-[#F5F3ED]">
-              {/* CHANGE: Fixed sticky close button positioning */}
               <button
                 onClick={() => setOpenDialog(null)}
                 className="sticky top-0 float-right -mr-2 -mt-2 mb-4 z-10 rounded-full bg-white/90 p-2 shadow-lg hover:bg-white transition-colors"
