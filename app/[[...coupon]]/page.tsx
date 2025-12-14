@@ -1286,7 +1286,7 @@ export default function HomePage() {
                     上班線 × 三階段成果
                   </span>
                 </div>
-                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">這幾個月，你會走到哪裡？</h3>
+                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">這幾個月，你會怎麼走？</h3>
                 <div className="space-y-3 text-[#33393C] leading-relaxed text-sm">
                   <div className="flex gap-2">
                     <span className="flex-shrink-0 w-5 h-5 bg-[#17464F] text-white rounded-full flex items-center justify-center text-xs font-bold">
@@ -1329,26 +1329,26 @@ export default function HomePage() {
 
               {/* 卡片 2 */}
               <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">每週三，大概在做什麼？</h3>
+                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">每週課程</h3>
                 <div className="space-y-4">
                   {/* Phase 1 */}
                   <div className="border-l-3 border-[#D4B483] pl-3">
                     <span className="inline-block bg-[#D4B483]/20 text-[#A06E56] text-xs font-semibold px-2 py-0.5 rounded mb-1">
-                      P1 起步打底
+                      階段一 起步打底
                     </span>
                     <p className="text-xs text-[#33393C]/70 mb-1">第 1–8 週</p>
                     <p className="text-xs text-[#33393C] leading-relaxed">
-                      遠距職涯地圖、目標設定、AI 工作流 demo；盤點經歷、改寫 LinkedIn 與履歷骨架。
+                      遠距遊牧概論、遠距職涯地圖、目標設定、AI 工作流。
                     </p>
                   </div>
                   {/* Phase 2 */}
                   <div className="border-l-3 border-[#17464F] pl-3">
                     <span className="inline-block bg-[#17464F]/10 text-[#17464F] text-xs font-semibold px-2 py-0.5 rounded mb-1">
-                      P2 出擊試水
+                      階段二 出擊試水
                     </span>
                     <p className="text-xs text-[#33393C]/70 mb-1">第 9–16 週</p>
                     <p className="text-xs text-[#33393C] leading-relaxed">
-                      LinkedIn 全攻略、履歷秘笈、面試策略；完成履歷、投出第一批 JD、安排面試。
+                      盤點經歷、改寫 LinkedIn 與履歷骨架、看懂面試流程＆客製化履歷與求職信、學習與獵頭打交道的心法＆談薪攻略。
                     </p>
                   </div>
                   {/* Phase 3 */}
