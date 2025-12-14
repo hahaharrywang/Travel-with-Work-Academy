@@ -1027,7 +1027,7 @@ export default function HomePage() {
                 >
                   <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4 border border-[#C9D7D4]">
                     <Image
-                      src="/images/design-mode/%E6%88%90%E9%95%B7%E7%87%97Logo.jpg"
+                      src="/images/digital-nomad-career-community-logo.png"
                       alt="數位遊牧線上職涯成長社群"
                       width={96}
                       height={96}
@@ -1056,7 +1056,7 @@ export default function HomePage() {
                 >
                   <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4 border border-[#C9D7D4]">
                     <Image
-                      src="/images/design-mode/%E6%95%B8%E4%BD%8D%E9%81%8A%E7%89%A7%E5%8F%B0%E7%81%A3%20Logo%281%29%281%29%281%29%281%29.png"
+                      src="/newsveg------logo.jpg"
                       alt="NewsVeg"
                       width={96}
                       height={96}
@@ -1065,7 +1065,7 @@ export default function HomePage() {
                     />
                   </div>
                 </a>
-                <p className="text-[#17464F] font-bold text-sm sm:text-base mb-1">NewsVeg</p>
+                <p className="text-[#17464F] font-bold text-sm sm:text-base mb-1">生鮮時書 NewsVeg</p>
                 <p className="text-[#33393C] text-xs sm:text-sm"># 知識變現與內容創新</p>
               </div>
             </div>
