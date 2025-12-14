@@ -1329,7 +1329,7 @@ export default function HomePage() {
 
               {/* 卡片 2 */}
               <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">每週課程</h3>
+                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">路線必修課程</h3>
                 <div className="space-y-4">
                   {/* Phase 1 */}
                   <div className="border-l-3 border-[#D4B483] pl-3">
@@ -1377,14 +1377,25 @@ export default function HomePage() {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-lg font-bold text-[#17464F]">共同必修 & 社群支持</h3>
+                  <h3 className="text-lg font-bold text-[#17464F]">共同必修＆選修</h3>
                 </div>
                 <div className="text-[#33393C] text-xs leading-relaxed space-y-2">
-                  <p>不管你選哪一條路線，都會一起上：</p>
+                  <p>共同必修：不管你選哪一條路線，都會一起上：</p>
                   <ul className="space-y-1">
                     <li>• 遠距遊牧概論＆目標設定</li>
-                    <li>• AI ＆ 自動化工作流 demo</li>
-                    <li>• 知識變現、財務規劃、人生 SOP</li>
+                    <li>• AI ＆ 自動化工作流</li>
+                    <li>• 知識變現、財務規劃、人生運作系統、人生溝通SOP</li>
+                  </ul>
+                  <div className="text-[#33393C] text-xs leading-relaxed space-y-2">
+                  <p>選修：依據個別需求，額外加速成長：</p>
+                  <ul className="space-y-1">
+                    <li>• 短影音剪輯、素材拍攝技巧</li>
+                    <li>• Coffee Chat</li>
+                    <li>• AI vibe coding、n8n 自動化工作流
+                    <li>• 網頁製作
+                    <li>• 線上面試、工作英文口說</li>
+                    <li>• 商業思維、口播價值銷售攻略
+                    </li>
                   </ul>
                   <p className="text-[#A06E56] font-medium pt-1">這些節奏貫穿 Phase 1–3，確保你不是孤單行動。</p>
                 </div>
