@@ -1602,20 +1602,20 @@ export default function HomePage() {
                 <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">不管最後選哪條路，你至少會得到…</h3>
                 <div className="text-[#33393C] text-sm leading-relaxed space-y-3">
                   <div>
-                    <span className="font-semibold text-[#17464F]">Phase 1 起步打底：</span>
-                    一份重新盤點過的職涯與能力地圖，知道自己手上一點可以被好好使用的資源。
+                    <span className="font-semibold text-[#17464F]">階段一 起步打底：</span>
+                    一份重新盤點過的「職涯＆接案能力地圖」，並知道自己手上有哪些可以被好好使用的資源。
                   </div>
                   <div>
-                    <span className="font-semibold text-[#17464F]">Phase 2 出擊試水：</span>
-                    一份更新過、可以拿去投遞的履歷，或可以拿去接案用的作品集；再加上一個對外可公開的作品，真的在市場上試一次水溫。
+                    <span className="font-semibold text-[#17464F]">階段二 出擊試水：</span>
+                    更新過、可以拿去投遞的遠距友善履歷及遠距求職策略，以及可以拿去接案用的作品集。你現在已經準備好真的在各種可能性中穿梭、試水溫。
                   </div>
                   <div>
-                    <span className="font-semibold text-[#17464F]">Phase 3 累積整合：</span>
+                    <span className="font-semibold text-[#17464F]">階段三 累積整合：</span>
                     一套適合自己的 AI＋自學工作流與人生 SOP，把你學到的東西變成可重複使用的習慣與流程。
                   </div>
                   <div>
                     <span className="font-semibold text-[#D4B483]">貫穿三個階段：</span>
-                    一個可以討論工作與生活選擇的社群，以及一次完整的「從好奇到行動」的 6 個月紀錄。
+                    一個可以討論工作與生活選擇的社群，以及一次完整的「從好奇到行動」的紀錄。
                   </div>
                 </div>
               </div>
