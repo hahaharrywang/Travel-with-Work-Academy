@@ -1323,7 +1323,7 @@ export default function HomePage() {
                         <span className="font-semibold text-[#17464F]">階段三 累積整合：</span>
                         復盤所學，把求職技巧、AI 工作流、財務規劃、整理成可持續精進的職涯成長節奏。
                       </p>
-                      <p className="text-xs text-[#A06E56] mt-1 italic">👉 你會有一套適合自己的遠端求職 SOP。</p>
+                      <p className="text-xs text-[#A06E56] mt-1 italic">👉 你會有一套適合自己的遠端職涯 SOP。</p>
                     </div>
                   </div>
                 </div>
