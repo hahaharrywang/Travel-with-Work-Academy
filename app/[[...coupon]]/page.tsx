@@ -1382,7 +1382,7 @@ export default function HomePage() {
                   <h3 className="text-lg font-bold text-[#17464F]">共同必修＆選修</h3>
                 </div>
                 <div className="text-[#33393C] text-xs leading-relaxed space-y-2">
-                  <p>共同必修：不管你選哪一條路線，都會一起上：</p>
+                  <p>共同必修：不管哪一條路線，都會一起上。</p>
                   <ul className="space-y-1">
                     <li>• 遠距遊牧概論＆目標設定</li>
                     <li>• AI ＆ 自動化工作流</li>
