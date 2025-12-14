@@ -1459,16 +1459,16 @@ export default function HomePage() {
 
               {/* 卡片 2 */}
               <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">每週三，大概在做什麼？</h3>
+                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">必修課程是什麼？</h3>
                 <div className="space-y-4">
                   {/* Phase 1 */}
                   <div className="border-l-3 border-[#D4B483] pl-3">
                     <span className="inline-block bg-[#D4B483]/20 text-[#A06E56] text-xs font-semibold px-2 py-0.5 rounded mb-1">
-                      P1 起步打底
+                      階段一 起步打底
                     </span>
                     <p className="text-xs text-[#33393C]/70 mb-1">第 1–8 週</p>
                     <p className="text-xs text-[#33393C] leading-relaxed">
-                      接案變 মাটিতে, 作品集調查, AI 工作流 demo；整理作品、設定主題與 TA、完成作品集框架。
+                      接案盤點與市場調查，整理過去作品與技能，設定主題與 TA，完成第一版作品集架構。
                     </p>
                   </div>
                   {/* Phase 2 */}
