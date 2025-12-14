@@ -1575,24 +1575,24 @@ export default function HomePage() {
               <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
                 <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">還沒決定路線也沒關係</h3>
                 <div className="text-[#33393C] text-sm leading-relaxed space-y-3">
-                  <p>很多人加入學院時，也還在想：「我適合遠端上班，還是自媒接案？」</p>
-                  <p>所以我們把 6 個月成三個階段：</p>
+                  <p>很多人加入學院時，也其實不清楚：「我適合遠端上班，還是自媒接案？」</p>
+                  <p>這是正常的，兩條路線同時嘗試，能幫助你快速拓展可能性</p>
                   <ul className="space-y-2">
                     <li>
-                      <span className="font-semibold text-[#17464F]">Phase 1 起步打底：</span>
-                      先幫你釐清方向，盤點資源，了解兩條路線的差別。
+                      <span className="font-semibold text-[#17464F]">階段一 起步打底：</span>
+                      先幫你釐清方向，盤點資源。
                     </li>
                     <li>
-                      <span className="font-semibold text-[#17464F]">Phase 2 出擊試水：</span>
-                      選一條主線，真的做出履歷或作品集、內容和第一波投遞／發佈。
+                      <span className="font-semibold text-[#17464F]">階段二 出擊試水：</span>
+                      真的做出履歷或作品集、並與市場接觸，透過行動開始驗證什麼適合自己。
                     </li>
                     <li>
                       <span className="font-semibold text-[#17464F]">Phase 3 累積整合：</span>
-                      用復盤、財務視角與人生 SOP，把這些行動整理成你自己的下一步。
+                      用復盤、財務視角與人生 SOP，決定方向、並把這些行動整理成你自己的可持續成長習慣。
                     </li>
                   </ul>
                   <p className="text-[#A06E56] font-medium pt-1">
-                    若你選雙軌，6 個月內會上完兩條線的必修，從履歷、作品集到內容與投遞都走一輪。
+                    選雙軌路線，你會上完兩條線的必修，從遠端上班到自媒體接案都走一輪，只有試過才知道自己真正適合什麼。
                   </p>
                 </div>
               </div>
