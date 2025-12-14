@@ -1251,9 +1251,8 @@ export default function HomePage() {
               <span className="font-semibold text-[#17464F]">累積整合</span>。
               <br className="hidden sm:block" />
               <br className="hidden sm:block" />
-              前半約 3
-              個月，用每週三線上課程＋行動任務完成起步打底與第一次出擊，做出履歷、作品集、內容與第一波投遞／發佈；後半約
-              3 個月，用復盤、財務與人生 SOP、講師 QA 和共創專案，把這些行動整合成可以長期運作的生活與工作系統。
+              前期更集中於啟發與啟動，做出策略、履歷、接案作品集、內容等初步行動；
+              後期更注重於持續產出與積累，用復盤、財務與人生SOP、共創專案，整合成可以長期運作的生活與工作系統。
             </p>
           </div>
 
