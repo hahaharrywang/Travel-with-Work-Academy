@@ -1416,7 +1416,7 @@ export default function HomePage() {
                     自媒線 × 三階段成果
                   </span>
                 </div>
-                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">這 3+3 個月，你會currentComponent</h3>
+                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">這幾個月，你會走到哪？</h3>
                 <div className="space-y-3 text-[#33393C] leading-relaxed text-sm">
                   <div className="flex gap-2">
                     <span className="flex-shrink-0 w-5 h-5 bg-[#17464F] text-white rounded-full flex items-center justify-center text-xs font-bold">
@@ -1424,10 +1424,10 @@ export default function HomePage() {
                     </span>
                     <div>
                       <p>
-                        <span className="font-semibold text-[#17464F]">Phase 1 起步打底：</span>
-                        看懂自媒體與接案市場，釐清 TA、主題與價值，整理出第一版服務項目與作品集雛形。
+                        <span className="font-semibold text-[#17464F]">階段一 起步打底：</span>
+                        看懂自媒體與接案市場，釐清 TA、主題與價值主張，整理出第一版服務項目與作品集框架。
                       </p>
-                      <p className="text-xs text-[#A06E56] mt-1 italic">→ 你至少會做出第一版作品集雛形</p>
+                      <p className="text-xs text-[#A06E56] mt-1 italic">👉 你至少會做出第一版「可以拿出來給人看」的作品集雛形。</p>
                     </div>
                   </div>
                   <div className="flex gap-2">
@@ -1436,10 +1436,10 @@ export default function HomePage() {
                     </span>
                     <div>
                       <p>
-                        <span className="font-semibold text-[#17464F]">Phase 2 出擊試水：</span>
-                        做出可接案的作品集，規劃一輪內容發佈，完成並公開至少 1 支短影音或內容作品。
+                        <span className="font-semibold text-[#17464F]">階段二 出擊試水：</span>
+                        定位設定、規劃內容製作策略，完成並公開至少 1 支短影音或內容作品，開始對外曝光。
                       </p>
-                      <p className="text-xs text-[#A06E56] mt-1 italic">→ 你至少會完成一輪內容上線</p>
+                      <p className="text-xs text-[#A06E56] mt-1 italic">👉 你至少會完成一輪內容上線，開始建立讀者與潛在客戶。</p>
                     </div>
                   </div>
                   <div className="flex gap-2">
