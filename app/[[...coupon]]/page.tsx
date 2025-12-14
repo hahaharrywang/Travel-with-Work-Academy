@@ -1615,12 +1615,12 @@ export default function HomePage() {
                   </div>
                   <div>
                     <span className="font-semibold text-[#D4B483]">貫穿三個階段：</span>
-                    一個可以討論工作與生活選擇的社群，以及一次完整的「從好奇到行動」的紀錄。
+                    開闊認知、踏出行動，一次「從好奇到行動」的探索旅程。與大家一起探索著未知。
                   </div>
                 </div>
               </div>
 
-              {/* 共用卡片：共同必修 & 社群支持 */}
+              {/* 共用卡片：共同必修 & 選修 */}
               <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
                 <div className="flex items-center gap-2 mb-3">
                   <div className="w-8 h-8 bg-[#C9D7D4] rounded-full flex items-center justify-center">
@@ -1633,7 +1633,7 @@ export default function HomePage() {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-lg font-bold text-[#17464F]">共同必修 & 社群支持</h3>
+                  <h3 className="text-lg font-bold text-[#17464F]">共同必修 & 選修</h3>
                 </div>
                 <div className="text-[#33393C] text-xs leading-relaxed space-y-2">
                   <p>不管你選哪一條路線，都會一起上：</p>
