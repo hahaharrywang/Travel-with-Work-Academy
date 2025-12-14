@@ -1391,11 +1391,10 @@ export default function HomePage() {
                   <ul className="space-y-1">
                     <li>• 短影音剪輯、素材拍攝技巧</li>
                     <li>• Coffee Chat</li>
-                    <li>• AI vibe coding、n8n 自動化工作流
-                    <li>• 網頁製作
+                    <li>• AI vibe coding、n8n 自動化工作流</li>
+                    <li>• 網頁製作</li>
                     <li>• 線上面試、工作英文口說</li>
-                    <li>• 商業思維、口播價值銷售攻略
-                    </li>
+                    <li>• 商業思維、口播價值銷售攻略</li>
                   </ul>
                   <p className="text-[#A06E56] font-medium pt-1">這些節奏貫穿 Phase 1–3，確保你不是孤單行動。</p>
                 </div>
