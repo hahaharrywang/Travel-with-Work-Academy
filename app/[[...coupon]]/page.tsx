@@ -1338,7 +1338,7 @@ export default function HomePage() {
                     </span>
                     <p className="text-xs text-[#33393C]/70 mb-1">第 1–8 週</p>
                     <p className="text-xs text-[#33393C] leading-relaxed">
-                      遠距遊牧概論、遠距職涯地圖、目標設定、AI 工作流、盤點經歷、改寫 LinkedIn 與履歷骨架、講師團體QA。
+                      遠距職涯地圖、目標設定、盤點經歷＆改寫 LinkedIn 與履歷骨架、講師團體QA。
                     </p>
                   </div>
                   {/* Phase 2 */}
@@ -1354,11 +1354,11 @@ export default function HomePage() {
                   {/* Phase 3 */}
                   <div className="border-l-3 border-[#C9D7D4] pl-3">
                     <span className="inline-block bg-[#C9D7D4]/30 text-[#17464F] text-xs font-semibold px-2 py-0.5 rounded mb-1">
-                      P3 累積整合
+                      階段三 累積整合
                     </span>
                     <p className="text-xs text-[#33393C]/70 mb-1">第 17–24 週</p>
                     <p className="text-xs text-[#33393C] leading-relaxed">
-                      每月復盤工作坊、財務課與人生 SOP。
+                      覆盤成長、調整方向、選修工作坊、期末成果發表。
                     </p>
                   </div>
                 </div>
