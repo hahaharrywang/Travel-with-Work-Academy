@@ -1036,7 +1036,7 @@ export default function HomePage() {
                   <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4 border border-[#C9D7D4]">
                     <Image
                       src="/images/design-mode/%E6%88%90%E9%95%B7%E7%87%97Logo.jpg"
-                      alt="艾兒莎成長營"
+                      alt="數位遊牧線上職涯成長社群"
                       width={96}
                       height={96}
                       className="w-full h-full object-contain"
@@ -1044,7 +1044,11 @@ export default function HomePage() {
                     />
                   </div>
                 </a>
-                <p className="text-[#17464F] font-medium text-xs sm:text-sm">#多年不同學院創建經驗</p>
+                <p className="text-[#17464F] font-medium text-xs sm:text-sm leading-relaxed">
+                  數位遊牧線上職涯成長社群
+                  <br /># 遊牧之聲：過來人的故事與建議
+                  <br /># 各式職能講座與工作坊
+                </p>
               </div>
 
               <div className="hidden lg:flex text-[#D4B483] text-7xl items-center justify-center h-32">×</div>
@@ -1341,7 +1345,7 @@ export default function HomePage() {
                     </span>
                     <p className="text-xs text-[#33393C]/70 mb-1">第 17–24 週</p>
                     <p className="text-xs text-[#33393C] leading-relaxed">
-                      覆盤成長、調整方向、選修工作坊、期末成果檢視。
+                      復盤成長、調整方向、選修工作坊、期末成果檢視。
                     </p>
                   </div>
                 </div>
@@ -1633,7 +1637,7 @@ export default function HomePage() {
                       />
                     </svg>
                   </div>
-                   <h3 className="text-lg font-bold text-[#17464F]">共同必修＆選修</h3>
+                  <h3 className="text-lg font-bold text-[#17464F]">共同必修＆選修</h3>
                 </div>
                 <div className="text-[#33393C] text-xs leading-relaxed space-y-4">
                   <div className="space-y-2">
