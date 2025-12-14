@@ -920,28 +920,8 @@ export default function HomePage() {
         <Dialog key={feature.id} open={openDialog === feature.id} onOpenChange={(open) => !open && setOpenDialog(null)}>
           <DialogPortal>
             <DialogOverlay />
+            {/* CHANGE: Removed custom close button and use default DialogContent close button */}
             <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-[#F5F3ED] p-0">
-              <button
-                onClick={() => setOpenDialog(null)}
-                className="absolute top-4 right-4 z-50 text-[#17464F] hover:text-[#33393C] transition-colors"
-                aria-label="Close"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-              </button>
-
               <div className="px-6 pt-6 pb-6">
                 <DialogHeader>
                   <DialogTitle className="text-2xl font-bold text-[#17464F] flex items-center gap-3">
@@ -962,7 +942,6 @@ export default function HomePage() {
                   </DialogDescription>
                 </DialogHeader>
 
-                {/* CHANGE: Simplified carousel without nested Dialog to fix syntax error */}
                 <div className="mt-6">
                   <Carousel className="w-full">
                     <CarouselContent>
@@ -1663,7 +1642,7 @@ export default function HomePage() {
                     <ul className="space-y-1 pl-4">
                       <li>• 遠距遊牧概論＆目標設定</li>
                       <li>• AI ＆ 自動化工作流</li>
-                      <li>• 知識變現、財務規劃、人生運作系統、人生溝通SOP</li>
+                      <li>• 知識變現、財務規劃、人生 SOP</li>
                       <li>• 每月月底學習交流會</li>
                     </ul>
                   </div>
