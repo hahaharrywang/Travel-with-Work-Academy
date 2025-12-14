@@ -1427,7 +1427,7 @@ export default function HomePage() {
                         <span className="font-semibold text-[#17464F]">階段一 起步打底：</span>
                         看懂自媒體與接案市場，釐清 TA、主題與價值主張，整理出第一版服務項目與作品集框架。
                       </p>
-                      <p className="text-xs text-[#A06E56] mt-1 italic">👉 你至少會做出第一版「可以拿出來給人看」的作品集雛形。</p>
+                      <p className="text-xs text-[#A06E56] mt-1 italic">👉 你會做出第一版「可以拿出來給人看」的作品集雛形。</p>
                     </div>
                   </div>
                   <div className="flex gap-2">
@@ -1439,7 +1439,7 @@ export default function HomePage() {
                         <span className="font-semibold text-[#17464F]">階段二 出擊試水：</span>
                         定位設定、規劃內容製作策略，完成並公開至少 1 支短影音或內容作品，開始對外曝光。
                       </p>
-                      <p className="text-xs text-[#A06E56] mt-1 italic">👉 你至少會完成一輪內容上線，開始建立讀者與潛在客戶。</p>
+                      <p className="text-xs text-[#A06E56] mt-1 italic">👉 你會完成一輪內容上線，開始建立讀者與潛在客戶。</p>
                     </div>
                   </div>
                   <div className="flex gap-2">
@@ -1448,10 +1448,10 @@ export default function HomePage() {
                     </span>
                     <div>
                       <p>
-                        <span className="font-semibold text-[#17464F]">Phase 3 累積整合：</span>
-                        用數據與回饋復盤，調整定位，把 AI 工作流、內容節奏與收入規劃整理成你自己的接案 SOP。
+                        <span className="font-semibold text-[#17464F]">階段三 累積整合：</span>
+                        用數據與回饋復盤內容與服務，調整定位，把 AI 工作流、內容節奏與收入目標整理成自己的接案 SOP。
                       </p>
-                      <p className="text-xs text-[#A06E56] mt-1 italic">→ 你至少會完成期末發表，整理出自己的遊牧 SOP</p>
+                      <p className="text-xs text-[#A06E56] mt-1 italic">👉 你會有一套自己的接案 / 副業 方向與成長節奏。</p>
                     </div>
                   </div>
                 </div>
