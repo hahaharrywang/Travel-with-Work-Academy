@@ -23,7 +23,6 @@ import {
   DialogPortal,
   DialogOverlay,
 } from "@/components/ui/dialog"
-import * as DialogPrimitive from "@radix-ui/react-dialog"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 
 import { type PlanId, getCheckoutURL } from "@/data/plan-config"
@@ -922,7 +921,8 @@ export default function HomePage() {
         <Dialog key={feature.id} open={openDialog === feature.id} onOpenChange={(open) => !open && setOpenDialog(null)}>
           <DialogPortal>
             <DialogOverlay />
-            <DialogPrimitive.Content className="fixed top-[50%] left-[50%] z-50 translate-x-[-50%] translate-y-[-50%] w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[#F5F3ED] rounded-lg border p-6 shadow-lg">
+            <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-[#F5F3ED]">
+              {/* CHANGE: Fixed sticky close button positioning */}
               <button
                 onClick={() => setOpenDialog(null)}
                 className="sticky top-0 float-right -mr-2 -mt-2 mb-4 z-10 rounded-full bg-white/90 p-2 shadow-lg hover:bg-white transition-colors"
@@ -1004,7 +1004,7 @@ export default function HomePage() {
                   <CarouselNext className="right-2" />
                 </Carousel>
               </div>
-            </DialogPrimitive.Content>
+            </DialogContent>
           </DialogPortal>
         </Dialog>
       ))}
@@ -1242,9 +1242,7 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-6 text-balance">
-              學習地圖
-            </h2>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-6 text-balance">學習地圖</h2>
             <p className="text-[#33393C] max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
               3 階段漸進式學習：<span className="font-semibold text-[#17464F]">起步打底</span>、
               <span className="font-semibold text-[#17464F]">出擊試水</span>、
@@ -1346,7 +1344,7 @@ export default function HomePage() {
                     <span className="inline-block bg-[#17464F]/10 text-[#17464F] text-xs font-semibold px-2 py-0.5 rounded mb-1">
                       階段二 出擊試水
                     </span>
-                    <p className="text-xs text-[#33393C]/70 mb-1">第 9–16 週</p>
+                    <p className="text-xs text-[#33393C]/70 mb-1">第 9–17 週</p>
                     <p className="text-xs text-[#33393C] leading-relaxed">
                       看懂面試流程＆客製化履歷與求職信、學習與獵頭打交道的心法＆談薪攻略。
                     </p>
@@ -1387,16 +1385,17 @@ export default function HomePage() {
                     <li>• 知識變現、財務規劃、人生運作系統、人生溝通SOP</li>
                   </ul>
                   <div className="text-[#33393C] text-xs leading-relaxed space-y-2">
-                  <p>選修：依據個別需求，額外加速成長：</p>
-                  <ul className="space-y-1">
-                    <li>• 短影音剪輯、素材拍攝技巧</li>
-                    <li>• Coffee Chat</li>
-                    <li>• AI vibe coding、n8n 自動化工作流</li>
-                    <li>• 網頁製作</li>
-                    <li>• 線上面試、工作英文口說</li>
-                    <li>• 商業思維、口播價值銷售攻略</li>
-                  </ul>
-                  <p className="text-[#A06E56] font-medium pt-1">這些節奏貫穿 Phase 1–3，確保你不是孤單行動。</p>
+                    <p>選修：依據個別需求，額外加速成長：</p>
+                    <ul className="space-y-1">
+                      <li>• 短影音剪輯、素材拍攝技巧</li>
+                      <li>• Coffee Chat</li>
+                      <li>• AI vibe coding、n8n 自動化工作流</li>
+                      <li>• 網頁製作</li>
+                      <li>• 線上面試、工作英文口說</li>
+                      <li>• 商業思維、口播價值銷售攻略</li>
+                    </ul>
+                    <p className="text-[#A06E56] font-medium pt-1">這些節奏貫穿 Phase 1–3，確保你不是孤單行動。</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1509,7 +1508,7 @@ export default function HomePage() {
                   <p>不管你選哪一條路線，都會一起上：</p>
                   <ul className="space-y-1">
                     <li>• 遠距遊牧概論＆目標設定</li>
-                    <li>• AI ＆ 自動化工作流 demo</li>
+                    <li>• AI ＆ 自動化工作流</li>
                     <li>• 知識變現、財務規劃、人生 SOP</li>
                   </ul>
                   <p className="pt-1">很多自媒線同學也在同學會和小聚裡找到合作對象、剪輯師，甚至是 beta 客戶。</p>
@@ -1534,7 +1533,7 @@ export default function HomePage() {
                     </li>
                     <li>
                       <span className="font-semibold text-[#17464F]">Phase 2 出擊試水：</span>
-                      選一條主線，真的做出履歷或作品集、內容與第一波投遞／發佈。
+                      選一條主線，真的做出履歷或作品集、內容和第一波投遞／發佈。
                     </li>
                     <li>
                       <span className="font-semibold text-[#17464F]">Phase 3 累積整合：</span>
@@ -1589,7 +1588,7 @@ export default function HomePage() {
                   <p>不管你選哪一條路線，都會一起上：</p>
                   <ul className="space-y-1">
                     <li>• 遠距遊牧概論＆目標設定</li>
-                    <li>• AI ＆ 自動化工作流 demo</li>
+                    <li>• AI ＆ 自動化工作流</li>
                     <li>• 知識變現、財務規劃、人生 SOP</li>
                   </ul>
                   <p className="text-[#A06E56] font-medium pt-1">這些節奏貫穿 Phase 1–3，確保你不是孤單行動。</p>
