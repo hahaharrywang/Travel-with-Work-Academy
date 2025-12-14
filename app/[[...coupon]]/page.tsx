@@ -1296,9 +1296,10 @@ export default function HomePage() {
                     <div>
                       <p>
                         <span className="font-semibold text-[#17464F]">階段一 起步打底：</span>
-                        對外看懂遠端市場，釐清個人優勢與目標職缺，同時理解自己人生的定位與為什麼。
+                        對外，看懂遠端職缺市場；對內，釐清個人優勢與目標職缺，整理出之後要寫進履歷與 LinkedIn 的關鍵故事。
+
                       </p>
-                      <p className="text-xs text-[#A06E56] mt-1 italic">→ 你會擁有方向</p>
+                      <p className="text-xs text-[#A06E56] mt-1 italic">👉 你會擁有清楚的方向與目標職缺。</p>
                     </div>
                   </div>
                   <div className="flex gap-2">
