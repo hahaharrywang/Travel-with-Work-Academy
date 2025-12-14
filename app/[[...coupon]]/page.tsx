@@ -1515,8 +1515,18 @@ export default function HomePage() {
                     <li>• 遠距遊牧概論＆目標設定</li>
                     <li>• AI ＆ 自動化工作流</li>
                     <li>• 知識變現、財務規劃、人生 SOP</li>
+                    <li>• 每月月底學習交流會</li>
                   </ul>
-                  <p className="pt-1">很多自媒線同學也在同學會和小聚裡找到合作對象、剪輯師，甚至是 beta 客戶。</p>
+                  <div className="text-[#33393C] text-xs leading-relaxed space-y-2">
+                  <p>選修｜依據個別需求，額外加速成長：</p>
+                  <ul className="space-y-1">
+                    <li>• 短影音剪輯、素材拍攝技巧</li>
+                    <li>• 網頁製作＆銷售漏斗</li>
+                    <li>• 商業思維、口播價值銷售攻略</li>
+                    <li>• AI vibe coding、n8n 自動化工作流</li>
+                    <li>• Coffee Chat</li>
+                  </ul>
+                  <p className="pt-1">這些節奏貫穿三階段，讓你能整合思考、也能主動出擊。</p>
                 </div>
               </div>
             </div>
