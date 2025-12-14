@@ -1261,7 +1261,7 @@ export default function HomePage() {
 
           {/* Tabs */}
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
-            {["遠端上班", "自媒體接案", "我還在觀望"].map((tab) => (
+            {["遠端上班", "自媒體接案", "我還在不確定"].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveMapTab(tab)}
