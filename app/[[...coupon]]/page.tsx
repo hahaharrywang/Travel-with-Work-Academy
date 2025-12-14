@@ -950,10 +950,10 @@ export default function HomePage() {
               <DialogDescription className="text-[#33393C] text-base leading-relaxed pt-4">
                 <div className="space-y-4">
                   {feature.details.map((detail, idx) => (
-                    <p key={idx} className="flex items-start gap-2">
+                    <div key={idx} className="flex items-start gap-2">
                       <span className="text-[#D4B483] mt-1">–</span>
                       <span dangerouslySetInnerHTML={{ __html: detail }} />
-                    </p>
+                    </div>
                   ))}
                 </div>
               </DialogDescription>
