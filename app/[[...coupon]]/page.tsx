@@ -1474,7 +1474,7 @@ export default function HomePage() {
                   {/* Phase 2 */}
                   <div className="border-l-3 border-[#17464F] pl-3">
                     <span className="inline-block bg-[#17464F]/10 text-[#17464F] text-xs font-semibold px-2 py-0.5 rounded mb-1">
-                      P2 出擊試水
+                      階段二 出擊試水
                     </span>
                     <p className="text-xs text-[#33393C]/70 mb-1">第 9–16 週</p>
                     <p className="text-xs text-[#33393C] leading-relaxed">
