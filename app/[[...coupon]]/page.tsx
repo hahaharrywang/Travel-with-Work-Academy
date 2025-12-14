@@ -920,9 +920,10 @@ export default function HomePage() {
         <Dialog key={feature.id} open={openDialog === feature.id} onOpenChange={(open) => !open && setOpenDialog(null)}>
           <DialogPortal>
             <DialogOverlay />
-            {/* CHANGE: Remove overflow-y-auto from DialogContent and add it to inner div instead */}
-            <DialogContent className="max-w-4xl max-h-[90vh] bg-[#F5F3ED] p-0 flex flex-col">
-              <div className="overflow-y-auto px-6 pt-6 pb-6">
+            {/* CHANGE: Restructured DialogContent to keep close button fixed while content scrolls */}
+            <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden bg-[#F5F3ED] p-0" showCloseButton={true}>
+              {/* Scrollable content container */}
+              <div className="max-h-[90vh] overflow-y-auto px-6 pt-6 pb-6">
                 <DialogHeader>
                   <DialogTitle className="text-2xl font-bold text-[#17464F] flex items-center gap-3">
                     <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center flex-shrink-0">
@@ -1658,14 +1659,15 @@ export default function HomePage() {
                       <span className="text-[#33393C]/70 text-[10px] sm:text-xs">依據個別需求，額外加速成長：</span>
                     </div>
                     <ul className="space-y-1 pl-4">
-                      <li>• 線上面試、工作英文口說</li>
-                      <li>• Coffee Chat</li>
-                      <li>• 商業思維、口播價值銷售攻略</li>
-                      <li>• AI vibe coding、n8n 自動化工作流</li>
                       <li>• 短影音剪輯、素材拍攝技巧</li>
                       <li>• 網頁製作＆銷售漏斗</li>
+                      <li>• 商業思維、口播價值銷售攻略</li>
+                      <li>• AI vibe coding、n8n 自動化工作流</li>
+                      <li>• Coffee Chat</li>
                     </ul>
-                    <p className="text-[#A06E56] font-medium pt-1">這些節奏貫穿三階段，讓你能整合、也能主動出擊。</p>
+                    <p className="text-[#A06E56] font-medium pt-1">
+                      這些節奏貫穿三階段，讓你能整合思考、也能主動出擊。
+                    </p>
                   </div>
                 </div>
               </div>
