@@ -1018,7 +1018,12 @@ export default function HomePage() {
                   </div>
                 </a>
                 {/* CHANGE: Emphasized main title with larger font and spacing */}
-                <p className="text-[#17464F] font-bold text-sm sm:text-base mb-2">台灣最大數位遊牧社群</p>
+                <p className="text-[#17464F] font-bold text-sm sm:text-base mb-2">數位遊牧 Lifestyle 社群</p>
+                  <p className="text-[#33393C] text-xs sm:text-sm leading-relaxed">
+                    # 台灣最大數位遊牧社群
+                    <br /># 線下聚會｜台北、高雄
+                    <br /># 國內外遊牧啟發之旅
+                  </p>
               </div>
 
               <div className="hidden lg:flex text-[#D4B483] text-7xl items-center justify-center h-32">×</div>
