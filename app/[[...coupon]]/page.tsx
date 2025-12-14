@@ -1347,7 +1347,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* 共用卡片：共同必修 & 社群支持 */}
+              {/* 共用卡片：共同必修 & 選修 */}
               <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
                 <div className="flex items-center gap-2 mb-3">
                   <div className="w-8 h-8 bg-[#C9D7D4] rounded-full flex items-center justify-center">
@@ -1568,7 +1568,7 @@ export default function HomePage() {
             </div>
           )}
 
-          {/* Tab Content: 我還在觀望 */}
+          {/* Tab Content: 我還不確定 */}
           {activeMapTab === "我還不確定" && (
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 animate-in fade-in duration-300">
               {/* 卡片 1 */}
@@ -1633,16 +1633,51 @@ export default function HomePage() {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-lg font-bold text-[#17464F]">共同必修 & 選修</h3>
+                   <h3 className="text-lg font-bold text-[#17464F]">共同必修＆選修</h3>
                 </div>
-                <div className="text-[#33393C] text-xs leading-relaxed space-y-2">
-                  <p>不管你選哪一條路線，都會一起上：</p>
-                  <ul className="space-y-1">
-                    <li>• 遠距遊牧概論＆目標設定</li>
-                    <li>• AI ＆ 自動化工作流</li>
-                    <li>• 知識變現、財務規劃、人生 SOP</li>
-                  </ul>
-                  <p className="text-[#A06E56] font-medium pt-1">這些節奏貫穿 Phase 1–3，確保你不是孤單行動。</p>
+                <div className="text-[#33393C] text-xs leading-relaxed space-y-4">
+                  <div className="space-y-2">
+                    <div className="flex flex-nowrap items-center gap-2">
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-[#17464F] text-white text-[10px] sm:text-xs font-semibold rounded-full whitespace-nowrap flex-shrink-0">
+                        <svg className="w-3 h-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        共同必修
+                      </span>
+                      <span className="text-[#33393C]/70 text-[10px] sm:text-xs">不管哪一條路線，都會一起上。</span>
+                    </div>
+                    <ul className="space-y-1 pl-4">
+                      <li>• 遠距遊牧概論＆目標設定</li>
+                      <li>• AI ＆ 自動化工作流</li>
+                      <li>• 知識變現、財務規劃、人生運作系統、人生溝通SOP</li>
+                      <li>• 每月月底學習交流會</li>
+                    </ul>
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="flex flex-nowrap items-center gap-2">
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-[#D4B483] text-white text-[10px] sm:text-xs font-semibold rounded-full whitespace-nowrap flex-shrink-0">
+                        <svg className="w-3 h-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        選修
+                      </span>
+                      <span className="text-[#33393C]/70 text-[10px] sm:text-xs">依據個別需求，額外加速成長：</span>
+                    </div>
+                    <ul className="space-y-1 pl-4">
+                      <li>• 線上面試、工作英文口說</li>
+                      <li>• Coffee Chat</li>
+                      <li>• 商業思維、口播價值銷售攻略</li>
+                      <li>• AI vibe coding、n8n 自動化工作流</li>
+                      <li>• 短影音剪輯、素材拍攝技巧</li>
+                      <li>• 網頁製作＆銷售漏斗</li>
+                    </ul>
+                    <p className="text-[#A06E56] font-medium pt-1">這些節奏貫穿三階段，讓你能整合、也能主動出擊。</p>
+                  </div>
                 </div>
               </div>
             </div>
