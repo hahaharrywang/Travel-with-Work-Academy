@@ -20,7 +20,10 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  DialogPortal,
+  DialogOverlay,
 } from "@/components/ui/dialog"
+import * as DialogPrimitive from "@radix-ui/react-dialog"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 
 import { type PlanId, getCheckoutURL } from "@/data/plan-config"
@@ -122,7 +125,7 @@ export default function HomePage() {
       shortDesc: "線上共學＋閒聊群＋線下小聚，一路上都有人一起問、一起試、一起走。",
       details: [
         "不再一個人被影片追進度：大家固定出現在 Skool 線上共學空間，彼此分享卡關與成果、一起前行，讓「學習」變成日常節奏的一部分。",
-        "定期線上同學會，一起打開鏡頭結識戰友。還有線上共學群組、LinkedIn校友群組、Line 閒聊群，擁有更多不同情境的連結。",
+        "定期線上同學會，一起打開鏡頭結識戰友。還有線上共學群組、LinkedIn 校友群組、Line 閒聊群，擁有更多不同情境的連結。",
         "線下小聚與 Nomad 活動：台北、高定期小聚，加上國內外 Nomad 旅程，讓你真的遇見那些在清邁、峴港、台北之間移動的人，把遠距生活從想像變成現場。",
       ],
       images: [
@@ -917,10 +920,11 @@ export default function HomePage() {
       {/* MODAL FOR FEATURES */}
       {featuresData.map((feature) => (
         <Dialog key={feature.id} open={openDialog === feature.id} onOpenChange={(open) => !open && setOpenDialog(null)}>
-          <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-[#F5F3ED]">
+          <DialogPortal>
+            <DialogOverlay />
             <button
               onClick={() => setOpenDialog(null)}
-              className="fixed top-4 right-4 z-50 rounded-full bg-white/90 p-2 shadow-lg hover:bg-white transition-colors"
+              className="fixed top-4 right-4 z-[60] rounded-full bg-white/90 p-2 shadow-lg hover:bg-white transition-colors"
               aria-label="Close"
             >
               <svg
@@ -939,67 +943,68 @@ export default function HomePage() {
                 <line x1="6" y1="6" x2="18" y2="18"></line>
               </svg>
             </button>
+            <DialogPrimitive.Content className="fixed top-[50%] left-[50%] z-50 translate-x-[-50%] translate-y-[-50%] w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[#F5F3ED] rounded-lg border p-6 shadow-lg">
+              <DialogHeader>
+                <DialogTitle className="text-2xl font-bold text-[#17464F] flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center flex-shrink-0">
+                    {feature.icon}
+                  </div>
+                  {feature.title}
+                </DialogTitle>
+                <DialogDescription className="text-[#33393C] text-base leading-relaxed pt-4">
+                  <div className="space-y-4">
+                    {feature.details.map((detail, idx) => (
+                      <div key={idx} className="flex items-start gap-2">
+                        <span className="text-[#D4B483] mt-1">–</span>
+                        <span dangerouslySetInnerHTML={{ __html: detail }} />
+                      </div>
+                    ))}
+                  </div>
+                </DialogDescription>
+              </DialogHeader>
 
-            <DialogHeader>
-              <DialogTitle className="text-2xl font-bold text-[#17464F] flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center flex-shrink-0">
-                  {feature.icon}
-                </div>
-                {feature.title}
-              </DialogTitle>
-              <DialogDescription className="text-[#33393C] text-base leading-relaxed pt-4">
-                <div className="space-y-4">
-                  {feature.details.map((detail, idx) => (
-                    <div key={idx} className="flex items-start gap-2">
-                      <span className="text-[#D4B483] mt-1">–</span>
-                      <span dangerouslySetInnerHTML={{ __html: detail }} />
-                    </div>
-                  ))}
-                </div>
-              </DialogDescription>
-            </DialogHeader>
-
-            <div className="mt-6">
-              <Carousel className="w-full">
-                <CarouselContent>
-                  {feature.images.map((image, idx) => (
-                    <CarouselItem key={idx}>
-                      <Dialog>
-                        <DialogTrigger asChild>
-                          <div className="relative aspect-video rounded-xl overflow-hidden cursor-pointer group">
-                            <Image
-                              src={image.src || "/placeholder.svg"}
-                              alt={image.alt}
-                              fill
-                              className="object-cover group-hover:scale-105 transition-transform duration-300"
-                            />
-                            {/* Gallery hint overlay */}
-                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                              <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-medium">
-                                点击放大查看
-                              </span>
+              <div className="mt-6">
+                <Carousel className="w-full">
+                  <CarouselContent>
+                    {feature.images.map((image, idx) => (
+                      <CarouselItem key={idx}>
+                        <Dialog>
+                          <DialogTrigger asChild>
+                            <div className="relative aspect-video rounded-xl overflow-hidden cursor-pointer group">
+                              <Image
+                                src={image.src || "/placeholder.svg"}
+                                alt={image.alt}
+                                fill
+                                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                              />
+                              {/* Gallery hint overlay */}
+                              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                                <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-medium">
+                                  点击放大查看
+                                </span>
+                              </div>
                             </div>
-                          </div>
-                        </DialogTrigger>
-                        <DialogContent className="max-w-7xl w-[95vw] h-[95vh] p-0 bg-black/95 border-0">
-                          <div className="relative w-full h-full flex items-center justify-center p-4">
-                            <Image
-                              src={image.src || "/placeholder.svg"}
-                              alt={image.alt}
-                              fill
-                              className="object-contain"
-                            />
-                          </div>
-                        </DialogContent>
-                      </Dialog>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious className="left-2" />
-                <CarouselNext className="right-2" />
-              </Carousel>
-            </div>
-          </DialogContent>
+                          </DialogTrigger>
+                          <DialogContent className="max-w-7xl w-[95vw] h-[95vh] p-0 bg-black/95 border-0">
+                            <div className="relative w-full h-full flex items-center justify-center p-4">
+                              <Image
+                                src={image.src || "/placeholder.svg"}
+                                alt={image.alt}
+                                fill
+                                className="object-contain"
+                              />
+                            </div>
+                          </DialogContent>
+                        </Dialog>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious className="left-2" />
+                  <CarouselNext className="right-2" />
+                </Carousel>
+              </div>
+            </DialogPrimitive.Content>
+          </DialogPortal>
         </Dialog>
       ))}
 
