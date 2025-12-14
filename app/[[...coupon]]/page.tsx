@@ -1012,8 +1012,10 @@ export default function HomePage() {
                     />
                   </div>
                 </a>
-                <p className="text-[#17464F] font-bold text-sm sm:text-base mb-1">台灣數位遊牧社群</p>
+                <p className="text-[#17464F] font-bold text-sm sm:text-base mb-1">數位遊牧Lifestyle社群</p>
                 <p className="text-[#33393C] text-xs sm:text-sm">#台灣最大數位遊牧社群</p>
+                 <p className="text-[#33393C] text-xs sm:text-sm">#台北、高雄線下聚會</p>
+                  <p className="text-[#33393C] text-xs sm:text-sm">#海內外遊牧啟發之旅</p>
               </div>
 
               <div className="hidden lg:flex text-[#D4B483] text-7xl items-center justify-center h-32">×</div>
