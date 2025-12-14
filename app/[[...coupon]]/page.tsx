@@ -920,9 +920,9 @@ export default function HomePage() {
         <Dialog key={feature.id} open={openDialog === feature.id} onOpenChange={(open) => !open && setOpenDialog(null)}>
           <DialogPortal>
             <DialogOverlay />
-            {/* CHANGE: Removed custom close button and use default DialogContent close button */}
-            <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-[#F5F3ED] p-0">
-              <div className="px-6 pt-6 pb-6">
+            {/* CHANGE: Remove overflow-y-auto from DialogContent and add it to inner div instead */}
+            <DialogContent className="max-w-4xl max-h-[90vh] bg-[#F5F3ED] p-0 flex flex-col">
+              <div className="overflow-y-auto px-6 pt-6 pb-6">
                 <DialogHeader>
                   <DialogTitle className="text-2xl font-bold text-[#17464F] flex items-center gap-3">
                     <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center flex-shrink-0">
