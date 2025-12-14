@@ -1061,7 +1061,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6">
             <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-4">遊牧資源生態系</h2>
-            <p className="text-lg text-[#33393C]">線上教育 | 線下社群 | 國際鏈結</p>
+            <p className="text-lg text-[#33393C]">國際鏈結 | 線下社群 | 線上教育</p>
           </div>
 
           <div className="p-4 sm:p-6">
