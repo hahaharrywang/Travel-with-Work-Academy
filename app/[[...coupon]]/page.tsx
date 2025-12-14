@@ -4,7 +4,7 @@ import { useParams } from "next/navigation"
 
 import { useState, useEffect, useCallback, useRef } from "react" // Import useRef
 import Image from "next/image"
-import { ChevronDown, ChevronUp, X, TrendingUp, FileText, Users, ChevronRight } from "lucide-react"
+import { ChevronDown, ChevronUp, X, TrendingUp, FileText, Users, ChevronRight, ChevronLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { usePricing } from "@/contexts/pricing-context"
 import { AnnouncementBar } from "@/components/announcement-bar"
@@ -420,6 +420,34 @@ export default function HomePage() {
 
   const toggleFeatureDialog = (featureId: number | null) => {
     setOpenDialog(featureId)
+  }
+
+  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const [lightboxImages, setLightboxImages] = useState<Array<{ src: string; alt: string }>>([])
+  const [lightboxIndex, setLightboxIndex] = useState(0)
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && lightboxOpen) {
+        setLightboxOpen(false)
+      }
+      if (lightboxOpen) {
+        if (e.key === "ArrowLeft") {
+          setLightboxIndex((prev) => (prev > 0 ? prev - 1 : lightboxImages.length - 1))
+        }
+        if (e.key === "ArrowRight") {
+          setLightboxIndex((prev) => (prev < lightboxImages.length - 1 ? prev + 1 : 0))
+        }
+      }
+    }
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [lightboxOpen, lightboxImages.length])
+
+  const openLightbox = (images: Array<{ src: string; alt: string }>, startIndex: number) => {
+    setLightboxImages(images)
+    setLightboxIndex(startIndex)
+    setLightboxOpen(true)
   }
 
   return (
@@ -948,7 +976,10 @@ export default function HomePage() {
                     <CarouselContent>
                       {feature.images.map((image, idx) => (
                         <CarouselItem key={idx}>
-                          <div className="relative aspect-video rounded-xl overflow-hidden">
+                          <div
+                            className="relative aspect-video rounded-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
+                            onClick={() => openLightbox(feature.images, idx)}
+                          >
                             <Image
                               src={image.src || "/placeholder.svg"}
                               alt={image.alt}
@@ -968,6 +999,62 @@ export default function HomePage() {
           </DialogPortal>
         </Dialog>
       ))}
+
+      {lightboxOpen && (
+        <div
+          className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center"
+          onClick={() => setLightboxOpen(false)}
+        >
+          {/* Close button */}
+          <button
+            onClick={() => setLightboxOpen(false)}
+            className="absolute top-4 right-4 z-[101] text-white hover:text-[#D4B483] transition-colors p-2"
+          >
+            <X className="w-8 h-8" />
+          </button>
+
+          {/* Previous button */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation()
+              setLightboxIndex((prev) => (prev > 0 ? prev - 1 : lightboxImages.length - 1))
+            }}
+            className="absolute left-4 z-[101] text-white hover:text-[#D4B483] transition-colors p-2 bg-black/50 rounded-full"
+          >
+            <ChevronLeft className="w-8 h-8" />
+          </button>
+
+          {/* Image */}
+          <div
+            className="relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center p-8"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={lightboxImages[lightboxIndex]?.src || "/placeholder.svg"}
+              alt={lightboxImages[lightboxIndex]?.alt || ""}
+              width={1920}
+              height={1080}
+              className="object-contain max-w-full max-h-full"
+            />
+          </div>
+
+          {/* Next button */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation()
+              setLightboxIndex((prev) => (prev < lightboxImages.length - 1 ? prev + 1 : 0))
+            }}
+            className="absolute right-4 z-[101] text-white hover:text-[#D4B483] transition-colors p-2 bg-black/50 rounded-full"
+          >
+            <ChevronRight className="w-8 h-8" />
+          </button>
+
+          {/* Image counter */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-[101] text-white text-sm bg-black/50 px-4 py-2 rounded-full">
+            {lightboxIndex + 1} / {lightboxImages.length}
+          </div>
+        </div>
+      )}
 
       {/* SECTION 2.1 ECOSYSTEM PARTNERSHIP - 生態系 (moved after learning map) */}
       <section className="py-12 sm:py-16 bg-white">
