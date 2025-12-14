@@ -1338,7 +1338,7 @@ export default function HomePage() {
                     </span>
                     <p className="text-xs text-[#33393C]/70 mb-1">第 1–8 週</p>
                     <p className="text-xs text-[#33393C] leading-relaxed">
-                      遠距遊牧概論、遠距職涯地圖、目標設定、AI 工作流。
+                      遠距遊牧概論、遠距職涯地圖、目標設定、AI 工作流、盤點經歷、改寫 LinkedIn 與履歷骨架、講師團體QA。
                     </p>
                   </div>
                   {/* Phase 2 */}
@@ -1348,7 +1348,7 @@ export default function HomePage() {
                     </span>
                     <p className="text-xs text-[#33393C]/70 mb-1">第 9–16 週</p>
                     <p className="text-xs text-[#33393C] leading-relaxed">
-                      盤點經歷、改寫 LinkedIn 與履歷骨架、看懂面試流程＆客製化履歷與求職信、學習與獵頭打交道的心法＆談薪攻略。
+                      看懂面試流程＆客製化履歷與求職信、學習與獵頭打交道的心法＆談薪攻略。
                     </p>
                   </div>
                   {/* Phase 3 */}
@@ -1358,7 +1358,7 @@ export default function HomePage() {
                     </span>
                     <p className="text-xs text-[#33393C]/70 mb-1">第 17–24 週</p>
                     <p className="text-xs text-[#33393C] leading-relaxed">
-                      每月復盤工作坊、財務課與人生 SOP、講師團體 QA。
+                      每月復盤工作坊、財務課與人生 SOP。
                     </p>
                   </div>
                 </div>
