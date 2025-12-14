@@ -1382,7 +1382,7 @@ export default function HomePage() {
                   <h3 className="text-lg font-bold text-[#17464F]">共同必修＆選修</h3>
                 </div>
                 <div className="text-[#33393C] text-xs leading-relaxed space-y-2">
-                  <p>共同必修：不管哪一條路線，都會一起上。</p>
+                  <p>共同必修｜不管哪一條路線，都會一起上。</p>
                   <ul className="space-y-1">
                     <li>• 遠距遊牧概論＆目標設定</li>
                     <li>• AI ＆ 自動化工作流</li>
@@ -1390,14 +1390,14 @@ export default function HomePage() {
                     <li>• 每月月底學習交流會</li>
                   </ul>
                   <div className="text-[#33393C] text-xs leading-relaxed space-y-2">
-                    <p>選修：依據個別需求，額外加速成長：</p>
+                    <p>選修｜依據個別需求，額外加速成長：</p>
                     <ul className="space-y-1">
-                      <li>• 短影音剪輯、素材拍攝技巧</li>
-                      <li>• Coffee Chat</li>
-                      <li>• AI vibe coding、n8n 自動化工作流</li>
-                      <li>• 網頁製作＆銷售漏斗</li>
                       <li>• 線上面試、工作英文口說</li>
+                      <li>• Coffee Chat</li>
                       <li>• 商業思維、口播價值銷售攻略</li>
+                      <li>• AI vibe coding、n8n 自動化工作流</li>
+                      <li>• 短影音剪輯、素材拍攝技巧</li>
+                      <li>• 網頁製作＆銷售漏斗</li>
                     </ul>
                     <p className="text-[#A06E56] font-medium pt-1">這些節奏貫穿三階段，讓你能整合、也能主動出擊。</p>
                   </div>
