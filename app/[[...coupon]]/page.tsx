@@ -8,6 +8,7 @@ import { ChevronDown, TrendingUp, FileText, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { usePricing } from "@/contexts/pricing-context"
 import { AnnouncementBar } from "@/components/announcement-bar"
+import { LearningMapSection, SuccessStoriesSection, PricingSection, FAQSection } from "@/components"
 
 import {
   Dialog,
@@ -815,7 +816,7 @@ export default function HomePage() {
                     stroke="currentColor"
                     strokeWidth="1.5"
                   >
-                    <rect x="8" y="16" width="20" height="32" rx="2" />
+                    <rect x="8" y="16" width="52" height="36" rx="4" />
                     <circle cx="18" cy="28" r="6" />
                     <path d="M12 40h12" />
                     <circle cx="44" cy="24" r="4" fill="currentColor" />
@@ -1014,8 +1015,8 @@ export default function HomePage() {
                 </a>
                 <p className="text-[#17464F] font-bold text-sm sm:text-base mb-1">數位遊牧Lifestyle社群</p>
                 <p className="text-[#33393C] text-xs sm:text-sm">#台灣最大數位遊牧社群</p>
-                 <p className="text-[#33393C] text-xs sm:text-sm">#台北、高雄線下聚會</p>
-                  <p className="text-[#33393C] text-xs sm:text-sm">#海內外遊牧啟發之旅</p>
+                <p className="text-[#33393C] text-xs sm:text-sm">#台北、高雄線下聚會</p>
+                <p className="text-[#33393C] text-xs sm:text-sm">#海內外遊牧啟發之旅</p>
               </div>
 
               <div className="hidden lg:flex text-[#D4B483] text-7xl items-center justify-center h-32">×</div>
@@ -1074,6 +1075,18 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* LEARNING MAP START */}
+      <LearningMapSection />
+
+      {/* SUCCESS STORIES */}
+      <SuccessStoriesSection />
+
+      {/* PRICING */}
+      <PricingSection />
+
+      {/* FAQ */}
+      <FAQSection />
     </main>
   )
 }
