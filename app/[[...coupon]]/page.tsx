@@ -1243,7 +1243,7 @@ export default function HomePage() {
 
           {/* Tabs */}
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
-            {["遠端上班", "自媒體接案", "我還在不確定"].map((tab) => (
+            {["遠端上班", "自媒體接案", "我還不確定"].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveMapTab(tab)}
@@ -1569,7 +1569,7 @@ export default function HomePage() {
           )}
 
           {/* Tab Content: 我還在觀望 */}
-          {activeMapTab === "我還在觀望" && (
+          {activeMapTab === "我還不確定" && (
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 animate-in fade-in duration-300">
               {/* 卡片 1 */}
               <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
