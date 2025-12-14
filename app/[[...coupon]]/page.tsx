@@ -1246,9 +1246,9 @@ export default function HomePage() {
               學習地圖
             </h2>
             <p className="text-[#33393C] max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
-              這 6 個月會分成三個階段：<span className="font-semibold text-[#17464F]">Phase 1 起步打底</span>、
-              <span className="font-semibold text-[#17464F]">Phase 2 出擊試水</span>、
-              <span className="font-semibold text-[#17464F]">Phase 3 累積整合</span>。
+              3 階段漸進式學習：<span className="font-semibold text-[#17464F]">起步打底</span>、
+              <span className="font-semibold text-[#17464F]">出擊試水</span>、
+              <span className="font-semibold text-[#17464F]">累積整合</span>。
               <br className="hidden sm:block" />
               <br className="hidden sm:block" />
               前半約 3
