@@ -1468,7 +1468,7 @@ export default function HomePage() {
                     </span>
                     <p className="text-xs text-[#33393C]/70 mb-1">第 1–8 週</p>
                     <p className="text-xs text-[#33393C] leading-relaxed">
-                      接案盤點與市場調查，整理過去作品與技能，設定主題與 TA，完成第一版作品集架構。
+                      自媒體接案地圖、目標設定、接案作品集＆市場調查。
                     </p>
                   </div>
                   {/* Phase 2 */}
