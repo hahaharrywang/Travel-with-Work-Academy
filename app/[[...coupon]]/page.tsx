@@ -1387,6 +1387,7 @@ export default function HomePage() {
                     <li>• 遠距遊牧概論＆目標設定</li>
                     <li>• AI ＆ 自動化工作流</li>
                     <li>• 知識變現、財務規劃、人生運作系統、人生溝通SOP</li>
+                    <li>• 每月月底學習交流會</li>
                   </ul>
                   <div className="text-[#33393C] text-xs leading-relaxed space-y-2">
                     <p>選修：依據個別需求，額外加速成長：</p>
@@ -1398,7 +1399,7 @@ export default function HomePage() {
                       <li>• 線上面試、工作英文口說</li>
                       <li>• 商業思維、口播價值銷售攻略</li>
                     </ul>
-                    <p className="text-[#A06E56] font-medium pt-1">這些節奏貫穿 Phase 1–3，確保你不是孤單行動。</p>
+                    <p className="text-[#A06E56] font-medium pt-1">這些節奏貫穿三階段，讓你能整合、也能主動出擊。</p>
                   </div>
                 </div>
               </div>
