@@ -1309,9 +1309,9 @@ export default function HomePage() {
                     <div>
                       <p>
                         <span className="font-semibold text-[#17464F]">階段二 出擊試水：</span>
-                        優化 LinkedIn，根據JD做出客製化、遠端友善、精準的履歷與求職信，準備有一套面試 STAR 故事庫。
+                        優化 LinkedIn，根據 JD 做出客製化、遠端友善的履歷與求職信，準備一整套面試 STAR 故事庫。
                       </p>
-                      <p className="text-xs text-[#A06E56] mt-1 italic">→ 你會對下一次遠端求職有信心</p>
+                      <p className="text-xs text-[#A06E56] mt-1 italic">👉 你會對下一次遠端求職「敢投、敢面試」。</p>
                     </div>
                   </div>
                   <div className="flex gap-2">
