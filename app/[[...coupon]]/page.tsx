@@ -1394,7 +1394,7 @@ export default function HomePage() {
                       <li>• 短影音剪輯、素材拍攝技巧</li>
                       <li>• Coffee Chat</li>
                       <li>• AI vibe coding、n8n 自動化工作流</li>
-                      <li>• 網頁製作</li>
+                      <li>• 網頁製作＆銷售漏斗</li>
                       <li>• 線上面試、工作英文口說</li>
                       <li>• 商業思維、口播價值銷售攻略</li>
                     </ul>
