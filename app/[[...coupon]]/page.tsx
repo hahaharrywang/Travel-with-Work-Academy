@@ -1295,7 +1295,7 @@ export default function HomePage() {
                     <div>
                       <p>
                         <span className="font-semibold text-[#17464F]">階段一 起步打底：</span>
-                        對外看懂遠端市場，釐清目標職缺與個人優勢，同時理解自己人生的定位與為什麼。
+                        對外看懂遠端市場，釐清個人優勢與目標職缺，同時理解自己人生的定位與為什麼。
                       </p>
                       <p className="text-xs text-[#A06E56] mt-1 italic">→ 你會擁有方向</p>
                     </div>
@@ -1306,10 +1306,10 @@ export default function HomePage() {
                     </span>
                     <div>
                       <p>
-                        <span className="font-semibold text-[#17464F]">Phase 2 出擊試水：</span>
-                        做出一份「遠端友善」履歷與求職信模板，優化 LinkedIn，實際投遞至少 3 則 JD，練一次完整面試流程。
+                        <span className="font-semibold text-[#17464F]">階段二 出擊試水：</span>
+                        優化 LinkedIn，根據JD做出客製化、遠端友善、精準的履歷與求職信，準備有一套面試 STAR 故事庫。
                       </p>
-                      <p className="text-xs text-[#A06E56] mt-1 italic">→ 你至少會完成一次正式投遞</p>
+                      <p className="text-xs text-[#A06E56] mt-1 italic">→ 你會對下一次遠端求職有信心</p>
                     </div>
                   </div>
                   <div className="flex gap-2">
@@ -1318,10 +1318,10 @@ export default function HomePage() {
                     </span>
                     <div>
                       <p>
-                        <span className="font-semibold text-[#17464F]">Phase 3 累積整合：</span>
-                        根據投遞與面試結果復盤，把 AI 工作流、投遞節奏與財務規劃整理成你自己的遠端求職 SOP。
+                        <span className="font-semibold text-[#17464F]">階段三 累積整合：</span>
+                        復盤所學，把求職技巧、AI 工作流、財務規劃、整理成可持續精進的遠端求職進路。
                       </p>
-                      <p className="text-xs text-[#A06E56] mt-1 italic">→ 你至少會完成期末發表，整理出自己的遠距 SOP</p>
+                      <p className="text-xs text-[#A06E56] mt-1 italic">→ 你會有一套適合自己的做法</p>
                     </div>
                   </div>
                 </div>
