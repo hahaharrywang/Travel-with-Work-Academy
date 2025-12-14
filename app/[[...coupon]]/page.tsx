@@ -19,7 +19,6 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
   DialogPortal,
   DialogOverlay,
 } from "@/components/ui/dialog"
@@ -922,6 +921,7 @@ export default function HomePage() {
           <DialogPortal>
             <DialogOverlay />
             <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-[#F5F3ED] p-0">
+              {/* CHANGE: Sticky close button container at top */}
               <div className="sticky top-0 z-50 flex justify-end bg-[#F5F3ED] pt-6 pr-6 pb-2">
                 <button
                   onClick={() => setOpenDialog(null)}
@@ -966,39 +966,20 @@ export default function HomePage() {
                   </DialogDescription>
                 </DialogHeader>
 
+                {/* CHANGE: Simplified carousel without nested Dialog to fix syntax error */}
                 <div className="mt-6">
                   <Carousel className="w-full">
                     <CarouselContent>
                       {feature.images.map((image, idx) => (
                         <CarouselItem key={idx}>
-                          <Dialog>
-                            <DialogTrigger asChild>
-                              <div className="relative aspect-video rounded-xl overflow-hidden cursor-pointer group">
-                                <Image
-                                  src={image.src || "/placeholder.svg"}
-                                  alt={image.alt}
-                                  fill
-                                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                                />
-                                {/* Gallery hint overlay */}
-                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                                  <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-medium">
-                                    点击放大查看
-                                  </span>
-                                </div>
-                              </div>
-                            </DialogTrigger>
-                            <DialogContent className="max-w-7xl w-[95vw] h-[95vh] p-0 bg-black/95 border-0">
-                              <div className="relative w-full h-full flex items-center justify-center p-4">
-                                <Image
-                                  src={image.src || "/placeholder.svg"}
-                                  alt={image.alt}
-                                  fill
-                                  className="object-contain"
-                                />
-                              </div>
-                            </DialogContent>
-                          </Dialog>
+                          <div className="relative aspect-video rounded-xl overflow-hidden">
+                            <Image
+                              src={image.src || "/placeholder.svg"}
+                              alt={image.alt}
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
                         </CarouselItem>
                       ))}
                     </CarouselContent>
@@ -1296,8 +1277,8 @@ export default function HomePage() {
                     <div>
                       <p>
                         <span className="font-semibold text-[#17464F]">階段一 起步打底：</span>
-                        對外，看懂遠端職缺市場；對內，釐清個人優勢與目標職缺，整理出之後要寫進履歷與 LinkedIn 的關鍵故事，以及具備加速未來生產力的Ai思維。
-
+                        對外，看懂遠端職缺市場；對內，釐清個人優勢與目標職缺，整理出之後要寫進履歷與 LinkedIn
+                        的關鍵故事，以及具備加速未來生產力的Ai思維。
                       </p>
                       <p className="text-xs text-[#A06E56] mt-1 italic">👉 你會擁有清楚的方向與目標職缺。</p>
                     </div>
@@ -1427,7 +1408,9 @@ export default function HomePage() {
                         <span className="font-semibold text-[#17464F]">階段一 起步打底：</span>
                         看懂自媒體與接案市場，釐清 TA、主題與價值主張，整理出第一版服務項目與作品集框架。
                       </p>
-                      <p className="text-xs text-[#A06E56] mt-1 italic">👉 你會做出第一版「可以拿出來給人看」的作品集雛形。</p>
+                      <p className="text-xs text-[#A06E56] mt-1 italic">
+                        👉 你會做出第一版「可以拿出來給人看」的作品集雛形。
+                      </p>
                     </div>
                   </div>
                   <div className="flex gap-2">
@@ -1439,7 +1422,9 @@ export default function HomePage() {
                         <span className="font-semibold text-[#17464F]">階段二 出擊試水：</span>
                         定位設定、規劃內容製作策略，完成並公開至少 1 支短影音或內容作品，開始對外曝光。
                       </p>
-                      <p className="text-xs text-[#A06E56] mt-1 italic">👉 你會完成一輪內容上線，開始建立讀者與潛在客戶。</p>
+                      <p className="text-xs text-[#A06E56] mt-1 italic">
+                        👉 你會完成一輪內容上線，開始建立讀者與潛在客戶。
+                      </p>
                     </div>
                   </div>
                   <div className="flex gap-2">
@@ -1451,7 +1436,9 @@ export default function HomePage() {
                         <span className="font-semibold text-[#17464F]">階段三 累積整合：</span>
                         用數據與回饋復盤內容與服務，調整定位，把 AI 工作流、內容節奏與收入目標整理成自己的接案 SOP。
                       </p>
-                      <p className="text-xs text-[#A06E56] mt-1 italic">👉 你會有一套自己的接案 / 副業 方向與成長節奏。</p>
+                      <p className="text-xs text-[#A06E56] mt-1 italic">
+                        👉 你會有一套自己的接案 / 副業 方向與成長節奏。
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -1518,15 +1505,16 @@ export default function HomePage() {
                     <li>• 每月月底學習交流會</li>
                   </ul>
                   <div className="text-[#33393C] text-xs leading-relaxed space-y-2">
-                  <p>選修｜依據個別需求，額外加速成長：</p>
-                  <ul className="space-y-1">
-                    <li>• 短影音剪輯、素材拍攝技巧</li>
-                    <li>• 網頁製作＆銷售漏斗</li>
-                    <li>• 商業思維、口播價值銷售攻略</li>
-                    <li>• AI vibe coding、n8n 自動化工作流</li>
-                    <li>• Coffee Chat</li>
-                  </ul>
-                  <p className="pt-1">這些節奏貫穿三階段，讓你能整合思考、也能主動出擊。</p>
+                    <p>選修｜依據個別需求，額外加速成長：</p>
+                    <ul className="space-y-1">
+                      <li>• 短影音剪輯、素材拍攝技巧</li>
+                      <li>• 網頁製作＆銷售漏斗</li>
+                      <li>• 商業思維、口播價值銷售攻略</li>
+                      <li>• AI vibe coding、n8n 自動化工作流</li>
+                      <li>• Coffee Chat</li>
+                    </ul>
+                    <p className="pt-1">這些節奏貫穿三階段，讓你能整合思考、也能主動出擊。</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1745,7 +1733,7 @@ export default function HomePage() {
                                           {week.title}
                                         </h4>
 
-                                        <p className="text-xs text-gray-600 mb-3 line-clamp-2">{week.focusShort}</p>
+                                        <p className="text-xs text-[#33393C] mb-3 line-clamp-2">{week.focusShort}</p>
 
                                         <div className="flex-1"></div>
 
