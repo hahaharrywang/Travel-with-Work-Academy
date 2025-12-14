@@ -1056,7 +1056,7 @@ export default function HomePage() {
                 >
                   <div className="w-20 h-20 sm:w-32 sm:h-32 bg-white rounded-2xl flex items-center justify-center mb-2 sm:mb-4 mx-auto shadow-lg p-2 sm:p-4 border border-[#C9D7D4]">
                     <Image
-                      src="/newsveg------logo.jpg"
+                      src="/images/logo-01-300.png"
                       alt="NewsVeg"
                       width={96}
                       height={96}
