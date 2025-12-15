@@ -84,7 +84,7 @@ export default function HomePage() {
           alt: "自媒體接案路線：Reels演算法重要指標",
         },
         {
-          src: "/images/e4-b8-8a-e7-8f-ad-e8-b7-af-e7-b7-9a-ef-bc-bf-e9-9b-87-e4-b8-bb-e7-84-a1-e5-8b-95-e6-96-bc-e8-a1-b0.png",
+          src: "/images/e4-b8-8a-e7-8f-ad-e8-b7-af-e7-9a-8e-ef-bc-bf-e9-9b-87-e4-b8-bb-e7-84-a1-e5-8b-95-e6-96-bc-e8-a1-b0.png",
           alt: "上班路線：讓雇主無動於衷的答案",
         },
       ],
@@ -1807,15 +1807,6 @@ export default function HomePage() {
 
           {showCalendarInline && (
             <div ref={calendarSectionRef} className="mt-8 animate-in slide-in-from-top-4 fade-in duration-500">
-              <div className="mb-12 bg-gradient-to-br from-[#F5F3ED] to-[#C9D7D4]/20 rounded-2xl p-6 border border-[#C9D7D4]">
-                <p className="text-base md:text-lg text-[#17464F] text-center font-medium leading-relaxed">
-                  24 週的課程與行動任務，分成三個階段：
-                  <span className="font-bold text-[#17464F]">起步打底</span>、
-                  <span className="font-bold text-[#17464F]">出擊試水</span>、
-                  <span className="font-bold text-[#17464F]">累積整合</span>。
-                </p>
-              </div>
-
               {/* Timeline Content - Grouped by Phase */}
               <div className="space-y-4">
                 {(() => {
