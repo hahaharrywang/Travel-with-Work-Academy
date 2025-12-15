@@ -22,7 +22,6 @@ import {
   DialogPortal,
   DialogOverlay,
 } from "@/components/ui/dialog"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 
 import { type PlanId, getCheckoutURL } from "@/data/plan-config"
 import { calendarData, getPhaseColor, getTrackColor, type CalendarWeek } from "@/data/calendar"
@@ -1007,33 +1006,8 @@ export default function HomePage() {
                 </DialogHeader>
 
                 <div className="mt-6">
-                  {/* Mobile: Carousel */}
-                  <div className="block md:hidden">
-                    <Carousel className="w-full">
-                      <CarouselContent>
-                        {feature.images.map((image, idx) => (
-                          <CarouselItem key={idx}>
-                            <div
-                              className="relative aspect-video rounded-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
-                              onClick={() => openLightbox(feature.images, idx)}
-                            >
-                              <Image
-                                src={image.src || "/placeholder.svg"}
-                                alt={image.alt}
-                                fill
-                                className="object-cover"
-                              />
-                            </div>
-                          </CarouselItem>
-                        ))}
-                      </CarouselContent>
-                      <CarouselPrevious className="left-2" />
-                      <CarouselNext className="right-2" />
-                    </Carousel>
-                  </div>
-
-                  {/* Desktop: Vertical scrolling grid */}
-                  <div className="hidden md:block space-y-4">
+                  {/* CHANGE: Removed carousel for mobile, now using vertical scrolling for all screen sizes */}
+                  <div className="space-y-4">
                     {feature.images.map((image, idx) => (
                       <div
                         key={idx}
