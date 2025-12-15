@@ -937,44 +937,14 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="mt-6">
-                  {/* Mobile: Carousel */}
-                  <div className="block md:hidden">
-                    <Carousel className="w-full">
-                      <CarouselContent>
-                        {feature.images.map((image, idx) => (
-                          <CarouselItem key={idx}>
-                            <div
-                              className="relative aspect-video rounded-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
-                              onClick={() => openLightbox(feature.images, idx)}
-                            >
-                              <Image
-                                src={image.src || "/placeholder.svg"}
-                                alt={image.alt}
-                                fill
-                                className="object-cover"
-                              />
-                            </div>
-                          </CarouselItem>
-                        ))}
-                      </CarouselContent>
-                      <CarouselPrevious className="left-2" />
-                      <CarouselNext className="right-2" />
-                    </Carousel>
-                  </div>
-
-                  {/* Desktop: Vertical scroll */}
-                  <div className="hidden md:block space-y-4">
-                    {feature.images.map((image, idx) => (
-                      <div
-                        key={idx}
-                        className="relative aspect-video rounded-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
-                        onClick={() => openLightbox(feature.images, idx)}
-                      >
-                        <Image src={image.src || "/placeholder.svg"} alt={image.alt} fill className="object-cover" />
-                      </div>
-                    ))}
-                  </div>
+                <div className="hidden md:block mb-4 rounded-xl overflow-hidden">
+                  <Image
+                    src={feature.images[0].src || "/placeholder.svg"}
+                    alt={feature.images[0].alt}
+                    width={400}
+                    height={300}
+                    className="w-full h-48 object-cover"
+                  />
                 </div>
 
                 <p className="text-[#33393C] text-sm leading-relaxed mb-4">{feature.shortDesc}</p>
@@ -1018,27 +988,43 @@ export default function HomePage() {
                 </DialogHeader>
 
                 <div className="mt-6">
-                  <Carousel className="w-full">
-                    <CarouselContent>
-                      {feature.images.map((image, idx) => (
-                        <CarouselItem key={idx}>
-                          <div
-                            className="relative aspect-video rounded-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
-                            onClick={() => openLightbox(feature.images, idx)}
-                          >
-                            <Image
-                              src={image.src || "/placeholder.svg"}
-                              alt={image.alt}
-                              fill
-                              className="object-cover"
-                            />
-                          </div>
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                    <CarouselPrevious className="left-2" />
-                    <CarouselNext className="right-2" />
-                  </Carousel>
+                  {/* Mobile: Carousel */}
+                  <div className="block md:hidden">
+                    <Carousel className="w-full">
+                      <CarouselContent>
+                        {feature.images.map((image, idx) => (
+                          <CarouselItem key={idx}>
+                            <div
+                              className="relative aspect-video rounded-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
+                              onClick={() => openLightbox(feature.images, idx)}
+                            >
+                              <Image
+                                src={image.src || "/placeholder.svg"}
+                                alt={image.alt}
+                                fill
+                                className="object-cover"
+                              />
+                            </div>
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+                      <CarouselPrevious className="left-2" />
+                      <CarouselNext className="right-2" />
+                    </Carousel>
+                  </div>
+
+                  {/* Desktop: Vertical scrolling grid */}
+                  <div className="hidden md:block space-y-4">
+                    {feature.images.map((image, idx) => (
+                      <div
+                        key={idx}
+                        className="relative aspect-video rounded-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
+                        onClick={() => openLightbox(feature.images, idx)}
+                      >
+                        <Image src={image.src || "/placeholder.svg"} alt={image.alt} fill className="object-cover" />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </DialogContent>
