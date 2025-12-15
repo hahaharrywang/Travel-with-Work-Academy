@@ -80,7 +80,7 @@ export default function HomePage() {
       ],
       images: [
         {
-          src: "/images/e8-87-aa-e5-aa-92-e9-ab-94-e6-8e-a5-e6-a1-88-e8-b7-af-e7-b7-9a-ef-bc-bfreels-e9-87-8d-e8-a6-8f-e6-8c-87-e6-a8-99.png",
+          src: "/images/e8-87-aa-e5-aa-92-e9-ab-94-e6-8e-a5-e6-a1-88-e8-b7-af-e7-b7-9a-ef-bc-bfreels-e9-87-8d-e8-a6-81-e6-8c-87-e6-a8-99.png",
           alt: "自媒體接案路線：Reels演算法重要指標",
         },
         {
