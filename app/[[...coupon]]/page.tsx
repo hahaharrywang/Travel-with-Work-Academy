@@ -1335,8 +1335,8 @@ export default function HomePage() {
               <span className="font-semibold text-[#17464F]">累積整合</span>。
               <br className="hidden sm:block" />
               <br className="hidden sm:block" />
-              前期更集中於啟發與啟動，做出策略、履歷、接案作品集、內容等初步行動；
-              後期更注重於持續產出與積累，用復盤、財務與人生SOP、共創專案，整合成可以長期運作的生活與工作系統。
+              前期集中於啟發＆踏出行動；
+              後期注重於持續產出與積累。
             </p>
           </div>
 
