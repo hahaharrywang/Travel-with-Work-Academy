@@ -553,15 +553,15 @@ export default function HomePage() {
               <div className="space-y-3 text-left max-w-xl mx-auto lg:mx-0">
                 <div className="flex items-start gap-3">
                   <TrendingUp className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">梳理你的遠距遊牧藍圖與下一步行動</p>
+                  <p className="text-white/90">路線清楚：梳理你的遠距遊牧藍圖與下一步行動</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <FileText className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">完成履歷、作品集、個人頁面等可見成果</p>
+                  <p className="text-white/90">成果可交付：完成履歷、作品集、個人頁面等可見成果</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <Users className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">加入一群真的朝向自由生活行動的夥伴</p>
+                  <p className="text-white/90">不是一個人：加入一群真的朝向自由生活行動的夥伴</p>
                 </div>
               </div>
 
