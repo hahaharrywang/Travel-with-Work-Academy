@@ -582,7 +582,7 @@ export default function HomePage() {
                       }
                     }}
                   >
-                    我要加入這一梯學員
+                    四月開學，我要加入
                   </a>
                 </Button>
                 <button
