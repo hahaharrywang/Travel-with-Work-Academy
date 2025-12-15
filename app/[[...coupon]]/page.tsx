@@ -591,7 +591,7 @@ export default function HomePage() {
                   }}
                   className="text-white/70 hover:text-[#D4B483] font-medium text-base transition-colors duration-200"
                 >
-                  看看這六個月怎麼走 ↓
+                  看看這梯次怎麼走 ↓
                 </button>
               </div>
 
