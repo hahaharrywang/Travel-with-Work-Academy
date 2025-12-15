@@ -31,8 +31,8 @@ export const calendarData: CalendarWeek[] = [
       "課程類型：學院功能｜全體共同\n本週核心目標：用「收入模式全景圖」把你想要的自由生活，變成可執行的目標與路線。\n\n你要完成的任務（建議 30–60 分鐘）：\n1) 起點盤點：你屬於「還沒賺到錢」或「已有收入但不穩」？（二選一）\n2) 收入策略：選 1 個最有機會的收入模式（上班/接案/內容/聯盟/產品…），寫下你為何選它\n3) 6 個月路線圖：寫出「6 個月後我想達成的生活狀態」＋「可量化里程碑（收入/作品/面試…）」\n4) 30 天微目標：把第一個里程碑拆成 4 週行動（每週至少 1 個行動）\n\n產出要求（交付物）：\n- 一張「6 個月路線圖」（可用文字/表格/心智圖）\n- 一段「30 天微目標」：每週 1 行動＋1 指標\n\n最低行動（底線）：\n- 寫下 3 句話：①我選的路線 ②6 個月後的具體樣子 ③本月第一個可量化目標",
     instructors: [
       {
-        name: "Harry",
-        image: "/images/harry-principal.jpg",
+        name: "校長哈利",
+        image: "/images/harry-principal.png",
         title: "遠距遊牧學院校長",
       },
     ],
@@ -50,7 +50,7 @@ export const calendarData: CalendarWeek[] = [
     instructors: [
       {
         name: "講師確認中",
-        image: "/images/academy-logo-placeholder.jpg",
+        image: "/images/academy-logo-placeholder.png",
         title: "本梯講師將於開課前公布",
       },
     ],
@@ -68,7 +68,7 @@ export const calendarData: CalendarWeek[] = [
     instructors: [
       {
         name: "講師確認中",
-        image: "/images/academy-logo-placeholder.jpg",
+        image: "/images/academy-logo-placeholder.png",
         title: "本梯講師將於開課前公布",
       },
     ],
@@ -86,7 +86,7 @@ export const calendarData: CalendarWeek[] = [
     instructors: [
       {
         name: "講師確認中",
-        image: "/images/academy-logo-placeholder.jpg",
+        image: "/images/academy-logo-placeholder.png",
         title: "本梯講師將於開課前公布",
       },
     ],
@@ -103,8 +103,8 @@ export const calendarData: CalendarWeek[] = [
       "課程類型：學院功能｜全體共同\n本週核心目標：把「做過的事」拿出來交換回饋，讓你下個月更聚焦、不卡關。\n\n你要完成的任務：\n1) 3 分鐘成果分享：展示 1 個本月交付（路線圖/Prompt/作品集骨架…）\n2) 1 個卡點提問：明確描述你的困難（不要只說「卡住」）\n3) 給出 2 份同儕回饋：用「我看到/我建議/我好奇」三句話\n\n產出要求（交付物）：\n- 一則成果貼文（附截圖/連結）＋一個提問\n- 2 則回饋留言\n\n最低行動（底線）：\n- 發一則成果貼文（哪怕只有一張截圖）＋寫下 1 個你最想解的卡點",
     instructors: [
       {
-        name: "Harry",
-        image: "/images/harry-principal.jpg",
+        name: "校長哈利",
+        image: "/images/harry-principal.png",
         title: "遠距遊牧學院校長",
       },
     ],
@@ -122,7 +122,7 @@ export const calendarData: CalendarWeek[] = [
     instructors: [
       {
         name: "講師確認中",
-        image: "/images/academy-logo-placeholder.jpg",
+        image: "/images/academy-logo-placeholder.png",
         title: "本梯講師將於開課前公布",
       },
     ],
@@ -140,7 +140,7 @@ export const calendarData: CalendarWeek[] = [
     instructors: [
       {
         name: "講師確認中",
-        image: "/images/academy-logo-placeholder.jpg",
+        image: "/images/academy-logo-placeholder.png",
         title: "本梯講師將於開課前公布",
       },
     ],
@@ -158,7 +158,7 @@ export const calendarData: CalendarWeek[] = [
     instructors: [
       {
         name: "講師確認中",
-        image: "/images/academy-logo-placeholder.jpg",
+        image: "/images/academy-logo-placeholder.png",
         title: "本梯講師將於開課前公布",
       },
     ],
@@ -172,11 +172,11 @@ export const calendarData: CalendarWeek[] = [
     title: "交流／成果發表（月末）＋講師團體 QA",
     focusShort: "本月成果展示＋深度QA，釐清卡點、拿到建議並落地改版",
     focusDetail:
-      "課程類型：學院功能｜全體共同\n本週核心目標：把你正在做的「作品/Offer/LinkedIn」拿來做公開健檢，快速改到更可用。\n\n你要完成的任務：\n1) 準備 1 份作品展示：作品集/Offer 一頁紙/LinkedIn 任一\n2) 準備 1 個 QA 問題：用「背景→我試過什麼→我卡在哪→我希望你給什麼」描述\n3) 拿回饋後做 1 次改版：至少改 1 個區塊（標題/定位/交付物/案例…）\n\n產出要求（交付物）：\n- 一則成果展示貼文（含連結/截圖）\n- 一段「改版前→改版後」差異說明\n\n最低行動（底線）：\n- 上傳你的作品連結/截圖＋寫下 1 個你最想被指點的問題",
+      "課程類型：學院功能｜全體共同\n本週核心目標：把你正在做的「作品/Offer/LinkedIn」拿來做公開健檢，快速改到更可用。\n\n你要完成的任務：\n1) 準備 1 份作品展示：作品集/Offer 一頁紙/LinkedIn 任一\n2) 準備 1 個 QA 問題：用「背景→我試過什麼→我卡在哪→我希望你給什麼」描述\n3) 拿回饋後做 1 次改版：至少改 1 個區塊（標題/定位/交付物/案例…）\n\n產出要求（交付物）：\n- 一份 Sprint 復盤＋本週交付宣告\n\n最低行動（底線）：\n- 寫下你本週「要交付的最小成果」一句話",
     instructors: [
       {
-        name: "Harry",
-        image: "/images/harry-principal.jpg",
+        name: "校長哈利",
+        image: "/images/harry-principal.png",
         title: "遠距遊牧學院校長",
       },
     ],
@@ -193,8 +193,8 @@ export const calendarData: CalendarWeek[] = [
       "課程類型：學院功能｜全體共同\n本週核心目標：停止「做很多但沒變化」，用復盤把努力變成有效策略。\n\n你要完成的任務（用一頁完成）：\n1) 本月總結：我完成了什麼？（交付物/行動/數據）\n2) 三個洞察：什麼有效？什麼無效？下一步最大阻力是什麼？\n3) 目標校準：保留 1 個最重要目標，其餘降級或延後\n4) 最小實驗：選 1 個下週能驗證的行動（例如：投 3 份/發 2 篇/約 1 次訪談）\n\n產出要求（交付物）：\n- 一頁復盤（四段即可：成果/洞察/校準/實驗）\n\n最低行動（底線）：\n- 寫下「1 個本月成果＋1 個卡點＋1 個下週最小行動」",
     instructors: [
       {
-        name: "Harry",
-        image: "/images/harry-principal.jpg",
+        name: "校長哈利",
+        image: "/images/harry-principal.png",
         title: "遠距遊牧學院校長",
       },
     ],
@@ -212,7 +212,7 @@ export const calendarData: CalendarWeek[] = [
     instructors: [
       {
         name: "講師確認中",
-        image: "/images/academy-logo-placeholder.jpg",
+        image: "/images/academy-logo-placeholder.png",
         title: "本梯講師將於開課前公布",
       },
     ],
@@ -230,7 +230,7 @@ export const calendarData: CalendarWeek[] = [
     instructors: [
       {
         name: "講師確認中",
-        image: "/images/academy-logo-placeholder.jpg",
+        image: "/images/academy-logo-placeholder.png",
         title: "本梯講師將於開課前公布",
       },
     ],
@@ -247,8 +247,8 @@ export const calendarData: CalendarWeek[] = [
       "課程類型：學院功能｜全體共同\n本週核心目標：把「內容/履歷/作品」拿出來公開校正，並把回饋轉成可執行待辦。\n\n你要完成的任務：\n1) 成果展示：自媒線（內容企劃/貼文）或上班線（CV/求職信/LinkedIn）擇一\n2) 指定回饋：你希望大家幫你看哪個點？（定位/可讀性/說服力/差異化…）\n3) 回饋落地：把收到的建議整理成「3 個修改項」＋「下週行動」\n\n產出要求（交付物）：\n- 一則成果展示貼文＋指定回饋問題\n- 一份「回饋→修改待辦」清單（至少 3 項）\n\n最低行動（底線）：\n- 貼出你的成果截圖/連結＋寫下 1 句你最想改進的地方",
     instructors: [
       {
-        name: "Harry",
-        image: "/images/harry-principal.jpg",
+        name: "校長哈利",
+        image: "/images/harry-principal.png",
         title: "遠距遊牧學院校長",
       },
     ],
@@ -266,7 +266,7 @@ export const calendarData: CalendarWeek[] = [
     instructors: [
       {
         name: "講師確認中",
-        image: "/images/academy-logo-placeholder.jpg",
+        image: "/images/academy-logo-placeholder.png",
         title: "本梯講師將於開課前公布",
       },
     ],
@@ -284,7 +284,7 @@ export const calendarData: CalendarWeek[] = [
     instructors: [
       {
         name: "講師確認中",
-        image: "/images/academy-logo-placeholder.jpg",
+        image: "/images/academy-logo-placeholder.png",
         title: "本梯講師將於開課前公布",
       },
     ],
@@ -302,7 +302,7 @@ export const calendarData: CalendarWeek[] = [
     instructors: [
       {
         name: "講師確認中",
-        image: "/images/academy-logo-placeholder.jpg",
+        image: "/images/academy-logo-placeholder.png",
         title: "本梯講師將於開課前公布",
       },
     ],
@@ -319,8 +319,8 @@ export const calendarData: CalendarWeek[] = [
       "課程類型：學院功能｜全體共同\n本週核心目標：進入「實戰場域」：用協作做出可展示的成果，並讓連結變深。\n\n你要完成的任務：\n1) 選擇參與方式：你要當「產出者/協作者/推進者」哪一種？\n2) 選題：從（求職/內容/產品/活動/工具）中選 1 個你最想投入的方向\n3) 分工：認領 1 個角色（例：PM/內容/設計/剪輯/BD/研究…）\n4) 排程：確認每週固定共創時段＋本週交付\n\n產出要求（交付物）：\n- 一個「角色認領」＋「本週交付」宣告\n- 一份共創排程（簡單行事曆也可）\n\n最低行動（底線）：\n- 在共創貼文底下留言：我加入哪一隊＋我這週會交付什麼",
     instructors: [
       {
-        name: "Harry",
-        image: "/images/harry-principal.jpg",
+        name: "校長哈利",
+        image: "/images/harry-principal.png",
         title: "遠距遊牧學院校長",
       },
     ],
@@ -337,8 +337,8 @@ export const calendarData: CalendarWeek[] = [
       "課程類型：學院功能｜全體共同\n本週核心目標：把「個人進度」和「共創進度」一次對齊，帶著清楚任務進入下個月。\n\n你要完成的任務：\n1) 成果展示：個人路線交付 1 份（內容/履歷/作品/投遞紀錄…）\n2) 共創更新：說明目前共創在做什麼、缺什麼角色/資源\n3) AMA 提問：準備 1 個你最想問的問題（越具體越好）\n4) 下月承諾：寫下你下月唯一最重要的目標＋每週固定節奏\n\n產出要求（交付物）：\n- 一則成果貼文（含「下月承諾」）\n- 一則 AMA 提問或回覆\n\n最低行動（底線）：\n- 貼出本月 1 個成果＋寫下下月 1 個最重要目標",
     instructors: [
       {
-        name: "Harry",
-        image: "/images/harry-principal.jpg",
+        name: "校長哈利",
+        image: "/images/harry-principal.png",
         title: "遠距遊牧學院校長",
       },
     ],
@@ -355,8 +355,8 @@ export const calendarData: CalendarWeek[] = [
       "課程類型：學院功能｜全體共同\n本週核心目標：把共創從「很熱鬧」變成「有交付」，重新對齊本月衝刺節奏。\n\n你要完成的任務：\n1) 共創復盤：上次 Sprint 做了什麼？卡在哪？接下來要驗證什麼？\n2) 交付標準：本週交付要長什麼樣子（可展示/可測試/可被回饋）\n3) 角色與時間：確認你本週投入的時段（至少 1 個固定時段）\n4) 風險處理：列出 1 個最大風險與備案（缺人/缺素材/時間不夠…）\n\n產出要求（交付物）：\n- 一份 Sprint 復盤＋本週交付宣告\n\n最低行動（底線）：\n- 寫下你本週「要交付的最小成果」一句話",
     instructors: [
       {
-        name: "Harry",
-        image: "/images/harry-principal.jpg",
+        name: "校長哈利",
+        image: "/images/harry-principal.png",
         title: "遠距遊牧學院校長",
       },
     ],
@@ -373,8 +373,8 @@ export const calendarData: CalendarWeek[] = [
       "課程類型：學院功能｜全體共同\n本週核心目標：交付一個「可驗證」成果（能被看到、被測試、被回饋）。\n\n你要完成的任務：\n1) 交付 Sprint 成果：Demo/頁面/影片/簡報/流程任一\n2) 收集回饋：至少拿到 3 份回饋（同學/外部朋友/目標受眾）\n3) 下次迭代：把回饋整理成「保留/修改/刪除」三類，選 1 個最重要改動\n\n產出要求（交付物）：\n- 一個可展示成果（附連結/截圖）\n- 一份回饋整理＋下一步迭代清單\n\n最低行動（底線）：\n- 交付一個「可被看到」的版本（哪怕是半成品截圖＋說明）",
     instructors: [
       {
-        name: "Harry",
-        image: "/images/harry-principal.jpg",
+        name: "校長哈利",
+        image: "/images/harry-principal.png",
         title: "遠距遊牧學院校長",
       },
     ],
@@ -392,7 +392,7 @@ export const calendarData: CalendarWeek[] = [
     instructors: [
       {
         name: "講師確認中",
-        image: "/images/academy-logo-placeholder.jpg",
+        image: "/images/academy-logo-placeholder.png",
         title: "本梯講師將於開課前公布",
       },
     ],
@@ -409,8 +409,8 @@ export const calendarData: CalendarWeek[] = [
       "課程類型：彈性週｜全體共同\n本週核心目標：把「未完成」一次清掉，並開始整理期末要對外展示的素材。\n\n你要完成的任務：\n1) 補課：挑 1 堂你最需要的回放，整理 3 個重點＋1 個立刻行動\n2) 作業清倉：把欠交的交付補齊（至少補 1 份）\n3) 亮相素材準備：整理你的「成果清單」（作品/履歷/內容/共創）＋數據（若有）\n4) 展示大綱：寫出 5 句「我的故事」：起點→卡點→行動→成果→下一步\n\n產出要求（交付物）：\n- 一份補課筆記（3 重點＋1 行動）\n- 一份成果清單＋展示大綱\n\n最低行動（底線）：\n- 補交 1 份作業或補課 1 堂並寫 3 個重點",
     instructors: [
       {
-        name: "Harry",
-        image: "/images/harry-principal.jpg",
+        name: "校長哈利",
+        image: "/images/harry-principal.png",
         title: "遠距遊牧學院校長",
       },
     ],
@@ -427,8 +427,8 @@ export const calendarData: CalendarWeek[] = [
       "課程類型：學院功能｜全體共同\n本週核心目標：把你 6 個月的努力變成「可對外展示」的成果包（作品＋故事＋下一步）。\n\n你要完成的任務：\n1) 成果包整理（擇一路線為主）：\n- 自媒線：定位/作品集/內容代表作/成交或名單數據/下一步方案\n- 上班線：目標職位/JD對照/客製化CV與求職信/LinkedIn/投遞與面試進度\n2) 3 分鐘故事：起點→轉折→行動→成果→下一步（用數據或具體成果支撐）\n3) 對外版本：把成果包做成「一頁連結」或「5–8 張簡報」\n\n產出要求（交付物）：\n- 一份對外成果包（連結/簡報）\n- 一段 3 分鐘分享稿（文字即可）\n\n最低行動（底線）：\n- 列出 5 個你最想展示的成果項目＋寫出分享的 5 句大綱",
     instructors: [
       {
-        name: "Harry",
-        image: "/images/harry-principal.jpg",
+        name: "校長哈利",
+        image: "/images/harry-principal.png",
         title: "遠距遊牧學院校長",
       },
     ],
@@ -445,8 +445,8 @@ export const calendarData: CalendarWeek[] = [
       "課程類型：學院功能｜全體共同\n本週核心目標：交付最終版成果包，並把你接下來 30 天的行動「排進生活」。\n\n你要完成的任務：\n1) 最終成果包：完成「最終版」（把回饋修進去）\n2) 下一步路線：選 1 條你要繼續走的主線（上班/接案/內容/共創延伸）\n3) 30 天行動：設定 1 個成果目標＋每週固定節奏（行事曆化）\n4) 支援系統：寫下你需要的 2 種支持（同伴/資源/回饋/環境）\n\n產出要求（交付物）：\n- 最終成果包連結（可被外部理解）\n- 30 天行動計畫（目標＋節奏＋時段）\n\n最低行動（底線）：\n- 寫下你畢業後「30 天唯一目標」＋每週 1 個固定行動時段",
     instructors: [
       {
-        name: "Harry",
-        image: "/images/harry-principal.jpg",
+        name: "校長哈利",
+        image: "/images/harry-principal.png",
         title: "遠距遊牧學院校長",
       },
     ],
