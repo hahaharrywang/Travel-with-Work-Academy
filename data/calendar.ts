@@ -111,7 +111,7 @@ export const calendarData: CalendarWeek[] = [
   },
   {
     id: 6,
-    phase: "Phase 2 出擊試水",
+    phase: "Phase 1 起步打底",
     monthWeek: "5 月 · Week 1",
     type: "共同必修",
     track: "全體共同",
@@ -129,7 +129,7 @@ export const calendarData: CalendarWeek[] = [
   },
   {
     id: 7,
-    phase: "Phase 2 出擊試水",
+    phase: "Phase 1 起步打底",
     monthWeek: "5 月 · Week 2",
     type: "路線必修 – 自媒線",
     track: "自媒體接案線",
@@ -147,7 +147,7 @@ export const calendarData: CalendarWeek[] = [
   },
   {
     id: 8,
-    phase: "Phase 2 出擊試水",
+    phase: "Phase 1 起步打底",
     monthWeek: "5 月 · Week 3",
     type: "路線必修 – 上班線",
     track: "遠端上班線",
@@ -165,7 +165,7 @@ export const calendarData: CalendarWeek[] = [
   },
   {
     id: 9,
-    phase: "Phase 2 出擊試水",
+    phase: "Phase 1 起步打底",
     monthWeek: "5 月 · Week 4",
     type: "學院功能",
     track: "全體共同",
@@ -201,7 +201,7 @@ export const calendarData: CalendarWeek[] = [
   },
   {
     id: 11,
-    phase: "Phase 3 累積整合",
+    phase: "Phase 2 出擊試水",
     monthWeek: "6 月 · Week 2",
     type: "路線必修 – 自媒線",
     track: "自媒體接案線",
@@ -219,7 +219,7 @@ export const calendarData: CalendarWeek[] = [
   },
   {
     id: 12,
-    phase: "Phase 3 累積整合",
+    phase: "Phase 2 出擊試水",
     monthWeek: "6 月 · Week 3",
     type: "路線必修 – 上班線",
     track: "遠端上班線",
@@ -237,7 +237,7 @@ export const calendarData: CalendarWeek[] = [
   },
   {
     id: 13,
-    phase: "Phase 3 累積整合",
+    phase: "Phase 2 出擊試水",
     monthWeek: "6 月 · Week 4",
     type: "學院功能",
     track: "全體共同",
@@ -255,7 +255,7 @@ export const calendarData: CalendarWeek[] = [
   },
   {
     id: 14,
-    phase: "Phase 3 累積整合",
+    phase: "Phase 2 出擊試水",
     monthWeek: "7 月 · Week 1",
     type: "共同必修",
     track: "全體共同",
@@ -273,7 +273,7 @@ export const calendarData: CalendarWeek[] = [
   },
   {
     id: 15,
-    phase: "Phase 3 累積整合",
+    phase: "Phase 2 出擊試水",
     monthWeek: "7 月 · Week 2",
     type: "路線必修 – 自媒線",
     track: "自媒體接案線",
@@ -291,7 +291,7 @@ export const calendarData: CalendarWeek[] = [
   },
   {
     id: 16,
-    phase: "Phase 3 累積整合",
+    phase: "Phase 2 出擊試水",
     monthWeek: "7 月 · Week 3",
     type: "路線必修 – 上班線",
     track: "遠端上班線",
@@ -309,7 +309,7 @@ export const calendarData: CalendarWeek[] = [
   },
   {
     id: 17,
-    phase: "Phase 3 累積整合",
+    phase: "Phase 2 出擊試水",
     monthWeek: "7 月 · Week 4",
     type: "學院功能",
     track: "全體共同",
@@ -327,7 +327,7 @@ export const calendarData: CalendarWeek[] = [
   },
   {
     id: 18,
-    phase: "Phase 3 累積整合",
+    phase: "Phase 2 出擊試水",
     monthWeek: "7 月 · Week 5",
     type: "學院功能",
     track: "全體共同",
