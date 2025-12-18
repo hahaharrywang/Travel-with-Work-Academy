@@ -1325,7 +1325,8 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-6 text-balance">學習地圖</h2>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-2 text-balance">學習地圖</h2>
+            <p className="text-base sm:text-lg text-[#D4B483] font-medium mb-6">四月開學，每週三晚間八點準時上線。</p>
             <p className="text-[#33393C] max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
               3 階段漸進式成長節奏：<span className="font-semibold text-[#17464F]">起步打底</span>、
               <span className="font-semibold text-[#17464F]">出擊試水</span>、
