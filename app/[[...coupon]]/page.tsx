@@ -566,23 +566,19 @@ export default function HomePage() {
               </div>
 
               {/* CTA Button */}
-              <div className="flex flex-col gap-6 items-center lg:items-start pt-8">
+              <div className="flex flex-col gap-4 items-center lg:items-start">
                 <Button
                   size="lg"
-                  className="bg-[#D4B483] text-[#17464F] hover:bg-[#C9A673] text-xl font-bold tracking-wider w-full sm:w-auto px-16 py-8 rounded-full"
+                  onClick={() => {
+                    document.getElementById("pricing-section")?.scrollIntoView({ behavior: "smooth" })
+                    // Track initiate checkout event
+                    if (typeof window !== "undefined" && (window as any).trackInitiateCheckout) {
+                      ;(window as any).trackInitiateCheckout(0)
+                    }
+                  }}
+                  className="bg-[#D4B483] text-[#17464F] hover:bg-[#C9A673] text-xl font-bold tracking-wider w-full sm:w-auto px-16 py-8 rounded-full whitespace-nowrap"
                 >
-                  <button
-                    onClick={() => {
-                      document.getElementById("pricing-section")?.scrollIntoView({ behavior: "smooth" })
-                      // Track initiate checkout event
-                      if (typeof window !== "undefined" && (window as any).trackInitiateCheckout) {
-                        ;(window as any).trackInitiateCheckout(0)
-                      }
-                    }}
-                    className="w-full h-full whitespace-nowrap"
-                  >
-                    四月一起開學
-                  </button>
+                  四月一起開學
                 </Button>
                 <button
                   onClick={() => {
