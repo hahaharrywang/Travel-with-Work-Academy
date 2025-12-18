@@ -77,7 +77,7 @@ export function SuccessStoriesSection() {
               className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-[#C9D7D4] flex flex-col"
             >
               {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-2 mb-2">
                 {story.tags.map((tag) => (
                   <span
                     key={tag}
@@ -89,21 +89,14 @@ export function SuccessStoriesSection() {
               </div>
 
               {/* Title */}
-              <h3 className="text-lg font-bold text-[#17464F] mb-3">{story.title}</h3>
+              <h3 className="text-lg font-bold text-[#17464F] mb-2">{story.title}</h3>
 
               {/* Identity */}
-              <p className="text-sm font-medium text-[#A06E56] mb-4 pb-3 border-b border-[#C9D7D4]">{story.identity}</p>
-
-              {/* Content */}
-              <div className="text-sm text-[#33393C] leading-normal space-y-2 mb-6 flex-grow">
-                {story.content.map((paragraph, idx) => (
-                  <p key={idx}>{paragraph}</p>
-                ))}
-              </div>
+              <p className="text-sm font-medium text-[#A06E56] mb-3 pb-2 border-b border-[#C9D7D4]">{story.identity}</p>
 
               {/* Quote */}
-              <div className="mt-auto pt-4 border-t border-[#C9D7D4]">
-                <div className="bg-[#F5F3ED] rounded-lg p-4 relative">
+              <div className="mb-3 pb-3 border-b border-[#C9D7D4]">
+                <div className="bg-[#F5F3ED] rounded-lg p-3 relative">
                   {/* Quote icon */}
                   <svg
                     className="absolute -top-2 -left-2 w-6 h-6 text-[#D4B483] opacity-50"
@@ -112,8 +105,15 @@ export function SuccessStoriesSection() {
                   >
                     <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
                   </svg>
-                  <p className="text-sm text-[#17464F] font-medium italic leading-relaxed pl-4">{story.quote}</p>
+                  <p className="text-sm text-[#17464F] font-medium italic leading-normal pl-4">{story.quote}</p>
                 </div>
+              </div>
+
+              {/* Content */}
+              <div className="text-sm text-[#33393C] leading-normal space-y-1.5 flex-grow">
+                {story.content.map((paragraph, idx) => (
+                  <p key={idx}>{paragraph}</p>
+                ))}
               </div>
             </Card>
           ))}
@@ -133,7 +133,7 @@ export function SuccessStoriesSection() {
                 <CarouselItem key={story.id} className="pl-4 md:basis-1/2">
                   <Card className="bg-white rounded-2xl p-6 shadow-sm border border-[#C9D7D4] h-full flex flex-col">
                     {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-2 mb-2">
                       {story.tags.map((tag) => (
                         <span
                           key={tag}
@@ -145,23 +145,16 @@ export function SuccessStoriesSection() {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-lg font-bold text-[#17464F] mb-3">{story.title}</h3>
+                    <h3 className="text-lg font-bold text-[#17464F] mb-2">{story.title}</h3>
 
                     {/* Identity */}
-                    <p className="text-sm font-medium text-[#A06E56] mb-4 pb-3 border-b border-[#C9D7D4]">
+                    <p className="text-sm font-medium text-[#A06E56] mb-3 pb-2 border-b border-[#C9D7D4]">
                       {story.identity}
                     </p>
 
-                    {/* Content */}
-                    <div className="text-sm text-[#33393C] leading-normal space-y-2 mb-6 flex-grow">
-                      {story.content.map((paragraph, idx) => (
-                        <p key={idx}>{paragraph}</p>
-                      ))}
-                    </div>
-
                     {/* Quote */}
-                    <div className="mt-auto pt-4 border-t border-[#C9D7D4]">
-                      <div className="bg-[#F5F3ED] rounded-lg p-4 relative">
+                    <div className="mb-3 pb-3 border-b border-[#C9D7D4]">
+                      <div className="bg-[#F5F3ED] rounded-lg p-3 relative">
                         {/* Quote icon */}
                         <svg
                           className="absolute -top-2 -left-2 w-6 h-6 text-[#D4B483] opacity-50"
@@ -170,8 +163,15 @@ export function SuccessStoriesSection() {
                         >
                           <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
                         </svg>
-                        <p className="text-sm text-[#17464F] font-medium italic leading-relaxed pl-4">{story.quote}</p>
+                        <p className="text-sm text-[#17464F] font-medium italic leading-normal pl-4">{story.quote}</p>
                       </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="text-sm text-[#33393C] leading-normal space-y-1.5 flex-grow">
+                      {story.content.map((paragraph, idx) => (
+                        <p key={idx}>{paragraph}</p>
+                      ))}
                     </div>
                   </Card>
                 </CarouselItem>
