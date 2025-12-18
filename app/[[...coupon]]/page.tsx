@@ -1329,7 +1329,7 @@ export default function HomePage() {
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-6 text-balance">學習地圖</h2>
             <p className="text-[#33393C] max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
-              3 階段漸進式學習：<span className="font-semibold text-[#17464F]">起步打底</span>、
+              四月開學，3 階段漸進式成長節奏：<span className="font-semibold text-[#17464F]">起步打底</span>、
               <span className="font-semibold text-[#17464F]">出擊試水</span>、
               <span className="font-semibold text-[#17464F]">累積整合</span>。
               <br className="hidden sm:block" />
