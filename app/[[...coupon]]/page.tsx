@@ -143,7 +143,7 @@ export default function HomePage() {
       ],
       images: [
         {
-          src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e9-81-a7-e7-89-a7-e5-b0-8f-e8-81-9a.jpg",
+          src: "/images/2-1.jpeg",
           alt: "遊牧小聚",
         },
         { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e7-95-99-e8-a8-80.png", alt: "留言" },
