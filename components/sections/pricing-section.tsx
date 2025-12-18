@@ -79,9 +79,9 @@ export function PricingSection() {
             也可以雙線並進
           </h2>
           <p className="text-lg sm:text-xl text-[#33393C] max-w-3xl mx-auto leading-relaxed">
-            所有方案都包含六個月的 3+3 成長節奏、通識課程、Skool 共學社群，
+            所有方案都包含四至九月的路線必修、共同必修、成長節奏、Skool共學群組、Line閒聊群、 LinkedIn校友群。
             <br className="hidden sm:block" />
-            差別只在於：你想先專心走哪一條主線，或是一次打開兩種可能。
+            差別只在於：你想快速一次打開兩種可能，還是想先專心走一條主線。
           </p>
           {/* Removed 🔥目前為「招生啟動價」· 51 折 badge */}
         </div>
@@ -387,9 +387,12 @@ export function PricingSection() {
         <div className="bg-white/60 rounded-2xl border border-slate-200 p-6 md:p-8 text-center mb-12">
           <h4 className="text-lg font-bold text-[#17464F] mb-4">所有方案皆包含</h4>
           <div className="flex flex-wrap justify-center gap-3 text-sm text-[#33393C]">
-            <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">六個月 3+3 成長節奏</span>
-            <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">通識課程（Direction + General）</span>
-            <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">Skool 共學社群</span>
+            <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">四至九月的路線必修</span>
+            <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">共同必修</span>
+            <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">成長節奏</span>
+            <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">Skool共學群組</span>
+            <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">Line閒聊群</span>
+            <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">LinkedIn校友群</span>
             <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">課程終身回放</span>
           </div>
         </div>
