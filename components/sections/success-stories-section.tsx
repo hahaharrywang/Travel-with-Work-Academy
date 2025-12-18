@@ -77,7 +77,7 @@ export function SuccessStoriesSection() {
               className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-[#C9D7D4] flex flex-col"
             >
               {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-2">
+              <div className="flex flex-wrap gap-2 mb-1">
                 {story.tags.map((tag) => (
                   <span
                     key={tag}
@@ -89,13 +89,13 @@ export function SuccessStoriesSection() {
               </div>
 
               {/* Title */}
-              <h3 className="text-lg font-bold text-[#17464F] mb-2">{story.title}</h3>
+              <h3 className="text-lg font-bold text-[#17464F] mb-1">{story.title}</h3>
 
               {/* Identity */}
-              <p className="text-sm font-medium text-[#A06E56] mb-3 pb-2 border-b border-[#C9D7D4]">{story.identity}</p>
+              <p className="text-sm font-medium text-[#A06E56] mb-2">{story.identity}</p>
 
               {/* Quote */}
-              <div className="mb-3 pb-3 border-b border-[#C9D7D4]">
+              <div className="mb-2">
                 <div className="bg-[#F5F3ED] rounded-lg p-3 relative">
                   {/* Quote icon */}
                   <svg
@@ -110,7 +110,7 @@ export function SuccessStoriesSection() {
               </div>
 
               {/* Content */}
-              <div className="text-sm text-[#33393C] leading-normal space-y-1.5 flex-grow">
+              <div className="text-sm text-[#33393C] leading-normal space-y-1 flex-grow">
                 {story.content.map((paragraph, idx) => (
                   <p key={idx}>{paragraph}</p>
                 ))}
@@ -133,7 +133,7 @@ export function SuccessStoriesSection() {
                 <CarouselItem key={story.id} className="pl-4 md:basis-1/2">
                   <Card className="bg-white rounded-2xl p-6 shadow-sm border border-[#C9D7D4] h-full flex flex-col">
                     {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-2">
+                    <div className="flex flex-wrap gap-2 mb-1">
                       {story.tags.map((tag) => (
                         <span
                           key={tag}
@@ -145,15 +145,13 @@ export function SuccessStoriesSection() {
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-lg font-bold text-[#17464F] mb-2">{story.title}</h3>
+                    <h3 className="text-lg font-bold text-[#17464F] mb-1">{story.title}</h3>
 
                     {/* Identity */}
-                    <p className="text-sm font-medium text-[#A06E56] mb-3 pb-2 border-b border-[#C9D7D4]">
-                      {story.identity}
-                    </p>
+                    <p className="text-sm font-medium text-[#A06E56] mb-2">{story.identity}</p>
 
                     {/* Quote */}
-                    <div className="mb-3 pb-3 border-b border-[#C9D7D4]">
+                    <div className="mb-2">
                       <div className="bg-[#F5F3ED] rounded-lg p-3 relative">
                         {/* Quote icon */}
                         <svg
@@ -168,7 +166,7 @@ export function SuccessStoriesSection() {
                     </div>
 
                     {/* Content */}
-                    <div className="text-sm text-[#33393C] leading-normal space-y-1.5 flex-grow">
+                    <div className="text-sm text-[#33393C] leading-normal space-y-1 flex-grow">
                       {story.content.map((paragraph, idx) => (
                         <p key={idx}>{paragraph}</p>
                       ))}
