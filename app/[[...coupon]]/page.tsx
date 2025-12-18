@@ -143,7 +143,7 @@ export default function HomePage() {
       ],
       images: [
         {
-          src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e9-81-8a-e7-89-a7-e5-b0-8f-e8-81-9a.jpg",
+          src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e9-81-a7-e7-89-a7-e5-b0-8f-e8-81-9a.jpg",
           alt: "遊牧小聚",
         },
         { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e7-95-99-e8-a8-80.png", alt: "留言" },
@@ -566,24 +566,23 @@ export default function HomePage() {
               </div>
 
               {/* CTA Button */}
-              <div className="flex flex-col items-center lg:items-start gap-4 pt-2">
+              <div className="flex flex-col gap-6 items-center lg:items-start pt-8">
                 <Button
-                  asChild
                   size="lg"
-                  className="bg-[#E8C547] hover:bg-[#D4B483] text-[#17464F] rounded-full px-8 py-6 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
+                  className="bg-[#D4B483] text-[#17464F] hover:bg-[#C9A673] text-xl font-bold tracking-wider w-full sm:w-auto px-16 py-8 rounded-full"
                 >
-                  <a
-                    href={getCheckoutURLWithTracking()}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
                     onClick={() => {
+                      document.getElementById("pricing-section")?.scrollIntoView({ behavior: "smooth" })
+                      // Track initiate checkout event
                       if (typeof window !== "undefined" && (window as any).trackInitiateCheckout) {
                         ;(window as any).trackInitiateCheckout(0)
                       }
                     }}
+                    className="w-full h-full"
                   >
                     四月開學，我要加入
-                  </a>
+                  </button>
                 </Button>
                 <button
                   onClick={() => {
@@ -1335,8 +1334,7 @@ export default function HomePage() {
               <span className="font-semibold text-[#17464F]">累積整合</span>。
               <br className="hidden sm:block" />
               <br className="hidden sm:block" />
-              前期集中於啟發＆踏出行動；
-              後期注重於持續產出與積累。
+              前期集中於啟發＆踏出行動； 後期注重於持續產出與積累。
             </p>
           </div>
 
