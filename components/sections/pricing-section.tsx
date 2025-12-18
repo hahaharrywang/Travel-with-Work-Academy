@@ -73,7 +73,11 @@ export function PricingSection() {
             <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
             <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#17464F] mb-6">選一條先走，也可以雙線並進</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#17464F] mb-6">
+            選一條先走，
+            <br className="sm:hidden" />
+            也可以雙線並進
+          </h2>
           <p className="text-lg sm:text-xl text-[#33393C] max-w-3xl mx-auto leading-relaxed">
             所有方案都包含六個月的 3+3 成長節奏、通識課程、Skool 共學社群，
             <br className="hidden sm:block" />
