@@ -924,7 +924,7 @@ export default function HomePage() {
         </div>
       </section>
       {/* SECTION 2.1 COURSE HIGHLIGHTS CONTINUED (Part 2: 三大亮點) START */}
-      <section className="py-16 sm:py-24 bg-[#F7F3ED]">
+      <section id="key-features" className="py-16 sm:py-24 bg-[#F7F3ED]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-10 sm:mb-16">

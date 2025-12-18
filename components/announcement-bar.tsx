@@ -16,18 +16,26 @@ export function AnnouncementBar({ scrollToPricing }: AnnouncementBarProps) {
   if (!currentStageData) return null
 
   const navItems = [
-    { label: "課程介紹", href: "#course-intro" },
-    { label: "六個月路線", href: "#six-month-route" },
-    { label: "學員回饋", href: "#testimonials" },
+    { label: "學院介紹", href: "#key-features" },
+    { label: "學習地圖", href: "#learning-map" },
+    { label: "學員見證", href: "#student-results" },
     { label: "學習方案", href: "#pricing" },
     { label: "常見問題", href: "#faq" },
   ]
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+
     if (href === "#pricing") {
-      e.preventDefault()
       scrollToPricing()
+    } else {
+      const targetId = href.replace("#", "")
+      const element = document.getElementById(targetId)
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" })
+      }
     }
+
     setMobileMenuOpen(false)
   }
 
