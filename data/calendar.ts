@@ -51,7 +51,7 @@ export const calendarData: CalendarWeek[] = [
       {
         name: "講師確認中",
         image: "/images/academy-logo-placeholder.png",
-        title: "本梯講師將於開課前公布",
+        title: "本梯次講師將陸續公布",
       },
     ],
   },
@@ -69,7 +69,7 @@ export const calendarData: CalendarWeek[] = [
       {
         name: "講師確認中",
         image: "/images/academy-logo-placeholder.png",
-        title: "本梯講師將於開課前公布",
+        title: "本梯次講師將陸續公布",
       },
     ],
   },
@@ -87,7 +87,7 @@ export const calendarData: CalendarWeek[] = [
       {
         name: "講師確認中",
         image: "/images/academy-logo-placeholder.png",
-        title: "本梯講師將於開課前公布",
+        title: "本梯次講師將陸續公布",
       },
     ],
   },
@@ -123,7 +123,7 @@ export const calendarData: CalendarWeek[] = [
       {
         name: "講師確認中",
         image: "/images/academy-logo-placeholder.png",
-        title: "本梯講師將於開課前公布",
+        title: "本梯次講師將陸續公布",
       },
     ],
   },
@@ -141,7 +141,7 @@ export const calendarData: CalendarWeek[] = [
       {
         name: "講師確認中",
         image: "/images/academy-logo-placeholder.png",
-        title: "本梯講師將於開課前公布",
+        title: "本梯次講師將陸續公布",
       },
     ],
   },
@@ -159,7 +159,7 @@ export const calendarData: CalendarWeek[] = [
       {
         name: "講師確認中",
         image: "/images/academy-logo-placeholder.png",
-        title: "本梯講師將於開課前公布",
+        title: "本梯次講師將陸續公布",
       },
     ],
   },
@@ -213,7 +213,7 @@ export const calendarData: CalendarWeek[] = [
       {
         name: "講師確認中",
         image: "/images/academy-logo-placeholder.png",
-        title: "本梯講師將於開課前公布",
+        title: "本梯次講師將陸續公布",
       },
     ],
   },
@@ -231,7 +231,7 @@ export const calendarData: CalendarWeek[] = [
       {
         name: "講師確認中",
         image: "/images/academy-logo-placeholder.png",
-        title: "本梯講師將於開課前公布",
+        title: "本梯次講師將陸續公布",
       },
     ],
   },
@@ -267,7 +267,7 @@ export const calendarData: CalendarWeek[] = [
       {
         name: "講師確認中",
         image: "/images/academy-logo-placeholder.png",
-        title: "本梯講師將於開課前公布",
+        title: "本梯次講師將陸續公布",
       },
     ],
   },
@@ -285,7 +285,7 @@ export const calendarData: CalendarWeek[] = [
       {
         name: "講師確認中",
         image: "/images/academy-logo-placeholder.png",
-        title: "本梯講師將於開課前公布",
+        title: "本梯次講師將陸續公布",
       },
     ],
   },
@@ -303,7 +303,7 @@ export const calendarData: CalendarWeek[] = [
       {
         name: "講師確認中",
         image: "/images/academy-logo-placeholder.png",
-        title: "本梯講師將於開課前公布",
+        title: "本梯次講師將陸續公布",
       },
     ],
   },
@@ -393,7 +393,7 @@ export const calendarData: CalendarWeek[] = [
       {
         name: "講師確認中",
         image: "/images/academy-logo-placeholder.png",
-        title: "本梯講師將於開課前公布",
+        title: "本梯次講師將陸續公布",
       },
     ],
   },
