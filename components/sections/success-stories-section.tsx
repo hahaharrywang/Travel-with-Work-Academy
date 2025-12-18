@@ -10,10 +10,11 @@ const successStories = [
     identity: "科技公司 PM，從沒公開過自己作品",
     tags: ["#遠距遊牧學院"],
     content: [
-      "加入學院之前，我完全沒有作品集。頂多只有幾個零散的 side project 與想法。每次想到要投履歷或嘗試接案，就會卡在同一句話：「我好像沒有什麼可以拿得出來。」"
+      "加入學院之前，我完全沒有作品集。頂多只有幾個零散的 side project 與想法。每次想到要投履歷或嘗試接案，就會卡在同一句話：「我好像沒有什麼可以拿得出來。」",
       "後來在學院的實作任務裡，我跟著專業框架一步一步整理自己的過去經驗，完成了第一個真正能「被展示」的個人專案：把專案背景寫清楚、我負責做了什麼、最後的產出與成效是什麼，並且整理成一份正式的作品集頁面，後來透過 vibe coding 工作坊，甚至做出了個人網頁。",
     ],
-    quote: "我第一次可以很有底氣地，把作品集網站連結，貼在履歷跟訊息裡，不再只是說自己「會盡力完成工作」，而是讓成果自己說話。",
+    quote:
+      "我第一次可以很有底氣地，把作品集網站連結，貼在履歷跟訊息裡，不再只是說自己「會盡力完成工作」，而是讓成果自己說話。",
   },
   {
     id: "case-b",
@@ -21,10 +22,11 @@ const successStories = [
     identity: "邊上班邊經營 IG 的設計人",
     tags: ["#遠距遊牧學院", "#自媒體接案線"],
     content: [
-      "以前我一直有在發文、分享想法，但我從來沒有收集過電子報名單，也不知道要怎麼把內容變成真正的付費產品。"
+      "以前我一直有在發文、分享想法，但我從來沒有收集過電子報名單，也不知道要怎麼把內容變成真正的付費產品。",
       "在學院的課後任務裡，我跟著步驟做了人生第一個「電子報引導頁」：先想清楚我想服務的讀者是誰、我可以承諾對方獲得什麼，接著把訂閱流程設定好，開始穩定邀請 IG／社團的追蹤者留下 email。",
     ],
-    quote: "原來真的有人願意為我的內容付費，第一次打從心底覺得自媒體是一條可以慢慢累積變現的路，我會永遠記住這第一份線上收入。",
+    quote:
+      "原來真的有人願意為我的內容付費，第一次打從心底覺得自媒體是一條可以慢慢累積變現的路，我會永遠記住這第一份線上收入。",
   },
   {
     id: "case-c",
@@ -35,7 +37,8 @@ const successStories = [
       "一開始我只是在網路上聽大家分享遊牧故事，心裡想著：「好羨慕，但應該不會輪到我吧。」",
       "因緣際會之下我跟著遊牧社群一起去了福岡，為自己安排了一次「一週旅居實驗」：白天大多時間還是要工作，不同的是，下班之後我有了新的選擇：晚上在異國街道散步、吃道地豚骨拉麵、探索城市。回到台灣後，我更清楚自己適合什麼樣的節奏——怎麼在旅途中面對未知、如何在探索與自律間取捨。",
     ],
-    quote: "旅居不再只是想像中的夢，而是一個可以被規劃、也可以被重複的生活選項。這次之後我才明白：它只是需要經驗與準備，透過社群夥伴的幫助下，其實沒這麼困難。",
+    quote:
+      "旅居不再只是想像中的夢，而是一個可以被規劃、也可以被重複的生活選項。這次之後我才明白：它只是需要經驗與準備，透過社群夥伴的幫助下，其實沒這麼困難。",
   },
 ]
 
@@ -91,7 +94,7 @@ export function SuccessStoriesSection() {
               <p className="text-sm font-medium text-[#A06E56] mb-4 pb-3 border-b border-[#C9D7D4]">{story.identity}</p>
 
               {/* Content */}
-              <div className="text-sm text-[#33393C] leading-relaxed space-y-3 mb-6 flex-grow">
+              <div className="text-sm text-[#33393C] leading-normal space-y-2 mb-6 flex-grow">
                 {story.content.map((paragraph, idx) => (
                   <p key={idx}>{paragraph}</p>
                 ))}
@@ -149,7 +152,7 @@ export function SuccessStoriesSection() {
                     </p>
 
                     {/* Content */}
-                    <div className="text-sm text-[#33393C] leading-relaxed space-y-3 mb-6 flex-grow">
+                    <div className="text-sm text-[#33393C] leading-normal space-y-2 mb-6 flex-grow">
                       {story.content.map((paragraph, idx) => (
                         <p key={idx}>{paragraph}</p>
                       ))}
