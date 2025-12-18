@@ -581,7 +581,7 @@ export default function HomePage() {
                     }}
                     className="w-full h-full"
                   >
-                    四月開學，我要加入
+                    四月一起開學
                   </button>
                 </Button>
                 <button
