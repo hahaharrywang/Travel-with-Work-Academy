@@ -579,7 +579,7 @@ export default function HomePage() {
                         ;(window as any).trackInitiateCheckout(0)
                       }
                     }}
-                    className="w-full h-full"
+                    className="w-full h-full whitespace-nowrap"
                   >
                     四月一起開學
                   </button>
