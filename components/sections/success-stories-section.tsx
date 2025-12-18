@@ -50,7 +50,7 @@ export function SuccessStoriesSection() {
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#17464F] mb-6 text-balance">
-            學員真實成果：把「想想看」變成做得到
+            學員真實成果
           </h2>
           {/* Decorative gold line */}
           <div className="flex justify-center mb-6">
