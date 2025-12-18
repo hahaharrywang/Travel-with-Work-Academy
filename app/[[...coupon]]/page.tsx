@@ -1335,7 +1335,6 @@ export default function HomePage() {
               <span className="font-semibold text-[#17464F]">出擊試水</span>、
               <span className="font-semibold text-[#17464F]">累積整合</span>。
               <br className="hidden sm:block" />
-              <br className="hidden sm:block" />
               前期集中於啟發＆踏出行動； 後期注重於持續產出與積累。
             </p>
           </div>
