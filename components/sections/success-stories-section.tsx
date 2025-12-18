@@ -57,7 +57,7 @@ export function SuccessStoriesSection() {
             <div className="w-24 h-0.5 bg-[#D4B483]"></div>
           </div>
           <p className="text-base sm:text-lg text-[#33393C] max-w-3xl mx-auto leading-relaxed">
-            在遠距遊牧學院，學員不是只看完一堆影片，而是完成一個個具體行動：
+            在遠距遊牧學院，我們不是只上課看影片，而是完成一個個具體行動：
             <br />
             有人從沒有作品集，到做出第一個 side
             project；有人開啟自媒體變現；有人第一次帶著工作出國旅居，找到了自己想過的生活樣子。
