@@ -1177,10 +1177,6 @@ export default function HomePage() {
                 <p className="text-[#17464F] font-bold text-sm sm:text-base mb-2">知識萃取專家</p>
               </div>
             </div>
-
-            <div className="text-center">
-              <h3 className="text-xl sm:text-2xl font-bold text-[#17464F]">強強聯手，全面資源整合</h3>
-            </div>
           </div>
         </div>
       </section>
