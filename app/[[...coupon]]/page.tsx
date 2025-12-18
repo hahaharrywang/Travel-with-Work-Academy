@@ -1962,7 +1962,16 @@ export default function HomePage() {
           {showCalendarInline && (
             <div className="flex justify-center py-6">
               <button
-                onClick={() => setShowCalendarInline(false)}
+                onClick={() => {
+                  setShowCalendarInline(false)
+                  // Wait for collapse animation to complete before scrolling
+                  setTimeout(() => {
+                    document.getElementById("success-stories-section")?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    })
+                  }, 300)
+                }}
                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#F5F3ED] text-[#17464F] rounded-full font-medium hover:bg-[#C9D7D4] transition-all duration-300 border border-[#C9D7D4]"
               >
                 <ChevronUp className="w-4 h-4" />
@@ -1974,7 +1983,7 @@ export default function HomePage() {
       </section>
 
       {/* Success Stories Section */}
-      <SuccessStoriesSection />
+      <SuccessStoriesSection id="success-stories-section" />
 
       {/* PRICING SECTION */}
       <section id="pricing-section" className="pt-0 pb-0 bg-[#17464F] relative overflow-hidden">
