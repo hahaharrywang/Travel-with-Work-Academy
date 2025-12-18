@@ -2,7 +2,7 @@
 
 import { useParams } from "next/navigation"
 
-import { useState, useEffect, useCallback, useRef } from "react" // Import useRef
+import { useState, useEffect, useCallback, useRef, Suspense } from "react" // Import useRef
 import Image from "next/image"
 import { ChevronDown, ChevronUp, X, TrendingUp, FileText, Users, ChevronRight, ChevronLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -977,108 +977,114 @@ export default function HomePage() {
       </section>
 
       {/* MODAL FOR FEATURES */}
-      {featuresData.map((feature) => (
-        <Dialog key={feature.id} open={openDialog === feature.id} onOpenChange={(open) => !open && setOpenDialog(null)}>
-          <DialogPortal>
-            <DialogOverlay />
-            {/* CHANGE: Restructured DialogContent to keep close button fixed while content scrolls */}
-            <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden bg-[#F5F3ED] p-0" showCloseButton={true}>
-              {/* Scrollable content container */}
-              <div className="max-h-[90vh] overflow-y-auto px-6 pt-6 pb-6">
-                <DialogHeader>
-                  <DialogTitle className="text-2xl font-bold text-[#17464F] flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center flex-shrink-0">
-                      {feature.icon}
-                    </div>
-                    {feature.title}
-                  </DialogTitle>
-                  <DialogDescription className="text-[#33393C] text-base leading-relaxed pt-4">
+      <Suspense fallback={<div>Loading...</div>}>
+        {featuresData.map((feature) => (
+          <Dialog
+            key={feature.id}
+            open={openDialog === feature.id}
+            onOpenChange={(open) => !open && setOpenDialog(null)}
+          >
+            <DialogPortal>
+              <DialogOverlay />
+              {/* CHANGE: Restructured DialogContent to keep close button fixed while content scrolls */}
+              <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden bg-[#F5F3ED] p-0" showCloseButton={true}>
+                {/* Scrollable content container */}
+                <div className="max-h-[90vh] overflow-y-auto px-6 pt-6 pb-6">
+                  <DialogHeader>
+                    <DialogTitle className="text-2xl font-bold text-[#17464F] flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center flex-shrink-0">
+                        {feature.icon}
+                      </div>
+                      {feature.title}
+                    </DialogTitle>
+                    <DialogDescription className="text-[#33393C] text-base leading-relaxed pt-4">
+                      <div className="space-y-4">
+                        {feature.details.map((detail, idx) => (
+                          <div key={idx} className="flex items-start gap-2">
+                            <span className="text-[#D4B483] mt-1">–</span>
+                            <span dangerouslySetInnerHTML={{ __html: detail }} />
+                          </div>
+                        ))}
+                      </div>
+                    </DialogDescription>
+                  </DialogHeader>
+
+                  <div className="mt-6">
+                    {/* CHANGE: Removed carousel for mobile, now using vertical scrolling for all screen sizes */}
                     <div className="space-y-4">
-                      {feature.details.map((detail, idx) => (
-                        <div key={idx} className="flex items-start gap-2">
-                          <span className="text-[#D4B483] mt-1">–</span>
-                          <span dangerouslySetInnerHTML={{ __html: detail }} />
+                      {feature.images.map((image, idx) => (
+                        <div
+                          key={idx}
+                          className="relative aspect-video rounded-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
+                          onClick={() => openLightbox(feature.images, idx)}
+                        >
+                          <Image src={image.src || "/placeholder.svg"} alt={image.alt} fill className="object-cover" />
                         </div>
                       ))}
                     </div>
-                  </DialogDescription>
-                </DialogHeader>
-
-                <div className="mt-6">
-                  {/* CHANGE: Removed carousel for mobile, now using vertical scrolling for all screen sizes */}
-                  <div className="space-y-4">
-                    {feature.images.map((image, idx) => (
-                      <div
-                        key={idx}
-                        className="relative aspect-video rounded-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
-                        onClick={() => openLightbox(feature.images, idx)}
-                      >
-                        <Image src={image.src || "/placeholder.svg"} alt={image.alt} fill className="object-cover" />
-                      </div>
-                    ))}
                   </div>
                 </div>
-              </div>
-            </DialogContent>
-          </DialogPortal>
-        </Dialog>
-      ))}
+              </DialogContent>
+            </DialogPortal>
+          </Dialog>
+        ))}
 
-      {lightboxOpen && (
-        <div
-          className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center"
-          onClick={() => setLightboxOpen(false)}
-        >
-          {/* Close button */}
-          <button
-            onClick={() => setLightboxOpen(false)}
-            className="absolute top-4 right-4 z-[101] text-white hover:text-[#D4B483] transition-colors p-2"
-          >
-            <X className="w-8 h-8" />
-          </button>
-
-          {/* Previous button */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation()
-              setLightboxIndex((prev) => (prev > 0 ? prev - 1 : lightboxImages.length - 1))
-            }}
-            className="absolute left-4 z-[101] text-white hover:text-[#D4B483] transition-colors p-2 bg-black/50 rounded-full"
-          >
-            <ChevronLeft className="w-8 h-8" />
-          </button>
-
-          {/* Image */}
+        {lightboxOpen && (
           <div
-            className="relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center p-8"
-            onClick={(e) => e.stopPropagation()}
+            className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center"
+            onClick={() => setLightboxOpen(false)}
           >
-            <Image
-              src={lightboxImages[lightboxIndex]?.src || "/placeholder.svg"}
-              alt={lightboxImages[lightboxIndex]?.alt || ""}
-              width={1920}
-              height={1080}
-              className="object-contain max-w-full max-h-full"
-            />
-          </div>
+            {/* Close button */}
+            <button
+              onClick={() => setLightboxOpen(false)}
+              className="absolute top-4 right-4 z-[101] text-white hover:text-[#D4B483] transition-colors p-2"
+            >
+              <X className="w-8 h-8" />
+            </button>
 
-          {/* Next button */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation()
-              setLightboxIndex((prev) => (prev < lightboxImages.length - 1 ? prev + 1 : 0))
-            }}
-            className="absolute right-4 z-[101] text-white hover:text-[#D4B483] transition-colors p-2 bg-black/50 rounded-full"
-          >
-            <ChevronRight className="w-8 h-8" />
-          </button>
+            {/* Previous button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                setLightboxIndex((prev) => (prev > 0 ? prev - 1 : lightboxImages.length - 1))
+              }}
+              className="absolute left-4 z-[101] text-white hover:text-[#D4B483] transition-colors p-2 bg-black/50 rounded-full"
+            >
+              <ChevronLeft className="w-8 h-8" />
+            </button>
 
-          {/* Image counter */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-[101] text-white text-sm bg-black/50 px-4 py-2 rounded-full">
-            {lightboxIndex + 1} / {lightboxImages.length}
+            {/* Image */}
+            <div
+              className="relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center p-8"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={lightboxImages[lightboxIndex]?.src || "/placeholder.svg"}
+                alt={lightboxImages[lightboxIndex]?.alt || ""}
+                width={1920}
+                height={1080}
+                className="object-contain max-w-full max-h-full"
+              />
+            </div>
+
+            {/* Next button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                setLightboxIndex((prev) => (prev < lightboxImages.length - 1 ? prev + 1 : 0))
+              }}
+              className="absolute right-4 z-[101] text-white hover:text-[#D4B483] transition-colors p-2 bg-black/50 rounded-full"
+            >
+              <ChevronRight className="w-8 h-8" />
+            </button>
+
+            {/* Image counter */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-[101] text-white text-sm bg-black/50 px-4 py-2 rounded-full">
+              {lightboxIndex + 1} / {lightboxImages.length}
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </Suspense>
 
       {/* SECTION 2.1 ECOSYSTEM PARTNERSHIP - 生態系 (moved after learning map) */}
       <section className="py-12 sm:py-16 bg-white">
