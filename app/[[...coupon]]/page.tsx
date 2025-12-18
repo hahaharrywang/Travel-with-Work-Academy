@@ -2206,7 +2206,10 @@ export default function HomePage() {
                 <X className="w-5 h-5 text-gray-500" />
               </button>
               <h3 className="text-xl md:text-2xl font-bold text-[#17464F]">完整 3+3 學習行事曆</h3>
+              {/* CHANGE: Added opening schedule information */}
               <p className="text-sm text-gray-600 mt-1">
+                四月開學，週三晚上八點準時上線。
+                <br />
                 24 週的課程與行動任務，分成三個階段：起步打底、出擊試水、累積整合。
               </p>
             </div>
