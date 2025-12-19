@@ -88,7 +88,7 @@ export function FAQSection() {
   const [openQuestion, setOpenQuestion] = useState<number | null>(null)
 
   return (
-    <section id="faq" className="py-16 sm:py-24 bg-white">
+    <section id="faq" className="pt-8 sm:pt-12 pb-16 sm:pb-24 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-2 mb-6">
