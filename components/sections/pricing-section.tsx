@@ -258,19 +258,23 @@ export function PricingSection() {
             <ul className="space-y-3 mb-6 flex-1 text-sm text-[#33393C]">
               <li className="flex items-start gap-2">
                 <span className="text-[#D4B483] mt-0.5">●</span>
-                <span>遠端工作 Module 完整課程</span>
+                <span>遠端上班路線必修課程 X4</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#D4B483] mt-0.5">●</span>
-                <span>通識課程（Direction + General）</span>
+                <span>共同必修課程 X4 </span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#D4B483] mt-0.5">●</span>
-                <span>Skool 共學社群 6 個月</span>
+                <span>學院成長節奏(開學畢業典禮、同學交流會、復盤、期末 DemoDay) X10</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#D4B483] mt-0.5">●</span>
-                <span>選修實作工作坊（剪輯、AI、自動化、工作英文等）</span>
+                <span>共創專案參與機會</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-[#D4B483] mt-0.5">●</span>
+                <span>學員專屬社群 (Skool共學群｜Line閒聊｜校友 Linkedin群)</span>
               </li>
             </ul>
             <div className="text-center pt-4 border-t border-slate-100">
