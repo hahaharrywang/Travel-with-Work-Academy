@@ -113,7 +113,7 @@ export function PricingSection() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        <div id="pricing-cards" className="grid md:grid-cols-3 gap-6 mb-12">
           {/* 自媒體接案線路 */}
           <div className="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-xl transition-shadow duration-300 flex flex-col order-1">
             <div className="mb-6">
@@ -357,19 +357,17 @@ export function PricingSection() {
             </div>
 
             <div className="text-center">
-              <a
-                href={getCheckoutURLWithTracking()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-[#17464F] text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+              <button
                 onClick={() => {
-                  if (typeof window !== "undefined" && (window as any).trackInitiateCheckout) {
-                    ;(window as any).trackInitiateCheckout(0)
+                  const pricingCards = document.getElementById("pricing-cards")
+                  if (pricingCards) {
+                    pricingCards.scrollIntoView({ behavior: "smooth", block: "start" })
                   }
                 }}
+                className="inline-block bg-[#17464F] text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
               >
                 我要加入本梯
-              </a>
+              </button>
             </div>
           </div>
         </div>
