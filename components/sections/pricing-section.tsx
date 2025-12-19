@@ -331,21 +331,21 @@ export function PricingSection() {
                   <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-2 flex-shrink-0"></span>
                   <div>
                     <span className="font-semibold text-[#17464F]">活動特殊折扣＆優先報名資格</span>
-                    <span className="text-[#33393C]">選修課、工作坊、社群線下聚會海內外遊牧啟發之旅</span>
+                    <span className="text-[#33393C]">：選修課、工作坊、社群線下聚會海內外遊牧啟發之旅</span>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-2 flex-shrink-0"></span>
                   <div>
                     <span className="font-semibold text-[#17464F]">加入、發起共創專案</span>
-                    <span className="text-[#33393C]">遊牧之聲訪談、Builder 實習計劃、線上線下讀書會</span>
+                    <span className="text-[#33393C]">：遊牧之聲訪談、Builder 實習計劃、線上線下讀書會</span>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-2 flex-shrink-0"></span>
                   <div>
                     <span className="font-semibold text-[#17464F]">許願池</span>
-                    <span className="text-[#33393C]">定期許願，讓更多學習資源集中於學院</span>
+                    <span className="text-[#33393C]">：定期許願，讓更多學習資源集中於學院</span>
                   </div>
                 </li>
               </ul>
