@@ -4,7 +4,7 @@ import { useParams } from "next/navigation"
 
 import { useState, useEffect, useCallback, useRef, Suspense } from "react" // Import useRef
 import Image from "next/image"
-import { ChevronDown, ChevronUp, X, TrendingUp, FileText, Users, ChevronRight, ChevronLeft } from "lucide-react"
+import { ChevronDown, ChevronUp, X, TrendingUp, FileText, Users, ChevronRight, ChevronLeft, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { usePricing } from "@/contexts/pricing-context"
 import { AnnouncementBar } from "@/components/announcement-bar"
@@ -380,8 +380,7 @@ export default function HomePage() {
   //     title: "ADPList 2025 Top 50 Global Mentor，LinkedIn 個人品牌術，機會自己來敲門",
   //     image: "/images/shelly.jpeg",
   //     link: "https://www.linkedin.com/in/yuhsuan-tien",
-  //     background:
-  //       "Shelley 是 ADPList 2025 Global Mentor，專精於 LinkedIn 個人品牌建立，協助個人發掘機會並拓展職涯。",
+  //     background: "Shelley 是 ADPList 2025 Global Mentor，專精於 LinkedIn 個人品牌建立，協助個人發掘機會並拓展職涯。",
   //   },
   //   {
   //     name: "讀者太太",
@@ -1989,19 +1988,30 @@ export default function HomePage() {
 
       {/* FOOTER */}
       <footer className="py-8 bg-[#17464F] text-white text-center">
-        <p className="text-sm text-white/80">
-          &copy; 2025 遠距遊牧學院 Travel With Work Academy. All rights reserved.
-          <br />
-          任何疑問請洽 Instagram:{" "}
+        <p className="text-sm text-white/80 leading-relaxed">
+          如果有問題請洽詢
+          <br className="sm:hidden" />
+          Line 官方帳號：{" "}
           <a
-            href="https://www.instagram.com/travelwithwork_/"
+            href="https://lin.ee/r7kh3fX"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#D4B483] hover:text-[#D4B483]/80 transition-colors"
+            className="text-[#D4B483] hover:text-[#D4B483]/80 transition-colors font-medium"
           >
-            遠距遊牧學院
-          </a>{" "}
-          / Email: Academy@travelwork.life
+            @travelwithwork
+          </a>
+          <br className="sm:hidden" /> 或是{" "}
+          <a
+            href="mailto:academy@travelwithwork.life"
+            className="inline-flex items-center gap-1 text-[#D4B483] hover:text-[#D4B483]/80 transition-colors font-medium"
+          >
+            <Mail className="w-3.5 h-3.5" />
+            academy@travelwithwork.life
+          </a>
+        </p>
+        <p className="text-xs text-white/60 mt-2">會有專人回覆</p>
+        <p className="text-xs text-white/50 mt-4">
+          &copy; 2025 遠距遊牧學院 Travel With Work Academy. All rights reserved.
         </p>
       </footer>
 
