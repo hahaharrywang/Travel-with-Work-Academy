@@ -41,6 +41,7 @@ export function AnnouncementBar({ scrollToPricing }: AnnouncementBarProps) {
 
   return (
     <>
+      {/* Desktop: Full announcement bar */}
       <div className="hidden md:block sticky top-0 z-50 bg-[#17464F] text-white py-2 px-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
           {/* Left: Pricing countdown */}
@@ -78,43 +79,42 @@ export function AnnouncementBar({ scrollToPricing }: AnnouncementBarProps) {
         </div>
       </div>
 
-      <div className="md:hidden sticky top-0 z-50 bg-[#17464F] text-white">
-        <div className="px-4 py-3 flex justify-end">
-          <button
-            className="flex flex-col justify-center items-center w-8 h-8 gap-1.5 relative z-50"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ease-out ${
-                mobileMenuOpen ? "rotate-45 translate-y-2" : ""
-              }`}
-            />
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ease-out ${
-                mobileMenuOpen ? "opacity-0 scale-0" : ""
-              }`}
-            />
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ease-out ${
-                mobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
-              }`}
-            />
-          </button>
-        </div>
+      <div className="md:hidden fixed top-4 right-4 z-50">
+        <button
+          className="flex flex-col justify-center items-center w-10 h-10 gap-1.5 bg-[#17464F] rounded-lg shadow-lg"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span
+            className={`block w-6 h-0.5 bg-white transition-all duration-300 ease-out ${
+              mobileMenuOpen ? "rotate-45 translate-y-2" : ""
+            }`}
+          />
+          <span
+            className={`block w-6 h-0.5 bg-white transition-all duration-300 ease-out ${
+              mobileMenuOpen ? "opacity-0 scale-0" : ""
+            }`}
+          />
+          <span
+            className={`block w-6 h-0.5 bg-white transition-all duration-300 ease-out ${
+              mobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
+            }`}
+          />
+        </button>
 
+        {/* Mobile dropdown menu */}
         <div
-          className={`overflow-hidden transition-all duration-300 ease-out ${
+          className={`absolute top-12 right-0 w-64 bg-[#17464F] rounded-lg shadow-xl overflow-hidden transition-all duration-300 ease-out ${
             mobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <nav className="flex flex-col py-4 border-t border-white/20">
+          <nav className="flex flex-col py-2">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="py-3 px-2 text-white/90 hover:text-[#D4B483] hover:bg-white/5 transition-colors text-center"
+                className="py-3 px-4 text-white/90 hover:text-[#D4B483] hover:bg-white/5 transition-colors"
               >
                 {item.label}
               </a>
