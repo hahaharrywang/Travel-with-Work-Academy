@@ -79,9 +79,7 @@ export function PricingSection() {
             也可以雙線並進
           </h2>
           <p className="text-lg sm:text-xl text-[#33393C] max-w-3xl mx-auto leading-relaxed">
-            所有方案都包含四至九月的路線必修、共同必修、成長節奏、Skool共學群組、Line閒聊群、 LinkedIn校友群。
-            <br className="hidden sm:block" />
-            差別只在於：你想快速一次打開兩種可能，還是想先專心走一條主線。
+            差別在於：你想一次快速打開兩種可能，還是想先專心走一條主線。
           </p>
           {/* Removed 🔥目前為「招生啟動價」· 51 折 badge */}
         </div>
