@@ -132,21 +132,6 @@ export function FAQSection() {
             </div>
           ))}
         </div>
-
-        <div className="mt-12 text-center">
-          <p className="text-[#33393C]/70 text-sm leading-relaxed">
-            還有其他問題？歡迎到{" "}
-            <a
-              href="https://www.instagram.com/travelwithwork_/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#17464F] underline hover:text-[#D4B483] transition-colors"
-            >
-              Instagram
-            </a>{" "}
-            私訊我們，或寄信到 Academy@travelwork.life
-          </p>
-        </div>
       </div>
     </section>
   )
