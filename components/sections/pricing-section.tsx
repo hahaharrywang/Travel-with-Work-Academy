@@ -324,35 +324,28 @@ export function PricingSection() {
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
             </div>
 
-            <h3 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-4 text-center">本梯限定的優惠與名額</h3>
-
-            <p className="text-[#33393C] mb-8 leading-relaxed max-w-2xl mx-auto text-center">
-              為了讓教學與陪跑品質維持在好的狀態，
-              <br className="hidden sm:block" />
-              每一梯次的名額與優惠都會做控管，以下是這一梯的安排：
-            </p>
-
+            <h3 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-4 text-center">學員限定資源</h3>
             <div className="bg-white/80 rounded-xl p-6 mb-8 text-left max-w-xl mx-auto border border-[#C9D7D4]/50">
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-2 flex-shrink-0"></span>
                   <div>
-                    <span className="font-semibold text-[#17464F]">早鳥專屬價格</span>
-                    <span className="text-[#33393C]">：限時優惠倒數中，把握內部名單專屬折扣</span>
+                    <span className="font-semibold text-[#17464F]">活動特殊折扣＆優先報名資格</span>
+                    <span className="text-[#33393C]">選修課、工作坊、社群線下聚會海內外遊牧啟發之旅</span>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-2 flex-shrink-0"></span>
                   <div>
-                    <span className="font-semibold text-[#17464F]">加贈共學社群延長權限</span>
-                    <span className="text-[#33393C]">：前 3 個月課程後，再享後 3 個月社群陪伴與資源</span>
+                    <span className="font-semibold text-[#17464F]">加入、發起共創專案</span>
+                    <span className="text-[#33393C]">遊牧之聲訪談、Builder 實習計劃、線上線下讀書會</span>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-2 flex-shrink-0"></span>
                   <div>
-                    <span className="font-semibold text-[#17464F]">名額上限控管</span>
-                    <span className="text-[#33393C]">：為維持教學品質，本梯名額有限，額滿即收班</span>
+                    <span className="font-semibold text-[#17464F]">許願池</span>
+                    <span className="text-[#33393C]">定期許願，讓更多學習資源集中於學院</span>
                   </div>
                 </li>
               </ul>
