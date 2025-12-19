@@ -379,25 +379,10 @@ export function PricingSection() {
               >
                 Instagram
               </a>{" "}
-              問清楚，再決定這六個月要不要一起走。
+              了解清楚，再決定這六個月要不要一起走。
             </p>
           </div>
         </div>
-
-        {/* All Plans Include Section */}
-        <div className="bg-white/60 rounded-2xl border border-slate-200 p-6 md:p-8 text-center mb-12">
-          <h4 className="text-lg font-bold text-[#17464F] mb-4">所有方案皆包含</h4>
-          <div className="flex flex-wrap justify-center gap-3 text-sm text-[#33393C]">
-            <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">四至九月的路線必修</span>
-            <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">共同必修</span>
-            <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">成長節奏</span>
-            <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">Skool共學群組</span>
-            <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">Line閒聊群</span>
-            <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">LinkedIn校友群</span>
-            <span className="bg-[#C9D7D4]/50 px-4 py-2 rounded-full">課程終身回放</span>
-          </div>
-        </div>
-      </div>
 
       {showTimelineModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
