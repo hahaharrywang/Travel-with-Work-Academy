@@ -317,38 +317,45 @@ export function PricingSection() {
 
         {/* Limited Offer Section */}
         <div className="mb-12 max-w-4xl mx-auto">
-          <div className="bg-[#F5F3ED]/80 backdrop-blur rounded-2xl p-8 sm:p-10 shadow-lg border border-[#D4B483]/30">
-            <div className="flex justify-center gap-2 mb-6">
+          <div className="bg-[#F5F3ED]/80 backdrop-blur rounded-2xl p-6 sm:p-8 shadow-lg border border-[#D4B483]/30">
+            <div className="flex justify-center gap-2 mb-4">
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
               <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
             </div>
 
-            <h3 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-4 text-center">學員限定資源</h3>
-            <div className="bg-white/80 rounded-xl p-6 mb-8 text-left max-w-xl mx-auto border border-[#C9D7D4]/50">
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-2 flex-shrink-0"></span>
-                  <div>
-                    <span className="font-semibold text-[#17464F]">活動特殊折扣＆優先報名資格</span>
-                    <span className="text-[#33393C]">：選修課、工作坊、社群線下聚會海內外遊牧啟發之旅</span>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-2 flex-shrink-0"></span>
-                  <div>
-                    <span className="font-semibold text-[#17464F]">加入、發起共創專案</span>
-                    <span className="text-[#33393C]">：遊牧之聲訪談、Builder 實習計劃、線上線下讀書會</span>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-2 flex-shrink-0"></span>
-                  <div>
-                    <span className="font-semibold text-[#17464F]">許願池</span>
-                    <span className="text-[#33393C]">：定期許願，讓更多學習資源集中於學院</span>
-                  </div>
-                </li>
-              </ul>
+            <h3 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-6 text-center">學員限定資源</h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+              <div className="bg-white/80 rounded-xl p-4 border border-[#C9D7D4]/50">
+                <div className="flex items-start gap-2 mb-2">
+                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
+                  <span className="font-semibold text-[#17464F] text-sm sm:text-base">活動特殊折扣＆優先報名資格</span>
+                </div>
+                <p className="text-[#33393C] text-xs sm:text-sm leading-snug pl-4">
+                  選修課、工作坊、社群線下聚會海內外遊牧啟發之旅
+                </p>
+              </div>
+
+              <div className="bg-white/80 rounded-xl p-4 border border-[#C9D7D4]/50">
+                <div className="flex items-start gap-2 mb-2">
+                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
+                  <span className="font-semibold text-[#17464F] text-sm sm:text-base">加入、發起共創專案</span>
+                </div>
+                <p className="text-[#33393C] text-xs sm:text-sm leading-snug pl-4">
+                  遊牧之聲訪談、Builder 實習計劃、線上線下讀書會
+                </p>
+              </div>
+
+              <div className="bg-white/80 rounded-xl p-4 border border-[#C9D7D4]/50">
+                <div className="flex items-start gap-2 mb-2">
+                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
+                  <span className="font-semibold text-[#17464F] text-sm sm:text-base">許願池</span>
+                </div>
+                <p className="text-[#33393C] text-xs sm:text-sm leading-snug pl-4">
+                  定期許願，讓更多學習資源集中於學院
+                </p>
+              </div>
             </div>
 
             <div className="text-center">
@@ -366,187 +373,178 @@ export function PricingSection() {
                 我要加入本梯
               </a>
             </div>
-
-            <p className="mt-8 text-sm text-[#33393C]/80 leading-relaxed max-w-lg mx-auto text-center">
-              如果你還在觀望，也可以先把問題整理下來，
-              <br className="hidden sm:block" />
-              在下方 FAQ 或{" "}
-              <a
-                href="https://www.instagram.com/travelwithwork_/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#17464F] underline hover:text-[#D4B483] transition-colors"
-              >
-                Instagram
-              </a>{" "}
-              了解清楚，再決定這六個月要不要一起走。
-            </p>
           </div>
         </div>
 
-      {showTimelineModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          {/* Backdrop */}
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setShowTimelineModal(false)} />
-
-          {/* Modal Content */}
-          <div className="relative bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-            {/* Close Button */}
-            <button
+        {showTimelineModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            {/* Backdrop */}
+            <div
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
               onClick={() => setShowTimelineModal(false)}
-              className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition-colors z-10"
-            >
-              <X className="w-5 h-5 text-[#33393C]" />
-            </button>
+            />
 
-            <div className="p-6 sm:p-8">
-              <h3 className="text-xl sm:text-2xl font-bold text-[#17464F] text-center mb-8">價格階段時間軸</h3>
+            {/* Modal Content */}
+            <div className="relative bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+              {/* Close Button */}
+              <button
+                onClick={() => setShowTimelineModal(false)}
+                className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition-colors z-10"
+              >
+                <X className="w-5 h-5 text-[#33393C]" />
+              </button>
 
-              {/* Desktop: 橫向時間軸 */}
-              <div className="hidden md:block">
-                <div className="relative overflow-x-auto pb-4">
-                  <div className="flex items-center justify-between min-w-max px-4">
-                    {(timelineExpanded ? stages : collapsedStages).map((stage, index, arr) => {
-                      const now = new Date()
-                      const isPast = now > stage.endAt
-                      const isCurrent = now >= stage.startAt && now <= stage.endAt
-                      const isNext =
-                        !isCurrent &&
-                        !isPast &&
-                        stages.findIndex((s) => s.id === stage.id) ===
-                          stages.findIndex((s) => now >= s.startAt && now <= stage.endAt) + 1
-                      const isOriginal = stage.id === "stage_12"
+              <div className="p-6 sm:p-8">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#17464F] text-center mb-8">價格階段時間軸</h3>
 
-                      return (
-                        <div key={stage.id} className="flex items-center">
-                          <div className="flex flex-col items-center">
-                            <div
-                              className={`w-4 h-4 rounded-full border-2 ${
-                                isCurrent
-                                  ? "bg-[#D4B483] border-[#D4B483] ring-4 ring-[#D4B483]/20"
-                                  : isNext
-                                    ? "bg-[#17464F] border-[#17464F]"
-                                    : isPast
-                                      ? "bg-gray-300 border-gray-300"
-                                      : isOriginal
-                                        ? "bg-[#A06E56] border-[#A06E56]"
-                                        : "bg-white border-[#17464F]"
-                              }`}
-                            />
-                            <div className="mt-2 text-center">
+                {/* Desktop: 橫向時間軸 */}
+                <div className="hidden md:block">
+                  <div className="relative overflow-x-auto pb-4">
+                    <div className="flex items-center justify-between min-w-max px-4">
+                      {(timelineExpanded ? stages : collapsedStages).map((stage, index, arr) => {
+                        const now = new Date()
+                        const isPast = now > stage.endAt
+                        const isCurrent = now >= stage.startAt && now <= stage.endAt
+                        const isNext =
+                          !isCurrent &&
+                          !isPast &&
+                          stages.findIndex((s) => s.id === stage.id) ===
+                            stages.findIndex((s) => now >= s.startAt && now <= stage.endAt) + 1
+                        const isOriginal = stage.id === "stage_12"
+
+                        return (
+                          <div key={stage.id} className="flex items-center">
+                            <div className="flex flex-col items-center">
                               <div
-                                className={`text-xs font-medium ${
+                                className={`w-4 h-4 rounded-full border-2 ${
                                   isCurrent
-                                    ? "text-[#D4B483]"
+                                    ? "bg-[#D4B483] border-[#D4B483] ring-4 ring-[#D4B483]/20"
                                     : isNext
-                                      ? "text-[#17464F] font-bold"
+                                      ? "bg-[#17464F] border-[#17464F]"
                                       : isPast
-                                        ? "text-gray-400"
+                                        ? "bg-gray-300 border-gray-300"
                                         : isOriginal
-                                          ? "text-[#A06E56]"
-                                          : "text-[#17464F]"
+                                          ? "bg-[#A06E56] border-[#A06E56]"
+                                          : "bg-white border-[#17464F]"
                                 }`}
-                              >
-                                {stage.name}
-                                {isCurrent && <span className="block text-[10px]">(目前)</span>}
-                                {isNext && <span className="block text-[10px]">(下一階段)</span>}
-                              </div>
-                              <div className={`text-xs ${isPast ? "text-gray-400" : "text-[#33393C]"}`}>
-                                {stage.discountLabel}
-                              </div>
-                              <div className={`text-xs ${isPast ? "text-gray-400" : "text-[#33393C]/60"}`}>
-                                ~{stage.endAt.getMonth() + 1}/{stage.endAt.getDate()}
+                              />
+                              <div className="mt-2 text-center">
+                                <div
+                                  className={`text-xs font-medium ${
+                                    isCurrent
+                                      ? "text-[#D4B483]"
+                                      : isNext
+                                        ? "text-[#17464F] font-bold"
+                                        : isPast
+                                          ? "text-gray-400"
+                                          : isOriginal
+                                            ? "text-[#A06E56]"
+                                            : "text-[#17464F]"
+                                  }`}
+                                >
+                                  {stage.name}
+                                  {isCurrent && <span className="block text-[10px]">(目前)</span>}
+                                  {isNext && <span className="block text-[10px]">(下一階段)</span>}
+                                </div>
+                                <div className={`text-xs ${isPast ? "text-gray-400" : "text-[#33393C]"}`}>
+                                  {stage.discountLabel}
+                                </div>
+                                <div className={`text-xs ${isPast ? "text-gray-400" : "text-[#33393C]/60"}`}>
+                                  ~{stage.endAt.getMonth() + 1}/{stage.endAt.getDate()}
+                                </div>
                               </div>
                             </div>
+                            {index < arr.length - 1 && (
+                              <div className={`w-16 h-0.5 mx-2 ${isPast ? "bg-gray-300" : "bg-[#17464F]/20"}`} />
+                            )}
                           </div>
-                          {index < arr.length - 1 && (
-                            <div className={`w-16 h-0.5 mx-2 ${isPast ? "bg-gray-300" : "bg-[#17464F]/20"}`} />
-                          )}
-                        </div>
-                      )
-                    })}
+                        )
+                      })}
+                    </div>
+                  </div>
+                  <div className="text-center mt-4">
+                    <button
+                      onClick={() => setTimelineExpanded(!timelineExpanded)}
+                      className="text-sm text-[#17464F] hover:text-[#D4B483] transition-colors underline"
+                    >
+                      {timelineExpanded ? "收起" : "展開全部 12 個階段"}
+                    </button>
                   </div>
                 </div>
-                <div className="text-center mt-4">
+
+                {/* Mobile: 垂直卡片 */}
+                <div className="md:hidden space-y-3">
+                  {(showAllStagesMobile ? stages : collapsedStagesMobile).map((stage) => {
+                    const now = new Date()
+                    const isPast = now > stage.endAt
+                    const isCurrent = now >= stage.startAt && now <= stage.endAt
+                    const isNext =
+                      !isCurrent &&
+                      !isPast &&
+                      stages.findIndex((s) => s.id === stage.id) ===
+                        stages.findIndex((s) => now >= s.startAt && now <= stage.endAt) + 1
+                    const isOriginal = stage.id === "stage_12"
+
+                    return (
+                      <div
+                        key={stage.id}
+                        className={`p-4 rounded-xl border ${
+                          isCurrent
+                            ? "border-[#D4B483] bg-[#D4B483]/10"
+                            : isNext
+                              ? "border-[#17464F] bg-[#17464F]/5"
+                              : isPast
+                                ? "border-gray-200 bg-gray-50"
+                                : isOriginal
+                                  ? "border-[#A06E56]/50 bg-[#A06E56]/5"
+                                  : "border-[#17464F]/20 bg-white"
+                        }`}
+                      >
+                        <div className="flex justify-between items-center">
+                          <div>
+                            <div
+                              className={`font-medium ${
+                                isCurrent
+                                  ? "text-[#D4B483]"
+                                  : isNext
+                                    ? "text-[#17464F] font-bold"
+                                    : isPast
+                                      ? "text-gray-400"
+                                      : isOriginal
+                                        ? "text-[#A06E56]"
+                                        : "text-[#17464F]"
+                              }`}
+                            >
+                              {stage.name}
+                              {isCurrent && <span className="ml-2 text-xs">(目前)</span>}
+                              {isNext && <span className="ml-2 text-xs">(下一階段)</span>}
+                            </div>
+                            <div className={`text-sm ${isPast ? "text-gray-400" : "text-[#33393C]/70"}`}>
+                              {stage.discountLabel} · ~{stage.endAt.getMonth() + 1}/{stage.endAt.getDate()}
+                            </div>
+                          </div>
+                          <div className={`text-right ${isPast ? "text-gray-400" : "text-[#17464F]"}`}>
+                            <div className="text-sm font-bold">
+                              NT$ {formatPrice(stage.prices.selfMedia.stagePrice)}
+                            </div>
+                            <div className="text-xs">單線起</div>
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  })}
                   <button
-                    onClick={() => setTimelineExpanded(!timelineExpanded)}
-                    className="text-sm text-[#17464F] hover:text-[#D4B483] transition-colors underline"
+                    onClick={() => setShowAllStagesMobile(!showAllStagesMobile)}
+                    className="w-full py-3 text-sm text-[#17464F] hover:text-[#D4B483] transition-colors underline"
                   >
-                    {timelineExpanded ? "收起" : "展開全部 12 個階段"}
+                    {showAllStagesMobile ? "收起" : "展開看全部"}
                   </button>
                 </div>
               </div>
-
-              {/* Mobile: 垂直卡片 */}
-              <div className="md:hidden space-y-3">
-                {(showAllStagesMobile ? stages : collapsedStagesMobile).map((stage) => {
-                  const now = new Date()
-                  const isPast = now > stage.endAt
-                  const isCurrent = now >= stage.startAt && now <= stage.endAt
-                  const isNext =
-                    !isCurrent &&
-                    !isPast &&
-                    stages.findIndex((s) => s.id === stage.id) ===
-                      stages.findIndex((s) => now >= s.startAt && now <= stage.endAt) + 1
-                  const isOriginal = stage.id === "stage_12"
-
-                  return (
-                    <div
-                      key={stage.id}
-                      className={`p-4 rounded-xl border ${
-                        isCurrent
-                          ? "border-[#D4B483] bg-[#D4B483]/10"
-                          : isNext
-                            ? "border-[#17464F] bg-[#17464F]/5"
-                            : isPast
-                              ? "border-gray-200 bg-gray-50"
-                              : isOriginal
-                                ? "border-[#A06E56]/50 bg-[#A06E56]/5"
-                                : "border-[#17464F]/20 bg-white"
-                      }`}
-                    >
-                      <div className="flex justify-between items-center">
-                        <div>
-                          <div
-                            className={`font-medium ${
-                              isCurrent
-                                ? "text-[#D4B483]"
-                                : isNext
-                                  ? "text-[#17464F] font-bold"
-                                  : isPast
-                                    ? "text-gray-400"
-                                    : isOriginal
-                                      ? "text-[#A06E56]"
-                                      : "text-[#17464F]"
-                            }`}
-                          >
-                            {stage.name}
-                            {isCurrent && <span className="ml-2 text-xs">(目前)</span>}
-                            {isNext && <span className="ml-2 text-xs">(下一階段)</span>}
-                          </div>
-                          <div className={`text-sm ${isPast ? "text-gray-400" : "text-[#33393C]/70"}`}>
-                            {stage.discountLabel} · ~{stage.endAt.getMonth() + 1}/{stage.endAt.getDate()}
-                          </div>
-                        </div>
-                        <div className={`text-right ${isPast ? "text-gray-400" : "text-[#17464F]"}`}>
-                          <div className="text-sm font-bold">NT$ {formatPrice(stage.prices.selfMedia.stagePrice)}</div>
-                          <div className="text-xs">單線起</div>
-                        </div>
-                      </div>
-                    </div>
-                  )
-                })}
-                <button
-                  onClick={() => setShowAllStagesMobile(!showAllStagesMobile)}
-                  className="w-full py-3 text-sm text-[#17464F] hover:text-[#D4B483] transition-colors underline"
-                >
-                  {showAllStagesMobile ? "收起" : "展開看全部"}
-                </button>
-              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </section>
   )
 }
