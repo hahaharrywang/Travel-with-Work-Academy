@@ -49,9 +49,8 @@ export function SuccessStoriesSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#17464F] mb-6 text-balance">
-            學員真實成果
-          </h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#17464F] mb-2 text-balance">學員真實成果</h2>
+          <p className="text-lg sm:text-xl font-medium text-[#D4B483] mb-6">因為加入了學院，開始有了不一樣。</p>
           {/* Decorative gold line */}
           <div className="flex justify-center mb-6">
             <div className="w-24 h-0.5 bg-[#D4B483]"></div>
@@ -62,11 +61,6 @@ export function SuccessStoriesSection() {
             有人從沒有作品集，到做出第一個 side
             project；有人開啟自媒體變現；有人第一次帶著工作出國旅居，找到了自己想過的生活樣子。
           </p>
-        </div>
-
-        {/* Small Title */}
-        <div className="text-center mb-8">
-          <p className="text-sm sm:text-base font-medium text-[#D4B483] tracking-wide">真實案例｜他們也是從零開始</p>
         </div>
 
         {/* Desktop: Grid Layout (lg and above) */}
