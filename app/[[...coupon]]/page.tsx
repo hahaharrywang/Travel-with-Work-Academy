@@ -1123,7 +1123,7 @@ export default function HomePage() {
 
               <div className="text-center">
                 <a
-                  href="https://www.instagram.com/elsacampus/"
+                  href="https://www.instagram.com/twnomadacademy/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block hover:scale-105 transition-transform duration-200"
