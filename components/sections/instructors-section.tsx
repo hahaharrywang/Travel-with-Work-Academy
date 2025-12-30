@@ -22,6 +22,16 @@ export function InstructorsSection({ instructors }: InstructorsSectionProps) {
   const renderInstructorCard = (instructor: Instructor, ringColor = "ring-[#17464F]/20") => (
     <div className="group text-center">
       <div className="relative mb-4">
+        {instructor.name === "工具王阿璋" && (
+          <div className="absolute -top-2 left-1/2 -translate-x-1/2 z-10">
+            <span className="inline-flex items-center gap-1 px-3 py-1 bg-[#D4B483] text-white text-xs font-semibold rounded-full shadow-md">
+              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+              </svg>
+              Week 3 講師
+            </span>
+          </div>
+        )}
         <a
           href={instructor.link}
           target="_blank"

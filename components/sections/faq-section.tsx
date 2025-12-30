@@ -76,8 +76,49 @@ const faqData: FAQCategory[] = [
       },
       {
         question: "可以中途換線、改成雙線並進嗎？",
-        answer:
-          "可以。如果你在前 1.5個月，發現另一條線路更適合自己，可以申請換線或升級成雙線並進方案。我們希望你選到真正適合的路，而不是被綁在一開始的選擇。",
+        answer: (
+          <>
+            <p className="mb-4">可以。我們設計了彈性的探索機制，讓你有充分時間體驗後再做決定：</p>
+
+            <div className="space-y-4 text-sm">
+              <div>
+                <h4 className="font-bold text-[#17464F] mb-1.5 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]" />
+                  先上車再選線（Explorer Month）
+                </h4>
+                <p className="text-[#33393C]/80 pl-3.5">
+                  第 1 個月會先進行共同必修課程，讓所有學員一起打基礎。到了第 4
+                  週決策週，你可以根據這段時間的學習體驗，正式決定要走哪條主線。
+                </p>
+              </div>
+
+              <div>
+                <h4 className="font-bold text-[#17464F] mb-1.5 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]" />
+                  免費換線機會
+                </h4>
+                <p className="text-[#33393C]/80 pl-3.5">
+                  在第 4 週前，如果你發現另一條線路更適合自己，可以申請<strong>免費換線 1 次</strong>
+                  （以名額為準）。我們希望你選到真正適合的路，而不是被綁在一開始的選擇。
+                </p>
+              </div>
+
+              <div>
+                <h4 className="font-bold text-[#17464F] mb-1.5 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]" />
+                  升級雙線並進
+                </h4>
+                <p className="text-[#33393C]/80 pl-3.5 mb-2">
+                  如果你在探索期發現兩條路都想走，可以在<strong>第 4 週決策週時加購升級</strong>
+                  成雙線並進方案。這樣你就能同時參與兩條路線的所有課程與資源。
+                </p>
+                <p className="text-xs text-[#33393C]/60 pl-3.5">
+                  ※ 第 4 週截止後路線將鎖定，以確保分組與學習體驗的品質。
+                </p>
+              </div>
+            </div>
+          </>
+        ),
       },
     ],
   },

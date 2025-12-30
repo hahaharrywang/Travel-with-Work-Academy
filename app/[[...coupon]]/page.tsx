@@ -552,12 +552,28 @@ export default function HomePage() {
 
               <div className="space-y-3 text-left max-w-xl mx-auto lg:mx-0">
                 <div className="flex items-start gap-3">
+                  <svg
+                    className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    />
+                  </svg>
+                  <p className="text-white/90">雙軌資源：上班線與接案線的完整課程、工具與模板資源庫</p>
+                </div>
+                <div className="flex items-start gap-3">
                   <TrendingUp className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
                   <p className="text-white/90">路線清楚：梳理你的遠距遊牧藍圖與下一步行動</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <FileText className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">成果可交付：完成履歷、作品集、個人頁面等可見成果</p>
+                  <p className="text-white/90">成果可交付：完成履歷、接案作品集、個人頁面等可見成果</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <Users className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
@@ -1478,7 +1494,7 @@ export default function HomePage() {
                     <ul className="space-y-1 pl-4">
                       <li>• 遠距遊牧概論＆目標設定</li>
                       <li>• AI ＆ 自動化工作流</li>
-                      <li>• 知識變現、財務規劃、人生運作系統、人生溝通SOP</li>
+                      <li>• 知識變現、財務規劃、人生溝通SOP</li>
                       <li>• 每月月底學習交流會</li>
                     </ul>
                   </div>
@@ -1669,112 +1685,145 @@ export default function HomePage() {
           {/* Tab Content: 我還不確定 */}
           {activeMapTab === "我還不確定" && (
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 animate-in fade-in duration-300">
-              {/* 卡片 1 */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">還沒決定路線也沒關係</h3>
-                <div className="text-[#33393C] text-sm leading-relaxed space-y-3">
-                  <p>很多人加入學院時，也其實不清楚：「我適合遠端上班，還是自媒接案？」</p>
-                  <p>這是正常的，兩條路線同時嘗試，能幫助你快速拓展可能性</p>
-                  <ul className="space-y-2">
-                    <li>
-                      <span className="font-semibold text-[#17464F]">階段一 起步打底：</span>
-                      先幫你釐清方向，盤點資源。
-                    </li>
-                    <li>
-                      <span className="font-semibold text-[#17464F]">階段二 出擊試水：</span>
-                      真的做出履歷或作品集、並與市場接觸，透過行動開始驗證什麼適合自己。
-                    </li>
-                    <li>
-                      <span className="font-semibold text-[#17464F]">Phase 3 累積整合：</span>
-                      用復盤、財務視角與人生 SOP，決定方向、並把這些行動整理成你自己的可持續成長習慣。
-                    </li>
-                  </ul>
-                  <p className="text-[#A06E56] font-medium pt-1">
-                    選雙軌路線，你會上完兩條線的必修，從遠端上班到自媒體接案都走一輪，只有試過才知道自己真正適合什麼。
+              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex flex-col">
+                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">先選一條路線開始，就夠了</h3>
+                <div className="text-[#33393C] text-sm leading-relaxed space-y-3 flex-1">
+                  <p className="font-medium text-[#17464F]">很多人加入學院時，其實也不確定：</p>
+                  <p className="pl-3 border-l-2 border-[#D4B483] italic text-[#17464F]">
+                    「我更適合遠端上班？還是自媒體接案？」
+                  </p>
+                  <p>
+                    這很正常——因為你缺的是
+                    <span className="font-semibold text-[#17464F]">用行動試過一輪</span>。
+                  </p>
+
+                  <div className="pt-3 pb-3 space-y-2">
+                    <p>
+                      報名時先選一條你
+                      <span className="font-semibold text-[#17464F]">「現在最想嘗試」</span>
+                      的路線開始走。
+                    </p>
+                    <p>
+                      不用擔心選錯——
+                      <span className="font-semibold text-[#D4B483]">第 3–4 週你會有機會探索另一條線</span>
+                      ，再做更確定的決定。
+                    </p>
+                  </div>
+
+                  <div className="pt-3 space-y-2">
+                    <div className="flex items-start gap-3">
+                      <svg
+                        className="w-5 h-5 text-[#D4B483] flex-shrink-0 mt-0.5"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <div>
+                        <p className="text-[#33393C]">如果你真的很不確定，我們第一推薦是：</p>
+                        <p className="font-bold text-[#D4B483] text-base mt-1">直接選雙軌並進</p>
+                        <p className="text-xs text-[#33393C]/80 mt-1">
+                          因為你不用猜，你會用實際行動比較，務實地看見自己適合哪一條路。
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex flex-col">
+                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">第 3-4 週的彈性探索</h3>
+                <div className="text-[#33393C] text-sm leading-relaxed space-y-4 flex-1">
+                  <p>
+                    第一個月 3 & 4 週，已經單路線加入的正式學員會有機會
+                    <span className="font-semibold text-[#17464F]">免費試上另一條線的「起步課」</span>。
+                  </p>
+                  <p>用過來者經驗與實際藍圖，讓你知道自己更被哪條路點燃、也更做得下去。</p>
+
+                  {/* Highlight區塊 - 兩堂試上課程 */}
+                  <div className="space-y-3 pt-2">
+                    <div className="relative bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-xl p-4 text-white">
+                      <div className="absolute top-3 right-3 bg-[#D4B483] text-[#17464F] text-xs font-bold px-2.5 py-1 rounded-full">
+                        Week 3
+                      </div>
+                      <p className="font-semibold text-sm mb-1">自媒體接案變現地圖</p>
+                      <p className="text-xs opacity-90">& 目標設定</p>
+                    </div>
+
+                    <div className="relative bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-xl p-4 text-white">
+                      <div className="absolute top-3 right-3 bg-[#D4B483] text-[#17464F] text-xs font-bold px-2.5 py-1 rounded-full">
+                        Week 4
+                      </div>
+                      <p className="font-semibold text-sm mb-1">遠端自由職涯藍圖</p>
+                      <p className="text-xs opacity-90">& 目標設定</p>
+                    </div>
+                  </div>
+
+                  <p className="text-xs text-[#33393C]/70 pt-2 italic border-t border-slate-200">
+                    試過，你會更確信：哪條路最適合成為你接下來幾個月的主線。
                   </p>
                 </div>
               </div>
 
-              {/* 卡片 2 */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">不管最後選哪條路，你至少會得到…</h3>
-                <div className="text-[#33393C] text-sm leading-relaxed space-y-3">
-                  <div>
-                    <span className="font-semibold text-[#17464F]">階段一 起步打底：</span>
-                    一份重新盤點過的「職涯＆接案能力地圖」，並知道自己手上有哪些可以被好好使用的資源。
-                  </div>
-                  <div>
-                    <span className="font-semibold text-[#17464F]">階段二 出擊試水：</span>
-                    更新過、可以拿去投遞的遠距友善履歷及遠距求職策略，以及可以拿去接案用的作品集。你現在已經準備好真的在各種可能性中穿梭、試水溫。
-                  </div>
-                  <div>
-                    <span className="font-semibold text-[#17464F]">階段三 累積整合：</span>
-                    一套適合自己的 AI＋自學工作流與人生 SOP，把你學到的東西變成可重複使用的習慣與流程。
-                  </div>
-                  <div>
-                    <span className="font-semibold text-[#D4B483]">貫穿三個階段：</span>
-                    開闊認知、踏出行動，一次「從好奇到行動」的探索旅程。與大家一起探索著未知。
-                  </div>
-                </div>
-              </div>
-
-              {/* 共用卡片：共同必修 & 選修 */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="w-8 h-8 bg-[#C9D7D4] rounded-full flex items-center justify-center">
-                    <svg className="w-4 h-4 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                      />
-                    </svg>
-                  </div>
-                  <h3 className="text-lg font-bold text-[#17464F]">共同必修 & 選修</h3>
-                </div>
-                <div className="text-[#33393C] text-xs leading-relaxed space-y-4">
-                  <div className="space-y-2">
-                    <div className="flex flex-nowrap items-center gap-2">
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-[#17464F] text-white text-[10px] sm:text-xs font-semibold rounded-full whitespace-nowrap flex-shrink-0">
-                        <svg className="w-3 h-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex flex-col">
+                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">獲得彈性 & 節奏</h3>
+                <div className="text-[#33393C] text-sm leading-relaxed space-y-4 flex-1">
+                  <div className="space-y-3">
+                    {/* 規則 1 */}
+                    <div className="flex items-start gap-3 p-3 bg-[#F5F3ED] rounded-lg">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F] flex items-center justify-center mt-0.5">
+                        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                           <path
                             fillRule="evenodd"
                             d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                             clipRule="evenodd"
                           />
                         </svg>
-                        共同必修
-                      </span>
-                      <span className="text-[#33393C]/70 text-[10px] sm:text-xs">共同必修 & 選修</span>
+                      </div>
+                      <div className="flex-1">
+                        <p className="font-semibold text-[#17464F] mb-1">第 4 週前可免費換線 1 次</p>
+                        <p className="text-xs text-[#33393C]/80">以名額為準</p>
+                      </div>
                     </div>
-                    <ul className="space-y-1 pl-4">
-                      <li>• 遠距遊牧概論＆目標設定</li>
-                      <li>• AI ＆ 自動化工作流</li>
-                      <li>• 知識變現、財務規劃、人生 SOP</li>
-                      <li>• 每月月底學習交流會</li>
-                    </ul>
+
+                    {/* 規則 2 */}
+                    <div className="flex items-start gap-3 p-3 bg-[#F5F3ED] rounded-lg">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F] flex items-center justify-center mt-0.5">
+                        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </div>
+                      <div className="flex-1">
+                        <p className="font-semibold text-[#17464F]">覺得兩條都想走？</p>
+                        <p className="text-xs text-[#33393C]/90 mt-1">Week 4 可加購升級雙線</p>
+                      </div>
+                    </div>
+
+                    {/* 規則 3 - 使用較淡色 */}
+                    <div className="flex items-start gap-3 p-3 bg-[#F5F3ED]/50 rounded-lg border border-slate-200">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#33393C]/30 flex items-center justify-center mt-0.5">
+                        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path
+                            fillRule="evenodd"
+                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </div>
+                      <div className="flex-1">
+                        <p className="font-semibold text-[#33393C]/70">第 4 週後鎖定路線</p>
+                        <p className="text-xs text-[#33393C]/60 mt-1">（確保分組與學習體驗更聚焦）</p>
+                      </div>
+                    </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <div className="flex flex-nowrap items-center gap-2">
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-[#D4B483] text-white text-[10px] sm:text-xs font-semibold rounded-full whitespace-nowrap flex-shrink-0">
-                        <svg className="w-3 h-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                        選修
-                      </span>
-                      <span className="text-[#33393C]/70 text-[10px] sm:text-xs">依據個別需求，額外加速成長：</span>
-                    </div>
-                    <ul className="space-y-1 pl-4">
-                      <li>• 短影音剪輯、素材拍攝技巧</li>
-                      <li>• 網頁製作＆銷售漏斗</li>
-                      <li>• 商業思維、口播價值銷售攻略</li>
-                      <li>• AI vibe coding、n8n 自動化工作流</li>
-                      <li>• Coffee Chat</li>
-                    </ul>
-                    <p className="text-[#A06E56] font-medium pt-1">
-                      這些節奏貫穿三階段，讓你能整合思考、也能主動出擊。
+                  <div className="pt-3 border-t border-slate-200">
+                    <p className="text-xs text-[#D4B483] italic leading-relaxed">
+                      你不用一開始就做完美選擇，但我們會讓你在正確的時間點做出決定。
                     </p>
                   </div>
                 </div>
@@ -1911,26 +1960,32 @@ export default function HomePage() {
                                         <div className="flex-1"></div>
 
                                         <div className="flex items-center justify-between mt-auto pt-3 border-t border-[#C9D7D4]/30">
-                                          <div className="flex items-center -space-x-2">
-                                            {week.instructors.slice(0, 3).map((instructor, idx) => (
-                                              <div
-                                                key={idx}
-                                                className="w-6 h-6 rounded-full overflow-hidden border-2 border-white"
-                                              >
-                                                <Image
-                                                  src={instructor.image || "/placeholder.svg"}
-                                                  alt={instructor.name}
-                                                  width={24}
-                                                  height={24}
-                                                  className="w-full h-full object-cover"
-                                                />
-                                              </div>
-                                            ))}
-                                            {week.instructors.length > 3 && (
-                                              <span className="text-xs text-gray-500 ml-2">
-                                                +{week.instructors.length - 3}
-                                              </span>
-                                            )}
+                                          <div className="flex items-center gap-2">
+                                            <div className="flex items-center -space-x-2">
+                                              {week.instructors.slice(0, 3).map((instructor, idx) => (
+                                                <div
+                                                  key={idx}
+                                                  className="w-6 h-6 rounded-full overflow-hidden border-2 border-white"
+                                                >
+                                                  <Image
+                                                    src={instructor.image || "/placeholder.svg"}
+                                                    alt={instructor.name}
+                                                    width={24}
+                                                    height={24}
+                                                    className="w-full h-full object-cover"
+                                                  />
+                                                </div>
+                                              ))}
+                                            </div>
+                                            <span className="text-xs text-[#33393C]/70">
+                                              {week.instructors.length === 1
+                                                ? week.instructors[0].name === "講師確認中"
+                                                  ? "待公開"
+                                                  : week.instructors[0].name
+                                                : week.instructors.length > 1
+                                                  ? `${week.instructors[0].name === "講師確認中" ? "待公開" : week.instructors[0].name} 等 ${week.instructors.length} 位`
+                                                  : ""}
+                                            </span>
                                           </div>
                                           <ChevronRight className="w-4 h-4 text-[#17464F]/50" />
                                         </div>
@@ -2034,7 +2089,7 @@ export default function HomePage() {
             >
               <div className="w-10 h-10 rounded-full bg-[#06C755] flex items-center justify-center group-hover:scale-110 transition-transform">
                 <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" />
+                  <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63-.63-.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.345 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" />
                 </svg>
               </div>
               <div className="text-left">

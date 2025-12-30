@@ -67,9 +67,9 @@ export const calendarData: CalendarWeek[] = [
       "核心內容\n• 盤點你可行的收入來源（不只接案：也包含多種商業可能）\n• 定義你「提供什麼價值」與「適合誰」的清晰版本\n• 把目標拆成可追蹤的指標＋每週固定節奏（讓努力不再散）\n\n行動任務\n• 列出可能性與優先順序，並設定成果指標\n• 了解自己的成長節奏",
     instructors: [
       {
-        name: "講師確認中",
-        image: "/images/academy-logo-placeholder.png",
-        title: "本梯次講師將陸續公布",
+        name: "工具王阿璋",
+        image: "/images/e5-b7-a5-e5-85-b7-e7-8e-8b-e5-95-8a-e7-92-8b.png",
+        title: "『阿璋遊牧』電子報創辦人、數位遊牧陪跑計劃創辦人、IP 經營者",
       },
     ],
   },
