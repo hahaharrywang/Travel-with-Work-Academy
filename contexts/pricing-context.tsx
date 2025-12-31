@@ -63,7 +63,7 @@ export const stages: Stage[] = [
       dualLine: { original: 22500, stagePrice: 11500, savingAmount: 11000 },
     },
     checkoutUrls: {
-      dualLine: "https://travelworkacademy.myteachify.com/checkout?planId=5331ba64-9297-4ba1-a09d-e6b8852b3fe4",
+      dualLine: "https://travelworkacademy.myteachify.com/checkout?planId=09b36f1b-e7ab-456c-9cac-d420110dd436",
       remoteJob: "https://travelworkacademy.myteachify.com/checkout?planId=b9efa332-5c16-4e54-9398-c3c600a12162",
       selfMedia: "https://travelworkacademy.myteachify.com/checkout?planId=852c37ff-4a5c-454e-8a7f-4a1081041660",
     },
