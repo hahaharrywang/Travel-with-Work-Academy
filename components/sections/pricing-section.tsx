@@ -5,7 +5,11 @@ import { Button } from "@/components/ui/button"
 import { usePricing, formatPrice, stages } from "@/contexts/pricing-context"
 import { X } from "lucide-react"
 
-export function PricingSection() {
+interface PricingSectionProps {
+  onTimelineModalChange?: (isOpen: boolean) => void
+}
+
+export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
   const { currentStageData, timeLeft, selectedPlanId, setSelectedPlanId, getCheckoutURLWithTracking } = usePricing()
   const [timelineExpanded, setTimelineExpanded] = useState(false)
   const [showAllStagesMobile, setShowAllStagesMobile] = useState(false)
@@ -63,6 +67,16 @@ export function PricingSection() {
     return [...indices].sort((a, b) => a - b).map((i) => stages[i])
   }, [])
 
+  const handleTimelineModalOpen = () => {
+    setShowTimelineModal(true)
+    onTimelineModalChange?.(true)
+  }
+
+  const handleTimelineModalClose = () => {
+    setShowTimelineModal(false)
+    onTimelineModalChange?.(false)
+  }
+
   return (
     <section id="pricing-section" className="py-16 sm:py-24 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -103,7 +117,7 @@ export function PricingSection() {
               </p>
               {/* Button to open timeline modal */}
               <button
-                onClick={() => setShowTimelineModal(true)}
+                onClick={handleTimelineModalOpen}
                 className="text-sm text-white/70 hover:text-[#D4B483] transition-colors underline underline-offset-4"
               >
                 查看漲價時間軸
@@ -374,18 +388,15 @@ export function PricingSection() {
 
         {/* Timeline Modal */}
         {showTimelineModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
             {/* Backdrop */}
-            <div
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-              onClick={() => setShowTimelineModal(false)}
-            />
+            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={handleTimelineModalClose} />
 
             {/* Modal Content */}
-            <div className="relative bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="relative bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto pb-20 md:pb-6">
               {/* Close Button */}
               <button
-                onClick={() => setShowTimelineModal(false)}
+                onClick={handleTimelineModalClose}
                 className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition-colors z-10"
               >
                 <X className="w-5 h-5 text-[#33393C]" />

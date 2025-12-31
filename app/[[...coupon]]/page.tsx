@@ -1,7 +1,5 @@
 "use client"
 
-import { useParams } from "next/navigation"
-
 import { useState, useEffect, useCallback, useRef, Suspense } from "react" // Import useRef
 import Image from "next/image"
 import { ChevronDown, ChevronUp, X, TrendingUp, FileText, Users, ChevronRight, ChevronLeft, Mail } from "lucide-react"
@@ -49,8 +47,7 @@ import { instructors } from "@/data/instructors"
 //   return couponCode ? `${baseURL}&coupon=${encodeURIComponent(couponCode)}` : baseURL
 // }
 
-export default function HomePage() {
-  const params = useParams()
+export default function LandingPage({ params }: { params: { coupon?: string | string[] } }) {
   const [couponCode, setCouponCode] = useState<string | null>(null)
   const [activeMapTab, setActiveMapTab] = useState<string>("遠端上班") // State for Learning Map tabs
   const [selectedWeek, setSelectedWeek] = useState<CalendarWeek | null>(null)
@@ -303,6 +300,18 @@ export default function HomePage() {
   // Add state for dialogs
   const [openDialog, setOpenDialog] = useState<number | null>(null)
 
+  const [pricingTimelineModalOpen, setPricingTimelineModalOpen] = useState(false)
+  const [faqPriceDiffModalOpen, setFaqPriceDiffModalOpen] = useState(false)
+
+  const isAnyModalOpen =
+    isGalleryOpen ||
+    selectedWeek !== null ||
+    featureDialogOpen !== null ||
+    openDialog !== null ||
+    showCalendarModal ||
+    pricingTimelineModalOpen ||
+    faqPriceDiffModalOpen
+
   const toggleWeekExpansion = (weekId: number) => {
     setExpandedWeeks((prev) => {
       const newSet = new Set(prev)
@@ -485,7 +494,7 @@ export default function HomePage() {
   }
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white pb-24 md:pb-0">
       <AnnouncementBar scrollToPricing={scrollToPricing} />
       {/* SECTION 1 HERO START */}
       <section className="relative min-h-screen flex items-center overflow-hidden bg-[#17464F]">
@@ -1426,7 +1435,7 @@ export default function HomePage() {
 
               {/* 卡片 2 */}
               <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">路線必修課程</h3>
+                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">路線必修課程是什麼？</h3>
                 <div className="space-y-4">
                   {/* Phase 1 */}
                   <div className="border-l-3 border-[#D4B483] pl-3">
@@ -1510,14 +1519,15 @@ export default function HomePage() {
                       <span className="text-[#33393C]/70 text-[10px] sm:text-xs">依據個別需求，額外加速成長：</span>
                     </div>
                     <ul className="space-y-1 pl-4">
-                      <li>• 線上面試、工作英語口說</li>
-                      <li>• Coffee Chat</li>
-                      <li>• 商業思維、口播價值銷售攻略</li>
-                      <li>• AI vibe coding、n8n 自動化工作流</li>
                       <li>• 短影音剪輯、素材拍攝技巧</li>
                       <li>• 網頁製作＆銷售漏斗</li>
+                      <li>• 商業思維、口播價值銷售攻略</li>
+                      <li>• AI vibe coding、n8n 自動化工作流</li>
+                      <li>• Coffee Chat</li>
                     </ul>
-                    <p className="text-[#A06E56] font-medium pt-1">這些節奏貫穿三階段，讓你能整合、也能主動出擊。</p>
+                    <p className="text-[#A06E56] font-medium pt-1">
+                      這些節奏貫穿三階段，讓你能整合思考、也能主動出擊。
+                    </p>
                   </div>
                 </div>
               </div>
@@ -1583,7 +1593,7 @@ export default function HomePage() {
 
               {/* 卡片 2 */}
               <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">必修課程是什麼？</h3>
+                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">路線必修課程是什麼？</h3>
                 <div className="space-y-4">
                   {/* Phase 1 */}
                   <div className="border-l-3 border-[#D4B483] pl-3">
@@ -1717,7 +1727,11 @@ export default function HomePage() {
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
                       </svg>
                       <div>
                         <p className="text-[#33393C]">如果你真的很不確定，我們第一推薦是：</p>
@@ -2034,13 +2048,17 @@ export default function HomePage() {
 
       {/* PRICING SECTION */}
       <section id="pricing-section" className="pt-0 pb-0 bg-[#17464F] relative overflow-hidden">
-        <PricingSection />
+        {/* CHANGE: Pass modal states to child components and track when they open/close */}
+        <PricingSection onTimelineModalChange={setPricingTimelineModalOpen} />
       </section>
 
       {/* LIMITED OFFER SECTION */}
 
       {/* FAQ SECTION */}
-      <FAQSection />
+      <FAQSection
+        // CHANGE: Pass modal state to FAQ section
+        onPriceDiffModalChange={setFaqPriceDiffModalOpen}
+      />
 
       {/* FOOTER */}
       <footer className="py-12 bg-[#17464F] text-white">
@@ -2240,9 +2258,9 @@ export default function HomePage() {
             <div className="flex items-center gap-3 mb-4">
               <span className="text-sm font-bold text-[#17464F]">{selectedWeek.monthWeek}</span>
               <span
-                className={`px-2 py-0.5 text-xs rounded ${getTrackColor(selectedWeek.track).bg} ${
-                  getTrackColor(selectedWeek.track).text
-                }`}
+                className={`px-2 py-0.5 text-xs rounded ${
+                  getTrackColor(selectedWeek.track).bg
+                } ${getTrackColor(selectedWeek.track).text}`}
               >
                 {selectedWeek.track}
               </span>
@@ -2439,8 +2457,8 @@ export default function HomePage() {
         </div>
       )}
 
-      <StickyBottomBar scrollToPricing={scrollToPricing} />
-      {/* CHANGE: Add floating social media buttons */}
+      {/* CHANGE: Pass isAnyModalOpen to hide bottom bar when modals are open */}
+      <StickyBottomBar scrollToPricing={scrollToPricing} isHidden={isAnyModalOpen} />
       <FloatingSocialButtons />
     </main>
   )

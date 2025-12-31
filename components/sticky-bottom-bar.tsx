@@ -12,12 +12,15 @@ const planConfig: Record<PlanId, { name: string; checkoutId: string }> = {
 
 interface StickyBottomBarProps {
   scrollToPricing: () => void
+  isHidden?: boolean
 }
 
-export function StickyBottomBar({ scrollToPricing }: StickyBottomBarProps) {
+export function StickyBottomBar({ scrollToPricing, isHidden = false }: StickyBottomBarProps) {
   const { currentStageData, timeLeft, lowestPrice, selectedPlanId, getCheckoutURLWithTracking } = usePricing()
 
   if (!currentStageData) return null
+
+  if (isHidden) return null
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white border-t border-[#C9D7D4] shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
@@ -26,7 +29,7 @@ export function StickyBottomBar({ scrollToPricing }: StickyBottomBarProps) {
           <div className="flex items-center justify-center gap-2 text-xs text-[#33393C] mb-2">
             <span className="text-[#D4B483] font-bold">{currentStageData.name}</span>
             <span>·</span>
-              <span>{currentStageData.discountLabel}</span>
+            <span>{currentStageData.discountLabel}</span>
             <span>·</span>
             <span>
               倒數{" "}
