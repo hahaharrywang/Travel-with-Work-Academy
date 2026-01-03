@@ -81,43 +81,7 @@ const faqData: FAQCategory[] = [
       },
       {
         question: "報名時先選了一條主線，可以中途換線嗎？",
-        answer: (
-          <>
-            <p className="mb-4">可以。為了讓你真的選到適合自己的路，我們在前 4 週設計了「探索 + 決策」機制：</p>
-
-            <div className="space-y-4 text-sm">
-              <div>
-                <h4 className="font-bold text-[#17464F] mb-1.5 flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]" />第 3–4 週會有試上機會
-                </h4>
-                <ul className="text-[#33393C]/80 pl-3.5 space-y-1.5">
-                  <li>• 第 3 週課程：「自媒體接案變現地圖 & 目標設定」</li>
-                  <li>• 第 4 週課程：「遠端自由職涯藍圖 & 目標設定」</li>
-                </ul>
-                <p className="text-xs text-[#33393C]/60 pl-3.5 mt-2">
-                  （單路線學員會有機會試上另一條線的起步課，再做選擇）
-                </p>
-              </div>
-
-              <div>
-                <h4 className="font-bold text-[#17464F] mb-1.5 flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]" />第 4 週截止前可申請 1 次調整
-                </h4>
-                <p className="text-[#33393C]/80 pl-3.5">
-                  你可以選擇<strong>換線</strong>（單路線 A → 單路線 B），或<strong>加購升級成雙線並進</strong>（單路線
-                  → 雙路線）。
-                </p>
-                <p className="text-xs text-[#33393C]/60 pl-3.5 mt-2">
-                  ※ 第 4 週截止後路線將鎖定，以確保分組與學習體驗品質。
-                </p>
-              </div>
-            </div>
-          </>
-        ),
-      },
-      {
-        question: "換線 / 升級成雙線並進，需要多少費用？",
-        answer: <UpgradePricingAnswer />,
+        answer: <SwitchAndUpgradeAnswer />,
       },
     ],
   },
@@ -153,12 +117,7 @@ export function FAQSection({ onPriceDiffModalChange }: FAQSectionProps) {
               </h3>
               <div className="space-y-3">
                 {category.items.map((item, itemIndex) => {
-                  const answerContent =
-                    category.title === "內容與線路" && item.question === "換線 / 升級成雙線並進，需要多少費用？" ? (
-                      <UpgradePricingAnswer onModalChange={onPriceDiffModalChange} />
-                    ) : (
-                      item.answer
-                    )
+                  const answerContent = item.answer
 
                   return (
                     <details
@@ -188,7 +147,7 @@ export function FAQSection({ onPriceDiffModalChange }: FAQSectionProps) {
 
 export default FAQSection
 
-function UpgradePricingAnswer({ onModalChange }: UpgradePricingAnswerProps) {
+function SwitchAndUpgradeAnswer({ onModalChange }: UpgradePricingAnswerProps) {
   const [showModal, setShowModal] = useState(false)
 
   const handleModalOpen = () => {
@@ -203,61 +162,87 @@ function UpgradePricingAnswer({ onModalChange }: UpgradePricingAnswerProps) {
 
   return (
     <>
-      <p className="mb-4">我們的計算很簡單：「當初購買的價差 + 手續費」（手續費統一 NT$500）。</p>
+      <p className="mb-4">可以。為了讓你真的選到適合自己的路，我們在第一個月提供了「探索 + 重新決策」彈性：</p>
 
-      <div className="space-y-4 text-sm mb-4">
+      <div className="space-y-4 text-sm mb-5">
         <div>
           <h4 className="font-bold text-[#17464F] mb-1.5 flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]" />
-            換線（單路線 → 另一單路線）
+            <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]" />第 3、4 週會有試上別路課程的機會
+          </h4>
+          <ul className="text-[#33393C]/80 pl-3.5 space-y-1.5">
+            <li>• 第 3 週課程：「自媒體接案變現地圖 & 目標設定」</li>
+            <li>• 第 4 週課程：「遠端自由職涯藍圖 & 目標設定」</li>
+          </ul>
+          <p className="text-xs text-[#33393C]/60 pl-3.5 mt-2">（單路線學員會有機會試上另一條線的起步課，再做選擇）</p>
+        </div>
+
+        <div>
+          <h4 className="font-bold text-[#17464F] mb-1.5 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]" />第 4 週截止前可申請 1 次調整
           </h4>
           <p className="text-[#33393C]/80 pl-3.5">
-            兩條單路線價格相同，所以：
-            <br />
-            換線費用 = 0（價差）+ 500（手續費）= <strong className="text-[#17464F]">NT$500</strong>
+            你可以選擇<strong>換線</strong>（單路線 A → 單路線 B），或<strong>加購升級成雙線並進</strong>（單路線 →
+            雙路線）。
           </p>
-        </div>
-
-        <div>
-          <h4 className="font-bold text-[#17464F] mb-1.5 flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]" />
-            加購升級（單路線 → 雙路線）
-          </h4>
-          <p className="text-[#33393C]/80 pl-3.5 mb-2">
-            加購費用 = （你入學當時的「雙路線價格 - 單路線價格」）+ 500（手續費）
-          </p>
-          <p className="text-xs text-[#33393C]/60 pl-3.5 italic">
-            重點：看你「當初下單入學」落在哪個價格階段，不是你申請加購當天的價格。而且因為有固定手續費，所以加購會略高於當期價差——如果你本來就高度可能需要雙線，越早直接選雙線越划算。
+          <p className="text-xs text-[#33393C]/60 pl-3.5 mt-2">
+            ※ 申請截止後，後續路線將鎖定，以確保後續社群學習體驗品質。
           </p>
         </div>
       </div>
 
-      <div className="bg-[#F5F3ED] rounded-lg p-4 space-y-2 text-sm mb-4">
-        <p className="font-semibold text-[#17464F]">例子 1 ｜你在「夢想試飛價」入學</p>
-        <p className="text-xs text-[#33393C]/70">購買時間：2026/01/09 00:00:00 – 2026/01/22 23:59:59</p>
-        <p className="text-[#33393C]/80">
-          單 9,499／雙 12,999 → 價差 3,500
-          <br />
-          加購費用 = 3,500 + 500 = <strong className="text-[#17464F]">NT$4,000</strong>
-        </p>
-      </div>
+      <div className="border-t border-[#C9D7D4] pt-5 mt-5">
+        <h4 className="font-semibold text-[#17464F] mb-3">換線 / 升級費用如何計算？</h4>
+        <p className="mb-4 text-sm text-[#33393C]/80">計算方式：「當初購買的價差 + 手續費 NT$500」</p>
 
-      <div className="bg-[#F5F3ED] rounded-lg p-4 space-y-2 text-sm mb-4">
-        <p className="font-semibold text-[#17464F]">例子 2 ｜你在「雲端巡航價」入學</p>
-        <p className="text-xs text-[#33393C]/70">購買時間：2026/02/27 00:00:00 – 2026/03/12 23:59:59</p>
-        <p className="text-[#33393C]/80">
-          單 11,999／雙 16,399 → 價差 4,400
-          <br />
-          加購費用 = 4,400 + 500 = <strong className="text-[#17464F]">NT$4,900</strong>
-        </p>
-      </div>
+        <div className="space-y-3 text-sm mb-4">
+          <div className="bg-[#F5F3ED] rounded-lg p-3.5">
+            <h5 className="font-semibold text-[#17464F] mb-2">換線（單路線 → 另一單路線）</h5>
+            <p className="text-[#33393C]/80 text-xs mb-2">
+              兩條單路線價格相同，所以換線費用 = 0（價差）+ 500（手續費）={" "}
+              <strong className="text-[#17464F]">NT$500</strong>
+            </p>
+          </div>
 
-      <button
-        onClick={handleModalOpen}
-        className="w-full sm:w-auto px-6 py-2.5 bg-[#17464F] text-white rounded-lg hover:bg-[#1a5561] transition-colors text-sm font-medium"
-      >
-        查看完整加購價差表
-      </button>
+          <div className="bg-[#F5F3ED] rounded-lg p-3.5">
+            <h5 className="font-semibold text-[#17464F] mb-2">加購升級（單路線 → 雙路線）</h5>
+            <p className="text-[#33393C]/80 text-xs mb-2">
+              加購費用 = （你入學當時的「雙路線價格 - 單路線價格」）+ 500（手續費）
+            </p>
+            <p className="text-xs text-[#33393C]/60 italic">
+              重點：看你「當初下單入學」落在哪個價格階段，不是你申請加購當天的價格。因為有固定手續費，加購會略高於當期價差——如果你本來就高度可能需要雙線，越早直接選雙線越划算。
+            </p>
+          </div>
+        </div>
+
+        <div className="space-y-3 mb-4">
+          <div className="bg-white border border-[#C9D7D4] rounded-lg p-3.5 text-sm">
+            <p className="font-semibold text-[#17464F] mb-1">例子 1｜換線（在「夢想試飛價」入學）</p>
+            <p className="text-xs text-[#33393C]/60 mb-2">購買時間：2026/01/09 – 2026/01/22 23:59:59</p>
+            <p className="text-[#33393C]/80">
+              原本選自媒體接案線，想換成遠端上班線
+              <br />
+              換線費用 = 0 + 500 = <strong className="text-[#17464F]">NT$500</strong>
+            </p>
+          </div>
+
+          <div className="bg-white border border-[#C9D7D4] rounded-lg p-3.5 text-sm">
+            <p className="font-semibold text-[#17464F] mb-1">例子 2｜升級雙路線（在「雲端巡航價」入學）</p>
+            <p className="text-xs text-[#33393C]/60 mb-2">購買時間：2026/02/27 – 2026/03/12 23:59:59</p>
+            <p className="text-[#33393C]/80">
+              單路線 11,999／雙路線 16,399 → 價差 4,400
+              <br />
+              加購費用 = 4,400 + 500 = <strong className="text-[#17464F]">NT$4,900</strong>
+            </p>
+          </div>
+        </div>
+
+        <button
+          onClick={handleModalOpen}
+          className="mx-auto flex items-center justify-center px-6 py-2.5 bg-[#17464F] text-white rounded-lg hover:bg-[#1a5561] transition-colors text-sm font-medium"
+        >
+          查看完整加購價差表
+        </button>
+      </div>
 
       {showModal && (
         <div
@@ -297,7 +282,7 @@ function UpgradePricingAnswer({ onModalChange }: UpgradePricingAnswerProps) {
                   </thead>
                   <tbody className="divide-y divide-[#C9D7D4]/30">
                     <tr className="hover:bg-[#F5F3ED]/50">
-                      <td className="p-3 text-[#33393C]/80">2025/12/26 00:00:00 – 2026/01/08 23:59:59</td>
+                      <td className="p-3 text-[#33393C]/80">2025/12/26 – 2026/01/08 23:59:59</td>
                       <td className="p-3 text-[#33393C]">公開招生啟動價</td>
                       <td className="p-3 text-right text-[#33393C]">8,499</td>
                       <td className="p-3 text-right text-[#33393C]">11,500</td>
@@ -305,7 +290,7 @@ function UpgradePricingAnswer({ onModalChange }: UpgradePricingAnswerProps) {
                       <td className="p-3 text-right font-semibold text-[#D4B483]">3,501</td>
                     </tr>
                     <tr className="hover:bg-[#F5F3ED]/50">
-                      <td className="p-3 text-[#33393C]/80">2026/01/09 00:00:00 – 2026/01/22 23:59:59</td>
+                      <td className="p-3 text-[#33393C]/80">2026/01/09 – 2026/01/22 23:59:59</td>
                       <td className="p-3 text-[#33393C]">夢想試飛價</td>
                       <td className="p-3 text-right text-[#33393C]">9,499</td>
                       <td className="p-3 text-right text-[#33393C]">12,999</td>
@@ -313,7 +298,7 @@ function UpgradePricingAnswer({ onModalChange }: UpgradePricingAnswerProps) {
                       <td className="p-3 text-right font-semibold text-[#D4B483]">4,000</td>
                     </tr>
                     <tr className="hover:bg-[#F5F3ED]/50">
-                      <td className="p-3 text-[#33393C]/80">2026/01/23 00:00:00 – 2026/02/05 23:59:59</td>
+                      <td className="p-3 text-[#33393C]/80">2026/01/23 – 2026/02/05 23:59:59</td>
                       <td className="p-3 text-[#33393C]">打包行李價</td>
                       <td className="p-3 text-right text-[#33393C]">9,999</td>
                       <td className="p-3 text-right text-[#33393C]">13,699</td>
@@ -321,7 +306,7 @@ function UpgradePricingAnswer({ onModalChange }: UpgradePricingAnswerProps) {
                       <td className="p-3 text-right font-semibold text-[#D4B483]">4,200</td>
                     </tr>
                     <tr className="hover:bg-[#F5F3ED]/50">
-                      <td className="p-3 text-[#33393C]/80">2026/02/06 00:00:00 – 2026/02/12 23:59:59</td>
+                      <td className="p-3 text-[#33393C]/80">2026/02/06 – 2026/02/12 23:59:59</td>
                       <td className="p-3 text-[#33393C]">開票起飛價</td>
                       <td className="p-3 text-right text-[#33393C]">10,499</td>
                       <td className="p-3 text-right text-[#33393C]">14,299</td>
@@ -329,7 +314,7 @@ function UpgradePricingAnswer({ onModalChange }: UpgradePricingAnswerProps) {
                       <td className="p-3 text-right font-semibold text-[#D4B483]">4,300</td>
                     </tr>
                     <tr className="hover:bg-[#F5F3ED]/50">
-                      <td className="p-3 text-[#33393C]/80">2026/02/13 00:00:00 – 2026/02/19 23:59:59</td>
+                      <td className="p-3 text-[#33393C]/80">2026/02/13 – 2026/02/19 23:59:59</td>
                       <td className="p-3 text-[#33393C]">最後登機口價</td>
                       <td className="p-3 text-right text-[#33393C]">10,999</td>
                       <td className="p-3 text-right text-[#33393C]">14,999</td>
@@ -337,7 +322,7 @@ function UpgradePricingAnswer({ onModalChange }: UpgradePricingAnswerProps) {
                       <td className="p-3 text-right font-semibold text-[#D4B483]">4,500</td>
                     </tr>
                     <tr className="hover:bg-[#F5F3ED]/50">
-                      <td className="p-3 text-[#33393C]/80">2026/02/20 00:00:00 – 2026/02/26 23:59:59</td>
+                      <td className="p-3 text-[#33393C]/80">2026/02/20 – 2026/02/26 23:59:59</td>
                       <td className="p-3 text-[#33393C]">起飛早鳥價</td>
                       <td className="p-3 text-right text-[#33393C]">11,499</td>
                       <td className="p-3 text-right text-[#33393C]">15,699</td>
@@ -345,7 +330,7 @@ function UpgradePricingAnswer({ onModalChange }: UpgradePricingAnswerProps) {
                       <td className="p-3 text-right font-semibold text-[#D4B483]">4,700</td>
                     </tr>
                     <tr className="hover:bg-[#F5F3ED]/50">
-                      <td className="p-3 text-[#33393C]/80">2026/02/27 00:00:00 – 2026/03/12 23:59:59</td>
+                      <td className="p-3 text-[#33393C]/80">2026/02/27 – 2026/03/12 23:59:59</td>
                       <td className="p-3 text-[#33393C]">雲端巡航價</td>
                       <td className="p-3 text-right text-[#33393C]">11,999</td>
                       <td className="p-3 text-right text-[#33393C]">16,399</td>
@@ -353,7 +338,7 @@ function UpgradePricingAnswer({ onModalChange }: UpgradePricingAnswerProps) {
                       <td className="p-3 text-right font-semibold text-[#D4B483]">4,900</td>
                     </tr>
                     <tr className="hover:bg-[#F5F3ED]/50">
-                      <td className="p-3 text-[#33393C]/80">2026/03/13 00:00:00 – 2026/03/19 23:59:59</td>
+                      <td className="p-3 text-[#33393C]/80">2026/03/13 – 2026/03/19 23:59:59</td>
                       <td className="p-3 text-[#33393C]">高空穩定價</td>
                       <td className="p-3 text-right text-[#33393C]">12,499</td>
                       <td className="p-3 text-right text-[#33393C]">17,099</td>
@@ -361,7 +346,7 @@ function UpgradePricingAnswer({ onModalChange }: UpgradePricingAnswerProps) {
                       <td className="p-3 text-right font-semibold text-[#D4B483]">5,100</td>
                     </tr>
                     <tr className="hover:bg-[#F5F3ED]/50">
-                      <td className="p-3 text-[#33393C]/80">2026/03/20 00:00:00 – 2026/03/26 23:59:59</td>
+                      <td className="p-3 text-[#33393C]/80">2026/03/20 – 2026/03/26 23:59:59</td>
                       <td className="p-3 text-[#33393C]">標準航程價</td>
                       <td className="p-3 text-right text-[#33393C]">12,999</td>
                       <td className="p-3 text-right text-[#33393C]">17,799</td>
@@ -369,7 +354,7 @@ function UpgradePricingAnswer({ onModalChange }: UpgradePricingAnswerProps) {
                       <td className="p-3 text-right font-semibold text-[#D4B483]">5,300</td>
                     </tr>
                     <tr className="hover:bg-[#F5F3ED]/50">
-                      <td className="p-3 text-[#33393C]/80">2026/03/27 00:00:00 – 2026/03/31 23:59:59</td>
+                      <td className="p-3 text-[#33393C]/80">2026/03/27 – 2026/03/31 23:59:59</td>
                       <td className="p-3 text-[#33393C]">最終飛行價</td>
                       <td className="p-3 text-right text-[#33393C]">13,499</td>
                       <td className="p-3 text-right text-[#33393C]">18,499</td>
@@ -377,7 +362,7 @@ function UpgradePricingAnswer({ onModalChange }: UpgradePricingAnswerProps) {
                       <td className="p-3 text-right font-semibold text-[#D4B483]">5,500</td>
                     </tr>
                     <tr className="hover:bg-[#F5F3ED]/50">
-                      <td className="p-3 text-[#33393C]/80">2026/04/01 00:00:00 – 2026/04/09 23:59:59</td>
+                      <td className="p-3 text-[#33393C]/80">2026/04/01 – 2026/04/09 23:59:59</td>
                       <td className="p-3 text-[#33393C]">全價啟程</td>
                       <td className="p-3 text-right text-[#33393C]">13,999</td>
                       <td className="p-3 text-right text-[#33393C]">19,199</td>
@@ -385,7 +370,7 @@ function UpgradePricingAnswer({ onModalChange }: UpgradePricingAnswerProps) {
                       <td className="p-3 text-right font-semibold text-[#D4B483]">5,700</td>
                     </tr>
                     <tr className="hover:bg-[#F5F3ED]/50">
-                      <td className="p-3 text-[#33393C]/80">2026/04/10 00:00:00 之後</td>
+                      <td className="p-3 text-[#33393C]/80">2026/04/10 之後</td>
                       <td className="p-3 text-[#33393C]">全價啟程</td>
                       <td className="p-3 text-right text-[#33393C]">13,999</td>
                       <td className="p-3 text-right text-[#33393C]">19,199</td>
