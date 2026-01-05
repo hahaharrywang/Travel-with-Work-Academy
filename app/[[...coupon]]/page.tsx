@@ -574,7 +574,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                       d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                     />
                   </svg>
-                  <p className="text-white/90">雙軌資源：上班線與接案線的完整課程、工具與模板資源庫</p>
+                  <p className="text-white/90">雙軌資源：接案自媒體線與遠端上班線的雙線學習資源、工具與模板資源庫</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <TrendingUp className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
@@ -582,7 +582,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 </div>
                 <div className="flex items-start gap-3">
                   <FileText className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">成果可交付：完成履歷、接案作品集、個人頁面等可見成果</p>
+                  <p className="text-white/90">成果可交付：完成履歷、接案作品集、個人頁面、人生運作藍圖等具體成果</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <Users className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
@@ -618,8 +618,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               {/* Social proof */}
               <div className="pt-4 text-center lg:text-left">
                 <p className="text-sm text-white/60">
-                  2024-2025 已累積 <span className="text-[#D4B483] font-semibold">400+</span> 付費學員與{" "}
-                  <span className="text-[#D4B483] font-semibold">1,000+</span> 社群成員，
+                  2024-2025 已累積 <span className="text-[#D4B483] font-semibold">300+</span> 學員與{" "}
+                  <span className="text-[#D4B483] font-semibold">1,500+</span> 線下社群參與人次，
                   <br className="hidden sm:block" />
                   一起在台灣與世界各地行動中。
                 </p>
@@ -745,6 +745,98 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   想用內容、接案、知識服務慢慢累積第二條收入線；希望在不壓垮自己的前提下，踏出有感的一步，而不是一次
                   all-in。
                 </p>
+              </div>
+            </div>
+
+            {/* Card 3 - 完整更新标题、文案、结构 */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex flex-col">
+              <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">如果你最後只想先選一條，也完全 OK</h3>
+              <div className="text-[#33393C] text-sm leading-relaxed space-y-4 flex-1">
+                <p>每個人的情況不同——有人精力、時間有限，有人想專注一件事做好，也有人在兩條路之間有明顯偏好。</p>
+                <p className="font-medium text-[#17464F]">報名時先選一條你「現在最想嘗試」的路線開始走。</p>
+
+                <div className="my-4 p-4 bg-[#F5F3ED]/80 border-l-4 border-[#D4B483] rounded-r-lg">
+                  <p className="text-[#17464F] font-medium italic">你不用現在就買到最滿——先走得下去，才是最重要的。</p>
+                </div>
+
+                <p className="pt-2">
+                  不用擔心選錯——第 3~4 週你會有機會
+                  <span className="font-semibold text-[#17464F]">探索另一條線</span>，再做更確定的決定。
+                </p>
+
+                <div className="space-y-3 pt-2">
+                  <div className="relative bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-xl p-4 text-white">
+                    <div className="absolute top-3 right-3 bg-[#D4B483] text-[#17464F] text-xs font-bold px-2.5 py-1 rounded-full">
+                      Week 3
+                    </div>
+                    <p className="font-semibold text-sm mb-1">自媒體接案變現地圖</p>
+                    <p className="text-xs opacity-90">& 目標設定</p>
+                  </div>
+
+                  <div className="relative bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-xl p-4 text-white">
+                    <div className="absolute top-3 right-3 bg-[#D4B483] text-[#17464F] text-xs font-bold px-2.5 py-1 rounded-full">
+                      Week 4
+                    </div>
+                    <p className="font-semibold text-sm mb-1">遠端自由職涯藍圖</p>
+                    <p className="text-xs opacity-90">& 目標設定</p>
+                  </div>
+                </div>
+
+                <div className="space-y-3 pt-4">
+                  <div className="flex items-start gap-3 p-3 bg-[#F5F3ED] rounded-lg">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F] flex items-center justify-center mt-0.5">
+                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-semibold text-[#17464F] mb-1">第 4 週前可免費換線 1 次</p>
+                      <p className="text-xs text-[#33393C]/80">以名額為準</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3 p-3 bg-[#F5F3ED] rounded-lg">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F] flex items-center justify-center mt-0.5">
+                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-semibold text-[#17464F]">覺得兩條都想走？</p>
+                      <p className="text-xs text-[#33393C]/90 mt-1">Week 4 可加購升級雙線</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3 p-3 bg-[#F5F3ED]/50 rounded-lg border border-slate-200">
+                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#33393C]/30 flex items-center justify-center mt-0.5">
+                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                          fillRule="evenodd"
+                          d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-semibold text-[#33393C]/70">第 4 週後鎖定路線</p>
+                      <p className="text-xs text-[#33393C]/60 mt-1">（確保分組與學習體驗更聚焦）</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-3 border-t border-slate-200">
+                  <p className="text-xs text-[#D4B483] italic leading-relaxed">
+                    試過，你會更確信：哪條路最適合成為你接下來幾個月的主線。
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -1696,65 +1788,22 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           {activeMapTab === "我還不確定" && (
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 animate-in fade-in duration-300">
               <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex flex-col">
-                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">先選一條路線開始，就夠了</h3>
-                <div className="text-[#33393C] text-sm leading-relaxed space-y-3 flex-1">
-                  <p className="font-medium text-[#17464F]">很多人加入學院時，其實也不確定：</p>
-                  <p className="pl-3 border-l-2 border-[#D4B483] italic text-[#17464F]">
-                    「我更適合遠端上班？還是自媒體接案？」
-                  </p>
-                  <p>
-                    這很正常——因為你缺的是
-                    <span className="font-semibold text-[#17464F]">用行動試過一輪</span>。
-                  </p>
-
-                  <div className="pt-3 pb-3 space-y-2">
-                    <p>
-                      報名時先選一條你
-                      <span className="font-semibold text-[#17464F]">「現在最想嘗試」</span>
-                      的路線開始走。
-                    </p>
-                    <p>
-                      不用擔心選錯——
-                      <span className="font-semibold text-[#D4B483]">第 3–4 週你會有機會探索另一條線</span>
-                      ，再做更確定的決定。
-                    </p>
-                  </div>
-
-                  <div className="pt-3 space-y-2">
-                    <div className="flex items-start gap-3">
-                      <svg
-                        className="w-5 h-5 text-[#D4B483] flex-shrink-0 mt-0.5"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      <div>
-                        <p className="text-[#33393C]">如果你真的很不確定，我們第一推薦是：</p>
-                        <p className="font-bold text-[#D4B483] text-base mt-1">直接選雙軌並進</p>
-                        <p className="text-xs text-[#33393C]/80 mt-1">
-                          因為你不用猜，你會用實際行動比較，務實地看見自己適合哪一條路。
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex flex-col">
-                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">第 3-4 週的彈性探索</h3>
+                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">如果你最後只想先選一條，也完全 OK</h3>
                 <div className="text-[#33393C] text-sm leading-relaxed space-y-4 flex-1">
-                  <p>
-                    第一個月 3 & 4 週，已經單路線加入的正式學員會有機會
-                    <span className="font-semibold text-[#17464F]">免費試上另一條線的「起步課」</span>。
-                  </p>
-                  <p>用過來者經驗與實際藍圖，讓你知道自己更被哪條路點燃、也更做得下去。</p>
+                  <p>每個人的情況不同——有人精力、時間有限，有人想專注一件事做好，也有人在兩條路之間有明顯偏好。</p>
+                  <p className="font-medium text-[#17464F]">報名時先選一條你「現在最想嘗試」的路線開始走。</p>
 
-                  {/* Highlight區塊 - 兩堂試上課程 */}
+                  <div className="my-4 p-4 bg-[#F5F3ED]/80 border-l-4 border-[#D4B483] rounded-r-lg">
+                    <p className="text-[#17464F] font-medium italic">
+                      你不用現在就買到最滿——先走得下去，才是最重要的。
+                    </p>
+                  </div>
+
+                  <p className="pt-2">
+                    不用擔心選錯——第 3~4 週你會有機會
+                    <span className="font-semibold text-[#17464F]">探索另一條線</span>，再做更確定的決定。
+                  </p>
+
                   <div className="space-y-3 pt-2">
                     <div className="relative bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-xl p-4 text-white">
                       <div className="absolute top-3 right-3 bg-[#D4B483] text-[#17464F] text-xs font-bold px-2.5 py-1 rounded-full">
@@ -1773,9 +1822,61 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     </div>
                   </div>
 
-                  <p className="text-xs text-[#33393C]/70 pt-2 italic border-t border-slate-200">
-                    試過，你會更確信：哪條路最適合成為你接下來幾個月的主線。
-                  </p>
+                  <div className="space-y-3 pt-4">
+                    <div className="flex items-start gap-3 p-3 bg-[#F5F3ED] rounded-lg">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F] flex items-center justify-center mt-0.5">
+                        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </div>
+                      <div className="flex-1">
+                        <p className="font-semibold text-[#17464F] mb-1">第 4 週前可免費換線 1 次</p>
+                        <p className="text-xs text-[#33393C]/80">以名額為準</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-[#F5F3ED] rounded-lg">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F] flex items-center justify-center mt-0.5">
+                        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </div>
+                      <div className="flex-1">
+                        <p className="font-semibold text-[#17464F]">覺得兩條都想走？</p>
+                        <p className="text-xs text-[#33393C]/90 mt-1">Week 4 可加購升級雙線</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3 p-3 bg-[#F5F3ED]/50 rounded-lg border border-slate-200">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#33393C]/30 flex items-center justify-center mt-0.5">
+                        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path
+                            fillRule="evenodd"
+                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </div>
+                      <div className="flex-1">
+                        <p className="font-semibold text-[#33393C]/70">第 4 週後鎖定路線</p>
+                        <p className="text-xs text-[#33393C]/60 mt-1">（確保分組與學習體驗更聚焦）</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="pt-3 border-t border-slate-200">
+                    <p className="text-xs text-[#D4B483] italic leading-relaxed">
+                      你不用現在就買到最滿——先走得下去，才是最重要的。
+                    </p>
+                  </div>
                 </div>
               </div>
 
