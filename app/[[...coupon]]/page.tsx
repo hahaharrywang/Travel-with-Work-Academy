@@ -1809,7 +1809,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         <div className="absolute top-2 right-2 bg-[#D4B483] text-[#17464F] text-[10px] font-bold px-2 py-0.5 rounded-full">
                           Week 3
                         </div>
-                        <p className="font-semibold text-xs mb-0.5">自媒體接案變現地圖</p>
+                        <p className="font-semibold text-xs mb-0.5">自媒體接案變 মাটিতে</p>
                         <p className="text-[10px] opacity-90">& 目標設定</p>
                       </div>
 
@@ -1839,7 +1839,6 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                           <p className="text-[10px] text-[#33393C]/80">詳細請見問答區，以名額為準</p>
                         </div>
                       </div>
-
                     </div>
                   </div>
 
@@ -1858,25 +1857,17 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             <button
               onClick={() => {
                 setShowCalendarInline(!showCalendarInline)
-                // Scroll to calendar section after a brief delay for render
-                if (!showCalendarInline) {
-                  setTimeout(() => {
-                    calendarSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
-                  }, 100)
-                }
+                setTimeout(() => {
+                  document.getElementById("learning-map-cta")?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                  })
+                }, 300)
               }}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#17464F] text-white rounded-full font-medium hover:bg-[#17464F]/90 transition-all duration-300 shadow-lg"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#F5F3ED] text-[#17464F] rounded-full font-medium hover:bg-[#C9D7D4] transition-all duration-300 border border-[#C9D7D4]"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
-              {showCalendarInline ? "收合學習行事曆" : "展開完整學習行事曆"}
-              {showCalendarInline ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+              <ChevronUp className="w-4 h-4" />
+              收合行事曆
             </button>
             <p className="text-sm text-[#33393C]/60 mt-2">看看每週三晚間八點，具體在做什麼</p>
           </div>
@@ -2033,11 +2024,10 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <button
                 onClick={() => {
                   setShowCalendarInline(false)
-                  // Wait for collapse animation to complete before scrolling
                   setTimeout(() => {
-                    document.getElementById("success-stories-section")?.scrollIntoView({
+                    document.getElementById("learning-map-cta")?.scrollIntoView({
                       behavior: "smooth",
-                      block: "start",
+                      block: "center",
                     })
                   }, 300)
                 }}
@@ -2053,6 +2043,62 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
       {/* Success Stories Section */}
       <SuccessStoriesSection id="success-stories-section" />
+
+      {/* Member Exclusive Resources Section */}
+      <section className="py-16 sm:py-24 bg-[#F5F3ED]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-[#F5F3ED]/80 backdrop-blur rounded-2xl p-6 sm:p-8 shadow-lg border border-[#D4B483]/30">
+            <div className="flex justify-center gap-2 mb-4">
+              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
+            </div>
+
+            <h3 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-6 text-center">學員限定資源</h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+              <div className="bg-white/80 rounded-xl p-4 border border-[#C9D7D4]/50">
+                <div className="flex items-start gap-2 mb-2">
+                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
+                  <span className="font-semibold text-[#17464F] text-sm sm:text-base">活動特殊折扣＆優先報名資格</span>
+                </div>
+                <p className="text-[#33393C] text-xs sm:text-sm leading-snug pl-4">
+                  選修課、工作坊、社群線下聚會海內外遊牧啟發之旅
+                </p>
+              </div>
+
+              <div className="bg-white/80 rounded-xl p-4 border border-[#C9D7D4]/50">
+                <div className="flex items-start gap-2 mb-2">
+                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
+                  <span className="font-semibold text-[#17464F] text-sm sm:text-base">加入、發起共創專案</span>
+                </div>
+                <p className="text-[#33393C] text-xs sm:text-sm leading-snug pl-4">
+                  遊牧之聲訪談、Builder 實習計劃、線上線下讀書會
+                </p>
+              </div>
+
+              <div className="bg-white/80 rounded-xl p-4 border border-[#C9D7D4]/50">
+                <div className="flex items-start gap-2 mb-2">
+                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
+                  <span className="font-semibold text-[#17464F] text-sm sm:text-base">許願池</span>
+                </div>
+                <p className="text-[#33393C] text-xs sm:text-sm leading-snug pl-4">
+                  定期許願，讓更多學習資源集中於學院
+                </p>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <button
+                onClick={scrollToPricing}
+                className="inline-block bg-[#17464F] text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+              >
+                我要加入本梯
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* PRICING SECTION */}
       <section id="pricing-section" className="pt-0 pb-0 bg-[#17464F] relative overflow-hidden">

@@ -95,7 +95,6 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
           <p className="text-lg sm:text-xl text-[#33393C] max-w-3xl mx-auto leading-relaxed">
             差別在於：你想一次快速打開兩種可能，還是想先專心走一條主線。
           </p>
-          {/* Removed 🔥目前為「招生啟動價」· 51 折 badge */}
         </div>
 
         {/* Countdown Card */}
@@ -327,65 +326,6 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
           </div>
         </div>
 
-        {/* Limited Offer Section */}
-        <div className="mb-12 max-w-4xl mx-auto">
-          <div className="bg-[#F5F3ED]/80 backdrop-blur rounded-2xl p-6 sm:p-8 shadow-lg border border-[#D4B483]/30">
-            <div className="flex justify-center gap-2 mb-4">
-              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-              <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
-              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-            </div>
-
-            <h3 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-6 text-center">學員限定資源</h3>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-              <div className="bg-white/80 rounded-xl p-4 border border-[#C9D7D4]/50">
-                <div className="flex items-start gap-2 mb-2">
-                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
-                  <span className="font-semibold text-[#17464F] text-sm sm:text-base">活動特殊折扣＆優先報名資格</span>
-                </div>
-                <p className="text-[#33393C] text-xs sm:text-sm leading-snug pl-4">
-                  選修課、工作坊、社群線下聚會海內外遊牧啟發之旅
-                </p>
-              </div>
-
-              <div className="bg-white/80 rounded-xl p-4 border border-[#C9D7D4]/50">
-                <div className="flex items-start gap-2 mb-2">
-                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
-                  <span className="font-semibold text-[#17464F] text-sm sm:text-base">加入、發起共創專案</span>
-                </div>
-                <p className="text-[#33393C] text-xs sm:text-sm leading-snug pl-4">
-                  遊牧之聲訪談、Builder 實習計劃、線上線下讀書會
-                </p>
-              </div>
-
-              <div className="bg-white/80 rounded-xl p-4 border border-[#C9D7D4]/50">
-                <div className="flex items-start gap-2 mb-2">
-                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
-                  <span className="font-semibold text-[#17464F] text-sm sm:text-base">許願池</span>
-                </div>
-                <p className="text-[#33393C] text-xs sm:text-sm leading-snug pl-4">
-                  定期許願，讓更多學習資源集中於學院
-                </p>
-              </div>
-            </div>
-
-            <div className="text-center">
-              <button
-                onClick={() => {
-                  const pricingCards = document.getElementById("pricing-cards")
-                  if (pricingCards) {
-                    pricingCards.scrollIntoView({ behavior: "smooth", block: "start" })
-                  }
-                }}
-                className="inline-block bg-[#17464F] text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
-              >
-                我要加入本梯
-              </button>
-            </div>
-          </div>
-        </div>
-
         {/* Timeline Modal */}
         {showTimelineModal && (
           <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
@@ -454,11 +394,26 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                                   {isCurrent && <span className="block text-[10px]">(目前)</span>}
                                   {isNext && <span className="block text-[10px]">(下一階段)</span>}
                                 </div>
-                                <div className={`text-xs ${isPast ? "text-gray-400" : "text-[#33393C]"}`}>
+                                <div className="flex gap-1 justify-center mt-1">
+                                  <span
+                                    className={`text-[10px] px-1.5 py-0.5 rounded ${isPast ? "bg-gray-200 text-gray-400" : "bg-[#17464F]/10 text-[#17464F]"}`}
+                                  >
+                                    單線
+                                  </span>
+                                  <span
+                                    className={`text-[10px] px-1.5 py-0.5 rounded ${isPast ? "bg-gray-200 text-gray-400" : "bg-[#D4B483]/20 text-[#A06E56]"}`}
+                                  >
+                                    雙線
+                                  </span>
+                                </div>
+                                <div className={`text-xs mt-1 ${isPast ? "text-gray-400" : "text-[#33393C]"}`}>
                                   {stage.discountLabel}
                                 </div>
                                 <div className={`text-xs ${isPast ? "text-gray-400" : "text-[#33393C]/60"}`}>
-                                  ~{stage.endAt.getMonth() + 1}/{stage.endAt.getDate()}
+                                  ~{String(stage.endAt.getMonth() + 1).padStart(2, "0")}/
+                                  {String(stage.endAt.getDate()).padStart(2, "0")}{" "}
+                                  {String(stage.endAt.getHours()).padStart(2, "0")}:
+                                  {String(stage.endAt.getMinutes()).padStart(2, "0")}
                                 </div>
                               </div>
                             </div>
@@ -509,7 +464,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                         }`}
                       >
                         <div className="flex justify-between items-center">
-                          <div>
+                          <div className="flex-1">
                             <div
                               className={`font-medium ${
                                 isCurrent
@@ -527,15 +482,24 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                               {isCurrent && <span className="ml-2 text-xs">(目前)</span>}
                               {isNext && <span className="ml-2 text-xs">(下一階段)</span>}
                             </div>
-                            <div className={`text-sm ${isPast ? "text-gray-400" : "text-[#33393C]/70"}`}>
-                              {stage.discountLabel} · ~{stage.endAt.getMonth() + 1}/{stage.endAt.getDate()}
+                            <div className={`text-sm mt-1 ${isPast ? "text-gray-400" : "text-[#33393C]/70"}`}>
+                              {stage.discountLabel} · ~{String(stage.endAt.getMonth() + 1).padStart(2, "0")}/
+                              {String(stage.endAt.getDate()).padStart(2, "0")}{" "}
+                              {String(stage.endAt.getHours()).padStart(2, "0")}:
+                              {String(stage.endAt.getMinutes()).padStart(2, "0")}
                             </div>
                           </div>
-                          <div className={`text-right ${isPast ? "text-gray-400" : "text-[#17464F]"}`}>
-                            <div className="text-sm font-bold">
-                              NT$ {formatPrice(stage.prices.selfMedia.stagePrice)}
-                            </div>
-                            <div className="text-xs">單線起</div>
+                          <div className="flex flex-col gap-1 items-end ml-4">
+                            <span
+                              className={`text-xs px-2 py-1 rounded ${isPast ? "bg-gray-200 text-gray-400" : "bg-[#17464F]/10 text-[#17464F] font-medium"}`}
+                            >
+                              單線
+                            </span>
+                            <span
+                              className={`text-xs px-2 py-1 rounded ${isPast ? "bg-gray-200 text-gray-400" : "bg-[#D4B483]/20 text-[#A06E56] font-medium"}`}
+                            >
+                              雙線
+                            </span>
                           </div>
                         </div>
                       </div>
