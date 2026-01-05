@@ -152,7 +152,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#D4B483] mt-0.5">●</span>
-                <span>學員專屬社群 (Skool共學群｜Line閒聊｜校友 Linkedin群)</span>
+                <span>校友資格 (各式社群、優先資訊＆折扣)</span>
               </li>
             </ul>
             <div className="text-center pt-4 border-t border-slate-100">
@@ -220,7 +220,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#D4B483] mt-0.5">●</span>
-                <span>學員專屬社群 (Skool共學群｜Line閒聊｜校友 Linkedin群)</span>
+                <span>校友資格 (各式社群、優先資訊＆折扣)Linkedin群)</span>
               </li>
             </ul>
             <div className="text-center pt-4 border-t border-slate-100">
@@ -285,7 +285,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#D4B483] mt-0.5">●</span>
-                <span>學員專屬社群 (Skool共學群｜Line閒聊｜校友 Linkedin群)</span>
+                <span>校友資格 (各式社群、優先資訊＆折扣)Linkedin群)</span>
               </li>
             </ul>
             <div className="text-center pt-4 border-t border-slate-100">

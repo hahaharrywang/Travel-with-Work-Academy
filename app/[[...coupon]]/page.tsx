@@ -945,7 +945,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
         </div>
       </section>
       {/* SECTION 2.1 COURSE HIGHLIGHTS CONTINUED (Part 2: 三大亮點) START */}
-      <section id="key-features" className="py-16 sm:py-24 bg-[#F7F3ED]">
+      <section id="key-features" className="py-16 sm:py-24 bg-[#F5F3ED]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-10 sm:mb-16">
@@ -2054,41 +2054,110 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
             </div>
 
-            <h3 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-6 text-center">學員限定資源</h3>
+            <h3 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3 text-center">學員限定資源</h3>
+            <p className="text-center text-[#33393C] mb-8 text-sm sm:text-base">
+              在學期間，除了每屆正式課程以外，以下資源與社群將支持你成長
+            </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-              <div className="bg-white/80 rounded-xl p-4 border border-[#C9D7D4]/50">
-                <div className="flex items-start gap-2 mb-2">
-                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
-                  <span className="font-semibold text-[#17464F] text-sm sm:text-base">活動特殊折扣＆優先報名資格</span>
+            {/* Student Resources During Academy */}
+            <div className="mb-8">
+              <h4 className="font-bold text-[#17464F] text-base sm:text-lg mb-4 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]"></span>
+                學習期間專屬資源
+              </h4>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="bg-white/80 rounded-xl p-4 border border-[#C9D7D4]/50">
+                  <div className="flex items-start gap-2 mb-2">
+                    <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
+                    <span className="font-semibold text-[#17464F] text-sm sm:text-base">
+                      活動特殊折扣 & 優先報名資格
+                    </span>
+                  </div>
+                  <p className="text-[#33393C] text-xs sm:text-sm leading-snug pl-4">
+                    選修課、工作坊、社群線下聚會、海內外遊牧啟發之旅
+                  </p>
                 </div>
-                <p className="text-[#33393C] text-xs sm:text-sm leading-snug pl-4">
-                  選修課、工作坊、社群線下聚會海內外遊牧啟發之旅
-                </p>
-              </div>
 
-              <div className="bg-white/80 rounded-xl p-4 border border-[#C9D7D4]/50">
-                <div className="flex items-start gap-2 mb-2">
-                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
-                  <span className="font-semibold text-[#17464F] text-sm sm:text-base">加入、發起共創專案</span>
+                <div className="bg-white/80 rounded-xl p-4 border border-[#C9D7D4]/50">
+                  <div className="flex items-start gap-2 mb-2">
+                    <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
+                    <span className="font-semibold text-[#17464F] text-sm sm:text-base">加入、發起共創專案</span>
+                  </div>
+                  <p className="text-[#33393C] text-xs sm:text-sm leading-snug pl-4">
+                    遊牧之聲訪談、Builder 實習計劃、線上線下讀書會
+                  </p>
                 </div>
-                <p className="text-[#33393C] text-xs sm:text-sm leading-snug pl-4">
-                  遊牧之聲訪談、Builder 實習計劃、線上線下讀書會
-                </p>
-              </div>
 
-              <div className="bg-white/80 rounded-xl p-4 border border-[#C9D7D4]/50">
-                <div className="flex items-start gap-2 mb-2">
-                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
-                  <span className="font-semibold text-[#17464F] text-sm sm:text-base">許願池</span>
+                <div className="bg-white/80 rounded-xl p-4 border border-[#C9D7D4]/50">
+                  <div className="flex items-start gap-2 mb-2">
+                    <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
+                    <span className="font-semibold text-[#17464F] text-sm sm:text-base">許願池</span>
+                  </div>
+                  <p className="text-[#33393C] text-xs sm:text-sm leading-snug pl-4">
+                    定期許願，讓更多學習資源集中於學院
+                  </p>
                 </div>
-                <p className="text-[#33393C] text-xs sm:text-sm leading-snug pl-4">
-                  定期許願，讓更多學習資源集中於學院
-                </p>
               </div>
             </div>
 
-            <div className="text-center">
+            {/* Alumni Lifetime Status - Moved to bottom */}
+            <div className="border-t border-[#D4B483]/30 pt-6 mt-6">
+              <h4 className="font-bold text-[#17464F] text-base sm:text-lg mb-2 text-center">完成學院後</h4>
+              <p className="text-center text-[#33393C] mb-6 text-sm">
+                你將獲得<span className="font-semibold text-[#17464F]">終身校友資格</span>，持續享有以下資源與社群支持
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+                <div className="bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-lg p-4 text-white text-center">
+                  <div className="font-semibold text-sm mb-1">Skool 共學群</div>
+                  <div className="text-xs text-white/80">持續交流與互助</div>
+                </div>
+                <div className="bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-lg p-4 text-white text-center">
+                  <div className="font-semibold text-sm mb-1">Line 閒聊群</div>
+                  <div className="text-xs text-white/80">日常連結與支持</div>
+                </div>
+                <div className="bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-lg p-4 text-white text-center">
+                  <div className="font-semibold text-sm mb-1">校友 LinkedIn 群</div>
+                  <div className="text-xs text-white/80">職涯拓展與合作</div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div className="flex items-start gap-2 p-3">
+                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
+                  <div>
+                    <span className="font-semibold text-[#17464F] text-sm block mb-1">世界遊牧優先資訊</span>
+                    <p className="text-[#33393C] text-xs leading-snug">世界遊牧趨勢、情報</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-2 p-3">
+                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
+                  <div>
+                    <span className="font-semibold text-[#17464F] text-sm block mb-1">國際遊牧領袖訪談</span>
+                    <p className="text-[#33393C] text-xs leading-snug">深度對話全球數位遊牧先行者與實踐者</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-2 p-3">
+                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
+                  <div>
+                    <span className="font-semibold text-[#17464F] text-sm block mb-1">校友限定聚會</span>
+                    <p className="text-[#33393C] text-xs leading-snug">線上線下定期聚會，持續連結與成長</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-2 p-3">
+                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
+                  <div>
+                    <span className="font-semibold text-[#17464F] text-sm block mb-1">校友專屬折扣</span>
+                    <p className="text-[#33393C] text-xs leading-snug">選修課程、工作坊、遊牧活動優先報名與優惠</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center mt-8">
               <button
                 onClick={scrollToPricing}
                 className="inline-block bg-[#17464F] text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
