@@ -137,7 +137,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
       details: [
         "不再一個人被影片追進度：大家固定出現在 Skool 線上共學空間，彼此分享卡關與成果、一起前行，讓「學習」變成日常節奏的一部分。",
         "定期線上同學會，一起打開鏡頭結識戰友。還有線上共學群組、LinkedIn 校友群組、Line 閒聊群，擁有更多不同情境的連結。",
-        "線下小聚與 Nomad 活動：台北、高定期小聚，加上國內外 Nomad 旅程，讓你真的遇見那些在清邁、峴港、台北之間移動的人，把遠距生活從想像變成現場。",
+        "線下聚會＆Nomad 活動：台北、高雄定期遊牧小聚，加上國內外 Nomad 旅程，讓你真的遇見那些在清邁、峴港、台北之間移動的人，把遠距生活從想像變成現場。",
       ],
       images: [
         {
@@ -618,7 +618,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               {/* Social proof */}
               <div className="pt-4 text-center lg:text-left">
                 <p className="text-sm text-white/60">
-                  2024-2025 已累積 <span className="text-[#D4B483] font-semibold">300+</span> 學員與{" "}
+                  2025第一屆 已累積 <span className="text-[#D4B483] font-semibold">300+</span> 學員與{" "}
                   <span className="text-[#D4B483] font-semibold">1,500+</span> 線下社群參與，
                   <br className="hidden sm:block" />
                   一起在台灣與世界各地行動中。
@@ -1353,7 +1353,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-2 text-balance">學習地圖</h2>
             <p className="text-base sm:text-lg text-[#D4B483] font-medium mb-6">四月開學，每週三晚間八點準時上線。</p>
             <p className="text-[#33393C] max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
-              3 階段漸進式成長節奏：<span className="font-semibold text-[#17464F]">起步打底</span>、
+              半年的旅程，3 階段成長節奏：<span className="font-semibold text-[#17464F]">起步打底</span>、
               <span className="font-semibold text-[#17464F]">出擊試水</span>、
               <span className="font-semibold text-[#17464F]">累積整合</span>。
               <br className="hidden sm:block" />
@@ -1809,7 +1809,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         <div className="absolute top-2 right-2 bg-[#D4B483] text-[#17464F] text-[10px] font-bold px-2 py-0.5 rounded-full">
                           Week 3
                         </div>
-                        <p className="font-semibold text-xs mb-0.5">自媒體接案變 মাটিতে</p>
+                        <p className="font-semibold text-xs mb-0.5">自媒體接案變現藍圖</p>
                         <p className="text-[10px] opacity-90">& 目標設定</p>
                       </div>
 
