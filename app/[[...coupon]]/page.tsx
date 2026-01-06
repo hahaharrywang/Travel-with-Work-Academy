@@ -574,7 +574,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                       d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                     />
                   </svg>
-                  <p className="text-white/90">雙軌資源：上班線與接案線的完整課程、工具與模板資源庫</p>
+                  <p className="text-white/90">雙軌資源：接案自媒體＆遠端上班 雙線路起步資源、工具與行動模板。</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <TrendingUp className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
@@ -618,8 +618,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               {/* Social proof */}
               <div className="pt-4 text-center lg:text-left">
                 <p className="text-sm text-white/60">
-                  2024-2025 已累積 <span className="text-[#D4B483] font-semibold">400+</span> 付費學員與{" "}
-                  <span className="text-[#D4B483] font-semibold">1,000+</span> 社群成員，
+                  2024-2025 已累積 <span className="text-[#D4B483] font-semibold">300+</span> 學員與{" "}
+                  <span className="text-[#D4B483] font-semibold">1,500+</span> 線下社群參與，
                   <br className="hidden sm:block" />
                   一起在台灣與世界各地行動中。
                 </p>
