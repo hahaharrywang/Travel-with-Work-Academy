@@ -2074,7 +2074,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     </span>
                   </div>
                   <p className="text-[#33393C] text-xs sm:text-sm leading-snug pl-4">
-                    選修課、工作坊、社群線下聚會、海內外遊牧啟發之旅
+                    加開的選修課及工作坊、社群線下聚會、海內外遊牧啟發之旅
                   </p>
                 </div>
 
@@ -2084,7 +2084,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     <span className="font-semibold text-[#17464F] text-sm sm:text-base">加入、發起共創專案</span>
                   </div>
                   <p className="text-[#33393C] text-xs sm:text-sm leading-snug pl-4">
-                    遊牧之聲訪談、Builder 實習計劃、線上線下讀書會
+                    遊牧之聲訪談、Ai Builder 實習計劃、線上線下讀書會
                   </p>
                 </div>
 
@@ -2094,7 +2094,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     <span className="font-semibold text-[#17464F] text-sm sm:text-base">許願池</span>
                   </div>
                   <p className="text-[#33393C] text-xs sm:text-sm leading-snug pl-4">
-                    定期許願，讓更多學習資源集中於學院
+                    定期許願，讓更多學習資源在學院發生
                   </p>
                 </div>
               </div>
