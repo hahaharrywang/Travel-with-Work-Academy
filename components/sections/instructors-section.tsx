@@ -8,6 +8,12 @@ export interface Instructor {
   image: string
   link: string
   background: string
+  links?: {
+    website?: string
+    linkedin?: string
+    instagram?: string
+    facebook?: string
+  }
 }
 
 interface InstructorsSectionProps {
@@ -51,6 +57,65 @@ export function InstructorsSection({ instructors }: InstructorsSectionProps) {
       <p className="text-[#33393C] text-xs sm:text-sm leading-relaxed line-clamp-2 px-2">
         {instructor.title.split("，")[0]}
       </p>
+      {/* Added social media links */}
+      {instructor.links && (
+        <div className="flex justify-center gap-4 mt-4">
+          {instructor.links.website && (
+            <a href={instructor.links.website} target="_blank" rel="noopener noreferrer">
+              <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9 9m9-9v1a2 2 0 01-2 2h-1m-1 8a2 2 0 002-2v-1m0 4h1m-1 8a2 2 0 01-2-2v-1m-1 4a2 2 0 002 2m0-4V9a2 2 0 00-2-2m0-4h1m1 4a2 2 0 002 2m0-4V5a2 2 0 012 2"
+                />
+              </svg>
+            </a>
+          )}
+          {instructor.links.linkedin && (
+            <a href={instructor.links.linkedin} target="_blank" rel="noopener noreferrer">
+              <svg className="w-5 h-5 text-[#0077B5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M16 8s6 0 6 6a6 6 0 01-6 6M6 20h12a2 2 0 002-2V8a2 2 0 00-2-2H6m6 6v4m0 0h.01M6 16h.01"
+                />
+              </svg>
+            </a>
+          )}
+          {instructor.links.instagram && (
+            <a href={instructor.links.instagram} target="_blank" rel="noopener noreferrer">
+              <svg className="w-5 h-5 text-[#E4405F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4.5 19.5a2.25 2.25 0 012.25-2.25h10.5a2.25 2.25 0 012.25 2.25v-4.5a2.25 2.25 0 014.5 0v4.5a2.25 2.25 0 01-2.25 2.25H6.75a2.25 2.25 0 01-2.25-2.25v-4.5a2.25 2.25 0 014.5 0v4.5z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M12 3v18m-6-6h12a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2v18a2 2 0 002 2h6a2 2 0 002-2zm0 0V12a2 2 0 01-2-2H6a2 2 0 01-2-2V3zm0 0h6a2 2 0 012 2v6a2 2 0 01-2 2H6zm0 0h6a2 2 0 012 2v6a2 2 0 01-2 2H6z"
+                />
+              </svg>
+            </a>
+          )}
+          {instructor.links.facebook && (
+            <a href={instructor.links.facebook} target="_blank" rel="noopener noreferrer">
+              <svg className="w-5 h-5 text-[#1877F2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16a2 2 0 01-2 2H7a2 2 0 01-2-2V5zm10 10a4 4 0 10-4-4 4 4 0 004 4zm2-8a2 2 0 11-4 0 2 2 0 014 0zm7 9a7 7 0 01-7 7h-4a2 2 0 01-2-2v-4a2 2 0 012-2h4a2 2 0 002-2V8a2 2 0 00-2-2H8a2 2 0 00-2 2v4a2 2 0 01-2 2H5a7 7 0 017 7h4a2 2 0 002-2z"
+                />
+              </svg>
+            </a>
+          )}
+        </div>
+      )}
     </div>
   )
 

@@ -2,7 +2,22 @@
 
 import { useState, useEffect, useCallback, useRef, Suspense } from "react" // Import useRef
 import Image from "next/image"
-import { ChevronDown, ChevronUp, X, TrendingUp, FileText, Users, ChevronRight, ChevronLeft, Mail } from "lucide-react"
+import {
+  ChevronDown,
+  ChevronUp,
+  X,
+  TrendingUp,
+  FileText,
+  Users,
+  ChevronRight,
+  ChevronLeft,
+  Mail,
+  Globe,
+  Linkedin,
+  Instagram,
+  Facebook,
+  ExternalLink,
+} from "lucide-react" // Import social icons
 import { Button } from "@/components/ui/button"
 import { usePricing } from "@/contexts/pricing-context"
 import { AnnouncementBar } from "@/components/announcement-bar"
@@ -23,7 +38,7 @@ import {
 } from "@/components/ui/dialog"
 
 import { type PlanId, getCheckoutURL } from "@/data/plan-config"
-import { calendarData, getPhaseColor, getTrackColor, type CalendarWeek } from "@/data/calendar"
+import { calendarData, getPhaseColor, getTrackColor, getInstructorsByNames, type CalendarWeek } from "@/data/calendar"
 import { stagePhotos } from "@/data/stage-photos"
 import { instructors } from "@/data/instructors"
 
@@ -77,11 +92,11 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
       ],
       images: [
         {
-          src: "/images/e8-87-aa-e5-aa-92-e9-ab-94-e6-8e-a5-e6-a1-88-e8-b7-af-e7-b7-9a-ef-bc-bfreels-e9-87-8d-e8-a6-81-e6-8c-87-e6-a8-99.png",
+          src: "/images/e8-87-aa-e5-aa-92-e9-ab-94-e6-8e-a5-e6-a1-88-e8-b7-af-e7-b7-9a-ef-bc-bfreels-e9-87-8d-e8-a6-81-e6-8c-87-e6-99.png",
           alt: "自媒體接案路線：Reels演算法重要指標",
         },
         {
-          src: "/images/e4-b8-8a-e7-8f-ad-e8-b7-af-e7-b7-9a-ef-bc-bf-e9-9b-87-e4-b8-bb-e7-84-a1-e5-8b-95-e6-96-bc-e8-a1-b7.png",
+          src: "/images/e4-b8-8a-e7-8f-ad-e8-b7-af-e7-b7-9a-ef-bc-bf-e9-9b-87-e4-b8-bb-e7-84-a1-e5-8b-95-e6-bc-8f-e8-a1-80.png",
           alt: "上班路線：讓雇主無動於衷的答案",
         },
       ],
@@ -297,6 +312,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
   // Find line with "const [expandedWeeks, setExpandedWeeks]" and add after it
   const [expandedPhases, setExpandedPhases] = useState<Set<string>>(new Set(["階段一 起步打底"])) // Default first phase expanded
   const [expandedFeatures, setExpandedFeatures] = useState<Set<number>>(new Set()) // State for expanded features in Section 2.1
+  const [expandedInstructorBios, setExpandedInstructorBios] = useState<Set<string>>(new Set())
   // Add state for dialogs
   const [openDialog, setOpenDialog] = useState<number | null>(null)
 
@@ -734,7 +750,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     <path d="M12 28v12c0 4.4 8.9 8 20 8s20-3.5 20-8v-12" />
                     <path d="M12 38v12c0 4.4 8.9 8 20 8s20-3.5 20-8v-12" />
                     <path d="M32 25v8M32 41v8" stroke="currentColor" strokeWidth="2" />
-                    <path d="M32 11l8 8h-16l8-8z" fill="currentColor" />
+                    <path d="M12 11l8 8h-16l8-8z" fill="currentColor" />
                   </svg>
                 </div>
 
@@ -1836,7 +1852,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         </div>
                         <div className="flex-1">
                           <p className="font-semibold text-[#17464F] text-xs mb-0.5">第 4 週前可換線/加購雙軌 1 次</p>
-                          <p className="text-[10px] text-[#33393C]/80">詳細請見問答區，以名額為準</p>
+                          <p className="text-[10px] text-[#333939]/80">詳細請見問答區，以名額為準</p>
                         </div>
                       </div>
                     </div>
@@ -1946,6 +1962,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                                   {phaseWeeks.map((week) => {
                                     const trackColor = getTrackColor(week.track)
+                                    const weekInstructors = getInstructorsByNames(week.instructorNames)
 
                                     return (
                                       <div
@@ -1975,7 +1992,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                                         <div className="flex items-center justify-between mt-auto pt-3 border-t border-[#C9D7D4]/30">
                                           <div className="flex items-center gap-2">
                                             <div className="flex items-center -space-x-2">
-                                              {week.instructors.slice(0, 3).map((instructor, idx) => (
+                                              {weekInstructors.slice(0, 3).map((instructor, idx) => (
                                                 <div
                                                   key={idx}
                                                   className="w-6 h-6 rounded-full overflow-hidden border-2 border-white"
@@ -1991,13 +2008,11 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                                               ))}
                                             </div>
                                             <span className="text-xs text-[#33393C]/70">
-                                              {week.instructors.length === 1
-                                                ? week.instructors[0].name === "講師確認中"
+                                              {weekInstructors.length === 1
+                                                ? weekInstructors[0].name === "講師確認中"
                                                   ? "待公開"
-                                                  : week.instructors[0].name
-                                                : week.instructors.length > 1
-                                                  ? `${week.instructors[0].name === "講師確認中" ? "待公開" : week.instructors[0].name} 等 ${week.instructors.length} 位`
-                                                  : ""}
+                                                  : weekInstructors[0].name
+                                                : `${weekInstructors[0].name === "講師確認中" ? "待公開" : weekInstructors[0].name} 等 ${weekInstructors.length} 位`}
                                             </span>
                                           </div>
                                           <ChevronRight className="w-4 h-4 text-[#17464F]/50" />
@@ -2056,7 +2071,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
             <h3 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3 text-center">學員限定資源</h3>
             <p className="text-center text-[#33393C] mb-8 text-sm sm:text-base">
-              在學期間，除了每屆正式課程以外，以下資源與社群將支持你成長
+              在學期間，除了當屆正式課程以外，以下資源與社群將支持你成長
             </p>
 
             {/* Student Resources During Academy */}
@@ -2402,25 +2417,129 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             </div>
 
             {/* Instructors Section */}
-            {selectedWeek.instructors.length > 0 && (
+            {selectedWeek.instructorNames.length > 0 && (
               <div>
                 <h4 className="text-lg font-semibold text-[#17464F] mb-4">講師介紹</h4>
-                <div className="space-y-4">
-                  {selectedWeek.instructors.map((instructor, idx) => (
-                    <div key={idx} className="flex items-start gap-4 p-4 bg-[#F5F3ED] rounded-lg">
-                      <Image
-                        src={instructor.image || "/placeholder.svg"}
-                        alt={instructor.name}
-                        width={64}
-                        height={64}
-                        className="w-16 h-16 rounded-full object-cover flex-shrink-0"
-                      />
-                      <div className="flex-1">
-                        <h5 className="font-semibold text-[#17464F] mb-1">{instructor.name}</h5>
-                        <p className="text-sm text-[#D4B483] mb-2">{instructor.title}</p>
+                <div className="space-y-6">
+                  {getInstructorsByNames(selectedWeek.instructorNames).map((instructor, idx) => {
+                    const backgroundPoints = instructor.background
+                      ? instructor.background.split("、").filter((p) => p.trim())
+                      : []
+                    const instructorKey = `${selectedWeek.id}-${idx}`
+                    const isExpanded = expandedInstructorBios.has(instructorKey)
+
+                    const toggleExpanded = () => {
+                      setExpandedInstructorBios((prev) => {
+                        const newSet = new Set(prev)
+                        if (newSet.has(instructorKey)) {
+                          newSet.delete(instructorKey)
+                        } else {
+                          newSet.add(instructorKey)
+                        }
+                        return newSet
+                      })
+                    }
+
+                    return (
+                      <div key={idx} className="p-6 bg-[#F5F3ED] rounded-xl">
+                        <div className="flex items-start gap-4 mb-4">
+                          <Image
+                            src={instructor.image || "/placeholder.svg"}
+                            alt={instructor.name}
+                            width={64}
+                            height={64}
+                            className="w-16 h-16 rounded-full object-cover flex-shrink-0"
+                          />
+                          <div className="flex-1">
+                            <div className="flex items-center justify-between gap-4 mb-1">
+                              <h5 className="font-bold text-lg text-[#17464F]">{instructor.name}</h5>
+                              <div className="flex items-center gap-2">
+                                {instructor.links?.website && (
+                                  <a
+                                    href={instructor.links.website}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-8 h-8 flex items-center justify-center rounded-full bg-white hover:bg-[#D4B483] text-[#17464F] hover:text-white transition-colors shadow-sm"
+                                    title="個人網站"
+                                  >
+                                    <Globe className="w-4 h-4" />
+                                  </a>
+                                )}
+                                {instructor.links?.linkedin && (
+                                  <a
+                                    href={instructor.links.linkedin}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-8 h-8 flex items-center justify-center rounded-full bg-white hover:bg-[#0A66C2] text-[#17464F] hover:text-white transition-colors shadow-sm"
+                                    title="LinkedIn"
+                                  >
+                                    <Linkedin className="w-4 h-4" />
+                                  </a>
+                                )}
+                                {instructor.links?.instagram && (
+                                  <a
+                                    href={instructor.links.instagram}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-8 h-8 flex items-center justify-center rounded-full bg-white hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-500 text-[#17464F] hover:text-white transition-colors shadow-sm"
+                                    title="Instagram"
+                                  >
+                                    <Instagram className="w-4 h-4" />
+                                  </a>
+                                )}
+                                {instructor.links?.facebook && (
+                                  <a
+                                    href={instructor.links.facebook}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-8 h-8 flex items-center justify-center rounded-full bg-white hover:bg-[#1877F2] text-[#17464F] hover:text-white transition-colors shadow-sm"
+                                    title="Facebook"
+                                  >
+                                    <Facebook className="w-4 h-4" />
+                                  </a>
+                                )}
+                                {!instructor.links && instructor?.link && (
+                                  <a
+                                    href={instructor.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-8 h-8 flex items-center justify-center rounded-full bg-white hover:bg-[#D4B483] text-[#17464F] hover:text-white transition-colors shadow-sm"
+                                    title="外部連結"
+                                  >
+                                    <ExternalLink className="w-4 h-4" />
+                                  </a>
+                                )}
+                              </div>
+                            </div>
+                            <p className="text-sm text-[#D4B483] leading-relaxed">{instructor.title}</p>
+                          </div>
+                        </div>
+
+                        {/* Background Points */}
+                        {backgroundPoints.length > 0 && (
+                          <div className="mt-4 space-y-2">
+                            {(isExpanded ? backgroundPoints : backgroundPoints.slice(0, 2)).map((point, pointIdx) => (
+                              <div key={pointIdx} className="flex items-start gap-3">
+                                <span className="text-[#D4B483] text-sm mt-1 flex-shrink-0">•</span>
+                                <p className="text-sm text-[#33393C] leading-relaxed">{point}</p>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+
+                        {/* Expand/Collapse Button */}
+                        {backgroundPoints.length > 2 && (
+                          <button
+                            onClick={toggleExpanded}
+                            className="mt-4 mx-auto flex items-center gap-2 text-sm text-[#17464F] hover:text-[#D4B483] transition-colors"
+                          >
+                            <span>{isExpanded ? "收起" : "查看更多"}</span>
+                            <ChevronDown className={`w-4 h-4 transition-transform ${isExpanded ? "rotate-180" : ""}`} />
+                          </button>
+                        )}
                       </div>
-                    </div>
-                  ))}
+                    )
+                  })}
                 </div>
               </div>
             )}
