@@ -14,13 +14,19 @@ export const instructors: Instructor[] = [
   },
   {
     name: "謝雅筑 Ally",
-    title: "Career Coach｜ICF ACC｜HR Consultant",
+    title: "Career Coach｜ICF ACC｜HR Consultant，擁有 10+ 年人才招募與發展經驗",
     image: "/images/ally-hsieh.jpg",
     link: "https://www.linkedin.com/in/allyhsieh",
-    background:
-      "結合「科技業獵頭經驗」與「國際專業認證」的職涯教練、擁有 10+ 年人才招募與發展經驗、曾任全球最大人力資源集團部門總監",
+    background: `結合「科技業獵頭經驗」與「國際專業認證」的職涯教練
+曾任全球最大人力資源集團部門總監，領導 20+ 人團隊
+專業認證：國際生涯發展諮詢師 CDA、職涯錨定檢測師、ICF ACC 認證教練
+專精科技人才招募：成功招募數百位軟體工程師、PM、Designer、QA、DevOps、Data、AI/ML 等專業人才
+跨國職涯規劃專家：成功協助 30+ 位科技人才前往日本、新加坡工作
+轉職進入科技業：幫助多位文組人才成功轉職 BD、產品經理、分析師等職位
+提供服務：自我探索、求職技巧提升、職場議題解析、個人品牌打造（LinkedIn 經營策略）`,
     links: {
       linkedin: "https://www.linkedin.com/in/allyhsieh",
+      website: "https://portaly.cc/ally.hsieh",
     },
   },
   {
