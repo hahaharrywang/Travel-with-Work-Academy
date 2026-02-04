@@ -17,6 +17,7 @@ import {
   Instagram,
   Facebook,
   ExternalLink,
+  Layers,
 } from "lucide-react" // Import social icons
 import { Button } from "@/components/ui/button"
 import { usePricing } from "@/contexts/pricing-context"
@@ -92,11 +93,11 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
       ],
       images: [
         {
-          src: "/images/e8-87-aa-e5-aa-92-e9-ab-94-e6-8e-a5-e6-a1-88-e8-b7-af-e7-b7-9a-ef-bc-bfreels-e9-87-8d-e8-a6-81-e6-8c-87-e6-99.png",
+          src: "/images/e8-87-aa-e5-aa-92-e9-ab-94-e6-8e-a5-e6-a1-88-e8-b7-af-e7-b7-9a-ef-bc-bfreels-e9-87-8d-e8-a6-81-e6-8c-87-e6-a8-99.png",
           alt: "自媒體接案路線：Reels演算法重要指標",
         },
         {
-          src: "/images/e4-b8-8a-e7-8f-ad-e8-b7-af-e7-b7-9a-ef-bc-bf-e9-9b-87-e4-b8-bb-e7-84-a1-e5-8b-95-e6-bc-8f-e8-a1-80.png",
+          src: "/images/e4-b8-8a-e7-8f-ad-e8-b7-af-e7-b7-9a-ef-bc-bf-e9-9b-87-e4-b8-bb-e7-84-a1-e5-8b-95-e6-96-bc-e8-a1-b7.png",
           alt: "上班路線：讓雇主無動於衷的答案",
         },
       ],
@@ -171,7 +172,6 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           alt: "同學會作業",
         },
         { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bfline-20group.png", alt: "Line Group" },
-        { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e9-a0-98-e8-8b-b1.png", alt: "領英" },
         {
           src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e8-b6-8a-e5-8d-97-e9-81-8a-e7-89-a7-e4-b9-8b-e6-97-85.jpg",
           alt: "越南遊牧之旅",
@@ -578,19 +578,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
               <div className="space-y-3 text-left max-w-xl mx-auto lg:mx-0">
                 <div className="flex items-start gap-3">
-                  <svg
-                    className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                    />
-                  </svg>
+                  <Layers className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
                   <p className="text-white/90">雙軌資源：接案自媒體＆遠端上班 雙線路起步資源、工具與行動模板。</p>
                 </div>
                 <div className="flex items-start gap-3">
