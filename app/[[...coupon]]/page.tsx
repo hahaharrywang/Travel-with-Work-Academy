@@ -1136,6 +1136,26 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               ]
               return (
                 <div className="rounded-2xl border border-[#C9D7D4] bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                  {/* Top Header Strip */}
+                  <a href="https://www.instagram.com/digitalnomadstaiwan/" target="_blank" rel="noopener noreferrer" className="block bg-[#17464F] px-4 py-3 sm:px-6 sm:py-4 hover:bg-[#1a5260] transition-colors">
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-white/15 backdrop-blur-sm p-1.5 flex-shrink-0">
+                        <Image
+                          src="/images/design-mode/%E6%95%B8%E4%BD%8D%E9%81%8A%E7%89%A7%E5%8F%B0%E7%81%A3%20Logo%281%29%281%29%281%29%281%29.png"
+                          alt="Taiwan Digital Nomad"
+                          width={36}
+                          height={36}
+                          className="w-full h-full object-contain brightness-0 invert"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="text-white font-bold text-base sm:text-lg leading-tight truncate">{'數位遊牧 Lifestyle 社群'}</h3>
+                        <span className="text-[#D4B483] text-xs sm:text-sm">@digitalnomadstaiwan</span>
+                      </div>
+                    </div>
+                  </a>
+
                   {/* Main Image */}
                   <div className="relative aspect-[16/9] sm:aspect-[16/10] overflow-hidden cursor-pointer"
                     onClick={() => {
@@ -1154,26 +1174,6 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     <div className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm text-[#17464F] text-xs font-medium px-3 py-1.5 rounded-full flex items-center gap-1.5">
                       <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14" /></svg>
                       {lifestylePhotos.length} 張照片
-                    </div>
-                  </div>
-
-                  {/* Title Banner */}
-                  <div className="bg-[#17464F] px-4 sm:px-6 py-3 sm:py-4 flex items-center gap-3 sm:gap-4">
-                    <a href="https://www.instagram.com/digitalnomadstaiwan/" target="_blank" rel="noopener noreferrer" className="flex-shrink-0">
-                      <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-xl bg-white p-1.5 sm:p-2 hover:scale-105 transition-transform">
-                        <Image
-                          src="/images/design-mode/%E6%95%B8%E4%BD%8D%E9%81%8A%E7%89%A7%E5%8F%B0%E7%81%A3%20Logo%281%29%281%29%281%29%281%29.png"
-                          alt="Taiwan Digital Nomad"
-                          width={48}
-                          height={48}
-                          className="w-full h-full object-contain"
-                          loading="lazy"
-                        />
-                      </div>
-                    </a>
-                    <div className="min-w-0">
-                      <h3 className="text-white font-bold text-lg sm:text-xl leading-tight tracking-wide">{'數位遊牧 Lifestyle 社群'}</h3>
-                      <a href="https://www.instagram.com/digitalnomadstaiwan/" target="_blank" rel="noopener noreferrer" className="text-sm text-[#D4B483] hover:text-[#e8c99a] transition-colors font-medium">@digitalnomadstaiwan</a>
                     </div>
                   </div>
 
@@ -1218,6 +1218,26 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               ]
               return (
                 <div className="rounded-2xl border border-[#C9D7D4] bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                  {/* Top Header Strip */}
+                  <a href="https://www.instagram.com/twnomadacademy/" target="_blank" rel="noopener noreferrer" className="block bg-[#17464F] px-4 py-3 sm:px-6 sm:py-4 hover:bg-[#1a5260] transition-colors">
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-white/15 backdrop-blur-sm p-1.5 flex-shrink-0">
+                        <Image
+                          src="/images/logo.png"
+                          alt="遠距遊牧學院"
+                          width={36}
+                          height={36}
+                          className="w-full h-full object-contain brightness-0 invert"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="text-white font-bold text-base sm:text-lg leading-tight truncate">{'數位遊牧線上職涯成長社群'}</h3>
+                        <span className="text-[#D4B483] text-xs sm:text-sm">@twnomadacademy</span>
+                      </div>
+                    </div>
+                  </a>
+
                   {/* Main Image */}
                   <div className="relative aspect-[16/9] sm:aspect-[16/10] overflow-hidden cursor-pointer"
                     onClick={() => {
@@ -1236,26 +1256,6 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     <div className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm text-[#17464F] text-xs font-medium px-3 py-1.5 rounded-full flex items-center gap-1.5">
                       <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14" /></svg>
                       {careerPhotos.length} 張照片
-                    </div>
-                  </div>
-
-                  {/* Title Banner */}
-                  <div className="bg-[#17464F] px-4 sm:px-6 py-3 sm:py-4 flex items-center gap-3 sm:gap-4">
-                    <a href="https://www.instagram.com/twnomadacademy/" target="_blank" rel="noopener noreferrer" className="flex-shrink-0">
-                      <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-xl bg-white p-1.5 sm:p-2 hover:scale-105 transition-transform">
-                        <Image
-                          src="/images/logo.png"
-                          alt="遠距遊牧學院"
-                          width={48}
-                          height={48}
-                          className="w-full h-full object-contain"
-                          loading="lazy"
-                        />
-                      </div>
-                    </a>
-                    <div className="min-w-0">
-                      <h3 className="text-white font-bold text-lg sm:text-xl leading-tight tracking-wide">{'數位遊牧線上職涯成長社群'}</h3>
-                      <a href="https://www.instagram.com/twnomadacademy/" target="_blank" rel="noopener noreferrer" className="text-sm text-[#D4B483] hover:text-[#e8c99a] transition-colors font-medium">@twnomadacademy</a>
                     </div>
                   </div>
 
