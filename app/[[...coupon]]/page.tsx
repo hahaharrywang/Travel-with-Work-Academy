@@ -1139,13 +1139,13 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   {/* Top Header Strip */}
                   <a href="https://www.instagram.com/digitalnomadstaiwan/" target="_blank" rel="noopener noreferrer" className="block bg-[#17464F] px-4 py-3 sm:px-6 sm:py-4 hover:bg-[#1a5260] transition-colors">
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-white/15 backdrop-blur-sm p-1.5 flex-shrink-0">
+                      <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-white p-1.5 flex-shrink-0">
                         <Image
                           src="/images/design-mode/%E6%95%B8%E4%BD%8D%E9%81%8A%E7%89%A7%E5%8F%B0%E7%81%A3%20Logo%281%29%281%29%281%29%281%29.png"
                           alt="Taiwan Digital Nomad"
                           width={36}
                           height={36}
-                          className="w-full h-full object-contain brightness-0 invert"
+                          className="w-full h-full object-contain"
                           loading="lazy"
                         />
                       </div>
@@ -1221,13 +1221,13 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   {/* Top Header Strip */}
                   <a href="https://www.instagram.com/twnomadacademy/" target="_blank" rel="noopener noreferrer" className="block bg-[#17464F] px-4 py-3 sm:px-6 sm:py-4 hover:bg-[#1a5260] transition-colors">
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-white/15 backdrop-blur-sm p-1.5 flex-shrink-0">
+                      <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-white p-1.5 flex-shrink-0">
                         <Image
                           src="/images/logo.png"
                           alt="遠距遊牧學院"
                           width={36}
                           height={36}
-                          className="w-full h-full object-contain brightness-0 invert"
+                          className="w-full h-full object-contain"
                           loading="lazy"
                         />
                       </div>
