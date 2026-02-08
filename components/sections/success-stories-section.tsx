@@ -85,18 +85,6 @@ export function SuccessStoriesSection() {
               key={story.id}
               className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-[#C9D7D4] flex flex-col"
             >
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-1">
-                {story.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="inline-block px-3 py-1 text-xs font-medium bg-[#D4B483]/20 text-[#17464F] rounded-full"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
               {/* Title */}
               <h3 className="text-lg font-bold text-[#17464F] mb-1">{story.title}</h3>
 
@@ -156,18 +144,6 @@ export function SuccessStoriesSection() {
               {successStories.map((story) => (
                 <CarouselItem key={story.id} className="pl-4 md:basis-1/2">
                   <Card className="bg-white rounded-2xl p-6 shadow-sm border border-[#C9D7D4] h-full flex flex-col">
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-1">
-                      {story.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="inline-block px-3 py-1 text-xs font-medium bg-[#D4B483]/20 text-[#17464F] rounded-full"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
                     {/* Title */}
                     <h3 className="text-lg font-bold text-[#17464F] mb-1">{story.title}</h3>
 
