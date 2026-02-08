@@ -330,35 +330,26 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
         {/* Bonus: Community Subscription */}
         <div className="mb-16 max-w-3xl mx-auto">
           <div className="bg-gradient-to-r from-[#17464F]/5 to-[#D4B483]/10 border border-[#D4B483]/30 rounded-2xl p-5 sm:p-8 text-center">
-            <p className="text-xs sm:text-sm text-[#D4B483] font-bold tracking-widest uppercase mb-2">{'Limited Bonus'}</p>
-            <h3 className="text-base sm:text-xl font-bold text-[#17464F] leading-relaxed mb-1">
+            <h3 className="text-base sm:text-xl font-bold text-[#17464F] leading-relaxed mb-3">
               {'現在加入，即贈送限時限量'}
+              <span className="text-[#A06E56] ml-1">{'（剩餘：187 位）'}</span>
             </h3>
-            <p className="text-xs sm:text-sm text-[#33393C]/70 mb-4">
-              {'（剩餘：'}
-              <span className="text-[#A06E56] font-bold">{'187'}</span>
-              {' 位）'}
+            <p className="text-sm sm:text-base text-[#17464F] font-medium">
+              {'數位遊牧線上職涯成長社群'}
+              <span className="text-[#D4B483] font-bold ml-1">{'6 個月'}</span>
+              {'訂閱資格'}
             </p>
-            <div className="inline-block bg-white rounded-xl px-4 sm:px-6 py-3 sm:py-4 shadow-sm border border-[#C9D7D4] mb-4">
-              <p className="text-sm sm:text-lg font-bold text-[#17464F]">
-                {'數位遊牧線上職涯成長社群'}
-                <span className="text-[#D4B483] ml-1">{'6 個月'}</span>
-                {'訂閱資格'}
-              </p>
-              <p className="text-xs sm:text-sm text-[#33393C]/60 mt-1">
-                {'價值 '}
-                <span className="text-[#17464F] font-bold">{'TWD 2,700'}</span>
-                {'（月訂閱 TWD 450）'}
-              </p>
-            </div>
-            <div>
-              <button
-                onClick={() => setShowBonusModal(true)}
-                className="text-sm text-[#17464F] font-medium hover:text-[#D4B483] transition-colors underline underline-offset-4"
-              >
-                {'查看社群訂閱包含什麼 →'}
-              </button>
-            </div>
+            <p className="text-xs sm:text-sm text-[#33393C]/60 mt-1 mb-4">
+              {'價值 '}
+              <span className="text-[#17464F] font-bold">{'TWD 2,700'}</span>
+              {'（月訂閱 TWD 250）'}
+            </p>
+            <button
+              onClick={() => setShowBonusModal(true)}
+              className="text-sm text-[#17464F] font-medium hover:text-[#D4B483] transition-colors underline underline-offset-4"
+            >
+              {'查看社群訂閱包含什麼 →'}
+            </button>
           </div>
         </div>
 
