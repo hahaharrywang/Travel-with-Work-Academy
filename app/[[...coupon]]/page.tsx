@@ -2204,7 +2204,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     <span className="font-semibold text-[#17464F] text-sm sm:text-base">許願池</span>
                   </div>
                   <p className="text-[#33393C] text-xs sm:text-sm leading-snug pl-4">
-                    定期許願，讓更多學習資源在學院發生
+                    定期許願，參與貢獻學院發展決策。讓更多學習資源在學院內發生。
                   </p>
                 </div>
               </div>
