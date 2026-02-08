@@ -1651,7 +1651,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     <div>
                       <p>
                         <span className="font-semibold text-[#17464F]">階段一 起步打底：</span>
-                        看懂自媒體與接案市場，釐清 TA、主題與價值主張，整理出第一版服務項目與作品集框架。
+                        看懂自媒體與接案市場，釐清 TA、主題與價值主張，整理出第一版服務項目與作品集框架，以及具備加速未來生產力的AI思維。
                       </p>
                       <p className="text-xs text-[#A06E56] mt-1 italic">
                         👉 你會做出第一版「可以拿出來給人看」的作品集雛形。
