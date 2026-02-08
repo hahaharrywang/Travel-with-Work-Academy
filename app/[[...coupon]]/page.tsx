@@ -628,7 +628,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   2025第一屆 已累積 <span className="text-[#D4B483] font-semibold">300+</span> 學員與{" "}
                   <span className="text-[#D4B483] font-semibold">1,500+</span> 線下社群參與，
                   <br className="hidden sm:block" />
-                  一起在台灣與世界各地行動中。
+                  在台灣與世界各地，把「想像」變成實際行動。
                 </p>
               </div>
             </div>
