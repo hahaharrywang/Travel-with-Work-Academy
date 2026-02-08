@@ -581,19 +581,19 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <div className="space-y-3 text-left max-w-xl mx-auto lg:mx-0">
                 <div className="flex items-start gap-3">
                   <Layers className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">雙軌資源：接案自媒體＆遠端上班 雙線路起步資源、工具與行動模板。</p>
+                  <p className="text-white/90">雙軌起步：接案／自媒體 × 遠端上班，先走一條，也可雙線並進</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <TrendingUp className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">路線清楚：梳理你的遠距遊牧藍圖與下一步行動</p>
+                  <p className="text-white/90">路線清楚：把模糊的嚮往，轉成 6 個月可執行的行動藍圖</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <FileText className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">成果可交付：完成履歷、接案作品集、個人頁面等可見成果</p>
+                  <p className="text-white/90">成果可展示：履歷、作品集、個人頁面，不只是學過</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <Users className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">不是一個人：加入一群真的朝向自由生活行動的夥伴</p>
+                  <p className="text-white/90">不是一個人：和一群真的在往自由生活前進的人同行</p>
                 </div>
               </div>
 
