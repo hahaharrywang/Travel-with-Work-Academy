@@ -568,8 +568,10 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 變成「<span className="text-[#D4B483]">我也正在路上</span>」
               </h1>
 
-              <p className="text-sm sm:text-base text-[#D4B483] font-medium tracking-wide">
-                華語世界第一個以「行動導向」設計的遠距遊牧學院
+              <p className="text-sm sm:text-base text-[#D4B483] font-medium tracking-wide leading-relaxed">
+                {'這不是一門課，'}
+                <br />
+                {'而是一套要求你交付可展示成果的 6 個月行動系統。'}
               </p>
 
               <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-xl mx-auto lg:mx-0">
