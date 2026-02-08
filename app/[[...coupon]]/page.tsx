@@ -2164,7 +2164,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
             </div>
 
-            <h3 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3 text-center">學員限定資源</h3>
+            <h3 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3 text-center">當屆學員限定資源</h3>
             <p className="text-center text-[#33393C] mb-8 text-sm sm:text-base">
               在學期間，除了當屆正式課程以外，以下資源與社群將支持你成長
             </p>
@@ -2212,7 +2212,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
             {/* Alumni Lifetime Status - Moved to bottom */}
             <div className="border-t border-[#D4B483]/30 pt-6 mt-6">
-              <h4 className="font-bold text-[#17464F] text-base sm:text-lg mb-2 text-center">完成學院後</h4>
+              <h4 className="font-bold text-[#17464F] text-base sm:text-lg mb-2 text-center">加入學院後</h4>
               <p className="text-center text-[#33393C] mb-6 text-sm">
                 你將獲得<span className="font-semibold text-[#17464F]">終身校友資格</span>，持續享有以下資源與社群支持
               </p>
