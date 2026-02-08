@@ -393,13 +393,6 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                   <li className="flex items-start gap-3">
                     <span className="w-7 h-7 rounded-lg bg-[#D4B483]/15 flex items-center justify-center flex-shrink-0 text-sm font-bold text-[#D4B483]">{'2'}</span>
                     <div>
-                      <p className="text-sm font-medium text-[#17464F]">{'每月線上交流聚會 X 1'}</p>
-                      <p className="text-xs text-[#33393C]/60 mt-0.5">{'與社群夥伴定期連線、互相交流近況'}</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-7 h-7 rounded-lg bg-[#D4B483]/15 flex items-center justify-center flex-shrink-0 text-sm font-bold text-[#D4B483]">{'3'}</span>
-                    <div>
                       <p className="text-sm font-medium text-[#17464F]">{'生態系中線上線下活動的折扣'}</p>
                       <p className="text-xs text-[#33393C]/60 mt-0.5">{'講座、工作坊、遊牧聚會等享專屬優惠'}</p>
                     </div>
