@@ -2217,18 +2217,18 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 你將獲得<span className="font-semibold text-[#17464F]">終身校友資格</span>，持續享有以下資源與社群支持
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
-                <div className="bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-lg p-4 text-white text-center">
-                  <div className="font-semibold text-sm mb-1">Skool 共學群</div>
-                  <div className="text-xs text-white/80">持續交流與互助</div>
+              <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-4">
+                <div className="bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-lg p-3 sm:p-4 text-white text-center">
+                  <div className="font-semibold text-xs sm:text-sm mb-1">Skool 共學群</div>
+                  <div className="text-[10px] sm:text-xs text-white/80">持續交流與互助</div>
                 </div>
-                <div className="bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-lg p-4 text-white text-center">
-                  <div className="font-semibold text-sm mb-1">Line 閒聊群</div>
-                  <div className="text-xs text-white/80">日常連結與支持</div>
+                <div className="bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-lg p-3 sm:p-4 text-white text-center">
+                  <div className="font-semibold text-xs sm:text-sm mb-1">Line 閒聊群</div>
+                  <div className="text-[10px] sm:text-xs text-white/80">日常連結與支持</div>
                 </div>
-                <div className="bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-lg p-4 text-white text-center">
-                  <div className="font-semibold text-sm mb-1">校友 LinkedIn 群</div>
-                  <div className="text-xs text-white/80">職涯拓展與合作</div>
+                <div className="bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-lg p-3 sm:p-4 text-white text-center">
+                  <div className="font-semibold text-xs sm:text-sm mb-1">{'校友 LinkedIn 群'}</div>
+                  <div className="text-[10px] sm:text-xs text-white/80">職涯拓展與合作</div>
                 </div>
               </div>
 
