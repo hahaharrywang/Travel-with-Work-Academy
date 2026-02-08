@@ -569,9 +569,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               </h1>
 
               <p className="text-sm sm:text-base text-[#D4B483] font-medium tracking-wide leading-relaxed">
-                {'這不是一門課，'}
+                {'看見可能，踏出行動。這不只是一門課，'}
                 <br />
-                {'而是一套要求你交付可展示成果的 6 個月行動系統。'}
+                {'而是一套要求你把行動，走成「下一步職涯能用成果」的系統。'}
               </p>
 
               <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-xl mx-auto lg:mx-0">
