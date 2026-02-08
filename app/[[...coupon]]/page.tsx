@@ -939,6 +939,11 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     讓你在未來六個月裡，有人陪你一起試、一起走、一起調整方向。
                   </span>
                 </p>
+                <p className="text-sm sm:text-base text-white/70 mt-4 leading-relaxed">
+                  {'一起用結構化的方式，'}
+                  <br />
+                  {'逼你把想法變成能被驗證的行動。'}
+                </p>
 
                 {/* 底部箭頭 */}
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
