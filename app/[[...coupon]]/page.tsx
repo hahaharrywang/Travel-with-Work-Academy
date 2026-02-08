@@ -85,11 +85,11 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           />
         </svg>
       ),
-      shortDesc: "不知道選上班還是接案？先選一條主線，也可以雙線並進加速探索。",
+      shortDesc: "這裡不是要你馬上做對選擇，而是至少有一條現在走得動路。",
       details: [
         "<strong>自媒體接案線路：</strong>幫你釐清主題定位，做出接案作品集，學會基本市場調查、內容與流量思維。",
         "<strong>遠端上班線路：</strong>認識遠端求職市場，調整履歷與 LinkedIn，練習求職信、面試與獵頭溝通。",
-        "你可以以選一條當主線；也可以雙線並進，快速全面探索。",
+        "你可以雙線並進，快速全面探索。也可以先選一條當主線，讓行動開始。",
       ],
       images: [
         {
