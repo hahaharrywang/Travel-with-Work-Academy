@@ -2153,7 +2153,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
       {/* Member Exclusive Resources Section */}
       {/* What You Get Section */}
-      <section className="py-16 sm:py-24 bg-[#F5F3ED]">
+      <section className="pt-8 sm:pt-12 pb-16 sm:pb-24 bg-[#F5F3ED]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-12">
