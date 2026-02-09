@@ -2151,9 +2151,6 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
         </div>
       </section>
 
-      {/* Success Stories Section */}
-      <SuccessStoriesSection id="success-stories-section" />
-
       {/* Member Exclusive Resources Section */}
       <section className="py-16 sm:py-24 bg-[#F5F3ED]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -2278,6 +2275,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           </div>
         </div>
       </section>
+
+      {/* Success Stories Section */}
+      <SuccessStoriesSection id="success-stories-section" />
 
       {/* PRICING SECTION */}
       <section id="pricing-section" className="pt-0 pb-0 bg-[#17464F] relative overflow-hidden">
