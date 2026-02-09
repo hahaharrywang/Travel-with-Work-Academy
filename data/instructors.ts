@@ -62,13 +62,14 @@ export const instructors: Instructor[] = [
   },
   {
     name: "林上哲",
-    title: "非資訊背景 AI生產力工具教育者，已幫助4200+ 台灣、日本和香港的學員",
-    image: "/images/e6-9e-97-e4-b8-8a-e5-93-b2-2.jpeg",
+    title: "nuva 創辦人，致力推動 AI 教育與應用，與 NVIDIA 官方合作擔任 AI 與 AIGC 講師",
+    image: "/images/lin-shang-zhe.jpg",
     link: "https://www.instagram.com/nuva.now/",
     background:
-      "林上哲是一位非資訊背景的 AI 生產力工具教育者，擅長將複雜的 AI 工具轉化為易於理解的教學內容，幫助學員提升工作效率。",
+      "與 NVIDIA 官方合作，擔任 AI 與 AIGC 講師，推廣 RTX GPU 與生成式 AI 應用。舉辦超過 20 場以上 AI 講座與實戰課程，累積 4,200+ 名學員參與。課程專長涵蓋 ChatGPT、AI Line Bot、MyGPT、AIGC 實作等。品牌「nuva」已成為台灣知名 AI 教育與實戰社群，受到 450+ 企業與組織信賴。",
     links: {
       instagram: "https://www.instagram.com/nuva.now/",
+      website: "https://www.meetnuva.com",
     },
   },
   {
