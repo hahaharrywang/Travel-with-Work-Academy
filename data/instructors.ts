@@ -2,6 +2,17 @@ import type { Instructor } from "@/components/sections/instructors-section"
 
 export const instructors: Instructor[] = [
   {
+    name: "校長哈利",
+    title: "Nomad Groups / 遠距遊牧學院 創辦人，數位遊牧台灣社群發起人",
+    image: "/images/harry-principal.png",
+    link: "https://www.instagram.com/twnomadacademy/",
+    background:
+      "數位遊牧台灣社群發起人，遠距遊牧學院（Travel with Work Academy）創辦人。致力於推動華語世界的遠距工作與數位遊牧生活方式，建立以行動導向為核心的學習社群，幫助學員在 6 個月內完成可展示的職涯轉型成果。",
+    links: {
+      instagram: "https://www.instagram.com/twnomadacademy/",
+    },
+  },
+  {
     name: "工具王阿璋",
     title: "『阿璋遊牧』電子報創辦人、數位遊牧陪跑計劃創辦人、IP 經營者",
     image: "/images/e5-b7-a5-e5-85-b7-e7-8e-8b-e5-95-8a-e7-92-8b.png",
