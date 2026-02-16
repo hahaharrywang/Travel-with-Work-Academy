@@ -85,11 +85,11 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           />
         </svg>
       ),
-      shortDesc: "不知道選上班還是接案？先選一條主線，也可以雙線並進加速探索。",
+      shortDesc: "這裡不是要你馬上做對選擇，而是至少有一條現在走得動路。",
       details: [
         "<strong>自媒體接案線路：</strong>幫你釐清主題定位，做出接案作品集，學會基本市場調查、內容與流量思維。",
         "<strong>遠端上班線路：</strong>認識遠端求職市場，調整履歷與 LinkedIn，練習求職信、面試與獵頭溝通。",
-        "你可以以選一條當主線；也可以雙線並進，快速全面探索。",
+        "你可以雙線並進，快速全面探索。也可以先選一條當主線，讓行動開始。",
       ],
       images: [
         {
@@ -117,9 +117,10 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
       ),
       shortDesc: "每堂課都有做得到的行動任務，拆成模板和小步驟，不再只聽懂卻做不出來。",
       details: [
-        "每堂課後都有一個「做得到」的任務：目標設定、發一篇文、做一支影片、更新履歷、寫求職信……不是看完就結束，而是立刻動手。",
-        "任務拆成學習單與模板：透過清楚的步驟與範例，帶你完成策略定位、影片腳本、JD 拆解、面試 STAR 故事庫等關鍵輸出，讓行動不再只靠意志力。",
+        "每堂課都對應到一個「做得到」的任務：目標設定、AI加速生產、策略定位、發一篇文、做一支影片、更新履歷、寫求職信……不是看完就結束，而是立刻動手。",
+        "任務拆成學習單與模板：透過清楚的步驟與範例，帶你完成策略定位、影片腳本、JD拆解、面試 STAR 故事庫等關鍵輸出，讓行動不再只靠意志力。",
         "想走更快，可以加選實作工作坊：短影音剪輯、Coffee Chat、Vibe Coding、工作英語等選修，讓你在需要時針對性加強，把成長慾望落地成真實行動。",
+        "讓你不再只是聽懂、記下來，而是 完成、留下、可以被看見。",
       ],
       images: [
         {
@@ -149,11 +150,11 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           />
         </svg>
       ),
-      shortDesc: "線上共學＋閒聊群＋線下小聚，一路上都有人一起問、一起試、一起走。",
+      shortDesc: "線上共學＋閒聊群＋線下小聚，一路上都有人一起問、一起試、一起走，讓你撐過放棄期的結構。",
       details: [
         "不再一個人被影片追進度：大家固定出現在 Skool 線上共學空間，彼此分享卡關與成果、一起前行，讓「學習」變成日常節奏的一部分。",
         "定期線上同學會，一起打開鏡頭結識戰友。還有線上共學群組、LinkedIn 校友群組、Line 閒聊群，擁有更多不同情境的連結。",
-        "線下聚會＆Nomad 活動：台北、高雄定期遊牧小聚，加上國內外 Nomad 旅程，讓你真的遇見那些在清邁、峴港、台北之間移動的人，把遠距生活從想像變成現場。",
+        "線下聚會＆Nomad 活動：台北、高雄定期遊牧小聚，加上國內外遊牧啟發之旅，讓你真的遇見那些在清邁、峴港、台北之間移動的人，把遠距生活從想像變成現場。",
       ],
       images: [
         {
@@ -568,8 +569,10 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 變成「<span className="text-[#D4B483]">我也正在路上</span>」
               </h1>
 
-              <p className="text-sm sm:text-base text-[#D4B483] font-medium tracking-wide">
-                華語世界第一個以「行動導向」設計的遠距遊牧學院
+              <p className="text-sm sm:text-base text-[#D4B483] font-medium tracking-wide leading-relaxed">
+                {'看見可能，踏出行動。這不只是一門課，'}
+                <br />
+                {'而是一套要求你把行動，走成「下一步職涯能用成果」的系統。'}
               </p>
 
               <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-xl mx-auto lg:mx-0">
@@ -579,19 +582,19 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <div className="space-y-3 text-left max-w-xl mx-auto lg:mx-0">
                 <div className="flex items-start gap-3">
                   <Layers className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">雙軌資源：接案自媒體＆遠端上班 雙線路起步資源、工具與行動模板。</p>
+                  <p className="text-white/90">雙軌起步：接案／自媒體 × 遠端上班，先走一條，也可雙線並進</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <TrendingUp className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">路線清楚：梳理你的遠距遊牧藍圖與下一步行動</p>
+                  <p className="text-white/90">路線清楚：把模糊的嚮往，轉成 6 個月可執行的行動藍圖</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <FileText className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">成果可交付：完成履歷、接案作品集、個人頁面等可見成果</p>
+                  <p className="text-white/90">成果可展示：履歷、作品集、個人頁面，不只是學過</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <Users className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">不是一個人：加入一群真的朝向自由生活行動的夥伴</p>
+                  <p className="text-white/90">不是一個人：和一群真的在往自由生活前進的人同行</p>
                 </div>
               </div>
 
@@ -626,7 +629,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   2025第一屆 已累積 <span className="text-[#D4B483] font-semibold">300+</span> 學員與{" "}
                   <span className="text-[#D4B483] font-semibold">1,500+</span> 線下社群參與，
                   <br className="hidden sm:block" />
-                  一起在台灣與世界各地行動中。
+                  在台灣與世界各地，把「想像」變成實際行動。
                 </p>
               </div>
             </div>
@@ -936,6 +939,11 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   <span className="block mt-2 text-[#D4B483]">
                     讓你在未來六個月裡，有人陪你一起試、一起走、一起調整方向。
                   </span>
+                </p>
+                <p className="text-sm sm:text-base text-white/70 mt-4 leading-relaxed">
+                  {'一起用結構化的方式，'}
+                  <br />
+                  {'逼你把想法變成能被驗證的行動。'}
                 </p>
 
                 {/* 底部箭頭 */}
@@ -1643,7 +1651,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     <div>
                       <p>
                         <span className="font-semibold text-[#17464F]">階段一 起步打底：</span>
-                        看懂自媒體與接案市場，釐清 TA、主題與價值主張，整理出第一版服務項目與作品集框架。
+                        看懂自媒體與接案市場，釐清 TA、主題與價值主張，整理出第一版服務項目與作品集框架，以及具備加速未來生產力的AI思維。
                       </p>
                       <p className="text-xs text-[#A06E56] mt-1 italic">
                         👉 你會做出第一版「可以拿出來給人看」的作品集雛形。
@@ -2143,133 +2151,231 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
         </div>
       </section>
 
-      {/* Success Stories Section */}
-      <SuccessStoriesSection id="success-stories-section" />
-
       {/* Member Exclusive Resources Section */}
-      <section className="py-16 sm:py-24 bg-[#F5F3ED]">
+      {/* What You Get Section */}
+      <section className="pt-8 sm:pt-12 pb-16 sm:pb-24 bg-[#F5F3ED]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#F5F3ED]/80 backdrop-blur rounded-2xl p-6 sm:p-8 shadow-lg border border-[#D4B483]/30">
+          {/* Section Header */}
+          <div className="text-center mb-12">
             <div className="flex justify-center gap-2 mb-4">
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
               <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
             </div>
-
-            <h3 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3 text-center">學員限定資源</h3>
-            <p className="text-center text-[#33393C] mb-8 text-sm sm:text-base">
-              在學期間，除了當屆正式課程以外，以下資源與社群將支持你成長
+            <h3 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3 text-balance">
+              {'加入學院你會得到什麼'}
+            </h3>
+            <p className="text-sm sm:text-base text-[#33393C]/70">
+              {'遠距職涯 x 遠端接案 — 一套從定位到落地的完整行動系統'}
             </p>
+          </div>
 
-            {/* Student Resources During Academy */}
-            <div className="mb-8">
-              <h4 className="font-bold text-[#17464F] text-base sm:text-lg mb-4 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]"></span>
-                學習期間專屬資源
-              </h4>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-white/80 rounded-xl p-4 border border-[#C9D7D4]/50">
-                  <div className="flex items-start gap-2 mb-2">
-                    <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
-                    <span className="font-semibold text-[#17464F] text-sm sm:text-base">
-                      活動特殊折扣 & 優先報名資格
-                    </span>
-                  </div>
-                  <p className="text-[#33393C] text-xs sm:text-sm leading-snug pl-4">
-                    加開的選修課及工作坊、社群線下聚會、海內外遊牧啟發之旅
-                  </p>
+          {/* Block 1: Growth System */}
+          <div className="mb-10">
+            <h4 className="font-bold text-[#17464F] text-base sm:text-lg mb-4 flex items-center gap-2">
+              <span className="w-1.5 h-6 rounded-full bg-[#D4B483]"></span>
+              {'一套「把能力變成機會」的成長系統'}
+            </h4>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <div className="bg-white rounded-xl p-5 border border-[#C9D7D4]/50 shadow-sm">
+                <div className="w-8 h-8 rounded-lg bg-[#17464F] flex items-center justify-center mb-3">
+                  <span className="text-white text-xs font-bold">{'01'}</span>
                 </div>
+                <h5 className="font-bold text-[#17464F] text-sm mb-1.5">{'當屆完整課程'}</h5>
+                <p className="text-[#33393C]/70 text-xs leading-relaxed">
+                  {'聚焦遠距求職與接案兩條路，從定位到落地流程（直播 / 回放）'}
+                </p>
+              </div>
+              <div className="bg-white rounded-xl p-5 border border-[#C9D7D4]/50 shadow-sm">
+                <div className="w-8 h-8 rounded-lg bg-[#17464F] flex items-center justify-center mb-3">
+                  <span className="text-white text-xs font-bold">{'02'}</span>
+                </div>
+                <h5 className="font-bold text-[#17464F] text-sm mb-1.5">{'作業與落地任務'}</h5>
+                <p className="text-[#33393C]/70 text-xs leading-relaxed">
+                  {'每周都要交付 — 一步步把你推到「可以被採用 / 被下單」的狀態'}
+                </p>
+              </div>
+              <div className="bg-white rounded-xl p-5 border border-[#C9D7D4]/50 shadow-sm">
+                <div className="w-8 h-8 rounded-lg bg-[#17464F] flex items-center justify-center mb-3">
+                  <span className="text-white text-xs font-bold">{'03'}</span>
+                </div>
+                <h5 className="font-bold text-[#17464F] text-sm mb-1.5">{'成長節奏'}</h5>
+                <p className="text-[#33393C]/70 text-xs leading-relaxed">
+                  {'同學會 / 團體 QA / DemoDay，幫你把卡點拆掉、把進度做完'}
+                </p>
+              </div>
+            </div>
+          </div>
 
-                <div className="bg-white/80 rounded-xl p-4 border border-[#C9D7D4]/50">
-                  <div className="flex items-start gap-2 mb-2">
-                    <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
-                    <span className="font-semibold text-[#17464F] text-sm sm:text-base">加入、發起共創專案</span>
-                  </div>
-                  <p className="text-[#33393C] text-xs sm:text-sm leading-snug pl-4">
-                    遊牧之聲訪談、Ai Builder 實習計劃、線上線下讀書會
-                  </p>
+          {/* Block 2: Deliverables */}
+          <div className="mb-10 bg-white rounded-2xl p-5 sm:p-8 border border-[#C9D7D4]/50 shadow-sm">
+            <div className="flex items-center gap-3 mb-5">
+              <h4 className="font-bold text-[#17464F] text-base sm:text-lg">{'你會做出什麼成果'}</h4>
+              <div className="flex gap-1.5">
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#D4B483]/15 text-[#A06E56] font-medium">{'可展示'}</span>
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#D4B483]/15 text-[#A06E56] font-medium">{'可投遞'}</span>
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#D4B483]/15 text-[#A06E56] font-medium">{'可成交'}</span>
+              </div>
+            </div>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-2.5">
+                <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
+                <div>
+                  <span className="font-semibold text-[#17464F] text-sm">{'遠距職涯定位'}</span>
+                  <span className="text-[#33393C]/60 text-sm">{' — 你適合走遠距正職、遠端接案，或雙線並進'}</span>
                 </div>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
+                <div>
+                  <span className="font-semibold text-[#17464F] text-sm">{'個人作品 / 案例包'}</span>
+                  <span className="text-[#33393C]/60 text-sm">{' — 把經歷整理成能被理解、能被信任的作品呈現'}</span>
+                </div>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
+                <div>
+                  <span className="font-semibold text-[#17464F] text-sm">{'投遞 / 開發流程'}</span>
+                  <span className="text-[#33393C]/60 text-sm">{' — 一套可複製的投遞 / 陌生開發方法'}</span>
+                </div>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
+                <div>
+                  <span className="font-semibold text-[#17464F] text-sm">{'對外版本的自我介紹'}</span>
+                  <span className="text-[#33393C]/60 text-sm">{' — LinkedIn / 履歷 / 提案頁的關鍵內容與結構'}</span>
+                </div>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
+                <div>
+                  <span className="font-semibold text-[#17464F] text-sm">{'DemoDay 發表'}</span>
+                  <span className="text-[#33393C]/60 text-sm">{' — 把成果公開呈現一次，完成「交付」與「曝光」'}</span>
+                </div>
+              </li>
+            </ul>
+            <p className="mt-5 pt-4 border-t border-[#C9D7D4]/50 text-center text-sm font-bold text-[#D4B483]">
+              {'你的目標是「開始更容易拿到遠距工作 / 接案機會」。'}
+            </p>
+          </div>
 
-                <div className="bg-white/80 rounded-xl p-4 border border-[#C9D7D4]/50">
-                  <div className="flex items-start gap-2 mb-2">
-                    <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
-                    <span className="font-semibold text-[#17464F] text-sm sm:text-base">許願池</span>
-                  </div>
-                  <p className="text-[#33393C] text-xs sm:text-sm leading-snug pl-4">
-                    定期許願，讓更多學習資源在學院發生
-                  </p>
-                </div>
+          {/* Block 3: Alumni Status */}
+          <div className="mb-10 bg-[#F5F3ED]/80 rounded-2xl p-5 sm:p-8 border border-[#D4B483]/30 shadow-sm">
+            <div className="flex items-center gap-3 mb-5">
+              <h4 className="font-bold text-[#17464F] text-base sm:text-lg">{'校友資格'}</h4>
+              <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#17464F]/10 text-[#17464F] font-medium">{'入學即擁有，結業後延續'}</span>
+            </div>
+
+            <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-5">
+              <div className="bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-lg p-3 sm:p-4 text-white text-center">
+                <div className="font-semibold text-xs sm:text-sm mb-1">{'Skool 共學群'}</div>
+                <div className="text-[10px] sm:text-xs text-white/80">{'持續交流與互助'}</div>
+              </div>
+              <div className="bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-lg p-3 sm:p-4 text-white text-center">
+                <div className="font-semibold text-xs sm:text-sm mb-1">{'Line 閒聊群'}</div>
+                <div className="text-[10px] sm:text-xs text-white/80">{'日常連結與支持'}</div>
+              </div>
+              <div className="bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-lg p-3 sm:p-4 text-white text-center">
+                <div className="font-semibold text-xs sm:text-sm mb-1">{'校友 LinkedIn 群'}</div>
+                <div className="text-[10px] sm:text-xs text-white/80">{'職涯拓展與合作'}</div>
               </div>
             </div>
 
-            {/* Alumni Lifetime Status - Moved to bottom */}
-            <div className="border-t border-[#D4B483]/30 pt-6 mt-6">
-              <h4 className="font-bold text-[#17464F] text-base sm:text-lg mb-2 text-center">完成學院後</h4>
-              <p className="text-center text-[#33393C] mb-6 text-sm">
-                你將獲得<span className="font-semibold text-[#17464F]">終身校友資格</span>，持續享有以下資源與社群支持
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
-                <div className="bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-lg p-4 text-white text-center">
-                  <div className="font-semibold text-sm mb-1">Skool 共學群</div>
-                  <div className="text-xs text-white/80">持續交流與互助</div>
-                </div>
-                <div className="bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-lg p-4 text-white text-center">
-                  <div className="font-semibold text-sm mb-1">Line 閒聊群</div>
-                  <div className="text-xs text-white/80">日常連結與支持</div>
-                </div>
-                <div className="bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-lg p-4 text-white text-center">
-                  <div className="font-semibold text-sm mb-1">校友 LinkedIn 群</div>
-                  <div className="text-xs text-white/80">職涯拓展與合作</div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="flex items-start gap-2.5 bg-white/60 rounded-xl p-4">
+                <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
+                <div>
+                  <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'校友限定聚會'}</span>
+                  <p className="text-[#33393C]/60 text-xs leading-relaxed">{'更高密度的同路人連結與合作可能'}</p>
                 </div>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="flex items-start gap-2 p-3">
-                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
-                  <div>
-                    <span className="font-semibold text-[#17464F] text-sm block mb-1">世界遊牧優先資訊</span>
-                    <p className="text-[#33393C] text-xs leading-snug">世界遊牧趨勢、情報</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-2 p-3">
-                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
-                  <div>
-                    <span className="font-semibold text-[#17464F] text-sm block mb-1">國際遊牧領袖訪談</span>
-                    <p className="text-[#33393C] text-xs leading-snug">深度對話全球數位遊牧先行者與實踐者</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-2 p-3">
-                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
-                  <div>
-                    <span className="font-semibold text-[#17464F] text-sm block mb-1">校友限定聚會</span>
-                    <p className="text-[#33393C] text-xs leading-snug">線上線下定期聚會，持續連結與成長</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-2 p-3">
-                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
-                  <div>
-                    <span className="font-semibold text-[#17464F] text-sm block mb-1">校友專屬折扣</span>
-                    <p className="text-[#33393C] text-xs leading-snug">選修課程、工作坊、遊牧活動優先報名與優惠</p>
-                  </div>
+              <div className="flex items-start gap-2.5 bg-white/60 rounded-xl p-4">
+                <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
+                <div>
+                  <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'校友專屬折扣與優先'}</span>
+                  <p className="text-[#33393C]/60 text-xs leading-relaxed">{'加開選修、工作坊、線下聚會、海內外遊牧啟發之旅等'}</p>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div className="text-center mt-8">
-              <button
-                onClick={scrollToPricing}
-                className="inline-block bg-[#17464F] text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
-              >
-                我要加入本梯
-              </button>
+          {/* Block 4: Co-creation */}
+          <div className="mb-10">
+            <div className="flex items-center gap-3 mb-4">
+              <h4 className="font-bold text-[#17464F] text-base sm:text-lg">{'共創與參與權'}</h4>
+              <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#D4B483]/15 text-[#A06E56] font-medium">{'把圈子變成機會場'}</span>
             </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="bg-white rounded-xl p-5 border border-[#C9D7D4]/50 shadow-sm">
+                <h5 className="font-bold text-[#17464F] text-sm mb-2">{'共創專案'}</h5>
+                <p className="text-[#33393C]/70 text-xs leading-relaxed">
+                  {'可優先參與、可共同發起（讀書會、實戰企劃、工具共學、Builder 實習等）'}
+                </p>
+              </div>
+              <div className="bg-white rounded-xl p-5 border border-[#C9D7D4]/50 shadow-sm">
+                <h5 className="font-bold text-[#17464F] text-sm mb-2">{'許願池'}</h5>
+                <p className="text-[#33393C]/70 text-xs leading-relaxed">
+                  {'定期提案 / 投票，讓學院資源與活動更貼近你的需求'}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Block 5: Community Subscription */}
+          <div className="mb-8 bg-[#17464F]/5 rounded-2xl p-5 sm:p-8 border border-[#17464F]/10">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-1">
+              <h4 className="font-bold text-[#17464F] text-base sm:text-lg">{'入學自動開通 — 社群訂閱權益'}</h4>
+            </div>
+            <p className="text-[10px] sm:text-xs text-[#33393C]/50 mb-5">{'購買本屆學院課程即包含，不需另外加購'}</p>
+
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <span className="w-7 h-7 rounded-lg bg-[#D4B483]/15 flex items-center justify-center flex-shrink-0 text-sm font-bold text-[#D4B483]">{'1'}</span>
+                <div>
+                  <p className="text-sm font-medium text-[#17464F]">
+                    {'遊牧之聲'}
+                    <span className="text-[#33393C]/50 font-normal text-xs ml-1.5">{'月更直播 + 完整回放'}</span>
+                  </p>
+                  <p className="text-xs text-[#33393C]/60 mt-0.5">{'每月邀請一位正在路上的遠距遊牧者分享故事、心法與資源'}</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="w-7 h-7 rounded-lg bg-[#D4B483]/15 flex items-center justify-center flex-shrink-0 text-sm font-bold text-[#D4B483]">{'2'}</span>
+                <div>
+                  <p className="text-sm font-medium text-[#17464F]">
+                    {'世界遊牧資訊'}
+                    <span className="text-[#33393C]/50 font-normal text-xs ml-1.5">{'趨勢整理 + 活動情報'}</span>
+                  </p>
+                  <p className="text-xs text-[#33393C]/60 mt-0.5">{'遠距工作市場趨勢、工具更新、海內外活動情報'}</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="w-7 h-7 rounded-lg bg-[#D4B483]/15 flex items-center justify-center flex-shrink-0 text-sm font-bold text-[#D4B483]">{'3'}</span>
+                <div>
+                  <p className="text-sm font-medium text-[#17464F]">
+                    {'工作坊 / 活動優惠價'}
+                    <span className="text-[#33393C]/50 font-normal text-xs ml-1.5">{'每月不同主題，付費加購'}</span>
+                  </p>
+                  <p className="text-xs text-[#33393C]/60 mt-0.5">{'講座、實戰工作坊、遊牧聚會等享專屬優惠價格'}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center">
+            <button
+              onClick={scrollToPricing}
+              className="inline-block bg-[#17464F] text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+            >
+              {'我要加入本梯'}
+            </button>
           </div>
         </div>
       </section>
+
+      {/* Success Stories Section */}
+      <SuccessStoriesSection id="success-stories-section" />
 
       {/* PRICING SECTION */}
       <section id="pricing-section" className="pt-0 pb-0 bg-[#17464F] relative overflow-hidden">

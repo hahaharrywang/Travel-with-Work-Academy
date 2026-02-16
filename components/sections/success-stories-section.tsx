@@ -15,6 +15,11 @@ const successStories = [
     ],
     quote:
       "我第一次可以很有底氣地，把作品集網站連結，貼在履歷跟訊息裡，不再只是說自己「會盡力完成工作」，而是讓成果自己說話。",
+    currentStatus: [
+      "已完成可投遞的作品集與個人網頁",
+      "已開始對外投遞遠端職缺",
+      "清楚知道下一個 90 天要做什麼",
+    ],
   },
   {
     id: "case-b",
@@ -28,6 +33,11 @@ const successStories = [
     ],
     quote:
       "原來真的有人願意為我的內容付費，第一次打從心底覺得自媒體是一條可以慢慢累積變現的路，我會永遠記住這第一份線上收入。",
+    currentStatus: [
+      "已建立電子報訂閱頁與自動化流程",
+      "已獲得第一筆線上訂閱收入",
+      "持續累積付費內容產品線",
+    ],
   },
   {
     id: "case-c",
@@ -40,6 +50,11 @@ const successStories = [
     ],
     quote:
       "旅居不再只是想像中的夢，而是一個可以被規劃、也可以被重複的生活選項。這次之後我才明白：它只是需要經驗與準備，透過社群夥伴的幫助下，其實沒這麼困難。",
+    currentStatus: [
+      "已完成第一次海外旅居工作實驗",
+      "已建立可重複的旅居工作節奏",
+      "正在規劃下一趟 30 天長期旅居計畫",
+    ],
   },
 ]
 
@@ -70,18 +85,6 @@ export function SuccessStoriesSection() {
               key={story.id}
               className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-[#C9D7D4] flex flex-col"
             >
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-1">
-                {story.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="inline-block px-3 py-1 text-xs font-medium bg-[#D4B483]/20 text-[#17464F] rounded-full"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
               {/* Title */}
               <h3 className="text-lg font-bold text-[#17464F] mb-1">{story.title}</h3>
 
@@ -109,6 +112,21 @@ export function SuccessStoriesSection() {
                   <p key={idx}>{paragraph}</p>
                 ))}
               </div>
+
+              {/* Current Status */}
+              {story.currentStatus && (
+                <div className="mt-4 pt-4 border-t border-[#C9D7D4]">
+                  <p className="text-xs font-bold text-[#17464F] mb-2 tracking-wide">{'現在狀態：'}</p>
+                  <ul className="space-y-1">
+                    {story.currentStatus.map((status, idx) => (
+                      <li key={idx} className="text-xs text-[#33393C] flex items-start gap-1.5">
+                        <span className="text-[#D4B483] flex-shrink-0">{'✔'}</span>
+                        <span>{status}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </Card>
           ))}
         </div>
@@ -126,18 +144,6 @@ export function SuccessStoriesSection() {
               {successStories.map((story) => (
                 <CarouselItem key={story.id} className="pl-4 md:basis-1/2">
                   <Card className="bg-white rounded-2xl p-6 shadow-sm border border-[#C9D7D4] h-full flex flex-col">
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-1">
-                      {story.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="inline-block px-3 py-1 text-xs font-medium bg-[#D4B483]/20 text-[#17464F] rounded-full"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
                     {/* Title */}
                     <h3 className="text-lg font-bold text-[#17464F] mb-1">{story.title}</h3>
 
@@ -165,6 +171,21 @@ export function SuccessStoriesSection() {
                         <p key={idx}>{paragraph}</p>
                       ))}
                     </div>
+
+                    {/* Current Status */}
+                    {story.currentStatus && (
+                      <div className="mt-4 pt-4 border-t border-[#C9D7D4]">
+                        <p className="text-xs font-bold text-[#17464F] mb-2 tracking-wide">{'現在狀態：'}</p>
+                        <ul className="space-y-1">
+                          {story.currentStatus.map((status, idx) => (
+                            <li key={idx} className="text-xs text-[#33393C] flex items-start gap-1.5">
+                              <span className="text-[#D4B483] flex-shrink-0">{'✔'}</span>
+                              <span>{status}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </Card>
                 </CarouselItem>
               ))}

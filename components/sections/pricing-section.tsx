@@ -14,6 +14,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
   const [timelineExpanded, setTimelineExpanded] = useState(false)
   const [showAllStagesMobile, setShowAllStagesMobile] = useState(false)
   const [showTimelineModal, setShowTimelineModal] = useState(false)
+  const [showBonusModal, setShowBonusModal] = useState(false)
 
   const collapsedStages = useMemo(() => {
     const now = new Date()
@@ -325,6 +326,76 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
             </div>
           </div>
         </div>
+
+        {/* Bonus: Community Subscription */}
+        <div className="mb-16 max-w-3xl mx-auto">
+          <div className="bg-gradient-to-r from-[#17464F]/5 to-[#D4B483]/10 border border-[#D4B483]/30 rounded-2xl p-5 sm:p-8 text-center">
+            <h3 className="text-base sm:text-xl font-bold text-[#17464F] leading-relaxed mb-3">
+              {'現在加入，即贈送限時限量'}
+              <span className="text-[#A06E56] ml-1">{'（剩餘：187 位）'}</span>
+            </h3>
+            <p className="text-sm sm:text-base text-[#17464F] font-medium">
+              {'數位遊牧線上職涯成長社群'}
+              <span className="text-[#D4B483] font-bold ml-1">{'6 個月'}</span>
+              {'訂閱資格'}
+            </p>
+            <p className="text-xs sm:text-sm text-[#33393C]/60 mt-1 mb-4">
+              {'價值 '}
+              <span className="text-[#17464F] font-bold">{'TWD 2,700'}</span>
+              {'（月訂閱 TWD 250）'}
+            </p>
+            <button
+              onClick={() => setShowBonusModal(true)}
+              className="text-sm text-[#17464F] font-medium hover:text-[#D4B483] transition-colors underline underline-offset-4"
+            >
+              {'查看社群訂閱包含什麼 →'}
+            </button>
+          </div>
+        </div>
+
+        {/* Bonus Detail Modal */}
+        {showBonusModal && (
+          <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
+            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setShowBonusModal(false)} />
+            <div className="relative bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden">
+              {/* Modal Header */}
+              <div className="bg-[#17464F] px-6 py-5 text-white">
+                <button
+                  onClick={() => setShowBonusModal(false)}
+                  className="absolute top-4 right-4 p-1.5 rounded-full hover:bg-white/10 transition-colors"
+                >
+                  <X className="w-5 h-5 text-white" />
+                </button>
+                <p className="text-xs text-[#D4B483] font-bold tracking-widest uppercase mb-1">{'Bonus'}</p>
+                <h3 className="text-lg font-bold">{'數位遊牧線上職涯成長社群'}</h3>
+                <p className="text-sm text-white/70 mt-1">{'6 個月訂閱資格 — 價值 TWD 2,700'}</p>
+              </div>
+              {/* Modal Body */}
+              <div className="p-6">
+                <p className="text-sm font-bold text-[#17464F] mb-4">{'社群訂閱資格可享：'}</p>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <span className="w-7 h-7 rounded-lg bg-[#D4B483]/15 flex items-center justify-center flex-shrink-0 text-sm font-bold text-[#D4B483]">{'1'}</span>
+                    <div>
+                      <p className="text-sm font-medium text-[#17464F]">{'每月更新國際遊牧訪談'}</p>
+                      <p className="text-xs text-[#33393C]/60 mt-0.5">{'遊牧故事、職涯分享、給在路上夥伴的建議'}</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-7 h-7 rounded-lg bg-[#D4B483]/15 flex items-center justify-center flex-shrink-0 text-sm font-bold text-[#D4B483]">{'2'}</span>
+                    <div>
+                      <p className="text-sm font-medium text-[#17464F]">{'生態系中線上線下活動的折扣'}</p>
+                      <p className="text-xs text-[#33393C]/60 mt-0.5">{'講座、工作坊、遊牧聚會等享專屬優惠'}</p>
+                    </div>
+                  </li>
+                </ul>
+                <div className="mt-6 pt-4 border-t border-[#C9D7D4]">
+                  <p className="text-xs text-[#33393C]/50 text-center">{'限時限量 — 剩餘 187 位名額'}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Timeline Modal */}
         {showTimelineModal && (
