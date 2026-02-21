@@ -2233,7 +2233,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
                 <div>
                   <span className="font-semibold text-[#17464F] text-sm">{'可展示的對外的門面'}</span>
-                  <span className="text-[#33393C]/60 text-sm">{' — 把能力、能提供的價值，整理成容易被理解的呈現方式}</span>
+                  <span className="text-[#33393C]/60 text-sm">{' — 把能力、能提供的價值，整理成容易被理解的呈現方式'}</span>
                 </div>
               </li>
               <li className="flex items-start gap-2.5">
@@ -2247,7 +2247,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
                 <div>
                   <span className="font-semibold text-[#17464F] text-sm">{'對外版本的自我介紹'}</span>
-                  <span className="text-[#33393C]/60 text-sm">{' — '}</span>
+                  <span className="text-[#33393C]/60 text-sm">{' — LinkedIn / 履歷 / 提案頁的關鍵內容與結構'}</span>
                 </div>
               </li>
               <li className="flex items-start gap-2.5">
