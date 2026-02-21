@@ -85,6 +85,31 @@ const faqData: FAQCategory[] = [
       },
     ],
   },
+  {
+    title: "結業與權益",
+    items: [
+      {
+        question: "結業後還能看回放嗎？",
+        answer:
+          "你會永久保留自己買過的課程回放與資源。同一個 Skool 社群也會持續保留，畢業後不用搬家，仍可在社群中交流（但「當屆專區」僅當屆可見）。",
+      },
+      {
+        question: "Premium 訂閱是什麼？跟學院差在哪？",
+        answer: (
+          <>
+            <p className="mb-3">
+              <strong className="text-[#17464F]">學院</strong>
+              ：是 5 個月的系統課程 & 行動節奏，帶你從定位到落地，完成可展示的成果。
+            </p>
+            <p>
+              <strong className="text-[#17464F]">Premium</strong>
+              ：是訂閱制，主打公開社群的會員限定資源庫更新＋機會／曝光＋訂閱福利。學員在學期間可免費享有此資格；結業後可自由續訂。
+            </p>
+          </>
+        ),
+      },
+    ],
+  },
 ]
 
 export function FAQSection({ onPriceDiffModalChange }: FAQSectionProps) {
