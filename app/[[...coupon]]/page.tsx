@@ -2221,29 +2221,29 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <li className="flex items-start gap-2.5">
                 <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
                 <div>
-                  <span className="font-semibold text-[#17464F] text-sm">{'遠距職涯定位'}</span>
-                  <span className="text-[#33393C]/60 text-sm">{' — 你適合走遠距正職、遠端接案，或雙線並進'}</span>
+                  <span className="font-semibold text-[#17464F] text-sm">{'遠距職涯定位、目標'}</span>
+                  <span className="text-[#33393C]/60 text-sm">{' — 適合自己的遠距正職、遠端接案啟動目標'}</span>
                 </div>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
                 <div>
-                  <span className="font-semibold text-[#17464F] text-sm">{'個人作品 / 案例包'}</span>
-                  <span className="text-[#33393C]/60 text-sm">{' — 把經歷整理成能被理解、能被信任的作品呈現'}</span>
+                  <span className="font-semibold text-[#17464F] text-sm">{'可展示的對外的門面'}</span>
+                  <span className="text-[#33393C]/60 text-sm">{' — 把能力、能提供的價值，整理成容易被理解的呈現方式}</span>
                 </div>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
                 <div>
-                  <span className="font-semibold text-[#17464F] text-sm">{'投遞 / 開發流程'}</span>
-                  <span className="text-[#33393C]/60 text-sm">{' — 一套可複製的投遞 / 陌生開發方法'}</span>
+                  <span className="font-semibold text-[#17464F] text-sm">{'獲得機會的管道'}</span>
+                  <span className="text-[#33393C]/60 text-sm">{' —  一套可擴增的社群獲客、求職辦法'}</span>
                 </div>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
                 <div>
                   <span className="font-semibold text-[#17464F] text-sm">{'對外版本的自我介紹'}</span>
-                  <span className="text-[#33393C]/60 text-sm">{' — LinkedIn / 履歷 / 提案頁的關鍵內容與結構'}</span>
+                  <span className="text-[#33393C]/60 text-sm">{' — '}</span>
                 </div>
               </li>
               <li className="flex items-start gap-2.5">
