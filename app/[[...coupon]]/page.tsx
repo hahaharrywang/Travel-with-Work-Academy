@@ -2221,40 +2221,43 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#D4B483]/15 text-[#A06E56] font-medium">{'可成交'}</span>
               </div>
             </div>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
                 <div>
-                  <span className="font-semibold text-[#17464F] text-sm">{'遠距職涯定位、目標'}</span>
-                  <span className="text-[#33393C]/60 text-sm">{' — 適合自己的遠距正職、遠端接案啟動目標'}</span>
+                  <span className="font-semibold text-[#17464F] text-sm">{'定位與可能性：遠距路線決策 & 啟動目標'}</span>
+                  <p className="text-[#33393C]/60 text-sm mt-0.5">{'— 釐清你要的自由是什麼（時間／地點／收入），並選定「上班線／接案線／雙軌」的起跑方向及目標'}</p>
                 </div>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
                 <div>
-                  <span className="font-semibold text-[#17464F] text-sm">{'可展示的對外的門面'}</span>
-                  <span className="text-[#33393C]/60 text-sm">{' — 把能力、能提供的價值，整理成容易被理解的呈現方式'}</span>
+                  <span className="font-semibold text-[#17464F] text-sm">{'對外門面與信任：一套讓人秒懂專業與價值的門面'}</span>
+                  <p className="text-[#33393C]/60 text-sm mt-0.5">{'— 把你的能力、案例、價值主張整理成：LinkedIn／提案頁 / 作品集的關鍵內容與結構'}</p>
                 </div>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
                 <div>
-                  <span className="font-semibold text-[#17464F] text-sm">{'獲得機會的管道'}</span>
-                  <span className="text-[#33393C]/60 text-sm">{' —  一套可擴增的社群獲客、求職辦法'}</span>
+                  <span className="font-semibold text-[#17464F] text-sm">{'接觸與轉化：把「接觸」變成「機會」的可擴增系統'}</span>
+                  <div className="mt-1 space-y-0.5">
+                    <p className="text-[#33393C]/60 text-sm">{'— 上班線：JD 拆解 → 客製化履歷 → 面試 & 談薪策略'}</p>
+                    <p className="text-[#33393C]/60 text-sm">{'— 接案線：社群內容策略 → 作品呈現 → 獲客管道 → 成交流程'}</p>
+                  </div>
                 </div>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
                 <div>
-                  <span className="font-semibold text-[#17464F] text-sm">{'對外版本的自我介紹'}</span>
-                  <span className="text-[#33393C]/60 text-sm">{' — LinkedIn / 履歷 / 提案頁的關鍵內容與結構'}</span>
+                  <span className="font-semibold text-[#17464F] text-sm">{'留任與永續：交付的「點 > 線 > 面」永續結構'}</span>
+                  <p className="text-[#33393C]/60 text-sm mt-0.5">{'— 在前期合作能活下來並能持續成長的方法'}</p>
                 </div>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
                 <div>
-                  <span className="font-semibold text-[#17464F] text-sm">{'DemoDay 發表'}</span>
-                  <span className="text-[#33393C]/60 text-sm">{' — 把成果公開呈現一次，完成「交付」與「曝光」'}</span>
+                  <span className="font-semibold text-[#17464F] text-sm">{'DemoDay 發表：把行動證明公開呈現'}</span>
+                  <p className="text-[#33393C]/60 text-sm mt-0.5">{'— 讓你完成一次真正的「交付」與「曝光」，也讓機會更容易找上門'}</p>
                 </div>
               </li>
             </ul>
