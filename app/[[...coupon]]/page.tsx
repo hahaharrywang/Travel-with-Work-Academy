@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback, useRef, Suspense } from "react" // Import useRef
+import { useState, useEffect, useCallback, useRef, Suspense } from "react"
 import Image from "next/image"
 import {
   ChevronDown,
@@ -1167,8 +1167,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   {/* Main Image */}
                   <div className="relative aspect-[16/9] sm:aspect-[16/10] overflow-hidden cursor-pointer"
                     onClick={() => {
-                      setLightboxImages(lifestylePhotos.map(p => p.src))
+                      setLightboxImages(lifestylePhotos)
                       setLightboxIndex(0)
+                      setLightboxOpen(true)
                     }}
                   >
                     <Image
@@ -1200,8 +1201,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                           key={i}
                           className="relative aspect-square rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity"
                           onClick={() => {
-                            setLightboxImages(lifestylePhotos.map(p => p.src))
+                            setLightboxImages(lifestylePhotos)
                             setLightboxIndex(i)
+                            setLightboxOpen(true)
                           }}
                         >
                           <Image src={photo.src || "/placeholder.svg"} alt={photo.alt} fill className="object-cover" loading="lazy" />
@@ -1249,8 +1251,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   {/* Main Image */}
                   <div className="relative aspect-[16/9] sm:aspect-[16/10] overflow-hidden cursor-pointer"
                     onClick={() => {
-                      setLightboxImages(careerPhotos.map(p => p.src))
+                      setLightboxImages(careerPhotos)
                       setLightboxIndex(0)
+                      setLightboxOpen(true)
                     }}
                   >
                     <Image
@@ -1281,8 +1284,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                           key={i}
                           className="relative aspect-square rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity"
                           onClick={() => {
-                            setLightboxImages(careerPhotos.map(p => p.src))
+                            setLightboxImages(careerPhotos)
                             setLightboxIndex(i)
+                            setLightboxOpen(true)
                           }}
                         >
                           <Image src={photo.src || "/placeholder.svg"} alt={photo.alt} fill className="object-cover" loading="lazy" />
