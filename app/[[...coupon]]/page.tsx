@@ -2266,34 +2266,33 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#17464F]/10 text-[#17464F] font-medium">{'入學即擁有，結業後延續'}</span>
             </div>
 
-            <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-5">
-              <div className="bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-lg p-3 sm:p-4 text-white text-center">
-                <div className="font-semibold text-xs sm:text-sm mb-1">{'Skool 共學群'}</div>
-                <div className="text-[10px] sm:text-xs text-white/80">{'持續交流與互助'}</div>
-              </div>
-              <div className="bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-lg p-3 sm:p-4 text-white text-center">
-                <div className="font-semibold text-xs sm:text-sm mb-1">{'Line 閒聊群'}</div>
-                <div className="text-[10px] sm:text-xs text-white/80">{'日常連結與支持'}</div>
-              </div>
-              <div className="bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-lg p-3 sm:p-4 text-white text-center">
-                <div className="font-semibold text-xs sm:text-sm mb-1">{'校友 LinkedIn 群'}</div>
-                <div className="text-[10px] sm:text-xs text-white/80">{'職涯拓展與合作'}</div>
-              </div>
-            </div>
-
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="flex items-start gap-2.5 bg-white/60 rounded-xl p-4">
                 <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
                 <div>
-                  <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'校友限定聚會'}</span>
-                  <p className="text-[#33393C]/60 text-xs leading-relaxed">{'更高密度的同路人連結與合作可能'}</p>
+                  <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'Skool 社群永久留存'}</span>
+                  <p className="text-[#33393C]/60 text-xs leading-relaxed">{'畢業後不用搬家，仍在同一個社群交流（當屆專區僅當屆可見）'}</p>
                 </div>
               </div>
               <div className="flex items-start gap-2.5 bg-white/60 rounded-xl p-4">
                 <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
                 <div>
-                  <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'校友專屬折扣與優先'}</span>
-                  <p className="text-[#33393C]/60 text-xs leading-relaxed">{'加開選修、工作坊、線下聚會、海內外遊牧啟發之旅等'}</p>
+                  <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'已購內容永久保留'}</span>
+                  <p className="text-[#33393C]/60 text-xs leading-relaxed">{'你買過的課程回放與資源，結業後仍可回看'}</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-2.5 bg-white/60 rounded-xl p-4">
+                <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
+                <div>
+                  <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'校友 LinkedIn 群'}</span>
+                  <p className="text-[#33393C]/60 text-xs leading-relaxed">{'僅限學員與校友加入，職涯拓展與合作'}</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-2.5 bg-white/60 rounded-xl p-4">
+                <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
+                <div>
+                  <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'全產品校友價'}</span>
+                  <p className="text-[#33393C]/60 text-xs leading-relaxed">{'下屆學院 / Journey 旅程 / 工作坊與線下聚會 / 合作夥伴福利（依公告）'}</p>
                 </div>
               </div>
             </div>
