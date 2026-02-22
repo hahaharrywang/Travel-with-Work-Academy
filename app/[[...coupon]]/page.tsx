@@ -1299,7 +1299,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         />
                       </div>
                       <div className="min-w-0">
-                        <h3 className="text-white font-bold text-base sm:text-lg leading-tight truncate">{'數位遊牧線上職涯成長社群'}</h3>
+                        <h3 className="text-white font-bold text-base sm:text-lg leading-tight truncate">{'數位遊牧線上職涯成長��群'}</h3>
                         <span className="text-[#D4B483] text-xs sm:text-sm">@twnomadacademy</span>
                       </div>
                     </div>
@@ -1712,7 +1712,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     <div>
                       <p>
                         <span className="font-semibold text-[#17464F]">階段一 起步打底：</span>
-                        看懂自媒體與接案市場，釐清 TA、主題與價值主張，整理出第一版服務項目與作品集框架，以及具備加速未來生產力的AI思維。
+                        看懂自媒體與接案市��，釐清 TA、主題與價值主張，整理出第一版服務項目與作品集框架，以及具備加速未來生產力的AI思維。
                       </p>
                       <p className="text-xs text-[#A06E56] mt-1 italic">
                         👉 你會做出第一版「可以拿出來給人看」的作品集雛形。
@@ -2847,6 +2847,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   const isExpanded = expandedWeeks.has(week.id)
                   const phaseColor = getPhaseColor(week.phase)
                   const trackColor = getTrackColor(week.track)
+                  const weekInstructors = getInstructorsByNames(week.instructorNames)
 
                   return (
                     <div
@@ -2882,7 +2883,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         {/* Instructors & Expand Button */}
                         <div className="flex items-center justify-between mt-3">
                           <div className="flex items-center gap-2">
-                            {week.instructors.map((instructor, idx) => (
+                            {weekInstructors.map((instructor, idx) => (
                               <div key={idx} className="flex items-center gap-1.5">
                                 <div className="w-7 h-7 rounded-full overflow-hidden border-2 border-[#D4B483]/30">
                                   <Image
@@ -2927,7 +2928,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                           <div className="mt-4">
                             <h5 className="text-sm font-semibold text-[#17464F] mb-3">講師資訊</h5>
                             <div className="flex flex-wrap gap-4">
-                              {week.instructors.map((instructor, idx) => (
+                              {weekInstructors.map((instructor, idx) => (
                                 <div
                                   key={idx}
                                   className="flex items-start gap-3 p-3 bg-white border border-gray-100 rounded-lg shadow-sm"
