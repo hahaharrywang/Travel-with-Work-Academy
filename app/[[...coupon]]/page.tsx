@@ -47,7 +47,7 @@ import { instructors } from "@/data/instructors"
 
 export default function LandingPage({ params }: { params: { coupon?: string | string[] } }) {
   const [couponCode, setCouponCode] = useState<string | null>(null)
-  const [activeMapTab, setActiveMapTab] = useState<string>("遠端上班") // State for Learning Map tabs
+  const [activeMapTab, setActiveMapTab] = useState<string>("��端上班") // State for Learning Map tabs
   const [selectedWeek, setSelectedWeek] = useState<CalendarWeek | null>(null)
 
   // Feature dialog state
@@ -2015,14 +2015,20 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3">遊牧資源生態系</h2>
-            <p className="text-base sm:text-lg text-[#33393C]">國際鏈結 | 線下社群 | 線上教育</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3">你加入的不只是 5 個月課程，而是遊牧資源生態系</h2>
+            <p className="text-base sm:text-lg text-[#33393C]">國際鏈結 | 線下社群 | 工作坊</p>
           </div>
 
           {/* Value proposition cards */}
           <div className="mb-10 sm:mb-14">
             <p className="text-center text-[#33393C] text-base sm:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
-              {'你加入的不只是 5 個月課程，而是一個「把人脈變機會」的遊牧資源生態系：'}
+              {'加入連結台灣與世界的遊牧社群，透過不同視角，學習成長'}
+            </p>
+            <p className="text-center text-[#33393C] text-base sm:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
+              {'參加定期線下聚會、國內外遊牧啟發之旅，實際見到路上遊牧者與同路人，彼此交流學習'}
+            </p>
+            <p className="text-center text-[#33393C] text-base sm:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
+              {'參加各式工作坊，加速行動落地、根據需求延伸學習'}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {/* Card 1: International */}
