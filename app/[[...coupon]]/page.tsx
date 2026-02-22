@@ -2056,12 +2056,6 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 </p>
               </div>
             </div>
-            {/* Disclaimer note */}
-            <div className="mt-6 rounded-xl bg-[#C9D7D4]/30 border border-[#C9D7D4] px-5 py-4 text-center">
-              <p className="text-[#33393C] text-xs sm:text-sm leading-relaxed">
-                <span className="font-semibold text-[#17464F]">重要說明：</span>學院方案以「課程＋社群＋校友資格」為主；多數線下活動／工作坊／旅程為選配加購，但校友享優先與專屬價。
-              </p>
-            </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
@@ -2244,7 +2238,16 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
         <PricingSection onTimelineModalChange={setPricingTimelineModalOpen} />
       </section>
 
-      {/* LIMITED OFFER SECTION */}
+      {/* Disclaimer note */}
+      <div className="bg-[#F5F3ED] py-6 sm:py-8">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+          <div className="rounded-xl bg-[#C9D7D4]/30 border border-[#C9D7D4] px-5 py-4 text-center">
+            <p className="text-[#33393C] text-xs sm:text-sm leading-relaxed">
+              <span className="font-semibold text-[#17464F]">重要說明：</span>學院方案以「課程＋社群＋校友資格」為主；多數線下活動／工作坊／旅程為選配加購，但校友享優先與專屬價。
+            </p>
+          </div>
+        </div>
+      </div>
 
       {/* FAQ SECTION */}
       <FAQSection
