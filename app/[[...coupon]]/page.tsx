@@ -1133,6 +1133,59 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             <p className="text-base sm:text-lg text-[#33393C]">國際鏈結 | 線下社群 | 線上教育</p>
           </div>
 
+          {/* Value Proposition Cards */}
+          <div className="mb-8 sm:mb-12">
+            <p className="text-center text-[#33393C] text-base sm:text-lg mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
+              {'你加入的不只是 5 個月課程，而是一個「把人脈變機會」的遊牧資源生態系：'}
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+              {/* Card: 國際鏈結 */}
+              <div className="rounded-2xl border border-[#C9D7D4] bg-white p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center flex-shrink-0">
+                    <Globe className="w-5 h-5 text-[#17464F]" />
+                  </div>
+                  <h3 className="font-bold text-[#17464F] text-base sm:text-lg">{'國際鏈結'}</h3>
+                </div>
+                <p className="text-sm sm:text-base text-[#33393C] leading-relaxed">
+                  {'接軌海外遊牧社群與活動資訊、國際遊牧者／領袖訪談、海外啟發之旅'}
+                </p>
+              </div>
+              {/* Card: 線下場域 */}
+              <div className="rounded-2xl border border-[#C9D7D4] bg-white p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center flex-shrink-0">
+                    <Users className="w-5 h-5 text-[#17464F]" />
+                  </div>
+                  <h3 className="font-bold text-[#17464F] text-base sm:text-lg">{'線下場域'}</h3>
+                </div>
+                <p className="text-sm sm:text-base text-[#33393C] leading-relaxed">
+                  {'定期小聚／共學／交流夜，讓你更容易與遊牧者、同路人、潛在合作夥伴，進行親身交流'}
+                </p>
+              </div>
+              {/* Card: 線上工作坊 */}
+              <div className="rounded-2xl border border-[#C9D7D4] bg-white p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center flex-shrink-0">
+                    <Layers className="w-5 h-5 text-[#17464F]" />
+                  </div>
+                  <h3 className="font-bold text-[#17464F] text-base sm:text-lg">{'線上工作坊'}</h3>
+                </div>
+                <p className="text-sm sm:text-base text-[#33393C] leading-relaxed">
+                  {'讓「知道怎麼做」變「課程就有進展」'}
+                </p>
+              </div>
+            </div>
+
+            {/* Disclaimer Note */}
+            <div className="mt-6 sm:mt-8 bg-[#F7F5F0] rounded-xl border border-[#E8E2D6] px-5 py-4 sm:px-6 sm:py-5">
+              <p className="text-sm text-[#5A5A5A] leading-relaxed">
+                <span className="font-semibold text-[#17464F]">{'重要說明：'}</span>
+                {'學院方案以「課程＋社群＋校友資格」為主；多數線下活動／工作坊／旅程為選配加購，但校友享優先與專屬價。'}
+              </p>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {/* Card 1: Lifestyle */}
             {(() => {
