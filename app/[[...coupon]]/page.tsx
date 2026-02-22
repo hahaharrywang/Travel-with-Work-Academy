@@ -2020,46 +2020,34 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             <p className="text-base sm:text-lg text-[#33393C]">國際鏈結 | 線下社群 | 工作坊</p>
           </div>
 
-          {/* Value proposition cards */}
-          <div className="mb-10 sm:mb-14">
-            <p className="text-center text-[#33393C] text-base sm:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
-              {'加入連結台灣與世界的遊牧社群，透過不同視角，學習成長'}
+          {/* Value proposition — compact list */}
+          <div className="max-w-2xl mx-auto mb-10 sm:mb-14">
+            <p className="text-center text-[#33393C] text-sm sm:text-base mb-6 sm:mb-8 leading-relaxed">
+              {'你加入的不只是課程，而是一個「把人脈變機會」的遊牧資源生態系'}
             </p>
-            <p className="text-center text-[#33393C] text-base sm:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
-              {'參加定期線下聚會、國內外遊牧之旅，面對面與路上遊牧者、同路人交流學習'}
-            </p>
-            <p className="text-center text-[#33393C] text-base sm:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
-              {'參加各式工作坊，加速行動落地、根據需求延伸學習'}
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {/* Card 1: International */}
-              <div className="rounded-2xl border border-[#C9D7D4] bg-[#F5F3ED] p-6 sm:p-7 text-center">
-                <div className="w-12 h-12 rounded-full bg-[#17464F] flex items-center justify-center mx-auto mb-4">
-                  <Globe className="w-6 h-6 text-[#D4B483]" />
-                </div>
-                <h3 className="text-[#17464F] font-bold text-lg mb-2">國際鏈結</h3>
-                <p className="text-[#33393C] text-sm leading-relaxed">
+            <div className="space-y-4 sm:space-y-5">
+              <div className="flex items-baseline gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483] flex-shrink-0 translate-y-[0.35rem]"></span>
+                <p className="text-sm sm:text-base text-[#33393C] leading-relaxed">
+                  <span className="font-bold text-[#17464F]">國際鏈結</span>
+                  <span className="mx-1.5 text-[#C9D7D4]">|</span>
                   接軌海外遊牧社群與活動資訊、國際遊牧者／領袖訪談、海外啟發之旅
                 </p>
               </div>
-              {/* Card 2: Offline */}
-              <div className="rounded-2xl border border-[#C9D7D4] bg-[#F5F3ED] p-6 sm:p-7 text-center">
-                <div className="w-12 h-12 rounded-full bg-[#17464F] flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-6 h-6 text-[#D4B483]" />
-                </div>
-                <h3 className="text-[#17464F] font-bold text-lg mb-2">線下場域</h3>
-                <p className="text-[#33393C] text-sm leading-relaxed">
-                  定期小聚／共學／交流夜，讓你更容易與遊牧者、同路人、潛在合作夥伴，進行親身交流
+              <div className="flex items-baseline gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483] flex-shrink-0 translate-y-[0.35rem]"></span>
+                <p className="text-sm sm:text-base text-[#33393C] leading-relaxed">
+                  <span className="font-bold text-[#17464F]">線下場域</span>
+                  <span className="mx-1.5 text-[#C9D7D4]">|</span>
+                  定期小聚／共學／交流夜，與遊牧者、同路人、潛在合作夥伴親身交流
                 </p>
               </div>
-              {/* Card 3: Online */}
-              <div className="rounded-2xl border border-[#C9D7D4] bg-[#F5F3ED] p-6 sm:p-7 text-center">
-                <div className="w-12 h-12 rounded-full bg-[#17464F] flex items-center justify-center mx-auto mb-4">
-                  <Layers className="w-6 h-6 text-[#D4B483]" />
-                </div>
-                <h3 className="text-[#17464F] font-bold text-lg mb-2">線上工作坊</h3>
-                <p className="text-[#33393C] text-sm leading-relaxed">
-                  {'讓「知道怎麼做」變「課程就有進展」'}
+              <div className="flex items-baseline gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483] flex-shrink-0 translate-y-[0.35rem]"></span>
+                <p className="text-sm sm:text-base text-[#33393C] leading-relaxed">
+                  <span className="font-bold text-[#17464F]">線上工作坊</span>
+                  <span className="mx-1.5 text-[#C9D7D4]">|</span>
+                  {'讓「知道怎麼做」變「課程就有進展」，加速行動落地'}
                 </p>
               </div>
             </div>
