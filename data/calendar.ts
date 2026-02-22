@@ -82,7 +82,7 @@ export const calendarData: CalendarWeek[] = [
     focusShort: "用 AI + 自動化把日常工作變輕：做出你的第一個可運作流程。",
     focusDetail:
       "核心內容\n• 什麼工作適合交給 AI／什麼仍要自己做（避免用錯力）\n• 把「想法」變成「可執行流程」：從對話到跨工具串接\n• 以最小可用成果（MVP）為導向：先跑起來，再逐步優化\n\n行動任務\n• 以每週會重複做的情境做出 1 個「能實際跑起來」的自動化流程\n• 寫下你的「AI 使用規則」：哪些事交給 AI、哪些事一定自己確認",
-    instructorNames: ["講師確認中"],
+    instructorNames: ["林上哲"],
   },
   {
     id: 6,
@@ -94,7 +94,7 @@ export const calendarData: CalendarWeek[] = [
     focusShort: "把定位收斂、Offer 做清楚：讓陌生客戶快速理解並信任你的價值。",
     focusDetail:
       "核心內容\n• 把「我想做很多」收斂成「我現在先做這一塊」\n• 用輕量市場調查校準定位與價格想像（避免憑感覺）\n• 讓你的服務變得可被選擇：清楚、可比較、可下一步\n\n行動任務\n• 完善你的接案 Offer 架構\n• 完成一次市場觀察與調查",
-    instructorNames: ["講師確認中"],
+    instructorNames: ["西打藍"],
   },
   {
     id: 7,
@@ -167,7 +167,7 @@ export const calendarData: CalendarWeek[] = [
     focusShort: "讓履歷「更像你」也「更像職缺要的人」：延續 AI 課，馬上應用在履歷。",
     focusDetail:
       "核心內容\n• 用專業流程校準你的履歷呈現\n• 讓經驗描述更有說服力：從「做過」變成「帶來過影響」\n• 建立可複用的求職信版本\n• 延續 AI 課程所學，直接應用在履歷撰寫\n\n行動任務\n• 完成 1 版履歷更新\n• 完成 1 版求職信骨架\n• 獲得同儕回饋／社群檢視",
-    instructorNames: ["講師確認中"],
+    instructorNames: ["謝雅筑 Ally"],
   },
   {
     id: 13,
