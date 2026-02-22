@@ -99,7 +99,7 @@ const faqData: FAQCategory[] = [
           <>
             <p className="mb-3">
               <strong className="text-[#17464F]">學院</strong>
-              ：是 5 個月的系統課程 & 行動節奏，帶你從定位到落地，完成可展示的成果。
+              {'：是 5 個月的系統課程 & 行動節奏，帶你從定位到落地，完成可展示的成果。'}
             </p>
             <p>
               <strong className="text-[#17464F]">Premium</strong>
@@ -195,8 +195,8 @@ function SwitchAndUpgradeAnswer({ onModalChange }: UpgradePricingAnswerProps) {
             <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]" />第 3、4 週會有試上別路課程的機會
           </h4>
           <ul className="text-[#33393C]/80 pl-3.5 space-y-1.5">
-            <li>• 第 3 週課程：「自媒體接案變現地圖 & 目標設定」</li>
-            <li>• 第 4 週課程：「遠端自由職涯藍圖 & 目標設定」</li>
+            <li>{'• 第 3 週課程：「自媒體接案變現地圖 & 目標設定」'}</li>
+            <li>{'• 第 4 週課程：「遠端自由職涯藍圖 & 目標設定」'}</li>
           </ul>
           <p className="text-xs text-[#33393C]/60 pl-3.5 mt-2">（單路線學員會有機會試上另一條線的起步課，再做選擇）</p>
         </div>
