@@ -1909,8 +1909,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <div className="flex items-start gap-2.5 bg-white/60 rounded-xl p-4">
                 <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
                 <div>
-                  <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'已購內容永久保留'}</span>
-                  <p className="text-[#33393C]/60 text-xs leading-relaxed">{'你買過的課程回放與資源，結業後仍可回看'}</p>
+                  <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'已購內容回放觀看'}</span>
+                  <p className="text-[#33393C]/60 text-xs leading-relaxed">{'你買過的課程回放與資源，結業後仍可回看，期限為課程結束後一年'}</p>
                 </div>
               </div>
               <div className="flex items-start gap-2.5 bg-white/60 rounded-xl p-4">
