@@ -144,7 +144,7 @@ export function InstructorsSection({ instructors }: InstructorsSectionProps) {
           <div className="flex items-center justify-center gap-3 mb-8">
             <div className="h-px w-12 bg-[#17464F]" />
             <h3 className="text-xl sm:text-2xl font-bold text-[#17464F]">
-              <span className="text-[#D4B483]">A 線｜</span>自媒體接案線路導師
+              <span className="text-[#D4B483]">A 線｜</span>接案線路導師
             </h3>
             <div className="h-px w-12 bg-[#17464F]" />
           </div>

@@ -17,7 +17,7 @@ export const monthlySchedule: MonthData[] = [
     courses: [
       { title: "第1週：開學週 - 遠距職涯定位", tag: "共同必修", tagColor: "bg-[#17464F]" },
       { title: "第2週：目標設定與時間規劃", tag: "共同必修", tagColor: "bg-[#17464F]" },
-      { title: "第3週：自媒體定位與內容策略", tag: "A線", tagColor: "bg-[#D4B483]" },
+      { title: "第3週：接案定位與內容策略", tag: "A線", tagColor: "bg-[#D4B483]" },
       { title: "第4週：遠端求職市場分析", tag: "B線", tagColor: "bg-[#A06E56]" },
     ],
   },

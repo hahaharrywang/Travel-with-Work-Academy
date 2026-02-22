@@ -69,14 +69,14 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
       ),
       shortDesc: "這裡不是要你馬上做對選擇，而是可以開始行動起來，讓行動告訴你答案。",
       details: [
-        "<strong>自媒體接案線路：</strong>幫你釐清主題定位，做出接案作品集，學會基本市場調查、內容與流量思維。",
+        "<strong>接案線路：</strong>幫你釐清主題定位，做出接案作品集，學會基本市場調查、內容與流量思維。",
         "<strong>遠端上班線路：</strong>認識遠端求職市場，調整履歷與 LinkedIn，練習求職信、面試與獵頭溝通。",
         "你可以雙線並進，快速全面探索。也可以先選一條當主線，讓行動開始。",
       ],
       images: [
         {
           src: "/images/e8-87-aa-e5-aa-92-e9-ab-94-e6-8e-a5-e6-a1-88-e8-b7-af-e7-b7-9a-ef-bc-bfreels-e9-87-8d-e8-a6-81-e6-8c-87-e6-a8-99.png",
-          alt: "自媒體接案路線：Reels演算法重要指標",
+          alt: "接案路線：Reels演算法重要指標",
         },
         {
           src: "/images/e4-b8-8a-e7-8f-ad-e8-b7-af-e7-b7-9a-ef-bc-bf-e9-9b-87-e4-b8-bb-e7-84-a1-e5-8b-95-e6-96-bc-e8-a1-b7.png",
@@ -386,7 +386,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <div className="space-y-3 text-left max-w-xl mx-auto lg:mx-0">
                 <div className="flex items-start gap-3">
                   <Layers className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">雙軌起步：接案／自媒體 × 遠端上班，先走一條，也可雙線並進</p>
+                  <p className="text-white/90">雙軌起步：接案 × 遠端上班，先走一條，也可雙線並進</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <TrendingUp className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
@@ -951,7 +951,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             <div className="flex items-center justify-center gap-3 mb-8">
               <div className="h-px w-12 bg-[#17464F]"></div>
               <h3 className="text-xl sm:text-2xl font-bold text-[#17464F]">
-                <span className="text-[#D4B483]">A 線｜</span>自媒體接案線路導師
+                <span className="text-[#D4B483]">A 線｜</span>接案線路導師
               </h3>
               <div className="h-px w-12 bg-[#17464F]"></div>
             </div>
@@ -1093,7 +1093,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
           {/* Tabs */}
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
-            {["遠端上班", "自媒體接案", "我還不確定"].map((tab) => (
+            {["遠端上班", "接案", "我還不確定"].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveMapTab(tab)}
@@ -1261,14 +1261,14 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             </div>
           )}
 
-          {/* Tab Content: 自媒體接案 */}
-          {activeMapTab === "自媒體接案" && (
+          {/* Tab Content: 接案 */}
+          {activeMapTab === "接案" && (
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 animate-in fade-in duration-300">
               {/* 卡片 1 */}
               <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-xs font-semibold text-[#D4B483] bg-[#D4B483]/10 px-2 py-1 rounded">
-                    自媒線 × 三階段成果
+                    接案線 × 三階段成果
                   </span>
                 </div>
                 <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">這幾個月，你會走到哪？</h3>
@@ -1280,7 +1280,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     <div>
                       <p>
                         <span className="font-semibold text-[#17464F]">階段一 起步打底：</span>
-                        看懂自媒體與接案市場，釐清 TA、主題與價值主張，整理出第一版服務項目與作品集框架，以及具備加速未來生產力的AI思維。
+                        看懂接案市場，釐清 TA、主題與價值主張，整理出第一版服務項目與作品集框架，以及具備加速未來生產力的AI思維。
                       </p>
                       <p className="text-xs text-[#A06E56] mt-1 italic">
                         👉 你會做出第一版「可以拿出來給人看」的作品集雛形。
@@ -1329,7 +1329,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     </span>
                     <p className="text-xs text-[#33393C]/70 mb-1">第 1–8 週</p>
                     <p className="text-xs text-[#33393C] leading-relaxed">
-                      自媒體接案地圖、目標設定、接案作品集＆市場調查。
+                      接案變現地圖、目標設定、定位與接案 Offer。
                     </p>
                   </div>
                   {/* Phase 2 */}
@@ -1427,7 +1427,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <div className="text-[#33393C] text-sm leading-relaxed space-y-3 flex-1">
                   <p className="font-medium text-[#17464F]">很多人加入學院時，其實也不確定：</p>
                   <p className="pl-3 border-l-2 border-[#D4B483] italic text-[#17464F]">
-                    「我更適合遠端上班？還是自媒體接案？」
+                    「我更適合遠端上班？還是接案？」
                   </p>
                   <p>
                     這很正常——因為你缺的是
@@ -1536,7 +1536,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         <div className="absolute top-2 right-2 bg-[#D4B483] text-[#17464F] text-[10px] font-bold px-2 py-0.5 rounded-full">
                           Week 3
                         </div>
-                        <p className="font-semibold text-xs mb-0.5">自媒體接案變現藍圖</p>
+                        <p className="font-semibold text-xs mb-0.5">接案變現藍圖</p>
                         <p className="text-[10px] opacity-90">& 目標設定</p>
                       </div>
 

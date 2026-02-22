@@ -128,16 +128,16 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
 
         {/* Pricing Cards */}
         <div id="pricing-cards" className="grid md:grid-cols-3 gap-6 mb-12">
-          {/* 自媒體接案線路 */}
+          {/* 接案線路 */}
           <div className="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-xl transition-shadow duration-300 flex flex-col order-1">
             <div className="mb-6">
-              <h4 className="text-xl font-bold text-[#17464F] mb-2">自媒體接案線路</h4>
+              <h4 className="text-xl font-bold text-[#17464F] mb-2">接案線路</h4>
               <p className="text-sm text-[#33393C]/70">適合想要經營個人品牌、接案或創作者</p>
             </div>
             <ul className="space-y-3 mb-6 flex-1 text-sm text-[#33393C]">
               <li className="flex items-start gap-2">
                 <span className="text-[#D4B483] mt-0.5">●</span>
-                <span>自媒體路線必修課程 X4</span>
+                <span>接案路線必修課程 X4</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-[#D4B483] mt-0.5">●</span>

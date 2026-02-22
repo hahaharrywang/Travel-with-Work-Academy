@@ -17,7 +17,7 @@ export function StructuredData() {
       contactType: "customer service",
       availableLanguage: ["zh-TW", "en"],
     },
-    description: "遠距遊牧學院是一個為期 6 個月的行動學院，幫助你探索遠距工作、自媒體接案與遠端上班的可能性。",
+    description: "遠距遊牧學院是一個為期 6 個月的行動學院，幫助你探索遠距工作、接案與遠端上班的可能性。",
   }
 
   // Course Schema
@@ -44,7 +44,7 @@ export function StructuredData() {
     },
     teaches: [
       "遠距職涯定位與目標設定",
-      "自媒體經營與內容策略",
+      "接案經營與內容策略",
       "遠端求職與履歷優化",
       "個人品牌與作品集建立",
       "接案平台運用與報價策略",
@@ -57,7 +57,7 @@ export function StructuredData() {
       },
       {
         "@type": "Thing",
-        name: "自媒體經營",
+        name: "接案經營",
       },
       {
         "@type": "Thing",
@@ -67,7 +67,7 @@ export function StructuredData() {
     offers: [
       {
         "@type": "Offer",
-        name: "自媒體接案線路方案",
+        name: "接案線路方案",
         priceCurrency: "TWD",
         availability: "https://schema.org/InStock",
         url: "https://travelworkacademy.myteachify.com/checkout?planId=selfmedia",
@@ -136,10 +136,10 @@ export function StructuredData() {
       },
       {
         "@type": "Question",
-        name: "自媒體接案線路與遠端上班線路有什麼差別？我不知道要選哪一個。",
+        name: "接案線路與遠端上班線路有什麼差別？我不知道要選哪一個。",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "自媒體接案線路適合想透過內容創作、個人品牌來獲得收入與自由的人，課程會教你怎麼從零開始經營自媒體、找到變現模式、接到第一個案子。遠端上班線路適合想找到一份可以遠距工作的正職或長期合作的人，課程會教你怎麼打造國際履歷、在哪裡找遠距職缺、如何通過面試。如果你還不確定，建議先選一條「現在比較有感覺」的線路走走看。",
+          text: "接案線路適合想透過內容創作、個人品牌來獲得收入與自由的人，課程會教你怎麼從零開始經營接案、找到變現模式、接到第一個案子。遠端上班線路適合想找到一份可以遠距工作的正職或長期合作的人，課程會教你怎麼打造國際履歷、在哪裡找遠距職缺、如何通過面試。如果你還不確定，建議先選一條「現在比較有感覺」的線路走走看。",
         },
       },
       {

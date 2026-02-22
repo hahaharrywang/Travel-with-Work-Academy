@@ -137,11 +137,11 @@ export const instructors: Instructor[] = [
   },
   {
     name: "林佳 Zoe",
-    title: "9萬粉絲自媒體創作者，專長於打造自媒體與 IG 流量，協助你產出具潛力的短影片與貼文！",
+    title: "9萬粉絲創作者，專長於打造 IG 流量，協助你產出具潛力的短影片與貼文！",
     image: "/images/e6-af-8f-e6-97-a5e-e9-8c-a0.jpeg",
     link: "https://www.daydayding.com",
     background:
-      "林佳 Zoe 是一位擁有9萬粉絲的自媒體創作者，專長於 IG 流量經營與短影片製作，將分享如何打造吸引人的內容。",
+      "林佳 Zoe 是一位擁有9萬粉絲的創作者，專長於 IG 流量經營與短影片製作，將分享如何打造吸引人的內容。",
     links: {
       website: "https://www.daydayding.com",
     },

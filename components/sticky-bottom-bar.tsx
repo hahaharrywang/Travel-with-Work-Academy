@@ -3,7 +3,7 @@
 import { usePricing, formatPrice, type PlanId } from "@/contexts/pricing-context"
 
 const planConfig: Record<PlanId, { name: string; checkoutId: string }> = {
-  selfMedia: { name: "自媒體接案", checkoutId: "1708" },
+  selfMedia: { name: "接案線路", checkoutId: "1708" },
   remoteJob: { name: "遠端上班", checkoutId: "1709" },
   dualLine: { name: "雙線並進", checkoutId: "1710" },
 }

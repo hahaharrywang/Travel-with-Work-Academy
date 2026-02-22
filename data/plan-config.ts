@@ -8,7 +8,7 @@ export interface PlanConfig {
 }
 
 export const planConfig: Record<PlanId, PlanConfig> = {
-  selfMedia: { name: "自媒體線路方案", checkoutPath: "planId=selfmedia" },
+  selfMedia: { name: "接案線路方案", checkoutPath: "planId=selfmedia" },
   remoteJob: { name: "遠端上班線路方案", checkoutPath: "planId=remotejob" },
   dualLine: { name: "雙線整合方案", checkoutPath: "planId=be56b4ae-6f31-43be-8bfb-68fda4294a9a" },
 }
