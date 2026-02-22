@@ -1812,7 +1812,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 </div>
                 <h5 className="font-bold text-[#17464F] text-sm mb-1.5">{'當屆完整課程'}</h5>
                 <p className="text-[#33393C]/70 text-xs leading-relaxed">
-                  {'聚焦遠距求職與接案兩條路，從定位到落地流程（直播 / 回放）'}
+                  {'聚焦遠距求職與接案兩條路，從定位到落地流程（直播 / 回放一年）'}
                 </p>
               </div>
               <div className="bg-white rounded-xl p-5 border border-[#C9D7D4]/50 shadow-sm">
