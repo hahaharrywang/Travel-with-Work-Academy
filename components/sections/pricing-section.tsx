@@ -327,6 +327,13 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
           </div>
         </div>
 
+        {/* Disclaimer note */}
+        <div className="rounded-xl bg-[#C9D7D4]/30 border border-[#C9D7D4] px-5 py-4 text-center mb-12">
+          <p className="text-[#33393C] text-xs sm:text-sm leading-relaxed">
+            <span className="font-semibold text-[#17464F]">重要說明：</span>學院方案以「課程＋社群＋校友資格」為主；多數線下活動／工作坊／旅程為選配加購，但校友享優先與專屬價。
+          </p>
+        </div>
+
         {/* Timeline Modal */}
         {showTimelineModal && (
           <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
