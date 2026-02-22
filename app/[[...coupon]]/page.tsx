@@ -2330,23 +2330,32 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           {/* Block 5: Community Subscription */}
           <div className="mb-8 bg-[#17464F]/5 rounded-2xl p-5 sm:p-8 border border-[#17464F]/10">
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-1">
-              <h4 className="font-bold text-[#17464F] text-base sm:text-lg">{'入學自動開通 — 社群訂閱權益'}</h4>
+              <h4 className="font-bold text-[#17464F] text-base sm:text-lg">{'入學自動開通 — 職涯成長社群 Premium 訂閱權益'}</h4>
             </div>
-            <p className="text-[10px] sm:text-xs text-[#33393C]/50 mb-5">{'購買本屆學院課程即包含，不需另外加購'}</p>
+            <p className="text-[10px] sm:text-xs text-[#33393C]/50 mb-5">{'在學期間有效，不需另外加購'}</p>
 
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <span className="w-7 h-7 rounded-lg bg-[#D4B483]/15 flex items-center justify-center flex-shrink-0 text-sm font-bold text-[#D4B483]">{'1'}</span>
                 <div>
                   <p className="text-sm font-medium text-[#17464F]">
-                    {'遊牧之聲'}
-                    <span className="text-[#33393C]/50 font-normal text-xs ml-1.5">{'月更直播 + 完整回放'}</span>
+                    {'付費講座、工作坊折扣'}
+                    <span className="text-[#33393C]/50 font-normal text-xs ml-1.5">{'每月至少一場'}</span>
                   </p>
-                  <p className="text-xs text-[#33393C]/60 mt-0.5">{'每月邀請一位正在路上的遠距遊牧者分享故事、心法與資源'}</p>
+                  <p className="text-xs text-[#33393C]/60 mt-0.5">{'參加到 1.5 場就回本'}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <span className="w-7 h-7 rounded-lg bg-[#D4B483]/15 flex items-center justify-center flex-shrink-0 text-sm font-bold text-[#D4B483]">{'2'}</span>
+                <div>
+                  <p className="text-sm font-medium text-[#17464F]">
+                    {'合作夥伴 / 活動優惠搶先看'}
+                  </p>
+                  <p className="text-xs text-[#33393C]/60 mt-0.5">{'訂閱會員限定的合作夥伴優惠與活動搶先通知'}</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="w-7 h-7 rounded-lg bg-[#D4B483]/15 flex items-center justify-center flex-shrink-0 text-sm font-bold text-[#D4B483]">{'3'}</span>
                 <div>
                   <p className="text-sm font-medium text-[#17464F]">
                     {'世界遊牧資訊'}
@@ -2355,17 +2364,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   <p className="text-xs text-[#33393C]/60 mt-0.5">{'遠距工作市場趨勢、工具更新、海內外活動情報'}</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="w-7 h-7 rounded-lg bg-[#D4B483]/15 flex items-center justify-center flex-shrink-0 text-sm font-bold text-[#D4B483]">{'3'}</span>
-                <div>
-                  <p className="text-sm font-medium text-[#17464F]">
-                    {'工作坊 / 活動優惠價'}
-                    <span className="text-[#33393C]/50 font-normal text-xs ml-1.5">{'每月不同主題，付費加購'}</span>
-                  </p>
-                  <p className="text-xs text-[#33393C]/60 mt-0.5">{'講座、實戰工作坊、遊牧聚會等享專屬優惠價格'}</p>
-                </div>
-              </div>
             </div>
+
+            <p className="mt-5 pt-3 border-t border-[#17464F]/10 text-xs text-[#33393C]/50 text-center">{'結業後若想持續使用，可再自行續訂 Premium。'}</p>
           </div>
 
           {/* CTA */}
