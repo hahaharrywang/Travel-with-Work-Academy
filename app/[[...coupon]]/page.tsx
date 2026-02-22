@@ -2015,20 +2015,14 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3">你加入的不只是課程，是遊牧資源生態系</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3">遊牧資源生態系</h2>
             <p className="text-base sm:text-lg text-[#33393C]">國際鏈結 | 線下社群 | 線上教育</p>
           </div>
 
           {/* Value proposition cards */}
           <div className="mb-10 sm:mb-14">
             <p className="text-center text-[#33393C] text-base sm:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
-              {'加入連結台灣與國際的社群，透過多元的視角學習。'}
-            </p>
-            <p className="text-center text-[#33393C] text-base sm:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
-              {'參加定期線下聚會 ＆ 啟發遊牧之旅，線下認識路上的遊牧者、同行夥伴，面對面深度交流。'}
-            </p>
-            <p className="text-center text-[#33393C] text-base sm:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
-              {'透過各式工作坊，加速落地你的行動、根據需求延伸學習'}
+              {'你加入的不只是 5 個月課程，而是一個「把人脈變機會」的遊牧資源生態系：'}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {/* Card 1: International */}
@@ -2243,17 +2237,6 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
         {/* CHANGE: Pass modal states to child components and track when they open/close */}
         <PricingSection onTimelineModalChange={setPricingTimelineModalOpen} />
       </section>
-
-      {/* Disclaimer note */}
-      <div className="bg-[#F5F3ED] py-6 sm:py-8">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <div className="rounded-xl bg-[#C9D7D4]/30 border border-[#C9D7D4] px-5 py-4 text-center">
-            <p className="text-[#33393C] text-xs sm:text-sm leading-relaxed">
-              <span className="font-semibold text-[#17464F]">重要說明：</span>學院方案以「課程＋社群＋校友資格」為主；多數線下活動／工作坊／旅程為選配加購，但校友享優先與專屬價。
-            </p>
-          </div>
-        </div>
-      </div>
 
       {/* FAQ SECTION */}
       <FAQSection
