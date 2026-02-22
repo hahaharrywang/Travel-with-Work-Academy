@@ -941,6 +941,51 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             <p className="text-base sm:text-lg text-[#33393C]">國際鏈結 | 線下社群 | 線上教育</p>
           </div>
 
+          {/* Value proposition cards */}
+          <div className="mb-10 sm:mb-14">
+            <p className="text-center text-[#33393C] text-base sm:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
+              {'你加入的不只是 5 個月課程，而是一個「把人脈變機會」的遊牧資源生態系：'}
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {/* Card 1: International */}
+              <div className="rounded-2xl border border-[#C9D7D4] bg-[#F5F3ED] p-6 sm:p-7 text-center">
+                <div className="w-12 h-12 rounded-full bg-[#17464F] flex items-center justify-center mx-auto mb-4">
+                  <Globe className="w-6 h-6 text-[#D4B483]" />
+                </div>
+                <h3 className="text-[#17464F] font-bold text-lg mb-2">國際鏈結</h3>
+                <p className="text-[#33393C] text-sm leading-relaxed">
+                  接軌海外遊牧社群與活動資訊、國際遊牧者／領袖訪談、海外啟發之旅
+                </p>
+              </div>
+              {/* Card 2: Offline */}
+              <div className="rounded-2xl border border-[#C9D7D4] bg-[#F5F3ED] p-6 sm:p-7 text-center">
+                <div className="w-12 h-12 rounded-full bg-[#17464F] flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-6 h-6 text-[#D4B483]" />
+                </div>
+                <h3 className="text-[#17464F] font-bold text-lg mb-2">線下場域</h3>
+                <p className="text-[#33393C] text-sm leading-relaxed">
+                  定期小聚／共學／交流夜，讓你更容易與遊牧者、同路人、潛在合作夥伴，進行親身交流
+                </p>
+              </div>
+              {/* Card 3: Online */}
+              <div className="rounded-2xl border border-[#C9D7D4] bg-[#F5F3ED] p-6 sm:p-7 text-center">
+                <div className="w-12 h-12 rounded-full bg-[#17464F] flex items-center justify-center mx-auto mb-4">
+                  <Layers className="w-6 h-6 text-[#D4B483]" />
+                </div>
+                <h3 className="text-[#17464F] font-bold text-lg mb-2">線上工作坊</h3>
+                <p className="text-[#33393C] text-sm leading-relaxed">
+                  {'讓「知道怎麼做」變「課程就有進展」'}
+                </p>
+              </div>
+            </div>
+            {/* Disclaimer note */}
+            <div className="mt-6 rounded-xl bg-[#C9D7D4]/30 border border-[#C9D7D4] px-5 py-4 text-center">
+              <p className="text-[#33393C] text-xs sm:text-sm leading-relaxed">
+                <span className="font-semibold text-[#17464F]">重要說明：</span>學院方案以「課程＋社群＋校友資格」為主；多數線下活動／工作坊／旅程為選配加購，但校友享優先與專屬價。
+              </p>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {/* Card 1: Lifestyle */}
             {(() => {
