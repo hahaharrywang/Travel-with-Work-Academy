@@ -1437,7 +1437,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   {/* Callout 區塊 */}
                   <div className="bg-[#F5F3ED] border-l-3 border-[#D4B483] rounded-r-lg p-4 my-4">
                     <p className="text-[#17464F] font-semibold text-sm">
-                      時間才是最貴的資源——別把它花在『想像的』無限比較。
+                      時間才是最貴的資源——別把它花在『想像��』無限比較。
                     </p>
                   </div>
 
@@ -1830,7 +1830,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 </div>
                 <h5 className="font-bold text-[#17464F] text-sm mb-1.5">{'成長節奏'}</h5>
                 <p className="text-[#33393C]/70 text-xs leading-relaxed">
-                  {'同學會 / 團體 QA / DemoDay，互相學習、幫助，彼此督促跟上進度'}
+                  {'線上同學會 / 團體 QA / DemoDay，互相學習、幫助，彼此督促跟上進度'}
                 </p>
               </div>
             </div>
