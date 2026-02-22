@@ -966,9 +966,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               學院三大特色，讓行動成為習慣
             </h2>
             <p className="text-[#33393C] max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
-              不只是上一門課，而是行動起來探索
+              {'不只是學習新知'}
               <br />
-              雙軌資源、行動任務和一群真的在實驗新生活的同伴。
+              {'雙軌資源、行動任務節奏、和一群真的在實驗新生活的同伴。'}
             </p>
           </div>
 
