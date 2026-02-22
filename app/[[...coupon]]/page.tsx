@@ -2017,7 +2017,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3">你踏入的遠遠不只是學習課程</h2>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3">是多元體驗的遊牧資源生態系</h2>
-            <p className="text-sm sm:text-base text-[#D4B483] font-medium tracking-wide mt-2">從線上到線下｜從台灣到國際｜從知識到行動</p>
+            <p className="text-sm sm:text-base text-[#33393C]/70 mt-2">從線上到線下｜從台灣到國際｜從知識到行動</p>
           </div>
 
           {/* Value proposition — compact list */}
