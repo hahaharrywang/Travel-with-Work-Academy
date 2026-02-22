@@ -1,7 +1,7 @@
 // Calendar data types and constants for the course schedule
 
 import { instructors } from "./instructors"
-import type { Instructor } from "@/components/sections/instructors-section"
+export type { Instructor } from "@/components/sections/instructors-section"
 
 export interface CalendarInstructor {
   name: string
@@ -259,7 +259,7 @@ export const calendarData: CalendarWeek[] = [
     title: "共創專案週",
     focusShort: "進入實作衝刺：用團隊節奏完成一個可交付、可展示的成果版本。",
     focusDetail:
-      "核心內容\n• 團隊協作節奏：討論 → 分工 → 交付 → 合併（以完成為優先）\n• 把成果做「可展示」：不追求大而全，追求能被看懂\n• 讓你在協作中累積：作品、案例、與可信任的人脈\n\n行動任務\n• 完成你負責的交付項目（文件／內容／頁面／研究／素材等）\n• 在團隊內更新一次進度（讓協作不中斷）\n• 產出「可展示版本」的必要素材（1 份也算）",
+      "核心內容\n• 團隊協作節奏：討論 → 分工 → 交付 → 合併（以完���為優先）\n• 把成果做「可展示」：不追求大而全，追求能被看懂\n• 讓你在協作中累積：作品、案例、與可信任的人脈\n\n行動任務\n• 完成你負責的交付項目（文件／內容／頁面／研究／素材等）\n• 在團隊內更新一次進度（讓協作不中斷）\n• 產出「可展示版本」的必要素材（1 份也算）",
     instructorNames: ["校長哈利"],
   },
   {

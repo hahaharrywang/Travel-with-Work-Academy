@@ -43,7 +43,6 @@ import { calendarData, getPhaseColor, getTrackColor, getInstructorsByNames, type
 import { stagePhotos } from "@/data/stage-photos"
 import { instructors } from "@/data/instructors"
 
-// Define PlanId type here or import it if it's defined elsewhere
 // type PlanId = "selfMedia" | "remoteJob" | "dualLine"
 
 // const planConfig: Record<PlanId, { name: string; checkoutPath: string }> = {
@@ -154,7 +153,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
       details: [
         "不再一個人被影片追進度：大家固定出現在 Skool 線上共學空間，彼此分享卡關與成果、一起前行，讓「學習」變成日常節奏的一部分。",
         "定期線上同學會，一起打開鏡頭結識戰友。還有線上共學群組、LinkedIn 校友群組、Line 閒聊群，擁有更多不同情境的連結。",
-        "線下聚會＆Nomad 活動：台北、高雄定期遊牧小聚，加上國內外遊牧啟發之旅，讓你真的遇見那些在清邁、峴港、台北之間移動的人，把遠距生活從想像變成現場。",
+        "線下聚會＆Nomad 活動：台北、高雄定期遊牧小聚，加上國內外遊牧啟發之旅，讓你真的遇見那些在清邁、峴港、台北之間移動的人，把遠距生活從想像變成現場��",
       ],
       images: [
         {
@@ -1299,7 +1298,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         />
                       </div>
                       <div className="min-w-0">
-                        <h3 className="text-white font-bold text-base sm:text-lg leading-tight truncate">{'數位遊牧線上職涯成長��群'}</h3>
+                        <h3 className="text-white font-bold text-base sm:text-lg leading-tight truncate">{'數位遊牧線上職涯成長���群'}</h3>
                         <span className="text-[#D4B483] text-xs sm:text-sm">@twnomadacademy</span>
                       </div>
                     </div>
@@ -2378,7 +2377,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <div className="bg-white rounded-xl p-5 border border-[#C9D7D4]/50 shadow-sm">
                 <h5 className="font-bold text-[#17464F] text-sm mb-2">{'許願池'}</h5>
                 <p className="text-[#33393C]/70 text-xs leading-relaxed">
-                  {'定期提案 / 投票，讓學院資源與活動更貼近你的需求'}
+                  {'定期提案 / 投票，讓學院資源與活動更貼近你的需���'}
                 </p>
               </div>
             </div>
