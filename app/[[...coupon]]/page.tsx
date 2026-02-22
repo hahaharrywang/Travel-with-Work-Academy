@@ -2022,9 +2022,6 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
           {/* Value proposition — compact list */}
           <div className="max-w-2xl mx-auto mb-10 sm:mb-14">
-            <p className="text-center text-[#33393C] text-sm sm:text-base mb-6 sm:mb-8 leading-relaxed">
-              {'你加入的不只是課程，而是一個「把人脈變機會」的遊牧資源生態系'}
-            </p>
             <div className="space-y-4 sm:space-y-5">
               <div className="flex items-baseline gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483] flex-shrink-0 translate-y-[0.35rem]"></span>
