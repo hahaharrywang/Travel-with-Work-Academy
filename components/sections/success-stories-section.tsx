@@ -58,9 +58,9 @@ const successStories = [
   },
 ]
 
-export function SuccessStoriesSection() {
+export function SuccessStoriesSection({ id }: { id?: string }) {
   return (
-    <section id="student-results" className="pt-16 sm:pt-24 pb-0 bg-[#F5F3ED]">
+  <section id={id ?? "student-results"} className="pt-16 sm:pt-24 pb-0 bg-[#F5F3ED]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
