@@ -593,9 +593,14 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   <p className="text-white/90">成果可展示：履歷、作品集、個人頁面，不只是學過</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Users className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">不是一個人：和一群真的在往自由生活前進的人同行</p>
-                </div>
+  <Users className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
+  <p className="text-white/90">{'不是一個人：和一群真的在往自由生活前進的人同行'}</p>
+  </div>
+  <div className="flex items-start gap-3">
+  <Globe className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
+  <p className="text-white/90">{'國際 × 線下遊牧生態系：加入連結台灣與世界的遊牧社群，從每月線下小聚到海外啟發之旅'}</p>
+  </div>
+  </div>
               </div>
 
               {/* CTA Button */}
@@ -1129,8 +1134,41 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3">遊牧資源生態系</h2>
-            <p className="text-base sm:text-lg text-[#33393C]">國際鏈結 | 線下社群 | 線上教育</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3">{'遊牧資源生態系'}</h2>
+            <p className="text-base sm:text-lg text-[#33393C]">{'國際鏈結 | 線下社群 | 線上教育'}</p>
+          </div>
+
+          {/* Value proposition + 3-column cards */}
+          <div className="mb-8 sm:mb-12">
+            <p className="text-center text-sm sm:text-base text-[#33393C]/80 mb-6 max-w-2xl mx-auto leading-relaxed">
+              {'你加入的不只是 5 個月課程，而是一個「把人脈變機會」的遊牧資源生態系：'}
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="bg-white rounded-2xl border border-[#C9D7D4] p-5 sm:p-6 shadow-sm">
+                <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center mb-3">
+                  <Globe className="w-5 h-5 text-[#17464F]" />
+                </div>
+                <h4 className="font-bold text-[#17464F] text-sm sm:text-base mb-2">{'國際鏈結'}</h4>
+                <p className="text-xs sm:text-sm text-[#33393C]/70 leading-relaxed">{'接軌海外遊牧社群與活動資訊、國際遊牧者／領袖訪談、海外啟發之旅'}</p>
+              </div>
+              <div className="bg-white rounded-2xl border border-[#C9D7D4] p-5 sm:p-6 shadow-sm">
+                <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center mb-3">
+                  <Users className="w-5 h-5 text-[#17464F]" />
+                </div>
+                <h4 className="font-bold text-[#17464F] text-sm sm:text-base mb-2">{'線下場域'}</h4>
+                <p className="text-xs sm:text-sm text-[#33393C]/70 leading-relaxed">{'定期小聚／共學／交流夜，讓你更容易與遊牧者、同路人、潛在合作夥伴，進行親身交流'}</p>
+              </div>
+              <div className="bg-white rounded-2xl border border-[#C9D7D4] p-5 sm:p-6 shadow-sm">
+                <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center mb-3">
+                  <Layers className="w-5 h-5 text-[#17464F]" />
+                </div>
+                <h4 className="font-bold text-[#17464F] text-sm sm:text-base mb-2">{'線上工作坊'}</h4>
+                <p className="text-xs sm:text-sm text-[#33393C]/70 leading-relaxed">{'讓「知道怎麼做」變「課程就有進展」'}</p>
+              </div>
+            </div>
+            <p className="mt-5 text-center text-[10px] sm:text-xs text-[#33393C]/50 max-w-2xl mx-auto leading-relaxed">
+              {'重要說明：學院方案以「課程＋社群＋校友資格」為主；多數線下活動／工作坊／旅程為選配加購，但校友享優先與專屬價。'}
+            </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
