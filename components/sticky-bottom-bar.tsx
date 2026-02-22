@@ -1,8 +1,6 @@
 "use client"
 
-import { usePricing, formatPrice } from "@/contexts/pricing-context"
-
-type PlanId = "selfMedia" | "remoteJob" | "dualLine"
+import { usePricing, formatPrice, type PlanId } from "@/contexts/pricing-context"
 
 const planConfig: Record<PlanId, { name: string; checkoutId: string }> = {
   selfMedia: { name: "自媒體接案", checkoutId: "1708" },
