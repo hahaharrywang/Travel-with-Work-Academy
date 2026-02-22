@@ -45,7 +45,7 @@ export const calendarData: CalendarWeek[] = [
     focusShort: "把「想接案／想做內容」變成可走的變現地圖與 90 天目標。",
     focusDetail:
       "核心內容\n• 盤點你可行的收入來源（不只接案：也包含多種商業可能）\n• 定義你「提供什麼價值」與「適合誰」的清晰版本\n• 把目標拆成可追蹤的指標＋每週固定節奏（讓努力不再散）\n\n行動任務\n• 列出可能性與優先順序，並設定成果指標\n• 了解自己的成長節奏",
-    instructorNames: ["講師確認中"],
+    instructorNames: ["工具王阿璋"],
   },
   {
     id: 3,
@@ -57,7 +57,7 @@ export const calendarData: CalendarWeek[] = [
     focusShort: "把「想找遠端工作」變成職涯藍圖：目標職位＋90 天可落地計畫。",
     focusDetail:
       "核心內容\n• 釐清你適合的遠端職位方向與工作型態（不是越多越好）\n• 把求職變成一套「可持續的行動系統」：每週做什麼才會前進\n• 設定可追蹤的求職成果指標（讓焦慮變成可管理）\n\n行動任務\n• 列出可能性與優先順序，並設定成果指標\n• 了解自己的成長節奏",
-    instructorNames: ["講師確認中"],
+    instructorNames: ["謝雅筑 Ally"],
   },
   {
     id: 4,
@@ -82,7 +82,7 @@ export const calendarData: CalendarWeek[] = [
     focusShort: "用 AI + 自動化把日常工作變輕：做出你的第一個可運作流程。",
     focusDetail:
       "核心內容\n• 什麼工作適合交給 AI／什麼仍要自己做（避免用錯力）\n• 把「想法」變成「可執行流程」：從對話到跨工具串接\n• 以最小可用成果（MVP）為導向：先跑起來，再逐步優化\n\n行動任務\n• 以每週會重複做的情境做出 1 個「能實際跑起來」的自動化流程\n• 寫下你的「AI 使用規則」：哪些事交給 AI、哪些事一定自己確認",
-    instructorNames: ["講師確認中"],
+    instructorNames: ["林上哲"],
   },
   {
     id: 6,
@@ -94,7 +94,7 @@ export const calendarData: CalendarWeek[] = [
     focusShort: "把定位收斂、Offer 做清楚：讓陌生客戶快速理解並信任你的價值。",
     focusDetail:
       "核心內容\n• 把「我想做很多」收斂成「我現在先做這一塊」\n• 用輕量市場調查校準定位與價格想像（避免憑感覺）\n• 讓你的服務變得可被選擇：清楚、可比較、可下一步\n\n行動任務\n• 完善你的接案 Offer 架構\n• 完成一次市場觀察與調查",
-    instructorNames: ["講師確認中"],
+    instructorNames: ["西打藍"],
   },
   {
     id: 7,
@@ -106,7 +106,7 @@ export const calendarData: CalendarWeek[] = [
     focusShort: "把 LinkedIn 變成你的機會入口：被看見、被信任、被邀請。",
     focusDetail:
       "核心內容\n• 重新定位 LinkedIn：不只是履歷，而是你的專業曝光面\n• 讓你的頁面能清楚回答：你是誰、擅長什麼、能帶來什麼成果\n• 建立「可持續」的互動與曝光節奏\n\n行動任務\n• 加入學院專屬校友 LinkedIn 群\n• 更新你的 Headline / About（以職能＋成果導向描述）\n• 透過專業框架，讓人一眼理解你的價值，並制定行動節奏",
-    instructorNames: ["講師確認中"],
+    instructorNames: ["Shelley"],
   },
   {
     id: 8,
@@ -131,7 +131,7 @@ export const calendarData: CalendarWeek[] = [
     focusShort: "把行動變成固定節奏：週／月／季，整理「學院結束後，我的生活怎麼繼續跑」。",
     focusDetail:
       "核心內容\n• 了解自己的運作方式：你在什麼情況下能穩定產出與保持狀態\n• 建立可複製的生活／工作節奏（週／月／季）\n• 為學院之後做準備：讓你的遠距人生能自己繼續跑\n\n行動任務\n• 寫出你的「人生系統說明書」簡版\n• 設計 1 份你的每週 SOP（固定做的 3 件事）\n• 設定「下一個 90 天」的可持續行動計畫",
-    instructorNames: ["講師確認中"],
+    instructorNames: ["Angela Feng"],
   },
   {
     id: 10,
@@ -143,7 +143,7 @@ export const calendarData: CalendarWeek[] = [
     focusShort: "不靠靈感硬撐，把內容產出變成可持續流程，用 AI 幫忙企劃、標題、開頭。",
     focusDetail:
       "核心內容\n• 讓內容與變現接得起來：每篇內容都朝同一個目標前進\n• 不靠靈感硬撐，把內容產出變成可持續流程\n• 用 AI 輔助內容企劃、標題、開頭等\n\n行動任務\n• 產出具體內容策略與第一步產出",
-    instructorNames: ["講師確認中"],
+    instructorNames: ["三分鐘"],
   },
   {
     id: 11,
@@ -167,7 +167,7 @@ export const calendarData: CalendarWeek[] = [
     focusShort: "讓履歷「更像你」也「更像職缺要的人」：延續 AI 課，馬上應用在履歷。",
     focusDetail:
       "核心內容\n• 用專業流程校準你的履歷呈現\n• 讓經驗描述更有說服力：從「做過」變成「帶來過影響」\n• 建立可複用的求職信版本\n• 延續 AI 課程所學，直接應用在履歷撰寫\n\n行動任務\n• 完成 1 版履歷更新\n• 完成 1 版求職信骨架\n• 獲得同儕回饋／社群檢視",
-    instructorNames: ["講師確認中"],
+    instructorNames: ["讀者太太"],
   },
   {
     id: 13,
