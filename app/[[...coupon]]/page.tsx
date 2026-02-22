@@ -2017,7 +2017,6 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3">你踏入的遠遠不只是學習課程</h2>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3">是多元體驗的遊牧資源生態系</h2>
-            <p className="text-base sm:text-lg text-[#33393C]">國際鏈結 | 線下社群 | 工作坊</p>
           </div>
 
           {/* Value proposition — compact list */}
@@ -2028,7 +2027,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <p className="text-sm sm:text-base text-[#33393C] leading-relaxed">
                   <span className="font-bold text-[#17464F]">國際鏈結</span>
                   <span className="mx-1.5 text-[#C9D7D4]">|</span>
-                  接軌海外遊牧社群與活動資訊、國際遊牧者／領袖訪談、海外啟發之旅
+                  接軌海外遊牧社群與活動資訊、國際遊牧者／領袖訪談
                 </p>
               </div>
               <div className="flex items-baseline gap-3">
@@ -2036,15 +2035,15 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <p className="text-sm sm:text-base text-[#33393C] leading-relaxed">
                   <span className="font-bold text-[#17464F]">線下場域</span>
                   <span className="mx-1.5 text-[#C9D7D4]">|</span>
-                  定期小聚／共學／交流夜，與遊牧者、同路人、潛在合作夥伴親身交流
+                  定期小聚、遊牧啟發旅程，與遊牧者、同路人、潛在合作夥伴面對面交流
                 </p>
               </div>
               <div className="flex items-baseline gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483] flex-shrink-0 translate-y-[0.35rem]"></span>
                 <p className="text-sm sm:text-base text-[#33393C] leading-relaxed">
-                  <span className="font-bold text-[#17464F]">線上工作坊</span>
+                  <span className="font-bold text-[#17464F]">工作坊</span>
                   <span className="mx-1.5 text-[#C9D7D4]">|</span>
-                  {'讓「知道怎麼做」變「課程就有進展」，加速行動落地'}
+                  「上課中就做出來」加速行動落地、根據個人需求延伸學習
                 </p>
               </div>
             </div>
