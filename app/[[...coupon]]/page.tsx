@@ -2025,7 +2025,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               {'加入連結台灣與國際的社群，透過多元的視角學習。'}
             </p>
             <p className="text-center text-[#33393C] text-base sm:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
-              {'參加定期線下聚會 ＆ 啟發遊牧之旅，與遊牧者、同行夥伴，面對面交流。'}
+              {'參加定期線下聚會 ＆ 啟發遊牧之旅，線下認識路上的遊牧者、同行夥伴，面對面深度交流。'}
             </p>
             <p className="text-center text-[#33393C] text-base sm:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
               {'透過各式工作坊，加速落地你的行動、根據需求延伸學習'}
