@@ -2015,7 +2015,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3">你加入的不只是 5 個月課程，而是遊牧資源生態系</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3">你踏入的遠遠不只是學習課程</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3">是多元體驗的遊牧資源生態系</h2>
             <p className="text-base sm:text-lg text-[#33393C]">國際鏈結 | 線下社群 | 工作坊</p>
           </div>
 
