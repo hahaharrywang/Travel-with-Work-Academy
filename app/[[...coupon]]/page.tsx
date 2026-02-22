@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback, useRef, Suspense } from "react"
+import { useState, useEffect, useCallback, useRef, Suspense } from "react" 
 import Image from "next/image"
 import {
   ChevronDown,
