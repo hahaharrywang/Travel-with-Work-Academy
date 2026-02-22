@@ -592,10 +592,15 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   <FileText className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
                   <p className="text-white/90">成果可展示：履歷、作品集、個人頁面，不只是學過</p>
                 </div>
-                <div className="flex items-start gap-3">
-                  <Users className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">不是一個人：和一群真的在往自由生活前進的人同行</p>
-                </div>
+  <div className="flex items-start gap-3">
+  <Users className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
+  <p className="text-white/90">{'不是一個人：和一群真的在往自由生活前進的人同行'}</p>
+  </div>
+  <div className="flex items-start gap-3">
+  <Globe className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
+  <p className="text-white/90">{'國際 × 線下遊牧生態系：加入連結台灣與世界的遊牧社群，從每月線下小聚到海外啟發之旅'}</p>
+  </div>
+  </div>
               </div>
 
               {/* CTA Button */}
