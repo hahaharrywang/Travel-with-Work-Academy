@@ -596,6 +596,10 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   <Users className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
                   <p className="text-white/90">不是一個人：和一群真的在往自由生活前進的人同行</p>
                 </div>
+                <div className="flex items-start gap-3">
+                  <Globe className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
+                  <p className="text-white/90">{'國際 × 線下遊牧生態系：加入連結台灣與世界的遊牧社群，從每月線下小聚到海外啟發之旅'}</p>
+                </div>
               </div>
 
               {/* CTA Button */}
@@ -1130,7 +1134,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3">遊牧資源生態系</h2>
-            <p className="text-base sm:text-lg text-[#33393C]">國際鏈結 | 線下社群 | 線上教育</p>
+            <p className="text-base sm:text-lg text-[#33393C]">國際鏈�� | 線下社群 | 線上教育</p>
           </div>
 
           {/* Value Proposition Cards */}
