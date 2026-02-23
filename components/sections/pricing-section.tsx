@@ -89,12 +89,10 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
             <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#17464F] mb-6">
-            選一條先走，
-            <br className="sm:hidden" />
-            也可以雙線並進
+            {'如何加入'}
           </h2>
           <p className="text-lg sm:text-xl text-[#33393C] max-w-3xl mx-auto leading-relaxed">
-            差別在於：你想一次快速打開兩種可能，還是想先專心走一條主線。
+            {'選一條自己行動起來最重要。差別在於快速打開兩種可能，還是想先專心走一條主線。'}
           </p>
         </div>
 
