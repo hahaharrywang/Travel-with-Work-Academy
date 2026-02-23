@@ -1803,7 +1803,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
             </div>
             <h3 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3 text-balance">
-              {'加入學院你會得到什麼'}
+              {'成為本屆學員你會得到什麼'}
             </h3>
             <p className="text-sm sm:text-base text-[#33393C]/70">
               {'遠距職涯 x 遠端接案 — 一套從定位到落地的完整行動系統'}
