@@ -308,7 +308,7 @@ function SwitchAndUpgradeAnswer({ onModalChange }: UpgradePricingAnswerProps) {
                   <tbody className="divide-y divide-[#C9D7D4]/30">
                     <tr className="hover:bg-[#F5F3ED]/50">
                       <td className="p-3 text-[#33393C]/80">2025/12/27 – 2026/02/26 23:59:59</td>
-                      <td className="p-3 text-[#33393C]">公開招生啟動價</td>
+                      <td className="p-3 text-[#33393C]">招生預熱價</td>
                       <td className="p-3 text-right text-[#33393C]">6,299</td>
                       <td className="p-3 text-right text-[#33393C]">8,799</td>
                       <td className="p-3 text-right text-[#33393C]">2,500</td>
@@ -316,7 +316,7 @@ function SwitchAndUpgradeAnswer({ onModalChange }: UpgradePricingAnswerProps) {
                     </tr>
                     <tr className="hover:bg-[#F5F3ED]/50">
                       <td className="p-3 text-[#33393C]/80">2026/02/27 – 2026/03/05 23:59:59</td>
-                      <td className="p-3 text-[#33393C]">正式招生起跑價</td>
+                      <td className="p-3 text-[#33393C]">正式招生啟動價</td>
                       <td className="p-3 text-right text-[#33393C]">6,999</td>
                       <td className="p-3 text-right text-[#33393C]">9,799</td>
                       <td className="p-3 text-right text-[#33393C]">2,800</td>

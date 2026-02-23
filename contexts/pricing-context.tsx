@@ -51,7 +51,7 @@ export const stages: Stage[] = [
   {
     id: "stage_1",
     order: 1,
-    name: "公開招生啟動價",
+    name: "招生預熱價",
     tagLine: "最早的一批，只有少部分人知道的方案，有「一起開始學院」的感覺。",
     discountLabel: "33 折",
     discountRate: 0.33,
@@ -71,7 +71,7 @@ export const stages: Stage[] = [
   {
     id: "stage_2",
     order: 2,
-    name: "正式招生起跑價",
+    name: "正式招生啟動價",
     tagLine: "",
     discountLabel: "37 折",
     discountRate: 0.37,
