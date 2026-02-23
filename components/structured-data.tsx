@@ -17,7 +17,7 @@ export function StructuredData() {
       contactType: "customer service",
       availableLanguage: ["zh-TW", "en"],
     },
-    description: "遠距遊牧學院是一個為期 6 個月的行動學院，幫助你探索遠距工作、自媒體接案與遠端上班的可能性。",
+    description: "遠距遊牧學院是一個為期 6 個月的行動學院，幫助你探索遠距工作、接案與遠端上班的可能性。",
   }
 
   // Course Schema
@@ -44,7 +44,7 @@ export function StructuredData() {
     },
     teaches: [
       "遠距職涯定位與目標設定",
-      "自媒體經營與內容策略",
+      "接案經營與內容策略",
       "遠端求職與履歷優化",
       "個人品牌與作品集建立",
       "接案平台運用與報價策略",
@@ -57,7 +57,7 @@ export function StructuredData() {
       },
       {
         "@type": "Thing",
-        name: "自媒體經營",
+        name: "接案經營",
       },
       {
         "@type": "Thing",
@@ -67,7 +67,7 @@ export function StructuredData() {
     offers: [
       {
         "@type": "Offer",
-        name: "自媒體接案線路方案",
+        name: "接案線路方案",
         priceCurrency: "TWD",
         availability: "https://schema.org/InStock",
         url: "https://travelworkacademy.myteachify.com/checkout?planId=selfmedia",
@@ -136,10 +136,10 @@ export function StructuredData() {
       },
       {
         "@type": "Question",
-        name: "自媒體接案線路與遠端上班線路有什麼差別？我不知道要選哪一個。",
+        name: "接案線路與遠端上班線路有什麼差別？我不知道要選哪一個。",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "自媒體接案線路適合想透過內容創作、個人品牌來獲得收入與自由的人，課程會教你怎麼從零開始經營自媒體、找到變現模式、接到第一個案子。遠端上班線路適合想找到一份可以遠距工作的正職或長期合作的人，課程會教你怎麼打造國際履歷、在哪裡找遠距職缺、如何通過面試。如果你還不確定，建議先選一條「現在比較有感覺」的線路走走看。",
+          text: "接案線路適合想透過內容創作、個人品牌來獲得收入與自由的人，課程會教你怎麼從零開始經營接案、找到變現模式、接到第一個案子。遠端上班線路適合想找到一份可以遠距工作的正職或長期合作的人，課程會教你怎麼打造國際履歷、在哪裡找遠距職缺、如何通過面試。如果你還不確定，建議先選一條「現在比較有感覺」的線路走走看。",
         },
       },
       {
@@ -156,6 +156,22 @@ export function StructuredData() {
         acceptedAnswer: {
           "@type": "Answer",
           text: "我們可以開立電子發票（含統編），適合需要公司報帳的學員。分期付款部分，目前支援信用卡分期（視發卡銀行而定）。如果有特殊需求，歡迎私訊我們討論。",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "結業後還能看回放嗎？",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "你會永久保留自己買過的課程回放與資源。同一個 Skool 社群也會持續保留，畢業後不用搬家，仍可在社群中交流（但「當屆專區」僅當屆可見）。",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Premium 訂閱是什麼？跟學院差在哪？",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "學院是 5 個月的系統課程＆行動節奏，帶你從定位到落地，完成可展示的成果。Premium 是訂閱制，主打公開社群的會員限定資源庫更新＋機會／曝光＋訂閱福利。學員在學期間可免費享有此資格；結業後可自由續訂。",
         },
       },
     ],

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback, useRef, Suspense } from "react" // Import useRef
+import { useState, useEffect, useCallback, useRef, Suspense } from "react"
 import Image from "next/image"
 import {
   ChevronDown,
@@ -43,29 +43,11 @@ import { calendarData, getPhaseColor, getTrackColor, getInstructorsByNames, type
 import { stagePhotos } from "@/data/stage-photos"
 import { instructors } from "@/data/instructors"
 
-// Define PlanId type here or import it if it's defined elsewhere
-// type PlanId = "selfMedia" | "remoteJob" | "dualLine"
 
-// const planConfig: Record<PlanId, { name: string; checkoutPath: string }> = {
-//   selfMedia: { name: "自媒體線路方案", checkoutPath: "planId=selfmedia" },
-//   remoteJob: { name: "遠端上班線路方案", checkoutPath: "planId=remotejob" },
-//   dualLine: { name: "雙線整合方案", checkoutPath: "planId=be56b4ae-6f31-43be-8bfb-68fda4294a9a" },
-// }
-
-// const popularPlanId: PlanId = "dualLine"
-
-// const formatPrice = (price: number): string => {
-//   return price.toLocaleString("zh-TW")
-// }
-
-// const getCheckoutURL = (planId: PlanId, couponCode?: string) => {
-//   const baseURL = `https://travelworkacademy.myteachify.com/checkout?${planConfig[planId].checkoutPath}`
-//   return couponCode ? `${baseURL}&coupon=${encodeURIComponent(couponCode)}` : baseURL
-// }
 
 export default function LandingPage({ params }: { params: { coupon?: string | string[] } }) {
   const [couponCode, setCouponCode] = useState<string | null>(null)
-  const [activeMapTab, setActiveMapTab] = useState<string>("遠端上班") // State for Learning Map tabs
+  const [activeMapTab, setActiveMapTab] = useState<string>("��端上班") // State for Learning Map tabs
   const [selectedWeek, setSelectedWeek] = useState<CalendarWeek | null>(null)
 
   // Feature dialog state
@@ -85,16 +67,16 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           />
         </svg>
       ),
-      shortDesc: "這裡不是要你馬上做對選擇，而是至少有一條現在走得動路。",
+      shortDesc: "這裡不是要你馬上做對選擇，而是可以開始行動起來，讓行動告訴你答案。",
       details: [
-        "<strong>自媒體接案線路：</strong>幫你釐清主題定位，做出接案作品集，學會基本市場調查、內容與流量思維。",
+        "<strong>接案線路：</strong>幫你釐清主題定位，做出接案作品集，學會基本市場調查、內容與流量思維。",
         "<strong>遠端上班線路：</strong>認識遠端求職市場，調整履歷與 LinkedIn，練習求職信、面試與獵頭溝通。",
         "你可以雙線並進，快速全面探索。也可以先選一條當主線，讓行動開始。",
       ],
       images: [
         {
           src: "/images/e8-87-aa-e5-aa-92-e9-ab-94-e6-8e-a5-e6-a1-88-e8-b7-af-e7-b7-9a-ef-bc-bfreels-e9-87-8d-e8-a6-81-e6-8c-87-e6-a8-99.png",
-          alt: "自媒體接案路線：Reels演算法重要指標",
+          alt: "接案路線：Reels演算法重要指標",
         },
         {
           src: "/images/e4-b8-8a-e7-8f-ad-e8-b7-af-e7-b7-9a-ef-bc-bf-e9-9b-87-e4-b8-bb-e7-84-a1-e5-8b-95-e6-96-bc-e8-a1-b7.png",
@@ -222,75 +204,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
   const [showAllStages, setShowAllStages] = useState(false) // New state for showing all stages in pricing timeline
   const [timelineExpanded, setTimelineExpanded] = useState(false) // State for timeline expansion
 
-  // const stagePhotos = [
-  //   [
-  //     {
-  //       src: "/images/e6-88-90-e9-95-b7-e7-87-9flogo.jpg",
-  //       alt: "艾兒莎成長營 Logo",
-  //     },
-  //     {
-  //       src: "/images/e6-88-90-e9-95-b7-e7-87-9flogo.jpg",
-  //       alt: "艾兒莎成長營 Logo",
-  //     },
-  //     { src: "/remote-work-home-office.png", alt: "遠距工作環境設置" },
-  //   ],
-  //   [
-  //     {
-  //       src: "/images/2-2.jpeg",
-  //       alt: "一日同事 Coworking",
-  //     },
-  //     {
-  //       src: "/images/2-3.jpeg",
-  //       alt: "遊牧者交流活動",
-  //     },
-  //     {
-  //       src: "/images/2-1.jpeg",
-  //       alt: "每月數位遊牧小聚",
-  //     },
-  //   ],
-  //   [
-  //     {
-  //       src: "/images/3-1.webp",
-  //       alt: "越南峴港Holi節慶文化體驗",
-  //     },
-  //     {
-  //       src: "/images/3-3.webp",
-  //       alt: "海邊冥想身心平衡",
-  //     },
-  //     {
-  //       src: "/images/3-2.webp",
-  //       alt: "台灣數位遊牧社群聚會",
-  //     },
-  //   ],
-  //   [
-  //     {
-  //       src: "/images/4-2.png",
-  //       alt: "線上會議討論",
-  //     },
-  //     {
-  //       src: "/images/4-3.jpeg",
-  //       alt: "專業演講分享",
-  //     },
-  //     {
-  //       src: "/images/digital-learning-technology-application-with-lapto.jpg",
-  //       alt: "數位學習科技應用",
-  //     },
-  //   ],
-  //   [
-  //     {
-  //       src: "/images/20231216.jpeg",
-  //       alt: "社群網絡建立慶祝活動",
-  //     },
-  //     {
-  //       src: "/images/20250329.jpeg",
-  //       alt: "學習成果展示與認證儀式",
-  //     },
-  //     {
-  //       src: "/images/227a8906.jpeg",
-  //       alt: "線上復盤工作坊知識分享",
-  //     },
-  //   ],
-  // ]
+
 
   const openGallery = (stageIndex: number, photoIndex = 0) => {
     setCurrentStage(stageIndex)
@@ -310,8 +224,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
   const [showCalendarInline, setShowCalendarInline] = useState(false)
   const calendarSectionRef = useRef<HTMLDivElement>(null)
   const [expandedWeeks, setExpandedWeeks] = useState<Set<number>>(new Set())
-  // Find line with "const [expandedWeeks, setExpandedWeeks]" and add after it
-  const [expandedPhases, setExpandedPhases] = useState<Set<string>>(new Set(["階段一 起步打底"])) // Default first phase expanded
+  const [expandedPhases, setExpandedPhases] = useState<Set<string>>(new Set(["階段一 起步打底"]))
   const [expandedFeatures, setExpandedFeatures] = useState<Set<number>>(new Set()) // State for expanded features in Section 2.1
   const [expandedInstructorBios, setExpandedInstructorBios] = useState<Set<string>>(new Set())
   // Add state for dialogs
@@ -330,6 +243,17 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
     faqPriceDiffModalOpen ||
     highlightPopup.isOpen
 
+  useEffect(() => {
+    if (isAnyModalOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [isAnyModalOpen])
+
   const toggleWeekExpansion = (weekId: number) => {
     setExpandedWeeks((prev) => {
       const newSet = new Set(prev)
@@ -342,113 +266,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
     })
   }
 
-  // const getPhaseColor = (phase: string) => {
-  //   if (phase.includes("Phase 1")) return { bg: "bg-[#D4B483]/20", text: "text-[#D4B483]", border: "border-[#D4B483]" }
-  //   if (phase.includes("Phase 2")) return { bg: "bg-[#17464F]/20", text: "text-[#17464F]", border: "border-[#17464F]" }
-  //   if (phase.includes("Phase 3")) return { bg: "bg-[#A06E56]/20", text: "text-[#A06E56]", border: "border-[#A06E56]" }
-  //   return { bg: "bg-gray-100", text: "text-gray-600", border: "border-gray-300" }
-  // }
 
-  // const getTrackColor = (track: string) => {
-  //   if (track === "遠端上班線") return { bg: "bg-[#17464F]", text: "text-white" }
-  //   if (track === "自媒體接案線") return { bg: "bg-[#D4B483]", text: "text-white" }
-  //   return { bg: "bg-gray-500", text: "text-white" }
-  // }
-
-  // const instructors = [
-  //   {
-  //     name: "工具王阿璋",
-  //     title: "『阿璋遊牧』電子報創辦人、數位遊牧陪跑計劃創辦人、IP 經營者",
-  //     image: "/images/e5-b7-a5-e5-85-b7-e7-8e-8b.png",
-  //     link: "https://www.johntool.com",
-  //     background:
-  //       "工具王阿璋是『阿璋遊牧』電子報創辦人、數位遊牧陪跑計劃創辦人、IP 經營者，擁有豐富的數位遊牧經驗與社群經營知識。",
-  //   },
-  //   {
-  //     name: "三分鐘",
-  //     title: "IG+FB+Threads 共 10萬粉絲、知識型 IP 經營者，揭秘如何透過社群影響力，放大個人價值",
-  //     image: "/images/e4-b8-89-e5-88-86-e9-90-98.jpeg",
-  //     link: "https://www.instagram.com/only3minute/",
-  //     background:
-  //       "三分鐘是擁有超過10萬粉絲的知識型 IP 經營者，擅長透過社群媒體放大個人價值，並分享實用的內容創作與經營策略。",
-  //   },
-  //   {
-  //     name: "鮪魚",
-  //     title: "專注於知識變現與內容創新，協助超過百位講師完成課程開發，累積銷售額突破 3 億。",
-  //     image: "/images/e9-ae-aa-e9-ad-9a.jpeg",
-  //     link: "https://www.instagram.com/newsvegtw/",
-  //     background: "專注於知識變現與內容創新，協助超過百位講師完成課程開發，累積銷售額突破 3 億。",
-  //   },
-  //   {
-  //     name: "西打藍",
-  //     title: "創立一人公司、IG 粉絲近 1 萬、電子報訂閱 2500+，五年真實經驗帶你從零開始到高價接案的完整路徑",
-  //     image: "/images/e8-a5-bf-e6-89-93-e8-97-8d.jpeg",
-  //     link: "https://siddharam.com",
-  //     background:
-  //       "西打藍是一位成功的獨立工作者，創立一人公司並累積豐富的接案經驗，將分享從零開始到高價接案的完整路徑。",
-  //   },
-  //   {
-  //     name: "林上哲",
-  //     title: "非資訊背景 AI生產力工具教育者，已幫助4200+ 台灣、日本和香港的學員",
-  //     image: "/images/e6-9e-97-e4-b8-8a-e5-93-b2-2.jpeg",
-  //     link: "https://www.instagram.com/nuva.now/",
-  //     background:
-  //       "林上哲是一位非資訊背景的 AI 生產力工具教育者，擅長將複雜的 AI 工具轉化為易於理解的教學內容，幫助學員提升工作效率。",
-  //   },
-  //   {
-  //     name: "許詮",
-  //     title: "前 TikTok 子公司總經理、前阿里巴巴子公司副總、XChange創辦人、33 歲退休旅居峇里島。",
-  //     image: "/images/e8-a8-b1-e8-a9-ae.jpeg",
-  //     link: "https://www.facebook.com/SnT.life",
-  //     background:
-  //       "許詮曾任職於 TikTok 和阿里巴巴等知名企業，現為 XChange 創辦人，並已實現33歲退休旅居峇里島的目標，是實現財務自由的典範。",
-  //   },
-  //   {
-  //     name: "Shelley",
-  //     title: "ADPList 2025 Top 50 Global Mentor，LinkedIn 個人品牌術，機會自己來敲門",
-  //     image: "/images/shelly.jpeg",
-  //     link: "https://www.linkedin.com/in/yuhsuan-tien",
-  //     background: "Shelley 是 ADPList 2025 Global Mentor，專精於 LinkedIn 個人品牌建立，協助個人發掘機會並拓展職涯。",
-  //   },
-  //   {
-  //     name: "讀者太太",
-  //     title: "英國職涯教練、「女力學院」《人脈力》講師，突破跨國遠距職涯天花板",
-  //     image: "/images/e8-ae-80-e8-80-85-e5-a4-aa-e5-a4-aa.jpeg",
-  //     link: "https://www.facebook.com/duzhetaitai",
-  //     background: "讀者太太是英國職涯教練，也是「女力學院」《人脈力》講師，擅長協助專業人士突破跨國遠距職涯的限制。",
-  //   },
-  //   {
-  //     name: "Emilia",
-  //     title: "高階跨國獵頭，獵頭揭密談薪技巧與職涯躍升策略",
-  //     image: "/images/emilia.jpeg",
-  //     link: "https://www.linkedin.com/in/emchh/",
-  //     background: "Emilia 是一位經驗豐富的高階跨國獵頭，將分享獵頭行業的秘辛、談薪技巧以及職涯躍升的策略。",
-  //   },
-  //   {
-  //     name: "Joyce Weng",
-  //     title: "過去為記者的她，跳脫傳統、成功於海外轉型遠全遠距工作，她將剖析如何規劃旅居財務、精打細算開銷！",
-  //     image: "/images/joyce.jpeg",
-  //     link: "https://www.facebook.com/storiesinmyworld",
-  //     background:
-  //       "Joyce Weng 是一位成功從記者轉型為遠距工作者的前輩，將分享她在海外的經驗，以及如何規劃旅居財務與開銷。",
-  //   },
-  //   {
-  //     name: "林佳 Zoe",
-  //     title: "9萬粉絲自媒體創作者，專長於打造自媒體與 IG 流量，協助你產出具潛力的短影片與貼文！",
-  //     image: "/images/e6-af-8f-e6-97-a5e-e9-8c-a0.jpeg",
-  //     link: "https://www.daydayding.com",
-  //     background:
-  //       "林佳 Zoe 是一位擁有9萬粉絲的自媒體創作者，專長於 IG 流量經營與短影片製作，將分享如何打造吸引人的內容。",
-  //   },
-  //   {
-  //     name: "Angela Feng",
-  //     title: "Ness Wellness 共同創辦人、創業投資管理者，遠距生活可持續的身心靈平衡",
-  //     image: "/images/angela.jpeg",
-  //     link: "https://www.nesswellness.com/",
-  //     background:
-  //       "Angela Feng 是 Ness Wellness 的共同創辦人，也是創業投資管理者，將分享如何實現遠距生活中的身心靈平衡。",
-  //   },
-  // ]
 
   const togglePhase = (phase: string) => {
     setExpandedPhases((prev) => {
@@ -474,10 +292,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
     })
   }
 
-  // const featuresData = [ ... ] was already defined above, so this is redundant.
-  // Assuming this was meant to be part of the previous featuresData definition, it's already covered.
 
-  // const featuresData = [ ... ] // This is already defined above, no need to redefine.
 
   const toggleFeatureDialog = (featureId: number | null) => {
     setOpenDialog(featureId)
@@ -582,7 +397,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <div className="space-y-3 text-left max-w-xl mx-auto lg:mx-0">
                 <div className="flex items-start gap-3">
                   <Layers className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">雙軌起步：接案／自媒體 × 遠端上班，先走一條，也可雙線並進</p>
+                  <p className="text-white/90">雙軌起步：接案 × 遠端上班，先走一條，也可雙線並進</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <TrendingUp className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
@@ -595,6 +410,10 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <div className="flex items-start gap-3">
                   <Users className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
                   <p className="text-white/90">不是一個人：和一群真的在往自由生活前進的人同行</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Globe className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
+                  <p className="text-white/90">國際 × 線下遊牧生態系：加入連結台灣與世界的遊牧社群，從每月線下小聚到海外啟發之旅</p>
                 </div>
               </div>
 
@@ -966,9 +785,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               學院三大特色，讓行動成為習慣
             </h2>
             <p className="text-[#33393C] max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
-              不只是上一門課，而是行動起來探索
+              {'不只是學習新知'}
               <br />
-              雙軌資源、行動任務和一群真的在實驗新生活的同伴。
+              {'雙軌資源、行動任務節奏、和一群真的在實驗新生活的同伴。'}
             </p>
           </div>
 
@@ -1120,185 +939,6 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
         )}
       </Suspense>
 
-      {/* SECTION 2.1 ECOSYSTEM PARTNERSHIP - 生態系 (moved after learning map) */}
-      <section className="py-12 sm:py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-12">
-            <div className="flex justify-center gap-2 mb-4">
-              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-              <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
-              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3">遊牧資源生態系</h2>
-            <p className="text-base sm:text-lg text-[#33393C]">國際鏈結 | 線下社群 | 線上教育</p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-            {/* Card 1: Lifestyle */}
-            {(() => {
-              const lifestylePhotos = [
-                { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e9-81-8a-e7-89-a7-e5-b0-8f-e8-81-9a.jpg", alt: "遊牧小聚" },
-                { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e8-b6-8a-e5-8d-97-e9-81-8a-e7-89-a7-e4-b9-8b-e6-97-85.jpg", alt: "越南遊牧之旅" },
-                { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e5-90-8c-e5-ad-b8-e6-9c-83.png", alt: "同學會" },
-                { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e4-ba-a4-e6-b5-81.png", alt: "交流活動" },
-              ]
-              return (
-                <div className="rounded-2xl border border-[#C9D7D4] bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                  {/* Top Header Strip */}
-                  <a href="https://www.instagram.com/digitalnomadstaiwan/" target="_blank" rel="noopener noreferrer" className="block bg-[#17464F] px-4 py-3 sm:px-6 sm:py-4 hover:bg-[#1a5260] transition-colors">
-                    <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-white p-1.5 flex-shrink-0">
-                        <Image
-                          src="/images/design-mode/%E6%95%B8%E4%BD%8D%E9%81%8A%E7%89%A7%E5%8F%B0%E7%81%A3%20Logo%281%29%281%29%281%29%281%29.png"
-                          alt="Taiwan Digital Nomad"
-                          width={36}
-                          height={36}
-                          className="w-full h-full object-contain"
-                          loading="lazy"
-                        />
-                      </div>
-                      <div className="min-w-0">
-                        <h3 className="text-white font-bold text-base sm:text-lg leading-tight truncate">{'數位遊牧 Lifestyle 社群'}</h3>
-                        <span className="text-[#D4B483] text-xs sm:text-sm">@digitalnomadstaiwan</span>
-                      </div>
-                    </div>
-                  </a>
-
-                  {/* Main Image */}
-                  <div className="relative aspect-[16/9] sm:aspect-[16/10] overflow-hidden cursor-pointer"
-                    onClick={() => {
-                      setLightboxImages(lifestylePhotos.map(p => p.src))
-                      setLightboxIndex(0)
-                    }}
-                  >
-                    <Image
-                      src={lifestylePhotos[0].src || "/placeholder.svg"}
-                      alt="數位遊牧 Lifestyle 社群"
-                      fill
-                      className="object-cover hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                    <div className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm text-[#17464F] text-xs font-medium px-3 py-1.5 rounded-full flex items-center gap-1.5">
-                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14" /></svg>
-                      {lifestylePhotos.length} 張照片
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-4 sm:p-6">
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      <span className="text-xs sm:text-sm text-[#A06E56] bg-[#A06E56]/10 px-2.5 py-1 rounded-full"># 台灣最大數位遊牧社群</span>
-                      <span className="text-xs sm:text-sm text-[#A06E56] bg-[#A06E56]/10 px-2.5 py-1 rounded-full"># 每月遊牧聚會</span>
-                      <span className="text-xs sm:text-sm text-[#A06E56] bg-[#A06E56]/10 px-2.5 py-1 rounded-full"># 遊牧啟發之旅</span>
-                    </div>
-
-                    {/* Thumbnail Grid */}
-                    <div className="grid grid-cols-4 gap-2">
-                      {lifestylePhotos.map((photo, i) => (
-                        <div
-                          key={i}
-                          className="relative aspect-square rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity"
-                          onClick={() => {
-                            setLightboxImages(lifestylePhotos.map(p => p.src))
-                            setLightboxIndex(i)
-                          }}
-                        >
-                          <Image src={photo.src || "/placeholder.svg"} alt={photo.alt} fill className="object-cover" loading="lazy" />
-                          {i === 0 && (
-                            <div className="absolute inset-0 ring-2 ring-[#D4B483] ring-inset rounded-lg" />
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )
-            })()}
-
-            {/* Card 2: Career Growth */}
-            {(() => {
-              const careerPhotos = [
-                { src: "/images/e8-a1-8c-e5-8b-95-e5-b0-8e-e5-90-91-ef-bc-bfvibe-20coding-20-e5-b7-a5-e4-bd-9c-e5-9d-8a-20.png", alt: "Vibe Coding 工作坊" },
-                { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e7-95-99-e8-a8-80.png", alt: "社群留言互動" },
-                { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e4-bd-9c-e6-a5-ad-e4-ba-a4-e6-b5-81.png", alt: "作業交流" },
-                { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e9-a0-98-e8-8b-b1.png", alt: "LinkedIn 社群" },
-              ]
-              return (
-                <div className="rounded-2xl border border-[#C9D7D4] bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                  {/* Top Header Strip */}
-                  <a href="https://www.instagram.com/twnomadacademy/" target="_blank" rel="noopener noreferrer" className="block bg-[#17464F] px-4 py-3 sm:px-6 sm:py-4 hover:bg-[#1a5260] transition-colors">
-                    <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-white p-1.5 flex-shrink-0">
-                        <Image
-                          src="/images/logo.png"
-                          alt="遠距遊牧學院"
-                          width={36}
-                          height={36}
-                          className="w-full h-full object-contain"
-                          loading="lazy"
-                        />
-                      </div>
-                      <div className="min-w-0">
-                        <h3 className="text-white font-bold text-base sm:text-lg leading-tight truncate">{'數位遊牧線上職涯成長社群'}</h3>
-                        <span className="text-[#D4B483] text-xs sm:text-sm">@twnomadacademy</span>
-                      </div>
-                    </div>
-                  </a>
-
-                  {/* Main Image */}
-                  <div className="relative aspect-[16/9] sm:aspect-[16/10] overflow-hidden cursor-pointer"
-                    onClick={() => {
-                      setLightboxImages(careerPhotos.map(p => p.src))
-                      setLightboxIndex(0)
-                    }}
-                  >
-                    <Image
-                      src={careerPhotos[0].src || "/placeholder.svg"}
-                      alt="數位遊牧線上職涯成長社群"
-                      fill
-                      className="object-cover hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                    <div className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm text-[#17464F] text-xs font-medium px-3 py-1.5 rounded-full flex items-center gap-1.5">
-                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14" /></svg>
-                      {careerPhotos.length} 張照片
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-4 sm:p-6">
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      <span className="text-xs sm:text-sm text-[#A06E56] bg-[#A06E56]/10 px-2.5 py-1 rounded-full"># 線上線下講座工作坊</span>
-                      <span className="text-xs sm:text-sm text-[#A06E56] bg-[#A06E56]/10 px-2.5 py-1 rounded-full"># 遊牧之聲</span>
-                    </div>
-
-                    {/* Thumbnail Grid */}
-                    <div className="grid grid-cols-4 gap-2">
-                      {careerPhotos.map((photo, i) => (
-                        <div
-                          key={i}
-                          className="relative aspect-square rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity"
-                          onClick={() => {
-                            setLightboxImages(careerPhotos.map(p => p.src))
-                            setLightboxIndex(i)
-                          }}
-                        >
-                          <Image src={photo.src || "/placeholder.svg"} alt={photo.alt} fill className="object-cover" loading="lazy" />
-                          {i === 0 && (
-                            <div className="absolute inset-0 ring-2 ring-[#D4B483] ring-inset rounded-lg" />
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )
-            })()}
-          </div>
-        </div>
-      </section>
       {/* SECTION 5 INSTRUCTORS START - 師資 */}
       <section className="hidden py-16 sm:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1322,7 +962,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             <div className="flex items-center justify-center gap-3 mb-8">
               <div className="h-px w-12 bg-[#17464F]"></div>
               <h3 className="text-xl sm:text-2xl font-bold text-[#17464F]">
-                <span className="text-[#D4B483]">A 線｜</span>自媒體接案線路導師
+                <span className="text-[#D4B483]">A 線｜</span>接案線路導師
               </h3>
               <div className="h-px w-12 bg-[#17464F]"></div>
             </div>
@@ -1464,7 +1104,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
           {/* Tabs */}
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
-            {["遠端上班", "自媒體接案", "我還不確定"].map((tab) => (
+            {["遠端上班", "接案", "我還不確定"].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveMapTab(tab)}
@@ -1632,14 +1272,14 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             </div>
           )}
 
-          {/* Tab Content: 自媒體接案 */}
-          {activeMapTab === "自媒體接案" && (
+          {/* Tab Content: 接案 */}
+          {activeMapTab === "接案" && (
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 animate-in fade-in duration-300">
               {/* 卡片 1 */}
               <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-xs font-semibold text-[#D4B483] bg-[#D4B483]/10 px-2 py-1 rounded">
-                    自媒線 × 三階段成果
+                    接案線 × 三階段成果
                   </span>
                 </div>
                 <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">這幾個月，你會走到哪？</h3>
@@ -1651,7 +1291,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     <div>
                       <p>
                         <span className="font-semibold text-[#17464F]">階段一 起步打底：</span>
-                        看懂自媒體與接案市場，釐清 TA、主題與價值主張，整理出第一版服務項目與作品集框架，以及具備加速未來生產力的AI思維。
+                        看懂接案市場，釐清 TA、主題與價值主張，整理出第一版服務項目與作品集框架，以及具備加速未來生產力的AI思維。
                       </p>
                       <p className="text-xs text-[#A06E56] mt-1 italic">
                         👉 你會做出第一版「可以拿出來給人看」的作品集雛形。
@@ -1700,7 +1340,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     </span>
                     <p className="text-xs text-[#33393C]/70 mb-1">第 1–8 週</p>
                     <p className="text-xs text-[#33393C] leading-relaxed">
-                      自媒體接案地圖、目標設定、接案作品集＆市場調查。
+                      接案變現地圖、目標設定、定位與接案 Offer。
                     </p>
                   </div>
                   {/* Phase 2 */}
@@ -1798,7 +1438,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <div className="text-[#33393C] text-sm leading-relaxed space-y-3 flex-1">
                   <p className="font-medium text-[#17464F]">很多人加入學院時，其實也不確定：</p>
                   <p className="pl-3 border-l-2 border-[#D4B483] italic text-[#17464F]">
-                    「我更適合遠端上班？還是自媒體接案？」
+                    「我更適合遠端上班？還是接案？」
                   </p>
                   <p>
                     這很正常——因為你缺的是
@@ -1808,7 +1448,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   {/* Callout 區塊 */}
                   <div className="bg-[#F5F3ED] border-l-3 border-[#D4B483] rounded-r-lg p-4 my-4">
                     <p className="text-[#17464F] font-semibold text-sm">
-                      時間才是最貴的資源——別把它花在『想像的』無限比較。
+                      時間才是最貴的資源——別把它花在『想像��』無限比較。
                     </p>
                   </div>
 
@@ -1907,7 +1547,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         <div className="absolute top-2 right-2 bg-[#D4B483] text-[#17464F] text-[10px] font-bold px-2 py-0.5 rounded-full">
                           Week 3
                         </div>
-                        <p className="font-semibold text-xs mb-0.5">自媒體接案變現藍圖</p>
+                        <p className="font-semibold text-xs mb-0.5">接案變現藍圖</p>
                         <p className="text-[10px] opacity-90">& 目標設定</p>
                       </div>
 
@@ -2183,7 +1823,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 </div>
                 <h5 className="font-bold text-[#17464F] text-sm mb-1.5">{'當屆完整課程'}</h5>
                 <p className="text-[#33393C]/70 text-xs leading-relaxed">
-                  {'聚焦遠距求職與接案兩條路，從定位到落地流程（直播 / 回放）'}
+                  {'聚焦遠距求職與接案兩條路，從定位到落地流程（直播 / 回放一年）'}
                 </p>
               </div>
               <div className="bg-white rounded-xl p-5 border border-[#C9D7D4]/50 shadow-sm">
@@ -2201,7 +1841,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 </div>
                 <h5 className="font-bold text-[#17464F] text-sm mb-1.5">{'成長節奏'}</h5>
                 <p className="text-[#33393C]/70 text-xs leading-relaxed">
-                  {'同學會 / 團體 QA / DemoDay，幫你把卡點拆掉、把進度做完'}
+                  {'線上同學會 / 團體 QA / DemoDay，互相學習、幫助，彼此督促跟上進度'}
                 </p>
               </div>
             </div>
@@ -2217,40 +1857,43 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#D4B483]/15 text-[#A06E56] font-medium">{'可成交'}</span>
               </div>
             </div>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
                 <div>
-                  <span className="font-semibold text-[#17464F] text-sm">{'遠距職涯定位'}</span>
-                  <span className="text-[#33393C]/60 text-sm">{' — 你適合走遠距正職、遠端接案，或雙線並進'}</span>
+                  <span className="font-semibold text-[#17464F] text-sm">{'定位與可能性：遠距路線決策 & 啟動目標'}</span>
+                  <p className="text-[#33393C]/60 text-sm mt-0.5">{'— 釐清你要的自由是什麼（時間／地點／收入），並選定「上班線／接案線／雙軌」的起跑方向及目標'}</p>
                 </div>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
                 <div>
-                  <span className="font-semibold text-[#17464F] text-sm">{'個人作品 / 案例包'}</span>
-                  <span className="text-[#33393C]/60 text-sm">{' — 把經歷整理成能被理解、能被信任的作品呈現'}</span>
+                  <span className="font-semibold text-[#17464F] text-sm">{'對外門面與信任：一套讓人秒懂專業與價值的門面'}</span>
+                  <p className="text-[#33393C]/60 text-sm mt-0.5">{'— 把你的能力、案例、價值主張整理成：LinkedIn／提案頁 / 作品集的關鍵內容與結構'}</p>
                 </div>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
                 <div>
-                  <span className="font-semibold text-[#17464F] text-sm">{'投遞 / 開發流程'}</span>
-                  <span className="text-[#33393C]/60 text-sm">{' — 一套可複製的投遞 / 陌生開發方法'}</span>
+                  <span className="font-semibold text-[#17464F] text-sm">{'接觸與轉化：把「接觸」變成「機會」的可擴增系統'}</span>
+                  <div className="mt-1 space-y-0.5">
+                    <p className="text-[#33393C]/60 text-sm">{'— 上班線：JD 拆解 → 客製化履歷 → 面試 & 談薪策略'}</p>
+                    <p className="text-[#33393C]/60 text-sm">{'— 接案線：社群內容策略 → 作品呈現 → 獲客管道 → 成交流程'}</p>
+                  </div>
                 </div>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
                 <div>
-                  <span className="font-semibold text-[#17464F] text-sm">{'對外版本的自我介紹'}</span>
-                  <span className="text-[#33393C]/60 text-sm">{' — LinkedIn / 履歷 / 提案頁的關鍵內容與結構'}</span>
+                  <span className="font-semibold text-[#17464F] text-sm">{'留任與永續：交付的「點 > 線 > 面」永續結構'}</span>
+                  <p className="text-[#33393C]/60 text-sm mt-0.5">{'— 在前期合作能活下來並能持續成長的方法'}</p>
                 </div>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
                 <div>
-                  <span className="font-semibold text-[#17464F] text-sm">{'DemoDay 發表'}</span>
-                  <span className="text-[#33393C]/60 text-sm">{' — 把成果公開呈現一次，完成「交付」與「曝光」'}</span>
+                  <span className="font-semibold text-[#17464F] text-sm">{'DemoDay 發表：把行動證明公開呈現'}</span>
+                  <p className="text-[#33393C]/60 text-sm mt-0.5">{'— 讓你完成一次真正的「交付」與「曝光」，也讓機會更容易找上門'}</p>
                 </div>
               </li>
             </ul>
@@ -2266,34 +1909,33 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#17464F]/10 text-[#17464F] font-medium">{'入學即擁有，結業後延續'}</span>
             </div>
 
-            <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-5">
-              <div className="bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-lg p-3 sm:p-4 text-white text-center">
-                <div className="font-semibold text-xs sm:text-sm mb-1">{'Skool 共學群'}</div>
-                <div className="text-[10px] sm:text-xs text-white/80">{'持續交流與互助'}</div>
-              </div>
-              <div className="bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-lg p-3 sm:p-4 text-white text-center">
-                <div className="font-semibold text-xs sm:text-sm mb-1">{'Line 閒聊群'}</div>
-                <div className="text-[10px] sm:text-xs text-white/80">{'日常連結與支持'}</div>
-              </div>
-              <div className="bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-lg p-3 sm:p-4 text-white text-center">
-                <div className="font-semibold text-xs sm:text-sm mb-1">{'校友 LinkedIn 群'}</div>
-                <div className="text-[10px] sm:text-xs text-white/80">{'職涯拓展與合作'}</div>
-              </div>
-            </div>
-
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="flex items-start gap-2.5 bg-white/60 rounded-xl p-4">
                 <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
                 <div>
-                  <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'校友限定聚會'}</span>
-                  <p className="text-[#33393C]/60 text-xs leading-relaxed">{'更高密度的同路人連結與合作可能'}</p>
+                  <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'Skool 社群永久留存'}</span>
+                  <p className="text-[#33393C]/60 text-xs leading-relaxed">{'畢業後不用搬家，仍在同一個社群交流（當屆專區僅當屆可見）'}</p>
                 </div>
               </div>
               <div className="flex items-start gap-2.5 bg-white/60 rounded-xl p-4">
                 <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
                 <div>
-                  <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'校友專屬折扣與優先'}</span>
-                  <p className="text-[#33393C]/60 text-xs leading-relaxed">{'加開選修、工作坊、線下聚會、海內外遊牧啟發之旅等'}</p>
+                  <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'已購內容回放觀看'}</span>
+                  <p className="text-[#33393C]/60 text-xs leading-relaxed">{'你買過課程(學院正課有一年限制)的回放與學習資源訪問權限'}</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-2.5 bg-white/60 rounded-xl p-4">
+                <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
+                <div>
+                  <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'校友 LinkedIn 群'}</span>
+                  <p className="text-[#33393C]/60 text-xs leading-relaxed">{'僅限學員與校友加入，職涯拓展與合作'}</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-2.5 bg-white/60 rounded-xl p-4">
+                <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
+                <div>
+                  <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'全產品校友價'}</span>
+                  <p className="text-[#33393C]/60 text-xs leading-relaxed">{'下屆學院 / Journey 旅程 / 工作坊與線下聚會 / 合作夥伴福利（依公告）'}</p>
                 </div>
               </div>
             </div>
@@ -2324,23 +1966,32 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           {/* Block 5: Community Subscription */}
           <div className="mb-8 bg-[#17464F]/5 rounded-2xl p-5 sm:p-8 border border-[#17464F]/10">
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-1">
-              <h4 className="font-bold text-[#17464F] text-base sm:text-lg">{'入學自動開通 — 社群訂閱權益'}</h4>
+              <h4 className="font-bold text-[#17464F] text-base sm:text-lg">{'入學自動開通 — 職涯成長社群 Premium 訂閱權益'}</h4>
             </div>
-            <p className="text-[10px] sm:text-xs text-[#33393C]/50 mb-5">{'購買本屆學院課程即包含，不需另外加購'}</p>
+            <p className="text-[10px] sm:text-xs text-[#33393C]/50 mb-5">{'在學期間有效，不需另外加購'}</p>
 
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <span className="w-7 h-7 rounded-lg bg-[#D4B483]/15 flex items-center justify-center flex-shrink-0 text-sm font-bold text-[#D4B483]">{'1'}</span>
                 <div>
                   <p className="text-sm font-medium text-[#17464F]">
-                    {'遊牧之聲'}
-                    <span className="text-[#33393C]/50 font-normal text-xs ml-1.5">{'月更直播 + 完整回放'}</span>
+                    {'付費講座、工作坊折扣'}
+                    <span className="text-[#33393C]/50 font-normal text-xs ml-1.5">{'每月至少一場'}</span>
                   </p>
-                  <p className="text-xs text-[#33393C]/60 mt-0.5">{'每月邀請一位正在路上的遠距遊牧者分享故事、心法與資源'}</p>
+                  <p className="text-xs text-[#33393C]/60 mt-0.5">{'參加到 1.5 場就回本'}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <span className="w-7 h-7 rounded-lg bg-[#D4B483]/15 flex items-center justify-center flex-shrink-0 text-sm font-bold text-[#D4B483]">{'2'}</span>
+                <div>
+                  <p className="text-sm font-medium text-[#17464F]">
+                    {'合作夥伴 / 活動優惠搶先看'}
+                  </p>
+                  <p className="text-xs text-[#33393C]/60 mt-0.5">{'訂閱會員限定的合作夥伴優惠與活動搶先通知'}</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="w-7 h-7 rounded-lg bg-[#D4B483]/15 flex items-center justify-center flex-shrink-0 text-sm font-bold text-[#D4B483]">{'3'}</span>
                 <div>
                   <p className="text-sm font-medium text-[#17464F]">
                     {'世界遊牧資訊'}
@@ -2349,17 +2000,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   <p className="text-xs text-[#33393C]/60 mt-0.5">{'遠距工作市場趨勢、工具更新、海內外活動情報'}</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="w-7 h-7 rounded-lg bg-[#D4B483]/15 flex items-center justify-center flex-shrink-0 text-sm font-bold text-[#D4B483]">{'3'}</span>
-                <div>
-                  <p className="text-sm font-medium text-[#17464F]">
-                    {'工作坊 / 活動優惠價'}
-                    <span className="text-[#33393C]/50 font-normal text-xs ml-1.5">{'每月不同主題，付費加購'}</span>
-                  </p>
-                  <p className="text-xs text-[#33393C]/60 mt-0.5">{'講座、實戰工作坊、遊牧聚會等享專屬優惠價格'}</p>
-                </div>
-              </div>
             </div>
+
+            <p className="mt-5 pt-3 border-t border-[#17464F]/10 text-xs text-[#33393C]/50 text-center">{'結業後若想持續使用，可再自行續訂 Premium。'}</p>
           </div>
 
           {/* CTA */}
@@ -2374,6 +2017,221 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
         </div>
       </section>
 
+      {/* SECTION 2.1 ECOSYSTEM PARTNERSHIP - 生態系 */}
+      <section className="py-12 sm:py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 sm:mb-12">
+            <div className="flex justify-center gap-2 mb-4">
+              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3">你踏入的遠遠不只是學習課程</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3">是多元體驗的遊牧資源生態系</h2>
+            <p className="text-sm sm:text-base text-[#33393C]/70 mt-2">從線上到線下｜從台灣到國際｜從知識到行動</p>
+          </div>
+
+          {/* Value proposition — compact list */}
+          <div className="max-w-2xl mx-auto mb-10 sm:mb-14">
+            <div className="space-y-4 sm:space-y-5">
+              <div className="flex items-baseline gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483] flex-shrink-0 translate-y-[0.35rem]"></span>
+                <p className="text-sm sm:text-base text-[#33393C] leading-relaxed">
+                  <span className="font-bold text-[#17464F]">國際鏈結</span>
+                  <span className="mx-1.5 text-[#C9D7D4]">|</span>
+                  接軌海外遊牧社群與活動資訊、國際遊牧者／領袖訪談
+                </p>
+              </div>
+              <div className="flex items-baseline gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483] flex-shrink-0 translate-y-[0.35rem]"></span>
+                <p className="text-sm sm:text-base text-[#33393C] leading-relaxed">
+                  <span className="font-bold text-[#17464F]">線下場域</span>
+                  <span className="mx-1.5 text-[#C9D7D4]">|</span>
+                  定期小聚、遊牧啟發旅程，與遊牧者、同路人、潛在合作夥伴面對面交流
+                </p>
+              </div>
+              <div className="flex items-baseline gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483] flex-shrink-0 translate-y-[0.35rem]"></span>
+                <p className="text-sm sm:text-base text-[#33393C] leading-relaxed">
+                  <span className="font-bold text-[#17464F]">工作坊</span>
+                  <span className="mx-1.5 text-[#C9D7D4]">|</span>
+                  「上課中就做出來」加速行動落地、根據個人需求延伸學習
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+            {/* Card 1: Lifestyle */}
+            {(() => {
+              const lifestylePhotos = [
+                { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e9-81-8a-e7-89-a7-e5-b0-8f-e8-81-9a.jpg", alt: "遊牧小聚" },
+                { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e8-b6-8a-e5-8d-97-e9-81-8a-e7-89-a7-e4-b9-8b-e6-97-85.jpg", alt: "越南遊牧之旅" },
+                { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e5-90-8c-e5-ad-b8-e6-9c-83.png", alt: "同學會" },
+                { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e4-ba-a4-e6-b5-81.png", alt: "交流活動" },
+              ]
+              return (
+                <div className="rounded-2xl border border-[#C9D7D4] bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                  {/* Top Header Strip */}
+                  <a href="https://www.instagram.com/digitalnomadstaiwan/" target="_blank" rel="noopener noreferrer" className="block bg-[#17464F] px-4 py-3 sm:px-6 sm:py-4 hover:bg-[#1a5260] transition-colors">
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-white p-1.5 flex-shrink-0">
+                        <Image
+                          src="/images/design-mode/%E6%95%B8%E4%BD%8D%E9%81%8A%E7%89%A7%E5%8F%B0%E7%81%A3%20Logo%281%29%281%29%281%29%281%29.png"
+                          alt="Taiwan Digital Nomad"
+                          width={36}
+                          height={36}
+                          className="w-full h-full object-contain"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="text-white font-bold text-base sm:text-lg leading-tight truncate">{'數位遊牧 Lifestyle 社群'}</h3>
+                        <span className="text-[#D4B483] text-xs sm:text-sm">@digitalnomadstaiwan</span>
+                      </div>
+                    </div>
+                  </a>
+
+                  {/* Main Image */}
+                  <div className="relative aspect-[16/9] sm:aspect-[16/10] overflow-hidden cursor-pointer"
+                    onClick={() => {
+                      setLightboxImages(lifestylePhotos)
+                      setLightboxIndex(0)
+                      setLightboxOpen(true)
+                    }}
+                  >
+                    <Image
+                      src={lifestylePhotos[0].src || "/placeholder.svg"}
+                      alt="數位遊牧 Lifestyle 社群"
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                    <div className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm text-[#17464F] text-xs font-medium px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14" /></svg>
+                      {lifestylePhotos.length} 張照片
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-4 sm:p-6">
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      <span className="text-xs sm:text-sm text-[#A06E56] bg-[#A06E56]/10 px-2.5 py-1 rounded-full"># 台灣最大數位遊牧社群</span>
+                      <span className="text-xs sm:text-sm text-[#A06E56] bg-[#A06E56]/10 px-2.5 py-1 rounded-full"># 每月遊牧聚會</span>
+                      <span className="text-xs sm:text-sm text-[#A06E56] bg-[#A06E56]/10 px-2.5 py-1 rounded-full"># 遊牧啟發之旅</span>
+                    </div>
+
+                    {/* Thumbnail Grid */}
+                    <div className="grid grid-cols-4 gap-2">
+                      {lifestylePhotos.map((photo, i) => (
+                        <div
+                          key={i}
+                          className="relative aspect-square rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity"
+                          onClick={() => {
+                            setLightboxImages(lifestylePhotos)
+                            setLightboxIndex(i)
+                            setLightboxOpen(true)
+                          }}
+                        >
+                          <Image src={photo.src || "/placeholder.svg"} alt={photo.alt} fill className="object-cover" loading="lazy" />
+                          {i === 0 && (
+                            <div className="absolute inset-0 ring-2 ring-[#D4B483] ring-inset rounded-lg" />
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )
+            })()}
+
+            {/* Card 2: Career Growth */}
+            {(() => {
+              const careerPhotos = [
+                { src: "/images/e8-a1-8c-e5-8b-95-e5-b0-8e-e5-90-91-ef-bc-bfvibe-20coding-20-e5-b7-a5-e4-bd-9c-e5-9d-8a-20.png", alt: "Vibe Coding 工作坊" },
+                { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e7-95-99-e8-a8-80.png", alt: "社群留言互動" },
+                { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e4-bd-9c-e6-a5-ad-e4-ba-a4-e6-b5-81.png", alt: "作業交流" },
+                { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e9-a0-98-e8-8b-b1.png", alt: "LinkedIn 社群" },
+              ]
+              return (
+                <div className="rounded-2xl border border-[#C9D7D4] bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                  {/* Top Header Strip */}
+                  <a href="https://www.instagram.com/twnomadacademy/" target="_blank" rel="noopener noreferrer" className="block bg-[#17464F] px-4 py-3 sm:px-6 sm:py-4 hover:bg-[#1a5260] transition-colors">
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-white p-1.5 flex-shrink-0">
+                        <Image
+                          src="/images/logo.png"
+                          alt="遠距遊牧學院"
+                          width={36}
+                          height={36}
+                          className="w-full h-full object-contain"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="text-white font-bold text-base sm:text-lg leading-tight truncate">{'數位遊牧線上職涯成長社群'}</h3>
+                        <span className="text-[#D4B483] text-xs sm:text-sm">@twnomadacademy</span>
+                      </div>
+                    </div>
+                  </a>
+
+                  {/* Main Image */}
+                  <div className="relative aspect-[16/9] sm:aspect-[16/10] overflow-hidden cursor-pointer"
+                    onClick={() => {
+                      setLightboxImages(careerPhotos)
+                      setLightboxIndex(0)
+                      setLightboxOpen(true)
+                    }}
+                  >
+                    <Image
+                      src={careerPhotos[0].src || "/placeholder.svg"}
+                      alt="數位遊牧線上職涯成長社群"
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                    <div className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm text-[#17464F] text-xs font-medium px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14" /></svg>
+                      {careerPhotos.length} 張照片
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-4 sm:p-6">
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      <span className="text-xs sm:text-sm text-[#A06E56] bg-[#A06E56]/10 px-2.5 py-1 rounded-full"># 線上線下講座工作坊</span>
+                      <span className="text-xs sm:text-sm text-[#A06E56] bg-[#A06E56]/10 px-2.5 py-1 rounded-full"># 遊牧之聲</span>
+                    </div>
+
+                    {/* Thumbnail Grid */}
+                    <div className="grid grid-cols-4 gap-2">
+                      {careerPhotos.map((photo, i) => (
+                        <div
+                          key={i}
+                          className="relative aspect-square rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity"
+                          onClick={() => {
+                            setLightboxImages(careerPhotos)
+                            setLightboxIndex(i)
+                            setLightboxOpen(true)
+                          }}
+                        >
+                          <Image src={photo.src || "/placeholder.svg"} alt={photo.alt} fill className="object-cover" loading="lazy" />
+                          {i === 0 && (
+                            <div className="absolute inset-0 ring-2 ring-[#D4B483] ring-inset rounded-lg" />
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )
+            })()}
+          </div>
+        </div>
+      </section>
+
       {/* Success Stories Section */}
       <SuccessStoriesSection id="success-stories-section" />
 
@@ -2382,8 +2240,6 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
         {/* CHANGE: Pass modal states to child components and track when they open/close */}
         <PricingSection onTimelineModalChange={setPricingTimelineModalOpen} />
       </section>
-
-      {/* LIMITED OFFER SECTION */}
 
       {/* FAQ SECTION */}
       <FAQSection

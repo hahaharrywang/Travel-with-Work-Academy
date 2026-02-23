@@ -65,11 +65,11 @@ const faqData: FAQCategory[] = [
     title: "內容與線路",
     items: [
       {
-        question: "自媒體接案線路與遠端上班線路有什麼差別？",
+        question: "接案線路與遠端上班線路有什麼差別？",
         answer: (
           <>
             <p className="mb-3">
-              <strong className="text-[#17464F]">自媒體接案線路</strong>
+              <strong className="text-[#17464F]">接案線路</strong>
               ：適合想透過內容創作與個人品牌，建立「可變現的影響力」與收入來源的人。重點會放在：定位、內容策略、變現路徑、拿到第一個案子。
             </p>
             <p>
@@ -82,6 +82,31 @@ const faqData: FAQCategory[] = [
       {
         question: "報名時先選了一條主線，可以中途換線嗎？",
         answer: <SwitchAndUpgradeAnswer />,
+      },
+    ],
+  },
+  {
+    title: "結業與權益",
+    items: [
+      {
+        question: "結業後還能看回放嗎？",
+        answer:
+          "你會永久保留自己買過的課程回放與資源。同一個 Skool 社群也會持續保留，畢業後不用搬家，仍可在社群中交流（但「當屆專區」僅當屆可見）。",
+      },
+      {
+        question: "Premium 訂閱是什麼？跟學院差在哪？",
+        answer: (
+          <>
+            <p className="mb-3">
+              <strong className="text-[#17464F]">學院</strong>
+              ：是 5 個月的系統課程 & 行動節奏，帶你從定位到落地，完成可展示的成果。
+            </p>
+            <p>
+              <strong className="text-[#17464F]">Premium</strong>
+              ：是訂閱制，主打公開社群的會員限定資源庫更新＋機會／曝光＋訂閱福利。學員在學期間可免費享有此資格；結業後可自由續訂。
+            </p>
+          </>
+        ),
       },
     ],
   },
@@ -170,7 +195,7 @@ function SwitchAndUpgradeAnswer({ onModalChange }: UpgradePricingAnswerProps) {
             <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]" />第 3、4 週會有試上別路課程的機會
           </h4>
           <ul className="text-[#33393C]/80 pl-3.5 space-y-1.5">
-            <li>• 第 3 週課程：「自媒體接案變現地圖 & 目標設定」</li>
+            <li>• 第 2 週課程：「接案變現地圖 & 目標設定」</li>
             <li>• 第 4 週課程：「遠端自由職涯藍圖 & 目標設定」</li>
           </ul>
           <p className="text-xs text-[#33393C]/60 pl-3.5 mt-2">（單路線學員會有機會試上另一條線的起步課，再做選擇）</p>
@@ -219,7 +244,7 @@ function SwitchAndUpgradeAnswer({ onModalChange }: UpgradePricingAnswerProps) {
             <p className="font-semibold text-[#17464F] mb-1">例子 1｜換線（在「夢想試飛價」入學）</p>
             <p className="text-xs text-[#33393C]/60 mb-2">購買時間：2026/01/09 – 2026/01/22 23:59:59</p>
             <p className="text-[#33393C]/80">
-              原本選自媒體接案線，想換成遠端上班線
+              原本選接案線，想換成遠端上班線
               <br />
               換線費用 = 0 + 500 = <strong className="text-[#17464F]">NT$500</strong>
             </p>

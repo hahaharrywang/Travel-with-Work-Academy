@@ -43,7 +43,7 @@ export function HeroSection() {
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3">
-              <span className="px-4 py-2 rounded-full bg-[#17464F] text-white text-sm font-medium">自媒體接案線路</span>
+              <span className="px-4 py-2 rounded-full bg-[#17464F] text-white text-sm font-medium">接案線路</span>
               <span className="px-4 py-2 rounded-full bg-[#17464F] text-white text-sm font-medium">遠端上班線路</span>
               <span className="px-4 py-2 rounded-full bg-[#D4B483] text-[#17464F] text-sm font-medium">
                 也可以雙線並進

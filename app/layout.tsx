@@ -67,7 +67,7 @@ export default function RootLayout({
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID
 
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}>
+    <html lang="zh-TW" className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}>
       <head>
         <StructuredData />
 
