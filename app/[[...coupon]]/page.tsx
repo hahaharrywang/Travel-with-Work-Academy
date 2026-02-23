@@ -47,7 +47,7 @@ import { instructors } from "@/data/instructors"
 
 export default function LandingPage({ params }: { params: { coupon?: string | string[] } }) {
   const [couponCode, setCouponCode] = useState<string | null>(null)
-  const [activeMapTab, setActiveMapTab] = useState<string>("��端上班") // State for Learning Map tabs
+  const [activeMapTab, setActiveMapTab] = useState<string>("遠端上班") // State for Learning Map tabs
   const [selectedWeek, setSelectedWeek] = useState<CalendarWeek | null>(null)
 
   // Feature dialog state
