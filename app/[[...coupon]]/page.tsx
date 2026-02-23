@@ -243,6 +243,17 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
     faqPriceDiffModalOpen ||
     highlightPopup.isOpen
 
+  useEffect(() => {
+    if (isAnyModalOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [isAnyModalOpen])
+
   const toggleWeekExpansion = (weekId: number) => {
     setExpandedWeeks((prev) => {
       const newSet = new Set(prev)
