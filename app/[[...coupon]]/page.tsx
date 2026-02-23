@@ -377,7 +377,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             {/* Left content */}
             <div className="space-y-6 text-center lg:text-left">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-wide">
-                6個月，
+                今年五月，
                 <br />
                 一起把「也許有一天」
                 <br />
