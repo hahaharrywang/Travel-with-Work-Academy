@@ -1545,7 +1545,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     <div className="space-y-2">
                       <div className="relative bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-xl p-3 text-white">
                         <div className="absolute top-2 right-2 bg-[#D4B483] text-[#17464F] text-[10px] font-bold px-2 py-0.5 rounded-full">
-                          Week 3
+                          Week 2
                         </div>
                         <p className="font-semibold text-xs mb-0.5">接案變現藍圖</p>
                         <p className="text-[10px] opacity-90">& 目標設定</p>
@@ -1553,7 +1553,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
                       <div className="relative bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-xl p-3 text-white">
                         <div className="absolute top-2 right-2 bg-[#D4B483] text-[#17464F] text-[10px] font-bold px-2 py-0.5 rounded-full">
-                          Week 4
+                          Week 3
                         </div>
                         <p className="font-semibold text-xs mb-0.5">遠端自由職涯藍圖</p>
                         <p className="text-[10px] opacity-90">& 目標設定</p>
