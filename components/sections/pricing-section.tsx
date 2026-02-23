@@ -366,7 +366,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                           !isPast &&
                           stages.findIndex((s) => s.id === stage.id) ===
                             stages.findIndex((s) => now >= s.startAt && now <= stage.endAt) + 1
-                        const isOriginal = stage.id === "stage_12"
+                        const isOriginal = stage.id === "stage_15"
 
                         return (
                           <div key={stage.id} className="flex items-center">
@@ -406,12 +406,12 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                                   <span
                                     className={`text-[10px] px-1.5 py-0.5 rounded ${isPast ? "bg-gray-200 text-gray-400" : "bg-[#17464F]/10 text-[#17464F]"}`}
                                   >
-                                    單線
+                                    單 {stage.prices.remoteJob.stagePrice.toLocaleString()}
                                   </span>
                                   <span
                                     className={`text-[10px] px-1.5 py-0.5 rounded ${isPast ? "bg-gray-200 text-gray-400" : "bg-[#D4B483]/20 text-[#A06E56]"}`}
                                   >
-                                    雙線
+                                    雙 {stage.prices.dualLine.stagePrice.toLocaleString()}
                                   </span>
                                 </div>
                                 <div className={`text-xs mt-1 ${isPast ? "text-gray-400" : "text-[#33393C]"}`}>
@@ -438,7 +438,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                       onClick={() => setTimelineExpanded(!timelineExpanded)}
                       className="text-sm text-[#17464F] hover:text-[#D4B483] transition-colors underline"
                     >
-                      {timelineExpanded ? "收起" : "展開全部 12 個階段"}
+                      {timelineExpanded ? "收起" : "展開全部 15 個階段"}
                     </button>
                   </div>
                 </div>
@@ -454,7 +454,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                       !isPast &&
                       stages.findIndex((s) => s.id === stage.id) ===
                         stages.findIndex((s) => now >= s.startAt && now <= stage.endAt) + 1
-                    const isOriginal = stage.id === "stage_12"
+                    const isOriginal = stage.id === "stage_15"
 
                     return (
                       <div
@@ -501,12 +501,12 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                             <span
                               className={`text-xs px-2 py-1 rounded ${isPast ? "bg-gray-200 text-gray-400" : "bg-[#17464F]/10 text-[#17464F] font-medium"}`}
                             >
-                              單線
+                              單線 {stage.prices.remoteJob.stagePrice.toLocaleString()}
                             </span>
                             <span
                               className={`text-xs px-2 py-1 rounded ${isPast ? "bg-gray-200 text-gray-400" : "bg-[#D4B483]/20 text-[#A06E56] font-medium"}`}
                             >
-                              雙線
+                              雙線 {stage.prices.dualLine.stagePrice.toLocaleString()}
                             </span>
                           </div>
                         </div>
