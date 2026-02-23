@@ -17,7 +17,7 @@ export function StructuredData() {
       contactType: "customer service",
       availableLanguage: ["zh-TW", "en"],
     },
-    description: "遠距遊牧學院是一個為期 6 個月的行動學院，幫助你探索遠距工作、接案與遠端上班的可能性。",
+    description: "遠距遊牧學院是一個為期 5 個月的行動學院，幫助你探索遠距工作、接案與遠端上班的可能性。",
   }
 
   // Course Schema
@@ -26,7 +26,7 @@ export function StructuredData() {
     "@type": "Course",
     name: "遠距遊牧學院 Travel with Work Academy",
     description:
-      "3+3 個月的行動學院，透過系統化課程與社群陪伴，幫助你開啟遠距工作的人生新章節。前 3 個月共學探索期，後 3 個月延伸累積期。",
+      "【3+3 待確認】5 個月的行動學院，透過系統化課程與社群陪伴，幫助你開啟遠距工作的人生新章節。前 3 個月共學探索期，後 2 個月延伸累積期。",
     provider: {
       "@type": "Organization",
       name: "Nomad Groups 遠距遊牧學院",
@@ -34,8 +34,8 @@ export function StructuredData() {
     },
     educationalLevel: "Beginner to Intermediate",
     coursePrerequisites: "適合有正職但想探索更多可能性的人，無需接案或遠距經驗",
-    timeRequired: "P6M",
-    numberOfCredits: "6 months",
+    timeRequired: "P5M",
+    numberOfCredits: "5 months",
     hasCourseInstance: {
       "@type": "CourseInstance",
       courseMode: "Online",
@@ -99,7 +99,7 @@ export function StructuredData() {
         name: "這堂學院適合什麼樣的人？我現在只是在上班，可以報名嗎？",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "當然可以！這堂學院就是為了「有正職、但想探索更多可能」的人設計的。你不需要先離職，也不需要有任何接案或遠距經驗。只要你願意在未來六個月裡，每週騰出 2-4 小時來學習和行動，這裡就適合你。",
+          text: "當然可以！這堂學院就是為了「有正職、但想探索更多可能」的人設計的。你不需要先離職，也不需要有任何接案或遠距經驗。只要你願意在未來五個月裡，每週騰出 2-4 小時來學習和行動，這裡就適合你。",
         },
       },
       {
@@ -112,10 +112,10 @@ export function StructuredData() {
       },
       {
         "@type": "Question",
-        name: "3+3 個月的節奏大概是怎麼安排的？會不會太硬？",
+        name: "【3+3 待確認】個月的節奏大概是怎麼安排的？會不會太硬？",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "前 3 個月是「共學探索期」，每週會有 1 堂主課（約 60-90 分鐘）+ 課後任務，預計每週投入 2-4 小時。這段時間會比較密集，但節奏是設計給有正職的人跟得上的。後 3 個月是「延伸累積期」，節奏放慢，以每月復盤工作坊、選修課程、社群任務為主，讓你有空間把學到的東西真的用出來。",
+          text: "前 3 個月是「共學探索期」，每週會有 1 堂主課（約 60-90 分鐘）+ 課後任務，預計每週投入 2-4 小時。這段時間會比較密集，但節奏是設計給有正職的人跟得上的。後 2 個月是「延伸累積期」，節奏放慢，以每月復盤工作坊、選修課程、社群任務為主，讓你有空間把學到的東西真的用出來。",
         },
       },
       {
@@ -128,7 +128,7 @@ export function StructuredData() {
       },
       {
         "@type": "Question",
-        name: "如果這六個月中途真的發生變故（工作太忙、人生事件），怎麼辦？",
+        name: "如果這五個月中途真的發生變故（工作太忙、人生事件），怎麼辦？",
         acceptedAnswer: {
           "@type": "Answer",
           text: "我們理解人生不會照劇本走。如果中途遇到重大變故，可以先私訊我們討論。錄影內容會保留讓你補課，部分情況也可以申請轉到下一梯次。詳細的退費與轉班規則會在報名後提供完整說明。",

@@ -47,7 +47,7 @@ import { instructors } from "@/data/instructors"
 
 export default function LandingPage({ params }: { params: { coupon?: string | string[] } }) {
   const [couponCode, setCouponCode] = useState<string | null>(null)
-  const [activeMapTab, setActiveMapTab] = useState<string>("��端上班") // State for Learning Map tabs
+  const [activeMapTab, setActiveMapTab] = useState<string>("遠端上班") // State for Learning Map tabs
   const [selectedWeek, setSelectedWeek] = useState<CalendarWeek | null>(null)
 
   // Feature dialog state
@@ -377,7 +377,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             {/* Left content */}
             <div className="space-y-6 text-center lg:text-left">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-wide">
-                6個月，
+                今年五月，
                 <br />
                 一起把「也許有一天」
                 <br />
@@ -401,7 +401,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 </div>
                 <div className="flex items-start gap-3">
                   <TrendingUp className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">路線清楚：把模糊的嚮往，轉成 6 個月可執行的行動藍圖</p>
+                  <p className="text-white/90">路線清楚：把模糊的嚮往，轉成 5 個月可執行的行動藍圖</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <FileText className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
@@ -430,7 +430,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   }}
                   className="bg-[#D4B483] text-[#17464F] hover:bg-[#C9A673] text-xl font-bold tracking-wider w-full sm:w-auto px-16 py-8 rounded-full whitespace-nowrap"
                 >
-                  四月一起開學
+                  五月一起開學
                 </Button>
                 <button
                   onClick={() => {
@@ -602,7 +602,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   答案還不確定，但不想再只是想想
                 </h3>
                 <p className="text-white/70 leading-relaxed text-sm sm:text-base">
-                  現在的路看起來還行，但常被旅居、遠距、遊牧故事勾起一點遺憾；想在未來六個月裡，用比較踏實的方法去體驗、去嘗試，而不是只滑過別人的人生。
+                  現在的路看起來還行，但常被旅居、遠距、遊牧故事勾起一點遺憾；想在未來五個月裡，用比較踏實的方法去體驗、去嘗試，而不是只滑過別人的人生。
                 </p>
               </div>
             </div>
@@ -756,7 +756,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <p className="text-base sm:text-lg text-white font-bold leading-relaxed">
                   你缺的不是更多資訊，而是一個地方，
                   <span className="block mt-2 text-[#D4B483]">
-                    讓你在未來六個月裡，有人陪你一起試、一起走、一起調整方向。
+                    讓你在未來五個月裡，有人陪你一起試、一起走、一起調整方向。
                   </span>
                 </p>
                 <p className="text-sm sm:text-base text-white/70 mt-4 leading-relaxed">
@@ -1089,9 +1089,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           {/* Header */}
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-2 text-balance">學習地圖</h2>
-            <p className="text-base sm:text-lg text-[#D4B483] font-medium mb-6">四月開學，每週三晚間八點準時上線。</p>
+            <p className="text-base sm:text-lg text-[#D4B483] font-medium mb-6">五月開學，每週三晚間八點準時上線。</p>
             <p className="text-[#33393C] max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
-              半年的旅程，3 階段成長節奏：<span className="font-semibold text-[#17464F]">起步打底</span>、
+              五個月的旅程，3 階段成長節奏：<span className="font-semibold text-[#17464F]">起步打底</span>、
               <span className="font-semibold text-[#17464F]">出擊試水</span>、
               <span className="font-semibold text-[#17464F]">累積整合</span>。
               <br className="hidden sm:block" />
@@ -2623,10 +2623,10 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               >
                 <X className="w-5 h-5 text-gray-500" />
               </button>
-              <h3 className="text-xl md:text-2xl font-bold text-[#17464F]">完整 3+3 學習行事曆</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-[#17464F]">完整 <span className="border-2 border-red-500 bg-red-50 px-1 rounded">3+3</span> 學習行事曆</h3>
               {/* CHANGE: Added opening schedule information */}
               <p className="text-sm text-gray-600 mt-1">
-                四月開學，週三晚上八點準時上線。
+                五月開學，週三晚上八點準時上線。
                 <br />
                 24 週的課程與行動任務，分成三個階段：起步打底、出擊試水、累積整合。
               </p>

@@ -90,7 +90,7 @@ export function PainPointsSection() {
           <p className="text-base sm:text-lg text-[#17464F] font-medium leading-relaxed max-w-3xl mx-auto px-4">
             你缺的不是更多資訊，而是一個地方，
             <br className="sm:hidden" />
-            讓你在未來六個月裡，有人陪你一起試、一起走、一起修正方向。
+            讓你在未來五個月裡，有人陪你一起試、一起走、一起修正方向。
           </p>
         </div>
       </div>
