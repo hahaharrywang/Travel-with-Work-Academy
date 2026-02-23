@@ -1573,7 +1573,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                           </svg>
                         </div>
                         <div className="flex-1">
-                          <p className="font-semibold text-[#17464F] text-xs mb-0.5">第 4 週前可換線/加購雙軌 1 次</p>
+                          <p className="font-semibold text-[#17464F] text-xs mb-0.5">第 1 個月結束前，可換線/加購雙軌 1 次</p>
                           <p className="text-[10px] text-[#333939]/80">詳細請見問答區，以名額為準</p>
                         </div>
                       </div>
