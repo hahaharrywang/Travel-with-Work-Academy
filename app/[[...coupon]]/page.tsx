@@ -1448,7 +1448,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   {/* Callout 區塊 */}
                   <div className="bg-[#F5F3ED] border-l-3 border-[#D4B483] rounded-r-lg p-4 my-4">
                     <p className="text-[#17464F] font-semibold text-sm">
-                      時間才是最貴的資源——別把它花在『想像��』無限比較。
+                      時間才是最貴的資源——別把它花在『想像猶豫』無限比較。
                     </p>
                   </div>
 
