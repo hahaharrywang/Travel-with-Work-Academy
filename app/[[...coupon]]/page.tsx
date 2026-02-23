@@ -1536,7 +1536,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   </div>
 
                   <div className="space-y-3">
-                    <p className="font-medium text-[#17464F]">Week 3 & 4 免費試上機會：</p>
+                    <p className="font-medium text-[#17464F]">Week 2 & 3 免費試上機會：</p>
                     <p className="text-xs text-[#33393C]/80">
                       已經單路線加入的正式學員，會有機會免費試上另一條線的「起步課」，用過來者經驗與實際藍圖，讓你知道自己更被哪條路點燃。
                     </p>
