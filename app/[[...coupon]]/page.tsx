@@ -1976,26 +1976,28 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Block 4: Co-creation */}
-          <div className="mb-10">
-            <div className="flex items-center gap-3 mb-4">
-              <h4 className="font-bold text-[#17464F] text-base sm:text-lg">{'共創與參與權'}</h4>
-              <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#D4B483]/15 text-[#A06E56] font-medium">{'把圈子變成機會場'}</span>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div className="bg-white rounded-xl p-5 border border-[#C9D7D4]/50 shadow-sm">
-                <h5 className="font-bold text-[#17464F] text-sm mb-2">{'共創專案'}</h5>
-                <p className="text-[#33393C]/70 text-xs leading-relaxed">
-                  {'可優先參與、可共同發起（讀書會、實戰企劃、工具共學、Builder 實習等）'}
-                </p>
+            {/* Co-creation card merged here */}
+            <div className="mt-4 bg-white/60 rounded-xl p-4 sm:col-span-2">
+              <div className="flex items-center gap-2 mb-3">
+                <h5 className="font-semibold text-[#17464F] text-sm">{'共創與參與權'}</h5>
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#D4B483]/15 text-[#A06E56] font-medium">{'把圈子變成機會場'}</span>
               </div>
-              <div className="bg-white rounded-xl p-5 border border-[#C9D7D4]/50 shadow-sm">
-                <h5 className="font-bold text-[#17464F] text-sm mb-2">{'許願池'}</h5>
-                <p className="text-[#33393C]/70 text-xs leading-relaxed">
-                  {'定期提案 / 投票，讓學院資源與活動更貼近你的需求'}
-                </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <div className="flex items-start gap-2.5">
+                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
+                  <div>
+                    <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'共創專案'}</span>
+                    <p className="text-[#33393C]/60 text-xs leading-relaxed">{'可優先參與、可共同發起（讀書會、實戰企劃、工具共學、Builder 實習等）'}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
+                  <div>
+                    <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'許願池'}</span>
+                    <p className="text-[#33393C]/60 text-xs leading-relaxed">{'定期提案 / 投票，讓學院資源與活動更貼近你的需求'}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
