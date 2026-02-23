@@ -33,12 +33,12 @@ export function HeroSection() {
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#17464F] leading-tight tracking-wide">
-              用六個月，
+              用五個月，
               <span className="block mt-2 text-[#D4B483]">把「也許有一天」變成「我正在路上」</span>
             </h1>
 
             <p className="text-base sm:text-lg text-[#33393C] leading-relaxed max-w-xl mx-auto lg:mx-0">
-              不用先辭職，也不用一下子 all-in。 透過 6
+              不用先辭職，也不用一下子 all-in。 透過 5
               個月的遠距職涯探索旅途，結合線上課程、行動任務、共學社群與遊牧體驗資源，開啟探索最適合你生活與成長。
             </p>
 
@@ -51,7 +51,7 @@ export function HeroSection() {
             </div>
 
             <p className="text-sm text-[#33393C]/60 max-w-lg mx-auto lg:mx-0">
-              這不是一張離職門票，而是一段可以在保有現職下完成的六個月行動旅程。
+              這不是一張離職門票，而是一段可以在保有現職下完成的五個月行動旅程。
             </p>
 
             {/* CTA Buttons */}
@@ -80,7 +80,7 @@ export function HeroSection() {
                 }}
                 className="text-[#17464F] hover:text-[#D4B483] font-medium text-base underline underline-offset-4 transition-colors duration-200"
               >
-                還在觀望？先看六個月怎麼走 ↓
+                還在觀望？先看五個月怎麼走 ↓
               </button>
             </div>
 

@@ -28,7 +28,7 @@ const faqData: FAQCategory[] = [
       {
         question: "這堂學院適合什麼樣的人？我現在只是在上班，可以報名嗎？",
         answer:
-          "當然可以！學院就是為了「想探索多元可能」的人設計的。你如果正在上班，完全不需要先離職，也不需要有任何接案或遠距經驗。只要你願意在未來六個月裡，每週騰出 2-4 小時來學習和行動，這裡就適合你。",
+          "當然可以！學院就是為了「想探索多元可能」的人設計的。你如果正在上班，完全不需要先離職，也不需要有任何接案或遠距經驗。只要你願意在未來五個月裡，每週騰出 2-4 小時來學習和行動，這裡就適合你。",
       },
       {
         question: "英文不好、不會寫程式，可以嗎？",
@@ -307,100 +307,124 @@ function SwitchAndUpgradeAnswer({ onModalChange }: UpgradePricingAnswerProps) {
                   </thead>
                   <tbody className="divide-y divide-[#C9D7D4]/30">
                     <tr className="hover:bg-[#F5F3ED]/50">
-                      <td className="p-3 text-[#33393C]/80">2025/12/26 – 2026/01/08 23:59:59</td>
+                      <td className="p-3 text-[#33393C]/80">2025/12/27 – 2026/02/26 23:59:59</td>
                       <td className="p-3 text-[#33393C]">公開招生啟動價</td>
-                      <td className="p-3 text-right text-[#33393C]">8,499</td>
-                      <td className="p-3 text-right text-[#33393C]">11,500</td>
-                      <td className="p-3 text-right text-[#33393C]">3,001</td>
-                      <td className="p-3 text-right font-semibold text-[#D4B483]">3,501</td>
+                      <td className="p-3 text-right text-[#33393C]">6,299</td>
+                      <td className="p-3 text-right text-[#33393C]">8,799</td>
+                      <td className="p-3 text-right text-[#33393C]">2,500</td>
+                      <td className="p-3 text-right font-semibold text-[#D4B483]">3,000</td>
                     </tr>
                     <tr className="hover:bg-[#F5F3ED]/50">
-                      <td className="p-3 text-[#33393C]/80">2026/01/09 – 2026/01/22 23:59:59</td>
+                      <td className="p-3 text-[#33393C]/80">2026/02/27 – 2026/03/05 23:59:59</td>
+                      <td className="p-3 text-[#33393C]">正式招生起跑價</td>
+                      <td className="p-3 text-right text-[#33393C]">6,999</td>
+                      <td className="p-3 text-right text-[#33393C]">9,799</td>
+                      <td className="p-3 text-right text-[#33393C]">2,800</td>
+                      <td className="p-3 text-right font-semibold text-[#D4B483]">3,300</td>
+                    </tr>
+                    <tr className="hover:bg-[#F5F3ED]/50">
+                      <td className="p-3 text-[#33393C]/80">2026/03/06 – 2026/03/12 23:59:59</td>
+                      <td className="p-3 text-[#33393C]">地圖探索價</td>
+                      <td className="p-3 text-right text-[#33393C]">7,799</td>
+                      <td className="p-3 text-right text-[#33393C]">10,899</td>
+                      <td className="p-3 text-right text-[#33393C]">3,100</td>
+                      <td className="p-3 text-right font-semibold text-[#D4B483]">3,600</td>
+                    </tr>
+                    <tr className="hover:bg-[#F5F3ED]/50">
+                      <td className="p-3 text-[#33393C]/80">2026/03/13 – 2026/03/19 23:59:59</td>
                       <td className="p-3 text-[#33393C]">夢想試飛價</td>
-                      <td className="p-3 text-right text-[#33393C]">9,499</td>
-                      <td className="p-3 text-right text-[#33393C]">12,999</td>
-                      <td className="p-3 text-right text-[#33393C]">3,500</td>
-                      <td className="p-3 text-right font-semibold text-[#D4B483]">4,000</td>
+                      <td className="p-3 text-right text-[#33393C]">8,499</td>
+                      <td className="p-3 text-right text-[#33393C]">11,899</td>
+                      <td className="p-3 text-right text-[#33393C]">3,400</td>
+                      <td className="p-3 text-right font-semibold text-[#D4B483]">3,900</td>
                     </tr>
                     <tr className="hover:bg-[#F5F3ED]/50">
-                      <td className="p-3 text-[#33393C]/80">2026/01/23 – 2026/02/05 23:59:59</td>
+                      <td className="p-3 text-[#33393C]/80">2026/03/20 – 2026/03/26 23:59:59</td>
                       <td className="p-3 text-[#33393C]">打包行李價</td>
-                      <td className="p-3 text-right text-[#33393C]">9,999</td>
-                      <td className="p-3 text-right text-[#33393C]">13,699</td>
+                      <td className="p-3 text-right text-[#33393C]">9,299</td>
+                      <td className="p-3 text-right text-[#33393C]">12,999</td>
                       <td className="p-3 text-right text-[#33393C]">3,700</td>
                       <td className="p-3 text-right font-semibold text-[#D4B483]">4,200</td>
                     </tr>
                     <tr className="hover:bg-[#F5F3ED]/50">
-                      <td className="p-3 text-[#33393C]/80">2026/02/06 – 2026/02/12 23:59:59</td>
+                      <td className="p-3 text-[#33393C]/80">2026/03/27 – 2026/04/02 23:59:59</td>
                       <td className="p-3 text-[#33393C]">開票起飛價</td>
-                      <td className="p-3 text-right text-[#33393C]">10,499</td>
-                      <td className="p-3 text-right text-[#33393C]">14,299</td>
-                      <td className="p-3 text-right text-[#33393C]">3,800</td>
-                      <td className="p-3 text-right font-semibold text-[#D4B483]">4,300</td>
-                    </tr>
-                    <tr className="hover:bg-[#F5F3ED]/50">
-                      <td className="p-3 text-[#33393C]/80">2026/02/13 – 2026/02/19 23:59:59</td>
-                      <td className="p-3 text-[#33393C]">最後登機口價</td>
-                      <td className="p-3 text-right text-[#33393C]">10,999</td>
-                      <td className="p-3 text-right text-[#33393C]">14,999</td>
+                      <td className="p-3 text-right text-[#33393C]">9,999</td>
+                      <td className="p-3 text-right text-[#33393C]">13,999</td>
                       <td className="p-3 text-right text-[#33393C]">4,000</td>
                       <td className="p-3 text-right font-semibold text-[#D4B483]">4,500</td>
                     </tr>
                     <tr className="hover:bg-[#F5F3ED]/50">
-                      <td className="p-3 text-[#33393C]/80">2026/02/20 – 2026/02/26 23:59:59</td>
+                      <td className="p-3 text-[#33393C]/80">2026/04/03 – 2026/04/09 23:59:59</td>
+                      <td className="p-3 text-[#33393C]">最後登機口價</td>
+                      <td className="p-3 text-right text-[#33393C]">10,799</td>
+                      <td className="p-3 text-right text-[#33393C]">15,099</td>
+                      <td className="p-3 text-right text-[#33393C]">4,300</td>
+                      <td className="p-3 text-right font-semibold text-[#D4B483]">4,800</td>
+                    </tr>
+                    <tr className="hover:bg-[#F5F3ED]/50">
+                      <td className="p-3 text-[#33393C]/80">2026/04/10 – 2026/04/16 23:59:59</td>
                       <td className="p-3 text-[#33393C]">起飛早鳥價</td>
-                      <td className="p-3 text-right text-[#33393C]">11,499</td>
-                      <td className="p-3 text-right text-[#33393C]">15,699</td>
-                      <td className="p-3 text-right text-[#33393C]">4,200</td>
-                      <td className="p-3 text-right font-semibold text-[#D4B483]">4,700</td>
-                    </tr>
-                    <tr className="hover:bg-[#F5F3ED]/50">
-                      <td className="p-3 text-[#33393C]/80">2026/02/27 – 2026/03/12 23:59:59</td>
-                      <td className="p-3 text-[#33393C]">雲端巡航價</td>
-                      <td className="p-3 text-right text-[#33393C]">11,999</td>
-                      <td className="p-3 text-right text-[#33393C]">16,399</td>
-                      <td className="p-3 text-right text-[#33393C]">4,400</td>
-                      <td className="p-3 text-right font-semibold text-[#D4B483]">4,900</td>
-                    </tr>
-                    <tr className="hover:bg-[#F5F3ED]/50">
-                      <td className="p-3 text-[#33393C]/80">2026/03/13 – 2026/03/19 23:59:59</td>
-                      <td className="p-3 text-[#33393C]">高空穩定價</td>
-                      <td className="p-3 text-right text-[#33393C]">12,499</td>
-                      <td className="p-3 text-right text-[#33393C]">17,099</td>
+                      <td className="p-3 text-right text-[#33393C]">11,599</td>
+                      <td className="p-3 text-right text-[#33393C]">16,199</td>
                       <td className="p-3 text-right text-[#33393C]">4,600</td>
                       <td className="p-3 text-right font-semibold text-[#D4B483]">5,100</td>
                     </tr>
                     <tr className="hover:bg-[#F5F3ED]/50">
-                      <td className="p-3 text-[#33393C]/80">2026/03/20 – 2026/03/26 23:59:59</td>
-                      <td className="p-3 text-[#33393C]">標準航程價</td>
-                      <td className="p-3 text-right text-[#33393C]">12,999</td>
-                      <td className="p-3 text-right text-[#33393C]">17,799</td>
+                      <td className="p-3 text-[#33393C]/80">2026/04/17 – 2026/04/23 23:59:59</td>
+                      <td className="p-3 text-[#33393C]">雲端巡航價</td>
+                      <td className="p-3 text-right text-[#33393C]">12,399</td>
+                      <td className="p-3 text-right text-[#33393C]">17,199</td>
                       <td className="p-3 text-right text-[#33393C]">4,800</td>
                       <td className="p-3 text-right font-semibold text-[#D4B483]">5,300</td>
                     </tr>
                     <tr className="hover:bg-[#F5F3ED]/50">
-                      <td className="p-3 text-[#33393C]/80">2026/03/27 – 2026/03/31 23:59:59</td>
-                      <td className="p-3 text-[#33393C]">最終飛行價</td>
-                      <td className="p-3 text-right text-[#33393C]">13,499</td>
-                      <td className="p-3 text-right text-[#33393C]">18,499</td>
-                      <td className="p-3 text-right text-[#33393C]">5,000</td>
-                      <td className="p-3 text-right font-semibold text-[#D4B483]">5,500</td>
+                      <td className="p-3 text-[#33393C]/80">2026/04/24 – 2026/04/30 23:59:59</td>
+                      <td className="p-3 text-[#33393C]">中途轉機價</td>
+                      <td className="p-3 text-right text-[#33393C]">13,110</td>
+                      <td className="p-3 text-right text-[#33393C]">18,299</td>
+                      <td className="p-3 text-right text-[#33393C]">5,189</td>
+                      <td className="p-3 text-right font-semibold text-[#D4B483]">5,689</td>
                     </tr>
                     <tr className="hover:bg-[#F5F3ED]/50">
-                      <td className="p-3 text-[#33393C]/80">2026/04/01 – 2026/04/09 23:59:59</td>
-                      <td className="p-3 text-[#33393C]">全價啟程</td>
+                      <td className="p-3 text-[#33393C]/80">2026/05/01 – 2026/05/03 23:59:59</td>
+                      <td className="p-3 text-[#33393C]">入境前夕價</td>
                       <td className="p-3 text-right text-[#33393C]">13,999</td>
-                      <td className="p-3 text-right text-[#33393C]">19,199</td>
-                      <td className="p-3 text-right text-[#33393C]">5,200</td>
-                      <td className="p-3 text-right font-semibold text-[#D4B483]">5,700</td>
+                      <td className="p-3 text-right text-[#33393C]">19,599</td>
+                      <td className="p-3 text-right text-[#33393C]">5,600</td>
+                      <td className="p-3 text-right font-semibold text-[#D4B483]">6,100</td>
                     </tr>
                     <tr className="hover:bg-[#F5F3ED]/50">
-                      <td className="p-3 text-[#33393C]/80">2026/04/10 之後</td>
-                      <td className="p-3 text-[#33393C]">全價啟程</td>
-                      <td className="p-3 text-right text-[#33393C]">13,999</td>
-                      <td className="p-3 text-right text-[#33393C]">19,199</td>
-                      <td className="p-3 text-right text-[#33393C]">5,200</td>
-                      <td className="p-3 text-right font-semibold text-[#D4B483]">5,700</td>
+                      <td className="p-3 text-[#33393C]/80">2026/05/04 – 2026/05/05 23:59:59</td>
+                      <td className="p-3 text-[#33393C]">落地衝刺價</td>
+                      <td className="p-3 text-right text-[#33393C]">14,999</td>
+                      <td className="p-3 text-right text-[#33393C]">20,899</td>
+                      <td className="p-3 text-right text-[#33393C]">5,900</td>
+                      <td className="p-3 text-right font-semibold text-[#D4B483]">6,400</td>
+                    </tr>
+                    <tr className="hover:bg-[#F5F3ED]/50">
+                      <td className="p-3 text-[#33393C]/80">2026/05/06 – 2026/05/07 23:59:59</td>
+                      <td className="p-3 text-[#33393C]">壓線滑行價</td>
+                      <td className="p-3 text-right text-[#33393C]">15,999</td>
+                      <td className="p-3 text-right text-[#33393C]">22,199</td>
+                      <td className="p-3 text-right text-[#33393C]">6,200</td>
+                      <td className="p-3 text-right font-semibold text-[#D4B483]">6,700</td>
+                    </tr>
+                    <tr className="hover:bg-[#F5F3ED]/50">
+                      <td className="p-3 text-[#33393C]/80">2026/05/08 – 2026/05/31 23:59:59</td>
+                      <td className="p-3 text-[#33393C]">後悔補票價</td>
+                      <td className="p-3 text-right text-[#33393C]">16,999</td>
+                      <td className="p-3 text-right text-[#33393C]">23,599</td>
+                      <td className="p-3 text-right text-[#33393C]">6,600</td>
+                      <td className="p-3 text-right font-semibold text-[#D4B483]">7,100</td>
+                    </tr>
+                    <tr className="hover:bg-[#F5F3ED]/50">
+                      <td className="p-3 text-[#33393C]/80">2026/06/01 之後</td>
+                      <td className="p-3 text-[#33393C]">晚點到 - 原價</td>
+                      <td className="p-3 text-right text-[#33393C]">19,000</td>
+                      <td className="p-3 text-right text-[#33393C]">26,500</td>
+                      <td className="p-3 text-right text-[#33393C]">7,500</td>
+                      <td className="p-3 text-right font-semibold text-[#D4B483]">8,000</td>
                     </tr>
                   </tbody>
                 </table>

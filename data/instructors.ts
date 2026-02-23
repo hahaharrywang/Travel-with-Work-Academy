@@ -7,7 +7,7 @@ export const instructors: Instructor[] = [
     image: "/images/harry-principal.png",
     link: "https://www.instagram.com/twnomadacademy/",
     background:
-      "數位遊牧台灣社群發起人，遠距遊牧學院（Travel with Work Academy）創辦人。致力於推動華語世界的遠距工作與數位遊牧生活方式，建立以行動導向為核心的學習社群，幫助學員在 6 個月內完成可展示的職涯轉型成果。",
+      "數位遊牧台灣社群發起人，遠距遊牧學院（Travel with Work Academy）創辦人。致力於推動華語世界的遠距工作與數位遊牧生活方式，建立以行動導向為核心的學習社群，幫助學員在 5 個月內完成可展示的職涯轉型成果。",
     links: {
       instagram: "https://www.instagram.com/twnomadacademy/",
     },
