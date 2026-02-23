@@ -418,10 +418,11 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                                   {stage.discountLabel}
                                 </div>
                                 <div className={`text-xs ${isPast ? "text-gray-400" : "text-[#33393C]/60"}`}>
-                                  ~{String(stage.endAt.getMonth() + 1).padStart(2, "0")}/
-                                  {String(stage.endAt.getDate()).padStart(2, "0")}{" "}
-                                  {String(stage.endAt.getHours()).padStart(2, "0")}:
-                                  {String(stage.endAt.getMinutes()).padStart(2, "0")}
+                                  {isOriginal ? (
+                                    <>{String(stage.startAt.getFullYear())}/{String(stage.startAt.getMonth() + 1).padStart(2, "0")}/{String(stage.startAt.getDate()).padStart(2, "0")} {"起~"}</>
+                                  ) : (
+                                    <>~{String(stage.endAt.getMonth() + 1).padStart(2, "0")}/{String(stage.endAt.getDate()).padStart(2, "0")}{" "}{String(stage.endAt.getHours()).padStart(2, "0")}:{String(stage.endAt.getMinutes()).padStart(2, "0")}</>
+                                  )}
                                 </div>
                               </div>
                             </div>
@@ -491,10 +492,11 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                               {isNext && <span className="ml-2 text-xs">(下一階段)</span>}
                             </div>
                             <div className={`text-sm mt-1 ${isPast ? "text-gray-400" : "text-[#33393C]/70"}`}>
-                              {stage.discountLabel} · ~{String(stage.endAt.getMonth() + 1).padStart(2, "0")}/
-                              {String(stage.endAt.getDate()).padStart(2, "0")}{" "}
-                              {String(stage.endAt.getHours()).padStart(2, "0")}:
-                              {String(stage.endAt.getMinutes()).padStart(2, "0")}
+                              {isOriginal ? (
+                                <>{stage.discountLabel} · {String(stage.startAt.getFullYear())}/{String(stage.startAt.getMonth() + 1).padStart(2, "0")}/{String(stage.startAt.getDate()).padStart(2, "0")} {"起~"}</>
+                              ) : (
+                                <>{stage.discountLabel} · ~{String(stage.endAt.getMonth() + 1).padStart(2, "0")}/{String(stage.endAt.getDate()).padStart(2, "0")}{" "}{String(stage.endAt.getHours()).padStart(2, "0")}:{String(stage.endAt.getMinutes()).padStart(2, "0")}</>
+                              )}
                             </div>
                           </div>
                           <div className="flex flex-col gap-1 items-end ml-4">
