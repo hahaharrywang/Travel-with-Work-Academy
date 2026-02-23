@@ -1818,29 +1818,35 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             </h4>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               <div className="bg-white rounded-xl p-5 border border-[#C9D7D4]/50 shadow-sm">
-                <div className="w-8 h-8 rounded-lg bg-[#17464F] flex items-center justify-center mb-3">
-                  <span className="text-white text-xs font-bold">{'01'}</span>
+                <div className="flex items-center gap-2.5 mb-1.5">
+                  <div className="w-8 h-8 rounded-lg bg-[#17464F] flex items-center justify-center flex-shrink-0">
+                    <span className="text-white text-xs font-bold">{'01'}</span>
+                  </div>
+                  <h5 className="font-bold text-[#17464F] text-sm">{'當屆完整課程'}</h5>
                 </div>
-                <h5 className="font-bold text-[#17464F] text-sm mb-1.5">{'當屆完整課程'}</h5>
-                <p className="text-[#33393C]/70 text-xs leading-relaxed">
+                <p className="text-[#33393C]/70 text-xs leading-relaxed pl-[42px]">
                   {'聚焦遠距求職與接案兩條路，從定位到落地流程（直播 / 回放一年）'}
                 </p>
               </div>
               <div className="bg-white rounded-xl p-5 border border-[#C9D7D4]/50 shadow-sm">
-                <div className="w-8 h-8 rounded-lg bg-[#17464F] flex items-center justify-center mb-3">
-                  <span className="text-white text-xs font-bold">{'02'}</span>
+                <div className="flex items-center gap-2.5 mb-1.5">
+                  <div className="w-8 h-8 rounded-lg bg-[#17464F] flex items-center justify-center flex-shrink-0">
+                    <span className="text-white text-xs font-bold">{'02'}</span>
+                  </div>
+                  <h5 className="font-bold text-[#17464F] text-sm">{'作業與落地任務'}</h5>
                 </div>
-                <h5 className="font-bold text-[#17464F] text-sm mb-1.5">{'作業與落地任務'}</h5>
-                <p className="text-[#33393C]/70 text-xs leading-relaxed">
+                <p className="text-[#33393C]/70 text-xs leading-relaxed pl-[42px]">
                   {'每周都要交付 — 一步步把你推到「可以被採用 / 被下單」的狀態'}
                 </p>
               </div>
               <div className="bg-white rounded-xl p-5 border border-[#C9D7D4]/50 shadow-sm">
-                <div className="w-8 h-8 rounded-lg bg-[#17464F] flex items-center justify-center mb-3">
-                  <span className="text-white text-xs font-bold">{'03'}</span>
+                <div className="flex items-center gap-2.5 mb-1.5">
+                  <div className="w-8 h-8 rounded-lg bg-[#17464F] flex items-center justify-center flex-shrink-0">
+                    <span className="text-white text-xs font-bold">{'03'}</span>
+                  </div>
+                  <h5 className="font-bold text-[#17464F] text-sm">{'成長節奏'}</h5>
                 </div>
-                <h5 className="font-bold text-[#17464F] text-sm mb-1.5">{'成長節奏'}</h5>
-                <p className="text-[#33393C]/70 text-xs leading-relaxed">
+                <p className="text-[#33393C]/70 text-xs leading-relaxed pl-[42px]">
                   {'線上同學會 / 團體 QA / DemoDay，互相學習、幫助，彼此督促跟上進度'}
                 </p>
               </div>
