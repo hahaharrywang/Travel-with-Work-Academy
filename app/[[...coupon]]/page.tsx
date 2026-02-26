@@ -2337,25 +2337,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             </button>
             <iframe
               src="https://link.digitalnomadstaiwan.com/widget/form/MpJ0wDqzBLszazx5vVRy"
-              style={{ width: "100%", height: "500px", border: "none", borderRadius: "20px", overflow: "hidden" }}
+              style={{ width: "100%", height: "500px", border: "none", borderRadius: "20px" }}
               scrolling="no"
-              id="inline-MpJ0wDqzBLszazx5vVRy"
-              data-layout="{'id':'INLINE'}"
-              data-trigger-type="alwaysShow"
-              data-trigger-value=""
-              data-activation-type="alwaysActivated"
-              data-activation-value=""
-              data-deactivation-type="neverDeactivate"
-              data-deactivation-value=""
-              data-form-name="Contact us - Academy"
-              data-height="430"
-              data-layout-iframe-id="inline-MpJ0wDqzBLszazx5vVRy"
-              data-form-id="MpJ0wDqzBLszazx5vVRy"
               title="Contact us - Academy"
-            />
-            <Script
-              src="https://link.digitalnomadstaiwan.com/js/form_embed.js"
-              strategy="lazyOnload"
             />
           </div>
         </div>
