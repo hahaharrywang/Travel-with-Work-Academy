@@ -2314,8 +2314,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
       {/* GHL Popup Form — hidden iframe + script, popup handled by form_embed.js */}
       <iframe
         src="https://link.digitalnomadstaiwan.com/widget/form/MpJ0wDqzBLszazx5vVRy"
-        style={{ display: "none", width: "100%", height: "100%", border: "none", borderRadius: "4px" }}
-        id="inline-MpJ0wDqzBLszazx5vVRy"
+        style={{ display: "none", width: "100%", height: "100%", border: "none", borderRadius: "20px" }}
+        id="popup-MpJ0wDqzBLszazx5vVRy"
         data-layout="{'id':'POPUP'}"
         data-trigger-type="alwaysShow"
         data-trigger-value=""
@@ -2325,7 +2325,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
         data-deactivation-value=""
         data-form-name="Contact us - Academy"
         data-height="340"
-        data-layout-iframe-id="inline-MpJ0wDqzBLszazx5vVRy"
+        data-layout-iframe-id="popup-MpJ0wDqzBLszazx5vVRy"
         data-form-id="MpJ0wDqzBLszazx5vVRy"
         title="Contact us - Academy"
       />
