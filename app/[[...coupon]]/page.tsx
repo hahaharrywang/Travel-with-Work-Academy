@@ -235,6 +235,16 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
   const [faqPriceDiffModalOpen, setFaqPriceDiffModalOpen] = useState(false)
   const [emailPopupOpen, setEmailPopupOpen] = useState(false)
 
+  // Lock body scroll when email popup is open
+  useEffect(() => {
+    if (emailPopupOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+    return () => { document.body.style.overflow = "" }
+  }, [emailPopupOpen])
+
   const isAnyModalOpen =
     isGalleryOpen ||
     selectedWeek !== null ||
@@ -2316,7 +2326,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             onClick={() => setEmailPopupOpen(false)}
           />
           {/* Modal */}
-          <div className="relative z-10 w-full max-w-md bg-[#17464F] rounded-2xl shadow-2xl overflow-hidden">
+          <div className="relative z-10 w-full max-w-md bg-[#17464F] rounded-2xl shadow-2xl" style={{ overflow: "hidden" }}>
             {/* Close button */}
             <button
               onClick={() => setEmailPopupOpen(false)}
@@ -2327,7 +2337,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             </button>
             <iframe
               src="https://link.digitalnomadstaiwan.com/widget/form/MpJ0wDqzBLszazx5vVRy"
-              style={{ width: "100%", height: "500px", border: "none", borderRadius: "20px" }}
+              style={{ width: "100%", height: "500px", border: "none", borderRadius: "20px", overflow: "hidden" }}
               scrolling="no"
               id="inline-MpJ0wDqzBLszazx5vVRy"
               data-layout="{'id':'INLINE'}"
