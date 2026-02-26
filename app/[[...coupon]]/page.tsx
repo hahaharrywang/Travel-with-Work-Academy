@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef, Suspense } from "react"
 import Image from "next/image"
+import Script from "next/script"
 import {
   ChevronDown,
   ChevronUp,
@@ -1545,7 +1546,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     <div className="space-y-2">
                       <div className="relative bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-xl p-3 text-white">
                         <div className="absolute top-2 right-2 bg-[#D4B483] text-[#17464F] text-[10px] font-bold px-2 py-0.5 rounded-full">
-                          Week 3
+                          Week 2
                         </div>
                         <p className="font-semibold text-xs mb-0.5">接案變現藍圖</p>
                         <p className="text-[10px] opacity-90">& 目標設定</p>
@@ -1553,7 +1554,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
                       <div className="relative bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-xl p-3 text-white">
                         <div className="absolute top-2 right-2 bg-[#D4B483] text-[#17464F] text-[10px] font-bold px-2 py-0.5 rounded-full">
-                          Week 4
+                          Week 3
                         </div>
                         <p className="font-semibold text-xs mb-0.5">遠端自由職涯藍圖</p>
                         <p className="text-[10px] opacity-90">& 目標設定</p>
@@ -2279,6 +2280,59 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
         {/* CHANGE: Pass modal states to child components and track when they open/close */}
         <PricingSection onTimelineModalChange={setPricingTimelineModalOpen} />
       </section>
+
+      {/* EMAIL SUBSCRIPTION BANNER */}
+      <section className="bg-[#F5F3ED] py-10 sm:py-14">
+        <div className="max-w-2xl mx-auto px-4 text-center">
+          <p className="text-xs tracking-[0.15em] uppercase text-[#A06E56] font-medium mb-3">{'保持連結'}</p>
+          <h3 className="text-xl sm:text-2xl font-bold text-[#17464F] mb-2">
+            {'還沒準備好加入？先收到最新消息'}
+          </h3>
+          <p className="text-sm text-[#33393C]/70 mb-6 leading-relaxed">
+            {'公開講座通知、開班資訊、遠距工作分享，定期送到你信箱。'}
+          </p>
+          <button
+            onClick={() => {
+              // GHL popup: click the hidden trigger that form_embed.js listens to
+              const iframe = document.getElementById("inline-MpJ0wDqzBLszazx5vVRy")
+              if (iframe) {
+                iframe.dispatchEvent(new Event("click", { bubbles: true }))
+              }
+              // Also try direct API if available
+              if (typeof window !== "undefined" && (window as any).LC_API?.open_chat_window) {
+                ;(window as any).LC_API.open_chat_window()
+              }
+            }}
+            className="inline-flex items-center gap-2 bg-[#17464F] text-white font-semibold text-sm sm:text-base px-8 py-4 rounded-full hover:bg-[#1a5561] transition-colors duration-200 shadow-sm"
+          >
+            <Mail className="w-4 h-4 flex-shrink-0" />
+            {'我想要收到公開講座＆最新消息'}
+          </button>
+        </div>
+      </section>
+
+      {/* GHL Popup Form — hidden iframe + script, popup handled by form_embed.js */}
+      <iframe
+        src="https://link.digitalnomadstaiwan.com/widget/form/MpJ0wDqzBLszazx5vVRy"
+        style={{ display: "none", width: "100%", height: "100%", border: "none", borderRadius: "20px" }}
+        id="popup-MpJ0wDqzBLszazx5vVRy"
+        data-layout="{'id':'POPUP'}"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="Contact us - Academy"
+        data-height="340"
+        data-layout-iframe-id="popup-MpJ0wDqzBLszazx5vVRy"
+        data-form-id="MpJ0wDqzBLszazx5vVRy"
+        title="Contact us - Academy"
+      />
+      <Script
+        src="https://link.digitalnomadstaiwan.com/js/form_embed.js"
+        strategy="lazyOnload"
+      />
 
       {/* FAQ SECTION */}
       <FAQSection

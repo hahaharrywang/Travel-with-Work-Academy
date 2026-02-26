@@ -1,7 +1,8 @@
 "use client"
 
+import { useState, useEffect, useCallback } from "react"
 import { Card } from "@/components/ui/card"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel"
 
 const successStories = [
   {
@@ -60,7 +61,7 @@ const successStories = [
 
 export function SuccessStoriesSection() {
   return (
-    <section id="student-results" className="pt-16 sm:pt-24 pb-0 bg-[#F5F3ED]">
+    <section id="student-results" className="pt-16 sm:pt-24 pb-12 sm:pb-20 bg-[#F5F3ED]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
@@ -131,72 +132,126 @@ export function SuccessStoriesSection() {
           ))}
         </div>
 
-        {/* Mobile/Tablet: Carousel (below lg) */}
-        <div className="lg:hidden">
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-4">
-              {successStories.map((story) => (
-                <CarouselItem key={story.id} className="pl-4 md:basis-1/2">
-                  <Card className="bg-white rounded-2xl p-6 shadow-sm border border-[#C9D7D4] h-full flex flex-col">
-                    {/* Title */}
-                    <h3 className="text-lg font-bold text-[#17464F] mb-1">{story.title}</h3>
-
-                    {/* Identity */}
-                    <p className="text-sm font-medium text-[#A06E56] mb-2">{story.identity}</p>
-
-                    {/* Quote */}
-                    <div className="mb-2">
-                      <div className="bg-[#F5F3ED] rounded-lg p-3 relative">
-                        {/* Quote icon */}
-                        <svg
-                          className="absolute -top-2 -left-2 w-6 h-6 text-[#D4B483] opacity-50"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
-                        </svg>
-                        <p className="text-sm text-[#17464F] font-medium italic leading-normal pl-4">{story.quote}</p>
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="text-sm text-[#33393C] leading-normal space-y-1 flex-grow">
-                      {story.content.map((paragraph, idx) => (
-                        <p key={idx}>{paragraph}</p>
-                      ))}
-                    </div>
-
-                    {/* Current Status */}
-                    {story.currentStatus && (
-                      <div className="mt-4 pt-4 border-t border-[#C9D7D4]">
-                        <p className="text-xs font-bold text-[#17464F] mb-2 tracking-wide">{'現在狀態：'}</p>
-                        <ul className="space-y-1">
-                          {story.currentStatus.map((status, idx) => (
-                            <li key={idx} className="text-xs text-[#33393C] flex items-start gap-1.5">
-                              <span className="text-[#D4B483] flex-shrink-0">{'✔'}</span>
-                              <span>{status}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                  </Card>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="flex justify-center gap-2 mt-8">
-              <CarouselPrevious className="static translate-y-0" />
-              <CarouselNext className="static translate-y-0" />
-            </div>
-          </Carousel>
-        </div>
+        {/* Mobile/Tablet: Carousel with peek + dots (below lg) */}
+        <MobileSuccessCarousel stories={successStories} />
       </div>
     </section>
+  )
+}
+
+/* ── Mobile carousel with peek, dots & auto-hint ── */
+type Story = (typeof successStories)[number]
+
+function MobileSuccessCarousel({ stories }: { stories: Story[] }) {
+  const [api, setApi] = useState<CarouselApi>()
+  const [current, setCurrent] = useState(0)
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    if (!api) return
+    setCount(api.scrollSnapList().length)
+    setCurrent(api.selectedScrollSnap())
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap())
+    })
+  }, [api])
+
+  // Auto-hint: nudge right then snap back on first load
+  useEffect(() => {
+    if (!api) return
+    const timer = setTimeout(() => {
+      const engine = api as any
+      // Scroll a tiny bit to hint, then snap back
+      if (engine.scrollTo) {
+        api.scrollNext()
+        setTimeout(() => {
+          api.scrollTo(0)
+        }, 400)
+      }
+    }, 800)
+    return () => clearTimeout(timer)
+  }, [api])
+
+  return (
+    <div className="lg:hidden">
+      <Carousel
+        opts={{
+          align: "start",
+          loop: true,
+          // Show peek of next card
+          slidesToScroll: 1,
+        }}
+        setApi={setApi}
+        className="w-full"
+      >
+        <CarouselContent className="-ml-3">
+          {stories.map((story) => (
+            <CarouselItem key={story.id} className="pl-3 basis-[88%] md:basis-[48%]">
+              <Card className="bg-white rounded-2xl p-5 shadow-sm border border-[#C9D7D4] h-full flex flex-col">
+                {/* Title */}
+                <h3 className="text-lg font-bold text-[#17464F] mb-1">{story.title}</h3>
+
+                {/* Identity */}
+                <p className="text-sm font-medium text-[#A06E56] mb-2">{story.identity}</p>
+
+                {/* Quote */}
+                <div className="mb-2">
+                  <div className="bg-[#F5F3ED] rounded-lg p-3 relative">
+                    <svg
+                      className="absolute -top-2 -left-2 w-6 h-6 text-[#D4B483] opacity-50"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
+                    </svg>
+                    <p className="text-sm text-[#17464F] font-medium italic leading-normal pl-4">{story.quote}</p>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="text-sm text-[#33393C] leading-normal space-y-1 flex-grow">
+                  {story.content.map((paragraph, idx) => (
+                    <p key={idx}>{paragraph}</p>
+                  ))}
+                </div>
+
+                {/* Current Status */}
+                {story.currentStatus && (
+                  <div className="mt-4 pt-4 border-t border-[#C9D7D4]">
+                    <p className="text-xs font-bold text-[#17464F] mb-2 tracking-wide">{'現在狀態：'}</p>
+                    <ul className="space-y-1">
+                      {story.currentStatus.map((status, idx) => (
+                        <li key={idx} className="text-xs text-[#33393C] flex items-start gap-1.5">
+                          <span className="text-[#D4B483] flex-shrink-0">{'✔'}</span>
+                          <span>{status}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </Card>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
+
+      {/* Dot indicators */}
+      <div className="flex justify-center items-center gap-2 mt-5">
+        {Array.from({ length: count }).map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => api?.scrollTo(idx)}
+            aria-label={`Go to slide ${idx + 1}`}
+            className={`rounded-full transition-all duration-300 ${
+              idx === current
+                ? "w-6 h-2 bg-[#17464F]"
+                : "w-2 h-2 bg-[#C9D7D4] hover:bg-[#17464F]/40"
+            }`}
+          />
+        ))}
+        <span className="text-xs text-[#33393C]/50 ml-2">{`${current + 1} / ${count}`}</span>
+      </div>
+    </div>
   )
 }
