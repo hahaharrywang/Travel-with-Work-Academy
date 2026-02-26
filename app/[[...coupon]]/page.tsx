@@ -2326,7 +2326,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             onClick={() => setEmailPopupOpen(false)}
           />
           {/* Modal */}
-          <div className="relative z-10 w-full max-w-md bg-[#17464F] rounded-2xl shadow-2xl" style={{ overflow: "hidden" }}>
+          <div className="relative z-10 w-full max-w-lg bg-[#17464F] rounded-2xl shadow-2xl" style={{ overflow: "hidden" }}>
             {/* Close button */}
             <button
               onClick={() => setEmailPopupOpen(false)}
