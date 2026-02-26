@@ -2323,7 +2323,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
       {/* GHL Email Subscription Modal */}
       {emailPopupOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4"
           role="dialog"
           aria-modal="true"
           aria-label="訂閱電子報"
@@ -2333,8 +2333,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             className="absolute inset-0 bg-black/50 backdrop-blur-sm"
             onClick={() => setEmailPopupOpen(false)}
           />
-          {/* Modal */}
-          <div className="relative z-10 w-full max-w-lg bg-[#17464F] rounded-2xl shadow-2xl" style={{ overflow: "hidden" }}>
+          {/* Modal — wider on mobile by using less padding */}
+          <div className="relative z-10 w-full max-w-lg bg-[#17464F] rounded-2xl shadow-2xl mx-1 sm:mx-4" style={{ overflow: "hidden" }}>
             {/* Close button */}
             <button
               onClick={() => setEmailPopupOpen(false)}
@@ -2343,8 +2343,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             >
               <X className="w-4 h-4" />
             </button>
-            {/* Clip container — hides GHL's built-in bottom padding */}
-            <div style={{ height: "390px", overflow: "hidden", borderRadius: "20px" }}>
+            {/* Clip container — hides GHL's built-in bottom padding; scale iframe wider on mobile to reduce GHL internal padding */}
+            <div className="h-[390px] overflow-hidden rounded-[20px]">
               <iframe
                 src="https://link.digitalnomadstaiwan.com/widget/form/MpJ0wDqzBLszazx5vVRy"
                 id="inline-MpJ0wDqzBLszazx5vVRy"
@@ -2359,7 +2359,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 data-height="undefined"
                 data-layout-iframe-id="inline-MpJ0wDqzBLszazx5vVRy"
                 data-form-id="MpJ0wDqzBLszazx5vVRy"
-                style={{ width: "100%", height: "600px", border: "none", borderRadius: "20px" }}
+                className="w-[115%] h-[600px] origin-top-left scale-x-[0.87] sm:w-full sm:scale-x-100 border-none rounded-[20px]"
                 scrolling="no"
                 title="Contact us - Academy"
               />
