@@ -2316,18 +2316,19 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             onClick={() => setEmailPopupOpen(false)}
           />
           {/* Modal */}
-          <div className="relative z-10 w-full max-w-md">
+          <div className="relative z-10 w-full max-w-md bg-[#17464F] rounded-2xl shadow-2xl overflow-hidden">
             {/* Close button */}
             <button
               onClick={() => setEmailPopupOpen(false)}
-              className="absolute top-3 right-3 z-20 w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 transition-colors text-white"
+              className="absolute top-3 right-3 z-20 w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 transition-colors text-white"
               aria-label="關閉"
             >
               <X className="w-4 h-4" />
             </button>
             <iframe
               src="https://link.digitalnomadstaiwan.com/widget/form/MpJ0wDqzBLszazx5vVRy"
-              style={{ display: "block", width: "100%", height: "430px", border: "none", borderRadius: "20px", overflow: "hidden" }}
+              style={{ width: "100%", height: "500px", border: "none", borderRadius: "20px" }}
+              scrolling="no"
               id="inline-MpJ0wDqzBLszazx5vVRy"
               data-layout="{'id':'INLINE'}"
               data-trigger-type="alwaysShow"
@@ -2341,7 +2342,6 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               data-layout-iframe-id="inline-MpJ0wDqzBLszazx5vVRy"
               data-form-id="MpJ0wDqzBLszazx5vVRy"
               title="Contact us - Academy"
-              scrolling="no"
             />
             <Script
               src="https://link.digitalnomadstaiwan.com/js/form_embed.js"
