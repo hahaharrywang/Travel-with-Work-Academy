@@ -2280,6 +2280,57 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
         <PricingSection onTimelineModalChange={setPricingTimelineModalOpen} />
       </section>
 
+      {/* EMAIL SUBSCRIPTION BANNER */}
+      <section className="bg-[#F5F3ED] py-10 sm:py-14">
+        <div className="max-w-2xl mx-auto px-4 text-center">
+          <p className="text-xs tracking-[0.15em] uppercase text-[#A06E56] font-medium mb-3">{'保持連結'}</p>
+          <h3 className="text-xl sm:text-2xl font-bold text-[#17464F] mb-2">
+            {'還沒準備好加入？先收到最新消息'}
+          </h3>
+          <p className="text-sm text-[#33393C]/70 mb-6 leading-relaxed">
+            {'公開講座通知、開班資訊、遠距工作分享，定期送到你信箱。'}
+          </p>
+          <button
+            onClick={() => {
+              // Trigger the GHL popup form
+              if (typeof window !== "undefined" && (window as any).LeadConnector) {
+                ;(window as any).LeadConnector.openModal("MpJ0wDqzBLszazx5vVRy")
+              } else {
+                // Fallback: show the iframe directly
+                const iframe = document.getElementById("popup-MpJ0wDqzBLszazx5vVRy")
+                if (iframe) {
+                  ;(iframe as HTMLElement).style.display = "block"
+                }
+              }
+            }}
+            className="inline-flex items-center gap-2 bg-[#17464F] text-white font-semibold text-sm sm:text-base px-8 py-4 rounded-full hover:bg-[#1a5561] transition-colors duration-200 shadow-sm"
+          >
+            <Mail className="w-4 h-4 flex-shrink-0" />
+            {'我想要收到公開講座＆最新消息'}
+          </button>
+        </div>
+      </section>
+
+      {/* GHL Popup Form Embed */}
+      <iframe
+        src="https://link.digitalnomadstaiwan.com/widget/form/MpJ0wDqzBLszazx5vVRy"
+        style={{ display: "none", width: "100%", height: "100%", border: "none", borderRadius: "4px" }}
+        id="popup-MpJ0wDqzBLszazx5vVRy"
+        data-layout="{'id':'POPUP'}"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="Contact us - Academy"
+        data-height="340"
+        data-layout-iframe-id="popup-MpJ0wDqzBLszazx5vVRy"
+        data-form-id="MpJ0wDqzBLszazx5vVRy"
+        title="Contact us - Academy"
+      />
+      <script src="https://link.digitalnomadstaiwan.com/js/form_embed.js" />
+
       {/* FAQ SECTION */}
       <FAQSection
         // CHANGE: Pass modal state to FAQ section
