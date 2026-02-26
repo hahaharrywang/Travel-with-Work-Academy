@@ -234,55 +234,18 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
   const [pricingTimelineModalOpen, setPricingTimelineModalOpen] = useState(false)
   const [faqPriceDiffModalOpen, setFaqPriceDiffModalOpen] = useState(false)
   const [emailPopupOpen, setEmailPopupOpen] = useState(false)
-  const [emailFormName, setEmailFormName] = useState("")
-  const [emailFormEmail, setEmailFormEmail] = useState("")
-  const [emailFormSubmitting, setEmailFormSubmitting] = useState(false)
-  const [emailFormSuccess, setEmailFormSuccess] = useState(false)
-  const [emailFormError, setEmailFormError] = useState("")
 
-  const handleEmailFormSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!emailFormEmail) return
-    setEmailFormSubmitting(true)
-    setEmailFormError("")
-    try {
-      const payload = new URLSearchParams()
-      payload.append("email", emailFormEmail)
-      if (emailFormName) payload.append("name", emailFormName)
-      payload.append("formId", "MpJ0wDqzBLszazx5vVRy")
-      payload.append("location_id", "digitalnomadstaiwan")
-      const res = await fetch(
-        "https://link.digitalnomadstaiwan.com/widget/form/MpJ0wDqzBLszazx5vVRy",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: payload.toString(),
-          redirect: "manual",
-        }
-      )
-      // GHL always redirects on success; a redirect or any 2xx/3xx means submitted
-      setEmailFormSuccess(true)
-    } catch {
-      setEmailFormSuccess(true) // treat network redirect as success
-    }
-    setEmailFormSubmitting(false)
-  }
-
-  // Reset form when popup closes
-  const closeEmailPopup = () => {
-    setEmailPopupOpen(false)
-    setTimeout(() => {
-      setEmailFormName("")
-      setEmailFormEmail("")
-      setEmailFormSuccess(false)
-      setEmailFormError("")
-    }, 300)
-  }
-
-  // Lock body scroll when email popup is open
+  // Lock body scroll when email popup is open & load GHL embed script
   useEffect(() => {
     if (emailPopupOpen) {
       document.body.style.overflow = "hidden"
+      // Load GHL form embed script if not already loaded
+      if (!document.querySelector('script[src*="form_embed.js"]')) {
+        const s = document.createElement("script")
+        s.src = "https://link.digitalnomadstaiwan.com/js/form_embed.js"
+        s.async = true
+        document.body.appendChild(s)
+      }
     } else {
       document.body.style.overflow = ""
     }
@@ -2368,73 +2331,39 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           {/* Backdrop */}
           <div
             className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-            onClick={closeEmailPopup}
+            onClick={() => setEmailPopupOpen(false)}
           />
           {/* Modal */}
-          <div className="relative z-10 w-full max-w-lg bg-[#17464F] rounded-2xl shadow-2xl overflow-hidden">
+          <div className="relative z-10 w-full max-w-lg bg-[#17464F] rounded-2xl shadow-2xl" style={{ overflow: "hidden" }}>
             {/* Close button */}
             <button
-              onClick={closeEmailPopup}
+              onClick={() => setEmailPopupOpen(false)}
               className="absolute top-3 right-3 z-20 w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 transition-colors text-white"
               aria-label="關閉"
             >
               <X className="w-4 h-4" />
             </button>
-
-            {emailFormSuccess ? (
-              /* Thank-you state */
-              <div className="flex flex-col items-center justify-center py-16 px-8 text-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-[#D4B483]/20 flex items-center justify-center mb-2">
-                  <svg className="w-7 h-7 text-[#D4B483]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <h2 className="text-2xl font-bold text-[#D4B483] tracking-wide">感謝訂閱！</h2>
-                <p className="text-[#C9D7D4] text-sm leading-relaxed">
-                  我們已收到您的資料，<br />公開講座及最新資訊將第一時間通知您。
-                </p>
-                <button
-                  onClick={closeEmailPopup}
-                  className="mt-4 px-8 py-2 rounded-full bg-[#D4B483] text-[#17464F] font-semibold text-sm hover:bg-[#c4a473] transition-colors"
-                >
-                  關閉
-                </button>
-              </div>
-            ) : (
-              /* Form state */
-              <form onSubmit={handleEmailFormSubmit} className="flex flex-col gap-4 p-8 pt-10">
-                <h2 className="text-center text-xl font-bold text-[#D4B483] tracking-wide mb-2">
-                  收到公開講座及最新資訊
-                </h2>
-                <input
-                  type="text"
-                  placeholder="姓名"
-                  value={emailFormName}
-                  onChange={(e) => setEmailFormName(e.target.value)}
-                  className="w-full rounded-xl px-4 py-4 text-[#33393C] bg-white outline-none text-base"
-                  autoComplete="name"
-                />
-                <input
-                  type="email"
-                  placeholder="Email*"
-                  required
-                  value={emailFormEmail}
-                  onChange={(e) => setEmailFormEmail(e.target.value)}
-                  className="w-full rounded-xl px-4 py-4 text-[#33393C] bg-white outline-none text-base"
-                  autoComplete="email"
-                />
-                {emailFormError && (
-                  <p className="text-red-300 text-sm text-center">{emailFormError}</p>
-                )}
-                <button
-                  type="submit"
-                  disabled={emailFormSubmitting}
-                  className="w-full rounded-xl py-4 bg-[#D4B483] text-[#33393C] font-bold text-lg tracking-wide hover:bg-[#c4a473] transition-colors disabled:opacity-60"
-                >
-                  {emailFormSubmitting ? "提交中..." : "訂閱資訊！"}
-                </button>
-              </form>
-            )}
+            {/* Clip container — hides GHL's built-in bottom padding */}
+            <div style={{ height: "390px", overflow: "hidden", borderRadius: "20px" }}>
+              <iframe
+                src="https://link.digitalnomadstaiwan.com/widget/form/MpJ0wDqzBLszazx5vVRy"
+                id="inline-MpJ0wDqzBLszazx5vVRy"
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="Contact us - Academy"
+                data-height="undefined"
+                data-layout-iframe-id="inline-MpJ0wDqzBLszazx5vVRy"
+                data-form-id="MpJ0wDqzBLszazx5vVRy"
+                style={{ width: "100%", height: "600px", border: "none", borderRadius: "20px" }}
+                scrolling="no"
+                title="Contact us - Academy"
+              />
+            </div>
           </div>
         </div>
       )}
