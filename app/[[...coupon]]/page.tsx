@@ -233,6 +233,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
   const [pricingTimelineModalOpen, setPricingTimelineModalOpen] = useState(false)
   const [faqPriceDiffModalOpen, setFaqPriceDiffModalOpen] = useState(false)
+  const [emailPopupOpen, setEmailPopupOpen] = useState(false)
 
   const isAnyModalOpen =
     isGalleryOpen ||
@@ -2292,17 +2293,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             {'公開講座通知、開班資訊、遠距工作分享，定期送到你信箱。'}
           </p>
           <button
-            onClick={() => {
-              // GHL popup: click the hidden trigger that form_embed.js listens to
-              const iframe = document.getElementById("inline-MpJ0wDqzBLszazx5vVRy")
-              if (iframe) {
-                iframe.dispatchEvent(new Event("click", { bubbles: true }))
-              }
-              // Also try direct API if available
-              if (typeof window !== "undefined" && (window as any).LC_API?.open_chat_window) {
-                ;(window as any).LC_API.open_chat_window()
-              }
-            }}
+            onClick={() => setEmailPopupOpen(true)}
             className="inline-flex items-center gap-2 bg-[#17464F] text-white font-semibold text-sm sm:text-base px-8 py-4 rounded-full hover:bg-[#1a5561] transition-colors duration-200 shadow-sm"
           >
             <Mail className="w-4 h-4 flex-shrink-0" />
@@ -2311,28 +2302,37 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
         </div>
       </section>
 
-      {/* GHL Popup Form — hidden iframe + script, popup handled by form_embed.js */}
-      <iframe
-        src="https://link.digitalnomadstaiwan.com/widget/form/MpJ0wDqzBLszazx5vVRy"
-        style={{ display: "none", width: "100%", height: "100%", border: "none", borderRadius: "20px" }}
-        id="popup-MpJ0wDqzBLszazx5vVRy"
-        data-layout="{'id':'POPUP'}"
-        data-trigger-type="alwaysShow"
-        data-trigger-value=""
-        data-activation-type="alwaysActivated"
-        data-activation-value=""
-        data-deactivation-type="neverDeactivate"
-        data-deactivation-value=""
-        data-form-name="Contact us - Academy"
-        data-height="340"
-        data-layout-iframe-id="popup-MpJ0wDqzBLszazx5vVRy"
-        data-form-id="MpJ0wDqzBLszazx5vVRy"
-        title="Contact us - Academy"
-      />
-      <Script
-        src="https://link.digitalnomadstaiwan.com/js/form_embed.js"
-        strategy="lazyOnload"
-      />
+      {/* GHL Email Subscription Modal */}
+      {emailPopupOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label="訂閱電子報"
+        >
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            onClick={() => setEmailPopupOpen(false)}
+          />
+          {/* Modal */}
+          <div className="relative z-10 w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden">
+            {/* Close button */}
+            <button
+              onClick={() => setEmailPopupOpen(false)}
+              className="absolute top-3 right-3 z-20 w-8 h-8 flex items-center justify-center rounded-full bg-[#F5F3ED] hover:bg-[#C9D7D4] transition-colors text-[#33393C]"
+              aria-label="關閉"
+            >
+              <X className="w-4 h-4" />
+            </button>
+            <iframe
+              src="https://link.digitalnomadstaiwan.com/widget/form/MpJ0wDqzBLszazx5vVRy"
+              style={{ width: "100%", height: "420px", border: "none" }}
+              title="Contact us - Academy"
+            />
+          </div>
+        </div>
+      )}
 
       {/* FAQ SECTION */}
       <FAQSection
