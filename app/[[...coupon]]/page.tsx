@@ -2335,12 +2335,15 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             >
               <X className="w-4 h-4" />
             </button>
-            <iframe
-              src="https://link.digitalnomadstaiwan.com/widget/form/MpJ0wDqzBLszazx5vVRy"
-              style={{ width: "100%", height: "500px", border: "none", borderRadius: "20px" }}
-              scrolling="no"
-              title="Contact us - Academy"
-            />
+            {/* Clip container — hides GHL's built-in bottom padding */}
+            <div style={{ height: "390px", overflow: "hidden", borderRadius: "20px" }}>
+              <iframe
+                src="https://link.digitalnomadstaiwan.com/widget/form/MpJ0wDqzBLszazx5vVRy"
+                style={{ width: "100%", height: "600px", border: "none" }}
+                scrolling="no"
+                title="Contact us - Academy"
+              />
+            </div>
           </div>
         </div>
       )}
