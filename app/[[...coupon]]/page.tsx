@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef, Suspense } from "react"
 import Image from "next/image"
+import Script from "next/script"
 import {
   ChevronDown,
   ChevronUp,
@@ -2292,15 +2293,14 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           </p>
           <button
             onClick={() => {
-              // Trigger the GHL popup form
-              if (typeof window !== "undefined" && (window as any).LeadConnector) {
-                ;(window as any).LeadConnector.openModal("MpJ0wDqzBLszazx5vVRy")
-              } else {
-                // Fallback: show the iframe directly
-                const iframe = document.getElementById("popup-MpJ0wDqzBLszazx5vVRy")
-                if (iframe) {
-                  ;(iframe as HTMLElement).style.display = "block"
-                }
+              // GHL popup: click the hidden trigger that form_embed.js listens to
+              const iframe = document.getElementById("inline-MpJ0wDqzBLszazx5vVRy")
+              if (iframe) {
+                iframe.dispatchEvent(new Event("click", { bubbles: true }))
+              }
+              // Also try direct API if available
+              if (typeof window !== "undefined" && (window as any).LC_API?.open_chat_window) {
+                ;(window as any).LC_API.open_chat_window()
               }
             }}
             className="inline-flex items-center gap-2 bg-[#17464F] text-white font-semibold text-sm sm:text-base px-8 py-4 rounded-full hover:bg-[#1a5561] transition-colors duration-200 shadow-sm"
@@ -2311,11 +2311,11 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
         </div>
       </section>
 
-      {/* GHL Popup Form Embed */}
+      {/* GHL Popup Form — hidden iframe + script, popup handled by form_embed.js */}
       <iframe
         src="https://link.digitalnomadstaiwan.com/widget/form/MpJ0wDqzBLszazx5vVRy"
         style={{ display: "none", width: "100%", height: "100%", border: "none", borderRadius: "4px" }}
-        id="popup-MpJ0wDqzBLszazx5vVRy"
+        id="inline-MpJ0wDqzBLszazx5vVRy"
         data-layout="{'id':'POPUP'}"
         data-trigger-type="alwaysShow"
         data-trigger-value=""
@@ -2325,11 +2325,14 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
         data-deactivation-value=""
         data-form-name="Contact us - Academy"
         data-height="340"
-        data-layout-iframe-id="popup-MpJ0wDqzBLszazx5vVRy"
+        data-layout-iframe-id="inline-MpJ0wDqzBLszazx5vVRy"
         data-form-id="MpJ0wDqzBLszazx5vVRy"
         title="Contact us - Academy"
       />
-      <script src="https://link.digitalnomadstaiwan.com/js/form_embed.js" />
+      <Script
+        src="https://link.digitalnomadstaiwan.com/js/form_embed.js"
+        strategy="lazyOnload"
+      />
 
       {/* FAQ SECTION */}
       <FAQSection
