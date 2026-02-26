@@ -2343,10 +2343,11 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             >
               <X className="w-4 h-4" />
             </button>
-            {/* Clip container — hides GHL's built-in bottom padding */}
-            <div className="h-[390px] overflow-hidden rounded-[20px]">
+            {/* GHL form embed container */}
+            <div className="h-[430px] overflow-hidden rounded-[20px]">
               <iframe
                 src="https://link.digitalnomadstaiwan.com/widget/form/MpJ0wDqzBLszazx5vVRy"
+                style={{ width: "100%", height: "100%", border: "none", borderRadius: "20px" }}
                 id="inline-MpJ0wDqzBLszazx5vVRy"
                 data-layout="{'id':'INLINE'}"
                 data-trigger-type="alwaysShow"
@@ -2356,11 +2357,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 data-deactivation-type="neverDeactivate"
                 data-deactivation-value=""
                 data-form-name="Contact us - Academy"
-                data-height="undefined"
+                data-height="430"
                 data-layout-iframe-id="inline-MpJ0wDqzBLszazx5vVRy"
                 data-form-id="MpJ0wDqzBLszazx5vVRy"
-                className="w-full h-[600px] border-none rounded-[20px]"
-                scrolling="no"
                 title="Contact us - Academy"
               />
             </div>
