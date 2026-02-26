@@ -246,24 +246,21 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
     setEmailFormSubmitting(true)
     setEmailFormError("")
     try {
-      const payload = new URLSearchParams()
-      payload.append("email", emailFormEmail)
-      if (emailFormName) payload.append("name", emailFormName)
-      payload.append("formId", "MpJ0wDqzBLszazx5vVRy")
-      payload.append("location_id", "digitalnomadstaiwan")
-      const res = await fetch(
-        "https://link.digitalnomadstaiwan.com/widget/form/MpJ0wDqzBLszazx5vVRy",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: payload.toString(),
-          redirect: "manual",
-        }
-      )
-      // GHL always redirects on success; a redirect or any 2xx/3xx means submitted
-      setEmailFormSuccess(true)
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: emailFormName,
+          email: emailFormEmail,
+        }),
+      })
+      if (res.ok) {
+        setEmailFormSuccess(true)
+      } else {
+        setEmailFormError("提交失敗，請稍後再試。")
+      }
     } catch {
-      setEmailFormSuccess(true) // treat network redirect as success
+      setEmailFormError("網路連線異常，請稍後再試。")
     }
     setEmailFormSubmitting(false)
   }
