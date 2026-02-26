@@ -348,7 +348,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
   return (
     <main className="min-h-screen bg-white pb-24 md:pb-0">
-      <AnnouncementBar scrollToPricing={scrollToPricing} />
+      <AnnouncementBar scrollToPricing={scrollToPricing} onEmailSubscribe={() => setEmailPopupOpen(true)} />
       {/* SECTION 1 HERO START */}
       <section className="relative min-h-screen flex items-center overflow-hidden bg-[#17464F]">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">

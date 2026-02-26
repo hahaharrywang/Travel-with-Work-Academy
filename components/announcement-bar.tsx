@@ -7,9 +7,10 @@ import { usePricing } from "@/contexts/pricing-context"
 
 interface AnnouncementBarProps {
   scrollToPricing: () => void
+  onEmailSubscribe?: () => void
 }
 
-export function AnnouncementBar({ scrollToPricing }: AnnouncementBarProps) {
+export function AnnouncementBar({ scrollToPricing, onEmailSubscribe }: AnnouncementBarProps) {
   const { currentStageData, timeLeft } = usePricing()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
@@ -119,6 +120,20 @@ export function AnnouncementBar({ scrollToPricing }: AnnouncementBarProps) {
                 {item.label}
               </a>
             ))}
+
+            {/* Email subscribe button */}
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false)
+                onEmailSubscribe?.()
+              }}
+              className="py-3 px-4 text-left text-white/90 hover:text-[#D4B483] hover:bg-white/5 transition-colors flex items-center gap-2"
+            >
+              <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+              </svg>
+              <span>Email 訂閱最新消息</span>
+            </button>
 
             <div className="border-t border-white/10 mt-2 pt-2 px-4">
               <p className="text-xs text-white/60 mb-2 px-0">聯絡我們</p>
