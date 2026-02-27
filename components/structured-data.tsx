@@ -1,5 +1,6 @@
 // SEO Structured Data Component for JSON-LD schemas
 // Includes: Course, FAQPage, Organization schemas
+import Script from "next/script"
 
 export function StructuredData() {
   // Organization Schema
@@ -179,9 +180,24 @@ export function StructuredData() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <Script
+        id="ld-organization"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        strategy="afterInteractive"
+      />
+      <Script
+        id="ld-course"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
+        strategy="afterInteractive"
+      />
+      <Script
+        id="ld-faq"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        strategy="afterInteractive"
+      />
     </>
   )
 }
