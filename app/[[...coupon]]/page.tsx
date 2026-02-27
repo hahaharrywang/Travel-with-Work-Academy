@@ -2310,13 +2310,26 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           <p className="text-sm text-[#33393C]/70 mb-6 leading-relaxed">
             {'公開講座通知、開班資訊、遠距工作分享，定期送到你信箱。'}
           </p>
-          <button
-            onClick={() => setEmailPopupOpen(true)}
-            className="inline-flex items-center gap-2 bg-[#17464F] text-white font-semibold text-sm sm:text-base px-8 py-4 rounded-full hover:bg-[#1a5561] transition-colors duration-200 shadow-sm"
-          >
-            <Mail className="w-4 h-4 flex-shrink-0" />
-            {'我想要收到公開講座＆最新消息'}
-          </button>
+          <div className="flex flex-col items-center gap-3">
+            <button
+              onClick={() => setEmailPopupOpen(true)}
+              className="inline-flex items-center gap-2 bg-[#17464F] text-white font-semibold text-sm sm:text-base px-8 py-4 rounded-full hover:bg-[#1a5561] transition-colors duration-200 shadow-sm"
+            >
+              <Mail className="w-4 h-4 flex-shrink-0" />
+              {'我想要收到公開講座＆最新消息'}
+            </button>
+            <a
+              href="/webinar"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-transparent border-2 border-[#17464F] text-[#17464F] font-semibold text-sm sm:text-base px-8 py-4 rounded-full hover:bg-[#17464F] hover:text-white transition-colors duration-200"
+            >
+              <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" />
+              </svg>
+              {'線上說明會＆講座場次'}
+            </a>
+          </div>
         </div>
       </section>
 

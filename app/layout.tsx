@@ -77,7 +77,20 @@ export default function RootLayout({
     <html lang="zh-TW" className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}>
       <head>
         <StructuredData />
-
+        <meta property="og:image" content="/images/fb-20metadata-20-20square.jpeg" />
+        <meta property="og:image:width" content="1080" />
+        <meta property="og:image:height" content="1080" />
+        <meta property="og:image:alt" content="遠距遊牧學院 - 告別朝九晚五，解鎖遠距自由人生" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta name="twitter:image" content="/images/fb-20metadata-20-20square.jpeg" />
+        <meta name="twitter:image:width" content="1080" />
+        <meta name="twitter:image:height" content="1080" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta httpEquiv="Pragma" content="no-cache" />
+        <meta httpEquiv="Expires" content="0" />
+      </head>
+      <body>
         {gtmId && (
           <Script
             id="gtm-head"
@@ -94,20 +107,6 @@ export default function RootLayout({
           />
         )}
 
-        <meta property="og:image" content="/images/fb-20metadata-20-20square.jpeg" />
-        <meta property="og:image:width" content="1080" />
-        <meta property="og:image:height" content="1080" />
-        <meta property="og:image:alt" content="遠距遊牧學院 - 告別朝九晚五，解鎖遠距自由人生" />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta name="twitter:image" content="/images/fb-20metadata-20-20square.jpeg" />
-        <meta name="twitter:image:width" content="1080" />
-        <meta name="twitter:image:height" content="1080" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-        <meta httpEquiv="Pragma" content="no-cache" />
-        <meta httpEquiv="Expires" content="0" />
-      </head>
-      <body>
         {metaPixelId && (
           <Script
             id="facebook-pixel"
@@ -128,7 +127,6 @@ export default function RootLayout({
                 window.fbqTrack = function(eventName, parameters = {}) {
                   if (typeof fbq !== 'undefined') {
                     fbq('track', eventName, parameters);
-                    console.log('[v0] Meta Pixel event tracked:', eventName, parameters);
                   }
                 };
               `,
@@ -147,7 +145,6 @@ export default function RootLayout({
                   content_category: contentCategory,
                   currency: 'TWD'
                 };
-                console.log('[v0] ViewContent event:', params);
                 if (window.fbqTrack) {
                   window.fbqTrack('ViewContent', params);
                 }
@@ -159,7 +156,6 @@ export default function RootLayout({
                   value: value,
                   currency: 'TWD'
                 };
-                console.log('[v0] InitiateCheckout event:', params);
                 if (window.fbqTrack) {
                   window.fbqTrack('InitiateCheckout', params);
                 }
@@ -170,7 +166,6 @@ export default function RootLayout({
                   content_name: leadType,
                   content_category: '潛在客戶'
                 };
-                console.log('[v0] Lead event:', params);
                 if (window.fbqTrack) {
                   window.fbqTrack('Lead', params);
                 }
@@ -182,7 +177,6 @@ export default function RootLayout({
                   value: value,
                   currency: 'TWD'
                 };
-                console.log('[v0] Purchase event:', params);
                 if (window.fbqTrack) {
                   window.fbqTrack('Purchase', params);
                 }
@@ -194,7 +188,6 @@ export default function RootLayout({
                   content_category: '時間停留',
                   custom_parameter_1: seconds + 's'
                 };
-                console.log('[v0] TimeOnPage_' + seconds + 's event:', params);
                 if (window.fbqTrack) {
                   window.fbqTrack('TimeOnPage_' + seconds + 's', params);
                 }
@@ -206,7 +199,6 @@ export default function RootLayout({
                   content_category: '滾動深度',
                   custom_parameter_1: percentage + '%'
                 };
-                console.log('[v0] ScrollDepth_' + percentage + '% event:', params);
                 if (window.fbqTrack) {
                   window.fbqTrack('ScrollDepth_' + percentage, params);
                 }
