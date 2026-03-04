@@ -1,5 +1,6 @@
 // SEO Structured Data Component for JSON-LD schemas
 // Includes: Course, FAQPage, Organization schemas
+import Script from "next/script"
 
 export function StructuredData() {
   // Organization Schema

@@ -235,21 +235,14 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
   const [faqPriceDiffModalOpen, setFaqPriceDiffModalOpen] = useState(false)
   const [emailPopupOpen, setEmailPopupOpen] = useState(false)
 
-  // Lock body scroll when email popup is open & load GHL embed script
+  // Lock body scroll when email popup is open
   useEffect(() => {
-    if (emailPopupOpen) {
-      document.body.style.overflow = "hidden"
-      // Load GHL form embed script if not already loaded
-      if (!document.querySelector('script[src*="form_embed.js"]')) {
-        const s = document.createElement("script")
-        s.src = "https://link.digitalnomadstaiwan.com/js/form_embed.js"
-        s.async = true
-        document.body.appendChild(s)
-      }
-    } else {
-      document.body.style.overflow = ""
-    }
-    return () => { document.body.style.overflow = "" }
+  if (emailPopupOpen) {
+  document.body.style.overflow = "hidden"
+  } else {
+  document.body.style.overflow = ""
+  }
+  return () => { document.body.style.overflow = "" }
   }, [emailPopupOpen])
 
 
