@@ -140,6 +140,13 @@ export default function RootLayout({
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
+              window.addEventListener('error', function(e) {
+                if (e.message && e.message.includes('ResizeObserver loop')) {
+                  e.stopImmediatePropagation();
+                  e.preventDefault();
+                }
+              });
+
               window.trackViewContent = function(contentName, contentCategory = '課程') {
                 const params = {
                   content_name: contentName,
