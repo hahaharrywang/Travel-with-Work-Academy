@@ -188,6 +188,11 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                   {selectedPlanId === "selfMedia" ? "✓ 已選擇" : "選擇此方案"}
                 </Button>
               </div>
+              <a href="https://portaly.cc/travelwithwork/pages/webinar" target="_blank" rel="noopener noreferrer" className="block mt-3">
+                <Button variant="outline" className="w-full border-[#17464F] text-[#17464F] hover:bg-[#17464F]/5 py-3 rounded-full font-medium">
+                  查看免費講座場次資訊
+                </Button>
+              </a>
             </div>
           </div>
 
@@ -256,6 +261,11 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                   {selectedPlanId === "dualLine" ? "✓ 已選擇" : "選擇此方案"}
                 </Button>
               </div>
+              <a href="https://portaly.cc/travelwithwork/pages/webinar" target="_blank" rel="noopener noreferrer" className="block mt-3">
+                <Button variant="outline" className="w-full border-[#D4B483] text-[#17464F] hover:bg-[#D4B483]/10 py-3 rounded-full font-bold">
+                  查看免費講座場次資訊
+                </Button>
+              </a>
             </div>
           </div>
 
@@ -321,6 +331,11 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                   {selectedPlanId === "remoteJob" ? "✓ 已選擇" : "選擇此方案"}
                 </Button>
               </div>
+              <a href="https://portaly.cc/travelwithwork/pages/webinar" target="_blank" rel="noopener noreferrer" className="block mt-3">
+                <Button variant="outline" className="w-full border-[#17464F] text-[#17464F] hover:bg-[#17464F]/5 py-3 rounded-full font-medium">
+                  查看免費講座場次資訊
+                </Button>
+              </a>
             </div>
           </div>
         </div>
