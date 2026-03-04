@@ -408,9 +408,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 {'看見可能，踏出行動。這不只是一門課，'}
                 <br />
                 {'而是一套要求你，用行動走出 「遠距職涯下一步」 的系統。'}
-              </p>
-
-              <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                <br />
                 {'幫你在不停薪、不斷收入的情況下，找到適合自己的遠距路徑。'}
               </p>
 
