@@ -662,21 +662,14 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           />
         </div>
 
-        {/* 手機版/平板版：保持原有程式碼佈局 */}
-        <div className="lg:hidden py-16 sm:py-24">
-          {/* 背景裝飾：金色弧線 (極細微) */}
-          <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] border border-[#D4B483]/10 rounded-full -translate-y-1/2"></div>
-            <div className="absolute bottom-0 right-0 w-[600px] h-[600px] border border-[#D4B483]/10 rounded-full translate-y-1/3 translate-x-1/3"></div>
-          </div>
-
+        {/* 手機版/平板版：緊湊金色豎線佈局 */}
+        <div className="lg:hidden py-10 sm:py-16">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
             {/* 區塊標題 */}
-            <div className="text-center mb-16">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 text-balance">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 text-balance">
                 不是你不努力，而是拼圖還有缺
               </h2>
-              {/* 裝飾用的三點 */}
               <div className="flex items-center justify-center gap-2 opacity-80">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]"></span>
                 <span className="w-1.5 h-1.5 rounded-full bg-[#17464F]"></span>
@@ -684,114 +677,38 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               </div>
             </div>
 
-            {/* 痛點路徑容器 */}
-            <div className="relative">
-              {/* 痛點 1: 方向斷裂 */}
-              <div className="relative z-10 flex flex-col items-center gap-6 mb-8">
-                <div className="w-20 h-20 hidden md:flex items-center justify-center">
-                  <svg
-                    className="w-16 h-16 text-[#D4B483]"
-                    viewBox="0 0 64 64"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  >
-                    <circle cx="32" cy="32" r="20" />
-                    <circle cx="32" cy="32" r="4" fill="currentColor" />
-                    <path d="M32 16V12M32 52V48M16 32H12M52 32H48" strokeWidth="2" />
-                    <path d="M32 32L42 22" strokeWidth="2" />
-                    <text x="48" y="16" fontSize="12" fill="currentColor">
-                      ?
-                    </text>
-                    <text x="8" y="52" fontSize="10" fill="currentColor">
-                      ?
-                    </text>
-                  </svg>
-                </div>
-                <div className="text-center max-w-sm">
-                  <h3 className="text-xl font-bold text-[#D4B483] mb-3">方向斷裂</h3>
-                  <p className="text-white/80 leading-relaxed text-sm">
-                    你是不是也想過很多種版本：有時想去外商、有時想接案當
-                    freelancer，但每次看到別人的故事就改變主意，到最後，反而哪一條都沒真的走下去。
-                  </p>
-                </div>
+            {/* 痛點列表 - 金色豎線 */}
+            <div className="flex flex-col gap-5 mb-8">
+              <div className="border-l-2 border-[#D4B483] pl-4">
+                <h3 className="text-base font-bold text-[#D4B483] mb-1">方向斷裂</h3>
+                <p className="text-white/80 leading-relaxed text-sm">
+                  你是不是也想過很多種版本：有時想去外商、有時想接案當 freelancer，但每次看到別人的故事就改變主意，到最後，反而哪一條都沒真的走下去。
+                </p>
               </div>
-
-              {/* 連接線 1 */}
-              <div className="w-0.5 h-10 bg-[#D4B483]/30 mx-auto my-2 relative">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-[#D4B483] rounded-full"></div>
+              <div className="border-l-2 border-[#D4B483] pl-4">
+                <h3 className="text-base font-bold text-[#D4B483] mb-1">方法斷裂</h3>
+                <p className="text-white/80 leading-relaxed text-sm">
+                  {'你也不是沒學東西：買課、看影片、存下很多筆記，真正卡住的是——「那我今天到底要做哪一個小步驟？」所以日子一忙，又回到原本的節奏。'}
+                </p>
               </div>
-
-              {/* 痛點 2: 方法斷裂 */}
-              <div className="relative z-10 flex flex-col items-center gap-6 mb-8">
-                <div className="w-20 h-20 hidden md:flex items-center justify-center">
-                  <svg
-                    className="w-16 h-16 text-[#D4B483]"
-                    viewBox="0 0 64 64"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  >
-                    <rect x="8" y="28" width="20" height="16" rx="2" />
-                    <rect x="36" y="28" width="20" height="16" rx="2" />
-                    <rect x="22" y="12" width="20" height="16" rx="2" />
-                    <path d="M52 20L56 16M56 16V24M56 16H48" strokeWidth="2" />
-                  </svg>
-                </div>
-                <div className="text-center max-w-sm">
-                  <h3 className="text-xl font-bold text-[#D4B483] mb-3">方法斷裂</h3>
-                  <p className="text-white/80 leading-relaxed text-sm">
-                    你也不是沒學東西：買課、看影片、存下很多筆記，真正卡住的是——「那我今天到底要做哪一個小步驟？」所以日子一忙，又回到原本的節奏。
-                  </p>
-                </div>
-              </div>
-
-              {/* 連接線 2 */}
-              <div className="w-0.5 h-10 bg-[#D4B483]/30 mx-auto my-2 relative">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-[#D4B483] rounded-full"></div>
-              </div>
-
-              {/* 痛點 3: 同伴斷裂 */}
-              <div className="relative z-10 flex flex-col items-center gap-6 mb-12">
-                <div className="w-20 h-20 hidden md:flex items-center justify-center">
-                  <svg
-                    className="w-16 h-16 text-[#D4B483]"
-                    viewBox="0 0 64 64"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  >
-                    <rect x="8" y="16" width="20" height="32" rx="2" />
-                    <circle cx="18" cy="28" r="6" />
-                    <path d="M12 40h12" />
-                    <circle cx="44" cy="24" r="4" fill="currentColor" />
-                    <circle cx="36" cy="32" r="4" fill="currentColor" />
-                    <circle cx="52" cy="32" r="4" fill="currentColor" />
-                    <circle cx="40" cy="40" r="4" fill="currentColor" />
-                    <circle cx="48" cy="40" r="4" fill="currentColor" />
-                  </svg>
-                </div>
-                <div className="text-center max-w-sm">
-                  <h3 className="text-xl font-bold text-[#D4B483] mb-3">同伴斷裂</h3>
-                  <p className="text-white/80 leading-relaxed text-sm">
-                    身邊的人大多走很標準的路，你很難跟他們分享「我其實想過不一樣的生活」。不知道可以跟誰討論、問誰意見，久了就習慣把這些想法藏在心裡。
-                  </p>
-                </div>
+              <div className="border-l-2 border-[#D4B483] pl-4">
+                <h3 className="text-base font-bold text-[#D4B483] mb-1">同伴斷裂</h3>
+                <p className="text-white/80 leading-relaxed text-sm">
+                  {'身邊的人大多走很標準的路，你很難跟他們分享「我其實想過不一樣的生活」。不知道可以跟誰討論、問誰意見，久了就習慣把這些想法藏在心裡。'}
+                </p>
               </div>
             </div>
 
             {/* 結語區塊 */}
-            <div className="relative mt-8">
-              <div className="w-0.5 h-6 bg-[#D4B483]/30 mx-auto mb-6"></div>
-
-              <div className="max-w-2xl mx-auto px-6 py-8 rounded-2xl border-2 border-[#D4B483]/30 bg-[#17464F]/50 backdrop-blur-sm text-center relative">
+            <div className="relative">
+              <div className="max-w-2xl mx-auto px-5 py-6 rounded-2xl border-2 border-[#D4B483]/30 bg-[#17464F]/50 backdrop-blur-sm text-center relative">
                 <p className="text-base sm:text-lg text-white font-bold leading-relaxed">
                   你缺的不是更多資訊，而是一個地方，
                   <span className="block mt-2 text-[#D4B483]">
                     讓你在未來五個月裡，有人陪你一起試、一起走、一起調整方向。
                   </span>
                 </p>
-                <p className="text-sm sm:text-base text-white/70 mt-4 leading-relaxed">
+                <p className="text-sm sm:text-base text-white/70 mt-3 leading-relaxed">
                   {'一起用結構化的方式，'}
                   <br />
                   {'逼你把想法變成能被驗證的行動。'}
