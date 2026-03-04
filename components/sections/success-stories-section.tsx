@@ -90,10 +90,14 @@ function StoryCard({ story, className = "" }: { story: Story; className?: string
       {/* Expand toggle */}
       <button
         onClick={() => setExpanded(!expanded)}
-        className="flex items-center gap-1.5 text-sm font-medium text-[#D4B483] hover:text-[#A06E56] transition-colors mb-2"
+        className={`w-full flex items-center justify-center gap-2 text-sm font-medium rounded-lg px-4 py-2.5 transition-all duration-200 mb-2 ${
+          expanded
+            ? "bg-[#C9D7D4]/30 text-[#17464F] border border-[#C9D7D4]/50 hover:bg-[#C9D7D4]/40"
+            : "bg-[#D4B483]/10 text-[#17464F] border border-[#D4B483]/30 hover:bg-[#D4B483]/20"
+        }`}
       >
+        <span>{expanded ? "收合心得" : "展開心得與實踐行動項目"}</span>
         <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${expanded ? "rotate-180" : ""}`} />
-        <span>{expanded ? "收合心得與實踐行動項目" : "展開心得與實踐行動項目"}</span>
       </button>
 
       {/* Collapsible content */}
