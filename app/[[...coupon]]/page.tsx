@@ -2310,13 +2310,23 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           <p className="text-sm text-[#33393C]/70 mb-6 leading-relaxed">
             {'公開講座通知、開班資訊、遠距工作分享，定期送到你信箱。'}
           </p>
-          <button
-            onClick={() => setEmailPopupOpen(true)}
-            className="inline-flex items-center gap-2 bg-[#17464F] text-white font-semibold text-sm sm:text-base px-8 py-4 rounded-full hover:bg-[#1a5561] transition-colors duration-200 shadow-sm"
-          >
-            <Mail className="w-4 h-4 flex-shrink-0" />
-            {'我想要收到公開講座＆最新消息'}
-          </button>
+          <div className="flex flex-col items-center gap-3">
+            <a
+              href="https://portaly.cc/travelwithwork/pages/webinar"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#D4B483] text-[#17464F] font-semibold text-sm sm:text-base px-8 py-4 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-sm"
+            >
+              {'查看免費講座場次資訊'}
+            </a>
+            <button
+              onClick={() => setEmailPopupOpen(true)}
+              className="inline-flex items-center gap-2 bg-[#17464F] text-white font-semibold text-sm sm:text-base px-8 py-4 rounded-full hover:bg-[#1a5561] transition-colors duration-200 shadow-sm"
+            >
+              <Mail className="w-4 h-4 flex-shrink-0" />
+              {'我想要收到公開講座＆最新消息'}
+            </button>
+          </div>
         </div>
       </section>
 
