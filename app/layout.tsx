@@ -76,7 +76,6 @@ export default function RootLayout({
   return (
     <html lang="zh-TW" className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}>
       <head>
-        <StructuredData />
 
         {gtmId && (
           <Script
@@ -295,6 +294,7 @@ export default function RootLayout({
             />
           </noscript>
         )}
+        <StructuredData />
         {children}
       </body>
     </html>

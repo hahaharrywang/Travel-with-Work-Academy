@@ -1,6 +1,7 @@
 // SEO Structured Data Component for JSON-LD schemas
 // Includes: Course, FAQPage, Organization schemas
-import Script from "next/script"
+"use client"
+import { useEffect } from "react"
 
 export function StructuredData() {
   // Organization Schema
@@ -178,11 +179,30 @@ export function StructuredData() {
     ],
   }
 
-  return (
-    <>
-      <Script id="org-schema" type="application/ld+json" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
-      <Script id="course-schema" type="application/ld+json" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
-      <Script id="faq-schema" type="application/ld+json" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-    </>
-  )
+  useEffect(() => {
+    const schemas = [
+      { id: "org-schema", data: organizationSchema },
+      { id: "course-schema", data: courseSchema },
+      { id: "faq-schema", data: faqSchema },
+    ]
+
+    schemas.forEach(({ id, data }) => {
+      if (!document.getElementById(id)) {
+        const script = document.createElement("script")
+        script.id = id
+        script.type = "application/ld+json"
+        script.textContent = JSON.stringify(data)
+        document.head.appendChild(script)
+      }
+    })
+
+    return () => {
+      schemas.forEach(({ id }) => {
+        const el = document.getElementById(id)
+        if (el) el.remove()
+      })
+    }
+  }, [])
+
+  return null
 }
