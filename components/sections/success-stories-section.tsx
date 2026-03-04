@@ -161,7 +161,7 @@ export function SuccessStoriesSection() {
         </div>
 
         {/* Mobile/Tablet: Carousel with peek + dots (below lg) */}
-        <MobileSuccessCarousel stories={successStories} />
+        <MobileSuccessCarousel stories={successStories} expanded={storiesExpanded} onToggle={() => setStoriesExpanded(!storiesExpanded)} />
       </div>
     </section>
   )
@@ -169,7 +169,7 @@ export function SuccessStoriesSection() {
 
 /* ── Mobile carousel with peek, dots & auto-hint ── */
 
-function MobileSuccessCarousel({ stories }: { stories: Story[] }) {
+function MobileSuccessCarousel({ stories, expanded, onToggle }: { stories: Story[]; expanded: boolean; onToggle: () => void }) {
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
@@ -215,7 +215,7 @@ function MobileSuccessCarousel({ stories }: { stories: Story[] }) {
         <CarouselContent className="-ml-3">
           {stories.map((story) => (
             <CarouselItem key={story.id} className="pl-3 basis-[88%] md:basis-[48%]">
-              <StoryCard story={story} className="h-full" expanded={storiesExpanded} onToggle={() => setStoriesExpanded(!storiesExpanded)} />
+              <StoryCard story={story} className="h-full" expanded={expanded} onToggle={onToggle} />
             </CarouselItem>
           ))}
         </CarouselContent>
