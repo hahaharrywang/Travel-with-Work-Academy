@@ -88,13 +88,13 @@ function StoryCard({ story, className = "", expanded, onToggle }: { story: Story
 
       {/* Expand divider - only when collapsed */}
       {!expanded && (
-        <button onClick={onToggle} className="relative w-full flex items-center py-2 group cursor-pointer">
-          <span className="flex-grow border-t border-dashed border-[#D4B483]/40 group-hover:border-[#D4B483]/70 transition-colors" />
-          <span className="flex items-center gap-1.5 px-3 text-xs font-medium text-[#D4B483] group-hover:text-[#A06E56] transition-colors whitespace-nowrap">
+        <button onClick={onToggle} className="relative w-full flex items-center py-3 group cursor-pointer">
+          <span className="flex-grow border-t border-dashed border-[#D4B483]/50 group-hover:border-[#D4B483]/80 transition-colors" />
+          <span className="flex items-center gap-1.5 px-4 text-sm font-semibold text-[#17464F] group-hover:text-[#A06E56] transition-colors whitespace-nowrap">
             {'展開完整心得與實踐行動項目'}
-            <ChevronDown className="w-3.5 h-3.5" />
+            <ChevronDown className="w-4 h-4 text-[#D4B483]" />
           </span>
-          <span className="flex-grow border-t border-dashed border-[#D4B483]/40 group-hover:border-[#D4B483]/70 transition-colors" />
+          <span className="flex-grow border-t border-dashed border-[#D4B483]/50 group-hover:border-[#D4B483]/80 transition-colors" />
         </button>
       )}
 
