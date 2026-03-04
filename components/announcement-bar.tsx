@@ -103,6 +103,14 @@ export function AnnouncementBar({ scrollToPricing, onEmailSubscribe }: Announcem
           />
         </button>
 
+        {/* Mobile overlay backdrop */}
+        {mobileMenuOpen && (
+          <div
+            className="fixed inset-0 top-0 left-0 w-screen h-screen bg-black/50 backdrop-blur-sm z-[-1]"
+            onClick={() => setMobileMenuOpen(false)}
+          />
+        )}
+
         {/* Mobile dropdown menu */}
         <div
           className={`absolute top-12 right-0 w-64 bg-[#17464F] rounded-lg shadow-xl overflow-hidden transition-all duration-300 ease-out ${
