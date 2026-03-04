@@ -86,23 +86,21 @@ function StoryCard({ story, className = "", expanded, onToggle }: { story: Story
         </div>
       </div>
 
-      {/* Expand toggle */}
-      <button
-        onClick={onToggle}
-        className={`w-full flex items-center justify-center gap-2 text-sm font-medium rounded-lg px-4 py-2.5 transition-all duration-200 mb-2 ${
-          expanded
-            ? "bg-[#C9D7D4]/30 text-[#17464F] border border-[#C9D7D4]/50 hover:bg-[#C9D7D4]/40"
-            : "bg-[#D4B483]/10 text-[#17464F] border border-[#D4B483]/30 hover:bg-[#D4B483]/20"
-        }`}
-      >
-        <span>{expanded ? "收合心得" : "展開完整心得與實踐行動項目"}</span>
-        <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${expanded ? "rotate-180" : ""}`} />
-      </button>
+      {/* Expand button - only when collapsed */}
+      {!expanded && (
+        <button
+          onClick={onToggle}
+          className="w-full flex items-center justify-center gap-2 text-sm font-medium rounded-lg px-4 py-2.5 transition-all duration-200 mb-2 bg-[#D4B483]/10 text-[#17464F] border border-[#D4B483]/30 hover:bg-[#D4B483]/20"
+        >
+          <span>{'展開完整心得與實踐行動項目'}</span>
+          <ChevronDown className="w-4 h-4" />
+        </button>
+      )}
 
       {/* Collapsible content */}
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          expanded ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
+          expanded ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         {/* Content */}
@@ -126,6 +124,15 @@ function StoryCard({ story, className = "", expanded, onToggle }: { story: Story
             </ul>
           </div>
         )}
+
+        {/* Collapse button - at bottom of expanded content */}
+        <button
+          onClick={onToggle}
+          className="w-full flex items-center justify-center gap-2 text-sm font-medium rounded-lg px-4 py-2.5 transition-all duration-200 mt-4 bg-[#C9D7D4]/30 text-[#17464F] border border-[#C9D7D4]/50 hover:bg-[#C9D7D4]/40"
+        >
+          <span>{'收合心得'}</span>
+          <ChevronDown className="w-4 h-4 rotate-180" />
+        </button>
       </div>
     </Card>
   )
