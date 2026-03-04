@@ -164,7 +164,7 @@ export function StructuredData() {
         name: "結業後還能看回放嗎？",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "你會永久保留自己買過的課程回放與資源。同一個 Skool 社群也會持續保留，畢業後不用搬家，仍可在社群中交流（但「當屆專區」僅當屆可見）。",
+          text: "基本上學院的正課會於 Skool 平台回放，期限為學期結束後一年。同一個 Skool 社群也會持續保留，畢業後不用搬家，仍可在社群中交流。",
         },
       },
       {
@@ -180,24 +180,9 @@ export function StructuredData() {
 
   return (
     <>
-      <Script
-        id="ld-organization"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        strategy="afterInteractive"
-      />
-      <Script
-        id="ld-course"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
-        strategy="afterInteractive"
-      />
-      <Script
-        id="ld-faq"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        strategy="afterInteractive"
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
     </>
   )
 }

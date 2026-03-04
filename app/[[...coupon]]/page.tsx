@@ -235,21 +235,14 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
   const [faqPriceDiffModalOpen, setFaqPriceDiffModalOpen] = useState(false)
   const [emailPopupOpen, setEmailPopupOpen] = useState(false)
 
-  // Lock body scroll when email popup is open & load GHL embed script
+  // Lock body scroll when email popup is open
   useEffect(() => {
-    if (emailPopupOpen) {
-      document.body.style.overflow = "hidden"
-      // Load GHL form embed script if not already loaded
-      if (!document.querySelector('script[src*="form_embed.js"]')) {
-        const s = document.createElement("script")
-        s.src = "https://link.digitalnomadstaiwan.com/js/form_embed.js"
-        s.async = true
-        document.body.appendChild(s)
-      }
-    } else {
-      document.body.style.overflow = ""
-    }
-    return () => { document.body.style.overflow = "" }
+  if (emailPopupOpen) {
+  document.body.style.overflow = "hidden"
+  } else {
+  document.body.style.overflow = ""
+  }
+  return () => { document.body.style.overflow = "" }
   }, [emailPopupOpen])
 
 
@@ -1971,14 +1964,14 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
                 <div>
                   <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'Skool 社群永久留存'}</span>
-                  <p className="text-[#33393C]/60 text-xs leading-relaxed">{'畢業後不用搬家，仍在同一個社群交流（當屆專區僅當屆可見）'}</p>
+                  <p className="text-[#33393C]/60 text-xs leading-relaxed">{'畢業後不用搬家，仍在同一個社群交流'}</p>
                 </div>
               </div>
               <div className="flex items-start gap-2.5 bg-white/60 rounded-xl p-4">
                 <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
                 <div>
-                  <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'已購內容回放觀看'}</span>
-                  <p className="text-[#33393C]/60 text-xs leading-relaxed">{'你買過課程(學院正課有一年限制)的回放與學習資源訪問權限'}</p>
+                  <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'正課回放觀看'}</span>
+                  <p className="text-[#33393C]/60 text-xs leading-relaxed">{'學院正課於 Skool 平台回放，期限為學期結束後一年'}</p>
                 </div>
               </div>
               <div className="flex items-start gap-2.5 bg-white/60 rounded-xl p-4">
@@ -2310,13 +2303,15 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           <p className="text-sm text-[#33393C]/70 mb-6 leading-relaxed">
             {'公開講座通知、開班資訊、遠距工作分享，定期送到你信箱。'}
           </p>
-          <button
-            onClick={() => setEmailPopupOpen(true)}
+          <a
+            href="https://portaly.cc/travelwithwork/pages/webinar"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[#17464F] text-white font-semibold text-sm sm:text-base px-8 py-4 rounded-full hover:bg-[#1a5561] transition-colors duration-200 shadow-sm"
           >
             <Mail className="w-4 h-4 flex-shrink-0" />
             {'我想要收到公開講座＆最新消息'}
-          </button>
+          </a>
         </div>
       </section>
 
