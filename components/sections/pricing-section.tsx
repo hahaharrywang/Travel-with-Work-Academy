@@ -169,6 +169,11 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                   </div>
                 </>
               )}
+              <a href="https://portaly.cc/travelwithwork/pages/webinar" target="_blank" rel="noopener noreferrer" className="block mb-3">
+                <Button variant="outline" className="w-full border-[#17464F] text-[#17464F] hover:bg-[#17464F]/5 py-3 rounded-full font-medium">
+                  查看免費講座場次資訊
+                </Button>
+              </a>
               <div className="hidden md:block">
                 <a href={getCheckoutURLWithTracking("selfMedia")} target="_blank" rel="noopener noreferrer">
                   <Button className="w-full bg-[#17464F] hover:bg-[#0f3339] text-white py-3 rounded-full font-medium">
@@ -188,11 +193,6 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                   {selectedPlanId === "selfMedia" ? "✓ 已選擇" : "選擇此方案"}
                 </Button>
               </div>
-              <a href="https://portaly.cc/travelwithwork/pages/webinar" target="_blank" rel="noopener noreferrer" className="block mt-3">
-                <button className="w-full border-2 border-[#17464F] text-[#17464F] hover:bg-[#17464F]/5 py-3 rounded-full font-medium text-sm transition-colors">
-                  查看免費講座場次資訊
-                </button>
-              </a>
             </div>
           </div>
 
@@ -242,6 +242,11 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                   </div>
                 </>
               )}
+              <a href="https://portaly.cc/travelwithwork/pages/webinar" target="_blank" rel="noopener noreferrer" className="block mb-3">
+                <Button variant="outline" className="w-full border-[#D4B483] text-[#17464F] hover:bg-[#D4B483]/10 py-3 rounded-full font-bold">
+                  查看免費講座場次資訊
+                </Button>
+              </a>
               <div className="hidden md:block">
                 <a href={getCheckoutURLWithTracking("dualLine")} target="_blank" rel="noopener noreferrer">
                   <Button className="w-full bg-[#D4B483] hover:bg-[#c9a673] text-[#17464F] py-3 rounded-full font-bold">
@@ -261,11 +266,6 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                   {selectedPlanId === "dualLine" ? "✓ 已選擇" : "選擇此方案"}
                 </Button>
               </div>
-              <a href="https://portaly.cc/travelwithwork/pages/webinar" target="_blank" rel="noopener noreferrer" className="block mt-3">
-                <button className="w-full border-2 border-[#D4B483] text-[#17464F] hover:bg-[#D4B483]/10 py-3 rounded-full font-bold text-sm transition-colors">
-                  查看免費講座場次資訊
-                </button>
-              </a>
             </div>
           </div>
 
@@ -312,6 +312,11 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                   </div>
                 </>
               )}
+              <a href="https://portaly.cc/travelwithwork/pages/webinar" target="_blank" rel="noopener noreferrer" className="block mb-3">
+                <Button variant="outline" className="w-full border-[#17464F] text-[#17464F] hover:bg-[#17464F]/5 py-3 rounded-full font-medium">
+                  查看免費講座場次資訊
+                </Button>
+              </a>
               <div className="hidden md:block">
                 <a href={getCheckoutURLWithTracking("remoteJob")} target="_blank" rel="noopener noreferrer">
                   <Button className="w-full bg-[#17464F] hover:bg-[#0f3339] text-white py-3 rounded-full font-medium">
@@ -331,11 +336,6 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                   {selectedPlanId === "remoteJob" ? "✓ 已選擇" : "選擇此方案"}
                 </Button>
               </div>
-              <a href="https://portaly.cc/travelwithwork/pages/webinar" target="_blank" rel="noopener noreferrer" className="block mt-3">
-                <button className="w-full border-2 border-[#17464F] text-[#17464F] hover:bg-[#17464F]/5 py-3 rounded-full font-medium text-sm transition-colors">
-                  查看免費講座場次資訊
-                </button>
-              </a>
             </div>
           </div>
         </div>
