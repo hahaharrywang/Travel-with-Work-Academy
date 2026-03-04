@@ -409,7 +409,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <br />
                 {'而是一套要求你，用行動走出 「遠距職涯下一步」 的系統。'}
                 <br />
-                {'幫你在不停薪、不斷收入的情況下，找到適合自己的遠距路徑。'}
+                {'幫你在不停薪、不影響平常收入的情況下，找到適合自己的遠距路徑。'}
               </p>
 
               <div className="space-y-3 text-left max-w-xl mx-auto lg:mx-0">
