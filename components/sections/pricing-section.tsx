@@ -79,7 +79,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
   }
 
   return (
-    <section id="pricing-section" className="py-16 sm:py-24 bg-white">
+    <section id="pricing-section" className="pt-16 sm:pt-24 pb-8 sm:pb-12 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
@@ -326,7 +326,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
         </div>
 
         {/* Disclaimer note */}
-        <div className="rounded-xl bg-[#C9D7D4]/30 border border-[#C9D7D4] px-5 py-4 text-center mb-12">
+        <div className="rounded-xl bg-[#C9D7D4]/30 border border-[#C9D7D4] px-5 py-4 text-center mb-4">
           <p className="text-[#33393C] text-xs sm:text-sm leading-relaxed">
             <span className="font-semibold text-[#17464F]">重要說明：</span>學院方案以「課程＋社群＋校友資格」為主；多數線下活動／工作坊／旅程為選配加購，但校友享優先與專屬價。
           </p>

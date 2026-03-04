@@ -2303,13 +2303,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
       {/* EMAIL SUBSCRIPTION BANNER */}
       <section className="bg-[#F5F3ED] py-10 sm:py-14">
         <div className="max-w-2xl mx-auto px-4 text-center">
-          <p className="text-xs tracking-[0.15em] uppercase text-[#A06E56] font-medium mb-3">{'保持連結'}</p>
-          <h3 className="text-xl sm:text-2xl font-bold text-[#17464F] mb-2">
-            {'開學前每週免費講座，帶你了解趨勢。'}
-          </h3>
-          <p className="text-sm text-[#33393C]/70 mb-6 leading-relaxed">
-            {'公開講座通知、開班資訊、遠距工作分享，定期送到你信箱。'}
-          </p>
+  <h3 className="text-xl sm:text-2xl font-bold text-[#17464F] mb-6">
+  {'開學前每週免費講座，帶你了解趨勢。'}
+  </h3>
           <div className="flex flex-col items-center gap-3">
             <a
               href="https://portaly.cc/travelwithwork/pages/webinar"
