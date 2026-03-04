@@ -189,9 +189,9 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                 </Button>
               </div>
               <a href="https://portaly.cc/travelwithwork/pages/webinar" target="_blank" rel="noopener noreferrer" className="block mt-3">
-                <Button variant="outline" className="w-full border-[#17464F] text-[#17464F] hover:bg-[#17464F]/5 py-3 rounded-full font-medium">
+                <button className="w-full border-2 border-[#17464F] text-[#17464F] hover:bg-[#17464F]/5 py-3 rounded-full font-medium text-sm transition-colors">
                   查看免費講座場次資訊
-                </Button>
+                </button>
               </a>
             </div>
           </div>
@@ -262,9 +262,9 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                 </Button>
               </div>
               <a href="https://portaly.cc/travelwithwork/pages/webinar" target="_blank" rel="noopener noreferrer" className="block mt-3">
-                <Button variant="outline" className="w-full border-[#D4B483] text-[#17464F] hover:bg-[#D4B483]/10 py-3 rounded-full font-bold">
+                <button className="w-full border-2 border-[#D4B483] text-[#17464F] hover:bg-[#D4B483]/10 py-3 rounded-full font-bold text-sm transition-colors">
                   查看免費講座場次資訊
-                </Button>
+                </button>
               </a>
             </div>
           </div>
@@ -332,9 +332,9 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                 </Button>
               </div>
               <a href="https://portaly.cc/travelwithwork/pages/webinar" target="_blank" rel="noopener noreferrer" className="block mt-3">
-                <Button variant="outline" className="w-full border-[#17464F] text-[#17464F] hover:bg-[#17464F]/5 py-3 rounded-full font-medium">
+                <button className="w-full border-2 border-[#17464F] text-[#17464F] hover:bg-[#17464F]/5 py-3 rounded-full font-medium text-sm transition-colors">
                   查看免費講座場次資訊
-                </Button>
+                </button>
               </a>
             </div>
           </div>
