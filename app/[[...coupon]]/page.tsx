@@ -415,11 +415,11 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <div className="space-y-3 text-left max-w-xl mx-auto lg:mx-0">
                 <div className="flex items-start gap-3">
                   <Layers className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">雙軌起步：接案 × 遠端上班，先走一條，也可雙線並進</p>
+                  <p className="text-white/90">雙軌起步：接案 × 遠端上班，可雙修也可單選</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <TrendingUp className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">路線清楚：把模糊的嚮往，轉成 5 個月可執行的行動藍圖</p>
+                  <p className="text-white/90">路線清楚：模糊的嚮往 → 5 個月可執行的行動藍圖</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <FileText className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
@@ -427,29 +427,16 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 </div>
                 <div className="flex items-start gap-3">
                   <Users className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">不是一個人：和一群真的在往自由生活前進的人同行</p>
+                  <p className="text-white/90">不是一個人：和一群在往自由生活前進的人同行</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <Globe className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">國際 × 線下遊牧生態系：加入連結台灣與世界的遊牧社群，從每月線下小聚到海外啟發之旅</p>
+                  <p className="text-white/90">國際 × 線下遊牧生態系：加入連結台灣與世界的遊牧生態，從每月線下小聚到海內外啟發之旅</p>
                 </div>
               </div>
 
               {/* CTA Button */}
               <div className="flex flex-col gap-4 items-center lg:items-start">
-                <Button
-                  size="lg"
-                  onClick={() => {
-                    document.getElementById("pricing-section")?.scrollIntoView({ behavior: "smooth" })
-                    // Track initiate checkout event
-                    if (typeof window !== "undefined" && (window as any).trackInitiateCheckout) {
-                      ;(window as any).trackInitiateCheckout(0)
-                    }
-                  }}
-                  className="bg-[#D4B483] text-[#17464F] hover:bg-[#C9A673] text-xl font-bold tracking-wider w-full sm:w-auto px-16 py-8 rounded-full whitespace-nowrap"
-                >
-                  五月一起開學
-                </Button>
                 <button
                   onClick={() => {
                     document.getElementById("course-highlights")?.scrollIntoView({ behavior: "smooth" })
