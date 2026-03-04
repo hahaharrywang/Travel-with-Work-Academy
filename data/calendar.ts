@@ -82,7 +82,7 @@ export const calendarData: CalendarWeek[] = [
     focusShort: "把行動變成固定節奏：週／月／季，整理「學院結束後，我的生活怎麼繼續跑」。",
     focusDetail:
       "核心內容\n• 了解自己的運作方式：你在什麼情況下能穩定產出與保持狀態\n• 建立可複製的生活／工作節奏（週／月／季）\n• 為學院之後做準備：讓你的遠距人生能自己繼續跑\n\n行動任務\n• 寫出你的「人生系統說明書」簡版\n• 設計 1 份你的每週 SOP（固定做的 3 件事）\n• 設定「下一個 90 天」的可持續行動計畫",
-    instructorNames: ["講師確認中"],
+    instructorNames: ["Angela Feng"],
   },
   {
     id: 6,
