@@ -20,7 +20,6 @@ export function AnnouncementBar({ scrollToPricing, onEmailSubscribe }: Announcem
     { label: "學院介紹", href: "#key-features" },
     { label: "學習地圖 & 課表", href: "#learning-map" },
     { label: "學員見證", href: "#student-results" },
-    { label: "學習方案", href: "#pricing" },
     { label: "常見問題", href: "#faq" },
   ]
 
@@ -128,6 +127,20 @@ export function AnnouncementBar({ scrollToPricing, onEmailSubscribe }: Announcem
                 {item.label}
               </a>
             ))}
+
+            {/* Email subscribe button */}
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false)
+                onEmailSubscribe?.()
+              }}
+              className="py-3 px-4 text-left text-white/90 hover:text-[#D4B483] hover:bg-white/5 transition-colors flex items-center gap-2"
+            >
+              <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+              </svg>
+              <span>訂閱最新資訊</span>
+            </button>
 
             {/* Free webinar link */}
             <a
