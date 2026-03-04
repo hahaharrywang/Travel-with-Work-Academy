@@ -62,8 +62,7 @@ const successStories = [
 
 type Story = (typeof successStories)[number]
 
-function StoryCard({ story, className = "" }: { story: Story; className?: string }) {
-  const [expanded, setExpanded] = useState(false)
+function StoryCard({ story, className = "", expanded, onToggle }: { story: Story; className?: string; expanded: boolean; onToggle: () => void }) {
 
   return (
     <Card className={`bg-white rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-[#C9D7D4] flex flex-col ${className}`}>
@@ -89,14 +88,14 @@ function StoryCard({ story, className = "" }: { story: Story; className?: string
 
       {/* Expand toggle */}
       <button
-        onClick={() => setExpanded(!expanded)}
+        onClick={onToggle}
         className={`w-full flex items-center justify-center gap-2 text-sm font-medium rounded-lg px-4 py-2.5 transition-all duration-200 mb-2 ${
           expanded
             ? "bg-[#C9D7D4]/30 text-[#17464F] border border-[#C9D7D4]/50 hover:bg-[#C9D7D4]/40"
             : "bg-[#D4B483]/10 text-[#17464F] border border-[#D4B483]/30 hover:bg-[#D4B483]/20"
         }`}
       >
-        <span>{expanded ? "收合心得" : "展開心得與實踐行動項目"}</span>
+        <span>{expanded ? "收合心得" : "展開完整心得與實踐行動項目"}</span>
         <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${expanded ? "rotate-180" : ""}`} />
       </button>
 
@@ -133,6 +132,8 @@ function StoryCard({ story, className = "" }: { story: Story; className?: string
 }
 
 export function SuccessStoriesSection() {
+  const [storiesExpanded, setStoriesExpanded] = useState(false)
+
   return (
     <section id="student-results" className="pt-16 sm:pt-24 pb-12 sm:pb-20 bg-[#F5F3ED]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -155,7 +156,7 @@ export function SuccessStoriesSection() {
         {/* Desktop: Grid Layout (lg and above) */}
         <div className="hidden lg:grid lg:grid-cols-3 gap-6 xl:gap-8">
           {successStories.map((story) => (
-            <StoryCard key={story.id} story={story} />
+            <StoryCard key={story.id} story={story} expanded={storiesExpanded} onToggle={() => setStoriesExpanded(!storiesExpanded)} />
           ))}
         </div>
 
@@ -214,7 +215,7 @@ function MobileSuccessCarousel({ stories }: { stories: Story[] }) {
         <CarouselContent className="-ml-3">
           {stories.map((story) => (
             <CarouselItem key={story.id} className="pl-3 basis-[88%] md:basis-[48%]">
-              <StoryCard story={story} className="h-full" />
+              <StoryCard story={story} className="h-full" expanded={storiesExpanded} onToggle={() => setStoriesExpanded(!storiesExpanded)} />
             </CarouselItem>
           ))}
         </CarouselContent>
