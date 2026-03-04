@@ -78,11 +78,11 @@ export const calendarData: CalendarWeek[] = [
     monthWeek: "6 月 · Week 1",
     type: "共同必修 1",
     track: "全體共同",
-    title: "AI & 自動化工具學習思維",
-    focusShort: "用 AI + 自動化把日常工作變輕：做出你的第一個可運作流程。",
+    title: "自我理解溝通 & 人生 SOP",
+    focusShort: "把行動變成固定節奏：週／月／季，整理「學院結束後，我的生活怎麼繼續跑」。",
     focusDetail:
-      "核心內容\n• 什麼工作適合交給 AI／什麼仍要自己做（避免用錯力）\n• 把「想法」變成「可執行流程」：從對話到跨工具串接\n• 以最小可用成果（MVP）為導向：先跑起來，再逐步優化\n\n行動任務\n• 以每週會重複做的情境做出 1 個「能實際跑起來」的自動化流程\n• 寫下你的「AI 使用規則」：哪些事交給 AI、哪些事一定自己確認",
-    instructorNames: ["林上哲"],
+      "核心內容\n• 了解自己的運作方式：你在什麼情況下能穩定產出與保持狀態\n• 建立可複製的生活／工作節奏（週／月／季）\n• 為學院之後做準備：讓你的遠距人生能自己繼續跑\n\n行動任務\n• 寫出你的「人生系統說明書」簡版\n• 設計 1 份你的每週 SOP（固定做的 3 件事）\n• 設定「下一個 90 天」的可持續行動計畫",
+    instructorNames: ["講師確認中"],
   },
   {
     id: 6,
@@ -127,11 +127,11 @@ export const calendarData: CalendarWeek[] = [
     monthWeek: "7 月 · Week 1",
     type: "共同必修 2",
     track: "全體共同",
-    title: "自我理解溝通 & 人生 SOP",
-    focusShort: "把行動變成固定節奏：週／月／季，整理「學院結束後，我的生活怎麼繼續跑」。",
+    title: "AI & 自動化工具學習思維",
+    focusShort: "用 AI + 自動化把日常工作變輕：做出你的第一個可運作流程。",
     focusDetail:
-      "核心內容\n• 了解自己的運作方式：你在什麼情況下能穩定產出與保持狀態\n• 建立可複製的生活／工作節奏（週／月／季）\n• 為學院之後做準備：讓你的遠距人生能自己繼續跑\n\n行動任務\n• 寫出你的「人生系統說明書」簡版\n• 設計 1 份你的每週 SOP（固定做的 3 件事）\n• 設定「下一個 90 天」的可持續行動計畫",
-    instructorNames: ["講師確認中"],
+      "核心內容\n• 什麼工作適合交給 AI／什麼仍要自己做（避免用錯力）\n• 把「想法」變成「可執行流程」：從對話到跨工具串接\n• 以最小可用成果（MVP）為導向：先跑起來，再逐步優化\n\n行動任務\n• 以每週會重複做的情境做出 1 個「能實際跑起來」的自動化流程\n• 寫下你的「AI 使用規則」：哪些事交給 AI、哪些事一定自己確認",
+    instructorNames: ["林上哲"],
   },
   {
     id: 10,
@@ -148,18 +148,6 @@ export const calendarData: CalendarWeek[] = [
   {
     id: 11,
     phase: "Phase 2 出擊試水",
-    monthWeek: "7 月 · Week 2（週日）",
-    type: "學院功能（中期復盤）",
-    track: "全體共同",
-    title: "學習復盤 & 目標調整 Workshop",
-    focusShort: "把努力變成有效：復盤前兩個月，調整目標與每週節奏。",
-    focusDetail:
-      "核心內容\n• 檢視：你做了哪些行動？哪些真正帶來進度？\n• 找出：目前最大的行動瓶頸\n• 調整：把下月行動縮小到能穩定做到的節奏\n\n行動任務\n• 填寫你的復盤清單\n• 更新 90 天指標\n• 設定新的成長節奏",
-    instructorNames: ["校長哈利"],
-  },
-  {
-    id: 12,
-    phase: "Phase 2 出擊試水",
     monthWeek: "7 月 · Week 3",
     type: "路線必修 – 上班線 3",
     track: "遠端上班線",
@@ -170,7 +158,7 @@ export const calendarData: CalendarWeek[] = [
     instructorNames: ["謝雅筑 Ally"],
   },
   {
-    id: 13,
+    id: 12,
     phase: "Phase 2 出擊試水",
     monthWeek: "7 月 · Week 4",
     type: "共同必修 3",
@@ -182,7 +170,7 @@ export const calendarData: CalendarWeek[] = [
     instructorNames: ["工具王阿璋"],
   },
   {
-    id: 14,
+    id: 13,
     phase: "Phase 2 出擊試水",
     monthWeek: "7 月 · Week 5",
     type: "成長節奏",
@@ -195,7 +183,7 @@ export const calendarData: CalendarWeek[] = [
   },
   // ===== 8 月 =====
   {
-    id: 15,
+    id: 14,
     phase: "Phase 2 出擊試水",
     monthWeek: "8 月 · Week 1",
     type: "成長節奏",
@@ -207,7 +195,7 @@ export const calendarData: CalendarWeek[] = [
     instructorNames: ["校長哈利"],
   },
   {
-    id: 16,
+    id: 15,
     phase: "Phase 2 出擊試水",
     monthWeek: "8 月 · Week 2",
     type: "路線必修 – 接案線 4",
@@ -219,7 +207,7 @@ export const calendarData: CalendarWeek[] = [
     instructorNames: ["講師確認中"],
   },
   {
-    id: 17,
+    id: 16,
     phase: "Phase 2 出擊試水",
     monthWeek: "8 月 · Week 3",
     type: "路線必修 – 上班線 4",
@@ -231,7 +219,7 @@ export const calendarData: CalendarWeek[] = [
     instructorNames: ["講師確認中"],
   },
   {
-    id: 18,
+    id: 17,
     phase: "Phase 2 出擊試水",
     monthWeek: "8 月 · Week 4",
     type: "成長節奏",
@@ -244,7 +232,7 @@ export const calendarData: CalendarWeek[] = [
   },
   // ===== 9 月 =====
   {
-    id: 19,
+    id: 18,
     phase: "Phase 3 累積整合",
     monthWeek: "9 月 · Week 1",
     type: "共同必修 4",
@@ -256,7 +244,7 @@ export const calendarData: CalendarWeek[] = [
     instructorNames: ["講師確認中"],
   },
   {
-    id: 20,
+    id: 19,
     phase: "Phase 3 累積整合",
     monthWeek: "9 月 · Week 2",
     type: "成長節奏",
@@ -268,7 +256,7 @@ export const calendarData: CalendarWeek[] = [
     instructorNames: ["校長哈利"],
   },
   {
-    id: 21,
+    id: 20,
     phase: "Phase 3 累積整合",
     monthWeek: "9 月 · Week 3",
     type: "彈性週",
@@ -280,7 +268,7 @@ export const calendarData: CalendarWeek[] = [
     instructorNames: ["校長哈利"],
   },
   {
-    id: 22,
+    id: 21,
     phase: "Phase 3 累積整合",
     monthWeek: "9 月 · Week 4",
     type: "學院功能",
@@ -292,7 +280,7 @@ export const calendarData: CalendarWeek[] = [
     instructorNames: ["校長哈利"],
   },
   {
-    id: 23,
+    id: 22,
     phase: "Phase 3 累積整合",
     monthWeek: "9 月 · Week 5",
     type: "學院功能",
