@@ -520,10 +520,37 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             <p className="text-[#D4B483] font-medium mt-6">你可能會在這幾種狀態裡，看見自己的影子：</p>
           </div>
 
-          {/* Three Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12">
+          {/* Mobile: Bullet Points */}
+          <div className="md:hidden space-y-5 mb-12 max-w-md mx-auto">
+            <div className="flex items-start gap-3">
+              <span className="mt-1.5 w-2.5 h-2.5 rounded-full bg-[#D4B483] flex-shrink-0" />
+              <div>
+                <h3 className="text-base font-bold text-[#D4B483] mb-1">想要更有選擇權的職涯主線</h3>
+                <p className="text-white/70 text-sm leading-relaxed">有穩定工作、不一定討厭現在公司，但看得到天花板；正在思考能否換到更彈性、可遠距的團隊，或讓履歷在未來更有選擇。</p>
+              </div>
+            </div>
+            <div className="border-t border-[#D4B483]/20 mx-4" />
+            <div className="flex items-start gap-3">
+              <span className="mt-1.5 w-2.5 h-2.5 rounded-full bg-[#D4B483] flex-shrink-0" />
+              <div>
+                <h3 className="text-base font-bold text-[#D4B483] mb-1">想多一條安全感，不想只靠一份薪水</h3>
+                <p className="text-white/70 text-sm leading-relaxed">{'想用內容、接案、知識服務慢慢累積第二條收入線；希望在不壓垮自己的前提下，踏出有感的一步，而不是一次 all-in。'}</p>
+              </div>
+            </div>
+            <div className="border-t border-[#D4B483]/20 mx-4" />
+            <div className="flex items-start gap-3">
+              <span className="mt-1.5 w-2.5 h-2.5 rounded-full bg-[#D4B483] flex-shrink-0" />
+              <div>
+                <h3 className="text-base font-bold text-[#D4B483] mb-1">答案還不確定，但不想再只是想想</h3>
+                <p className="text-white/70 text-sm leading-relaxed">現在的路看起來還行，但常被旅居、遠距、遊牧故事勾起一點遺憾；想在未來五個月裡，用比較踏實的方法去體驗、去嘗試，而不是只滑過別人的人生。</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop: Three Cards */}
+          <div className="hidden md:grid md:grid-cols-3 gap-8 mb-12">
             {/* Card 1 - 職涯主線 */}
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-[#D4B483]/30 hover:border-[#D4B483]/50 transition-all duration-300 relative group">
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-[#D4B483]/30 hover:border-[#D4B483]/50 transition-all duration-300 relative group">
               {/* Gold corner accents */}
               <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#D4B483]/60 rounded-tl-2xl" />
               <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#D4B483]/60 rounded-br-2xl" />
@@ -561,7 +588,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             </div>
 
             {/* Card 2: 安全感 */}
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-[#D4B483]/30 hover:border-[#D4B483]/50 transition-all duration-300 relative group">
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-[#D4B483]/30 hover:border-[#D4B483]/50 transition-all duration-300 relative group">
               {/* Gold corner accents */}
               <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#D4B483]/60 rounded-tl-2xl" />
               <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#D4B483]/60 rounded-br-2xl" />
@@ -596,7 +623,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             </div>
 
             {/* Card 3: 不確定 */}
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-[#D4B483]/30 hover:border-[#D4B483]/50 transition-all duration-300 relative group">
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-[#D4B483]/30 hover:border-[#D4B483]/50 transition-all duration-300 relative group">
               {/* Gold corner accents */}
               <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#D4B483]/60 rounded-tl-2xl" />
               <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#D4B483]/60 rounded-br-2xl" />
