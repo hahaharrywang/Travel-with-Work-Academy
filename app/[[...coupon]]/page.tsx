@@ -2305,7 +2305,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
         <div className="max-w-2xl mx-auto px-4 text-center">
           <p className="text-xs tracking-[0.15em] uppercase text-[#A06E56] font-medium mb-3">{'保持連結'}</p>
           <h3 className="text-xl sm:text-2xl font-bold text-[#17464F] mb-2">
-            {'還沒準備好加入？先收到最新消息'}
+            {'開學前每週免費講座，帶你了解趨勢。'}
           </h3>
           <p className="text-sm text-[#33393C]/70 mb-6 leading-relaxed">
             {'公開講座通知、開班資訊、遠距工作分享，定期送到你信箱。'}
@@ -2324,7 +2324,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               className="inline-flex items-center gap-2 bg-[#17464F] text-white font-semibold text-sm sm:text-base px-8 py-4 rounded-full hover:bg-[#1a5561] transition-colors duration-200 shadow-sm"
             >
               <Mail className="w-4 h-4 flex-shrink-0" />
-              {'我想要收到公開講座＆最新消息'}
+              {'訂閱隨時收到最新活動提醒'}
             </button>
           </div>
         </div>
