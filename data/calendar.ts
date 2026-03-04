@@ -106,7 +106,7 @@ export const calendarData: CalendarWeek[] = [
     focusShort: "把 LinkedIn 變成你的機會入口：被看見、被信任、被邀請。",
     focusDetail:
       "核心內容\n• 重新定位 LinkedIn：不只是履歷，而是你的專業曝光面\n• 讓你的頁面能清楚回答：你是誰、擅長什麼、能帶來什麼成果\n• 建立「可持續」的互動與曝光節奏\n\n行動任務\n• 加入學院專屬校友 LinkedIn 群\n• 更新你的 Headline / About（以職能＋成果導向描述）\n• 透過專業框架，讓人一眼理解你的價值，並制定行動節奏",
-    instructorNames: ["講師確認中"],
+    instructorNames: ["謝雅筑 Ally"],
   },
   {
     id: 8,
