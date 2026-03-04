@@ -86,14 +86,15 @@ function StoryCard({ story, className = "", expanded, onToggle }: { story: Story
         </div>
       </div>
 
-      {/* Expand button - only when collapsed */}
+      {/* Expand divider - only when collapsed */}
       {!expanded && (
-        <button
-          onClick={onToggle}
-          className="w-full flex items-center justify-center gap-2 text-sm font-medium rounded-lg px-4 py-2.5 transition-all duration-200 mb-2 bg-[#D4B483]/10 text-[#17464F] border border-[#D4B483]/30 hover:bg-[#D4B483]/20"
-        >
-          <span>{'展開完整心得與實踐行動項目'}</span>
-          <ChevronDown className="w-4 h-4" />
+        <button onClick={onToggle} className="relative w-full flex items-center py-2 group cursor-pointer">
+          <span className="flex-grow border-t border-dashed border-[#D4B483]/40 group-hover:border-[#D4B483]/70 transition-colors" />
+          <span className="flex items-center gap-1.5 px-3 text-xs font-medium text-[#D4B483] group-hover:text-[#A06E56] transition-colors whitespace-nowrap">
+            {'展開完整心得與實踐行動項目'}
+            <ChevronDown className="w-3.5 h-3.5" />
+          </span>
+          <span className="flex-grow border-t border-dashed border-[#D4B483]/40 group-hover:border-[#D4B483]/70 transition-colors" />
         </button>
       )}
 
@@ -104,7 +105,7 @@ function StoryCard({ story, className = "", expanded, onToggle }: { story: Story
         }`}
       >
         {/* Content */}
-        <div className="text-sm text-[#33393C] leading-normal space-y-1 flex-grow">
+        <div className="text-sm text-[#33393C] leading-normal space-y-1 flex-grow pt-1">
           {story.content.map((paragraph, idx) => (
             <p key={idx}>{paragraph}</p>
           ))}
@@ -125,13 +126,14 @@ function StoryCard({ story, className = "", expanded, onToggle }: { story: Story
           </div>
         )}
 
-        {/* Collapse button - at bottom of expanded content */}
-        <button
-          onClick={onToggle}
-          className="w-full flex items-center justify-center gap-2 text-sm font-medium rounded-lg px-4 py-2.5 transition-all duration-200 mt-4 bg-[#C9D7D4]/30 text-[#17464F] border border-[#C9D7D4]/50 hover:bg-[#C9D7D4]/40"
-        >
-          <span>{'收合心得'}</span>
-          <ChevronDown className="w-4 h-4 rotate-180" />
+        {/* Collapse divider - at bottom of expanded content */}
+        <button onClick={onToggle} className="relative w-full flex items-center py-2 mt-4 group cursor-pointer">
+          <span className="flex-grow border-t border-[#C9D7D4]/60 group-hover:border-[#C9D7D4] transition-colors" />
+          <span className="flex items-center gap-1.5 px-3 text-xs font-medium text-[#33393C]/50 group-hover:text-[#33393C]/70 transition-colors whitespace-nowrap">
+            {'收合心得'}
+            <ChevronDown className="w-3.5 h-3.5 rotate-180" />
+          </span>
+          <span className="flex-grow border-t border-[#C9D7D4]/60 group-hover:border-[#C9D7D4] transition-colors" />
         </button>
       </div>
     </Card>
