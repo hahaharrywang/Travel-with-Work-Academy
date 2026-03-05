@@ -18,9 +18,8 @@ export function AnnouncementBar({ scrollToPricing, onEmailSubscribe }: Announcem
 
   const navItems = [
     { label: "學院介紹", href: "#key-features" },
-    { label: "學習地圖", href: "#learning-map" },
+    { label: "學習地圖 & 課表", href: "#learning-map" },
     { label: "學員見證", href: "#student-results" },
-    { label: "學習方案", href: "#pricing" },
     { label: "常見問題", href: "#faq" },
   ]
 
@@ -103,6 +102,14 @@ export function AnnouncementBar({ scrollToPricing, onEmailSubscribe }: Announcem
           />
         </button>
 
+        {/* Mobile overlay backdrop */}
+        {mobileMenuOpen && (
+          <div
+            className="fixed inset-0 top-0 left-0 w-screen h-screen bg-black/50 backdrop-blur-sm z-[-1]"
+            onClick={() => setMobileMenuOpen(false)}
+          />
+        )}
+
         {/* Mobile dropdown menu */}
         <div
           className={`absolute top-12 right-0 w-64 bg-[#17464F] rounded-lg shadow-xl overflow-hidden transition-all duration-300 ease-out ${
@@ -132,8 +139,22 @@ export function AnnouncementBar({ scrollToPricing, onEmailSubscribe }: Announcem
               <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
               </svg>
-              <span>Email 訂閱最新消息</span>
+              <span>訂閱最新資訊</span>
             </button>
+
+            {/* Free webinar link */}
+            <a
+              href="https://portaly.cc/travelwithwork/pages/webinar"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-3 px-4 text-left text-white/90 hover:text-[#D4B483] hover:bg-white/5 transition-colors flex items-center gap-2"
+            >
+              <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+              </svg>
+              <span>每週免費講座資訊</span>
+            </a>
 
             <div className="border-t border-white/10 mt-2 pt-2 px-4">
               <p className="text-xs text-white/60 mb-2 px-0">聯絡我們</p>

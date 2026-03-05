@@ -235,14 +235,21 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
   const [faqPriceDiffModalOpen, setFaqPriceDiffModalOpen] = useState(false)
   const [emailPopupOpen, setEmailPopupOpen] = useState(false)
 
-  // Lock body scroll when email popup is open
+  // Lock body scroll when email popup is open & load GHL embed script
   useEffect(() => {
-  if (emailPopupOpen) {
-  document.body.style.overflow = "hidden"
-  } else {
-  document.body.style.overflow = ""
-  }
-  return () => { document.body.style.overflow = "" }
+    if (emailPopupOpen) {
+      document.body.style.overflow = "hidden"
+      // Load GHL form embed script if not already loaded
+      if (!document.querySelector('script[src*="form_embed.js"]')) {
+        const s = document.createElement("script")
+        s.src = "https://link.digitalnomadstaiwan.com/js/form_embed.js"
+        s.async = true
+        document.body.appendChild(s)
+      }
+    } else {
+      document.body.style.overflow = ""
+    }
+    return () => { document.body.style.overflow = "" }
   }, [emailPopupOpen])
 
 
@@ -400,21 +407,17 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <p className="text-sm sm:text-base text-[#D4B483] font-medium tracking-wide leading-relaxed">
                 {'看見可能，踏出行動。這不只是一門課，'}
                 <br />
-                {'而是一套要求你把行動，走成「下一步職涯能用成果」的系統。'}
-              </p>
-
-              <p className="text-base sm:text-lg text-white/80 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                透過線上學習、行動任務和社群支持，幫你在不停薪、不斷線的情況下，透過實際行動，找到適合自己的遠距路徑。
+                {'而是一套要求你，用行動走出 「遠距職涯下一步」 的系統。幫你在不停薪、不影響平常收入的情況下，找到適合自己的遠距路徑。'}
               </p>
 
               <div className="space-y-3 text-left max-w-xl mx-auto lg:mx-0">
                 <div className="flex items-start gap-3">
                   <Layers className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">雙軌起步：接案 × 遠端上班，先走一條，也可雙線並進</p>
+                  <p className="text-white/90">雙軌起步：接案 × 遠端上班，可雙修也可單選</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <TrendingUp className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">路線清楚：把模糊的嚮往，轉成 5 個月可執行的行動藍圖</p>
+                  <p className="text-white/90">路線清楚：模糊的嚮往 → 5 個月可執行的行動藍圖</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <FileText className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
@@ -422,29 +425,16 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 </div>
                 <div className="flex items-start gap-3">
                   <Users className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">不是一個人：和一群真的在往自由生活前進的人同行</p>
+                  <p className="text-white/90">不是一個人：和一群在往自由生活前進的人同行</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <Globe className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">國際 × 線下遊牧生態系：加入連結台灣與世界的遊牧社群，從每月線下小聚到海外啟發之旅</p>
+                  <p className="text-white/90">國際 × 線下遊牧生態系：加入連結台灣與世界的遊牧生態，從每月線下小聚到海內外啟發之旅</p>
                 </div>
               </div>
 
               {/* CTA Button */}
               <div className="flex flex-col gap-4 items-center lg:items-start">
-                <Button
-                  size="lg"
-                  onClick={() => {
-                    document.getElementById("pricing-section")?.scrollIntoView({ behavior: "smooth" })
-                    // Track initiate checkout event
-                    if (typeof window !== "undefined" && (window as any).trackInitiateCheckout) {
-                      ;(window as any).trackInitiateCheckout(0)
-                    }
-                  }}
-                  className="bg-[#D4B483] text-[#17464F] hover:bg-[#C9A673] text-xl font-bold tracking-wider w-full sm:w-auto px-16 py-8 rounded-full whitespace-nowrap"
-                >
-                  五月一起開學
-                </Button>
                 <button
                   onClick={() => {
                     document.getElementById("course-highlights")?.scrollIntoView({ behavior: "smooth" })
@@ -513,10 +503,37 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             <p className="text-[#D4B483] font-medium mt-6">你可能會在這幾種狀態裡，看見自己的影子：</p>
           </div>
 
-          {/* Three Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12">
+          {/* Mobile: Bullet Points */}
+          <div className="md:hidden space-y-5 mb-12 max-w-md mx-auto">
+            <div className="flex items-start gap-3">
+              <span className="mt-1.5 w-2.5 h-2.5 rounded-full bg-[#D4B483] flex-shrink-0" />
+              <div>
+                <h3 className="text-base font-bold text-[#D4B483] mb-1">想要更有選擇權的職涯主線</h3>
+                <p className="text-white/70 text-sm leading-relaxed">有穩定工作、不一定討厭現在公司，但看得到天花板；正在思考能否換到更彈性、可遠距的團隊，或讓履歷在未來更有選擇。</p>
+              </div>
+            </div>
+            <div className="border-t border-[#D4B483]/20 mx-4" />
+            <div className="flex items-start gap-3">
+              <span className="mt-1.5 w-2.5 h-2.5 rounded-full bg-[#D4B483] flex-shrink-0" />
+              <div>
+                <h3 className="text-base font-bold text-[#D4B483] mb-1">想多一條安全感，不想只靠一份薪水</h3>
+                <p className="text-white/70 text-sm leading-relaxed">{'想用內容、接案、知識服務慢慢累積第二條收入線；希望在不壓垮自己的前提下，踏出有感的一步，而不是一次 all-in。'}</p>
+              </div>
+            </div>
+            <div className="border-t border-[#D4B483]/20 mx-4" />
+            <div className="flex items-start gap-3">
+              <span className="mt-1.5 w-2.5 h-2.5 rounded-full bg-[#D4B483] flex-shrink-0" />
+              <div>
+                <h3 className="text-base font-bold text-[#D4B483] mb-1">答案還不確定，但不想再只是想想</h3>
+                <p className="text-white/70 text-sm leading-relaxed">現在的路看起來還行，但常被旅居、遠距、遊牧故事勾起一點遺憾；想在未來五個月裡，用比較踏實的方法去體驗、去嘗試，而不是只滑過別人的人生。</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop: Three Cards */}
+          <div className="hidden md:grid md:grid-cols-3 gap-8 mb-12">
             {/* Card 1 - 職涯主線 */}
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-[#D4B483]/30 hover:border-[#D4B483]/50 transition-all duration-300 relative group">
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-[#D4B483]/30 hover:border-[#D4B483]/50 transition-all duration-300 relative group">
               {/* Gold corner accents */}
               <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#D4B483]/60 rounded-tl-2xl" />
               <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#D4B483]/60 rounded-br-2xl" />
@@ -554,7 +571,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             </div>
 
             {/* Card 2: 安全感 */}
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-[#D4B483]/30 hover:border-[#D4B483]/50 transition-all duration-300 relative group">
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-[#D4B483]/30 hover:border-[#D4B483]/50 transition-all duration-300 relative group">
               {/* Gold corner accents */}
               <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#D4B483]/60 rounded-tl-2xl" />
               <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#D4B483]/60 rounded-br-2xl" />
@@ -589,7 +606,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             </div>
 
             {/* Card 3: 不確定 */}
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-[#D4B483]/30 hover:border-[#D4B483]/50 transition-all duration-300 relative group">
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-[#D4B483]/30 hover:border-[#D4B483]/50 transition-all duration-300 relative group">
               {/* Gold corner accents */}
               <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#D4B483]/60 rounded-tl-2xl" />
               <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#D4B483]/60 rounded-br-2xl" />
@@ -643,21 +660,14 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           />
         </div>
 
-        {/* 手機版/平板版：保持原有程式碼佈局 */}
-        <div className="lg:hidden py-16 sm:py-24">
-          {/* 背景裝飾：金色弧線 (極細微) */}
-          <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] border border-[#D4B483]/10 rounded-full -translate-y-1/2"></div>
-            <div className="absolute bottom-0 right-0 w-[600px] h-[600px] border border-[#D4B483]/10 rounded-full translate-y-1/3 translate-x-1/3"></div>
-          </div>
-
+        {/* 手機版/平板版：緊湊金色豎線佈局 */}
+        <div className="lg:hidden py-10 sm:py-16">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
             {/* 區塊標題 */}
-            <div className="text-center mb-16">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 text-balance">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 text-balance">
                 不是你不努力，而是拼圖還有缺
               </h2>
-              {/* 裝飾用的三點 */}
               <div className="flex items-center justify-center gap-2 opacity-80">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]"></span>
                 <span className="w-1.5 h-1.5 rounded-full bg-[#17464F]"></span>
@@ -665,114 +675,38 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               </div>
             </div>
 
-            {/* 痛點路徑容器 */}
-            <div className="relative">
-              {/* 痛點 1: 方向斷裂 */}
-              <div className="relative z-10 flex flex-col items-center gap-6 mb-8">
-                <div className="w-20 h-20 hidden md:flex items-center justify-center">
-                  <svg
-                    className="w-16 h-16 text-[#D4B483]"
-                    viewBox="0 0 64 64"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  >
-                    <circle cx="32" cy="32" r="20" />
-                    <circle cx="32" cy="32" r="4" fill="currentColor" />
-                    <path d="M32 16V12M32 52V48M16 32H12M52 32H48" strokeWidth="2" />
-                    <path d="M32 32L42 22" strokeWidth="2" />
-                    <text x="48" y="16" fontSize="12" fill="currentColor">
-                      ?
-                    </text>
-                    <text x="8" y="52" fontSize="10" fill="currentColor">
-                      ?
-                    </text>
-                  </svg>
-                </div>
-                <div className="text-center max-w-sm">
-                  <h3 className="text-xl font-bold text-[#D4B483] mb-3">方向斷裂</h3>
-                  <p className="text-white/80 leading-relaxed text-sm">
-                    你是不是也想過很多種版本：有時想去外商、有時想接案當
-                    freelancer，但每次看到別人的故事就改變主意，到最後，反而哪一條都沒真的走下去。
-                  </p>
-                </div>
+            {/* 痛點列表 - 金色豎線 */}
+            <div className="flex flex-col gap-5 mb-8">
+              <div className="border-l-2 border-[#D4B483] pl-4">
+                <h3 className="text-base font-bold text-[#D4B483] mb-1">方向斷裂</h3>
+                <p className="text-white/80 leading-relaxed text-sm">
+                  你是不是也想過很多種版本：有時想去外商、有時想接案當 freelancer，但每次看到別人的故事就改變主意，到最後，反而哪一條都沒真的走下去。
+                </p>
               </div>
-
-              {/* 連接線 1 */}
-              <div className="w-0.5 h-10 bg-[#D4B483]/30 mx-auto my-2 relative">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-[#D4B483] rounded-full"></div>
+              <div className="border-l-2 border-[#D4B483] pl-4">
+                <h3 className="text-base font-bold text-[#D4B483] mb-1">方法斷裂</h3>
+                <p className="text-white/80 leading-relaxed text-sm">
+                  {'你也不是沒學東西：買課、看影片、存下很多筆記，真正卡住的是——「那我今天到底要做哪一個小步驟？」所以日子一忙，又回到原本的節奏。'}
+                </p>
               </div>
-
-              {/* 痛點 2: 方法斷裂 */}
-              <div className="relative z-10 flex flex-col items-center gap-6 mb-8">
-                <div className="w-20 h-20 hidden md:flex items-center justify-center">
-                  <svg
-                    className="w-16 h-16 text-[#D4B483]"
-                    viewBox="0 0 64 64"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  >
-                    <rect x="8" y="28" width="20" height="16" rx="2" />
-                    <rect x="36" y="28" width="20" height="16" rx="2" />
-                    <rect x="22" y="12" width="20" height="16" rx="2" />
-                    <path d="M52 20L56 16M56 16V24M56 16H48" strokeWidth="2" />
-                  </svg>
-                </div>
-                <div className="text-center max-w-sm">
-                  <h3 className="text-xl font-bold text-[#D4B483] mb-3">方法斷裂</h3>
-                  <p className="text-white/80 leading-relaxed text-sm">
-                    你也不是沒學東西：買課、看影片、存下很多筆記，真正卡住的是——「那我今天到底要做哪一個小步驟？」所以日子一忙，又回到原本的節奏。
-                  </p>
-                </div>
-              </div>
-
-              {/* 連接線 2 */}
-              <div className="w-0.5 h-10 bg-[#D4B483]/30 mx-auto my-2 relative">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-[#D4B483] rounded-full"></div>
-              </div>
-
-              {/* 痛點 3: 同伴斷裂 */}
-              <div className="relative z-10 flex flex-col items-center gap-6 mb-12">
-                <div className="w-20 h-20 hidden md:flex items-center justify-center">
-                  <svg
-                    className="w-16 h-16 text-[#D4B483]"
-                    viewBox="0 0 64 64"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  >
-                    <rect x="8" y="16" width="20" height="32" rx="2" />
-                    <circle cx="18" cy="28" r="6" />
-                    <path d="M12 40h12" />
-                    <circle cx="44" cy="24" r="4" fill="currentColor" />
-                    <circle cx="36" cy="32" r="4" fill="currentColor" />
-                    <circle cx="52" cy="32" r="4" fill="currentColor" />
-                    <circle cx="40" cy="40" r="4" fill="currentColor" />
-                    <circle cx="48" cy="40" r="4" fill="currentColor" />
-                  </svg>
-                </div>
-                <div className="text-center max-w-sm">
-                  <h3 className="text-xl font-bold text-[#D4B483] mb-3">同伴斷裂</h3>
-                  <p className="text-white/80 leading-relaxed text-sm">
-                    身邊的人大多走很標準的路，你很難跟他們分享「我其實想過不一樣的生活」。不知道可以跟誰討論、問誰意見，久了就習慣把這些想法藏在心裡。
-                  </p>
-                </div>
+              <div className="border-l-2 border-[#D4B483] pl-4">
+                <h3 className="text-base font-bold text-[#D4B483] mb-1">同伴斷裂</h3>
+                <p className="text-white/80 leading-relaxed text-sm">
+                  {'身邊的人大多走很標準的路，你很難跟他們分享「我其實想過不一樣的生活」。不知道可以跟誰討論、問誰意見，久了就習慣把這些想法藏在心裡。'}
+                </p>
               </div>
             </div>
 
             {/* 結語區塊 */}
-            <div className="relative mt-8">
-              <div className="w-0.5 h-6 bg-[#D4B483]/30 mx-auto mb-6"></div>
-
-              <div className="max-w-2xl mx-auto px-6 py-8 rounded-2xl border-2 border-[#D4B483]/30 bg-[#17464F]/50 backdrop-blur-sm text-center relative">
+            <div className="relative">
+              <div className="max-w-2xl mx-auto px-5 py-6 rounded-2xl border-2 border-[#D4B483]/30 bg-[#17464F]/50 backdrop-blur-sm text-center relative">
                 <p className="text-base sm:text-lg text-white font-bold leading-relaxed">
                   你缺的不是更多資訊，而是一個地方，
                   <span className="block mt-2 text-[#D4B483]">
                     讓你在未來五個月裡，有人陪你一起試、一起走、一起調整方向。
                   </span>
                 </p>
-                <p className="text-sm sm:text-base text-white/70 mt-4 leading-relaxed">
+                <p className="text-sm sm:text-base text-white/70 mt-3 leading-relaxed">
                   {'一起用結構化的方式，'}
                   <br />
                   {'逼你把想法變成能被驗證的行動。'}
@@ -1964,14 +1898,14 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
                 <div>
                   <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'Skool 社群永久留存'}</span>
-                  <p className="text-[#33393C]/60 text-xs leading-relaxed">{'畢業後不用搬家，仍在同一個社群交流'}</p>
+                  <p className="text-[#33393C]/60 text-xs leading-relaxed">{'畢業後不用搬家，仍在同一個社群交流（當屆專區僅當屆可見）'}</p>
                 </div>
               </div>
               <div className="flex items-start gap-2.5 bg-white/60 rounded-xl p-4">
                 <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
                 <div>
-                  <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'正課回放觀看'}</span>
-                  <p className="text-[#33393C]/60 text-xs leading-relaxed">{'學院正課於 Skool 平台回放，期限為學期結束後一年'}</p>
+                  <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'已購內容回放觀看'}</span>
+                  <p className="text-[#33393C]/60 text-xs leading-relaxed">{'你買過課程(學院正課有一年限制)的回放與學習資源訪問權限'}</p>
                 </div>
               </div>
               <div className="flex items-start gap-2.5 bg-white/60 rounded-xl p-4">
@@ -2296,22 +2230,26 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
       {/* EMAIL SUBSCRIPTION BANNER */}
       <section className="bg-[#F5F3ED] py-10 sm:py-14">
         <div className="max-w-2xl mx-auto px-4 text-center">
-          <p className="text-xs tracking-[0.15em] uppercase text-[#A06E56] font-medium mb-3">{'保持連結'}</p>
-          <h3 className="text-xl sm:text-2xl font-bold text-[#17464F] mb-2">
-            {'還沒準備好加入？先收到最新消息'}
-          </h3>
-          <p className="text-sm text-[#33393C]/70 mb-6 leading-relaxed">
-            {'公開講座通知、開班資訊、遠距工作分享，定期送到你信箱。'}
-          </p>
-          <a
-            href="https://portaly.cc/travelwithwork/pages/webinar"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#17464F] text-white font-semibold text-sm sm:text-base px-8 py-4 rounded-full hover:bg-[#1a5561] transition-colors duration-200 shadow-sm"
-          >
-            <Mail className="w-4 h-4 flex-shrink-0" />
-            {'我想要收到公開講座＆最新消息'}
-          </a>
+  <h3 className="text-xl sm:text-2xl font-bold text-[#17464F] mb-6">
+  {'開學前每週免費講座，帶你了解趨勢。'}
+  </h3>
+          <div className="flex flex-col items-center gap-3">
+            <a
+              href="https://portaly.cc/travelwithwork/pages/webinar"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#D4B483] text-[#17464F] font-semibold text-sm sm:text-base px-8 py-4 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-sm"
+            >
+              {'查看免費講座場次資訊'}
+            </a>
+            <button
+              onClick={() => setEmailPopupOpen(true)}
+              className="inline-flex items-center gap-2 bg-[#17464F] text-white font-semibold text-sm sm:text-base px-8 py-4 rounded-full hover:bg-[#1a5561] transition-colors duration-200 shadow-sm"
+            >
+              <Mail className="w-4 h-4 flex-shrink-0" />
+              {'訂閱隨時收到最新活動提醒'}
+            </button>
+          </div>
         </div>
       </section>
 

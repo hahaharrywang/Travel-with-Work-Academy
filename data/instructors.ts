@@ -148,10 +148,10 @@ export const instructors: Instructor[] = [
   },
   {
     name: "Angela Feng",
-    title: "Ness Wellness 共同創辦人、創業投資管理者，遠距生活可持續的身心靈平衡",
-    image: "/images/angela.jpeg",
+    title: "ness 共同創辦人｜演講者、業師、亞洲區品牌行銷管理顧問",
+    image: "/images/instructors/angela.jpg",
     link: "https://www.nesswellness.com/",
-    background: "Angela Feng 是 Ness Wellness 的共同創辦人，也是創業投資管理者，將分享如何實現遠距生活中的身心靈平衡。",
+    background: `擁有 14 年行銷與創投經驗，曾任亞太區美國品牌集團行銷總監、創投公司 Head of Growth / Venture Partner。北京清華大學 × INSEAD 雙碩士 EMBA，並獲 INSEAD 領導力發展課程認證。曾管理亞太區 50+ 國際品牌推廣，具備品牌發展、授權、行銷與商業策略專長。國際舞台經歷豐富：UN CSW 聯合國論壇講者、Women in Tech Forum、APICTA Awards、Taiwan Digital Nomad Conference 等。具備跨國創業與 NGO 領導經驗，足跡遍及美、加、日、中，旅行超過 45 國。媒體專訪：Taiwan News、TaiwanPlus、Tatler Taiwan、Elle、換日線、台灣科技女性等。`,
     links: {
       website: "https://www.nesswellness.com/",
     },

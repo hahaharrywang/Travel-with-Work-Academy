@@ -1,6 +1,7 @@
 // SEO Structured Data Component for JSON-LD schemas
 // Includes: Course, FAQPage, Organization schemas
-import Script from "next/script"
+"use client"
+import { useEffect } from "react"
 
 export function StructuredData() {
   // Organization Schema
@@ -164,7 +165,7 @@ export function StructuredData() {
         name: "結業後還能看回放嗎？",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "基本上學院的正課會於 Skool 平台回放，期限為學期結束後一年。同一個 Skool 社群也會持續保留，畢業後不用搬家，仍可在社群中交流。",
+          text: "你會永久保留自己買過的課程回放與資源。同一個 Skool 社群也會持續保留，畢業後不用搬家，仍可在社群中交流（但「當屆專區」僅當屆可見）。",
         },
       },
       {
@@ -178,11 +179,30 @@ export function StructuredData() {
     ],
   }
 
-  return (
-    <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-    </>
-  )
+  useEffect(() => {
+    const schemas = [
+      { id: "org-schema", data: organizationSchema },
+      { id: "course-schema", data: courseSchema },
+      { id: "faq-schema", data: faqSchema },
+    ]
+
+    schemas.forEach(({ id, data }) => {
+      if (!document.getElementById(id)) {
+        const script = document.createElement("script")
+        script.id = id
+        script.type = "application/ld+json"
+        script.textContent = JSON.stringify(data)
+        document.head.appendChild(script)
+      }
+    })
+
+    return () => {
+      schemas.forEach(({ id }) => {
+        const el = document.getElementById(id)
+        if (el) el.remove()
+      })
+    }
+  }, [])
+
+  return null
 }

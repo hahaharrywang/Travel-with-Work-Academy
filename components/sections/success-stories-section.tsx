@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react"
 import { Card } from "@/components/ui/card"
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel"
+import { ChevronDown } from "lucide-react"
 
 const successStories = [
   {
@@ -59,7 +60,89 @@ const successStories = [
   },
 ]
 
+type Story = (typeof successStories)[number]
+
+function StoryCard({ story, className = "", expanded, onToggle }: { story: Story; className?: string; expanded: boolean; onToggle: () => void }) {
+
+  return (
+    <Card className={`bg-white rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-[#C9D7D4] flex flex-col ${className}`}>
+      {/* Title */}
+      <h3 className="text-lg font-bold text-[#17464F] mb-1">{story.title}</h3>
+
+      {/* Identity */}
+      <p className="text-sm font-medium text-[#A06E56] mb-2">{story.identity}</p>
+
+      {/* Quote - always visible */}
+      <div className="mb-3">
+        <div className="bg-[#F5F3ED] rounded-lg p-3 relative">
+          <svg
+            className="absolute -top-2 -left-2 w-6 h-6 text-[#D4B483] opacity-50"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
+          </svg>
+          <p className="text-sm text-[#17464F] font-medium italic leading-normal pl-4">{story.quote}</p>
+        </div>
+      </div>
+
+      {/* Expand divider - only when collapsed */}
+      {!expanded && (
+        <button onClick={onToggle} className="relative w-full flex items-center py-3 group cursor-pointer">
+          <span className="flex-grow border-t border-dashed border-[#D4B483]/50 group-hover:border-[#D4B483]/80 transition-colors" />
+          <span className="flex items-center gap-1.5 px-4 text-sm font-semibold text-[#17464F] group-hover:text-[#A06E56] transition-colors whitespace-nowrap">
+            {'展開完整心得與實踐行動項目'}
+            <ChevronDown className="w-4 h-4 text-[#D4B483]" />
+          </span>
+          <span className="flex-grow border-t border-dashed border-[#D4B483]/50 group-hover:border-[#D4B483]/80 transition-colors" />
+        </button>
+      )}
+
+      {/* Collapsible content */}
+      <div
+        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+          expanded ? "max-h-[800px] opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        {/* Content */}
+        <div className="text-sm text-[#33393C] leading-normal space-y-1 flex-grow pt-1">
+          {story.content.map((paragraph, idx) => (
+            <p key={idx}>{paragraph}</p>
+          ))}
+        </div>
+
+        {/* Current Status */}
+        {story.currentStatus && (
+          <div className="mt-4 pt-4 border-t border-[#C9D7D4]">
+            <p className="text-xs font-bold text-[#17464F] mb-2 tracking-wide">{'現在狀態：'}</p>
+            <ul className="space-y-1">
+              {story.currentStatus.map((status, idx) => (
+                <li key={idx} className="text-xs text-[#33393C] flex items-start gap-1.5">
+                  <span className="text-[#D4B483] flex-shrink-0">{'✔'}</span>
+                  <span>{status}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Collapse divider - at bottom of expanded content */}
+        <button onClick={onToggle} className="relative w-full flex items-center py-2 mt-4 group cursor-pointer">
+          <span className="flex-grow border-t border-[#C9D7D4]/60 group-hover:border-[#C9D7D4] transition-colors" />
+          <span className="flex items-center gap-1.5 px-3 text-xs font-medium text-[#33393C]/50 group-hover:text-[#33393C]/70 transition-colors whitespace-nowrap">
+            {'收合心得'}
+            <ChevronDown className="w-3.5 h-3.5 rotate-180" />
+          </span>
+          <span className="flex-grow border-t border-[#C9D7D4]/60 group-hover:border-[#C9D7D4] transition-colors" />
+        </button>
+      </div>
+    </Card>
+  )
+}
+
 export function SuccessStoriesSection() {
+  const [storiesExpanded, setStoriesExpanded] = useState(false)
+
   return (
     <section id="student-results" className="pt-16 sm:pt-24 pb-12 sm:pb-20 bg-[#F5F3ED]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,67 +165,20 @@ export function SuccessStoriesSection() {
         {/* Desktop: Grid Layout (lg and above) */}
         <div className="hidden lg:grid lg:grid-cols-3 gap-6 xl:gap-8">
           {successStories.map((story) => (
-            <Card
-              key={story.id}
-              className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-[#C9D7D4] flex flex-col"
-            >
-              {/* Title */}
-              <h3 className="text-lg font-bold text-[#17464F] mb-1">{story.title}</h3>
-
-              {/* Identity */}
-              <p className="text-sm font-medium text-[#A06E56] mb-2">{story.identity}</p>
-
-              {/* Quote */}
-              <div className="mb-2">
-                <div className="bg-[#F5F3ED] rounded-lg p-3 relative">
-                  {/* Quote icon */}
-                  <svg
-                    className="absolute -top-2 -left-2 w-6 h-6 text-[#D4B483] opacity-50"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
-                  </svg>
-                  <p className="text-sm text-[#17464F] font-medium italic leading-normal pl-4">{story.quote}</p>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="text-sm text-[#33393C] leading-normal space-y-1 flex-grow">
-                {story.content.map((paragraph, idx) => (
-                  <p key={idx}>{paragraph}</p>
-                ))}
-              </div>
-
-              {/* Current Status */}
-              {story.currentStatus && (
-                <div className="mt-4 pt-4 border-t border-[#C9D7D4]">
-                  <p className="text-xs font-bold text-[#17464F] mb-2 tracking-wide">{'現在狀態：'}</p>
-                  <ul className="space-y-1">
-                    {story.currentStatus.map((status, idx) => (
-                      <li key={idx} className="text-xs text-[#33393C] flex items-start gap-1.5">
-                        <span className="text-[#D4B483] flex-shrink-0">{'✔'}</span>
-                        <span>{status}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </Card>
+            <StoryCard key={story.id} story={story} expanded={storiesExpanded} onToggle={() => setStoriesExpanded(!storiesExpanded)} />
           ))}
         </div>
 
         {/* Mobile/Tablet: Carousel with peek + dots (below lg) */}
-        <MobileSuccessCarousel stories={successStories} />
+        <MobileSuccessCarousel stories={successStories} expanded={storiesExpanded} onToggle={() => setStoriesExpanded(!storiesExpanded)} />
       </div>
     </section>
   )
 }
 
 /* ── Mobile carousel with peek, dots & auto-hint ── */
-type Story = (typeof successStories)[number]
 
-function MobileSuccessCarousel({ stories }: { stories: Story[] }) {
+function MobileSuccessCarousel({ stories, expanded, onToggle }: { stories: Story[]; expanded: boolean; onToggle: () => void }) {
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
@@ -188,49 +224,7 @@ function MobileSuccessCarousel({ stories }: { stories: Story[] }) {
         <CarouselContent className="-ml-3">
           {stories.map((story) => (
             <CarouselItem key={story.id} className="pl-3 basis-[88%] md:basis-[48%]">
-              <Card className="bg-white rounded-2xl p-5 shadow-sm border border-[#C9D7D4] h-full flex flex-col">
-                {/* Title */}
-                <h3 className="text-lg font-bold text-[#17464F] mb-1">{story.title}</h3>
-
-                {/* Identity */}
-                <p className="text-sm font-medium text-[#A06E56] mb-2">{story.identity}</p>
-
-                {/* Quote */}
-                <div className="mb-2">
-                  <div className="bg-[#F5F3ED] rounded-lg p-3 relative">
-                    <svg
-                      className="absolute -top-2 -left-2 w-6 h-6 text-[#D4B483] opacity-50"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
-                    </svg>
-                    <p className="text-sm text-[#17464F] font-medium italic leading-normal pl-4">{story.quote}</p>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="text-sm text-[#33393C] leading-normal space-y-1 flex-grow">
-                  {story.content.map((paragraph, idx) => (
-                    <p key={idx}>{paragraph}</p>
-                  ))}
-                </div>
-
-                {/* Current Status */}
-                {story.currentStatus && (
-                  <div className="mt-4 pt-4 border-t border-[#C9D7D4]">
-                    <p className="text-xs font-bold text-[#17464F] mb-2 tracking-wide">{'現在狀態：'}</p>
-                    <ul className="space-y-1">
-                      {story.currentStatus.map((status, idx) => (
-                        <li key={idx} className="text-xs text-[#33393C] flex items-start gap-1.5">
-                          <span className="text-[#D4B483] flex-shrink-0">{'✔'}</span>
-                          <span>{status}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </Card>
+              <StoryCard story={story} className="h-full" expanded={expanded} onToggle={onToggle} />
             </CarouselItem>
           ))}
         </CarouselContent>
