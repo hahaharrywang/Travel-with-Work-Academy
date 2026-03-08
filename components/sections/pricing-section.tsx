@@ -10,7 +10,7 @@ interface PricingSectionProps {
 }
 
 export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
-  const { currentStageData, timeLeft, selectedPlanId, setSelectedPlanId, getCheckoutURLWithTracking } = usePricing()
+  const { currentStageData, timeLeft, getCheckoutURLWithTracking } = usePricing()
   const [timelineExpanded, setTimelineExpanded] = useState(false)
   const [showAllStagesMobile, setShowAllStagesMobile] = useState(false)
   const [showTimelineModal, setShowTimelineModal] = useState(false)
@@ -177,16 +177,11 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                 </a>
               </div>
               <div className="md:hidden">
-                <Button
-                  onClick={() => setSelectedPlanId("selfMedia")}
-                  className={`w-full py-3 rounded-full font-medium ${
-                    selectedPlanId === "selfMedia"
-                      ? "bg-[#D4B483] text-[#17464F]"
-                      : "bg-[#17464F] hover:bg-[#0f3339] text-white"
-                  }`}
-                >
-                  {selectedPlanId === "selfMedia" ? "✓ 已選擇" : "選擇此方案"}
-                </Button>
+                <a href={getCheckoutURLWithTracking("selfMedia")} target="_blank" rel="noopener noreferrer">
+                  <Button className="w-full bg-[#17464F] hover:bg-[#0f3339] text-white py-3 rounded-full font-medium">
+                    選擇此方案
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
@@ -245,16 +240,11 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                 </a>
               </div>
               <div className="md:hidden">
-                <Button
-                  onClick={() => setSelectedPlanId("dualLine")}
-                  className={`w-full py-3 rounded-full font-bold ${
-                    selectedPlanId === "dualLine"
-                      ? "bg-[#17464F] text-white"
-                      : "bg-[#D4B483] hover:bg-[#c9a673] text-[#17464F]"
-                  }`}
-                >
-                  {selectedPlanId === "dualLine" ? "✓ 已選擇" : "選擇此方案"}
-                </Button>
+                <a href={getCheckoutURLWithTracking("dualLine")} target="_blank" rel="noopener noreferrer">
+                  <Button className="w-full bg-[#D4B483] hover:bg-[#c9a673] text-[#17464F] py-3 rounded-full font-bold">
+                    選擇此方案
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
@@ -310,16 +300,11 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                 </a>
               </div>
               <div className="md:hidden">
-                <Button
-                  onClick={() => setSelectedPlanId("remoteJob")}
-                  className={`w-full py-3 rounded-full font-medium ${
-                    selectedPlanId === "remoteJob"
-                      ? "bg-[#D4B483] text-[#17464F]"
-                      : "bg-[#17464F] hover:bg-[#0f3339] text-white"
-                  }`}
-                >
-                  {selectedPlanId === "remoteJob" ? "✓ 已選擇" : "選擇此方案"}
-                </Button>
+                <a href={getCheckoutURLWithTracking("remoteJob")} target="_blank" rel="noopener noreferrer">
+                  <Button className="w-full bg-[#17464F] hover:bg-[#0f3339] text-white py-3 rounded-full font-medium">
+                    選擇此方案
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
