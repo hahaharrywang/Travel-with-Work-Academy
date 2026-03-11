@@ -435,6 +435,17 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
               {/* CTA Button */}
               <div className="flex flex-col gap-4 items-center lg:items-start">
+                <a
+                  href="https://www.accupass.com/organizer/detail/2509180637491342778166"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#D4B483] text-[#17464F] font-semibold text-sm sm:text-base px-6 py-3 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-md hover:shadow-lg"
+                >
+                  <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                  </svg>
+                  查看免費講座場次
+                </a>
                 <button
                   onClick={() => {
                     document.getElementById("course-highlights")?.scrollIntoView({ behavior: "smooth" })
@@ -2235,7 +2246,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
   </h3>
           <div className="flex flex-col items-center gap-3">
             <a
-              href="https://portaly.cc/travelwithwork/pages/webinar"
+              href="https://www.accupass.com/organizer/detail/2509180637491342778166"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#D4B483] text-[#17464F] font-semibold text-sm sm:text-base px-8 py-4 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-sm"

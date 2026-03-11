@@ -74,6 +74,14 @@ export function HeroSection() {
                   立刻鎖定【{currentStageData?.name} NT${formatPrice(singleLinePrice)}起】
                 </a>
               </Button>
+              <a
+                href="https://www.accupass.com/organizer/detail/2304050942218markup872544"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#17464F] hover:text-[#D4B483] font-medium text-base underline underline-offset-4 transition-colors duration-200"
+              >
+                查看免費講座場次
+              </a>
               <button
                 onClick={() => {
                   document.getElementById("course-highlights")?.scrollIntoView({ behavior: "smooth" })

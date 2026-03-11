@@ -144,7 +144,7 @@ export function AnnouncementBar({ scrollToPricing, onEmailSubscribe }: Announcem
 
             {/* Free webinar link */}
             <a
-              href="https://portaly.cc/travelwithwork/pages/webinar"
+              href="https://www.accupass.com/organizer/detail/2509180637491342778166"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
