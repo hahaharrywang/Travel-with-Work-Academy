@@ -435,6 +435,14 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
               {/* CTA Button */}
               <div className="flex flex-col gap-4 items-center lg:items-start">
+                <a
+                  href="https://www.accupass.com/organizer/detail/2304050942218markup872544"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/70 hover:text-[#D4B483] font-medium text-base transition-colors duration-200"
+                >
+                  查看免費講座場次
+                </a>
                 <button
                   onClick={() => {
                     document.getElementById("course-highlights")?.scrollIntoView({ behavior: "smooth" })
