@@ -56,40 +56,32 @@ export function HeroSection() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col items-center lg:items-start gap-4">
-              <div className="flex flex-col sm:flex-row items-center gap-3">
-                <Button
-                  asChild
-                  size="lg"
-                  className="hidden md:inline-flex bg-[#17464F] hover:bg-[#17464F]/90 text-white rounded-full px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+              <Button
+                asChild
+                size="lg"
+                className="hidden md:inline-flex bg-[#17464F] hover:bg-[#17464F]/90 text-white rounded-full px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <a
+                  href={getCheckoutURLWithTracking()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => {
+                    if (typeof window !== "undefined" && (window as any).trackInitiateCheckout) {
+                      ;(window as any).trackInitiateCheckout(0)
+                    }
+                  }}
                 >
-                  <a
-                    href={getCheckoutURLWithTracking()}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => {
-                      if (typeof window !== "undefined" && (window as any).trackInitiateCheckout) {
-                        ;(window as any).trackInitiateCheckout(0)
-                      }
-                    }}
-                  >
-                    立刻鎖定【{currentStageData?.name} NT${formatPrice(singleLinePrice)}起】
-                  </a>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="border-2 border-[#17464F] text-[#17464F] hover:bg-[#17464F] hover:text-white rounded-full px-6 py-6 text-base font-medium transition-all duration-300"
-                >
-                  <a
-                    href="https://www.accupass.com/organizer/detail/2304050942218markup872544"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    查看每週免費講座
-                  </a>
-                </Button>
-              </div>
+                  立刻鎖定【{currentStageData?.name} NT${formatPrice(singleLinePrice)}起】
+                </a>
+              </Button>
+              <a
+                href="https://www.accupass.com/organizer/detail/2304050942218markup872544"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#17464F] hover:text-[#D4B483] font-medium text-base underline underline-offset-4 transition-colors duration-200"
+              >
+                查看免費講座場次
+              </a>
               <button
                 onClick={() => {
                   document.getElementById("course-highlights")?.scrollIntoView({ behavior: "smooth" })
