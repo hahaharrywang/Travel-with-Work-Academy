@@ -2253,6 +2253,17 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             >
               {'查看免費講座場次資訊'}
             </a>
+            <a
+              href="https://www.skool.com/twwgroup-3033/classroom/a5319d94?md=bca9b69c2a5b40869e2fe6254aa9fa13"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border-2 border-[#17464F] text-[#17464F] font-semibold text-sm sm:text-base px-8 py-4 rounded-full hover:bg-[#17464F] hover:text-white transition-colors duration-200"
+            >
+              <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+              </svg>
+              {'觀看學院說明會回放'}
+            </a>
             <button
               onClick={() => setEmailPopupOpen(true)}
               className="inline-flex items-center gap-2 bg-[#17464F] text-white font-semibold text-sm sm:text-base px-8 py-4 rounded-full hover:bg-[#1a5561] transition-colors duration-200 shadow-sm"
