@@ -421,7 +421,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 </div>
                 <div className="flex items-start gap-3">
                   <FileText className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">五個月有節奏：不是看完很燃，而是真的一步步做出來</p>
+                  <p className="text-white/90">五個月有節奏：不是被啟發而已，是真的一步步做出來</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <Users className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
