@@ -1603,55 +1603,52 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             </div>
           </div>
 
-          {/* Block 2: Deliverables */}
-          <details className="group/block2 mb-10 bg-white rounded-2xl border border-[#C9D7D4]/50 shadow-sm overflow-hidden">
-            {/* Mobile-only: Growth System collapsible */}
-            <div className="md:hidden">
-              <details className="group/mobile-growth border-b border-[#C9D7D4]/50">
-                <summary className="flex items-center justify-between p-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden hover:bg-[#F5F3ED]/50 transition-colors">
-                  <h4 className="font-bold text-[#17464F] text-base flex items-center gap-2">
-                    <span className="w-1.5 h-6 rounded-full bg-[#D4B483] flex-shrink-0"></span>
-                    {'一套「把能力變成機會」的成長系統'}
-                  </h4>
-                  <div className="flex items-center gap-1 text-[#33393C]/50 flex-shrink-0 ml-2">
-                    <span className="text-xs group-open/mobile-growth:hidden">展開</span>
-                    <span className="text-xs hidden group-open/mobile-growth:inline">收合</span>
-                    <svg className="w-4 h-4 transition-transform group-open/mobile-growth:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
+          {/* Block 2a: Mobile-only — 成長系統 (collapsible) */}
+          <details className="group/mobile-growth md:hidden mb-4 bg-white rounded-2xl border border-[#C9D7D4]/50 shadow-sm overflow-hidden">
+            <summary className="flex items-center justify-between p-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden hover:bg-[#F5F3ED]/50 transition-colors">
+              <h4 className="font-bold text-[#17464F] text-base flex items-center gap-2">
+                <span className="w-1.5 h-6 rounded-full bg-[#D4B483] flex-shrink-0"></span>
+                {'一套「把能力變成機會」的成長系統'}
+              </h4>
+              <div className="flex items-center gap-1 text-[#33393C]/50 flex-shrink-0 ml-2">
+                <span className="text-xs group-open/mobile-growth:hidden">展開</span>
+                <span className="text-xs hidden group-open/mobile-growth:inline">收合</span>
+                <svg className="w-4 h-4 transition-transform group-open/mobile-growth:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </summary>
+            <div className="px-5 pb-5 border-t border-[#C9D7D4]/30">
+              <ul className="space-y-2 mt-4">
+                <li className="flex items-start gap-2">
+                  <span className="text-[#17464F] font-bold text-xs mt-0.5 flex-shrink-0">{'01'}</span>
+                  <div>
+                    <span className="font-semibold text-[#17464F] text-sm">{'當屆完整課程'}</span>
+                    <span className="text-[#33393C]/60 text-xs">{' — 聚焦遠距求職與接案兩條路，從定位到落地流程（直播 / 回放一年）'}</span>
                   </div>
-                </summary>
-                <div className="px-5 pb-5">
-                  <ul className="space-y-2">
-                    <li className="flex items-start gap-2">
-                      <span className="text-[#17464F] font-bold text-xs mt-0.5 flex-shrink-0">{'01'}</span>
-                      <div>
-                        <span className="font-semibold text-[#17464F] text-sm">{'當屆完整課程'}</span>
-                        <span className="text-[#33393C]/60 text-xs">{' — 聚焦遠距求職與接案兩條路，從定位到落地流程（直播 / 回放一年）'}</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-[#17464F] font-bold text-xs mt-0.5 flex-shrink-0">{'02'}</span>
-                      <div>
-                        <span className="font-semibold text-[#17464F] text-sm">{'作業與落地任務'}</span>
-                        <span className="text-[#33393C]/60 text-xs">{' — 每周都要交付，一步步把你推到「可以被採用 / 被下單」的狀態'}</span>
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-[#17464F] font-bold text-xs mt-0.5 flex-shrink-0">{'03'}</span>
-                      <div>
-                        <span className="font-semibold text-[#17464F] text-sm">{'成長節奏'}</span>
-                        <span className="text-[#33393C]/60 text-xs">{' — 線上同學會 / 團體 QA / DemoDay，互相學習、幫助，彼此督促跟上進度'}</span>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </details>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#17464F] font-bold text-xs mt-0.5 flex-shrink-0">{'02'}</span>
+                  <div>
+                    <span className="font-semibold text-[#17464F] text-sm">{'作業與落地任務'}</span>
+                    <span className="text-[#33393C]/60 text-xs">{' — 每周都要交付，一步步把你推到「可以被採用 / 被下單」的狀態'}</span>
+                  </div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#17464F] font-bold text-xs mt-0.5 flex-shrink-0">{'03'}</span>
+                  <div>
+                    <span className="font-semibold text-[#17464F] text-sm">{'成長節奏'}</span>
+                    <span className="text-[#33393C]/60 text-xs">{' — 線上同學會 / 團體 QA / DemoDay，互相學習、幫助，彼此督促跟上進度'}</span>
+                  </div>
+                </li>
+              </ul>
             </div>
+          </details>
 
-            {/* PC: 你會做出什麼成果 — collapsible summary bar */}
-            <summary className="hidden md:flex items-center justify-between p-5 sm:px-8 sm:pt-8 sm:pb-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden hover:bg-[#F5F3ED]/30 transition-colors">
-              <div className="flex items-center gap-3">
+          {/* Block 2b: 你會做出什麼成果 — collapsible on PC, always open on mobile */}
+          <details className="group/block2 mb-10 bg-white rounded-2xl border border-[#C9D7D4]/50 shadow-sm overflow-hidden" open>
+            <summary className="flex items-center justify-between p-5 sm:px-8 sm:py-6 cursor-pointer list-none [&::-webkit-details-marker]:hidden hover:bg-[#F5F3ED]/30 transition-colors">
+              <div className="flex items-center gap-3 flex-wrap">
                 <h4 className="font-bold text-[#17464F] text-base sm:text-lg">{'你會做出什麼成果'}</h4>
                 <div className="flex gap-1.5">
                   <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#D4B483]/15 text-[#A06E56] font-medium">{'可展示'}</span>
@@ -1659,7 +1656,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#D4B483]/15 text-[#A06E56] font-medium">{'可成交'}</span>
                 </div>
               </div>
-              <div className="flex items-center gap-1.5 text-[#33393C]/50 flex-shrink-0">
+              <div className="hidden md:flex items-center gap-1.5 text-[#33393C]/50 flex-shrink-0 ml-3">
                 <span className="text-sm group-open/block2:hidden">展開</span>
                 <span className="text-sm hidden group-open/block2:inline">收合</span>
                 <svg className="w-5 h-5 transition-transform group-open/block2:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1667,69 +1664,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 </svg>
               </div>
             </summary>
-
-            {/* Mobile: 你會做出什麼成果 header (always visible, content in block) */}
-            <div className="md:hidden flex items-center justify-between p-5 border-b border-[#C9D7D4]/50">
-              <div className="flex items-center gap-2 flex-wrap">
-                <h4 className="font-bold text-[#17464F] text-base">{'你會做出什麼成果'}</h4>
-                <div className="flex gap-1.5">
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#D4B483]/15 text-[#A06E56] font-medium">{'可展示'}</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#D4B483]/15 text-[#A06E56] font-medium">{'可投遞'}</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#D4B483]/15 text-[#A06E56] font-medium">{'可成交'}</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Content: always visible on mobile, toggle on desktop */}
-            <div className="md:hidden p-5">
-              <ul className="space-y-4">
-                <li className="flex items-start gap-2.5">
-                  <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
-                  <div>
-                    <span className="font-semibold text-[#17464F] text-sm">{'定位與可能性：遠距路線決策 & 啟動目標'}</span>
-                    <p className="text-[#33393C]/60 text-sm mt-0.5">{'— 釐清你要的自由是什麼（時間／地點／收入），並選定「上班線／接案線／雙軌」的起跑方向及目標'}</p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
-                  <div>
-                    <span className="font-semibold text-[#17464F] text-sm">{'對外門面與信任：一套讓人秒懂專業與價值的門面'}</span>
-                    <p className="text-[#33393C]/60 text-sm mt-0.5">{'— 把你的能力、案例、價值主張整理成：LinkedIn／提案頁 / 作品集的關鍵內容與結構'}</p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
-                  <div>
-                    <span className="font-semibold text-[#17464F] text-sm">{'接觸與轉化：把「接觸」變成「機會」的可擴增系統'}</span>
-                    <div className="mt-1 space-y-0.5">
-                      <p className="text-[#33393C]/60 text-sm">{'— 上班線：JD 拆解 → 客製化履歷 → 面試 & 談薪策略'}</p>
-                      <p className="text-[#33393C]/60 text-sm">{'— 接案線：社群內容策略 → 作品呈現 → 獲客管道 → 成交流程'}</p>
-                    </div>
-                  </div>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
-                  <div>
-                    <span className="font-semibold text-[#17464F] text-sm">{'留任與永續：交付的「點 > 線 > 面」永續結構'}</span>
-                    <p className="text-[#33393C]/60 text-sm mt-0.5">{'— 在前期合作能活下來並能持續成長的方法'}</p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
-                  <div>
-                    <span className="font-semibold text-[#17464F] text-sm">{'DemoDay 發表：把行動證明公開呈現'}</span>
-                    <p className="text-[#33393C]/60 text-sm mt-0.5">{'— 讓你完成一次真正的「交付」與「曝光」，也讓機會更容易找上門'}</p>
-                  </div>
-                </li>
-              </ul>
-              <p className="mt-5 pt-4 border-t border-[#C9D7D4]/50 text-center text-sm font-bold text-[#D4B483]">
-                {'你的目標是「開始更容易拿到遠距工作 / 接案機會」。'}
-              </p>
-            </div>
-
-            {/* Desktop expandable content */}
-            <div className="hidden md:block px-8 pb-8">
-              <ul className="space-y-4">
+            <div className="px-5 pb-5 sm:px-8 sm:pb-8 border-t border-[#C9D7D4]/30">
+              <ul className="space-y-4 mt-4">
                 <li className="flex items-start gap-2.5">
                   <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
                   <div>
