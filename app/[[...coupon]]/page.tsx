@@ -40,7 +40,7 @@ import {
 } from "@/components/ui/dialog"
 
 import { type PlanId, getCheckoutURL } from "@/data/plan-config"
-import { calendarData, getPhaseColor, getTrackColor, getInstructorsByNames, type CalendarWeek } from "@/data/calendar"
+import { calendarData, getPhaseColor, getTrackColor, getInstructorsByNames, fourPhases, remoteJobPhaseContent, freelancePhaseContent, undecidedTabContent, type CalendarWeek } from "@/data/calendar"
 import { stagePhotos } from "@/data/stage-photos"
 import { instructors } from "@/data/instructors"
 
@@ -122,7 +122,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
     },
     {
       id: 2,
-      title: "社群支持",
+      title: "支持結構",
       icon: (
         <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
@@ -133,11 +133,11 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           />
         </svg>
       ),
-      shortDesc: "線上共學＋閒聊群＋線下小聚，一路上都有人一起問、一起試、一起走，讓你撐過放棄期的結構。",
+      shortDesc: "你不需要靠意志力一個人硬撐，這裡有一整套讓你比較走得下去的支持系統。",
       details: [
-        "不再一個人被影片追進度：大家固定出現在 Skool 線上共學空間，彼此分享卡關與成果、一起前行，讓「學習」變成日常節奏的一部分。",
-        "定期線上同學會，一起打開鏡頭結識戰友。還有線上共學群組、LinkedIn 校友群組、Line 閒聊群，擁有更多不同情境的連結。",
-        "線下聚會＆Nomad 活動：台北、高雄定期遊牧小聚，加上國內外遊牧啟發之旅，讓你真的遇見那些在清邁、峴港、台北之間移動的人，把遠距生活從想像變成現場。",
+        "Skool 共學空間、Line 群、線上同學會、校友 LinkedIn 群與線下小聚，讓你一路上有人可以交流、回報進度、彼此提醒。",
+        "真正難的通常不是開始，而是做幾週之後開始懷疑自己、忙起來就斷掉。",
+        "所以我們把支持設計進節奏裡：固定交流、成果分享、AMA、QA、共創與復盤，不只是讓你比較有陪伴感，而是讓你比較有機會真的走完。",
       ],
       images: [
         {
@@ -745,7 +745,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             <p className="text-[#33393C] max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
               {'不只是學習新知'}
               <br />
-              {'雙軌資源、行動任務節奏、和一群真的在實驗新生活的同伴。'}
+              {'雙軌資源、行動任務節奏，和一套幫你持續走下去的支持結構。'}
             </p>
           </div>
 
@@ -1041,7 +1041,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           </div>
         </div>
       </section>
-      {/* SECTION 6 COURSE OUTLINE START - 課程地圖 */}
+      {/* SECTION 6 COURSE OUTLINE START - 學習地圖（四階段） */}
       <section id="learning-map" className="py-16 sm:py-20 bg-[#F5F3ED]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
@@ -1049,12 +1049,39 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-2 text-balance">學習地圖</h2>
             <p className="text-base sm:text-lg text-[#D4B483] font-medium mb-6">五月開學，每週三晚間八點準時上線。</p>
             <p className="text-[#33393C] max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
-              五個月的旅程，3 階段成長節奏：<span className="font-semibold text-[#17464F]">起步打底</span>、
-              <span className="font-semibold text-[#17464F]">出擊試水</span>、
-              <span className="font-semibold text-[#17464F]">累積整合</span>。
+              這不是一套只讓你「聽懂」的課，而是一段五個月、四階段的行動節奏。
               <br className="hidden sm:block" />
-              前期集中於啟發＆踏出行動； 後期注重於持續產出與積累。
+              從<span className="font-semibold text-[#17464F]">藍圖與目標</span>開始，一路走到<span className="font-semibold text-[#17464F]">定位與門面</span>、<span className="font-semibold text-[#17464F]">接觸機會與轉化</span>，最後進入<span className="font-semibold text-[#17464F]">永續</span>。
             </p>
+          </div>
+
+          {/* 四階段時間軸 - Desktop */}
+          <div className="hidden md:grid grid-cols-4 gap-3 mb-10">
+            {fourPhases.map((phase, index) => (
+              <div
+                key={phase.id}
+                className={`relative p-4 rounded-xl border-2 ${phase.color.border} bg-white`}
+              >
+                <div className="flex items-center gap-2 mb-2">
+                  <span className={`w-6 h-6 rounded-full ${phase.color.solid} text-white text-xs font-bold flex items-center justify-center`}>
+                    {index + 1}
+                  </span>
+                  <span className="text-xs text-[#33393C]/60">{phase.months}</span>
+                </div>
+                <h4 className={`font-bold ${phase.color.text} text-sm mb-1`}>{phase.name}</h4>
+                <p className="text-xs text-[#33393C]/70 leading-relaxed">{phase.shortTagline}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* 四階段進度條 - Mobile */}
+          <div className="flex md:hidden justify-center gap-2 mb-6">
+            {fourPhases.map((phase, index) => (
+              <div key={phase.id} className="flex flex-col items-center">
+                <span className={`w-3 h-3 rounded-full ${phase.color.solid}`} />
+                <span className="text-[10px] text-[#33393C]/60 mt-1">{index + 1}</span>
+              </div>
+            ))}
           </div>
 
           {/* Tabs 前導文字 */}
@@ -1077,472 +1104,235 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             ))}
           </div>
 
-          {/* Tab Content: 遠端上班 */}
+          {/* Tab Content: 遠端上班 - 四階段卡片 */}
           {activeMapTab === "遠端上班" && (
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 animate-in fade-in duration-300">
-              {/* 卡片 1 */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="text-xs font-semibold text-[#D4B483] bg-[#D4B483]/10 px-2 py-1 rounded">
-                    上班線 × 三階段成果
-                  </span>
-                </div>
-                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">這幾個月，你會怎麼走？</h3>
-                <div className="space-y-3 text-[#33393C] leading-relaxed text-sm">
-                  <div className="flex gap-2">
-                    <span className="flex-shrink-0 w-5 h-5 bg-[#17464F] text-white rounded-full flex items-center justify-center text-xs font-bold">
-                      1
-                    </span>
-                    <div>
-                      <p>
-                        <span className="font-semibold text-[#17464F]">階段一 起步打底：</span>
-                        對外，看懂遠端職缺市場；對內，釐清個人優勢與目標職缺，整理出之後要寫進履歷與 LinkedIn
-                        的關鍵故事，以及具備加速未來生產力的Ai思維。
-                      </p>
-                      <p className="text-xs text-[#A06E56] mt-1 italic">👉 你會擁有清楚的方向與目標職缺。</p>
+            <div className="animate-in fade-in duration-300">
+              {/* Tab 標題 */}
+              <div className="text-center mb-8">
+                <h3 className="text-lg sm:text-xl font-bold text-[#17464F] mb-2">遠端上班：從看懂機會，到更有機會被錄用，也更有能力走得長久</h3>
+              </div>
+              
+              {/* Desktop: 四張卡片 grid */}
+              <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4">
+                {remoteJobPhaseContent.map((content, index) => {
+                  const phase = fourPhases[index]
+                  return (
+                    <div key={index} className={`bg-white rounded-xl p-5 shadow-sm border-2 ${phase.color.border}`}>
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className={`w-6 h-6 rounded-full ${phase.color.solid} text-white text-xs font-bold flex items-center justify-center`}>
+                          {index + 1}
+                        </span>
+                        <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
+                      </div>
+                      <h4 className="font-bold text-[#17464F] text-sm mb-2 leading-snug">{content.headline}</h4>
+                      <p className="text-xs text-[#33393C]/70 mb-3 leading-relaxed">{content.description}</p>
+                      
+                      <div className="mb-3">
+                        <p className="text-[10px] font-semibold text-[#17464F] mb-1.5">你會得到：</p>
+                        <ul className="space-y-1">
+                          {content.outcomes.map((outcome, i) => (
+                            <li key={i} className="text-[10px] text-[#33393C]/80 flex items-start gap-1.5">
+                              <span className="text-[#D4B483] mt-0.5">•</span>
+                              {outcome}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div className="pt-2 border-t border-[#C9D7D4]/50">
+                        <p className="text-[10px] font-semibold text-[#33393C]/60 mb-1">對應重點：</p>
+                        <p className="text-[10px] text-[#17464F] leading-relaxed">{content.courses.join("、")}</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex gap-2">
-                    <span className="flex-shrink-0 w-5 h-5 bg-[#17464F] text-white rounded-full flex items-center justify-center text-xs font-bold">
-                      2
-                    </span>
-                    <div>
-                      <p>
-                        <span className="font-semibold text-[#17464F]">階段二 出擊試水：</span>
-                        優化 LinkedIn，根據 JD 做出客製化、遠端友善的履歷與求職信，準備一整套面試 STAR 故事庫。
-                      </p>
-                      <p className="text-xs text-[#A06E56] mt-1 italic">👉 你會對下一次遠端求職「敢投、敢面試」。</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-2">
-                    <span className="flex-shrink-0 w-5 h-5 bg-[#17464F] text-white rounded-full flex items-center justify-center text-xs font-bold">
-                      3
-                    </span>
-                    <div>
-                      <p>
-                        <span className="font-semibold text-[#17464F]">階段三 累積整合：</span>
-                        復盤所學，把求職技巧、AI 工作流、財務規劃、整理成可持續精進的職涯成長節奏。
-                      </p>
-                      <p className="text-xs text-[#A06E56] mt-1 italic">👉 你會有一套適合自己的遠端職涯 SOP。</p>
-                    </div>
-                  </div>
-                </div>
+                  )
+                })}
               </div>
 
-              {/* 卡片 2 */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">路線必修課程是什麼？</h3>
-                <div className="space-y-4">
-                  {/* Phase 1 */}
-                  <div className="border-l-3 border-[#D4B483] pl-3">
-                    <span className="inline-block bg-[#D4B483]/20 text-[#A06E56] text-xs font-semibold px-2 py-0.5 rounded mb-1">
-                      階段一 起步打底
-                    </span>
-                    <p className="text-xs text-[#33393C]/70 mb-1">第 1–8 週</p>
-                    <p className="text-xs text-[#33393C] leading-relaxed">
-                      遠距職涯地圖、目標設定、盤點經歷＆改寫 LinkedIn 與履歷骨架、講師團體QA。
-                    </p>
-                  </div>
-                  {/* Phase 2 */}
-                  <div className="border-l-3 border-[#17464F] pl-3">
-                    <span className="inline-block bg-[#17464F]/10 text-[#17464F] text-xs font-semibold px-2 py-0.5 rounded mb-1">
-                      階段二 出擊試水
-                    </span>
-                    <p className="text-xs text-[#33393C]/70 mb-1">第 9–17 週</p>
-                    <p className="text-xs text-[#33393C] leading-relaxed">
-                      看懂面試流程＆客製化履歷與求職信、學習與獵頭打交道的心法＆談薪攻略。
-                    </p>
-                  </div>
-                  {/* Phase 3 */}
-                  <div className="border-l-3 border-[#C9D7D4] pl-3">
-                    <span className="inline-block bg-[#C9D7D4]/30 text-[#17464F] text-xs font-semibold px-2 py-0.5 rounded mb-1">
-                      階段三 累積整合
-                    </span>
-                    <p className="text-xs text-[#33393C]/70 mb-1">第 17–24 週</p>
-                    <p className="text-xs text-[#33393C] leading-relaxed">
-                      復盤成長、調整方向、選修工作坊、期末成果檢視。
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* 共用卡片：共同必修 & 選修 */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="w-8 h-8 bg-[#C9D7D4] rounded-full flex items-center justify-center">
-                    <svg className="w-4 h-4 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                      />
-                    </svg>
-                  </div>
-                  <h3 className="text-lg font-bold text-[#17464F]">共同必修 & 選修</h3>
-                </div>
-                <div className="text-[#33393C] text-xs leading-relaxed space-y-4">
-                  <div className="space-y-2">
-                    <div className="flex flex-nowrap items-center gap-2">
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-[#17464F] text-white text-[10px] sm:text-xs font-semibold rounded-full whitespace-nowrap flex-shrink-0">
-                        <svg className="w-3 h-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                          <path
-                            fillRule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                        共同必修
-                      </span>
-                      <span className="text-[#33393C]/70 text-[10px] sm:text-xs">不管哪一條路線，都會一起上。</span>
-                    </div>
-                    <ul className="space-y-1 pl-4">
-                      <li>• 遠距遊牧概論＆目標設定</li>
-                      <li>• AI ＆ 自動化工作流</li>
-                      <li>• 知識變現、財務規劃、人生溝通SOP</li>
-                      <li>• 每月月底學習交流會</li>
-                    </ul>
-                  </div>
-
-                  <div className="space-y-2">
-                    <div className="flex flex-nowrap items-center gap-2">
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-[#D4B483] text-white text-[10px] sm:text-xs font-semibold rounded-full whitespace-nowrap flex-shrink-0">
-                        <svg className="w-3 h-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                        選修
-                      </span>
-                      <span className="text-[#33393C]/70 text-[10px] sm:text-xs">依據個別需求，額外加速成長：</span>
-                    </div>
-                    <ul className="space-y-1 pl-4">
-                      <li>• 短影音剪輯、素材拍攝技巧</li>
-                      <li>• 網頁製作＆銷售漏斗</li>
-                      <li>• 商業思維、口播價值銷售攻略</li>
-                      <li>• AI vibe coding、n8n 自動化工作流</li>
-                      <li>• Coffee Chat</li>
-                    </ul>
-                    <p className="text-[#A06E56] font-medium pt-1">
-                      這些節奏貫穿三階段，讓你能整合思考、也能主動出擊。
-                    </p>
-                  </div>
-                </div>
+              {/* Mobile: Accordion 折疊式 */}
+              <div className="md:hidden space-y-3">
+                {remoteJobPhaseContent.map((content, index) => {
+                  const phase = fourPhases[index]
+                  const isFirst = index === 0
+                  return (
+                    <details key={index} className={`bg-white rounded-xl border-2 ${phase.color.border} overflow-hidden`} open={isFirst}>
+                      <summary className="p-4 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
+                        <div className="flex items-center gap-3">
+                          <span className={`w-7 h-7 rounded-full ${phase.color.solid} text-white text-xs font-bold flex items-center justify-center flex-shrink-0`}>
+                            {index + 1}
+                          </span>
+                          <div className="flex-1 min-w-0">
+                            <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
+                            <p className="text-sm font-bold text-[#17464F] truncate">{content.headline}</p>
+                          </div>
+                        </div>
+                      </summary>
+                      <div className="px-4 pb-4 pt-2 border-t border-[#C9D7D4]/30">
+                        <p className="text-sm text-[#33393C]/70 mb-3 leading-relaxed">{content.description}</p>
+                        
+                        <div className="mb-3">
+                          <p className="text-xs font-semibold text-[#17464F] mb-2">你會得到：</p>
+                          <ul className="space-y-1.5">
+                            {content.outcomes.map((outcome, i) => (
+                              <li key={i} className="text-xs text-[#33393C]/80 flex items-start gap-2">
+                                <span className="text-[#D4B483] mt-0.5">•</span>
+                                {outcome}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        
+                        <div className="pt-3 border-t border-[#C9D7D4]/50">
+                          <p className="text-xs font-semibold text-[#33393C]/60 mb-1">對應重點：</p>
+                          <p className="text-xs text-[#17464F] leading-relaxed">{content.courses.join("、")}</p>
+                        </div>
+                      </div>
+                    </details>
+                  )
+                })}
               </div>
             </div>
           )}
 
-          {/* Tab Content: 接案 */}
+          {/* Tab Content: 接案 - 四階段卡片 */}
           {activeMapTab === "接案" && (
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 animate-in fade-in duration-300">
-              {/* 卡片 1 */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="text-xs font-semibold text-[#D4B483] bg-[#D4B483]/10 px-2 py-1 rounded">
-                    接案線 × 三階段成果
-                  </span>
-                </div>
-                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">這幾個月，你會走到哪？</h3>
-                <div className="space-y-3 text-[#33393C] leading-relaxed text-sm">
-                  <div className="flex gap-2">
-                    <span className="flex-shrink-0 w-5 h-5 bg-[#17464F] text-white rounded-full flex items-center justify-center text-xs font-bold">
-                      1
-                    </span>
-                    <div>
-                      <p>
-                        <span className="font-semibold text-[#17464F]">階段一 起步打底：</span>
-                        看懂接案市場，釐清 TA、主題與價值主張，整理出第一版服務項目與作品集框架，以及具備加速未來生產力的AI思維。
-                      </p>
-                      <p className="text-xs text-[#A06E56] mt-1 italic">
-                        👉 你會做出第一版「可以拿出來給人看」的作品集雛形。
-                      </p>
+            <div className="animate-in fade-in duration-300">
+              {/* Tab 標題 */}
+              <div className="text-center mb-8">
+                <h3 className="text-lg sm:text-xl font-bold text-[#17464F] mb-2">接案：從想靠自己變現，到做出能持續合作的內容與服務</h3>
+              </div>
+              
+              {/* Desktop: 四張卡片 grid */}
+              <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4">
+                {freelancePhaseContent.map((content, index) => {
+                  const phase = fourPhases[index]
+                  return (
+                    <div key={index} className={`bg-white rounded-xl p-5 shadow-sm border-2 ${phase.color.border}`}>
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className={`w-6 h-6 rounded-full ${phase.color.solid} text-white text-xs font-bold flex items-center justify-center`}>
+                          {index + 1}
+                        </span>
+                        <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
+                      </div>
+                      <h4 className="font-bold text-[#17464F] text-sm mb-2 leading-snug">{content.headline}</h4>
+                      <p className="text-xs text-[#33393C]/70 mb-3 leading-relaxed">{content.description}</p>
+                      
+                      <div className="mb-3">
+                        <p className="text-[10px] font-semibold text-[#17464F] mb-1.5">你會得到：</p>
+                        <ul className="space-y-1">
+                          {content.outcomes.map((outcome, i) => (
+                            <li key={i} className="text-[10px] text-[#33393C]/80 flex items-start gap-1.5">
+                              <span className="text-[#D4B483] mt-0.5">•</span>
+                              {outcome}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div className="pt-2 border-t border-[#C9D7D4]/50">
+                        <p className="text-[10px] font-semibold text-[#33393C]/60 mb-1">對應重點：</p>
+                        <p className="text-[10px] text-[#17464F] leading-relaxed">{content.courses.join("、")}</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex gap-2">
-                    <span className="flex-shrink-0 w-5 h-5 bg-[#17464F] text-white rounded-full flex items-center justify-center text-xs font-bold">
-                      2
-                    </span>
-                    <div>
-                      <p>
-                        <span className="font-semibold text-[#17464F]">階段二 出擊試水：</span>
-                        定位設定、規劃內容製作策略，完成並公開至少 1 支短影音或內容作品，開始對外曝光。
-                      </p>
-                      <p className="text-xs text-[#A06E56] mt-1 italic">
-                        👉 你會完成一輪內容上線，開始建立讀者與潛在客戶。
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex gap-2">
-                    <span className="flex-shrink-0 w-5 h-5 bg-[#17464F] text-white rounded-full flex items-center justify-center text-xs font-bold">
-                      3
-                    </span>
-                    <div>
-                      <p>
-                        <span className="font-semibold text-[#17464F]">階段三 累積整合：</span>
-                        用數據與回饋復盤內容與服務，調整定位，把 AI 工作流、內容節奏與收入目標整理成自己的接案 SOP。
-                      </p>
-                      <p className="text-xs text-[#A06E56] mt-1 italic">
-                        👉 你會有一套自己的接案 / 副業 方向與成長節奏。
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                  )
+                })}
               </div>
 
-              {/* 卡片 2 */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">路線必修課程是什麼？</h3>
-                <div className="space-y-4">
-                  {/* Phase 1 */}
-                  <div className="border-l-3 border-[#D4B483] pl-3">
-                    <span className="inline-block bg-[#D4B483]/20 text-[#A06E56] text-xs font-semibold px-2 py-0.5 rounded mb-1">
-                      階段一 起步打底
-                    </span>
-                    <p className="text-xs text-[#33393C]/70 mb-1">第 1–8 週</p>
-                    <p className="text-xs text-[#33393C] leading-relaxed">
-                      接案變現地圖、目標設定、定位與接案 Offer。
-                    </p>
-                  </div>
-                  {/* Phase 2 */}
-                  <div className="border-l-3 border-[#17464F] pl-3">
-                    <span className="inline-block bg-[#17464F]/10 text-[#17464F] text-xs font-semibold px-2 py-0.5 rounded mb-1">
-                      階段二 出擊試水
-                    </span>
-                    <p className="text-xs text-[#33393C]/70 mb-1">第 9–16 週</p>
-                    <p className="text-xs text-[#33393C] leading-relaxed">
-                      市場價值定位、內容企劃＆框架、短影音流量攻略。
-                    </p>
-                  </div>
-                  {/* Phase 3 */}
-                  <div className="border-l-3 border-[#C9D7D4] pl-3">
-                    <span className="inline-block bg-[#C9D7D4]/30 text-[#17464F] text-xs font-semibold px-2 py-0.5 rounded mb-1">
-                      階段三 累積整合
-                    </span>
-                    <p className="text-xs text-[#33393C]/70 mb-1">第 17–24 週</p>
-                    <p className="text-xs text-[#33393C] leading-relaxed">
-                      復盤內容成效，調整服務與定價，搭配財務與人生 SOP、把這一輪嘗試整理成下一季可複製的內容與接案計畫。
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* 共用卡片：共同必修 & 選修 */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="w-8 h-8 bg-[#C9D7D4] rounded-full flex items-center justify-center">
-                    <svg className="w-4 h-4 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                      />
-                    </svg>
-                  </div>
-                  <h3 className="text-lg font-bold text-[#17464F]">共同必修 & 選修</h3>
-                </div>
-                <div className="text-[#33393C] text-xs leading-relaxed space-y-4">
-                  <div className="space-y-2">
-                    <div className="flex flex-nowrap items-center gap-2">
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-[#17464F] text-white text-[10px] sm:text-xs font-semibold rounded-full whitespace-nowrap flex-shrink-0">
-                        <svg className="w-3 h-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                          <path
-                            fillRule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                        共同必修
-                      </span>
-                      <span className="text-[#33393C]/70 text-[10px] sm:text-xs">不管哪一條路線，都會一起上：</span>
-                    </div>
-                    <ul className="space-y-1 pl-4">
-                      <li>• 遠距遊牧概論＆目標設定</li>
-                      <li>• AI ＆ 自動化工作流</li>
-                      <li>• 知識變現、財務規劃、人生 SOP</li>
-                      <li>• 每月月底學習交流會</li>
-                    </ul>
-                  </div>
-
-                  <div className="space-y-2">
-                    <div className="flex flex-nowrap items-center gap-2">
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-[#D4B483] text-white text-[10px] sm:text-xs font-semibold rounded-full whitespace-nowrap flex-shrink-0">
-                        <svg className="w-3 h-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                        選修
-                      </span>
-                      <span className="text-[#33393C]/70 text-[10px] sm:text-xs">依據個別需求，額外加速成長：</span>
-                    </div>
-                    <ul className="space-y-1 pl-4">
-                      <li>• 短影音剪輯、素材拍攝技巧</li>
-                      <li>• 網頁製作＆銷售漏斗</li>
-                      <li>• 商業思維、口播價值銷售攻略</li>
-                      <li>• AI vibe coding、n8n 自動化工作流</li>
-                      <li>• Coffee Chat</li>
-                    </ul>
-                    <p className="text-[#A06E56] font-medium pt-1">
-                      這些節奏貫穿三階段，讓你能整合思考、也能主動出擊。
-                    </p>
-                  </div>
-                </div>
+              {/* Mobile: Accordion 折疊式 */}
+              <div className="md:hidden space-y-3">
+                {freelancePhaseContent.map((content, index) => {
+                  const phase = fourPhases[index]
+                  const isFirst = index === 0
+                  return (
+                    <details key={index} className={`bg-white rounded-xl border-2 ${phase.color.border} overflow-hidden`} open={isFirst}>
+                      <summary className="p-4 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
+                        <div className="flex items-center gap-3">
+                          <span className={`w-7 h-7 rounded-full ${phase.color.solid} text-white text-xs font-bold flex items-center justify-center flex-shrink-0`}>
+                            {index + 1}
+                          </span>
+                          <div className="flex-1 min-w-0">
+                            <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
+                            <p className="text-sm font-bold text-[#17464F] truncate">{content.headline}</p>
+                          </div>
+                        </div>
+                      </summary>
+                      <div className="px-4 pb-4 pt-2 border-t border-[#C9D7D4]/30">
+                        <p className="text-sm text-[#33393C]/70 mb-3 leading-relaxed">{content.description}</p>
+                        
+                        <div className="mb-3">
+                          <p className="text-xs font-semibold text-[#17464F] mb-2">你會得到：</p>
+                          <ul className="space-y-1.5">
+                            {content.outcomes.map((outcome, i) => (
+                              <li key={i} className="text-xs text-[#33393C]/80 flex items-start gap-2">
+                                <span className="text-[#D4B483] mt-0.5">•</span>
+                                {outcome}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        
+                        <div className="pt-3 border-t border-[#C9D7D4]/50">
+                          <p className="text-xs font-semibold text-[#33393C]/60 mb-1">對應重點：</p>
+                          <p className="text-xs text-[#17464F] leading-relaxed">{content.courses.join("、")}</p>
+                        </div>
+                      </div>
+                    </details>
+                  )
+                })}
               </div>
             </div>
           )}
 
-          {/* Tab Content: 我還不確定 */}
+          {/* Tab Content: 我還不確定 - 簡化版，降低決策焦慮 */}
           {activeMapTab === "我還不確定" && (
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 animate-in fade-in duration-300">
-              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex flex-col">
-                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">先行動起來，讓行動告訴你答案</h3>
-                <div className="text-[#33393C] text-sm leading-relaxed space-y-3 flex-1">
-                  <p className="font-medium text-[#17464F]">很多人加入學院時，其實也不確定：</p>
-                  <p className="pl-3 border-l-2 border-[#D4B483] italic text-[#17464F]">
-                    「我更適合遠端上班？還是接案？」
-                  </p>
-                  <p>
-                    這很正常——因為你缺的是
-                    <span className="font-semibold text-[#17464F]">用行動試過一輪</span>。
-                  </p>
-
-                  {/* Callout 區塊 */}
-                  <div className="bg-[#F5F3ED] border-l-3 border-[#D4B483] rounded-r-lg p-4 my-4">
-                    <p className="text-[#17464F] font-semibold text-sm">
-                      時間才是最貴的資源——別把它花在『想像猶豫』無限比較。
-                    </p>
-                  </div>
-
-                  <div className="space-y-2 pt-2">
-                    <p className="font-medium text-[#17464F] mb-2">學院幫你：</p>
-                    <ul className="space-y-1.5 pl-1">
-                      <li className="flex items-start gap-2">
-                        <span className="text-[#D4B483] mt-0.5">•</span>
-                        <span>更快看見自己更適合哪一種節奏</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-[#D4B483] mt-0.5">•</span>
-                        <span>連結可能用得上的工具、方法與潛在資源</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-[#D4B483] mt-0.5">•</span>
-                        <span>把「想像」變成「有跡可循的方向」</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div className="pt-4 mt-auto border-t border-slate-200">
-                    <p className="text-xs text-[#33393C]/70 italic">先探索，再選擇，通常比一直想更省時間、更踏實。</p>
-                  </div>
-                </div>
+            <div className="animate-in fade-in duration-300 max-w-3xl mx-auto">
+              {/* Tab 標題 */}
+              <div className="text-center mb-8">
+                <h3 className="text-lg sm:text-xl font-bold text-[#17464F] mb-2">{undecidedTabContent.headline}</h3>
               </div>
 
-              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex flex-col">
-                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">先選雙軌，省下你最貴的時間</h3>
-                <div className="text-[#33393C] text-sm leading-relaxed space-y-4 flex-1">
-                  <p>
-                    很多人卡在：「選錯怎麼辦？」、「現在投入會不會太晚？」、「我適合哪一條？」——結果一等再等，時間反而越來越貴。
-                  </p>
+              <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                {/* 常見困惑 */}
+                <div className="text-[#33393C] text-sm leading-relaxed mb-6">
+                  <p className="whitespace-pre-line">{undecidedTabContent.intro}</p>
+                </div>
 
-                  {/* Callout 區塊 */}
-                  <div className="bg-[#F5F3ED] border-l-3 border-[#D4B483] rounded-r-lg p-4">
-                    <p className="text-[#17464F] font-semibold text-sm">
-                      如果時間很貴，最划算的做法就是：找個都能試一遍的環境。
-                    </p>
-                  </div>
+                {/* 決策彈性區塊 */}
+                <div className="bg-[#F5F3ED] rounded-xl p-5 mb-6">
+                  <h4 className="font-bold text-[#17464F] mb-3">{undecidedTabContent.flexibility.headline}</h4>
+                  <ul className="space-y-2">
+                    {undecidedTabContent.flexibility.points.map((point, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-[#33393C]">
+                        <svg className="w-5 h-5 text-[#D4B483] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-                  <div className="space-y-2">
-                    <p className="font-medium text-[#17464F]">雙軌的真正價值：</p>
-                    <ul className="space-y-1.5 pl-1">
-                      <li className="flex items-start gap-2">
-                        <span className="text-[#D4B483] mt-0.5">•</span>
-                        <span>不用把第一個選擇當成賭注</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-[#D4B483] mt-0.5">•</span>
-                        <span>更快找到適合自己的主線</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-[#D4B483] mt-0.5">•</span>
-                        <span>也更容易遇到能幫上忙的人與資源</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div className="pt-4 mt-auto border-t border-slate-200">
-                    <p className="text-xs font-medium text-[#D4B483] flex items-start gap-2">
-                      <svg className="w-4 h-4 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path
-                          fillRule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      <span>如果你正在『兩條都想要、又怕選錯』，雙軌通常是最省時間的解法。</span>
-                    </p>
+                {/* 試上資訊 */}
+                <div className="mb-6">
+                  <h4 className="font-bold text-[#17464F] mb-3">{undecidedTabContent.trialInfo.headline}</h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div className="relative bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-xl p-4 text-white">
+                      <div className="absolute top-2 right-2 bg-[#D4B483] text-[#17464F] text-[10px] font-bold px-2 py-0.5 rounded-full">
+                        Week 2
+                      </div>
+                      <p className="font-semibold text-sm">{undecidedTabContent.trialInfo.week2}</p>
+                    </div>
+                    <div className="relative bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-xl p-4 text-white">
+                      <div className="absolute top-2 right-2 bg-[#D4B483] text-[#17464F] text-[10px] font-bold px-2 py-0.5 rounded-full">
+                        Week 3
+                      </div>
+                      <p className="font-semibold text-sm">{undecidedTabContent.trialInfo.week3}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex flex-col">
-                <h3 className="text-lg lg:text-xl font-bold text-[#17464F] mb-4">選擇彈性與節奏</h3>
-                <div className="text-[#33393C] text-sm leading-relaxed space-y-4 flex-1">
-                  <p>每個人的情況不同——也許你對其中一條路更有感、預算需要彈性配置。</p>
-
-                  {/* Callout 區塊 */}
-                  <div className="bg-[#F5F3ED] border-l-3 border-[#D4B483] rounded-r-lg p-4 my-3">
-                    <p className="text-[#17464F] font-semibold text-sm">
-                      你不需要現在就走到最滿——學院希望你先開始行動，行動才是最重要的。
-                    </p>
-                  </div>
-
-                  <div className="space-y-3">
-                    <p className="font-medium text-[#17464F]">Week 2 & 3 免費試上機會：</p>
-                    <p className="text-xs text-[#33393C]/80">
-                      已經單路線加入的正式學員，會有機會免費試上另一條線的「起步課」，用過來者經驗與實際藍圖，讓你知道自己更被哪條路點燃。
-                    </p>
-
-                    {/* Week blocks */}
-                    <div className="space-y-2">
-                      <div className="relative bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-xl p-3 text-white">
-                        <div className="absolute top-2 right-2 bg-[#D4B483] text-[#17464F] text-[10px] font-bold px-2 py-0.5 rounded-full">
-                          Week 2
-                        </div>
-                        <p className="font-semibold text-xs mb-0.5">接案變現藍圖</p>
-                        <p className="text-[10px] opacity-90">& 目標設定</p>
-                      </div>
-
-                      <div className="relative bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-xl p-3 text-white">
-                        <div className="absolute top-2 right-2 bg-[#D4B483] text-[#17464F] text-[10px] font-bold px-2 py-0.5 rounded-full">
-                          Week 3
-                        </div>
-                        <p className="font-semibold text-xs mb-0.5">遠端自由職涯藍圖</p>
-                        <p className="text-[10px] opacity-90">& 目標設定</p>
-                      </div>
-                    </div>
-
-                    {/* Feature rows - 保留原有3條規則 */}
-                    <div className="space-y-2">
-                      <div className="flex items-start gap-3 p-2.5 bg-[#F5F3ED] rounded-lg">
-                        <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#17464F] flex items-center justify-center mt-0.5">
-                          <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                              fillRule="evenodd"
-                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                        </div>
-                        <div className="flex-1">
-                          <p className="font-semibold text-[#17464F] text-xs mb-0.5">第 1 個月結束前，可換線/加購雙軌 1 次</p>
-                          <p className="text-[10px] text-[#333939]/80">詳細請見問答區，以名額為準</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="pt-3 mt-auto border-t border-slate-200">
-                    <p className="text-xs text-[#33393C]/70 italic">
-                      試過，你會更確信：哪條路最適合成為你接下來幾個月的主線。
-                    </p>
-                  </div>
+                {/* 收尾 */}
+                <div className="pt-4 border-t border-[#C9D7D4]">
+                  <p className="text-center text-[#17464F] font-medium">{undecidedTabContent.closing}</p>
                 </div>
               </div>
             </div>
@@ -1588,25 +1378,32 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 {(() => {
                   const phaseGroups = [
                     {
-                      phase: "階段一 起步打底",
-                      phaseKey: "Phase 1 起步打底",
-                      months: ["5 月", "6 月"],
-                      weeks: [1, 2, 3, 4, 5, 6, 7, 8],
-                      description: "看懂市場、釐清方向、整理素材",
+                      phase: "階段一 藍圖與目標",
+                      phaseKey: "藍圖與目標",
+                      months: ["5 月"],
+                      weeks: [1, 2, 3, 4],
+                      description: "先知道你要往哪裡走",
                     },
                     {
-                      phase: "階段二 出擊試水",
-                      phaseKey: "Phase 2 出擊試水",
-                      months: ["7 月", "8 月"],
-                      weeks: [9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
-                      description: "做出履歷或作品集，實際投遞或發佈",
+                      phase: "階段二 定位與門面",
+                      phaseKey: "定位與門面",
+                      months: ["6 月"],
+                      weeks: [5, 6, 7, 8],
+                      description: "把你整理成別人看得懂的樣子",
                     },
                     {
-                      phase: "階段三 累積整合",
-                      phaseKey: "Phase 3 累積整合",
-                      months: ["9 月"],
-                      weeks: [19, 20, 21, 22, 23],
-                      description: "復盤調整，建立長期可運作的系統",
+                      phase: "階段三 接觸機會與轉化",
+                      phaseKey: "接觸機會與轉化",
+                      months: ["7 月"],
+                      weeks: [9, 10, 11, 12, 13],
+                      description: "開始讓曝光、投遞與合作變成機會",
+                    },
+                    {
+                      phase: "階段四 永續",
+                      phaseKey: "永續",
+                      months: ["8 月", "9 月"],
+                      weeks: [14, 15, 16, 17, 18, 19, 20, 21, 22],
+                      description: "把一次嘗試走成長期節奏",
                     },
                   ]
 
@@ -1960,7 +1757,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             </div>
           </div>
 
-          {/* Block 5: Community Subscription */}
+          {/* Block 5: Community Subscription - HIDDEN */}
+          {/* 
           <div className="mb-8 bg-[#17464F]/5 rounded-2xl p-5 sm:p-8 border border-[#17464F]/10">
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-1">
               <h4 className="font-bold text-[#17464F] text-base sm:text-lg">{'入學自動開通 — 職涯成長社群 Premium 訂閱權益'}</h4>
@@ -2001,6 +1799,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
             <p className="mt-5 pt-3 border-t border-[#17464F]/10 text-xs text-[#33393C]/50 text-center">{'結業後若想持續使用，可再自行續訂 Premium。'}</p>
           </div>
+          */}
 
           {/* CTA */}
           <div className="text-center">
@@ -2023,20 +1822,21 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3">你踏入的遠遠不只是學習課程</h2>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3">是多元體驗的遊牧資源生態系</h2>
-            <p className="text-sm sm:text-base text-[#33393C]/70 mt-2">從線上到線下｜從台灣到國際｜從知識到行動</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-1">你踏入的，不只是這五個月的課程</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3">而是一整個遊牧生態系的入口</h2>
+            <p className="text-sm sm:text-base text-[#33393C]/70 mt-2 max-w-xl mx-auto">從線上到線下｜從台灣到國際｜從知識到行動<br className="hidden sm:block" />讓學習不只停在教室裡，而是延伸到更多真實的人、場域與機會。</p>
           </div>
 
-          {/* Value proposition — compact list */}
+          {/* Value proposition — three extension resources */}
           <div className="max-w-2xl mx-auto mb-10 sm:mb-14">
+            <p className="text-center text-xs sm:text-sm text-[#D4B483] font-medium mb-4">三大延伸資源</p>
             <div className="space-y-4 sm:space-y-5">
               <div className="flex items-baseline gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483] flex-shrink-0 translate-y-[0.35rem]"></span>
                 <p className="text-sm sm:text-base text-[#33393C] leading-relaxed">
                   <span className="font-bold text-[#17464F]">國際鏈結</span>
                   <span className="mx-1.5 text-[#C9D7D4]">|</span>
-                  接軌海外遊牧社群與活動資訊、國際遊牧者／領袖訪談
+                  接軌海外遊牧社群與活動資訊，持續看見國際趨勢、海外案例與遊牧者／領袖訪談。
                 </p>
               </div>
               <div className="flex items-baseline gap-3">
@@ -2044,7 +1844,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <p className="text-sm sm:text-base text-[#33393C] leading-relaxed">
                   <span className="font-bold text-[#17464F]">線下場域</span>
                   <span className="mx-1.5 text-[#C9D7D4]">|</span>
-                  定期小聚、遊牧啟發旅程，與遊牧者、同路人、潛在合作夥伴面對面交流
+                  從定期小聚到遊牧啟發旅程，讓你有機會在真實場域裡認識同路人、潛在合作夥伴與更多生活方式的可能。
                 </p>
               </div>
               <div className="flex items-baseline gap-3">
@@ -2052,11 +1852,14 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <p className="text-sm sm:text-base text-[#33393C] leading-relaxed">
                   <span className="font-bold text-[#17464F]">工作坊</span>
                   <span className="mx-1.5 text-[#C9D7D4]">|</span>
-                  「上課中就做出來」加速行動落地、根據個人需求延伸學習
+                  除了正課之外，還能透過主題工作坊與實作型活動，把知識更快轉成行動與產出。
                 </p>
               </div>
             </div>
           </div>
+
+          {/* Two portals label */}
+          <p className="text-center text-xs sm:text-sm text-[#33393C]/60 mb-4">兩個入口</p>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {/* Card 1: Lifestyle */}
@@ -2083,7 +1886,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         />
                       </div>
                       <div className="min-w-0">
-                        <h3 className="text-white font-bold text-base sm:text-lg leading-tight truncate">{'數位遊牧 Lifestyle 社群'}</h3>
+                        <h3 className="text-white font-bold text-base sm:text-lg leading-tight truncate">{'Lifestyle 社群入口'}</h3>
                         <span className="text-[#D4B483] text-xs sm:text-sm">@digitalnomadstaiwan</span>
                       </div>
                     </div>
@@ -2113,11 +1916,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
                   {/* Content */}
                   <div className="p-4 sm:p-6">
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      <span className="text-xs sm:text-sm text-[#A06E56] bg-[#A06E56]/10 px-2.5 py-1 rounded-full"># 台灣最大數位遊牧社群</span>
-                      <span className="text-xs sm:text-sm text-[#A06E56] bg-[#A06E56]/10 px-2.5 py-1 rounded-full"># 每月遊牧聚會</span>
-                      <span className="text-xs sm:text-sm text-[#A06E56] bg-[#A06E56]/10 px-2.5 py-1 rounded-full"># 遊牧啟發之旅</span>
-                    </div>
+                    <p className="text-sm text-[#33393C]/80 mb-4 leading-relaxed">看見遊牧生活方式、每月聚會與啟發旅程</p>
 
                     {/* Thumbnail Grid */}
                     <div className="grid grid-cols-4 gap-2">
@@ -2167,7 +1966,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         />
                       </div>
                       <div className="min-w-0">
-                        <h3 className="text-white font-bold text-base sm:text-lg leading-tight truncate">{'數位遊牧線上職涯成長社群'}</h3>
+                        <h3 className="text-white font-bold text-base sm:text-lg leading-tight truncate">{'職涯成長入口'}</h3>
                         <span className="text-[#D4B483] text-xs sm:text-sm">@twnomadacademy</span>
                       </div>
                     </div>
@@ -2197,10 +1996,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
                   {/* Content */}
                   <div className="p-4 sm:p-6">
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      <span className="text-xs sm:text-sm text-[#A06E56] bg-[#A06E56]/10 px-2.5 py-1 rounded-full"># 線上線下講座工作坊</span>
-                      <span className="text-xs sm:text-sm text-[#A06E56] bg-[#A06E56]/10 px-2.5 py-1 rounded-full"># 遊牧之聲</span>
-                    </div>
+                    <p className="text-sm text-[#33393C]/80 mb-4 leading-relaxed">追蹤講座、工作坊、訪談與更多職涯成長內容</p>
 
                     {/* Thumbnail Grid */}
                     <div className="grid grid-cols-4 gap-2">
