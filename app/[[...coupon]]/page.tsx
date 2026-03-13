@@ -234,6 +234,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
   const [pricingTimelineModalOpen, setPricingTimelineModalOpen] = useState(false)
   const [faqPriceDiffModalOpen, setFaqPriceDiffModalOpen] = useState(false)
   const [emailPopupOpen, setEmailPopupOpen] = useState(false)
+  const [isInFreeSection, setIsInFreeSection] = useState(false)
 
   // Lock body scroll when email popup is open & load GHL embed script
   useEffect(() => {
@@ -251,6 +252,22 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
     }
     return () => { document.body.style.overflow = "" }
   }, [emailPopupOpen])
+
+  // IntersectionObserver for free lecture section - change sticky bar CTA
+  useEffect(() => {
+    const freeSection = document.getElementById("free-lecture-section")
+    if (!freeSection) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInFreeSection(entry.isIntersecting)
+      },
+      { threshold: 0.3 }
+    )
+
+    observer.observe(freeSection)
+    return () => observer.disconnect()
+  }, [])
 
 
   const isAnyModalOpen =
@@ -2138,7 +2155,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
       </section>
 
       {/* EMAIL SUBSCRIPTION BANNER */}
-      <section className="bg-[#F5F3ED] py-10 sm:py-14">
+      <section id="free-lecture-section" className="bg-[#F5F3ED] py-10 sm:py-14">
         <div className="max-w-2xl mx-auto px-4 text-center">
           <h3 className="text-xl sm:text-2xl font-bold text-[#17464F] mb-3">
             {'還不確定要不要加入？先來免費看一場。'}
@@ -2742,8 +2759,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
         </div>
       )}
 
-      {/* Sticky CTA: 導流到免費講座，滑到 Section 8 後切換為看回放 */}
-      <StickyBottomBar isHidden={isAnyModalOpen} />
+      {/* CHANGE: Pass isAnyModalOpen to hide bottom bar when modals are open */}
+      <StickyBottomBar scrollToPricing={scrollToPricing} isHidden={isAnyModalOpen} isInFreeSection={isInFreeSection} />
       <FloatingSocialButtons />
     </main>
   )
