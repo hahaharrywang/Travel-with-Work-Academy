@@ -122,7 +122,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
     },
     {
       id: 2,
-      title: "社群支持",
+      title: "支持結構",
       icon: (
         <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
@@ -133,11 +133,11 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           />
         </svg>
       ),
-      shortDesc: "線上共學＋閒聊群＋線下小聚，一路上都有人一起問、一起試、一起走，讓你撐過放棄期的結構。",
+      shortDesc: "你不需要靠意志力一個人硬撐，這裡有一整套讓你比較走得下去的支持系統。",
       details: [
-        "不再一個人被影片追進度：大家固定出現在 Skool 線上共學空間，彼此分享卡關與成果、一起前行，讓「學習」變成日常節奏的一部分。",
-        "定期線上同學會，一起打開鏡頭結識戰友。還有線上共學群組、LinkedIn 校友群組、Line 閒聊群，擁有更多不同情境的連結。",
-        "線下聚會＆Nomad 活動：台北、高雄定期遊牧小聚，加上國內外遊牧啟發之旅，讓你真的遇見那些在清邁、峴港、台北之間移動的人，把遠距生活從想像變成現場。",
+        "Skool 共學空間、Line 群、線上同學會、校友 LinkedIn 群與線下小聚，讓你一路上有人可以交流、回報進度、彼此提醒。",
+        "真正難的通常不是開始，而是做幾週之後開始懷疑自己、忙起來就斷掉。",
+        "所以我們把支持設計進節奏裡：固定交流、成果分享、AMA、QA、共創與復盤，不只是讓你比較有陪伴感，而是讓你比較有機會真的走完。",
       ],
       images: [
         {
@@ -745,7 +745,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             <p className="text-[#33393C] max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
               {'不只是學習新知'}
               <br />
-              {'雙軌資源、行動任務節奏、和一群真的在實驗新生活的同伴。'}
+              {'雙軌資源、行動任務節奏，和一套幫你持續走下去的支持結構。'}
             </p>
           </div>
 
@@ -1822,20 +1822,21 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
               <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3">你踏入的遠遠不只是學習課程</h2>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3">是多元體驗的遊牧資源生態系</h2>
-            <p className="text-sm sm:text-base text-[#33393C]/70 mt-2">從線上到線下｜從台灣到國際｜從知識到行動</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-1">你踏入的，不只是這五個月的課程</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3">而是一整個遊牧生態系的入口</h2>
+            <p className="text-sm sm:text-base text-[#33393C]/70 mt-2 max-w-xl mx-auto">從線上到線下｜從台灣到國際｜從知識到行動<br className="hidden sm:block" />讓學習不只停在教室裡，而是延伸到更多真實的人、場域與機會。</p>
           </div>
 
-          {/* Value proposition — compact list */}
+          {/* Value proposition — three extension resources */}
           <div className="max-w-2xl mx-auto mb-10 sm:mb-14">
+            <p className="text-center text-xs sm:text-sm text-[#D4B483] font-medium mb-4">三大延伸資源</p>
             <div className="space-y-4 sm:space-y-5">
               <div className="flex items-baseline gap-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483] flex-shrink-0 translate-y-[0.35rem]"></span>
                 <p className="text-sm sm:text-base text-[#33393C] leading-relaxed">
                   <span className="font-bold text-[#17464F]">國際鏈結</span>
                   <span className="mx-1.5 text-[#C9D7D4]">|</span>
-                  接軌海外遊牧社群與活動資訊、國際遊牧者／領袖訪談
+                  接軌海外遊牧社群與活動資訊，持續看見國際趨勢、海外案例與遊牧者／領袖訪談。
                 </p>
               </div>
               <div className="flex items-baseline gap-3">
@@ -1843,7 +1844,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <p className="text-sm sm:text-base text-[#33393C] leading-relaxed">
                   <span className="font-bold text-[#17464F]">線下場域</span>
                   <span className="mx-1.5 text-[#C9D7D4]">|</span>
-                  定期小聚、遊牧啟發旅程，與遊牧者、同路人、潛在合作夥伴面對面交流
+                  從定期小聚到遊牧啟發旅程，讓你有機會在真實場域裡認識同路人、潛在合作夥伴與更多生活方式的可能。
                 </p>
               </div>
               <div className="flex items-baseline gap-3">
@@ -1851,11 +1852,14 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <p className="text-sm sm:text-base text-[#33393C] leading-relaxed">
                   <span className="font-bold text-[#17464F]">工作坊</span>
                   <span className="mx-1.5 text-[#C9D7D4]">|</span>
-                  「上課中就做出來」加速行動落地、根據個人需求延伸學習
+                  除了正課之外，還能透過主題工作坊與實作型活動，把知識更快轉成行動與產出。
                 </p>
               </div>
             </div>
           </div>
+
+          {/* Two portals label */}
+          <p className="text-center text-xs sm:text-sm text-[#33393C]/60 mb-4">兩個入口</p>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {/* Card 1: Lifestyle */}
@@ -1882,7 +1886,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         />
                       </div>
                       <div className="min-w-0">
-                        <h3 className="text-white font-bold text-base sm:text-lg leading-tight truncate">{'數位遊牧 Lifestyle 社群'}</h3>
+                        <h3 className="text-white font-bold text-base sm:text-lg leading-tight truncate">{'Lifestyle 社群入口'}</h3>
                         <span className="text-[#D4B483] text-xs sm:text-sm">@digitalnomadstaiwan</span>
                       </div>
                     </div>
@@ -1912,11 +1916,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
                   {/* Content */}
                   <div className="p-4 sm:p-6">
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      <span className="text-xs sm:text-sm text-[#A06E56] bg-[#A06E56]/10 px-2.5 py-1 rounded-full"># 台灣最大數位遊牧社群</span>
-                      <span className="text-xs sm:text-sm text-[#A06E56] bg-[#A06E56]/10 px-2.5 py-1 rounded-full"># 每月遊牧聚會</span>
-                      <span className="text-xs sm:text-sm text-[#A06E56] bg-[#A06E56]/10 px-2.5 py-1 rounded-full"># 遊牧啟發之旅</span>
-                    </div>
+                    <p className="text-sm text-[#33393C]/80 mb-4 leading-relaxed">看見遊牧生活方式、每月聚會與啟發旅程</p>
 
                     {/* Thumbnail Grid */}
                     <div className="grid grid-cols-4 gap-2">
@@ -1966,7 +1966,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         />
                       </div>
                       <div className="min-w-0">
-                        <h3 className="text-white font-bold text-base sm:text-lg leading-tight truncate">{'數位遊牧線上職涯成長社群'}</h3>
+                        <h3 className="text-white font-bold text-base sm:text-lg leading-tight truncate">{'職涯成長入口'}</h3>
                         <span className="text-[#D4B483] text-xs sm:text-sm">@twnomadacademy</span>
                       </div>
                     </div>
@@ -1996,10 +1996,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
                   {/* Content */}
                   <div className="p-4 sm:p-6">
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      <span className="text-xs sm:text-sm text-[#A06E56] bg-[#A06E56]/10 px-2.5 py-1 rounded-full"># 線上線下講座工作坊</span>
-                      <span className="text-xs sm:text-sm text-[#A06E56] bg-[#A06E56]/10 px-2.5 py-1 rounded-full"># 遊牧之聲</span>
-                    </div>
+                    <p className="text-sm text-[#33393C]/80 mb-4 leading-relaxed">追蹤講座、工作坊、訪談與更多職涯成長內容</p>
 
                     {/* Thumbnail Grid */}
                     <div className="grid grid-cols-4 gap-2">
