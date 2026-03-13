@@ -2,23 +2,23 @@
 
 export function PainPointsSection() {
   return (
-    <section className="py-16 sm:py-24 bg-[#F5F3ED]">
+    <section className="py-16 sm:py-24 bg-brand-offwhite">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-4 text-balance">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-teal mb-4 text-balance">
             不是你不夠努力，而是一直一個人亂撞
           </h2>
           <div className="flex items-center justify-center gap-2 mt-6">
-            <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-            <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-            <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
+            <span className="w-2 h-2 rounded-full bg-brand-gold"></span>
+            <span className="w-2 h-2 rounded-full bg-brand-gold"></span>
+            <span className="w-2 h-2 rounded-full bg-brand-gold"></span>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
-          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-[#C9D7D4]/50 hover:shadow-md transition-shadow duration-300">
-            <div className="w-12 h-12 bg-[#C9D7D4]/30 rounded-full flex items-center justify-center mb-5">
-              <svg className="w-6 h-6 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-brand-mist/50 hover:shadow-md transition-shadow duration-300">
+            <div className="w-12 h-12 bg-brand-mist/30 rounded-full flex items-center justify-center mb-5">
+              <svg className="w-6 h-6 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -27,8 +27,8 @@ export function PainPointsSection() {
                 />
               </svg>
             </div>
-            <h3 className="text-xl sm:text-2xl font-semibold text-[#17464F] mb-4">方向斷裂</h3>
-            <p className="text-[#33393C] leading-relaxed text-sm sm:text-base">
+            <h3 className="text-xl sm:text-2xl font-semibold text-brand-teal mb-4">方向斷裂</h3>
+            <p className="text-brand-text leading-relaxed text-sm sm:text-base">
               你是不是也想過很多種版本：
               <br />
               有時想去外商、有時想接案當 freelancer，
@@ -39,9 +39,9 @@ export function PainPointsSection() {
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-[#C9D7D4]/50 hover:shadow-md transition-shadow duration-300">
-            <div className="w-12 h-12 bg-[#C9D7D4]/30 rounded-full flex items-center justify-center mb-5">
-              <svg className="w-6 h-6 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-brand-mist/50 hover:shadow-md transition-shadow duration-300">
+            <div className="w-12 h-12 bg-brand-mist/30 rounded-full flex items-center justify-center mb-5">
+              <svg className="w-6 h-6 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -50,8 +50,8 @@ export function PainPointsSection() {
                 />
               </svg>
             </div>
-            <h3 className="text-xl sm:text-2xl font-semibold text-[#17464F] mb-4">方法斷裂</h3>
-            <p className="text-[#33393C] leading-relaxed text-sm sm:text-base">
+            <h3 className="text-xl sm:text-2xl font-semibold text-brand-teal mb-4">方法斷裂</h3>
+            <p className="text-brand-text leading-relaxed text-sm sm:text-base">
               你也不是沒學東西：買課、看影片、存下很多筆記，
               <br />
               真正卡住的是——
@@ -62,9 +62,9 @@ export function PainPointsSection() {
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-[#C9D7D4]/50 hover:shadow-md transition-shadow duration-300">
-            <div className="w-12 h-12 bg-[#C9D7D4]/30 rounded-full flex items-center justify-center mb-5">
-              <svg className="w-6 h-6 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-brand-mist/50 hover:shadow-md transition-shadow duration-300">
+            <div className="w-12 h-12 bg-brand-mist/30 rounded-full flex items-center justify-center mb-5">
+              <svg className="w-6 h-6 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -73,8 +73,8 @@ export function PainPointsSection() {
                 />
               </svg>
             </div>
-            <h3 className="text-xl sm:text-2xl font-semibold text-[#17464F] mb-4">同伴斷裂</h3>
-            <p className="text-[#33393C] leading-relaxed text-sm sm:text-base">
+            <h3 className="text-xl sm:text-2xl font-semibold text-brand-teal mb-4">同伴斷裂</h3>
+            <p className="text-brand-text leading-relaxed text-sm sm:text-base">
               身邊的人大多走很標準的路，
               <br />
               你很難跟他們分享「我其實想過不一樣的生活」。
@@ -87,7 +87,7 @@ export function PainPointsSection() {
         </div>
 
         <div className="text-center">
-          <p className="text-base sm:text-lg text-[#17464F] font-medium leading-relaxed max-w-3xl mx-auto px-4">
+          <p className="text-base sm:text-lg text-brand-teal font-medium leading-relaxed max-w-3xl mx-auto px-4">
             你缺的不是更多資訊，而是一個地方，
             <br className="sm:hidden" />
             讓你在未來五個月裡，有人陪你一起試、一起走、一起修正方向。

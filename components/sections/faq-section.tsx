@@ -65,7 +65,7 @@ const faqData: FAQCategory[] = [
                 href="https://docs.google.com/spreadsheets/d/1UZ4OSG5Wkk_RJKZeUm7gQ2hy3b0ld1BBhXOVJJOxuMw/edit?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#17464F] font-medium underline underline-offset-2 hover:text-[#D4B483] transition-colors"
+                className="text-brand-teal font-medium underline underline-offset-2 hover:text-brand-gold transition-colors"
               >
                 學習行事曆
               </a>
@@ -89,11 +89,11 @@ const faqData: FAQCategory[] = [
         answer: (
           <>
             <p className="mb-3">
-              <strong className="text-[#17464F]">接案線路</strong>
+              <strong className="text-brand-teal">接案線路</strong>
               ：適合想透過內容創作與個人品牌，建立「可變現的影響力」與收入來源的人。重點會放在：定位、內容策略、變現路徑、拿到第一個案子。
             </p>
             <p>
-              <strong className="text-[#17464F]">遠端上班線路</strong>
+              <strong className="text-brand-teal">遠端上班線路</strong>
               ：適合想找到一份可遠距的正職／長期合作的人。重點會放在：履歷與作品呈現、求職策略、遠距職缺管道、面試準備。
             </p>
           </>
@@ -126,12 +126,12 @@ export function FAQSection({ onPriceDiffModalChange }: FAQSectionProps) {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-2 mb-6">
-            <span className="w-2 h-2 rounded-full bg-[#D4B483]" />
-            <span className="w-2 h-2 rounded-full bg-[#17464F]" />
-            <span className="w-2 h-2 rounded-full bg-[#D4B483]" />
+            <span className="w-2 h-2 rounded-full bg-brand-gold" />
+            <span className="w-2 h-2 rounded-full bg-brand-teal" />
+            <span className="w-2 h-2 rounded-full bg-brand-gold" />
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#17464F] mb-4">常見問題</h2>
-          <p className="text-[#33393C]/80 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          <h2 className="text-3xl sm:text-4xl font-bold text-brand-teal mb-4">常見問題</h2>
+          <p className="text-brand-text/80 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
             看到這裡，你可能還有一些問題想問清楚。
             <br className="hidden sm:block" />
             以下整理了大家最常問的幾個問題，如果沒找到答案，歡迎私訊我們。
@@ -141,8 +141,8 @@ export function FAQSection({ onPriceDiffModalChange }: FAQSectionProps) {
         <div className="space-y-8">
           {faqData.map((category, categoryIndex) => (
             <div key={categoryIndex}>
-              <h3 className="text-sm font-semibold text-[#D4B483] uppercase tracking-wider mb-4 flex items-center gap-2">
-                <span className="w-8 h-px bg-[#D4B483]" />
+              <h3 className="text-sm font-semibold text-brand-gold uppercase tracking-wider mb-4 flex items-center gap-2">
+                <span className="w-8 h-px bg-brand-gold" />
                 {category.title}
               </h3>
               <div className="space-y-3">
@@ -152,15 +152,15 @@ export function FAQSection({ onPriceDiffModalChange }: FAQSectionProps) {
                   return (
                     <details
                       key={itemIndex}
-                      className="group bg-white rounded-xl border border-[#C9D7D4] overflow-hidden"
+                      className="group bg-white rounded-xl border border-brand-mist overflow-hidden"
                     >
-                      <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
-                        <span className="font-medium text-[#17464F] text-left pr-4">{item.question}</span>
-                        <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#17464F]/10 flex items-center justify-center text-[#17464F] group-open:rotate-45 transition-transform duration-200">
+                      <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-brand-offwhite/50 transition-colors">
+                        <span className="font-medium text-brand-teal text-left pr-4">{item.question}</span>
+                        <span className="flex-shrink-0 w-6 h-6 rounded-full bg-brand-teal/10 flex items-center justify-center text-brand-teal group-open:rotate-45 transition-transform duration-200">
                           +
                         </span>
                       </summary>
-                      <div className="px-5 pb-5 text-[#33393C]/80 leading-relaxed border-t border-[#C9D7D4]/50 pt-4">
+                      <div className="px-5 pb-5 text-brand-text/80 leading-relaxed border-t border-brand-mist/50 pt-4">
                         {answerContent}
                       </div>
                     </details>
@@ -196,45 +196,45 @@ function SwitchAndUpgradeAnswer({ onModalChange }: UpgradePricingAnswerProps) {
 
       <div className="space-y-4 text-sm mb-5">
         <div>
-          <ul className="text-[#33393C]/80 pl-3.5 space-y-1.5">
+          <ul className="text-brand-text/80 pl-3.5 space-y-1.5">
             <li>• Week 2：接案變現地圖＆目標設定</li>
             <li>• Week 3：遠端上班職涯藍圖＆目標設定</li>
           </ul>
         </div>
 
         <div>
-          <h4 className="font-bold text-[#17464F] mb-1.5 flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]" />第 1 個月結束前可申請 1 次調整
+          <h4 className="font-bold text-brand-teal mb-1.5 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-gold" />第 1 個月結束前可申請 1 次調整
           </h4>
-          <p className="text-[#33393C]/80 pl-3.5">
+          <p className="text-brand-text/80 pl-3.5">
             你可以選擇<strong>換線</strong>（單路線 A → 單路線 B），或<strong>加購升級成雙線並進</strong>（單路線 →
             雙路線）。
           </p>
-          <p className="text-xs text-[#33393C]/60 pl-3.5 mt-2">
+          <p className="text-xs text-brand-text/60 pl-3.5 mt-2">
             ※ 申請截止後，後續路線將鎖定，以確保後續社群學習體驗品質。
           </p>
         </div>
       </div>
 
-      <div className="border-t border-[#C9D7D4] pt-5 mt-5">
-        <h4 className="font-semibold text-[#17464F] mb-3">換線 / 升級費用如何計算？</h4>
-        <p className="mb-4 text-sm text-[#33393C]/80">計算方式：「當初購買的價差 + 手續費 NT$500」</p>
+      <div className="border-t border-brand-mist pt-5 mt-5">
+        <h4 className="font-semibold text-brand-teal mb-3">換線 / 升級費用如何計算？</h4>
+        <p className="mb-4 text-sm text-brand-text/80">計算方式：「當初購買的價差 + 手續費 NT$500」</p>
 
         <div className="space-y-3 text-sm mb-4">
-          <div className="bg-[#F5F3ED] rounded-lg p-3.5">
-            <h5 className="font-semibold text-[#17464F] mb-2">換線（單路線 → 另一單路線）</h5>
-            <p className="text-[#33393C]/80 text-xs mb-2">
+          <div className="bg-brand-offwhite rounded-lg p-3.5">
+            <h5 className="font-semibold text-brand-teal mb-2">換線（單路線 → 另一單路線）</h5>
+            <p className="text-brand-text/80 text-xs mb-2">
               兩條單路線價格相同，所以換線費用 = 0（價差）+ 500（手續費）={" "}
-              <strong className="text-[#17464F]">NT$500</strong>
+              <strong className="text-brand-teal">NT$500</strong>
             </p>
           </div>
 
-          <div className="bg-[#F5F3ED] rounded-lg p-3.5">
-            <h5 className="font-semibold text-[#17464F] mb-2">加購升級（單路線 → 雙路線）</h5>
-            <p className="text-[#33393C]/80 text-xs mb-2">
+          <div className="bg-brand-offwhite rounded-lg p-3.5">
+            <h5 className="font-semibold text-brand-teal mb-2">加購升級（單路線 → 雙路線）</h5>
+            <p className="text-brand-text/80 text-xs mb-2">
               加購費用 = （你入學當時的「雙路線價格 - 單路線價格」）+ 500（手續費）
             </p>
-            <p className="text-xs text-[#33393C]/60 italic">
+            <p className="text-xs text-brand-text/60 italic">
               重點：看你「當初下單入學」落在哪個價格階段，不是你申請加購當天的價格。因為有固定手續費，加購會略高於當期價差——如果你本來就高度可能需要雙線，越早直接選雙線越划算。
             </p>
           </div>
@@ -251,23 +251,23 @@ function SwitchAndUpgradeAnswer({ onModalChange }: UpgradePricingAnswerProps) {
           const ex2Upgrade = ex2Diff + 500
           return (
             <div className="space-y-3 mb-4">
-              <div className="bg-white border border-[#C9D7D4] rounded-lg p-3.5 text-sm">
-                <p className="font-semibold text-[#17464F] mb-1">{'例子 1｜換線（在「'}{ex1Stage.name}{'」入學）'}</p>
-                <p className="text-xs text-[#33393C]/60 mb-2">{'購買時間：'}{formatDateRange(ex1Stage.startAt, ex1Stage.endAt, false)}</p>
-                <p className="text-[#33393C]/80">
+              <div className="bg-white border border-brand-mist rounded-lg p-3.5 text-sm">
+                <p className="font-semibold text-brand-teal mb-1">{'例子 1｜換線（在「'}{ex1Stage.name}{'」入學）'}</p>
+                <p className="text-xs text-brand-text/60 mb-2">{'購買時間：'}{formatDateRange(ex1Stage.startAt, ex1Stage.endAt, false)}</p>
+                <p className="text-brand-text/80">
                   原本選接案線，想換成遠端上班線
                   <br />
-                  {'換線費用 = 0 + 500 = '}<strong className="text-[#17464F]">NT$500</strong>
+                  {'換線費用 = 0 + 500 = '}<strong className="text-brand-teal">NT$500</strong>
                 </p>
               </div>
 
-              <div className="bg-white border border-[#C9D7D4] rounded-lg p-3.5 text-sm">
-                <p className="font-semibold text-[#17464F] mb-1">{'例子 2｜升級雙路線（在「'}{ex2Stage.name}{'」入學）'}</p>
-                <p className="text-xs text-[#33393C]/60 mb-2">{'購買時間：'}{formatDateRange(ex2Stage.startAt, ex2Stage.endAt, false)}</p>
-                <p className="text-[#33393C]/80">
+              <div className="bg-white border border-brand-mist rounded-lg p-3.5 text-sm">
+                <p className="font-semibold text-brand-teal mb-1">{'例子 2｜升級雙路線（在「'}{ex2Stage.name}{'」入學）'}</p>
+                <p className="text-xs text-brand-text/60 mb-2">{'購買時間：'}{formatDateRange(ex2Stage.startAt, ex2Stage.endAt, false)}</p>
+                <p className="text-brand-text/80">
                   {'單路線 '}{formatPrice(ex2Single)}{'／雙路線 '}{formatPrice(ex2Dual)}{' → 價差 '}{formatPrice(ex2Diff)}
                   <br />
-                  {'加購費用 = '}{formatPrice(ex2Diff)}{' + 500 = '}<strong className="text-[#17464F]">NT${formatPrice(ex2Upgrade)}</strong>
+                  {'加購費用 = '}{formatPrice(ex2Diff)}{' + 500 = '}<strong className="text-brand-teal">NT${formatPrice(ex2Upgrade)}</strong>
                 </p>
               </div>
             </div>
@@ -276,7 +276,7 @@ function SwitchAndUpgradeAnswer({ onModalChange }: UpgradePricingAnswerProps) {
 
         <button
           onClick={handleModalOpen}
-          className="mx-auto flex items-center justify-center px-6 py-2.5 bg-[#17464F] text-white rounded-lg hover:bg-[#1a5561] transition-colors text-sm font-medium"
+          className="mx-auto flex items-center justify-center px-6 py-2.5 bg-brand-teal text-white rounded-lg hover:bg-[#1a5561] transition-colors text-sm font-medium"
         >
           查看完整加購價差表
         </button>
@@ -291,34 +291,34 @@ function SwitchAndUpgradeAnswer({ onModalChange }: UpgradePricingAnswerProps) {
             className="bg-white rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto pb-20 md:pb-6"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="sticky top-0 bg-white border-b border-[#C9D7D4] p-6 flex items-center justify-between">
-              <h3 className="text-2xl font-bold text-[#17464F]">加購價差表</h3>
+            <div className="sticky top-0 bg-white border-b border-brand-mist p-6 flex items-center justify-between">
+              <h3 className="text-2xl font-bold text-brand-teal">加購價差表</h3>
               <button
                 onClick={handleModalClose}
-                className="w-8 h-8 rounded-full bg-[#F5F3ED] flex items-center justify-center hover:bg-[#C9D7D4] transition-colors"
+                className="w-8 h-8 rounded-full bg-brand-offwhite flex items-center justify-center hover:bg-brand-mist transition-colors"
               >
                 ✕
               </button>
             </div>
 
             <div className="p-6">
-              <p className="text-sm text-[#33393C]/80 mb-6">
+              <p className="text-sm text-brand-text/80 mb-6">
                 以下為所有價格階段的加購費用，找到你當初購買的時間區間，即可得知你的加購費用。
               </p>
 
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr className="bg-[#F5F3ED]">
-                      <th className="text-left p-3 font-semibold text-[#17464F]">入學付款日區間</th>
-                      <th className="text-left p-3 font-semibold text-[#17464F]">價格階段</th>
-                      <th className="text-right p-3 font-semibold text-[#17464F]">單路線</th>
-                      <th className="text-right p-3 font-semibold text-[#17464F]">雙路線</th>
-                      <th className="text-right p-3 font-semibold text-[#17464F]">價差</th>
-                      <th className="text-right p-3 font-semibold text-[#D4B483]">加購費用</th>
+                    <tr className="bg-brand-offwhite">
+                      <th className="text-left p-3 font-semibold text-brand-teal">入學付款日區間</th>
+                      <th className="text-left p-3 font-semibold text-brand-teal">價格階段</th>
+                      <th className="text-right p-3 font-semibold text-brand-teal">單路線</th>
+                      <th className="text-right p-3 font-semibold text-brand-teal">雙路線</th>
+                      <th className="text-right p-3 font-semibold text-brand-teal">價差</th>
+                      <th className="text-right p-3 font-semibold text-brand-gold">加購費用</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#C9D7D4]/30">
+                  <tbody className="divide-y divide-brand-mist/30">
                     {stages.map((stage, i) => {
                       const isLast = i === stages.length - 1
                       const singlePrice = stage.prices.selfMedia.stagePrice
@@ -326,13 +326,13 @@ function SwitchAndUpgradeAnswer({ onModalChange }: UpgradePricingAnswerProps) {
                       const diff = dualPrice - singlePrice
                       const upgradeFee = diff + 500
                       return (
-                        <tr key={stage.id} className="hover:bg-[#F5F3ED]/50">
-                          <td className="p-3 text-[#33393C]/80">{formatDateRange(stage.startAt, stage.endAt, isLast)}</td>
-                          <td className="p-3 text-[#33393C]">{stage.name}</td>
-                          <td className="p-3 text-right text-[#33393C]">{formatPrice(singlePrice)}</td>
-                          <td className="p-3 text-right text-[#33393C]">{formatPrice(dualPrice)}</td>
-                          <td className="p-3 text-right text-[#33393C]">{formatPrice(diff)}</td>
-                          <td className="p-3 text-right font-semibold text-[#D4B483]">{formatPrice(upgradeFee)}</td>
+                        <tr key={stage.id} className="hover:bg-brand-offwhite/50">
+                          <td className="p-3 text-brand-text/80">{formatDateRange(stage.startAt, stage.endAt, isLast)}</td>
+                          <td className="p-3 text-brand-text">{stage.name}</td>
+                          <td className="p-3 text-right text-brand-text">{formatPrice(singlePrice)}</td>
+                          <td className="p-3 text-right text-brand-text">{formatPrice(dualPrice)}</td>
+                          <td className="p-3 text-right text-brand-text">{formatPrice(diff)}</td>
+                          <td className="p-3 text-right font-semibold text-brand-gold">{formatPrice(upgradeFee)}</td>
                         </tr>
                       )
                     })}
@@ -340,8 +340,8 @@ function SwitchAndUpgradeAnswer({ onModalChange }: UpgradePricingAnswerProps) {
                 </table>
               </div>
 
-              <div className="mt-6 p-4 bg-[#C9D7D4]/20 rounded-lg text-sm text-[#33393C]/80">
-                <p className="font-semibold text-[#17464F] mb-2">💡 溫馨提醒</p>
+              <div className="mt-6 p-4 bg-brand-mist/20 rounded-lg text-sm text-brand-text/80">
+                <p className="font-semibold text-brand-teal mb-2">💡 溫馨提醒</p>
                 <p>加購費用固定為「當時價差 + NT$500 手續費」。如果你高度可能需要雙線，越早直接選擇雙線方案越划算。</p>
               </div>
             </div>

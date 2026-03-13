@@ -42,18 +42,18 @@ export function AnnouncementBar({ scrollToPricing, onEmailSubscribe }: Announcem
   return (
     <>
       {/* Desktop: Full announcement bar */}
-      <div className="hidden md:block sticky top-0 z-50 bg-[#17464F] text-white py-2 px-4">
+      <div className="hidden md:block sticky top-0 z-50 bg-brand-teal text-white py-2 px-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
           {/* Left: Pricing countdown */}
           <div className="flex items-center gap-2 text-sm">
             <span>🔥</span>
-            <span className="text-[#D4B483] font-bold">{currentStageData.name}</span>
-            <span className="text-[#D4B483] font-bold">{currentStageData.discountLabel}</span>
+            <span className="text-brand-gold font-bold">{currentStageData.name}</span>
+            <span className="text-brand-gold font-bold">{currentStageData.discountLabel}</span>
             <span className="mx-1">｜</span>
             {timeLeft.days > 0 || timeLeft.hours > 0 || timeLeft.minutes > 0 || timeLeft.seconds > 0 ? (
               <span>
                 漲價倒數
-                <span className="font-bold text-[#D4B483] ml-1">
+                <span className="font-bold text-brand-gold ml-1">
                   {String(timeLeft.days).padStart(2, "0")} 天 {String(timeLeft.hours).padStart(2, "0")} 時{" "}
                   {String(timeLeft.minutes).padStart(2, "0")} 分 {String(timeLeft.seconds).padStart(2, "0")} 秒
                 </span>
@@ -70,7 +70,7 @@ export function AnnouncementBar({ scrollToPricing, onEmailSubscribe }: Announcem
                 key={item.label}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="text-sm text-white/90 hover:text-[#D4B483] transition-colors whitespace-nowrap"
+                className="text-sm text-white/90 hover:text-brand-gold transition-colors whitespace-nowrap"
               >
                 {item.label}
               </a>
@@ -81,7 +81,7 @@ export function AnnouncementBar({ scrollToPricing, onEmailSubscribe }: Announcem
 
       <div className="md:hidden fixed top-4 right-4 z-50">
         <button
-          className="flex flex-col justify-center items-center w-10 h-10 gap-1.5 bg-[#17464F] rounded-lg shadow-lg"
+          className="flex flex-col justify-center items-center w-10 h-10 gap-1.5 bg-brand-teal rounded-lg shadow-lg"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -112,7 +112,7 @@ export function AnnouncementBar({ scrollToPricing, onEmailSubscribe }: Announcem
 
         {/* Mobile dropdown menu */}
         <div
-          className={`absolute top-12 right-0 w-64 bg-[#17464F] rounded-lg shadow-xl overflow-hidden transition-all duration-300 ease-out ${
+          className={`absolute top-12 right-0 w-64 bg-brand-teal rounded-lg shadow-xl overflow-hidden transition-all duration-300 ease-out ${
             mobileMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
           }`}
         >
@@ -122,7 +122,7 @@ export function AnnouncementBar({ scrollToPricing, onEmailSubscribe }: Announcem
                 key={item.label}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="py-3 px-4 text-white/90 hover:text-[#D4B483] hover:bg-white/5 transition-colors"
+                className="py-3 px-4 text-white/90 hover:text-brand-gold hover:bg-white/5 transition-colors"
               >
                 {item.label}
               </a>
@@ -134,7 +134,7 @@ export function AnnouncementBar({ scrollToPricing, onEmailSubscribe }: Announcem
                 setMobileMenuOpen(false)
                 onEmailSubscribe?.()
               }}
-              className="py-3 px-4 text-left text-white/90 hover:text-[#D4B483] hover:bg-white/5 transition-colors flex items-center gap-2"
+              className="py-3 px-4 text-left text-white/90 hover:text-brand-gold hover:bg-white/5 transition-colors flex items-center gap-2"
             >
               <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
@@ -148,7 +148,7 @@ export function AnnouncementBar({ scrollToPricing, onEmailSubscribe }: Announcem
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
-              className="py-3 px-4 text-left text-white/90 hover:text-[#D4B483] hover:bg-white/5 transition-colors flex items-center gap-2"
+              className="py-3 px-4 text-left text-white/90 hover:text-brand-gold hover:bg-white/5 transition-colors flex items-center gap-2"
             >
               <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
@@ -165,7 +165,7 @@ export function AnnouncementBar({ scrollToPricing, onEmailSubscribe }: Announcem
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-3 py-2.5 text-white/90 hover:text-[#D4B483] hover:bg-white/5 transition-colors rounded-md px-0"
+                className="flex items-center gap-3 py-2.5 text-white/90 hover:text-brand-gold hover:bg-white/5 transition-colors rounded-md px-0"
               >
                 <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#f09433] via-[#e6683c] to-[#bc1888] flex items-center justify-center flex-shrink-0">
                   <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -181,7 +181,7 @@ export function AnnouncementBar({ scrollToPricing, onEmailSubscribe }: Announcem
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-3 py-2.5 text-white/90 hover:text-[#D4B483] hover:bg-white/5 transition-colors rounded-md px-0"
+                className="flex items-center gap-3 py-2.5 text-white/90 hover:text-brand-gold hover:bg-white/5 transition-colors rounded-md px-0"
               >
                 <div className="w-8 h-8 rounded-full bg-[#06C755] flex items-center justify-center flex-shrink-0">
                   <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
