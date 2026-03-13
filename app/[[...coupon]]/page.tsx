@@ -1076,10 +1076,11 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-2 text-balance">學習地圖</h2>
             <p className="text-base sm:text-lg text-[#D4B483] font-medium mb-6">五月開學，每週三晚間八點準時上線。</p>
-            <p className="text-[#33393C] max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
-              這不是一套只讓你「聽懂」的課，而是一段五個月、四階段的行動節奏。
-              <br className="hidden sm:block" />
-              從<span className="font-semibold text-[#17464F]">藍圖與目標</span>開始，一路走到<span className="font-semibold text-[#17464F]">定位與門面</span>、<span className="font-semibold text-[#17464F]">接觸機會與轉化</span>，最後進入<span className="font-semibold text-[#17464F]">永續</span>。
+            <p className="text-[#33393C] max-w-2xl mx-auto leading-relaxed text-sm sm:text-base font-medium">
+              這不是一堆零散課程，而是一套 5 個月、4 階段的行動節奏。
+            </p>
+            <p className="text-[#33393C]/60 max-w-2xl mx-auto leading-relaxed text-xs sm:text-sm mt-2">
+              兩條路各有主線課，也會共用通用能力模組，例如 AI、自媒體、人生使用說明SOP、財務。
             </p>
           </div>
 
