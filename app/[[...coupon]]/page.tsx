@@ -704,24 +704,24 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               </div>
             </div>
 
-            {/* 痛點列表 - 金色豎線 */}
-            <div className="flex flex-col gap-5 mb-8">
+            {/* 痛點列表 - 金色豎線（精簡版） */}
+            <div className="flex flex-col gap-4 mb-8">
               <div className="border-l-2 border-[#D4B483] pl-4">
                 <h3 className="text-base font-bold text-[#D4B483] mb-1">方向斷裂</h3>
                 <p className="text-white/80 leading-relaxed text-sm">
-                  你是不是也想過很多種版本：有時想去外商、有時想接案當 freelancer，但每次看到別人的故事就改變主意，到最後，反而哪一條都沒真的走下去。
+                  想過很多版本，但每條路都沒真的走下去。
                 </p>
               </div>
               <div className="border-l-2 border-[#D4B483] pl-4">
                 <h3 className="text-base font-bold text-[#D4B483] mb-1">方法斷裂</h3>
                 <p className="text-white/80 leading-relaxed text-sm">
-                  {'你也不是沒學東西：買課、看影片、存下很多筆記，真正卡住的是——「那我今天到底要做哪一個小步驟？」所以日子一忙，又回到原本的節奏。'}
+                  {'買課、看影片、存筆記，但不知道今天該做哪一步。'}
                 </p>
               </div>
               <div className="border-l-2 border-[#D4B483] pl-4">
                 <h3 className="text-base font-bold text-[#D4B483] mb-1">同伴斷裂</h3>
                 <p className="text-white/80 leading-relaxed text-sm">
-                  {'身邊的人大多走很標準的路，你很難跟他們分享「我其實想過不一樣的生活」。不知道可以跟誰討論、問誰意見，久了就習慣把這些想法藏在心裡。'}
+                  {'身邊沒人能討論，久了就把想法藏在心裡。'}
                 </p>
               </div>
             </div>
@@ -735,18 +735,21 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     讓你在未來五個月裡，有人陪你一起試、一起走、一起調整方向。
                   </span>
                 </p>
-                <p className="text-sm sm:text-base text-white/70 mt-3 leading-relaxed">
-                  {'一起用結構化的方式，'}
-                  <br />
-                  {'逼你把想法變成能被驗證的行動。'}
-                </p>
 
                 {/* 底部箭頭 */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
-                  <svg className="h-5 w-5 text-[#D4B483]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="mt-4">
+                  <svg className="h-5 w-5 text-[#D4B483] mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </div>
+
+                {/* 小 CTA */}
+                <a
+                  href="#pricing"
+                  className="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full border border-[#D4B483]/50 bg-[#D4B483]/10 text-[#D4B483] text-sm font-medium hover:bg-[#D4B483]/20 transition-colors"
+                >
+                  先看免費講座，快速理解哪條路更適合你
+                </a>
               </div>
             </div>
           </div>
