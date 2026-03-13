@@ -446,13 +446,31 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   </svg>
                   查看免費講座場次
                 </a>
+                <a
+                  href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 border border-white/30 text-white/80 hover:text-[#D4B483] hover:border-[#D4B483]/50 font-medium text-sm sm:text-base px-5 py-2.5 rounded-full transition-colors duration-200"
+                >
+                  <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+                  </svg>
+                  先看學院說明會回放
+                </a>
+              </div>
+
+              {/* 錨點文字 — 往下看學習地圖 */}
+              <div className="pt-4 text-center lg:text-left">
                 <button
                   onClick={() => {
-                    document.getElementById("course-highlights")?.scrollIntoView({ behavior: "smooth" })
+                    document.getElementById("learning-map")?.scrollIntoView({ behavior: "smooth" })
                   }}
-                  className="text-white/70 hover:text-[#D4B483] font-medium text-base transition-colors duration-200"
+                  className="text-white/50 hover:text-white/80 text-sm transition-colors duration-200 flex items-center gap-1 mx-auto lg:mx-0"
                 >
-                  看看這梯次怎麼走 ↓
+                  往下看 5 個月怎麼走
+                  <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
                 </button>
               </div>
 
