@@ -756,12 +756,18 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 onClick={() => toggleFeatureDialog(feature.id)}
                 className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
               >
-                <div className="flex items-start gap-3 mb-4">
+                {/* Header row: icon + title + 了解更多(mobile right) */}
+                <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center flex-shrink-0">
                     {feature.icon}
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-[#17464F] mb-2">{feature.title}</h3>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-xl font-bold text-[#17464F]">{feature.title}</h3>
+                  </div>
+                  {/* Mobile only: 了解更多 in header */}
+                  <div className="flex md:hidden items-center gap-1 text-[#D4B483] font-medium text-sm flex-shrink-0">
+                    了解更多
+                    <ChevronDown className="w-4 h-4" />
                   </div>
                 </div>
 
@@ -777,7 +783,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
                 <p className="text-[#33393C] text-sm leading-relaxed mb-4">{feature.shortDesc}</p>
 
-                <div className="w-full mt-4 flex items-center justify-center gap-2 text-[#D4B483] font-medium text-sm">
+                {/* Desktop only: 了解更多 at bottom */}
+                <div className="hidden md:flex w-full mt-4 items-center justify-center gap-2 text-[#D4B483] font-medium text-sm">
                   了解更多
                   <ChevronDown className="w-4 h-4" />
                 </div>
