@@ -1055,35 +1055,6 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             </p>
           </div>
 
-          {/* 四階段時間軸 - Desktop */}
-          <div className="hidden md:grid grid-cols-4 gap-3 mb-10">
-            {fourPhases.map((phase, index) => (
-              <div
-                key={phase.id}
-                className={`relative p-4 rounded-xl border-2 ${phase.color.border} bg-white`}
-              >
-                <div className="flex items-center gap-2 mb-2">
-                  <span className={`w-6 h-6 rounded-full ${phase.color.solid} text-white text-xs font-bold flex items-center justify-center`}>
-                    {index + 1}
-                  </span>
-                  <span className="text-xs text-[#33393C]/60">{phase.months}</span>
-                </div>
-                <h4 className={`font-bold ${phase.color.text} text-sm mb-1`}>{phase.name}</h4>
-                <p className="text-xs text-[#33393C]/70 leading-relaxed">{phase.shortTagline}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* 四階段進度條 - Mobile */}
-          <div className="flex md:hidden justify-center gap-2 mb-6">
-            {fourPhases.map((phase, index) => (
-              <div key={phase.id} className="flex flex-col items-center">
-                <span className={`w-3 h-3 rounded-full ${phase.color.solid}`} />
-                <span className="text-[10px] text-[#33393C]/60 mt-1">{index + 1}</span>
-              </div>
-            ))}
-          </div>
-
           {/* Tabs 前導文字 */}
           <p className="text-center text-[#33393C]/70 text-sm mb-4">先選一條你現在最想嘗試的路線：</p>
 
