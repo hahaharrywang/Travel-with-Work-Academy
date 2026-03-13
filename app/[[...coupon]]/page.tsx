@@ -1863,29 +1863,29 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
           {/* Value proposition — three extension resources */}
           <div className="max-w-2xl mx-auto mb-10 sm:mb-14">
-            <p className="text-center text-xs sm:text-sm text-[#D4B483] font-medium mb-4">三大延伸資源</p>
-            <div className="space-y-4 sm:space-y-5">
-              <div className="flex items-baseline gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483] flex-shrink-0 translate-y-[0.35rem]"></span>
-                <p className="text-sm sm:text-base text-[#33393C] leading-relaxed">
-                  <span className="font-bold text-[#17464F]">國際鏈結</span>
-                  <span className="mx-1.5 text-[#C9D7D4]">|</span>
+            <p className="text-center text-sm sm:text-base text-[#D4B483] font-semibold tracking-wide mb-6">三大延伸資源</p>
+            <div className="space-y-5 sm:space-y-6">
+              <div className="flex items-start gap-4">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#D4B483] flex-shrink-0 mt-1.5"></span>
+                <p className="text-base sm:text-lg text-[#33393C] leading-relaxed">
+                  <span className="font-bold text-[#17464F] text-base sm:text-lg">國際鏈結</span>
+                  <span className="mx-2 text-[#C9D7D4]">|</span>
                   接軌海外遊牧社群與活動資訊，持續看見國際趨勢、海外案例與遊牧者／領袖訪談。
                 </p>
               </div>
-              <div className="flex items-baseline gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483] flex-shrink-0 translate-y-[0.35rem]"></span>
-                <p className="text-sm sm:text-base text-[#33393C] leading-relaxed">
-                  <span className="font-bold text-[#17464F]">線下場域</span>
-                  <span className="mx-1.5 text-[#C9D7D4]">|</span>
+              <div className="flex items-start gap-4">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#D4B483] flex-shrink-0 mt-1.5"></span>
+                <p className="text-base sm:text-lg text-[#33393C] leading-relaxed">
+                  <span className="font-bold text-[#17464F] text-base sm:text-lg">線下場域</span>
+                  <span className="mx-2 text-[#C9D7D4]">|</span>
                   從定期小聚到遊牧啟發旅程，讓你有機會在真實場域裡認識同路人、潛在合作夥伴與更多生活方式的可能。
                 </p>
               </div>
-              <div className="flex items-baseline gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483] flex-shrink-0 translate-y-[0.35rem]"></span>
-                <p className="text-sm sm:text-base text-[#33393C] leading-relaxed">
-                  <span className="font-bold text-[#17464F]">工作坊</span>
-                  <span className="mx-1.5 text-[#C9D7D4]">|</span>
+              <div className="flex items-start gap-4">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#D4B483] flex-shrink-0 mt-1.5"></span>
+                <p className="text-base sm:text-lg text-[#33393C] leading-relaxed">
+                  <span className="font-bold text-[#17464F] text-base sm:text-lg">工作坊</span>
+                  <span className="mx-2 text-[#C9D7D4]">|</span>
                   除了正課之外，還能透過主題工作坊與實作型活動，把知識更快轉成行動與產出。
                 </p>
               </div>
@@ -1893,7 +1893,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           </div>
 
           {/* Two portals label */}
-          <p className="text-center text-xs sm:text-sm text-[#33393C]/60 mb-4">兩個入口</p>
+          <p className="text-center text-sm sm:text-base text-[#33393C]/80 font-semibold tracking-wide mb-6">兩個入口</p>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {/* Card 1: Lifestyle */}
