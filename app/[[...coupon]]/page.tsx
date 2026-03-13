@@ -1154,8 +1154,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   const phase = fourPhases[index]
                   const isFirst = index === 0
                   return (
-                    <details key={index} className={`bg-white rounded-xl border-2 ${phase.color.border} overflow-hidden`} open={isFirst}>
-                      <summary className="p-4 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
+                    <details key={index} className={`group bg-white rounded-xl border-2 ${phase.color.border} overflow-hidden`} open={isFirst}>
+                      <summary className="p-4 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors list-none [&::-webkit-details-marker]:hidden">
                         <div className="flex items-center gap-3">
                           <span className={`w-7 h-7 rounded-full ${phase.color.solid} text-white text-xs font-bold flex items-center justify-center flex-shrink-0`}>
                             {index + 1}
@@ -1163,6 +1163,14 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                           <div className="flex-1 min-w-0">
                             <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
                             <p className="text-sm font-bold text-[#17464F] truncate">{content.headline}</p>
+                          </div>
+                          {/* 展開/收合提示 */}
+                          <div className="flex items-center gap-1 text-[#33393C]/50 flex-shrink-0">
+                            <span className="text-xs group-open:hidden">展開</span>
+                            <span className="text-xs hidden group-open:inline">收合</span>
+                            <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            </svg>
                           </div>
                         </div>
                       </summary>
@@ -1243,8 +1251,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   const phase = fourPhases[index]
                   const isFirst = index === 0
                   return (
-                    <details key={index} className={`bg-white rounded-xl border-2 ${phase.color.border} overflow-hidden`} open={isFirst}>
-                      <summary className="p-4 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors">
+                    <details key={index} className={`group bg-white rounded-xl border-2 ${phase.color.border} overflow-hidden`} open={isFirst}>
+                      <summary className="p-4 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors list-none [&::-webkit-details-marker]:hidden">
                         <div className="flex items-center gap-3">
                           <span className={`w-7 h-7 rounded-full ${phase.color.solid} text-white text-xs font-bold flex items-center justify-center flex-shrink-0`}>
                             {index + 1}
@@ -1252,6 +1260,14 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                           <div className="flex-1 min-w-0">
                             <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
                             <p className="text-sm font-bold text-[#17464F] truncate">{content.headline}</p>
+                          </div>
+                          {/* 展開/收合提示 */}
+                          <div className="flex items-center gap-1 text-[#33393C]/50 flex-shrink-0">
+                            <span className="text-xs group-open:hidden">展開</span>
+                            <span className="text-xs hidden group-open:inline">收合</span>
+                            <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            </svg>
                           </div>
                         </div>
                       </summary>
