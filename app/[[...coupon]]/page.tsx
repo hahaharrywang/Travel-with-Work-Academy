@@ -413,23 +413,23 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <div className="space-y-3 text-left max-w-xl mx-auto lg:mx-0">
                 <div className="flex items-start gap-3">
                   <Layers className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">雙軌起步：接案 × 遠端上班，可雙修也可單選</p>
+                  <p className="text-white/90">雙軌起步：遠端上班 × 接案，不用一開始就選到死</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <TrendingUp className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">路線清楚：模糊的嚮往 → 5 個月可執行的行動藍圖</p>
+                  <p className="text-white/90">不停薪開始：不必離職，也能先試出自己的下一步</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <FileText className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">成果可展示：履歷、作品集、個人頁面，不只是學過</p>
+                  <p className="text-white/90">五個月有節奏：不是看完很燃，而是真的一步步做出來</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <Users className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">不是一個人：和一群在往自由生活前進的人同行</p>
+                  <p className="text-white/90">成果看得見：履歷、作品集、個人頁面，不再只是想過</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <Globe className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">國際 × 線下遊牧生態系：加入連結台灣與世界的遊牧生態，從每月線下小聚到海內外啟發之旅</p>
+                  <p className="text-white/90">從台灣接到世界：線下小聚、遊牧旅程、國際生態系入口</p>
                 </div>
               </div>
 
