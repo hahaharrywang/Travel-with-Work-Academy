@@ -2139,7 +2139,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               href="#pricing"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#17464F]/30 bg-[#17464F]/5 text-[#17464F] text-sm font-medium hover:bg-[#17464F]/10 transition-colors"
             >
-                  每週日說明會，直接了解生態系有什麼
+                  每週日直播說明會，直接了解生態系資源
             </a>
           </div>
         </div>
