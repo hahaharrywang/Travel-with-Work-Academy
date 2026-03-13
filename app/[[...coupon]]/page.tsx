@@ -1090,9 +1090,10 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   return (
                     <div key={index} className={`bg-white rounded-xl p-5 shadow-sm border-2 ${phase.color.border}`}>
                       <div className="flex items-center gap-2 mb-3">
-                        <span className={`w-6 h-6 rounded-full ${phase.color.solid} text-white text-xs font-bold flex items-center justify-center`}>
+                        <span className={`w-6 h-6 rounded-full ${phase.color.solid} text-white text-xs font-bold flex items-center justify-center flex-shrink-0`}>
                           {index + 1}
                         </span>
+                        <span className="text-xs text-[#33393C]/50">{phase.months}</span>
                         <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
                       </div>
                       <h4 className="font-bold text-[#17464F] text-sm mb-2 leading-snug">{content.headline}</h4>
@@ -1132,7 +1133,10 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                             {index + 1}
                           </span>
                           <div className="flex-1 min-w-0">
-                            <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
+                            <div className="flex items-center gap-1.5">
+                              <span className="text-xs text-[#33393C]/50">{phase.months}</span>
+                              <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
+                            </div>
                             <p className="text-sm font-bold text-[#17464F] truncate">{content.headline}</p>
                           </div>
                           {/* 展開/收合提示 */}
@@ -1187,9 +1191,10 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   return (
                     <div key={index} className={`bg-white rounded-xl p-5 shadow-sm border-2 ${phase.color.border}`}>
                       <div className="flex items-center gap-2 mb-3">
-                        <span className={`w-6 h-6 rounded-full ${phase.color.solid} text-white text-xs font-bold flex items-center justify-center`}>
+                        <span className={`w-6 h-6 rounded-full ${phase.color.solid} text-white text-xs font-bold flex items-center justify-center flex-shrink-0`}>
                           {index + 1}
                         </span>
+                        <span className="text-xs text-[#33393C]/50">{phase.months}</span>
                         <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
                       </div>
                       <h4 className="font-bold text-[#17464F] text-sm mb-2 leading-snug">{content.headline}</h4>
@@ -1229,7 +1234,10 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                             {index + 1}
                           </span>
                           <div className="flex-1 min-w-0">
-                            <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
+                            <div className="flex items-center gap-1.5">
+                              <span className="text-xs text-[#33393C]/50">{phase.months}</span>
+                              <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
+                            </div>
                             <p className="text-sm font-bold text-[#17464F] truncate">{content.headline}</p>
                           </div>
                           {/* 展開/收合提示 */}
