@@ -2742,8 +2742,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
         </div>
       )}
 
-      {/* CHANGE: Pass isAnyModalOpen to hide bottom bar when modals are open */}
-      <StickyBottomBar scrollToPricing={scrollToPricing} isHidden={isAnyModalOpen} />
+      {/* Sticky CTA: 導流到免費講座，滑到 Section 8 後切換為看回放 */}
+      <StickyBottomBar isHidden={isAnyModalOpen} />
       <FloatingSocialButtons />
     </main>
   )
