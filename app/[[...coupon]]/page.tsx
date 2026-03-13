@@ -28,6 +28,9 @@ import { FloatingSocialButtons } from "@/components/floating-social-buttons" // 
 import { PricingSection } from "@/components/sections/pricing-section" // Import PricingSection
 import FAQSection from "@/components/sections/faq-section" // Import FAQSection
 import { SuccessStoriesSection } from "@/components/sections/success-stories-section"
+import { LearningMapSection } from "@/components/sections/learning-map-section"
+import { EcosystemSection } from "@/components/sections/ecosystem-section"
+import { FreeLectureSection } from "@/components/sections/free-lecture-section"
 
 import {
   Dialog,
