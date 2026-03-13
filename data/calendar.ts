@@ -76,7 +76,7 @@ export const remoteJobPhaseContent = [
   },
   {
     phase: "定位與門面",
-    headline: "開始把自己整理成「更容易被看懂」的人",
+    headline: "把價值變成「更容易被看懂」",
     description: "你會重新整理自己的經歷、優勢與故事，並把它們放進 LinkedIn 與對外呈現裡。",
     outcomes: [
       "更清楚的個人定位",
