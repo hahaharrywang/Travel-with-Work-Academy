@@ -2140,9 +2140,14 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
       {/* EMAIL SUBSCRIPTION BANNER */}
       <section className="bg-[#F5F3ED] py-10 sm:py-14">
         <div className="max-w-2xl mx-auto px-4 text-center">
-  <h3 className="text-xl sm:text-2xl font-bold text-[#17464F] mb-6">
-  {'開學前每週免費講座，帶你了解趨勢。'}
-  </h3>
+          <h3 className="text-xl sm:text-2xl font-bold text-[#17464F] mb-3">
+            {'還不確定要不要加入？先來免費看一場。'}
+          </h3>
+          <p className="text-sm sm:text-base text-[#33393C]/70 leading-relaxed mb-6">
+            {'用一場免費講座或一支回放，先幫你看懂：'}
+            <br />
+            {'你適不適合、你比較偏哪條路、以及這 5 個月會怎麼走。'}
+          </p>
           <div className="flex flex-col items-center gap-3">
             <a
               href="https://www.accupass.com/organizer/detail/2509180637491342778166"
