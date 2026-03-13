@@ -1561,7 +1561,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           </div>
 
           {/* Block 1: Growth System (desktop only - merged into Block 2 on mobile) */}
-          <div className="hidden md:block mb-10">
+          <div className="hidden md:block mb-3">
             <h4 className="font-bold text-[#17464F] text-base sm:text-lg mb-4 flex items-center gap-2">
               <span className="w-1.5 h-6 rounded-full bg-[#D4B483]"></span>
               {'一套「把能力變成機會」的成長系統'}
@@ -1605,7 +1605,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
           {/* Block 2: Mobile — 成長系統 + 你會做出什麼成果 合併成一張可收合卡片 */}
           {/* Desktop — 你會做出什麼成果 獨立可收合卡片 */}
-          <details className="group/block2 mb-10 bg-white rounded-2xl border border-[#C9D7D4]/50 shadow-sm overflow-hidden">
+          <details className="group/block2 mb-3 bg-white rounded-2xl border border-[#C9D7D4]/50 shadow-sm overflow-hidden">
             <summary className="flex items-center justify-between p-5 sm:px-8 sm:py-6 cursor-pointer list-none [&::-webkit-details-marker]:hidden hover:bg-[#F5F3ED]/30 transition-colors">
               {/* Mobile: 顯示「成長系統」標題 */}
               <div className="flex md:hidden items-center gap-2 flex-1 min-w-0">
@@ -1718,7 +1718,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           </details>
 
           {/* Block 3: Alumni Status — collapsible */}
-          <details className="group/alumni mb-10 bg-[#F5F3ED]/80 rounded-2xl border border-[#D4B483]/30 shadow-sm overflow-hidden">
+          <details className="group/alumni mb-3 bg-[#F5F3ED]/80 rounded-2xl border border-[#D4B483]/30 shadow-sm overflow-hidden">
             <summary className="flex items-center justify-between p-5 sm:p-8 cursor-pointer list-none [&::-webkit-details-marker]:hidden hover:bg-[#D4B483]/5 transition-colors">
               <div className="flex items-center gap-3 flex-wrap">
                 <h4 className="font-bold text-[#17464F] text-base sm:text-lg">{'校友資格'}</h4>
