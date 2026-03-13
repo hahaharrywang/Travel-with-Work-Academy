@@ -1603,69 +1603,75 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             </div>
           </div>
 
-          {/* Block 2a: Mobile-only — 成長系統 (collapsible) */}
-          <details className="group/mobile-growth md:hidden mb-4 bg-white rounded-2xl border border-[#C9D7D4]/50 shadow-sm overflow-hidden">
-            <summary className="flex items-center justify-between p-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden hover:bg-[#F5F3ED]/50 transition-colors">
-              <h4 className="font-bold text-[#17464F] text-base flex items-center gap-2">
-                <span className="w-1.5 h-6 rounded-full bg-[#D4B483] flex-shrink-0"></span>
-                {'一套「把能力變成機會」的成長系統'}
-              </h4>
-              <div className="flex items-center gap-1 text-[#33393C]/50 flex-shrink-0 ml-2">
-                <span className="text-xs group-open/mobile-growth:hidden">展開</span>
-                <span className="text-xs hidden group-open/mobile-growth:inline">收合</span>
-                <svg className="w-4 h-4 transition-transform group-open/mobile-growth:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
-            </summary>
-            <div className="px-5 pb-5 border-t border-[#C9D7D4]/30">
-              <ul className="space-y-2 mt-4">
-                <li className="flex items-start gap-2">
-                  <span className="text-[#17464F] font-bold text-xs mt-0.5 flex-shrink-0">{'01'}</span>
-                  <div>
-                    <span className="font-semibold text-[#17464F] text-sm">{'當屆完整課程'}</span>
-                    <span className="text-[#33393C]/60 text-xs">{' — 聚焦遠距求職與接案兩條路，從定位到落地流程（直播 / 回放一年）'}</span>
-                  </div>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#17464F] font-bold text-xs mt-0.5 flex-shrink-0">{'02'}</span>
-                  <div>
-                    <span className="font-semibold text-[#17464F] text-sm">{'作業與落地任務'}</span>
-                    <span className="text-[#33393C]/60 text-xs">{' — 每周都要交付，一步步把你推到「可以被採用 / 被下單」的狀態'}</span>
-                  </div>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#17464F] font-bold text-xs mt-0.5 flex-shrink-0">{'03'}</span>
-                  <div>
-                    <span className="font-semibold text-[#17464F] text-sm">{'成長節奏'}</span>
-                    <span className="text-[#33393C]/60 text-xs">{' — 線上同學會 / 團體 QA / DemoDay，互相學習、幫助，彼此督促跟上進度'}</span>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </details>
-
-          {/* Block 2b: 你會做出什麼成果 — collapsible on PC, always open on mobile */}
-          <details className="group/block2 mb-10 bg-white rounded-2xl border border-[#C9D7D4]/50 shadow-sm overflow-hidden" open>
+          {/* Block 2: Mobile — 成長系統 + 你會做出什麼成果 合併成一張可收合卡片 */}
+          {/* Desktop — 你會做出什麼成果 獨立可收合卡片 */}
+          <details className="group/block2 mb-10 bg-white rounded-2xl border border-[#C9D7D4]/50 shadow-sm overflow-hidden">
             <summary className="flex items-center justify-between p-5 sm:px-8 sm:py-6 cursor-pointer list-none [&::-webkit-details-marker]:hidden hover:bg-[#F5F3ED]/30 transition-colors">
-              <div className="flex items-center gap-3 flex-wrap">
-                <h4 className="font-bold text-[#17464F] text-base sm:text-lg">{'你會做出什麼成果'}</h4>
+              {/* Mobile: 顯示「成長系統」標題 */}
+              <div className="flex md:hidden items-center gap-2 flex-1 min-w-0">
+                <span className="w-1.5 h-6 rounded-full bg-[#D4B483] flex-shrink-0"></span>
+                <h4 className="font-bold text-[#17464F] text-base">{'一套「把能力變成機會」的成長系統'}</h4>
+              </div>
+              {/* Desktop: 顯示「你會做出什麼成果」標題 */}
+              <div className="hidden md:flex items-center gap-3 flex-wrap">
+                <h4 className="font-bold text-[#17464F] text-lg">{'你會做出什麼成果'}</h4>
                 <div className="flex gap-1.5">
                   <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#D4B483]/15 text-[#A06E56] font-medium">{'可展示'}</span>
                   <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#D4B483]/15 text-[#A06E56] font-medium">{'可投遞'}</span>
                   <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#D4B483]/15 text-[#A06E56] font-medium">{'可成交'}</span>
                 </div>
               </div>
-              <div className="hidden md:flex items-center gap-1.5 text-[#33393C]/50 flex-shrink-0 ml-3">
-                <span className="text-sm group-open/block2:hidden">展開</span>
-                <span className="text-sm hidden group-open/block2:inline">收合</span>
-                <svg className="w-5 h-5 transition-transform group-open/block2:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {/* 展開/收合按鈕 — 兩端都顯示 */}
+              <div className="flex items-center gap-1.5 text-[#33393C]/50 flex-shrink-0 ml-3">
+                <span className="text-xs sm:text-sm group-open/block2:hidden">展開</span>
+                <span className="text-xs sm:text-sm hidden group-open/block2:inline">收合</span>
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-open/block2:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </div>
             </summary>
+
             <div className="px-5 pb-5 sm:px-8 sm:pb-8 border-t border-[#C9D7D4]/30">
-              <ul className="space-y-4 mt-4">
+              {/* Mobile-only: 成長系統內容 */}
+              <div className="md:hidden mt-4 mb-5">
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#17464F] font-bold text-xs mt-0.5 flex-shrink-0">{'01'}</span>
+                    <div>
+                      <span className="font-semibold text-[#17464F] text-sm">{'當屆完整課程'}</span>
+                      <span className="text-[#33393C]/60 text-xs">{' — 聚焦遠距求職與接案兩條路，從定位到落地流程（直播 / 回放一年）'}</span>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#17464F] font-bold text-xs mt-0.5 flex-shrink-0">{'02'}</span>
+                    <div>
+                      <span className="font-semibold text-[#17464F] text-sm">{'作業與落地任務'}</span>
+                      <span className="text-[#33393C]/60 text-xs">{' — 每周都要交付，一步步把你推到「可以被採用 / 被下單」的狀態'}</span>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#17464F] font-bold text-xs mt-0.5 flex-shrink-0">{'03'}</span>
+                    <div>
+                      <span className="font-semibold text-[#17464F] text-sm">{'成長節奏'}</span>
+                      <span className="text-[#33393C]/60 text-xs">{' — 線上同學會 / 團體 QA / DemoDay，互相學習、幫助，彼此督促跟上進度'}</span>
+                    </div>
+                  </li>
+                </ul>
+                {/* 分隔線 + 「你會做出什麼成果」小標 */}
+                <div className="mt-5 pt-4 border-t border-[#C9D7D4]/40">
+                  <div className="flex items-center gap-2 mb-3">
+                    <h5 className="font-bold text-[#17464F] text-sm">{'你會做出什麼成果'}</h5>
+                    <div className="flex gap-1">
+                      <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-[#D4B483]/15 text-[#A06E56] font-medium">{'可展示'}</span>
+                      <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-[#D4B483]/15 text-[#A06E56] font-medium">{'可投遞'}</span>
+                      <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-[#D4B483]/15 text-[#A06E56] font-medium">{'可成交'}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 共用：你會做出什麼成果的 checklist */}
+              <ul className="space-y-4">
                 <li className="flex items-start gap-2.5">
                   <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
                   <div>
