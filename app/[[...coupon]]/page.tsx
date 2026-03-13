@@ -1960,7 +1960,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             </div>
           </div>
 
-          {/* Block 5: Community Subscription */}
+          {/* Block 5: Community Subscription - HIDDEN */}
+          {/* 
           <div className="mb-8 bg-[#17464F]/5 rounded-2xl p-5 sm:p-8 border border-[#17464F]/10">
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-1">
               <h4 className="font-bold text-[#17464F] text-base sm:text-lg">{'入學自動開通 — 職涯成長社群 Premium 訂閱權益'}</h4>
@@ -2001,6 +2002,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
             <p className="mt-5 pt-3 border-t border-[#17464F]/10 text-xs text-[#33393C]/50 text-center">{'結業後若想持續使用，可再自行續訂 Premium。'}</p>
           </div>
+          */}
 
           {/* CTA */}
           <div className="text-center">
