@@ -1718,6 +1718,35 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   </div>
                 </li>
               </ul>
+
+              {/* 結果畫面層 — 讓讀者看到「自己變成什麼樣的人」 */}
+              <div className="mt-6 p-4 sm:p-5 rounded-xl bg-[#D4B483]/10 border border-[#D4B483]/20">
+                <p className="text-xs sm:text-sm text-[#A06E56] font-medium mb-3 tracking-wide">{'結業後的你'}</p>
+                <ul className="space-y-2.5">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5 flex-shrink-0">{'"'}</span>
+                    <p className="text-sm text-[#33393C] leading-relaxed">
+                      {'你不再只是羨慕別人遠距，而是'}
+                      <span className="font-semibold text-[#17464F]">{'開始有自己的遠距職涯門面'}</span>
+                    </p>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5 flex-shrink-0">{'"'}</span>
+                    <p className="text-sm text-[#33393C] leading-relaxed">
+                      {'你不再只是想接案，而是'}
+                      <span className="font-semibold text-[#17464F]">{'開始有第一版可拿去接觸市場的作品與 offer'}</span>
+                    </p>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5 flex-shrink-0">{'"'}</span>
+                    <p className="text-sm text-[#33393C] leading-relaxed">
+                      {'你不再只是看內容，而是'}
+                      <span className="font-semibold text-[#17464F]">{'開始留下履歷、提案、內容、DemoDay 這些能被看見的痕跡'}</span>
+                    </p>
+                  </li>
+                </ul>
+              </div>
+
               <p className="mt-5 pt-4 border-t border-[#C9D7D4]/50 text-center text-sm font-bold text-[#D4B483]">
                 {'你的目標是「開始更容易拿到遠距工作 / 接案機會」。'}
               </p>
