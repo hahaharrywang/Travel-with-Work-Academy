@@ -2114,6 +2114,17 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               )
             })()}
           </div>
+
+          {/* Section 7 bottom CTA */}
+          <div className="mt-10 text-center border-t border-[#C9D7D4]/40 pt-8">
+            <p className="text-[#33393C]/70 text-sm mb-3">想先更了解這套系統適不適合你？</p>
+            <a
+              href="#pricing"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#17464F]/30 bg-[#17464F]/5 text-[#17464F] text-sm font-medium hover:bg-[#17464F]/10 transition-colors"
+            >
+              先看免費講座／回放，再來決定要不要加入這個生態系
+            </a>
+          </div>
         </div>
       </section>
 
