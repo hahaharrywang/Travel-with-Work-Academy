@@ -407,7 +407,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <p className="text-sm sm:text-base text-[#D4B483] font-medium tracking-wide leading-relaxed">
                 {'給想開始遠端上班、接案，或還在兩者之間猶豫的人。'}
                 <br />
-                {'這是一套 5 個月、可單線也可雙軌的行動系統，幫你在不停薪、不打亂現有生活的前提下，真的開始踏出下一步。'}
+                {'這是一套 5 個月、可單線也可雙軌的行動系統，幫你在不停薪、不打亂原本生活的前提下，真的開始踏出下一步。'}
               </p>
 
               <div className="space-y-3 text-left max-w-xl mx-auto lg:mx-0">
@@ -457,6 +457,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   </svg>
                   先看學院說明會回放
                 </a>
+                <p className="text-white/50 text-xs text-center lg:text-left">
+                  還不確定適不適合？先看免費講座或回放，再決定要不要加入。
+                </p>
               </div>
 
               {/* 錨點文字 — 往下看學習地圖 */}
