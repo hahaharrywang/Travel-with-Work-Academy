@@ -405,9 +405,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               </h1>
 
               <p className="text-sm sm:text-base text-[#D4B483] font-medium tracking-wide leading-relaxed">
-                {'看見可能，踏出行動。這不只是一門課，'}
+                {'給想開始遠端上班、接案，或還在兩者之間猶豫的人。'}
                 <br />
-                {'而是一套要求你，用行動走出 「遠距職涯下一步」 的系統。幫你在不停薪、不影響平常收入的情況下，找到適合自己的遠距路徑。'}
+                {'這是一套 5 個月、可單線也可雙軌的行動系統，幫你在不停薪、不打亂現有生活的前提下，真的開始踏出下一步。'}
               </p>
 
               <div className="space-y-3 text-left max-w-xl mx-auto lg:mx-0">
