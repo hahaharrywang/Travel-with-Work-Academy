@@ -234,6 +234,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
   const [pricingTimelineModalOpen, setPricingTimelineModalOpen] = useState(false)
   const [faqPriceDiffModalOpen, setFaqPriceDiffModalOpen] = useState(false)
   const [emailPopupOpen, setEmailPopupOpen] = useState(false)
+  const [isInFreeSection, setIsInFreeSection] = useState(false)
 
   // Lock body scroll when email popup is open & load GHL embed script
   useEffect(() => {
@@ -251,6 +252,22 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
     }
     return () => { document.body.style.overflow = "" }
   }, [emailPopupOpen])
+
+  // IntersectionObserver for pricing section - change sticky bar CTA
+  useEffect(() => {
+    const pricingSection = document.getElementById("pricing-section")
+    if (!pricingSection) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInFreeSection(entry.isIntersecting)
+      },
+      { threshold: 0.1 }
+    )
+
+    observer.observe(pricingSection)
+    return () => observer.disconnect()
+  }, [])
 
 
   const isAnyModalOpen =
@@ -405,31 +422,31 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               </h1>
 
               <p className="text-sm sm:text-base text-[#D4B483] font-medium tracking-wide leading-relaxed">
-                {'看見可能，踏出行動。這不只是一門課，'}
+                {'給想開始遠端上班、接案，或還在兩者之間猶豫的人。'}
                 <br />
-                {'而是一套要求你，用行動走出 「遠距職涯下一步」 的系統。幫你在不停薪、不影響平常收入的情況下，找到適合自己的遠距路徑。'}
+                {'這是一套 5 個月、可單線也可雙軌的行動系統，幫你在不停薪、不打亂原本生活的前提下，真的開始踏出下一步。'}
               </p>
 
               <div className="space-y-3 text-left max-w-xl mx-auto lg:mx-0">
                 <div className="flex items-start gap-3">
                   <Layers className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">雙軌起步：接案 × 遠端上班，可雙修也可單選</p>
+                  <p className="text-white/90">雙軌起步：遠端上班 × 接案，不用一開始就選到死</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <TrendingUp className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">路線清楚：模糊的嚮往 → 5 個月可執行的行動藍圖</p>
+                  <p className="text-white/90">不停薪開始：不必離職，也能先試出自己的下一步</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <FileText className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">成果可展示：履歷、作品集、個人頁面，不只是學過</p>
+                  <p className="text-white/90">五個月有節奏：不是被啟發而已，是真的一步步做出來</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <Users className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">不是一個人：和一群在往自由生活前進的人同行</p>
+                  <p className="text-white/90">成果看得見：履歷、作品集、個人頁面，不再只是想過</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <Globe className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">國際 × 線下遊牧生態系：加入連結台灣與世界的遊牧生態，從每月線下小聚到海內外啟發之旅</p>
+                  <p className="text-white/90">從台灣接到世界：線下小聚、遊牧旅程、國際生態系入口</p>
                 </div>
               </div>
 
@@ -446,13 +463,34 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   </svg>
                   查看免費講座場次
                 </a>
+                <a
+                  href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 border border-white/30 text-white/80 hover:text-[#D4B483] hover:border-[#D4B483]/50 font-medium text-sm sm:text-base px-5 py-2.5 rounded-full transition-colors duration-200"
+                >
+                  <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+                  </svg>
+                  先看學院說明會回放
+                </a>
+                <p className="text-white/50 text-xs text-center lg:text-left">
+                  還不確定適不適合？先看免費講座或回放，再決定要不要加入。
+                </p>
+              </div>
+
+              {/* 錨點文字 — 往下看學習地圖 */}
+              <div className="pt-4 text-center lg:text-left">
                 <button
                   onClick={() => {
-                    document.getElementById("course-highlights")?.scrollIntoView({ behavior: "smooth" })
+                    document.getElementById("learning-map")?.scrollIntoView({ behavior: "smooth" })
                   }}
-                  className="text-white/70 hover:text-[#D4B483] font-medium text-base transition-colors duration-200"
+                  className="text-white/50 hover:text-white/80 text-sm transition-colors duration-200 flex items-center gap-1 mx-auto lg:mx-0"
                 >
-                  看看這梯次怎麼走 ↓
+                  往下看 5 個月怎麼走
+                  <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
                 </button>
               </div>
 
@@ -686,24 +724,24 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               </div>
             </div>
 
-            {/* 痛點列表 - 金色豎線 */}
-            <div className="flex flex-col gap-5 mb-8">
+            {/* 痛點列表 - 金色豎線（精簡版） */}
+            <div className="flex flex-col gap-4 mb-8">
               <div className="border-l-2 border-[#D4B483] pl-4">
                 <h3 className="text-base font-bold text-[#D4B483] mb-1">方向斷裂</h3>
                 <p className="text-white/80 leading-relaxed text-sm">
-                  你是不是也想過很多種版本：有時想去外商、有時想接案當 freelancer，但每次看到別人的故事就改變主意，到最後，反而哪一條都沒真的走下去。
+                  想過很多版本，但每條路都沒真的走下去。
                 </p>
               </div>
               <div className="border-l-2 border-[#D4B483] pl-4">
                 <h3 className="text-base font-bold text-[#D4B483] mb-1">方法斷裂</h3>
                 <p className="text-white/80 leading-relaxed text-sm">
-                  {'你也不是沒學東西：買課、看影片、存下很多筆記，真正卡住的是——「那我今天到底要做哪一個小步驟？」所以日子一忙，又回到原本的節奏。'}
+                  {'買課、看影片、存筆記，但不知道今天該做哪一步。'}
                 </p>
               </div>
               <div className="border-l-2 border-[#D4B483] pl-4">
                 <h3 className="text-base font-bold text-[#D4B483] mb-1">同伴斷裂</h3>
                 <p className="text-white/80 leading-relaxed text-sm">
-                  {'身邊的人大多走很標準的路，你很難跟他們分享「我其實想過不一樣的生活」。不知道可以跟誰討論、問誰意見，久了就習慣把這些想法藏在心裡。'}
+                  {'身邊沒人能討論，久了就把想法藏在心裡。'}
                 </p>
               </div>
             </div>
@@ -717,17 +755,17 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     讓你在未來五個月裡，有人陪你一起試、一起走、一起調整方向。
                   </span>
                 </p>
-                <p className="text-sm sm:text-base text-white/70 mt-3 leading-relaxed">
-                  {'一起用結構化的方式，'}
-                  <br />
-                  {'逼你把想法變成能被驗證的行動。'}
-                </p>
 
-                {/* 底部箭頭 */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
-                  <svg className="h-5 w-5 text-[#D4B483]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
+                {/* 小 CTA */}
+                <div className="mt-5 border-t border-[#D4B483]/20 pt-5">
+                  <p className="text-white/60 text-sm mb-3">還不確定自己比較適合哪一條？</p>
+                  <a
+                    href="#pricing"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#D4B483]/50 bg-[#D4B483]/10 text-[#D4B483] text-sm font-medium hover:bg-[#D4B483]/20 transition-colors"
+                  >
+                    先看免費講座／說明會回放
+                  </a>
+                  <p className="text-white/40 text-xs mt-3">會比自己反覆想更快看見答案</p>
                 </div>
               </div>
             </div>
@@ -1055,10 +1093,11 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-2 text-balance">學習地圖</h2>
             <p className="text-base sm:text-lg text-[#D4B483] font-medium mb-6">五月開學，每週三晚間八點準時上線。</p>
-            <p className="text-[#33393C] max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
-              這不是一套只讓你「聽懂」的課，而是一段五個月、四階段的行動節奏。
-              <br className="hidden sm:block" />
-              從<span className="font-semibold text-[#17464F]">藍圖與目標</span>開始，一路走到<span className="font-semibold text-[#17464F]">定位與門面</span>、<span className="font-semibold text-[#17464F]">接觸機會與轉化</span>，最後進入<span className="font-semibold text-[#17464F]">永續</span>。
+            <p className="text-[#33393C] max-w-2xl mx-auto leading-relaxed text-sm sm:text-base font-medium">
+              這不是一堆零散課程，而是一套 5 個月、4 階段的行動節奏。
+            </p>
+            <p className="text-[#33393C]/60 max-w-2xl mx-auto leading-relaxed text-xs sm:text-sm mt-2">
+              兩條路各有主線課，也會共用通用能力模組，例如 AI、自媒體、人生使用說明SOP、財務。
             </p>
           </div>
 
@@ -1718,6 +1757,35 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   </div>
                 </li>
               </ul>
+
+              {/* 結果畫面層 — 讓讀者看到「自己變成什麼樣的人」 */}
+              <div className="mt-6 p-4 sm:p-5 rounded-xl bg-[#D4B483]/10 border border-[#D4B483]/20">
+                <p className="text-xs sm:text-sm text-[#A06E56] font-medium mb-3 tracking-wide">{'結業後的你'}</p>
+                <ul className="space-y-2.5">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5 flex-shrink-0">{'"'}</span>
+                    <p className="text-sm text-[#33393C] leading-relaxed">
+                      {'你不再只是羨慕別人遠距，而是'}
+                      <span className="font-semibold text-[#17464F]">{'開始有自己的遠距職涯門面'}</span>
+                    </p>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5 flex-shrink-0">{'"'}</span>
+                    <p className="text-sm text-[#33393C] leading-relaxed">
+                      {'你不再只是想接案，而是'}
+                      <span className="font-semibold text-[#17464F]">{'開始有第一版可拿去接觸市場的作品與 offer'}</span>
+                    </p>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#D4B483] mt-0.5 flex-shrink-0">{'"'}</span>
+                    <p className="text-sm text-[#33393C] leading-relaxed">
+                      {'你不再只是看內容，而是'}
+                      <span className="font-semibold text-[#17464F]">{'開始留下履歷、提案、內容、DemoDay 這些能被看見的痕跡'}</span>
+                    </p>
+                  </li>
+                </ul>
+              </div>
+
               <p className="mt-5 pt-4 border-t border-[#C9D7D4]/50 text-center text-sm font-bold text-[#D4B483]">
                 {'你的目標是「開始更容易拿到遠距工作 / 接案機會」。'}
               </p>
@@ -2063,6 +2131,17 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               )
             })()}
           </div>
+
+          {/* Section 7 bottom CTA */}
+          <div className="mt-10 text-center border-t border-[#C9D7D4]/40 pt-8">
+            <p className="text-[#33393C]/70 text-sm mb-3">想先更了解這套系統適不適合你？</p>
+            <a
+              href="#pricing"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#17464F]/30 bg-[#17464F]/5 text-[#17464F] text-sm font-medium hover:bg-[#17464F]/10 transition-colors"
+            >
+                  每週日直播說明會，直接了解生態系資源
+            </a>
+          </div>
         </div>
       </section>
 
@@ -2076,11 +2155,16 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
       </section>
 
       {/* EMAIL SUBSCRIPTION BANNER */}
-      <section className="bg-[#F5F3ED] py-10 sm:py-14">
+      <section id="free-lecture-section" className="bg-[#F5F3ED] py-10 sm:py-14">
         <div className="max-w-2xl mx-auto px-4 text-center">
-  <h3 className="text-xl sm:text-2xl font-bold text-[#17464F] mb-6">
-  {'開學前每週免費講座，帶你了解趨勢。'}
-  </h3>
+          <h3 className="text-xl sm:text-2xl font-bold text-[#17464F] mb-3">
+            {'還不確定要不要加入？先來免費看一場。'}
+          </h3>
+          <p className="text-sm sm:text-base text-[#33393C]/70 leading-relaxed mb-6">
+            {'用一場免費講座或一支回放，先幫你看懂：'}
+            <br />
+            {'你適不適合、你比較偏哪條路、以及這 5 個月會怎麼走。'}
+          </p>
           <div className="flex flex-col items-center gap-3">
             <a
               href="https://www.accupass.com/organizer/detail/2509180637491342778166"
@@ -2676,7 +2760,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
       )}
 
       {/* CHANGE: Pass isAnyModalOpen to hide bottom bar when modals are open */}
-      <StickyBottomBar scrollToPricing={scrollToPricing} isHidden={isAnyModalOpen} />
+      <StickyBottomBar scrollToPricing={scrollToPricing} isHidden={isAnyModalOpen} isInFreeSection={isInFreeSection} />
       <FloatingSocialButtons />
     </main>
   )

@@ -11,14 +11,18 @@ const planConfig: Record<PlanId, { name: string; checkoutId: string }> = {
 interface StickyBottomBarProps {
   scrollToPricing: () => void
   isHidden?: boolean
+  isInFreeSection?: boolean
 }
 
-export function StickyBottomBar({ scrollToPricing, isHidden = false }: StickyBottomBarProps) {
+export function StickyBottomBar({ scrollToPricing, isHidden = false, isInFreeSection = false }: StickyBottomBarProps) {
   const { currentStageData, timeLeft, lowestPrice, selectedPlanId, getCheckoutURLWithTracking } = usePricing()
 
   if (!currentStageData) return null
 
   if (isHidden) return null
+
+  // 說明會回放 URL
+  const replayUrl = "https://www.skool.com/twwgroup-3033/classroom/a5319d94?md=bca9b69c2a5b40869e2fe6254aa9fa13"
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white border-t border-[#C9D7D4] shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
@@ -44,12 +48,26 @@ export function StickyBottomBar({ scrollToPricing, isHidden = false }: StickyBot
                 <span className="font-bold text-[#17464F]">NT$ {lowestPrice ? formatPrice(lowestPrice) : "--"}</span> 起
               </span>
             </div>
-            <button
-              onClick={scrollToPricing}
-              className="flex-shrink-0 bg-[#17464F] text-white px-5 py-3 rounded-full text-sm font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-md"
-            >
-              查看方案
-            </button>
+            {isInFreeSection ? (
+              <a
+                href={replayUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-shrink-0 inline-flex items-center gap-2 bg-[#17464F] text-white px-5 py-3 rounded-full text-sm font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-md"
+              >
+                <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                </svg>
+                看說明會回放
+              </a>
+            ) : (
+              <button
+                onClick={scrollToPricing}
+                className="flex-shrink-0 bg-[#17464F] text-white px-5 py-3 rounded-full text-sm font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-md"
+              >
+                查看方案
+              </button>
+            )}
           </div>
         </div>
       ) : (
