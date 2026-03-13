@@ -739,20 +739,17 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   </span>
                 </p>
 
-                {/* 底部箭頭 */}
-                <div className="mt-4">
-                  <svg className="h-5 w-5 text-[#D4B483] mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </div>
-
                 {/* 小 CTA */}
-                <a
-                  href="#pricing"
-                  className="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-full border border-[#D4B483]/50 bg-[#D4B483]/10 text-[#D4B483] text-sm font-medium hover:bg-[#D4B483]/20 transition-colors"
-                >
-                  先看免費講座，快速理解哪條路更適合你
-                </a>
+                <div className="mt-5 border-t border-[#D4B483]/20 pt-5">
+                  <p className="text-white/60 text-sm mb-3">還不確定自己比較適合哪一條？</p>
+                  <a
+                    href="#pricing"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#D4B483]/50 bg-[#D4B483]/10 text-[#D4B483] text-sm font-medium hover:bg-[#D4B483]/20 transition-colors"
+                  >
+                    先看免費講座／說明會回放
+                  </a>
+                  <p className="text-white/40 text-xs mt-3">會比自己反覆想更快看見答案</p>
+                </div>
               </div>
             </div>
           </div>
