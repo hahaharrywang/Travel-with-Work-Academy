@@ -60,7 +60,16 @@ const faqData: FAQCategory[] = [
               這是一套五個月、四階段的行動節奏。前段會先幫你看清方向、建立門面；中段開始接觸機會與轉化；後段則更重視復盤、永續、共創與成果發表。
             </p>
             <p>
-              每週主課約 120 分鐘，搭配作業與社群節奏，整體設計是讓有正職的人也跟得上。詳細請見學習行事曆。
+              每週主課約 120 分鐘，搭配作業與社群節奏，整體設計是讓有正職的人也跟得上。詳細請見{" "}
+              <a
+                href="https://docs.google.com/spreadsheets/d/1UZ4OSG5Wkk_RJKZeUm7gQ2hy3b0ld1BBhXOVJJOxuMw/edit?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#17464F] font-medium underline underline-offset-2 hover:text-[#D4B483] transition-colors"
+              >
+                學習行事曆
+              </a>
+              。
             </p>
           </>
         ),
@@ -198,23 +207,19 @@ function SwitchAndUpgradeAnswer({ onModalChange }: UpgradePricingAnswerProps) {
 
   return (
     <>
-      <p className="mb-4">可以。為了讓你真的選到適合自己的路，我們在第一個月提供了「探索 + 重新決策」彈性：</p>
+      <p className="mb-4">可以。第一個月的 2、3 週會有試上另一條線起步課的機會：</p>
 
       <div className="space-y-4 text-sm mb-5">
         <div>
-          <h4 className="font-bold text-[#17464F] mb-1.5 flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]" />第 3、4 週會有試上別路課程的機會
-          </h4>
           <ul className="text-[#33393C]/80 pl-3.5 space-y-1.5">
-            <li>• 第 2 週課程：「接案變現地圖 & 目標設定」</li>
-            <li>• 第 4 週課程：「遠端自由職涯藍圖 & 目標設定」</li>
+            <li>• Week 2：接案變現地圖＆目標設定</li>
+            <li>• Week 3：遠端上班職涯藍圖＆目標設定</li>
           </ul>
-          <p className="text-xs text-[#33393C]/60 pl-3.5 mt-2">（單路線學員會有機會試上另一條線的起步課，再做選擇）</p>
         </div>
 
         <div>
           <h4 className="font-bold text-[#17464F] mb-1.5 flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]" />第 4 週截止前可申請 1 次調整
+            <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]" />第 1 個月結束前可申請 1 次調整
           </h4>
           <p className="text-[#33393C]/80 pl-3.5">
             你可以選擇<strong>換線</strong>（單路線 A → 單路線 B），或<strong>加購升級成雙線並進</strong>（單路線 →

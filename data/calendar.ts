@@ -48,7 +48,7 @@ export const fourPhases = [
     shortTagline: "開始讓曝光、投遞與合作變成機會",
     description: "開始讓機會真的發生。不管是投遞、曝光、內容、獲客、面試還是成交，這一階段會讓你開始對外出擊。",
     color: { bg: "bg-[#A06E56]/20", text: "text-[#A06E56]", border: "border-[#A06E56]", solid: "bg-[#A06E56]" },
-    months: "7–8 月",
+    months: "7 月",
   },
   {
     id: 4,
@@ -57,6 +57,7 @@ export const fourPhases = [
     description: "把一次嘗試，變成能走下去的節奏。不是短暫熱血，而是學會留任、合作、溝通、財務與長期累積。",
     color: { bg: "bg-[#C9D7D4]/30", text: "text-[#17464F]", border: "border-[#C9D7D4]", solid: "bg-[#C9D7D4]" },
     months: "8–9 月",
+
   },
 ]
 
