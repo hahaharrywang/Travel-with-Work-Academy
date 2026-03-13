@@ -253,19 +253,19 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
     return () => { document.body.style.overflow = "" }
   }, [emailPopupOpen])
 
-  // IntersectionObserver for free lecture section - change sticky bar CTA
+  // IntersectionObserver for pricing section - change sticky bar CTA
   useEffect(() => {
-    const freeSection = document.getElementById("free-lecture-section")
-    if (!freeSection) return
+    const pricingSection = document.getElementById("pricing-section")
+    if (!pricingSection) return
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsInFreeSection(entry.isIntersecting)
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     )
 
-    observer.observe(freeSection)
+    observer.observe(pricingSection)
     return () => observer.disconnect()
   }, [])
 
@@ -2139,7 +2139,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               href="#pricing"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#17464F]/30 bg-[#17464F]/5 text-[#17464F] text-sm font-medium hover:bg-[#17464F]/10 transition-colors"
             >
-              先看免費講座／回放，再來決定要不要加入這個生態系
+                  每週日說明會，直接了解生態系有什麼
             </a>
           </div>
         </div>
