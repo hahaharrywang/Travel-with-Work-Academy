@@ -251,55 +251,34 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           </div>
         </div>
 
-        {/* Header with Logo and Desktop Marquee */}
-        <div className="absolute top-0 left-0 right-0 z-30 py-0 px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-4 lg:gap-8">
-            <div className="relative flex-shrink-0">
-              <Image
-                src="/images/academy-logo.png"
-                alt="遠距遊牧學院 Travel with Work Academy"
-                width={200}
-                height={105}
-                className="h-auto w-[180px] sm:w-[240px] lg:w-[280px] brightness-0 invert"
-                priority
-              />
-              {/* Airplane trajectory dotted line - mobile only */}
-              <svg
-                className="absolute -bottom-20 left-4 w-16 h-24 text-white/40 lg:hidden"
-                viewBox="0 0 60 100"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeDasharray="4 4"
-              >
-                <path d="M30 0 Q 10 30, 20 50 Q 30 70, 15 100" />
-              </svg>
-            </div>
-            {/* Desktop Marquee - next to logo */}
-            <div className="hidden lg:block overflow-hidden rounded-full bg-white/10 backdrop-blur-sm py-2 px-1 flex-1 max-w-lg">
-              <div className="animate-marquee whitespace-nowrap flex items-center gap-10">
-                <span className="text-sm font-medium text-white flex items-center gap-2">
-                  <span className="text-brand-gold font-bold">2025 第一屆</span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-brand-gold/70" />
-                  已累積 300+ 學員
-                  <span className="w-1.5 h-1.5 rounded-full bg-brand-gold/70" />
-                  1,500+ 線下社群參與
-                </span>
-                <span className="text-sm font-medium text-white flex items-center gap-2">
-                  <span className="text-brand-gold font-bold">2025 第一屆</span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-brand-gold/70" />
-                  已累積 300+ 學員
-                  <span className="w-1.5 h-1.5 rounded-full bg-brand-gold/70" />
-                  1,500+ 線下社群參與
-                </span>
-              </div>
-            </div>
+        {/* Header with Logo only */}
+        <div className="absolute top-0 left-0 z-30 py-0 px-4 sm:px-6 lg:px-8">
+          <div className="relative">
+            <Image
+              src="/images/academy-logo.png"
+              alt="遠距遊牧學院 Travel with Work Academy"
+              width={200}
+              height={105}
+              className="h-auto w-[180px] sm:w-[240px] lg:w-[280px] brightness-0 invert"
+              priority
+            />
+            {/* Airplane trajectory dotted line - mobile only */}
+            <svg
+              className="absolute -bottom-20 left-4 w-16 h-24 text-white/40 lg:hidden"
+              viewBox="0 0 60 100"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeDasharray="4 4"
+            >
+              <path d="M30 0 Q 10 30, 20 50 Q 30 70, 15 100" />
+            </svg>
           </div>
         </div>
 
-        {/* Mobile Marquee - full width, edge-to-edge */}
-        <div className="absolute top-[100px] sm:top-[120px] left-0 right-0 z-30 lg:hidden">
-          <div className="overflow-hidden bg-white/10 backdrop-blur-sm py-2.5">
+        {/* Social Proof Marquee - Full width, below announcement bar */}
+        <div className="absolute top-[100px] sm:top-[120px] lg:top-[85px] left-0 right-0 z-30">
+          <div className="overflow-hidden bg-white/10 backdrop-blur-sm py-2.5 lg:py-2">
             <div className="animate-marquee whitespace-nowrap flex items-center gap-10">
               <span className="text-sm font-medium text-white flex items-center gap-2">
                 <span className="text-brand-gold font-bold">2025 第一屆</span>
@@ -315,11 +294,18 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-gold/70" />
                 1,500+ 線下社群參與
               </span>
+              <span className="text-sm font-medium text-white flex items-center gap-2">
+                <span className="text-brand-gold font-bold">2025 第一屆</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-gold/70" />
+                已累積 300+ 學員
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-gold/70" />
+                1,500+ 線下社群參與
+              </span>
             </div>
           </div>
         </div>
 
-        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 sm:pt-40 lg:pt-28 pb-16 lg:pb-24">
+        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 sm:pt-40 lg:pt-32 pb-16 lg:pb-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left content */}
             <div className="space-y-6 text-center lg:text-left">
@@ -416,22 +402,22 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             </div>
 
             <div className="relative hidden lg:block">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <div className="aspect-[4/5] bg-brand-mist relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl max-w-md ml-auto">
+                <div className="aspect-[4/3] bg-brand-mist relative">
                   <Image
                     src="/images/hero-background.png"
                     alt="遠距工作場景 - 共同工作空間"
                     fill
                     className="object-cover"
                     priority
-                    sizes="50vw"
+                    sizes="40vw"
                   />
                 </div>
               </div>
-              <div className="absolute -top-6 -right-6 w-full h-full border-2 border-[#D4AF37]/50 rounded-2xl pointer-events-none" />
-              <div className="absolute -top-10 -right-10 w-full h-full border border-[#D4AF37]/25 rounded-2xl pointer-events-none" />
-              <div className="absolute -bottom-4 -left-4 w-28 h-28 border-2 border-[#D4AF37]/40 rounded-full pointer-events-none" />
-              <div className="absolute -bottom-8 -left-8 w-36 h-36 border border-[#D4AF37]/20 rounded-full pointer-events-none" />
+              <div className="absolute -top-4 -right-4 w-full h-full border-2 border-[#D4AF37]/50 rounded-2xl pointer-events-none max-w-md ml-auto" />
+              <div className="absolute -top-8 -right-8 w-full h-full border border-[#D4AF37]/25 rounded-2xl pointer-events-none max-w-md ml-auto" />
+              <div className="absolute bottom-0 left-8 w-20 h-20 border-2 border-[#D4AF37]/40 rounded-full pointer-events-none" />
+              <div className="absolute -bottom-4 left-4 w-28 h-28 border border-[#D4AF37]/20 rounded-full pointer-events-none" />
             </div>
           </div>
         </div>
