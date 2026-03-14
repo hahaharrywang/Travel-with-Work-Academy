@@ -279,6 +279,26 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left content */}
             <div className="space-y-6 text-center lg:text-left">
+              {/* Social Proof Marquee */}
+              <div className="overflow-hidden rounded-full bg-white/10 backdrop-blur-sm py-2 px-1 max-w-md mx-auto lg:mx-0">
+                <div className="animate-marquee whitespace-nowrap flex items-center gap-8">
+                  <span className="text-xs sm:text-sm text-white/90 flex items-center gap-2">
+                    <span className="text-brand-gold">2025 第一屆</span>
+                    <span className="w-1 h-1 rounded-full bg-brand-gold/60" />
+                    已累積 300+ 學員
+                    <span className="w-1 h-1 rounded-full bg-brand-gold/60" />
+                    1,500+ 線下社群參與
+                  </span>
+                  <span className="text-xs sm:text-sm text-white/90 flex items-center gap-2">
+                    <span className="text-brand-gold">2025 第一屆</span>
+                    <span className="w-1 h-1 rounded-full bg-brand-gold/60" />
+                    已累積 300+ 學員
+                    <span className="w-1 h-1 rounded-full bg-brand-gold/60" />
+                    1,500+ 線下社群參與
+                  </span>
+                </div>
+              </div>
+
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-wide">
                 今年五月，
                 <br />
