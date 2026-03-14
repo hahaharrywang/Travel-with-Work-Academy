@@ -12,6 +12,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        /* Nomad Groups CIS Brand Colors - Direct Access */
+        brand: {
+          teal: 'hsl(var(--brand-teal))',
+          gold: 'hsl(var(--brand-gold))',
+          offwhite: 'hsl(var(--brand-offwhite))',
+          mist: 'hsl(var(--brand-mist))',
+          text: 'hsl(var(--brand-text))',
+          clay: 'hsl(var(--brand-clay))',
+        },
+        /* Semantic Tokens */
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {

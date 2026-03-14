@@ -65,36 +65,36 @@ type Story = (typeof successStories)[number]
 function StoryCard({ story, className = "", expanded, onToggle }: { story: Story; className?: string; expanded: boolean; onToggle: () => void }) {
 
   return (
-    <Card className={`bg-white rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-[#C9D7D4] flex flex-col ${className}`}>
+    <Card className={`bg-white rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-brand-mist flex flex-col ${className}`}>
       {/* Title */}
-      <h3 className="text-lg font-bold text-[#17464F] mb-1">{story.title}</h3>
+      <h3 className="text-lg font-bold text-brand-teal mb-1">{story.title}</h3>
 
       {/* Identity */}
-      <p className="text-sm font-medium text-[#A06E56] mb-2">{story.identity}</p>
+      <p className="text-sm font-medium text-brand-clay mb-2">{story.identity}</p>
 
       {/* Quote - always visible */}
       <div className="mb-3">
-        <div className="bg-[#F5F3ED] rounded-lg p-3 relative">
+        <div className="bg-brand-offwhite rounded-lg p-3 relative">
           <svg
-            className="absolute -top-2 -left-2 w-6 h-6 text-[#D4B483] opacity-50"
+            className="absolute -top-2 -left-2 w-6 h-6 text-brand-gold opacity-50"
             fill="currentColor"
             viewBox="0 0 24 24"
           >
             <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
           </svg>
-          <p className="text-sm text-[#17464F] font-medium italic leading-normal pl-4">{story.quote}</p>
+          <p className="text-sm text-brand-teal font-medium italic leading-normal pl-4">{story.quote}</p>
         </div>
       </div>
 
       {/* Expand divider - only when collapsed */}
       {!expanded && (
         <button onClick={onToggle} className="relative w-full flex items-center py-3 group cursor-pointer">
-          <span className="flex-grow border-t border-dashed border-[#D4B483]/50 group-hover:border-[#D4B483]/80 transition-colors" />
-          <span className="flex items-center gap-1.5 px-4 text-sm font-semibold text-[#17464F] group-hover:text-[#A06E56] transition-colors whitespace-nowrap">
+          <span className="flex-grow border-t border-dashed border-brand-gold/50 group-hover:border-brand-gold/80 transition-colors" />
+          <span className="flex items-center gap-1.5 px-4 text-sm font-semibold text-brand-teal group-hover:text-brand-clay transition-colors whitespace-nowrap">
             {'展開完整心得與實踐行動項目'}
-            <ChevronDown className="w-4 h-4 text-[#D4B483]" />
+            <ChevronDown className="w-4 h-4 text-brand-gold" />
           </span>
-          <span className="flex-grow border-t border-dashed border-[#D4B483]/50 group-hover:border-[#D4B483]/80 transition-colors" />
+          <span className="flex-grow border-t border-dashed border-brand-gold/50 group-hover:border-brand-gold/80 transition-colors" />
         </button>
       )}
 
@@ -105,7 +105,7 @@ function StoryCard({ story, className = "", expanded, onToggle }: { story: Story
         }`}
       >
         {/* Content */}
-        <div className="text-sm text-[#33393C] leading-normal space-y-1 flex-grow pt-1">
+        <div className="text-sm text-brand-text leading-normal space-y-1 flex-grow pt-1">
           {story.content.map((paragraph, idx) => (
             <p key={idx}>{paragraph}</p>
           ))}
@@ -113,12 +113,12 @@ function StoryCard({ story, className = "", expanded, onToggle }: { story: Story
 
         {/* Current Status */}
         {story.currentStatus && (
-          <div className="mt-4 pt-4 border-t border-[#C9D7D4]">
-            <p className="text-xs font-bold text-[#17464F] mb-2 tracking-wide">{'現在狀態：'}</p>
+          <div className="mt-4 pt-4 border-t border-brand-mist">
+            <p className="text-xs font-bold text-brand-teal mb-2 tracking-wide">{'現在狀態：'}</p>
             <ul className="space-y-1">
               {story.currentStatus.map((status, idx) => (
-                <li key={idx} className="text-xs text-[#33393C] flex items-start gap-1.5">
-                  <span className="text-[#D4B483] flex-shrink-0">{'✔'}</span>
+                <li key={idx} className="text-xs text-brand-text flex items-start gap-1.5">
+                  <span className="text-brand-gold flex-shrink-0">{'✔'}</span>
                   <span>{status}</span>
                 </li>
               ))}
@@ -128,12 +128,12 @@ function StoryCard({ story, className = "", expanded, onToggle }: { story: Story
 
         {/* Collapse divider - at bottom of expanded content */}
         <button onClick={onToggle} className="relative w-full flex items-center py-2 mt-4 group cursor-pointer">
-          <span className="flex-grow border-t border-[#C9D7D4]/60 group-hover:border-[#C9D7D4] transition-colors" />
-          <span className="flex items-center gap-1.5 px-3 text-xs font-medium text-[#33393C]/50 group-hover:text-[#33393C]/70 transition-colors whitespace-nowrap">
+          <span className="flex-grow border-t border-brand-mist/60 group-hover:border-brand-mist transition-colors" />
+          <span className="flex items-center gap-1.5 px-3 text-xs font-medium text-brand-text/50 group-hover:text-brand-text/70 transition-colors whitespace-nowrap">
             {'收合心得'}
             <ChevronDown className="w-3.5 h-3.5 rotate-180" />
           </span>
-          <span className="flex-grow border-t border-[#C9D7D4]/60 group-hover:border-[#C9D7D4] transition-colors" />
+          <span className="flex-grow border-t border-brand-mist/60 group-hover:border-brand-mist transition-colors" />
         </button>
       </div>
     </Card>
@@ -144,17 +144,17 @@ export function SuccessStoriesSection() {
   const [storiesExpanded, setStoriesExpanded] = useState(false)
 
   return (
-    <section id="student-results" className="pt-16 sm:pt-24 pb-12 sm:pb-20 bg-[#F5F3ED]">
+    <section id="student-results" className="pt-16 sm:pt-24 pb-12 sm:pb-20 bg-brand-offwhite">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#17464F] mb-2 text-balance">學員真實成果</h2>
-          <p className="text-lg sm:text-xl font-medium text-[#D4B483] mb-6">因為加入了學院，開始有了不一樣。</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-brand-teal mb-2 text-balance">學員真實成果</h2>
+          <p className="text-lg sm:text-xl font-medium text-brand-gold mb-6">因為加入了學院，開始有了不一樣。</p>
           {/* Decorative gold line */}
           <div className="flex justify-center mb-6">
-            <div className="w-24 h-0.5 bg-[#D4B483]"></div>
+            <div className="w-24 h-0.5 bg-brand-gold"></div>
           </div>
-          <p className="text-base sm:text-lg text-[#33393C] max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-brand-text max-w-3xl mx-auto leading-relaxed">
             在遠距遊牧學院，我們不是只上課看影片，而是完成一個個具體行動：
             <br />
             有人從沒有作品集，到做出第一個 side
@@ -239,12 +239,12 @@ function MobileSuccessCarousel({ stories, expanded, onToggle }: { stories: Story
             aria-label={`Go to slide ${idx + 1}`}
             className={`rounded-full transition-all duration-300 ${
               idx === current
-                ? "w-6 h-2 bg-[#17464F]"
-                : "w-2 h-2 bg-[#C9D7D4] hover:bg-[#17464F]/40"
+                ? "w-6 h-2 bg-brand-teal"
+                : "w-2 h-2 bg-brand-mist hover:bg-brand-teal/40"
             }`}
           />
         ))}
-        <span className="text-xs text-[#33393C]/50 ml-2">{`${current + 1} / ${count}`}</span>
+        <span className="text-xs text-brand-text/50 ml-2">{`${current + 1} / ${count}`}</span>
       </div>
     </div>
   )

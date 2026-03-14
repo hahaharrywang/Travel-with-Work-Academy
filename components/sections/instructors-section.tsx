@@ -25,12 +25,12 @@ const remoteJobInstructors = ["許詮", "Shelley", "讀者太太", "Emilia"]
 const coreInstructors = ["林上哲", "鮪魚", "Joyce Weng", "Angela Feng"]
 
 export function InstructorsSection({ instructors }: InstructorsSectionProps) {
-  const renderInstructorCard = (instructor: Instructor, ringColor = "ring-[#17464F]/20") => (
+  const renderInstructorCard = (instructor: Instructor, ringColor = "ring-brand-teal/20") => (
     <div className="group text-center">
       <div className="relative mb-4">
         {instructor.name === "工具王阿璋" && (
           <div className="absolute -top-2 left-1/2 -translate-x-1/2 z-10">
-            <span className="inline-flex items-center gap-1 px-3 py-1 bg-[#D4B483] text-white text-xs font-semibold rounded-full shadow-md">
+            <span className="inline-flex items-center gap-1 px-3 py-1 bg-brand-gold text-white text-xs font-semibold rounded-full shadow-md">
               <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
               </svg>
@@ -53,8 +53,8 @@ export function InstructorsSection({ instructors }: InstructorsSectionProps) {
           />
         </a>
       </div>
-      <h4 className="text-base sm:text-lg font-bold text-[#17464F] mb-1">{instructor.name}</h4>
-      <p className="text-[#33393C] text-xs sm:text-sm leading-relaxed line-clamp-2 px-2">
+      <h4 className="text-base sm:text-lg font-bold text-brand-teal mb-1">{instructor.name}</h4>
+      <p className="text-brand-text text-xs sm:text-sm leading-relaxed line-clamp-2 px-2">
         {instructor.title.split("，")[0]}
       </p>
       {/* Added social media links */}
@@ -62,7 +62,7 @@ export function InstructorsSection({ instructors }: InstructorsSectionProps) {
         <div className="flex justify-center gap-4 mt-4">
           {instructor.links.website && (
             <a href={instructor.links.website} target="_blank" rel="noopener noreferrer">
-              <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -125,14 +125,14 @@ export function InstructorsSection({ instructors }: InstructorsSectionProps) {
         {/* Header */}
         <div className="text-center mb-12">
           <div className="flex justify-center gap-2 mb-6">
-            <span className="w-2 h-2 rounded-full bg-[#D4B483]" />
-            <span className="w-2 h-2 rounded-full bg-[#17464F]" />
-            <span className="w-2 h-2 rounded-full bg-[#D4B483]" />
+            <span className="w-2 h-2 rounded-full bg-brand-gold" />
+            <span className="w-2 h-2 rounded-full bg-brand-teal" />
+            <span className="w-2 h-2 rounded-full bg-brand-gold" />
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#17464F] mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-teal mb-6">
             你的路線，不會只有一位老師在陪你走
           </h2>
-          <p className="text-[#33393C] text-lg leading-relaxed max-w-2xl mx-auto">
+          <p className="text-brand-text text-lg leading-relaxed max-w-2xl mx-auto">
             這堂學院不是把所有主題塞給同一個講師，
             <br className="hidden sm:block" />
             而是找了一群真的在路上走的人，一起陪你打底、選方向、走路線。
@@ -142,13 +142,13 @@ export function InstructorsSection({ instructors }: InstructorsSectionProps) {
         {/* A Line: Self Media */}
         <div className="mb-16">
           <div className="flex items-center justify-center gap-3 mb-8">
-            <div className="h-px w-12 bg-[#17464F]" />
-            <h3 className="text-xl sm:text-2xl font-bold text-[#17464F]">
-              <span className="text-[#D4B483]">A 線｜</span>接案線路導師
+            <div className="h-px w-12 bg-brand-teal" />
+            <h3 className="text-xl sm:text-2xl font-bold text-brand-teal">
+              <span className="text-brand-gold">A 線｜</span>接案線路導師
             </h3>
-            <div className="h-px w-12 bg-[#17464F]" />
+            <div className="h-px w-12 bg-brand-teal" />
           </div>
-          <p className="text-center text-[#33393C] mb-8 max-w-xl mx-auto">
+          <p className="text-center text-brand-text mb-8 max-w-xl mx-auto">
             帶你建立個人品牌、經營內容、從零開始接案變現
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
@@ -163,13 +163,13 @@ export function InstructorsSection({ instructors }: InstructorsSectionProps) {
         {/* B Line: Remote Job */}
         <div className="mb-16">
           <div className="flex items-center justify-center gap-3 mb-8">
-            <div className="h-px w-12 bg-[#17464F]" />
-            <h3 className="text-xl sm:text-2xl font-bold text-[#17464F]">
-              <span className="text-[#D4B483]">B 線｜</span>遠端上班線路導師
+            <div className="h-px w-12 bg-brand-teal" />
+            <h3 className="text-xl sm:text-2xl font-bold text-brand-teal">
+              <span className="text-brand-gold">B 線｜</span>遠端上班線路導師
             </h3>
-            <div className="h-px w-12 bg-[#17464F]" />
+            <div className="h-px w-12 bg-brand-teal" />
           </div>
-          <p className="text-center text-[#33393C] mb-8 max-w-xl mx-auto">
+          <p className="text-center text-brand-text mb-8 max-w-xl mx-auto">
             帶你建立國際職涯視野、遠端求職策略、跨國人脈經營
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
@@ -184,18 +184,18 @@ export function InstructorsSection({ instructors }: InstructorsSectionProps) {
         {/* Core Instructors */}
         <div className="mb-8">
           <div className="flex items-center justify-center gap-3 mb-8">
-            <div className="h-px w-12 bg-[#D4B483]" />
-            <h3 className="text-xl sm:text-2xl font-bold text-[#17464F]">共同必修</h3>
-            <div className="h-px w-12 bg-[#D4B483]" />
+            <div className="h-px w-12 bg-brand-gold" />
+            <h3 className="text-xl sm:text-2xl font-bold text-brand-teal">共同必修</h3>
+            <div className="h-px w-12 bg-brand-gold" />
           </div>
-          <p className="text-center text-[#33393C] mb-8 max-w-xl mx-auto">
+          <p className="text-center text-brand-text mb-8 max-w-xl mx-auto">
             打底知識變現、AI 工具、財務思維、人生 SOP 的核心講師
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
             {instructors
               .filter((i) => coreInstructors.includes(i.name))
               .map((instructor, index) => (
-                <div key={index}>{renderInstructorCard(instructor, "ring-[#D4B483]/30")}</div>
+                <div key={index}>{renderInstructorCard(instructor, "ring-brand-gold/30")}</div>
               ))}
           </div>
         </div>

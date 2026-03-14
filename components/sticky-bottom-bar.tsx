@@ -25,11 +25,11 @@ export function StickyBottomBar({ scrollToPricing, isHidden = false, isInFreeSec
   const replayUrl = "https://www.skool.com/twwgroup-3033/classroom/a5319d94?md=bca9b69c2a5b40869e2fe6254aa9fa13"
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white border-t border-[#C9D7D4] shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
+    <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white border-t border-brand-mist shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
       {!selectedPlanId ? (
         <div className="px-4 py-3">
-          <div className="flex items-center justify-center gap-2 text-xs text-[#33393C] mb-2">
-            <span className="text-[#D4B483] font-bold">{currentStageData.name}</span>
+          <div className="flex items-center justify-center gap-2 text-xs text-brand-text mb-2">
+            <span className="text-brand-gold font-bold">{currentStageData.name}</span>
             <span>·</span>
             <span>{currentStageData.discountLabel}</span>
             <span>·</span>
@@ -43,9 +43,9 @@ export function StickyBottomBar({ scrollToPricing, isHidden = false, isInFreeSec
           </div>
           <div className="flex items-center justify-between gap-3">
             <div className="flex-1 min-w-0">
-              <span className="text-sm text-[#33393C]">
+              <span className="text-sm text-brand-text">
                 單線方案本階段{" "}
-                <span className="font-bold text-[#17464F]">NT$ {lowestPrice ? formatPrice(lowestPrice) : "--"}</span> 起
+                <span className="font-bold text-brand-teal">NT$ {lowestPrice ? formatPrice(lowestPrice) : "--"}</span> 起
               </span>
             </div>
             {isInFreeSection ? (
@@ -53,7 +53,7 @@ export function StickyBottomBar({ scrollToPricing, isHidden = false, isInFreeSec
                 href={replayUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-shrink-0 inline-flex items-center gap-2 bg-[#17464F] text-white px-5 py-3 rounded-full text-sm font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-md"
+                className="flex-shrink-0 inline-flex items-center gap-2 bg-brand-teal text-white px-5 py-3 rounded-full text-sm font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-md"
               >
                 <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
@@ -63,7 +63,7 @@ export function StickyBottomBar({ scrollToPricing, isHidden = false, isInFreeSec
             ) : (
               <button
                 onClick={scrollToPricing}
-                className="flex-shrink-0 bg-[#17464F] text-white px-5 py-3 rounded-full text-sm font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-md"
+                className="flex-shrink-0 bg-brand-teal text-white px-5 py-3 rounded-full text-sm font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-md"
               >
                 查看方案
               </button>
@@ -72,8 +72,8 @@ export function StickyBottomBar({ scrollToPricing, isHidden = false, isInFreeSec
         </div>
       ) : (
         <div className="px-4 py-3">
-          <div className="flex items-center justify-center gap-2 text-xs text-[#33393C] mb-2">
-            <span className="text-[#D4B483] font-bold">{currentStageData.name}</span>
+          <div className="flex items-center justify-center gap-2 text-xs text-brand-text mb-2">
+            <span className="text-brand-gold font-bold">{currentStageData.name}</span>
             <span>·</span>
             <span>全方案 {currentStageData.discountLabel}</span>
             <span>·</span>
@@ -87,9 +87,9 @@ export function StickyBottomBar({ scrollToPricing, isHidden = false, isInFreeSec
           </div>
           <div className="flex items-center justify-between gap-3">
             <div className="flex-1 min-w-0">
-              <div className="text-xs text-[#33393C]">已選擇：{planConfig[selectedPlanId].name}</div>
+              <div className="text-xs text-brand-text">已選擇：{planConfig[selectedPlanId].name}</div>
               <div className="text-sm">
-                <span className="font-bold text-[#17464F]">
+                <span className="font-bold text-brand-teal">
                   NT$ {formatPrice(currentStageData.prices[selectedPlanId].stagePrice)}
                 </span>
                 <span className="text-xs text-gray-500 ml-1">
@@ -107,7 +107,7 @@ export function StickyBottomBar({ scrollToPricing, isHidden = false, isInFreeSec
                   ;(window as any).trackInitiateCheckout(currentStageData.prices[selectedPlanId].stagePrice)
                 }
               }}
-              className="flex-shrink-0 bg-[#D4B483] text-[#17464F] px-5 py-3 rounded-full text-sm font-bold hover:bg-[#c9a673] transition-all duration-300 shadow-md"
+              className="flex-shrink-0 bg-brand-gold text-brand-teal px-5 py-3 rounded-full text-sm font-bold hover:bg-[#c9a673] transition-all duration-300 shadow-md"
             >
               以此價格加入本梯
             </a>

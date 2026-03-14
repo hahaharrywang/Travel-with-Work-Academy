@@ -10,47 +10,47 @@ export function HeroSection() {
   const singleLinePrice = currentStageData ? getSingleLinePrice(currentStageData) : 0
 
   return (
-    <section className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-[#F5F3ED] via-white to-[#C9D7D4]/30 overflow-hidden">
-      <div className="absolute top-20 left-10 w-64 h-64 bg-[#D4B483]/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#17464F]/5 rounded-full blur-3xl" />
+    <section className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-brand-offwhite via-white to-brand-mist/30 overflow-hidden">
+      <div className="absolute top-20 left-10 w-64 h-64 bg-brand-gold/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-brand-teal/5 rounded-full blur-3xl" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="text-center lg:text-left space-y-6 sm:space-y-8">
             <div className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3">
-              <span className="inline-flex items-center px-4 py-2 rounded-full bg-white border border-[#C9D7D4] text-sm text-[#33393C] shadow-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483] mr-2" />
+              <span className="inline-flex items-center px-4 py-2 rounded-full bg-white border border-brand-mist text-sm text-brand-text shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-gold mr-2" />
                 知道自己適合哪條遠距路線
               </span>
-              <span className="inline-flex items-center px-4 py-2 rounded-full bg-white border border-[#C9D7D4] text-sm text-[#33393C] shadow-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483] mr-2" />
+              <span className="inline-flex items-center px-4 py-2 rounded-full bg-white border border-brand-mist text-sm text-brand-text shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-gold mr-2" />
                 有一份能被看見、邏輯清楚的接案作品集
               </span>
-              <span className="inline-flex items-center px-4 py-2 rounded-full bg-white border border-[#C9D7D4] text-sm text-[#33393C] shadow-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483] mr-2" />
+              <span className="inline-flex items-center px-4 py-2 rounded-full bg-white border border-brand-mist text-sm text-brand-text shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-gold mr-2" />
                 身邊有一群正在前進的成長夥伴
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#17464F] leading-tight tracking-wide">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-teal leading-tight tracking-wide">
               用五個月，
-              <span className="block mt-2 text-[#D4B483]">把「也許有一天」變成「我正在路上」</span>
+              <span className="block mt-2 text-brand-gold">把「也許有一天」變成「我正在路上」</span>
             </h1>
 
-            <p className="text-base sm:text-lg text-[#33393C] leading-relaxed max-w-xl mx-auto lg:mx-0">
+            <p className="text-base sm:text-lg text-brand-text leading-relaxed max-w-xl mx-auto lg:mx-0">
               不用先辭職，也不用一下子 all-in。 透過 5
               個月的遠距職涯探索旅途，結合線上課程、行動任務、共學社群與遊牧體驗資源，開啟探索最適合你生活與成長。
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3">
-              <span className="px-4 py-2 rounded-full bg-[#17464F] text-white text-sm font-medium">接案線路</span>
-              <span className="px-4 py-2 rounded-full bg-[#17464F] text-white text-sm font-medium">遠端上班線路</span>
-              <span className="px-4 py-2 rounded-full bg-[#D4B483] text-[#17464F] text-sm font-medium">
+              <span className="px-4 py-2 rounded-full bg-brand-teal text-white text-sm font-medium">接案線路</span>
+              <span className="px-4 py-2 rounded-full bg-brand-teal text-white text-sm font-medium">遠端上班線路</span>
+              <span className="px-4 py-2 rounded-full bg-brand-gold text-brand-teal text-sm font-medium">
                 也可以雙線並進
               </span>
             </div>
 
-            <p className="text-sm text-[#33393C]/60 max-w-lg mx-auto lg:mx-0">
+            <p className="text-sm text-brand-text/60 max-w-lg mx-auto lg:mx-0">
               這不是一張離職門票，而是一段可以在保有現職下完成的五個月行動旅程。
             </p>
 
@@ -59,7 +59,7 @@ export function HeroSection() {
               <Button
                 asChild
                 size="lg"
-                className="hidden md:inline-flex bg-[#17464F] hover:bg-[#17464F]/90 text-white rounded-full px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                className="hidden md:inline-flex bg-brand-teal hover:bg-brand-teal/90 text-white rounded-full px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <a
                   href={getCheckoutURLWithTracking()}
@@ -78,7 +78,7 @@ export function HeroSection() {
                 href="https://www.accupass.com/organizer/detail/2304050942218markup872544"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#17464F] hover:text-[#D4B483] font-medium text-base underline underline-offset-4 transition-colors duration-200"
+                className="text-brand-teal hover:text-brand-gold font-medium text-base underline underline-offset-4 transition-colors duration-200"
               >
                 查看免費講座場次
               </a>
@@ -86,7 +86,7 @@ export function HeroSection() {
                 onClick={() => {
                   document.getElementById("course-highlights")?.scrollIntoView({ behavior: "smooth" })
                 }}
-                className="text-[#17464F] hover:text-[#D4B483] font-medium text-base underline underline-offset-4 transition-colors duration-200"
+                className="text-brand-teal hover:text-brand-gold font-medium text-base underline underline-offset-4 transition-colors duration-200"
               >
                 還在觀望？先看五個月怎麼走 ↓
               </button>
@@ -95,19 +95,19 @@ export function HeroSection() {
             <div className="hidden md:block text-center lg:text-left pt-2">
               {currentStageData && (
                 <>
-                  <p className="text-sm text-[#33393C]/70">
+                  <p className="text-sm text-brand-text/70">
                     目前為{" "}
-                    <span className="text-[#D4B483] font-semibold">
+                    <span className="text-brand-gold font-semibold">
                       🔥 {currentStageData.name}｜單線 NT${formatPrice(singleLinePrice)} 起
                     </span>
-                    <span className="text-[#33393C]/50 line-through ml-1">
+                    <span className="text-brand-text/50 line-through ml-1">
                       （原價 NT${formatPrice(currentStageData.prices.selfMedia.original)}）
                     </span>
                   </p>
-                  <p className="text-sm text-[#33393C]/60 mt-1">
+                  <p className="text-sm text-brand-text/60 mt-1">
                     截止：{currentStageData.endAt.getMonth() + 1}/{currentStageData.endAt.getDate()}（台北時間
                     23:59）｜剩餘：
-                    <span className="font-medium text-[#17464F]">
+                    <span className="font-medium text-brand-teal">
                       {String(timeLeft.days).padStart(2, "0")} 天 {String(timeLeft.hours).padStart(2, "0")} 小時
                     </span>
                   </p>
@@ -119,7 +119,7 @@ export function HeroSection() {
           <div className="relative hidden lg:block">
             <div className="grid grid-cols-2 gap-4">
               <div className="col-span-2 rounded-2xl overflow-hidden shadow-lg">
-                <div className="aspect-[16/9] bg-[#C9D7D4] relative">
+                <div className="aspect-[16/9] bg-brand-mist relative">
                   <Image
                     src="/images/hero-background.png"
                     alt="遠距工作場景 - 共同工作空間"
@@ -130,18 +130,18 @@ export function HeroSection() {
                 </div>
               </div>
               <div className="rounded-2xl overflow-hidden shadow-md">
-                <div className="aspect-square bg-[#C9D7D4] relative">
+                <div className="aspect-square bg-brand-mist relative">
                   <Image src="/images/2-1.jpeg" alt="遠距工作場景 - 旅途中工作" fill className="object-cover" />
                 </div>
               </div>
               <div className="rounded-2xl overflow-hidden shadow-md">
-                <div className="aspect-square bg-[#C9D7D4] relative">
+                <div className="aspect-square bg-brand-mist relative">
                   <Image src="/images/2-2.jpeg" alt="遠距工作場景 - 小聚互動" fill className="object-cover" />
                 </div>
               </div>
             </div>
-            <div className="absolute -bottom-4 -left-4 w-24 h-24 border-2 border-[#D4B483]/40 rounded-2xl -z-10" />
-            <div className="absolute -top-4 -right-4 w-16 h-16 border-2 border-[#17464F]/20 rounded-full -z-10" />
+            <div className="absolute -bottom-4 -left-4 w-24 h-24 border-2 border-brand-gold/40 rounded-2xl -z-10" />
+            <div className="absolute -top-4 -right-4 w-16 h-16 border-2 border-brand-teal/20 rounded-full -z-10" />
           </div>
         </div>
       </div>

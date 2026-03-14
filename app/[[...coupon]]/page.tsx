@@ -28,6 +28,11 @@ import { FloatingSocialButtons } from "@/components/floating-social-buttons" // 
 import { PricingSection } from "@/components/sections/pricing-section" // Import PricingSection
 import FAQSection from "@/components/sections/faq-section" // Import FAQSection
 import { SuccessStoriesSection } from "@/components/sections/success-stories-section"
+import { FreeLectureSection } from "@/components/sections/free-lecture-section"
+import { EcosystemSection } from "@/components/sections/ecosystem-section"
+import { KeyFeaturesSection } from "@/components/sections/key-features-section"
+import { CourseHighlightsSection } from "@/components/sections/course-highlights-section"
+import { PainPointsSection } from "@/components/sections/pain-points-section"
 
 import {
   Dialog,
@@ -43,6 +48,7 @@ import { type PlanId, getCheckoutURL } from "@/data/plan-config"
 import { calendarData, getPhaseColor, getTrackColor, getInstructorsByNames, fourPhases, remoteJobPhaseContent, freelancePhaseContent, undecidedTabContent, type CalendarWeek } from "@/data/calendar"
 import { stagePhotos } from "@/data/stage-photos"
 import { instructors } from "@/data/instructors"
+import { featuresData } from "@/data/features"
 
 
 
@@ -50,119 +56,6 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
   const [couponCode, setCouponCode] = useState<string | null>(null)
   const [activeMapTab, setActiveMapTab] = useState<string>("遠端上班") // State for Learning Map tabs
   const [selectedWeek, setSelectedWeek] = useState<CalendarWeek | null>(null)
-
-  // Feature dialog state
-  const [featureDialogOpen, setFeatureDialogOpen] = useState<number | null>(null)
-  // Add state for features data
-  const featuresData = [
-    {
-      id: 0,
-      title: "雙軌資源",
-      icon: (
-        <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.5}
-            d="M8 7l4-4m0 0l4 4m-4-4v18M16 17l4 4m0 0l-4-4m4 4H4"
-          />
-        </svg>
-      ),
-      shortDesc: "這裡不是要你馬上做對選擇，而是可以開始行動起來，讓行動告訴你答案。",
-      details: [
-        "<strong>接案線路：</strong>幫你釐清主題定位，做出接案作品集，學會基本市場調查、內容與流量思維。",
-        "<strong>遠端上班線路：</strong>認識遠端求職市場，調整履歷與 LinkedIn，練習求職信、面試與獵頭溝通。",
-        "你可以雙線並進，快速全面探索。也可以先選一條當主線，讓行動開始。",
-      ],
-      images: [
-        {
-          src: "/images/e8-87-aa-e5-aa-92-e9-ab-94-e6-8e-a5-e6-a1-88-e8-b7-af-e7-b7-9a-ef-bc-bfreels-e9-87-8d-e8-a6-81-e6-8c-87-e6-a8-99.png",
-          alt: "接案路線：Reels演算法重要指標",
-        },
-        {
-          src: "/images/e4-b8-8a-e7-8f-ad-e8-b7-af-e7-b7-9a-ef-bc-bf-e9-9b-87-e4-b8-bb-e7-84-a1-e5-8b-95-e6-96-bc-e8-a1-b7.png",
-          alt: "上班路線：讓雇主無動於衷的答案",
-        },
-      ],
-    },
-    {
-      id: 1,
-      title: "行動導向設計",
-      icon: (
-        <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.5}
-            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
-          />
-        </svg>
-      ),
-      shortDesc: "每堂課都有做得到的行動任務，拆成模板和小步驟，不再只聽懂卻做不出來。",
-      details: [
-        "每堂課都對應到一個「做得到」的任務：目標設定、AI加速生產、策略定位、發一篇文、做一支影片、更新履歷、寫求職信……不是看完就結束，而是立刻動手。",
-        "任務拆成學習單與模板：透過清楚的步驟與範例，帶你完成策略定位、影片腳本、JD拆解、面試 STAR 故事庫等關鍵輸出，讓行動不再只靠意志力。",
-        "想走更快，可以加選實作工作坊：短影音剪輯、Coffee Chat、Vibe Coding、工作英語等選修，讓你在需要時針對性加強，把成長慾望落地成真實行動。",
-        "讓你不再只是聽懂、記下來，而是 完成、留下、可以被看見。",
-      ],
-      images: [
-        {
-          src: "/images/e8-a1-8c-e5-8b-95-e5-b0-8e-e5-90-91-ef-bc-bf-e4-bb-bb-e5-8b-99-e6-8b-86-e8-a7-a3.png",
-          alt: "任務拆解",
-        },
-        {
-          src: "/images/e8-a1-8c-e5-8b-95-e5-b0-8e-e5-90-91-ef-bc-bf-e4-bd-9c-e6-a5-ad-e5-b9-b3-e5-8f-b0.png",
-          alt: "作業平台",
-        },
-        {
-          src: "/images/e8-a1-8c-e5-8b-95-e5-b0-8e-e5-90-91-ef-bc-bfvibe-20coding-20-e5-b7-a5-e4-bd-9c-e5-9d-8a-20.png",
-          alt: "Vibe Coding 工作坊",
-        },
-      ],
-    },
-    {
-      id: 2,
-      title: "支持結構",
-      icon: (
-        <svg className="w-5 h-5 text-[#17464F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.5}
-            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-          />
-        </svg>
-      ),
-      shortDesc: "你不需要靠意志力一個人硬撐，這裡有一整套讓你比較走得下去的支持系統。",
-      details: [
-        "Skool 共學空間、Line 群、線上同學會、校友 LinkedIn 群與線下小聚，讓你一路上有人可以交流、回報進度、彼此提醒。",
-        "真正難的通常不是開始，而是做幾週之後開始懷疑自己、忙起來就斷掉。",
-        "所以我們把支持設計進節奏裡：固定交流、成果分享、AMA、QA、共創與復盤，不只是讓你比較有陪伴感，而是讓你比較有機會真的走完。",
-      ],
-      images: [
-        {
-          src: "/images/2-1.jpeg",
-          alt: "遊牧小聚",
-        },
-        { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e7-95-99-e8-a8-80.png", alt: "留言" },
-        { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e4-ba-a4-e6-b5-81.png", alt: "交流" },
-        {
-          src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e4-bd-9c-e6-a5-ad-e4-ba-a4-e6-b5-81.png",
-          alt: "作業交流",
-        },
-        { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e5-90-8c-e5-ad-b8-e6-9c-83.png", alt: "同學會" },
-        {
-          src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e5-90-8c-e5-ad-b8-e6-9c-83-e4-bd-9c-e6-a5-ad.png",
-          alt: "同學會作業",
-        },
-        { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bfline-20group.png", alt: "Line Group" },
-        {
-          src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e8-b6-8a-e5-8d-97-e9-81-8a-e7-89-a7-e4-b9-8b-e6-97-85.jpg",
-          alt: "越南遊牧之旅",
-        },
-      ],
-    },
-  ]
 
   const { currentStageData, timeLeft, lowestPrice, selectedPlanId, setSelectedPlanId, getTrackingParams } = usePricing()
 
@@ -226,32 +119,11 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
   const calendarSectionRef = useRef<HTMLDivElement>(null)
   const [expandedWeeks, setExpandedWeeks] = useState<Set<number>>(new Set())
   const [expandedPhases, setExpandedPhases] = useState<Set<string>>(new Set(["階段一 起步打底"]))
-  const [expandedFeatures, setExpandedFeatures] = useState<Set<number>>(new Set()) // State for expanded features in Section 2.1
   const [expandedInstructorBios, setExpandedInstructorBios] = useState<Set<string>>(new Set())
-  // Add state for dialogs
-  const [openDialog, setOpenDialog] = useState<number | null>(null)
 
   const [pricingTimelineModalOpen, setPricingTimelineModalOpen] = useState(false)
   const [faqPriceDiffModalOpen, setFaqPriceDiffModalOpen] = useState(false)
-  const [emailPopupOpen, setEmailPopupOpen] = useState(false)
   const [isInFreeSection, setIsInFreeSection] = useState(false)
-
-  // Lock body scroll when email popup is open & load GHL embed script
-  useEffect(() => {
-    if (emailPopupOpen) {
-      document.body.style.overflow = "hidden"
-      // Load GHL form embed script if not already loaded
-      if (!document.querySelector('script[src*="form_embed.js"]')) {
-        const s = document.createElement("script")
-        s.src = "https://link.digitalnomadstaiwan.com/js/form_embed.js"
-        s.async = true
-        document.body.appendChild(s)
-      }
-    } else {
-      document.body.style.overflow = ""
-    }
-    return () => { document.body.style.overflow = "" }
-  }, [emailPopupOpen])
 
   // IntersectionObserver for pricing section - change sticky bar CTA
   useEffect(() => {
@@ -273,8 +145,6 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
   const isAnyModalOpen =
     isGalleryOpen ||
     selectedWeek !== null ||
-    featureDialogOpen !== null ||
-    openDialog !== null ||
     showCalendarModal ||
     pricingTimelineModalOpen ||
     faqPriceDiffModalOpen ||
@@ -331,10 +201,6 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
 
 
-  const toggleFeatureDialog = (featureId: number | null) => {
-    setOpenDialog(featureId)
-  }
-
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxImages, setLightboxImages] = useState<Array<{ src: string; alt: string }>>([])
   const [lightboxIndex, setLightboxIndex] = useState(0)
@@ -367,7 +233,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
     <main className="min-h-screen bg-white pb-24 md:pb-0">
       <AnnouncementBar scrollToPricing={scrollToPricing} onEmailSubscribe={() => setEmailPopupOpen(true)} />
       {/* SECTION 1 HERO START */}
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-[#17464F]">
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-brand-teal">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 right-1/3 w-[600px] h-[600px] border border-[#E8C547]/30 rounded-full" />
           <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] border border-[#E8C547]/20 rounded-full" />
@@ -385,78 +251,67 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           </div>
         </div>
 
+        {/* Header with Logo only */}
         <div className="absolute top-0 left-0 z-30 py-0 px-4 sm:px-6 lg:px-8">
-          <div className="relative">
-            <Image
-              src="/images/academy-logo.png"
-              alt="遠距遊牧學院 Travel with Work Academy"
-              width={200}
-              height={105}
-              className="h-auto w-[180px] sm:w-[240px] lg:w-[360px] brightness-0 invert"
-              priority
-            />
-            {/* Airplane trajectory dotted line */}
-            <svg
-              className="absolute -bottom-20 left-4 w-16 h-24 text-white/40"
-              viewBox="0 0 60 100"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeDasharray="4 4"
-            >
-              <path d="M30 0 Q 10 30, 20 50 Q 30 70, 15 100" />
-            </svg>
-          </div>
+          <Image
+            src="/images/academy-logo.png"
+            alt="遠距遊牧學院 Travel with Work Academy"
+            width={200}
+            height={105}
+            className="h-auto w-[180px] sm:w-[240px] lg:w-[280px] brightness-0 invert"
+            priority
+          />
         </div>
 
-        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 sm:pt-40 lg:pt-44 pb-16 lg:pb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Left content */}
-            <div className="space-y-6 text-center lg:text-left">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-wide">
+        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 lg:pt-28 pb-12 lg:pb-12">
+          {/* Desktop: Left content + Right image - heights match */}
+          <div className="hidden lg:grid lg:grid-cols-2 gap-10 items-stretch">
+            {/* Left: All text content */}
+            <div className="flex flex-col space-y-5">
+              <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-white leading-tight tracking-wide">
                 今年五月，
                 <br />
                 一起把「也許有一天」
                 <br />
-                變成「<span className="text-[#D4B483]">我也正在路上</span>」
+                變成「<span className="text-brand-gold">我也正在路上</span>」
               </h1>
 
-              <p className="text-sm sm:text-base text-[#D4B483] font-medium tracking-wide leading-relaxed">
+              <p className="text-sm sm:text-base text-brand-gold font-medium tracking-wide leading-relaxed">
                 {'給想開始遠端上班、接案，或還在兩者之間猶豫的人。'}
                 <br />
                 {'這是一套 5 個月、可單線也可雙軌的行動系統，幫你在不停薪、不打亂原本生活的前提下，真的開始踏出下一步。'}
               </p>
 
-              <div className="space-y-3 text-left max-w-xl mx-auto lg:mx-0">
+              <div className="space-y-2 text-left">
                 <div className="flex items-start gap-3">
-                  <Layers className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
+                  <Layers className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
                   <p className="text-white/90">雙軌起步：遠端上班 × 接案，不用一開始就選到死</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <TrendingUp className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
+                  <TrendingUp className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
                   <p className="text-white/90">不停薪開始：不必離職，也能先試出自己的下一步</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <FileText className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
+                  <FileText className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
                   <p className="text-white/90">五個月有節奏：不是被啟發而已，是真的一步步做出來</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Users className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
+                  <Users className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
                   <p className="text-white/90">成果看得見：履歷、作品集、個人頁面，不再只是想過</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Globe className="w-5 h-5 text-[#D4B483] mt-0.5 flex-shrink-0" />
+                  <Globe className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
                   <p className="text-white/90">從台灣接到世界：線下小聚、遊牧旅程、國際生態系入口</p>
                 </div>
               </div>
 
-              {/* CTA Button */}
-              <div className="flex flex-col gap-4 items-center lg:items-start">
+              {/* CTA Buttons - side by side */}
+              <div className="flex flex-wrap items-center gap-4 pt-2">
                 <a
                   href="https://www.accupass.com/organizer/detail/2509180637491342778166"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-[#D4B483] text-[#17464F] font-semibold text-sm sm:text-base px-6 py-3 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-md hover:shadow-lg"
+                  className="inline-flex items-center gap-2 bg-brand-gold text-brand-teal font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-md hover:shadow-lg"
                 >
                   <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
@@ -467,47 +322,37 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-white/30 text-white/80 hover:text-[#D4B483] hover:border-[#D4B483]/50 font-medium text-sm sm:text-base px-5 py-2.5 rounded-full transition-colors duration-200"
+                  className="inline-flex items-center gap-2 border border-white/30 text-white/80 hover:text-brand-gold hover:border-brand-gold/50 font-medium text-sm px-5 py-2.5 rounded-full transition-colors duration-200"
                 >
                   <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
                   </svg>
                   先看學院說明會回放
                 </a>
-                <p className="text-white/50 text-xs text-center lg:text-left">
-                  還不確定適不適合？先看免費講座或回放，再決定要不要加入。
-                </p>
               </div>
 
-              {/* 錨點文字 — 往下看學習地圖 */}
-              <div className="pt-4 text-center lg:text-left">
-                <button
-                  onClick={() => {
-                    document.getElementById("learning-map")?.scrollIntoView({ behavior: "smooth" })
-                  }}
-                  className="text-white/50 hover:text-white/80 text-sm transition-colors duration-200 flex items-center gap-1 mx-auto lg:mx-0"
-                >
-                  往下看 5 個月怎麼走
-                  <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-              </div>
+              <p className="text-white/50 text-xs">
+                還不確定適不適合？先看免費講座或回放，再決定要不要加入。
+              </p>
 
-              {/* Social proof */}
-              <div className="pt-4 text-center lg:text-left">
-                <p className="text-sm text-white/60">
-                  2025第一屆 已累積 <span className="text-[#D4B483] font-semibold">300+</span> 學員與{" "}
-                  <span className="text-[#D4B483] font-semibold">1,500+</span> 線下社群參與，
-                  <br className="hidden sm:block" />
-                  在台灣與世界各地，把「想像」變成實際行動。
-                </p>
-              </div>
+              {/* 錨點文字 */}
+              <button
+                onClick={() => {
+                  document.getElementById("learning-map")?.scrollIntoView({ behavior: "smooth" })
+                }}
+                className="text-white/50 hover:text-white/80 text-sm transition-colors duration-200 flex items-center gap-1"
+              >
+                往下看 5 個月怎麼走
+                <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
             </div>
 
-            <div className="relative hidden lg:block">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <div className="aspect-[4/5] bg-[#C9D7D4] relative">
+            {/* Right: Image + Social Proof - flex to fill height */}
+            <div className="flex flex-col">
+              <div className="relative flex-1">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl h-full">
                   <Image
                     src="/images/hero-background.png"
                     alt="遠距工作場景 - 共同工作空間"
@@ -517,592 +362,128 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     sizes="50vw"
                   />
                 </div>
+                <div className="absolute -top-3 -right-3 w-full h-full border-2 border-[#D4AF37]/50 rounded-2xl pointer-events-none" />
+                <div className="absolute -top-6 -right-6 w-full h-full border border-[#D4AF37]/25 rounded-2xl pointer-events-none" />
               </div>
-              <div className="absolute -top-6 -right-6 w-full h-full border-2 border-[#D4AF37]/50 rounded-2xl pointer-events-none" />
-              <div className="absolute -top-10 -right-10 w-full h-full border border-[#D4AF37]/25 rounded-2xl pointer-events-none" />
-              <div className="absolute -bottom-4 -left-4 w-28 h-28 border-2 border-[#D4AF37]/40 rounded-full pointer-events-none" />
-              <div className="absolute -bottom-8 -left-8 w-36 h-36 border border-[#D4AF37]/20 rounded-full pointer-events-none" />
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* SECTION 2 COURSE HIGHLIGHTS START - 正在尋找「下一步」的你 */}
-      <section id="course-highlights" className="py-16 sm:py-24 bg-[#17464F] relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-10 left-10 w-32 h-32 border border-[#D4B483]/20 rounded-full pointer-events-none" />
-        <div className="absolute bottom-20 right-10 w-24 h-24 border border-[#D4B483]/15 rounded-full pointer-events-none" />
-        <div className="absolute top-1/2 right-20 hidden lg:block">
-          <svg className="w-8 h-8 text-[#D4B483]/30" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-          </svg>
-        </div>
-
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
-          {/* Section Header */}
-          <div className="text-center mb-10 sm:mb-14">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6 text-balance">
-              正在尋找「下一步」的你
-            </h2>
-            <p className="text-white/80 leading-relaxed max-w-2xl mx-auto mb-4">
-              不管你現在在哪個階段，你都有機會在這裡找到開始的位置。
-              <br className="hidden sm:block" /> 你不一定已經決定要不要辭職、要不要成為全職 Nomad。
-              <br className="hidden sm:block" />
-              但你大概知道——人生不該只剩「通勤、等週末、等放假」。
-            </p>
-            <p className="text-[#D4B483] font-medium mt-6">你可能會在這幾種狀態裡，看見自己的影子：</p>
-          </div>
-
-          {/* Mobile: Bullet Points */}
-          <div className="md:hidden space-y-5 mb-12 max-w-md mx-auto">
-            <div className="flex items-start gap-3">
-              <span className="mt-1.5 w-2.5 h-2.5 rounded-full bg-[#D4B483] flex-shrink-0" />
-              <div>
-                <h3 className="text-base font-bold text-[#D4B483] mb-1">想要更有選擇權的職涯主線</h3>
-                <p className="text-white/70 text-sm leading-relaxed">有穩定工作、不一定討厭現在公司，但看得到天花板；正在思考能否換到更彈性、可遠距的團隊，或讓履歷在未來更有選擇。</p>
-              </div>
-            </div>
-            <div className="border-t border-[#D4B483]/20 mx-4" />
-            <div className="flex items-start gap-3">
-              <span className="mt-1.5 w-2.5 h-2.5 rounded-full bg-[#D4B483] flex-shrink-0" />
-              <div>
-                <h3 className="text-base font-bold text-[#D4B483] mb-1">想多一條安全感，不想只靠一份薪水</h3>
-                <p className="text-white/70 text-sm leading-relaxed">{'想用內容、接案、知識服務慢慢累積第二條收入線；希望在不壓垮自己的前提下，踏出有感的一步，而不是一次 all-in。'}</p>
-              </div>
-            </div>
-            <div className="border-t border-[#D4B483]/20 mx-4" />
-            <div className="flex items-start gap-3">
-              <span className="mt-1.5 w-2.5 h-2.5 rounded-full bg-[#D4B483] flex-shrink-0" />
-              <div>
-                <h3 className="text-base font-bold text-[#D4B483] mb-1">答案還不確定，但不想再只是想想</h3>
-                <p className="text-white/70 text-sm leading-relaxed">現在的路看起來還行，但常被旅居、遠距、遊牧故事勾起一點遺憾；想在未來五個月裡，用比較踏實的方法去體驗、去嘗試，而不是只滑過別人的人生。</p>
-              </div>
+              {/* Social Proof - below image */}
+              <p className="text-sm text-white/70 text-center pt-4">
+                <span className="text-brand-gold font-semibold">2025 第一屆</span>
+                {' · '}已累積 <span className="text-white font-medium">300+</span> 學員
+                {' · '}<span className="text-white font-medium">1,500+</span> 線下社群參與
+              </p>
             </div>
           </div>
 
-          {/* Desktop: Three Cards */}
-          <div className="hidden md:grid md:grid-cols-3 gap-8 mb-12">
-            {/* Card 1 - 職涯主線 */}
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-[#D4B483]/30 hover:border-[#D4B483]/50 transition-all duration-300 relative group">
-              {/* Gold corner accents */}
-              <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#D4B483]/60 rounded-tl-2xl" />
-              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#D4B483]/60 rounded-br-2xl" />
-
-              <div className="flex flex-col items-center text-center">
-                {/* Icon */}
-                <div className="w-16 h-16 mb-6 flex items-center justify-center">
-                  <svg
-                    className="w-14 h-14 text-[#D4B483]"
-                    viewBox="0 0 64 64"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  >
-                    <circle cx="32" cy="32" r="20" />
-                    <circle cx="32" cy="32" r="4" fill="currentColor" />
-                    <path d="M32 16V12M32 52V48M16 32H12M52 32H48" strokeWidth="2" />
-                    <path d="M32 32L42 22" strokeWidth="2" />
-                    <text x="48" y="16" fontSize="12" fill="currentColor">
-                      ?
-                    </text>
-                    <text x="8" y="52" fontSize="10" fill="currentColor">
-                      ?
-                    </text>
-                  </svg>
-                </div>
-
-                <h3 className="text-lg sm:text-xl font-bold text-[#D4B483] mb-4 leading-snug">
-                  想要更有選擇權的職涯主線
-                </h3>
-                <p className="text-white/70 leading-relaxed text-sm sm:text-base">
-                  有穩定工作、不一定討厭現在公司，但看得到天花板；正在思考能否換到更彈性、可遠距的團隊，或讓履歷在未來更有選擇。
-                </p>
-              </div>
-            </div>
-
-            {/* Card 2: 安全感 */}
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-[#D4B483]/30 hover:border-[#D4B483]/50 transition-all duration-300 relative group">
-              {/* Gold corner accents */}
-              <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#D4B483]/60 rounded-tl-2xl" />
-              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#D4B483]/60 rounded-br-2xl" />
-
-              <div className="flex flex-col items-center text-center">
-                {/* Icon - Coins */}
-                <div className="w-16 h-16 mb-6 flex items-center justify-center">
-                  <svg
-                    className="w-14 h-14 text-[#D4B483]"
-                    viewBox="0 0 64 64"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  >
-                    <ellipse cx="32" cy="18" rx="20" ry="8" />
-                    <path d="M12 18v12c0 4.4 8.9 8 20 8s20-3.5 20-8V18" />
-                    <path d="M12 28v12c0 4.4 8.9 8 20 8s20-3.5 20-8v-12" />
-                    <path d="M12 38v12c0 4.4 8.9 8 20 8s20-3.5 20-8v-12" />
-                    <path d="M32 25v8M32 41v8" stroke="currentColor" strokeWidth="2" />
-                    <path d="M12 11l8 8h-16l8-8z" fill="currentColor" />
-                  </svg>
-                </div>
-
-                <h3 className="text-lg sm:text-xl font-bold text-[#D4B483] mb-4 leading-snug">
-                  想多一條安全感，不想只靠一份薪水
-                </h3>
-                <p className="text-white/70 leading-relaxed text-sm sm:text-base">
-                  想用內容、接案、知識服務慢慢累積第二條收入線；希望在不壓垮自己的前提下，踏出有感的一步，而不是一次
-                  all-in。
-                </p>
-              </div>
-            </div>
-
-            {/* Card 3: 不確定 */}
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-[#D4B483]/30 hover:border-[#D4B483]/50 transition-all duration-300 relative group">
-              {/* Gold corner accents */}
-              <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#D4B483]/60 rounded-tl-2xl" />
-              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#D4B483]/60 rounded-br-2xl" />
-
-              <div className="flex flex-col items-center text-center">
-                {/* Icon - Map with pin */}
-                <div className="w-16 h-16 mb-6 flex items-center justify-center">
-                  <svg
-                    className="w-14 h-14 text-[#D4B483]"
-                    viewBox="0 0 64 64"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  >
-                    <rect x="6" y="14" width="52" height="36" rx="4" />
-                    <path d="M6 24h52M22 14v36M42 14v36" />
-                    <circle cx="50" cy="22" r="8" fill="currentColor" />
-                    <path d="M50 30v8" stroke="currentColor" strokeWidth="2" />
-                  </svg>
-                </div>
-
-                <h3 className="text-lg sm:text-xl font-bold text-[#D4B483] mb-4 leading-snug">
-                  答案還不確定，但不想再只是想想
-                </h3>
-                <p className="text-white/70 leading-relaxed text-sm sm:text-base">
-                  現在的路看起來還行，但常被旅居、遠距、遊牧故事勾起一點遺憾；想在未來五個月裡，用比較踏實的方法去體驗、去嘗試，而不是只滑過別人的人生。
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Three dots separator */}
-          <div className="flex items-center justify-center gap-3 mb-10">
-            <span className="w-2 h-2 rounded-full bg-[#D4B483]" />
-            <span className="w-2 h-2 rounded-full bg-[#17464F] border border-[#D4B483]" />
-            <span className="w-2 h-2 rounded-full bg-[#D4B483]" />
-          </div>
-        </div>
-      </section>
-      {/* SECTION 3 PAIN POINTS START - 三大痛點 (重製版) */}
-      <section className="bg-[#17464F] relative overflow-hidden">
-        {/* 桌面版：顯示切圖 */}
-        <div className="hidden lg:block">
-          <Image
-            src="/images/section3-painpoints-desktop.png"
-            alt="不是你不努力，而是拼圖還有缺 - 方向斷裂、方法斷裂、同伴斷裂"
-            width={1920}
-            height={800}
-            className="w-full h-auto"
-            priority
-          />
-        </div>
-
-        {/* 手機版/平板版：緊湊金色豎線佈局 */}
-        <div className="lg:hidden py-10 sm:py-16">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
-            {/* 區塊標題 */}
-            <div className="text-center mb-8">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 text-balance">
-                不是你不努力，而是拼圖還有缺
-              </h2>
-              <div className="flex items-center justify-center gap-2 opacity-80">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]"></span>
-                <span className="w-1.5 h-1.5 rounded-full bg-[#17464F]"></span>
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D4B483]"></span>
-              </div>
-            </div>
-
-            {/* 痛點列表 - 金色豎線（精簡版） */}
-            <div className="flex flex-col gap-4 mb-8">
-              <div className="border-l-2 border-[#D4B483] pl-4">
-                <h3 className="text-base font-bold text-[#D4B483] mb-1">方向斷裂</h3>
-                <p className="text-white/80 leading-relaxed text-sm">
-                  想過很多版本，但每條路都沒真的走下去。
-                </p>
-              </div>
-              <div className="border-l-2 border-[#D4B483] pl-4">
-                <h3 className="text-base font-bold text-[#D4B483] mb-1">方法斷裂</h3>
-                <p className="text-white/80 leading-relaxed text-sm">
-                  {'買課、看影片、存筆記，但不知道今天該做哪一步。'}
-                </p>
-              </div>
-              <div className="border-l-2 border-[#D4B483] pl-4">
-                <h3 className="text-base font-bold text-[#D4B483] mb-1">同伴斷裂</h3>
-                <p className="text-white/80 leading-relaxed text-sm">
-                  {'身邊沒人能討論，久了就把想法藏在心裡。'}
-                </p>
-              </div>
-            </div>
-
-            {/* 結語區塊 */}
-            <div className="relative">
-              <div className="max-w-2xl mx-auto px-5 py-6 rounded-2xl border-2 border-[#D4B483]/30 bg-[#17464F]/50 backdrop-blur-sm text-center relative">
-                <p className="text-base sm:text-lg text-white font-bold leading-relaxed">
-                  你缺的不是更多資訊，而是一個地方，
-                  <span className="block mt-2 text-[#D4B483]">
-                    讓你在未來五個月裡，有人陪你一起試、一起走、一起調整方向。
-                  </span>
-                </p>
-
-                {/* 小 CTA */}
-                <div className="mt-5 border-t border-[#D4B483]/20 pt-5">
-                  <p className="text-white/60 text-sm mb-3">還不確定自己比較適合哪一條？</p>
-                  <a
-                    href="#pricing"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#D4B483]/50 bg-[#D4B483]/10 text-[#D4B483] text-sm font-medium hover:bg-[#D4B483]/20 transition-colors"
-                  >
-                    先看免費講座／說明會回放
-                  </a>
-                  <p className="text-white/40 text-xs mt-3">會比自己反覆想更快看見答案</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* SECTION 2.1 COURSE HIGHLIGHTS CONTINUED (Part 2: 三大亮點) START */}
-      <section id="key-features" className="py-16 sm:py-24 bg-[#F5F3ED]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section Header */}
-          <div className="text-center mb-10 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-4 text-balance">
-              學院三大特色，讓行動成為習慣
-            </h2>
-            <p className="text-[#33393C] max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
-              {'不只是學習新知'}
+          {/* Mobile: Original stacked layout */}
+          <div className="lg:hidden space-y-6 text-center">
+            <h1 className="text-3xl sm:text-4xl font-bold text-white leading-tight tracking-wide">
+              今年五月，
               <br />
-              {'雙軌資源、行動任務節奏，和一套幫你持續走下去的支持結構。'}
+              一起把「也許有一天」
+              <br />
+              變成「<span className="text-brand-gold">我也正在路上</span>」
+            </h1>
+
+            <p className="text-sm sm:text-base text-brand-gold font-medium tracking-wide leading-relaxed">
+              {'給想開始遠端上班、接案，或還在兩者之間猶豫的人。'}
+              <br />
+              {'這是一套 5 個月、可單線也可雙軌的行動系統，幫你在不停薪、不打亂原本生活的前提下，真的開始踏出下一步。'}
             </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {featuresData.map((feature) => (
-              <div
-                key={feature.id}
-                onClick={() => toggleFeatureDialog(feature.id)}
-                className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
-              >
-                {/* Header row: icon + title + 了解更多(mobile right) */}
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center flex-shrink-0">
-                    {feature.icon}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-xl font-bold text-[#17464F]">{feature.title}</h3>
-                  </div>
-                  {/* Mobile only: 了解更多 in header */}
-                  <div className="flex md:hidden items-center gap-1 text-[#D4B483] font-medium text-sm flex-shrink-0">
-                    了解更多
-                    <ChevronDown className="w-4 h-4" />
-                  </div>
-                </div>
-
-                <div className="hidden md:block mb-4 rounded-xl overflow-hidden">
-                  <Image
-                    src={feature.images[0].src || "/placeholder.svg"}
-                    alt={feature.images[0].alt}
-                    width={400}
-                    height={300}
-                    className="w-full h-48 object-cover"
-                  />
-                </div>
-
-                <p className="text-[#33393C] text-sm leading-relaxed mb-4">{feature.shortDesc}</p>
-
-                {/* Desktop only: 了解更多 at bottom */}
-                <div className="hidden md:flex w-full mt-4 items-center justify-center gap-2 text-[#D4B483] font-medium text-sm">
-                  了解更多
-                  <ChevronDown className="w-4 h-4" />
-                </div>
+            <div className="space-y-3 text-left max-w-xl mx-auto">
+              <div className="flex items-start gap-3">
+                <Layers className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
+                <p className="text-white/90">雙軌起步：遠端上班 × 接案，不用一開始就選到死</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* MODAL FOR FEATURES */}
-      <Suspense fallback={<div>Loading...</div>}>
-        {featuresData.map((feature) => (
-          <Dialog
-            key={feature.id}
-            open={openDialog === feature.id}
-            onOpenChange={(open) => !open && setOpenDialog(null)}
-          >
-            <DialogPortal>
-              <DialogOverlay />
-              {/* CHANGE: Restructured DialogContent to keep close button fixed while content scrolls */}
-              <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden bg-[#F5F3ED] p-0" showCloseButton={true}>
-                {/* Scrollable content container */}
-                <div className="max-h-[90vh] overflow-y-auto px-6 pt-6 pb-6">
-                  <DialogHeader>
-                    <DialogTitle className="text-2xl font-bold text-[#17464F] flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-[#17464F]/10 flex items-center justify-center flex-shrink-0">
-                        {feature.icon}
-                      </div>
-                      {feature.title}
-                    </DialogTitle>
-                    <DialogDescription className="text-[#33393C] text-base leading-relaxed pt-4">
-                      <div className="space-y-4">
-                        {feature.details.map((detail, idx) => (
-                          <div key={idx} className="flex items-start gap-2">
-                            <span className="text-[#D4B483] mt-1">–</span>
-                            <span dangerouslySetInnerHTML={{ __html: detail }} />
-                          </div>
-                        ))}
-                      </div>
-                    </DialogDescription>
-                  </DialogHeader>
-
-                  <div className="mt-6">
-                    {/* CHANGE: Removed carousel for mobile, now using vertical scrolling for all screen sizes */}
-                    <div className="space-y-4">
-                      {feature.images.map((image, idx) => (
-                        <div
-                          key={idx}
-                          className="relative aspect-video rounded-xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
-                          onClick={() => openLightbox(feature.images, idx)}
-                        >
-                          <Image src={image.src || "/placeholder.svg"} alt={image.alt} fill className="object-cover" />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </DialogContent>
-            </DialogPortal>
-          </Dialog>
-        ))}
-
-        {lightboxOpen && (
-          <div
-            className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center"
-            onClick={() => setLightboxOpen(false)}
-          >
-            {/* Close button */}
-            <button
-              onClick={() => setLightboxOpen(false)}
-              className="absolute top-4 right-4 z-[101] text-white hover:text-[#D4B483] transition-colors p-2"
-            >
-              <X className="w-8 h-8" />
-            </button>
-
-            {/* Previous button */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation()
-                setLightboxIndex((prev) => (prev > 0 ? prev - 1 : lightboxImages.length - 1))
-              }}
-              className="absolute left-4 z-[101] text-white hover:text-[#D4B483] transition-colors p-2 bg-black/50 rounded-full"
-            >
-              <ChevronLeft className="w-8 h-8" />
-            </button>
-
-            {/* Image */}
-            <div
-              className="relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center p-8"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Image
-                src={lightboxImages[lightboxIndex]?.src || "/placeholder.svg"}
-                alt={lightboxImages[lightboxIndex]?.alt || ""}
-                width={1920}
-                height={1080}
-                className="object-contain max-w-full max-h-full"
-              />
+              <div className="flex items-start gap-3">
+                <TrendingUp className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
+                <p className="text-white/90">不停薪開始：不必離職，也能先試出自己的下一步</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <FileText className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
+                <p className="text-white/90">五個月有節奏：不是被啟發而已，是真的一步步做出來</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <Users className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
+                <p className="text-white/90">成果看得見：履歷、作品集、個人頁面，不再只是想過</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <Globe className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
+                <p className="text-white/90">從台灣接到世界：線下小聚、遊牧旅程、國際生態系入口</p>
+              </div>
             </div>
 
-            {/* Next button */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation()
-                setLightboxIndex((prev) => (prev < lightboxImages.length - 1 ? prev + 1 : 0))
-              }}
-              className="absolute right-4 z-[101] text-white hover:text-[#D4B483] transition-colors p-2 bg-black/50 rounded-full"
-            >
-              <ChevronRight className="w-8 h-8" />
-            </button>
+            {/* CTA Buttons */}
+            <div className="flex flex-col gap-4 items-center">
+              <a
+                href="https://www.accupass.com/organizer/detail/2509180637491342778166"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-brand-gold text-brand-teal font-semibold text-sm sm:text-base px-6 py-3 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-md hover:shadow-lg"
+              >
+                <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                </svg>
+                查看免費講座場次
+              </a>
+              <a
+                href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 border border-white/30 text-white/80 hover:text-brand-gold hover:border-brand-gold/50 font-medium text-sm sm:text-base px-5 py-2.5 rounded-full transition-colors duration-200"
+              >
+                <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+                </svg>
+                先看學院說明會回放
+              </a>
+              <p className="text-white/50 text-xs text-center">
+                還不確定適不適合？先看免費講座或回放，再決定要不要加入。
+              </p>
+            </div>
 
-            {/* Image counter */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-[101] text-white text-sm bg-black/50 px-4 py-2 rounded-full">
-              {lightboxIndex + 1} / {lightboxImages.length}
-            </div>
-          </div>
-        )}
-      </Suspense>
-
-      {/* SECTION 5 INSTRUCTORS START - 師資 */}
-      <section className="hidden py-16 sm:py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <div className="flex justify-center gap-2 mb-6">
-              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-              <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
-              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#17464F] mb-6">
-              你的路線，不會只有一位老師在陪你走
-            </h2>
-            <p className="text-[#33393C] text-lg leading-relaxed max-w-2xl mx-auto">
-              這堂學院不是把所有主題塞給同一個講師，
-              <br className="hidden sm:block" />
-              而是找了一群真的在路上走的人，一起陪你打底、選方向、走路線。
-            </p>
-          </div>
-
-          <div className="mb-16">
-            <div className="flex items-center justify-center gap-3 mb-8">
-              <div className="h-px w-12 bg-[#17464F]"></div>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#17464F]">
-                <span className="text-[#D4B483]">A 線｜</span>接案線路導師
-              </h3>
-              <div className="h-px w-12 bg-[#17464F]"></div>
-            </div>
-            <p className="text-center text-[#33393C] mb-8 max-w-xl mx-auto">
-              帶你建立個人品牌、經營內容、從零開始接案變現
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
-              {instructors
-                .filter((i) => ["工具王阿璋", "林佳 Zoe", "三分鐘", "西打藍"].includes(i.name))
-                .map((instructor, index) => (
-                  <div key={index} className="group text-center">
-                    <div className="relative mb-4">
-                      <a
-                        href={instructor.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block w-28 h-28 sm:w-32 sm:h-32 mx-auto rounded-full overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300 cursor-pointer ring-4 ring-[#17464F]/20"
-                      >
-                        <Image
-                          src={instructor.image || "/placeholder.svg"}
-                          alt={instructor.name}
-                          width={128}
-                          height={128}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          loading="lazy"
-                        />
-                      </a>
-                    </div>
-                    <h4 className="text-base sm:text-lg font-bold text-[#17464F] mb-1">{instructor.name}</h4>
-                    <p className="text-[#33393C] text-xs sm:text-sm leading-relaxed line-clamp-2 px-2">
-                      {instructor.title.split("，")[0]}
-                    </p>
-                  </div>
-                ))}
-            </div>
-          </div>
-
-          <div className="mb-16">
-            <div className="flex items-center justify-center gap-3 mb-8">
-              <div className="h-px w-12 bg-[#17464F]"></div>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#17464F]">
-                <span className="text-[#D4B483]">B 線｜</span>遠端上班線路導師
-              </h3>
-              <div className="h-px w-12 bg-[#17464F]"></div>
-            </div>
-            <p className="text-center text-[#33393C] mb-8 max-w-xl mx-auto">
-              帶你建立國際職涯視野、遠端求職策略、跨國人脈經營
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
-              {instructors
-                .filter((i) => ["許詮", "Shelley", "讀者太太", "Emilia"].includes(i.name))
-                .map((instructor, index) => (
-                  <div key={index} className="group text-center">
-                    <div className="relative mb-4">
-                      <a
-                        href={instructor.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block w-28 h-28 sm:w-32 sm:h-32 mx-auto rounded-full overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300 cursor-pointer ring-4 ring-[#17464F]/20"
-                      >
-                        <Image
-                          src={instructor.image || "/placeholder.svg"}
-                          alt={instructor.name}
-                          width={128}
-                          height={128}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          loading="lazy"
-                        />
-                      </a>
-                    </div>
-                    <h4 className="text-base sm:text-lg font-bold text-[#17464F] mb-1">{instructor.name}</h4>
-                    <p className="text-[#33393C] text-xs sm:text-sm leading-relaxed line-clamp-2 px-2">
-                      {instructor.title.split("，")[0]}
-                    </p>
-                  </div>
-                ))}
-            </div>
-          </div>
-
-          <div className="mb-8">
-            <div className="flex items-center justify-center gap-3 mb-8">
-              <div className="h-px w-12 bg-[#D4B383]"></div>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#17464F]">共同必修</h3>
-              <div className="h-px w-12 bg-[#D4B483]"></div>
-            </div>
-            <p className="text-center text-[#33393C] mb-8 max-w-xl mx-auto">
-              打底知識變現、AI 工具、財務思維、人生 SOP 的核心講師
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
-              {instructors
-                .filter((i) => ["林上哲", "鮪魚", "Joyce Weng", "Angela Feng"].includes(i.name))
-                .map((instructor, index) => (
-                  <div key={index} className="group text-center">
-                    <div className="relative mb-4">
-                      <a
-                        href={instructor.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block w-28 h-28 sm:w-32 sm:h-32 mx-auto rounded-full overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300 cursor-pointer ring-4 ring-[#D4B483]/30"
-                      >
-                        <Image
-                          src={instructor.image || "/placeholder.svg"}
-                          alt={instructor.name}
-                          width={128}
-                          height={128}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          loading="lazy"
-                        />
-                      </a>
-                    </div>
-                    <h4 className="text-base sm:text-lg font-bold text-[#17464F] mb-1">{instructor.name}</h4>
-                    <p className="text-[#33393C] text-xs sm:text-sm leading-relaxed line-clamp-2 px-2">
-                      {instructor.title.split("，")[0]}
-                    </p>
-                  </div>
-                ))}
+            {/* 錨點文字 */}
+            <div className="pt-4">
+              <button
+                onClick={() => {
+                  document.getElementById("learning-map")?.scrollIntoView({ behavior: "smooth" })
+                }}
+                className="text-white/50 hover:text-white/80 text-sm transition-colors duration-200 flex items-center gap-1 mx-auto"
+              >
+                往下看 5 個月怎麼走
+                <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
             </div>
           </div>
         </div>
       </section>
+      {/* SECTION 2 COURSE HIGHLIGHTS - 正在尋找「下一步」的你 */}
+      <CourseHighlightsSection />
+      {/* SECTION 3 PAIN POINTS - 三大痛點 */}
+      <PainPointsSection />
+      {/* SECTION 2.1 COURSE HIGHLIGHTS CONTINUED (Part 2: 三大亮點) */}
+      <KeyFeaturesSection />
+
+      {/* SECTION 5 INSTRUCTORS - 師資 (currently hidden, use <InstructorsSection instructors={instructors} /> to enable) */}
       {/* SECTION 6 COURSE OUTLINE START - 學習地圖（四階段） */}
-      <section id="learning-map" className="py-16 sm:py-20 bg-[#F5F3ED]">
+      <section id="learning-map" className="py-16 sm:py-20 bg-brand-offwhite">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#17464F] mb-2 text-balance">學習地圖</h2>
-            <p className="text-base sm:text-lg text-[#D4B483] font-medium mb-6">五月開學，每週三晚間八點準時上線。</p>
-            <p className="text-[#33393C] max-w-2xl mx-auto leading-relaxed text-sm sm:text-base font-medium">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-teal mb-2 text-balance">學習地圖</h2>
+            <p className="text-base sm:text-lg text-brand-gold font-medium mb-6">五月開學，每週三晚間八點準時上線。</p>
+            <p className="text-brand-text max-w-2xl mx-auto leading-relaxed text-sm sm:text-base font-medium">
               這不是一堆零散課程，而是一套 5 個月、4 階段的行動節奏。
             </p>
-            <p className="text-[#33393C]/60 max-w-2xl mx-auto leading-relaxed text-xs sm:text-sm mt-2">
+            <p className="text-brand-text/60 max-w-2xl mx-auto leading-relaxed text-xs sm:text-sm mt-2">
               兩條路各有主線課，也會共用通用能力模組，例如 AI、自媒體、人生使用說明SOP、財務。
             </p>
           </div>
 
           {/* Tabs 前導文字 */}
-          <p className="text-center text-[#33393C]/70 text-sm mb-4">先選一條你現在最想嘗試的路線：</p>
+          <p className="text-center text-brand-text/70 text-sm mb-4">先選一條你現在最想嘗試的路線：</p>
 
           {/* Tabs */}
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
@@ -1112,8 +493,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 onClick={() => setActiveMapTab(tab)}
                 className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-sm sm:text-base font-medium transition-all duration-300 border-2 ${
                   activeMapTab === tab
-                    ? "bg-[#17464F] text-white border-[#17464F]"
-                    : "bg-white text-[#17464F] border-[#17464F]/30 hover:border-[#17464F]"
+                    ? "bg-brand-teal text-white border-brand-teal"
+                    : "bg-white text-brand-teal border-brand-teal/30 hover:border-brand-teal"
                 }`}
               >
                 {tab}
@@ -1126,7 +507,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             <div className="animate-in fade-in duration-300">
               {/* Tab 標題 */}
               <div className="text-center mb-8">
-                <h3 className="text-lg sm:text-xl font-bold text-[#17464F] mb-2">遠端上班：從看懂機會，到更有機會被錄用，也更有能力走得長久</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-brand-teal mb-2">遠端上班：從看懂機會，到更有機會被錄用，也更有能力走得長久</h3>
               </div>
               
               {/* Desktop: 四張卡片 grid */}
@@ -1139,27 +520,27 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         <span className={`w-6 h-6 rounded-full ${phase.color.solid} text-white text-xs font-bold flex items-center justify-center flex-shrink-0`}>
                           {index + 1}
                         </span>
-                        <span className="text-xs text-[#33393C]/50">{phase.months}</span>
+                        <span className="text-xs text-brand-text/50">{phase.months}</span>
                         <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
                       </div>
-                      <h4 className="font-bold text-[#17464F] text-sm mb-2 leading-snug">{content.headline}</h4>
-                      <p className="text-xs text-[#33393C]/70 mb-3 leading-relaxed">{content.description}</p>
+                      <h4 className="font-bold text-brand-teal text-sm mb-2 leading-snug">{content.headline}</h4>
+                      <p className="text-xs text-brand-text/70 mb-3 leading-relaxed">{content.description}</p>
                       
                       <div className="mb-3">
-                        <p className="text-[10px] font-semibold text-[#17464F] mb-1.5">你會得到：</p>
+                        <p className="text-[10px] font-semibold text-brand-teal mb-1.5">你會得到：</p>
                         <ul className="space-y-1">
                           {content.outcomes.map((outcome, i) => (
-                            <li key={i} className="text-[10px] text-[#33393C]/80 flex items-start gap-1.5">
-                              <span className="text-[#D4B483] mt-0.5">•</span>
+                            <li key={i} className="text-[10px] text-brand-text/80 flex items-start gap-1.5">
+                              <span className="text-brand-gold mt-0.5">•</span>
                               {outcome}
                             </li>
                           ))}
                         </ul>
                       </div>
                       
-                      <div className="pt-2 border-t border-[#C9D7D4]/50">
-                        <p className="text-[10px] font-semibold text-[#33393C]/60 mb-1">對應重點：</p>
-                        <p className="text-[10px] text-[#17464F] leading-relaxed">{content.courses.join("、")}</p>
+                      <div className="pt-2 border-t border-brand-mist/50">
+                        <p className="text-[10px] font-semibold text-brand-text/60 mb-1">對應重點：</p>
+                        <p className="text-[10px] text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
                       </div>
                     </div>
                   )
@@ -1173,20 +554,20 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   const isFirst = index === 0
                   return (
                     <details key={index} className={`group bg-white rounded-xl border-2 ${phase.color.border} overflow-hidden`} open={isFirst}>
-                      <summary className="p-4 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors list-none [&::-webkit-details-marker]:hidden">
+                      <summary className="p-4 cursor-pointer hover:bg-brand-offwhite/50 transition-colors list-none [&::-webkit-details-marker]:hidden">
                         <div className="flex items-center gap-3">
                           <span className={`w-7 h-7 rounded-full ${phase.color.solid} text-white text-xs font-bold flex items-center justify-center flex-shrink-0`}>
                             {index + 1}
                           </span>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-1.5">
-                              <span className="text-xs text-[#33393C]/50">{phase.months}</span>
+                              <span className="text-xs text-brand-text/50">{phase.months}</span>
                               <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
                             </div>
-                            <p className="text-sm font-bold text-[#17464F] truncate">{content.headline}</p>
+                            <p className="text-sm font-bold text-brand-teal truncate">{content.headline}</p>
                           </div>
                           {/* 展開/收合提示 */}
-                          <div className="flex items-center gap-1 text-[#33393C]/50 flex-shrink-0">
+                          <div className="flex items-center gap-1 text-brand-text/50 flex-shrink-0">
                             <span className="text-xs group-open:hidden">展開</span>
                             <span className="text-xs hidden group-open:inline">收合</span>
                             <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1195,24 +576,24 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                           </div>
                         </div>
                       </summary>
-                      <div className="px-4 pb-4 pt-2 border-t border-[#C9D7D4]/30">
-                        <p className="text-sm text-[#33393C]/70 mb-3 leading-relaxed">{content.description}</p>
+                      <div className="px-4 pb-4 pt-2 border-t border-brand-mist/30">
+                        <p className="text-sm text-brand-text/70 mb-3 leading-relaxed">{content.description}</p>
                         
                         <div className="mb-3">
-                          <p className="text-xs font-semibold text-[#17464F] mb-2">你會得到：</p>
+                          <p className="text-xs font-semibold text-brand-teal mb-2">你會得到：</p>
                           <ul className="space-y-1.5">
                             {content.outcomes.map((outcome, i) => (
-                              <li key={i} className="text-xs text-[#33393C]/80 flex items-start gap-2">
-                                <span className="text-[#D4B483] mt-0.5">•</span>
+                              <li key={i} className="text-xs text-brand-text/80 flex items-start gap-2">
+                                <span className="text-brand-gold mt-0.5">•</span>
                                 {outcome}
                               </li>
                             ))}
                           </ul>
                         </div>
                         
-                        <div className="pt-3 border-t border-[#C9D7D4]/50">
-                          <p className="text-xs font-semibold text-[#33393C]/60 mb-1">對應重點：</p>
-                          <p className="text-xs text-[#17464F] leading-relaxed">{content.courses.join("、")}</p>
+                        <div className="pt-3 border-t border-brand-mist/50">
+                          <p className="text-xs font-semibold text-brand-text/60 mb-1">對應重點：</p>
+                          <p className="text-xs text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
                         </div>
                       </div>
                     </details>
@@ -1227,7 +608,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             <div className="animate-in fade-in duration-300">
               {/* Tab 標題 */}
               <div className="text-center mb-8">
-                <h3 className="text-lg sm:text-xl font-bold text-[#17464F] mb-2">接案：從想靠自己變現，到做出能持續合作的內容與服務</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-brand-teal mb-2">接案：從想靠自己變現，到做出能持續合作的內容與服務</h3>
               </div>
               
               {/* Desktop: 四張卡片 grid */}
@@ -1240,27 +621,27 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         <span className={`w-6 h-6 rounded-full ${phase.color.solid} text-white text-xs font-bold flex items-center justify-center flex-shrink-0`}>
                           {index + 1}
                         </span>
-                        <span className="text-xs text-[#33393C]/50">{phase.months}</span>
+                        <span className="text-xs text-brand-text/50">{phase.months}</span>
                         <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
                       </div>
-                      <h4 className="font-bold text-[#17464F] text-sm mb-2 leading-snug">{content.headline}</h4>
-                      <p className="text-xs text-[#33393C]/70 mb-3 leading-relaxed">{content.description}</p>
+                      <h4 className="font-bold text-brand-teal text-sm mb-2 leading-snug">{content.headline}</h4>
+                      <p className="text-xs text-brand-text/70 mb-3 leading-relaxed">{content.description}</p>
                       
                       <div className="mb-3">
-                        <p className="text-[10px] font-semibold text-[#17464F] mb-1.5">你會得到：</p>
+                        <p className="text-[10px] font-semibold text-brand-teal mb-1.5">你會得到：</p>
                         <ul className="space-y-1">
                           {content.outcomes.map((outcome, i) => (
-                            <li key={i} className="text-[10px] text-[#33393C]/80 flex items-start gap-1.5">
-                              <span className="text-[#D4B483] mt-0.5">•</span>
+                            <li key={i} className="text-[10px] text-brand-text/80 flex items-start gap-1.5">
+                              <span className="text-brand-gold mt-0.5">•</span>
                               {outcome}
                             </li>
                           ))}
                         </ul>
                       </div>
                       
-                      <div className="pt-2 border-t border-[#C9D7D4]/50">
-                        <p className="text-[10px] font-semibold text-[#33393C]/60 mb-1">對應重點：</p>
-                        <p className="text-[10px] text-[#17464F] leading-relaxed">{content.courses.join("、")}</p>
+                      <div className="pt-2 border-t border-brand-mist/50">
+                        <p className="text-[10px] font-semibold text-brand-text/60 mb-1">對應重點：</p>
+                        <p className="text-[10px] text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
                       </div>
                     </div>
                   )
@@ -1274,20 +655,20 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   const isFirst = index === 0
                   return (
                     <details key={index} className={`group bg-white rounded-xl border-2 ${phase.color.border} overflow-hidden`} open={isFirst}>
-                      <summary className="p-4 cursor-pointer hover:bg-[#F5F3ED]/50 transition-colors list-none [&::-webkit-details-marker]:hidden">
+                      <summary className="p-4 cursor-pointer hover:bg-brand-offwhite/50 transition-colors list-none [&::-webkit-details-marker]:hidden">
                         <div className="flex items-center gap-3">
                           <span className={`w-7 h-7 rounded-full ${phase.color.solid} text-white text-xs font-bold flex items-center justify-center flex-shrink-0`}>
                             {index + 1}
                           </span>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-1.5">
-                              <span className="text-xs text-[#33393C]/50">{phase.months}</span>
+                              <span className="text-xs text-brand-text/50">{phase.months}</span>
                               <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
                             </div>
-                            <p className="text-sm font-bold text-[#17464F] truncate">{content.headline}</p>
+                            <p className="text-sm font-bold text-brand-teal truncate">{content.headline}</p>
                           </div>
                           {/* 展開/收合提示 */}
-                          <div className="flex items-center gap-1 text-[#33393C]/50 flex-shrink-0">
+                          <div className="flex items-center gap-1 text-brand-text/50 flex-shrink-0">
                             <span className="text-xs group-open:hidden">展開</span>
                             <span className="text-xs hidden group-open:inline">收合</span>
                             <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1296,24 +677,24 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                           </div>
                         </div>
                       </summary>
-                      <div className="px-4 pb-4 pt-2 border-t border-[#C9D7D4]/30">
-                        <p className="text-sm text-[#33393C]/70 mb-3 leading-relaxed">{content.description}</p>
+                      <div className="px-4 pb-4 pt-2 border-t border-brand-mist/30">
+                        <p className="text-sm text-brand-text/70 mb-3 leading-relaxed">{content.description}</p>
                         
                         <div className="mb-3">
-                          <p className="text-xs font-semibold text-[#17464F] mb-2">你會得到：</p>
+                          <p className="text-xs font-semibold text-brand-teal mb-2">你會得到：</p>
                           <ul className="space-y-1.5">
                             {content.outcomes.map((outcome, i) => (
-                              <li key={i} className="text-xs text-[#33393C]/80 flex items-start gap-2">
-                                <span className="text-[#D4B483] mt-0.5">•</span>
+                              <li key={i} className="text-xs text-brand-text/80 flex items-start gap-2">
+                                <span className="text-brand-gold mt-0.5">•</span>
                                 {outcome}
                               </li>
                             ))}
                           </ul>
                         </div>
                         
-                        <div className="pt-3 border-t border-[#C9D7D4]/50">
-                          <p className="text-xs font-semibold text-[#33393C]/60 mb-1">對應重點：</p>
-                          <p className="text-xs text-[#17464F] leading-relaxed">{content.courses.join("、")}</p>
+                        <div className="pt-3 border-t border-brand-mist/50">
+                          <p className="text-xs font-semibold text-brand-text/60 mb-1">對應重點：</p>
+                          <p className="text-xs text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
                         </div>
                       </div>
                     </details>
@@ -1328,22 +709,22 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             <div className="animate-in fade-in duration-300 max-w-3xl mx-auto">
               {/* Tab 標題 */}
               <div className="text-center mb-8">
-                <h3 className="text-lg sm:text-xl font-bold text-[#17464F] mb-2">{undecidedTabContent.headline}</h3>
+                <h3 className="text-lg sm:text-xl font-bold text-brand-teal mb-2">{undecidedTabContent.headline}</h3>
               </div>
 
               <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
                 {/* 常見困惑 */}
-                <div className="text-[#33393C] text-sm leading-relaxed mb-6">
+                <div className="text-brand-text text-sm leading-relaxed mb-6">
                   <p className="whitespace-pre-line">{undecidedTabContent.intro}</p>
                 </div>
 
                 {/* 決策彈性區塊 */}
-                <div className="bg-[#F5F3ED] rounded-xl p-5 mb-6">
-                  <h4 className="font-bold text-[#17464F] mb-3">{undecidedTabContent.flexibility.headline}</h4>
+                <div className="bg-brand-offwhite rounded-xl p-5 mb-6">
+                  <h4 className="font-bold text-brand-teal mb-3">{undecidedTabContent.flexibility.headline}</h4>
                   <ul className="space-y-2">
                     {undecidedTabContent.flexibility.points.map((point, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-[#33393C]">
-                        <svg className="w-5 h-5 text-[#D4B483] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <li key={i} className="flex items-start gap-2 text-sm text-brand-text">
+                        <svg className="w-5 h-5 text-brand-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                         {point}
@@ -1354,16 +735,16 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
                 {/* 試上資訊 */}
                 <div className="mb-6">
-                  <h4 className="font-bold text-[#17464F] mb-3">{undecidedTabContent.trialInfo.headline}</h4>
+                  <h4 className="font-bold text-brand-teal mb-3">{undecidedTabContent.trialInfo.headline}</h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div className="relative bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-xl p-4 text-white">
-                      <div className="absolute top-2 right-2 bg-[#D4B483] text-[#17464F] text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    <div className="relative bg-gradient-to-br from-brand-teal to-[#1a5561] rounded-xl p-4 text-white">
+                      <div className="absolute top-2 right-2 bg-brand-gold text-brand-teal text-[10px] font-bold px-2 py-0.5 rounded-full">
                         Week 2
                       </div>
                       <p className="font-semibold text-sm">{undecidedTabContent.trialInfo.week2}</p>
                     </div>
-                    <div className="relative bg-gradient-to-br from-[#17464F] to-[#1a5561] rounded-xl p-4 text-white">
-                      <div className="absolute top-2 right-2 bg-[#D4B483] text-[#17464F] text-[10px] font-bold px-2 py-0.5 rounded-full">
+                    <div className="relative bg-gradient-to-br from-brand-teal to-[#1a5561] rounded-xl p-4 text-white">
+                      <div className="absolute top-2 right-2 bg-brand-gold text-brand-teal text-[10px] font-bold px-2 py-0.5 rounded-full">
                         Week 3
                       </div>
                       <p className="font-semibold text-sm">{undecidedTabContent.trialInfo.week3}</p>
@@ -1372,8 +753,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 </div>
 
                 {/* 收尾 */}
-                <div className="pt-4 border-t border-[#C9D7D4]">
-                  <p className="text-center text-[#17464F] font-medium">{undecidedTabContent.closing}</p>
+                <div className="pt-4 border-t border-brand-mist">
+                  <p className="text-center text-brand-teal font-medium">{undecidedTabContent.closing}</p>
                 </div>
               </div>
             </div>
@@ -1393,8 +774,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               }}
               className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                 showCalendarInline
-                  ? "bg-[#F5F3ED] text-[#17464F] border border-[#C9D7D4] hover:bg-[#C9D7D4]"
-                  : "bg-[#17464F] text-white hover:bg-[#1a5561]"
+                  ? "bg-brand-offwhite text-brand-teal border border-brand-mist hover:bg-brand-mist"
+                  : "bg-brand-teal text-white hover:bg-[#1a5561]"
               }`}
             >
               {showCalendarInline ? (
@@ -1409,7 +790,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 </>
               )}
             </button>
-            {!showCalendarInline && <p className="text-sm text-[#33393C]/60 mt-2">看看每週三晚間八點，具體在做什麼</p>}
+            {!showCalendarInline && <p className="text-sm text-brand-text/60 mt-2">看看每週三晚間八點，具體在做什麼</p>}
           </div>
 
           {showCalendarInline && (
@@ -1460,13 +841,13 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         return (
                           <div
                             key={group.phase}
-                            className="border border-[#C9D7D4] rounded-xl overflow-hidden bg-white"
+                            className="border border-brand-mist rounded-xl overflow-hidden bg-white"
                           >
                             {/* Phase Header - Clickable */}
                             <button
                               onClick={() => togglePhase(group.phase)}
                               className={`w-full px-4 md:px-6 py-4 flex items-center justify-center relative transition-colors ${
-                                isPhaseExpanded ? "bg-[#F5F3ED]" : "bg-white hover:bg-[#F5F3ED]/50"
+                                isPhaseExpanded ? "bg-brand-offwhite" : "bg-white hover:bg-brand-offwhite/50"
                               }`}
                             >
                               <div className="flex flex-col items-center gap-1 text-center flex-1">
@@ -1480,7 +861,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                                 </p>
                               </div>
                               <ChevronDown
-                                className={`w-5 h-5 text-[#17464F] transition-transform flex-shrink-0 absolute right-4 md:right-6 ${
+                                className={`w-5 h-5 text-brand-teal transition-transform flex-shrink-0 absolute right-4 md:right-6 ${
                                   isPhaseExpanded ? "rotate-180" : ""
                                 }`}
                               />
@@ -1488,7 +869,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
                             {/* Phase Content - Expandable */}
                             {isPhaseExpanded && (
-                              <div className="px-4 md:px-6 py-4 border-t border-[#C9D7D4] animate-in slide-in-from-top-2 fade-in duration-300">
+                              <div className="px-4 md:px-6 py-4 border-t border-brand-mist animate-in slide-in-from-top-2 fade-in duration-300">
                                 {/* Week Cards Grid */}
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                                   {phaseWeeks.map((week) => {
@@ -1498,12 +879,12 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                                     return (
                                       <div
                                         key={week.id}
-                                        className="border border-[#C9D7D4] rounded-lg p-4 bg-white hover:shadow-md transition-shadow cursor-pointer flex flex-col h-full"
+                                        className="border border-brand-mist rounded-lg p-4 bg-white hover:shadow-md transition-shadow cursor-pointer flex flex-col h-full"
                                         onClick={() => setSelectedWeek(week)}
                                       >
                                         {/* Week Header */}
                                         <div className="flex items-center justify-between mb-2">
-                                          <span className="text-sm font-bold text-[#17464F]">{week.monthWeek}</span>
+                                          <span className="text-sm font-bold text-brand-teal">{week.monthWeek}</span>
                                           <span
                                             className={`px-2 py-0.5 text-xs rounded ${trackColor.bg} ${trackColor.text}`}
                                           >
@@ -1512,15 +893,15 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                                         </div>
 
                                         {/* Title */}
-                                        <h4 className="text-sm font-semibold text-[#17464F] mb-2 line-clamp-2">
+                                        <h4 className="text-sm font-semibold text-brand-teal mb-2 line-clamp-2">
                                           {week.title}
                                         </h4>
 
-                                        <p className="text-xs text-[#33393C] mb-3 line-clamp-2">{week.focusShort}</p>
+                                        <p className="text-xs text-brand-text mb-3 line-clamp-2">{week.focusShort}</p>
 
                                         <div className="flex-1"></div>
 
-                                        <div className="flex items-center justify-between mt-auto pt-3 border-t border-[#C9D7D4]/30">
+                                        <div className="flex items-center justify-between mt-auto pt-3 border-t border-brand-mist/30">
                                           <div className="flex items-center gap-2">
                                             <div className="flex items-center -space-x-2">
                                               {weekInstructors.slice(0, 3).map((instructor, idx) => (
@@ -1538,7 +919,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                                                 </div>
                                               ))}
                                             </div>
-                                            <span className="text-xs text-[#33393C]/70">
+                                            <span className="text-xs text-brand-text/70">
                                               {weekInstructors.length === 1
                                                 ? weekInstructors[0].name === "講師確認中"
                                                   ? "待公開"
@@ -1546,7 +927,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                                                 : `${weekInstructors[0].name === "講師確認中" ? "待公開" : weekInstructors[0].name} 等 ${weekInstructors.length} 位`}
                                             </span>
                                           </div>
-                                          <ChevronRight className="w-4 h-4 text-[#17464F]/50" />
+                                          <ChevronRight className="w-4 h-4 text-brand-teal/50" />
                                         </div>
                                       </div>
                                     )
@@ -1577,7 +958,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     })
                   }, 300)
                 }}
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#F5F3ED] text-[#17464F] rounded-full font-medium hover:bg-[#C9D7D4] transition-all duration-300 border border-[#C9D7D4]"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-offwhite text-brand-teal rounded-full font-medium hover:bg-brand-mist transition-all duration-300 border border-brand-mist"
               >
                 <ChevronUp className="w-4 h-4" />
                 收合行事曆
@@ -1589,60 +970,60 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
       {/* Member Exclusive Resources Section */}
       {/* What You Get Section */}
-      <section className="pt-8 sm:pt-12 pb-16 sm:pb-24 bg-[#F5F3ED]">
+      <section className="pt-8 sm:pt-12 pb-16 sm:pb-24 bg-brand-offwhite">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <div className="text-center mb-12">
             <div className="flex justify-center gap-2 mb-4">
-              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-              <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
-              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
+              <span className="w-2 h-2 rounded-full bg-brand-gold"></span>
+              <span className="w-2 h-2 rounded-full bg-brand-teal"></span>
+              <span className="w-2 h-2 rounded-full bg-brand-gold"></span>
             </div>
-            <h3 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3 text-balance">
+            <h3 className="text-2xl sm:text-3xl font-bold text-brand-teal mb-3 text-balance">
               {'成為本屆學員你會得到什麼'}
             </h3>
-            <p className="text-sm sm:text-base text-[#33393C]/70">
+            <p className="text-sm sm:text-base text-brand-text/70">
               {'遠距職涯 x 遠端接案 — 一套從定位到落地的完整行動系統'}
             </p>
           </div>
 
           {/* Block 1: Growth System (desktop only - merged into Block 2 on mobile) */}
           <div className="hidden md:block mb-3">
-            <h4 className="font-bold text-[#17464F] text-base sm:text-lg mb-4 flex items-center gap-2">
-              <span className="w-1.5 h-6 rounded-full bg-[#D4B483]"></span>
+            <h4 className="font-bold text-brand-teal text-base sm:text-lg mb-4 flex items-center gap-2">
+              <span className="w-1.5 h-6 rounded-full bg-brand-gold"></span>
               {'一套「把能力變成機會」的成長系統'}
             </h4>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-              <div className="bg-white rounded-xl p-5 border border-[#C9D7D4]/50 shadow-sm">
+              <div className="bg-white rounded-xl p-5 border border-brand-mist/50 shadow-sm">
                 <div className="flex items-center gap-2.5 mb-1.5">
-                  <div className="w-8 h-8 rounded-lg bg-[#17464F] flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-brand-teal flex items-center justify-center flex-shrink-0">
                     <span className="text-white text-xs font-bold">{'01'}</span>
                   </div>
-                  <h5 className="font-bold text-[#17464F] text-sm">{'當屆完整課程'}</h5>
+                  <h5 className="font-bold text-brand-teal text-sm">{'當屆完整課程'}</h5>
                 </div>
-                <p className="text-[#33393C]/70 text-xs leading-relaxed pl-[42px]">
+                <p className="text-brand-text/70 text-xs leading-relaxed pl-[42px]">
                   {'聚焦遠距求職與接案兩條路，從定位到落地流程（直播 / 回放一年）'}
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-5 border border-[#C9D7D4]/50 shadow-sm">
+              <div className="bg-white rounded-xl p-5 border border-brand-mist/50 shadow-sm">
                 <div className="flex items-center gap-2.5 mb-1.5">
-                  <div className="w-8 h-8 rounded-lg bg-[#17464F] flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-brand-teal flex items-center justify-center flex-shrink-0">
                     <span className="text-white text-xs font-bold">{'02'}</span>
                   </div>
-                  <h5 className="font-bold text-[#17464F] text-sm">{'作業與落地任務'}</h5>
+                  <h5 className="font-bold text-brand-teal text-sm">{'作業與落地任務'}</h5>
                 </div>
-                <p className="text-[#33393C]/70 text-xs leading-relaxed pl-[42px]">
+                <p className="text-brand-text/70 text-xs leading-relaxed pl-[42px]">
                   {'每周都要交付 — 一步步把你推到「可以被採用 / 被下單」的狀態'}
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-5 border border-[#C9D7D4]/50 shadow-sm">
+              <div className="bg-white rounded-xl p-5 border border-brand-mist/50 shadow-sm">
                 <div className="flex items-center gap-2.5 mb-1.5">
-                  <div className="w-8 h-8 rounded-lg bg-[#17464F] flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-brand-teal flex items-center justify-center flex-shrink-0">
                     <span className="text-white text-xs font-bold">{'03'}</span>
                   </div>
-                  <h5 className="font-bold text-[#17464F] text-sm">{'成長節奏'}</h5>
+                  <h5 className="font-bold text-brand-teal text-sm">{'成長節奏'}</h5>
                 </div>
-                <p className="text-[#33393C]/70 text-xs leading-relaxed pl-[42px]">
+                <p className="text-brand-text/70 text-xs leading-relaxed pl-[42px]">
                   {'線上同學會 / 團體 QA / DemoDay，互相學習、幫助，彼此督促跟上進度'}
                 </p>
               </div>
@@ -1651,24 +1032,24 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
           {/* Block 2: Mobile — 成長系統 + 你會做出什麼成果 合併成一張可收合卡片 */}
           {/* Desktop — 你會做出什麼成果 獨立可收合卡片 */}
-          <details className="group/block2 mb-3 bg-white rounded-2xl border border-[#C9D7D4]/50 shadow-sm overflow-hidden">
-            <summary className="flex items-center justify-between p-5 sm:px-8 sm:py-6 cursor-pointer list-none [&::-webkit-details-marker]:hidden hover:bg-[#F5F3ED]/30 transition-colors">
+          <details className="group/block2 mb-3 bg-white rounded-2xl border border-brand-mist/50 shadow-sm overflow-hidden">
+            <summary className="flex items-center justify-between p-5 sm:px-8 sm:py-6 cursor-pointer list-none [&::-webkit-details-marker]:hidden hover:bg-brand-offwhite/30 transition-colors">
               {/* Mobile: 顯示「成長系統」標題 */}
               <div className="flex md:hidden items-center gap-2 flex-1 min-w-0">
-                <span className="w-1.5 h-6 rounded-full bg-[#D4B483] flex-shrink-0"></span>
-                <h4 className="font-bold text-[#17464F] text-base">{'一套「把能力變成機會」的成長系統'}</h4>
+                <span className="w-1.5 h-6 rounded-full bg-brand-gold flex-shrink-0"></span>
+                <h4 className="font-bold text-brand-teal text-base">{'一套「把能力變成機會」的成長系統'}</h4>
               </div>
               {/* Desktop: 顯示「你會做出什麼成果」標題 */}
               <div className="hidden md:flex items-center gap-3 flex-wrap">
-                <h4 className="font-bold text-[#17464F] text-lg">{'你會做出什麼成果'}</h4>
+                <h4 className="font-bold text-brand-teal text-lg">{'你會做出什麼成果'}</h4>
                 <div className="flex gap-1.5">
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#D4B483]/15 text-[#A06E56] font-medium">{'可展示'}</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#D4B483]/15 text-[#A06E56] font-medium">{'可投遞'}</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#D4B483]/15 text-[#A06E56] font-medium">{'可成交'}</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-brand-gold/15 text-brand-clay font-medium">{'可展示'}</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-brand-gold/15 text-brand-clay font-medium">{'可投遞'}</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-brand-gold/15 text-brand-clay font-medium">{'可成交'}</span>
                 </div>
               </div>
               {/* 展開/收合按鈕 — 兩端都顯示 */}
-              <div className="flex items-center gap-1.5 text-[#33393C]/50 flex-shrink-0 ml-3">
+              <div className="flex items-center gap-1.5 text-brand-text/50 flex-shrink-0 ml-3">
                 <span className="text-xs sm:text-sm group-open/block2:hidden">展開</span>
                 <span className="text-xs sm:text-sm hidden group-open/block2:inline">收合</span>
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-open/block2:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1677,40 +1058,40 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               </div>
             </summary>
 
-            <div className="px-5 pb-5 sm:px-8 sm:pb-8 border-t border-[#C9D7D4]/30">
+            <div className="px-5 pb-5 sm:px-8 sm:pb-8 border-t border-brand-mist/30">
               {/* Mobile-only: 成長系統內容 */}
               <div className="md:hidden mt-4 mb-5">
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2">
-                    <span className="text-[#17464F] font-bold text-xs mt-0.5 flex-shrink-0">{'01'}</span>
+                    <span className="text-brand-teal font-bold text-xs mt-0.5 flex-shrink-0">{'01'}</span>
                     <div>
-                      <span className="font-semibold text-[#17464F] text-sm">{'當屆完整課程'}</span>
-                      <span className="text-[#33393C]/60 text-xs">{' — 聚焦遠距求職與接案兩條路，從定位到落地流程（直播 / 回放一年）'}</span>
+                      <span className="font-semibold text-brand-teal text-sm">{'當屆完整課程'}</span>
+                      <span className="text-brand-text/60 text-xs">{' — 聚焦遠距求職與接案兩條路，從定位到落地流程（直播 / 回放一年）'}</span>
                     </div>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-[#17464F] font-bold text-xs mt-0.5 flex-shrink-0">{'02'}</span>
+                    <span className="text-brand-teal font-bold text-xs mt-0.5 flex-shrink-0">{'02'}</span>
                     <div>
-                      <span className="font-semibold text-[#17464F] text-sm">{'作業與落地任務'}</span>
-                      <span className="text-[#33393C]/60 text-xs">{' — 每周都要交付，一步步把你推到「可以被採用 / 被下單」的狀態'}</span>
+                      <span className="font-semibold text-brand-teal text-sm">{'作業與落地任務'}</span>
+                      <span className="text-brand-text/60 text-xs">{' — 每周都要交付，一步步把你推到「可以被採用 / 被下單」的狀態'}</span>
                     </div>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-[#17464F] font-bold text-xs mt-0.5 flex-shrink-0">{'03'}</span>
+                    <span className="text-brand-teal font-bold text-xs mt-0.5 flex-shrink-0">{'03'}</span>
                     <div>
-                      <span className="font-semibold text-[#17464F] text-sm">{'成長節奏'}</span>
-                      <span className="text-[#33393C]/60 text-xs">{' — 線上同學會 / 團體 QA / DemoDay，互相學習、幫助，彼此督促跟上進度'}</span>
+                      <span className="font-semibold text-brand-teal text-sm">{'成長節奏'}</span>
+                      <span className="text-brand-text/60 text-xs">{' — 線上同學會 / 團體 QA / DemoDay，互相學習、幫助，彼此督促跟上進度'}</span>
                     </div>
                   </li>
                 </ul>
                 {/* 分隔線 + 「你會做出什麼成果」小標 */}
-                <div className="mt-5 pt-4 border-t border-[#C9D7D4]/40">
+                <div className="mt-5 pt-4 border-t border-brand-mist/40">
                   <div className="flex items-center gap-2 mb-3">
-                    <h5 className="font-bold text-[#17464F] text-sm">{'你會做出什麼成果'}</h5>
+                    <h5 className="font-bold text-brand-teal text-sm">{'你會做出什麼成果'}</h5>
                     <div className="flex gap-1">
-                      <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-[#D4B483]/15 text-[#A06E56] font-medium">{'可展示'}</span>
-                      <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-[#D4B483]/15 text-[#A06E56] font-medium">{'可投遞'}</span>
-                      <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-[#D4B483]/15 text-[#A06E56] font-medium">{'可成交'}</span>
+                      <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-brand-gold/15 text-brand-clay font-medium">{'可展示'}</span>
+                      <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-brand-gold/15 text-brand-clay font-medium">{'可投遞'}</span>
+                      <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-brand-gold/15 text-brand-clay font-medium">{'可成交'}</span>
                     </div>
                   </div>
                 </div>
@@ -1719,87 +1100,87 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               {/* 共用：你會做出什麼成果的 checklist */}
               <ul className="space-y-4">
                 <li className="flex items-start gap-2.5">
-                  <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
+                  <span className="text-brand-gold flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
                   <div>
-                    <span className="font-semibold text-[#17464F] text-sm">{'定位與可能性：遠距路線決策 & 啟動目標'}</span>
-                    <p className="text-[#33393C]/60 text-sm mt-0.5">{'— 釐清你要的自由是什麼（時間／地點／收入），並選定「上班線／接案線／雙軌」的起跑方向及目標'}</p>
+                    <span className="font-semibold text-brand-teal text-sm">{'定位與可能性：遠距路線決策 & 啟動目標'}</span>
+                    <p className="text-brand-text/60 text-sm mt-0.5">{'— 釐清你要的自由是什麼（時間／地點／收入），並選定「上班線／接案線／雙軌」的起跑方向及目標'}</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
+                  <span className="text-brand-gold flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
                   <div>
-                    <span className="font-semibold text-[#17464F] text-sm">{'對外門面與信任：一套讓人秒懂專業與價值的門面'}</span>
-                    <p className="text-[#33393C]/60 text-sm mt-0.5">{'— 把你的能力、案例、價值主張整理成：LinkedIn／提案頁 / 作品集的關鍵內容與結構'}</p>
+                    <span className="font-semibold text-brand-teal text-sm">{'對外門面與信任：一套讓人秒懂專業與價值的門面'}</span>
+                    <p className="text-brand-text/60 text-sm mt-0.5">{'— 把你的能力、案例、價值主張整理成：LinkedIn／提案頁 / 作品集的關鍵內容與結構'}</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
+                  <span className="text-brand-gold flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
                   <div>
-                    <span className="font-semibold text-[#17464F] text-sm">{'接觸與轉化：把「接觸」變成「機會」的可擴增系統'}</span>
+                    <span className="font-semibold text-brand-teal text-sm">{'接觸與轉化：把「接觸」變成「機會」的可擴增系統'}</span>
                     <div className="mt-1 space-y-0.5">
-                      <p className="text-[#33393C]/60 text-sm">{'— 上班線：JD 拆解 → 客製化履歷 → 面試 & 談薪策略'}</p>
-                      <p className="text-[#33393C]/60 text-sm">{'— 接案線：社群內容策略 → 作品呈現 → 獲客管道 → 成交流程'}</p>
+                      <p className="text-brand-text/60 text-sm">{'— 上班線：JD 拆解 → 客製化履歷 → 面試 & 談薪策略'}</p>
+                      <p className="text-brand-text/60 text-sm">{'— 接案線：社群內容策略 → 作品呈現 → 獲客管道 → 成交流程'}</p>
                     </div>
                   </div>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
+                  <span className="text-brand-gold flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
                   <div>
-                    <span className="font-semibold text-[#17464F] text-sm">{'留任與永續：交付的「點 > 線 > 面」永續結構'}</span>
-                    <p className="text-[#33393C]/60 text-sm mt-0.5">{'— 在前期合作能活下來並能持續成長的方法'}</p>
+                    <span className="font-semibold text-brand-teal text-sm">{'留任與永續：交付的「點 > 線 > 面」永續結構'}</span>
+                    <p className="text-brand-text/60 text-sm mt-0.5">{'— 在前期合作能活下來並能持續成長的方法'}</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <span className="text-[#D4B483] flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
+                  <span className="text-brand-gold flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
                   <div>
-                    <span className="font-semibold text-[#17464F] text-sm">{'DemoDay 發表：把行動證明公開呈現'}</span>
-                    <p className="text-[#33393C]/60 text-sm mt-0.5">{'— 讓你完成一次真正的「交付」與「曝光」，也讓機會更容易找上門'}</p>
+                    <span className="font-semibold text-brand-teal text-sm">{'DemoDay 發表：把行動證明公開呈現'}</span>
+                    <p className="text-brand-text/60 text-sm mt-0.5">{'— 讓你完成一次真正的「交付」與「曝光」，也讓機會更容易找上門'}</p>
                   </div>
                 </li>
               </ul>
 
               {/* 結果畫面層 — 讓讀者看到「自己變成什麼樣的人」 */}
-              <div className="mt-6 p-4 sm:p-5 rounded-xl bg-[#D4B483]/10 border border-[#D4B483]/20">
-                <p className="text-xs sm:text-sm text-[#A06E56] font-medium mb-3 tracking-wide">{'結業後的你'}</p>
+              <div className="mt-6 p-4 sm:p-5 rounded-xl bg-brand-gold/10 border border-brand-gold/20">
+                <p className="text-xs sm:text-sm text-brand-clay font-medium mb-3 tracking-wide">{'結業後的你'}</p>
                 <ul className="space-y-2.5">
                   <li className="flex items-start gap-2">
-                    <span className="text-[#D4B483] mt-0.5 flex-shrink-0">{'"'}</span>
-                    <p className="text-sm text-[#33393C] leading-relaxed">
+                    <span className="text-brand-gold mt-0.5 flex-shrink-0">{'"'}</span>
+                    <p className="text-sm text-brand-text leading-relaxed">
                       {'你不再只是羨慕別人遠距，而是'}
-                      <span className="font-semibold text-[#17464F]">{'開始有自己的遠距職涯門面'}</span>
+                      <span className="font-semibold text-brand-teal">{'開始有自己的遠距職涯門面'}</span>
                     </p>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-[#D4B483] mt-0.5 flex-shrink-0">{'"'}</span>
-                    <p className="text-sm text-[#33393C] leading-relaxed">
+                    <span className="text-brand-gold mt-0.5 flex-shrink-0">{'"'}</span>
+                    <p className="text-sm text-brand-text leading-relaxed">
                       {'你不再只是想接案，而是'}
-                      <span className="font-semibold text-[#17464F]">{'開始有第一版可拿去接觸市場的作品與 offer'}</span>
+                      <span className="font-semibold text-brand-teal">{'開始有第一版可拿去接觸市場的作品與 offer'}</span>
                     </p>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-[#D4B483] mt-0.5 flex-shrink-0">{'"'}</span>
-                    <p className="text-sm text-[#33393C] leading-relaxed">
+                    <span className="text-brand-gold mt-0.5 flex-shrink-0">{'"'}</span>
+                    <p className="text-sm text-brand-text leading-relaxed">
                       {'你不再只是看內容，而是'}
-                      <span className="font-semibold text-[#17464F]">{'開始留下履歷、提案、內容、DemoDay 這些能被看見的痕跡'}</span>
+                      <span className="font-semibold text-brand-teal">{'開始留下履歷、提案、內容、DemoDay 這些能被看見的痕跡'}</span>
                     </p>
                   </li>
                 </ul>
               </div>
 
-              <p className="mt-5 pt-4 border-t border-[#C9D7D4]/50 text-center text-sm font-bold text-[#D4B483]">
+              <p className="mt-5 pt-4 border-t border-brand-mist/50 text-center text-sm font-bold text-brand-gold">
                 {'你的目標是「開始更容易拿到遠距工作 / 接案機會」。'}
               </p>
             </div>
           </details>
 
           {/* Block 3: Alumni Status — collapsible */}
-          <details className="group/alumni mb-3 bg-[#F5F3ED]/80 rounded-2xl border border-[#D4B483]/30 shadow-sm overflow-hidden">
-            <summary className="flex items-center justify-between p-5 sm:p-8 cursor-pointer list-none [&::-webkit-details-marker]:hidden hover:bg-[#D4B483]/5 transition-colors">
+          <details className="group/alumni mb-3 bg-brand-offwhite/80 rounded-2xl border border-brand-gold/30 shadow-sm overflow-hidden">
+            <summary className="flex items-center justify-between p-5 sm:p-8 cursor-pointer list-none [&::-webkit-details-marker]:hidden hover:bg-brand-gold/5 transition-colors">
               <div className="flex items-center gap-3 flex-wrap">
-                <h4 className="font-bold text-[#17464F] text-base sm:text-lg">{'校友資格'}</h4>
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#17464F]/10 text-[#17464F] font-medium">{'入學即擁有，結業後延續'}</span>
+                <h4 className="font-bold text-brand-teal text-base sm:text-lg">{'校友資格'}</h4>
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-brand-teal/10 text-brand-teal font-medium">{'入學即擁有，結業後延續'}</span>
               </div>
-              <div className="flex items-center gap-1.5 text-[#33393C]/50 flex-shrink-0 ml-3">
+              <div className="flex items-center gap-1.5 text-brand-text/50 flex-shrink-0 ml-3">
                 <span className="text-xs sm:text-sm group-open/alumni:hidden">展開</span>
                 <span className="text-xs sm:text-sm hidden group-open/alumni:inline">收合</span>
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-open/alumni:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1808,34 +1189,34 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               </div>
             </summary>
 
-            <div className="px-5 pb-5 sm:px-8 sm:pb-8 border-t border-[#D4B483]/20">
+            <div className="px-5 pb-5 sm:px-8 sm:pb-8 border-t border-brand-gold/20">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-5">
                 <div className="flex items-start gap-2.5 bg-white/60 rounded-xl p-4">
-                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
+                  <span className="w-2 h-2 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
                   <div>
-                    <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'Skool 社群永久留存'}</span>
-                    <p className="text-[#33393C]/60 text-xs leading-relaxed">{'畢業後不用搬家，仍在同一個社群交流（當屆專區僅當屆可見）'}</p>
+                    <span className="font-semibold text-brand-teal text-sm block mb-0.5">{'Skool 社群永久留存'}</span>
+                    <p className="text-brand-text/60 text-xs leading-relaxed">{'畢業後不用搬家，仍在同一個社群交流（當屆專區僅當屆可見）'}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2.5 bg-white/60 rounded-xl p-4">
-                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
+                  <span className="w-2 h-2 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
                   <div>
-                    <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'已購內容回放觀看'}</span>
-                    <p className="text-[#33393C]/60 text-xs leading-relaxed">{'你買過課程(學院正課有一年限制)的回放與學習資源訪問權限'}</p>
+                    <span className="font-semibold text-brand-teal text-sm block mb-0.5">{'已購內容回放觀看'}</span>
+                    <p className="text-brand-text/60 text-xs leading-relaxed">{'你買過課程(學院正課有一年限制)的回放與學習資源訪問權限'}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2.5 bg-white/60 rounded-xl p-4">
-                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
+                  <span className="w-2 h-2 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
                   <div>
-                    <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'校友 LinkedIn 群'}</span>
-                    <p className="text-[#33393C]/60 text-xs leading-relaxed">{'僅限學員與校友加入，職涯拓展與合作'}</p>
+                    <span className="font-semibold text-brand-teal text-sm block mb-0.5">{'校友 LinkedIn 群'}</span>
+                    <p className="text-brand-text/60 text-xs leading-relaxed">{'僅限學員與校友加入，職涯拓展與合作'}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-2.5 bg-white/60 rounded-xl p-4">
-                  <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
+                  <span className="w-2 h-2 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
                   <div>
-                    <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'全產品校友價'}</span>
-                    <p className="text-[#33393C]/60 text-xs leading-relaxed">{'下屆學院 / Journey 旅程 / 工作坊與線下聚會 / 合作夥伴福利（依公告）'}</p>
+                    <span className="font-semibold text-brand-teal text-sm block mb-0.5">{'全產品校友價'}</span>
+                    <p className="text-brand-text/60 text-xs leading-relaxed">{'下屆學院 / Journey 旅程 / 工作坊與線下聚會 / 合作夥伴福利（依公告）'}</p>
                   </div>
                 </div>
               </div>
@@ -1843,22 +1224,22 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               {/* Co-creation card */}
               <div className="mt-4 bg-white/60 rounded-xl p-4">
                 <div className="flex items-center gap-2 mb-3">
-                  <h5 className="font-semibold text-[#17464F] text-sm">{'共創與參與權'}</h5>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#D4B483]/15 text-[#A06E56] font-medium">{'把圈子變成機會場'}</span>
+                  <h5 className="font-semibold text-brand-teal text-sm">{'共創與參與權'}</h5>
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-brand-gold/15 text-brand-clay font-medium">{'把圈子變成機會場'}</span>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   <div className="flex items-start gap-2.5">
-                    <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
+                    <span className="w-2 h-2 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
                     <div>
-                      <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'共創專案'}</span>
-                      <p className="text-[#33393C]/60 text-xs leading-relaxed">{'可優先參與、可共同發起（讀書會、實戰企劃、工具共學、Builder 實習等）'}</p>
+                      <span className="font-semibold text-brand-teal text-sm block mb-0.5">{'共創專案'}</span>
+                      <p className="text-brand-text/60 text-xs leading-relaxed">{'可優先參與、可共同發起（讀書會、實戰企劃、工具共學、Builder 實習等）'}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2.5">
-                    <span className="w-2 h-2 rounded-full bg-[#D4B483] mt-1.5 flex-shrink-0"></span>
+                    <span className="w-2 h-2 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
                     <div>
-                      <span className="font-semibold text-[#17464F] text-sm block mb-0.5">{'許願池'}</span>
-                      <p className="text-[#33393C]/60 text-xs leading-relaxed">{'定期提案 / 投票，讓學院資源與活動更貼近你的需求'}</p>
+                      <span className="font-semibold text-brand-teal text-sm block mb-0.5">{'許願池'}</span>
+                      <p className="text-brand-text/60 text-xs leading-relaxed">{'定期提案 / 投票，讓學院資源與活動更貼近你的需求'}</p>
                     </div>
                   </div>
                 </div>
@@ -1868,45 +1249,45 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
           {/* Block 5: Community Subscription - HIDDEN */}
           {/* 
-          <div className="mb-8 bg-[#17464F]/5 rounded-2xl p-5 sm:p-8 border border-[#17464F]/10">
+          <div className="mb-8 bg-brand-teal/5 rounded-2xl p-5 sm:p-8 border border-brand-teal/10">
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-1">
-              <h4 className="font-bold text-[#17464F] text-base sm:text-lg">{'入學自動開通 — 職涯成長社群 Premium 訂閱權益'}</h4>
+              <h4 className="font-bold text-brand-teal text-base sm:text-lg">{'入學自動開通 — 職涯成長社群 Premium 訂閱權益'}</h4>
             </div>
-            <p className="text-[10px] sm:text-xs text-[#33393C]/50 mb-5">{'在學期間有效，不需另外加購'}</p>
+            <p className="text-[10px] sm:text-xs text-brand-text/50 mb-5">{'在學期間有效，不需另外加購'}</p>
 
             <div className="space-y-4">
               <div className="flex items-start gap-3">
-                <span className="w-7 h-7 rounded-lg bg-[#D4B483]/15 flex items-center justify-center flex-shrink-0 text-sm font-bold text-[#D4B483]">{'1'}</span>
+                <span className="w-7 h-7 rounded-lg bg-brand-gold/15 flex items-center justify-center flex-shrink-0 text-sm font-bold text-brand-gold">{'1'}</span>
                 <div>
-                  <p className="text-sm font-medium text-[#17464F]">
+                  <p className="text-sm font-medium text-brand-teal">
                     {'付費講座、工作坊折扣'}
-                    <span className="text-[#33393C]/50 font-normal text-xs ml-1.5">{'每月至少一場'}</span>
+                    <span className="text-brand-text/50 font-normal text-xs ml-1.5">{'每月至少一場'}</span>
                   </p>
-                  <p className="text-xs text-[#33393C]/60 mt-0.5">{'參加到 1.5 場就回本'}</p>
+                  <p className="text-xs text-brand-text/60 mt-0.5">{'參加到 1.5 場就回本'}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <span className="w-7 h-7 rounded-lg bg-[#D4B483]/15 flex items-center justify-center flex-shrink-0 text-sm font-bold text-[#D4B483]">{'2'}</span>
+                <span className="w-7 h-7 rounded-lg bg-brand-gold/15 flex items-center justify-center flex-shrink-0 text-sm font-bold text-brand-gold">{'2'}</span>
                 <div>
-                  <p className="text-sm font-medium text-[#17464F]">
+                  <p className="text-sm font-medium text-brand-teal">
                     {'合作夥伴 / 活動優惠搶先看'}
                   </p>
-                  <p className="text-xs text-[#33393C]/60 mt-0.5">{'訂閱會員限定的合作夥伴優惠與活動搶先通知'}</p>
+                  <p className="text-xs text-brand-text/60 mt-0.5">{'訂閱會員限定的合作夥伴優惠與活動搶先通知'}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <span className="w-7 h-7 rounded-lg bg-[#D4B483]/15 flex items-center justify-center flex-shrink-0 text-sm font-bold text-[#D4B483]">{'3'}</span>
+                <span className="w-7 h-7 rounded-lg bg-brand-gold/15 flex items-center justify-center flex-shrink-0 text-sm font-bold text-brand-gold">{'3'}</span>
                 <div>
-                  <p className="text-sm font-medium text-[#17464F]">
+                  <p className="text-sm font-medium text-brand-teal">
                     {'世界遊牧資訊'}
-                    <span className="text-[#33393C]/50 font-normal text-xs ml-1.5">{'趨勢整理 + 活動情報'}</span>
+                    <span className="text-brand-text/50 font-normal text-xs ml-1.5">{'趨勢整理 + 活動情報'}</span>
                   </p>
-                  <p className="text-xs text-[#33393C]/60 mt-0.5">{'遠距工作市場趨勢、工具更新、海內外活動情報'}</p>
+                  <p className="text-xs text-brand-text/60 mt-0.5">{'遠距工作市場趨勢、工具更新、海內外活動情報'}</p>
                 </div>
               </div>
             </div>
 
-            <p className="mt-5 pt-3 border-t border-[#17464F]/10 text-xs text-[#33393C]/50 text-center">{'結業後若想持續使用，可再自行續訂 Premium。'}</p>
+            <p className="mt-5 pt-3 border-t border-brand-teal/10 text-xs text-brand-text/50 text-center">{'結業後若想持續使用，可再自行續訂 Premium。'}</p>
           </div>
           */}
 
@@ -1914,7 +1295,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           <div className="text-center">
             <button
               onClick={scrollToPricing}
-              className="inline-block bg-[#17464F] text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+              className="inline-block bg-brand-teal text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
             >
               {'我要加入本梯'}
             </button>
@@ -1923,325 +1304,25 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
       </section>
 
       {/* SECTION 2.1 ECOSYSTEM PARTNERSHIP - 生態系 */}
-      <section className="py-12 sm:py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-12">
-            <div className="flex justify-center gap-2 mb-4">
-              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-              <span className="w-2 h-2 rounded-full bg-[#17464F]"></span>
-              <span className="w-2 h-2 rounded-full bg-[#D4B483]"></span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-1">你踏入的，不只是這五個月的課程</h2>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#17464F] mb-3">而是一整個遊牧生態系的入口</h2>
-            <p className="text-sm sm:text-base text-[#33393C]/70 mt-2 max-w-xl mx-auto">從線上到線下｜從台灣到國際｜從知識到行動<br className="hidden sm:block" />讓學習不只停在教室裡，而是延伸到更多真實的人、場域與機會。</p>
-          </div>
-
-          {/* Value proposition — three extension resources */}
-          <div className="max-w-2xl mx-auto mb-10 sm:mb-14">
-            <p className="text-center text-sm sm:text-base text-[#D4B483] font-semibold tracking-wide mb-6">三大延伸資源</p>
-            <div className="space-y-5 sm:space-y-6">
-              <div className="flex items-start gap-4">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#D4B483] flex-shrink-0 mt-1.5"></span>
-                <p className="text-base sm:text-lg text-[#33393C] leading-relaxed">
-                  <span className="font-bold text-[#17464F] text-base sm:text-lg">國際鏈結</span>
-                  <span className="mx-2 text-[#C9D7D4]">|</span>
-                  接軌海外遊牧社群與活動資訊，持續看見國際趨勢、海外案例與遊牧者／領袖訪談。
-                </p>
-              </div>
-              <div className="flex items-start gap-4">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#D4B483] flex-shrink-0 mt-1.5"></span>
-                <p className="text-base sm:text-lg text-[#33393C] leading-relaxed">
-                  <span className="font-bold text-[#17464F] text-base sm:text-lg">線下場域</span>
-                  <span className="mx-2 text-[#C9D7D4]">|</span>
-                  從定期小聚到遊牧啟發旅程，讓你有機會在真實場域裡認識同路人、潛在合作夥伴與更多生活方式的可能。
-                </p>
-              </div>
-              <div className="flex items-start gap-4">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#D4B483] flex-shrink-0 mt-1.5"></span>
-                <p className="text-base sm:text-lg text-[#33393C] leading-relaxed">
-                  <span className="font-bold text-[#17464F] text-base sm:text-lg">工作坊</span>
-                  <span className="mx-2 text-[#C9D7D4]">|</span>
-                  除了正課之外，還能透過主題工作坊與實作型活動，把知識更快轉成行動與產出。
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Two portals label */}
-          <p className="text-center text-sm sm:text-base text-[#33393C]/80 font-semibold tracking-wide mb-6">兩個入口</p>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-            {/* Card 1: Lifestyle */}
-            {(() => {
-              const lifestylePhotos = [
-                { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e9-81-8a-e7-89-a7-e5-b0-8f-e8-81-9a.jpg", alt: "遊牧小聚" },
-                { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e8-b6-8a-e5-8d-97-e9-81-8a-e7-89-a7-e4-b9-8b-e6-97-85.jpg", alt: "越南遊牧之旅" },
-                { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e5-90-8c-e5-ad-b8-e6-9c-83.png", alt: "同學會" },
-                { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e4-ba-a4-e6-b5-81.png", alt: "交流活動" },
-              ]
-              return (
-                <div className="rounded-2xl border border-[#C9D7D4] bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                  {/* Top Header Strip */}
-                  <a href="https://www.instagram.com/digitalnomadstaiwan/" target="_blank" rel="noopener noreferrer" className="block bg-[#17464F] px-4 py-3 sm:px-6 sm:py-4 hover:bg-[#1a5260] transition-colors">
-                    <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-white p-1.5 flex-shrink-0">
-                        <Image
-                          src="/images/design-mode/%E6%95%B8%E4%BD%8D%E9%81%8A%E7%89%A7%E5%8F%B0%E7%81%A3%20Logo%281%29%281%29%281%29%281%29.png"
-                          alt="Taiwan Digital Nomad"
-                          width={36}
-                          height={36}
-                          className="w-full h-full object-contain"
-                          loading="lazy"
-                        />
-                      </div>
-                      <div className="min-w-0">
-                        <h3 className="text-white font-bold text-base sm:text-lg leading-tight truncate">{'Lifestyle 社群入口'}</h3>
-                        <span className="text-[#D4B483] text-xs sm:text-sm">@digitalnomadstaiwan</span>
-                      </div>
-                    </div>
-                  </a>
-
-                  {/* Main Image */}
-                  <div className="relative aspect-[16/9] sm:aspect-[16/10] overflow-hidden cursor-pointer"
-                    onClick={() => {
-                      setLightboxImages(lifestylePhotos)
-                      setLightboxIndex(0)
-                      setLightboxOpen(true)
-                    }}
-                  >
-                    <Image
-                      src={lifestylePhotos[0].src || "/placeholder.svg"}
-                      alt="數位遊牧 Lifestyle 社群"
-                      fill
-                      className="object-cover hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                    <div className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm text-[#17464F] text-xs font-medium px-3 py-1.5 rounded-full flex items-center gap-1.5">
-                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14" /></svg>
-                      {lifestylePhotos.length} 張照片
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-4 sm:p-6">
-                    <p className="text-sm text-[#33393C]/80 mb-4 leading-relaxed">看見遊牧生活方式、每月聚會與啟發旅程</p>
-
-                    {/* Thumbnail Grid */}
-                    <div className="grid grid-cols-4 gap-2">
-                      {lifestylePhotos.map((photo, i) => (
-                        <div
-                          key={i}
-                          className="relative aspect-square rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity"
-                          onClick={() => {
-                            setLightboxImages(lifestylePhotos)
-                            setLightboxIndex(i)
-                            setLightboxOpen(true)
-                          }}
-                        >
-                          <Image src={photo.src || "/placeholder.svg"} alt={photo.alt} fill className="object-cover" loading="lazy" />
-                          {i === 0 && (
-                            <div className="absolute inset-0 ring-2 ring-[#D4B483] ring-inset rounded-lg" />
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )
-            })()}
-
-            {/* Card 2: Career Growth */}
-            {(() => {
-              const careerPhotos = [
-                { src: "/images/e8-a1-8c-e5-8b-95-e5-b0-8e-e5-90-91-ef-bc-bfvibe-20coding-20-e5-b7-a5-e4-bd-9c-e5-9d-8a-20.png", alt: "Vibe Coding 工作坊" },
-                { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e7-95-99-e8-a8-80.png", alt: "社群留言互動" },
-                { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e4-bd-9c-e6-a5-ad-e4-ba-a4-e6-b5-81.png", alt: "作業交流" },
-                { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e9-a0-98-e8-8b-b1.png", alt: "LinkedIn 社群" },
-              ]
-              return (
-                <div className="rounded-2xl border border-[#C9D7D4] bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                  {/* Top Header Strip */}
-                  <a href="https://www.instagram.com/twnomadacademy/" target="_blank" rel="noopener noreferrer" className="block bg-[#17464F] px-4 py-3 sm:px-6 sm:py-4 hover:bg-[#1a5260] transition-colors">
-                    <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-white p-1.5 flex-shrink-0">
-                        <Image
-                          src="/images/logo.png"
-                          alt="遠距遊牧學院"
-                          width={36}
-                          height={36}
-                          className="w-full h-full object-contain"
-                          loading="lazy"
-                        />
-                      </div>
-                      <div className="min-w-0">
-                        <h3 className="text-white font-bold text-base sm:text-lg leading-tight truncate">{'職涯成長入口'}</h3>
-                        <span className="text-[#D4B483] text-xs sm:text-sm">@twnomadacademy</span>
-                      </div>
-                    </div>
-                  </a>
-
-                  {/* Main Image */}
-                  <div className="relative aspect-[16/9] sm:aspect-[16/10] overflow-hidden cursor-pointer"
-                    onClick={() => {
-                      setLightboxImages(careerPhotos)
-                      setLightboxIndex(0)
-                      setLightboxOpen(true)
-                    }}
-                  >
-                    <Image
-                      src={careerPhotos[0].src || "/placeholder.svg"}
-                      alt="數位遊牧線上職涯成長社群"
-                      fill
-                      className="object-cover hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                    <div className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm text-[#17464F] text-xs font-medium px-3 py-1.5 rounded-full flex items-center gap-1.5">
-                      <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14" /></svg>
-                      {careerPhotos.length} 張照片
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-4 sm:p-6">
-                    <p className="text-sm text-[#33393C]/80 mb-4 leading-relaxed">追蹤講座、工作坊、訪談與更多職涯成長內容</p>
-
-                    {/* Thumbnail Grid */}
-                    <div className="grid grid-cols-4 gap-2">
-                      {careerPhotos.map((photo, i) => (
-                        <div
-                          key={i}
-                          className="relative aspect-square rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity"
-                          onClick={() => {
-                            setLightboxImages(careerPhotos)
-                            setLightboxIndex(i)
-                            setLightboxOpen(true)
-                          }}
-                        >
-                          <Image src={photo.src || "/placeholder.svg"} alt={photo.alt} fill className="object-cover" loading="lazy" />
-                          {i === 0 && (
-                            <div className="absolute inset-0 ring-2 ring-[#D4B483] ring-inset rounded-lg" />
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )
-            })()}
-          </div>
-
-          {/* Section 7 bottom CTA */}
-          <div className="mt-10 text-center border-t border-[#C9D7D4]/40 pt-8">
-            <p className="text-[#33393C]/70 text-sm mb-3">想先更了解這套系統適不適合你？</p>
-            <a
-              href="#pricing"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#17464F]/30 bg-[#17464F]/5 text-[#17464F] text-sm font-medium hover:bg-[#17464F]/10 transition-colors"
-            >
-                  每週日直播說明會，直接了解生態系資源
-            </a>
-          </div>
-        </div>
-      </section>
+      <EcosystemSection
+        onOpenLightbox={(images, index) => {
+          setLightboxImages(images)
+          setLightboxIndex(index)
+          setLightboxOpen(true)
+        }}
+      />
 
       {/* Success Stories Section */}
       <SuccessStoriesSection id="success-stories-section" />
 
       {/* PRICING SECTION */}
-      <section id="pricing-section" className="pt-0 pb-0 bg-[#17464F] relative overflow-hidden">
+      <section id="pricing-section" className="pt-0 pb-0 bg-brand-teal relative overflow-hidden">
         {/* CHANGE: Pass modal states to child components and track when they open/close */}
         <PricingSection onTimelineModalChange={setPricingTimelineModalOpen} />
       </section>
 
-      {/* EMAIL SUBSCRIPTION BANNER */}
-      <section id="free-lecture-section" className="bg-[#F5F3ED] py-10 sm:py-14">
-        <div className="max-w-2xl mx-auto px-4 text-center">
-          <h3 className="text-xl sm:text-2xl font-bold text-[#17464F] mb-3">
-            {'還不確定要不要加入？先來免費看一場。'}
-          </h3>
-          <p className="text-sm sm:text-base text-[#33393C]/70 leading-relaxed mb-6">
-            {'用一場免費講座或一支回放，先幫你看懂：'}
-            <br />
-            {'你適不適合、你比較偏哪條路、以及這 5 個月會怎麼走。'}
-          </p>
-          <div className="flex flex-col items-center gap-3">
-            <a
-              href="https://www.accupass.com/organizer/detail/2509180637491342778166"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#D4B483] text-[#17464F] font-semibold text-sm sm:text-base px-8 py-4 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-sm"
-            >
-              {'查看免費講座場次資訊'}
-            </a>
-            <a
-              href="https://www.skool.com/twwgroup-3033/classroom/a5319d94?md=bca9b69c2a5b40869e2fe6254aa9fa13"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border-2 border-[#17464F] text-[#17464F] font-semibold text-sm sm:text-base px-8 py-4 rounded-full hover:bg-[#17464F] hover:text-white transition-colors duration-200"
-            >
-              <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
-              </svg>
-              {'觀看學院說明會回放'}
-            </a>
-            <button
-              onClick={() => setEmailPopupOpen(true)}
-              className="inline-flex items-center gap-2 bg-[#17464F] text-white font-semibold text-sm sm:text-base px-8 py-4 rounded-full hover:bg-[#1a5561] transition-colors duration-200 shadow-sm"
-            >
-              <Mail className="w-4 h-4 flex-shrink-0" />
-              {'訂閱隨時收到最新活動提醒'}
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* GHL Email Subscription Modal */}
-      {emailPopupOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4"
-          role="dialog"
-          aria-modal="true"
-          aria-label="訂閱電子報"
-        >
-          {/* Backdrop */}
-          <div
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-            onClick={() => setEmailPopupOpen(false)}
-          />
-          {/* Modal — full-width on mobile, max-w-lg on desktop */}
-          <div className="relative z-10 w-full max-w-[calc(100vw-16px)] sm:max-w-lg bg-[#17464F] rounded-2xl shadow-2xl" style={{ overflow: "hidden" }}>
-            {/* Close button */}
-            <button
-              onClick={() => setEmailPopupOpen(false)}
-              className="absolute top-3 right-3 z-20 w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 transition-colors text-white"
-              aria-label="關閉"
-            >
-              <X className="w-4 h-4" />
-            </button>
-            {/* GHL form embed container */}
-            <div className="h-[430px] overflow-hidden rounded-[20px]">
-              <iframe
-                src="https://link.digitalnomadstaiwan.com/widget/form/MpJ0wDqzBLszazx5vVRy"
-                style={{ width: "100%", height: "100%", border: "none", borderRadius: "20px" }}
-                id="inline-MpJ0wDqzBLszazx5vVRy"
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="Contact us - Academy"
-                data-height="430"
-                data-layout-iframe-id="inline-MpJ0wDqzBLszazx5vVRy"
-                data-form-id="MpJ0wDqzBLszazx5vVRy"
-                title="Contact us - Academy"
-              />
-            </div>
-          </div>
-        </div>
-      )}
+      {/* FREE LECTURE SECTION */}
+      <FreeLectureSection />
 
       {/* FAQ SECTION */}
       <FAQSection
@@ -2250,7 +1331,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
       />
 
       {/* FOOTER */}
-      <footer className="py-12 bg-[#17464F] text-white">
+      <footer className="py-12 bg-brand-teal text-white">
         <div className="container mx-auto px-4">
           {/* Contact Information */}
           <div className="text-center mb-6">
@@ -2259,7 +1340,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               也可以{" "}
               <a
                 href="mailto:academy@travelwork.life"
-                className="inline-flex items-center gap-1 text-[#D4B483] hover:text-[#D4B483]/80 transition-colors font-medium"
+                className="inline-flex items-center gap-1 text-brand-gold hover:text-brand-gold/80 transition-colors font-medium"
               >
                 <Mail className="w-3.5 h-3.5" />
                 academy@travelwork.life
@@ -2415,9 +1496,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             >
               ×
             </button>
-            <h3 className="text-2xl font-bold text-[#17464F] mb-2">{highlightPopup.title}</h3>
-            <p className="text-sm font-medium text-[#D4B483] mb-6">{highlightPopup.subtitle}</p>
-            <div className="text-sm text-[#33393C] leading-relaxed space-y-4">
+            <h3 className="text-2xl font-bold text-brand-teal mb-2">{highlightPopup.title}</h3>
+            <p className="text-sm font-medium text-brand-gold mb-6">{highlightPopup.subtitle}</p>
+            <div className="text-sm text-brand-text leading-relaxed space-y-4">
               {highlightPopup.content.split("\n").map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
@@ -2445,7 +1526,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
             {/* Week and Track Badge */}
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-sm font-bold text-[#17464F]">{selectedWeek.monthWeek}</span>
+              <span className="text-sm font-bold text-brand-teal">{selectedWeek.monthWeek}</span>
               <span
                 className={`px-2 py-0.5 text-xs rounded ${getTrackColor(selectedWeek.track).bg} ${
                   getTrackColor(selectedWeek.track).text
@@ -2456,21 +1537,21 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             </div>
 
             {/* Course Title */}
-            <h3 className="text-2xl font-bold text-[#17464F] mb-3">{selectedWeek.title}</h3>
+            <h3 className="text-2xl font-bold text-brand-teal mb-3">{selectedWeek.title}</h3>
 
             {/* Course Type */}
-            <p className="text-sm font-medium text-[#D4B483] mb-6">{selectedWeek.type}</p>
+            <p className="text-sm font-medium text-brand-gold mb-6">{selectedWeek.type}</p>
 
             {/* Detailed Course Description */}
             <div className="mb-8">
-              <h4 className="text-lg font-semibold text-[#17464F] mb-3">課程說明</h4>
-              <p className="text-sm text-[#33393C] leading-relaxed whitespace-pre-line">{selectedWeek.focusDetail}</p>
+              <h4 className="text-lg font-semibold text-brand-teal mb-3">課程說明</h4>
+              <p className="text-sm text-brand-text leading-relaxed whitespace-pre-line">{selectedWeek.focusDetail}</p>
             </div>
 
             {/* Instructors Section */}
             {selectedWeek.instructorNames.length > 0 && (
               <div>
-                <h4 className="text-lg font-semibold text-[#17464F] mb-4">講師介紹</h4>
+                <h4 className="text-lg font-semibold text-brand-teal mb-4">講師介紹</h4>
                 <div className="space-y-6">
                   {getInstructorsByNames(selectedWeek.instructorNames).map((instructor, idx) => {
                     const rawBackground = instructor.background || ""
@@ -2493,7 +1574,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     const displayText = isExpanded ? rawBackground : rawBackground.slice(0, 200)
 
                     return (
-                      <div key={idx} className="p-6 bg-[#F5F3ED] rounded-xl">
+                      <div key={idx} className="p-6 bg-brand-offwhite rounded-xl">
                         {/* Header with avatar, name, title, and social links */}
                         <div className="flex items-start gap-4 mb-4">
                           <Image
@@ -2506,7 +1587,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                           <div className="flex-1 min-w-0">
                             {/* Name and social links row */}
                             <div className="flex items-start justify-between gap-3 mb-2">
-                              <h5 className="font-bold text-lg text-[#17464F] leading-tight">{instructor.name}</h5>
+                              <h5 className="font-bold text-lg text-brand-teal leading-tight">{instructor.name}</h5>
                               {/* Social links */}
                               {(instructor.links || instructor.link) && (
                                 <div className="flex items-center gap-1.5 flex-shrink-0">
@@ -2515,7 +1596,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                                       href={instructor.links.website}
                                       target="_blank"
                                       rel="noopener noreferrer"
-                                      className="w-7 h-7 flex items-center justify-center rounded-full bg-white hover:bg-[#D4B483] text-[#17464F] hover:text-white transition-colors shadow-sm"
+                                      className="w-7 h-7 flex items-center justify-center rounded-full bg-white hover:bg-brand-gold text-brand-teal hover:text-white transition-colors shadow-sm"
                                       title="個人網站"
                                     >
                                       <Globe className="w-3.5 h-3.5" />
@@ -2526,7 +1607,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                                       href={instructor.links.linkedin}
                                       target="_blank"
                                       rel="noopener noreferrer"
-                                      className="w-7 h-7 flex items-center justify-center rounded-full bg-white hover:bg-[#0A66C2] text-[#17464F] hover:text-white transition-colors shadow-sm"
+                                      className="w-7 h-7 flex items-center justify-center rounded-full bg-white hover:bg-[#0A66C2] text-brand-teal hover:text-white transition-colors shadow-sm"
                                       title="LinkedIn"
                                     >
                                       <Linkedin className="w-3.5 h-3.5" />
@@ -2537,7 +1618,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                                       href={instructor.links.instagram}
                                       target="_blank"
                                       rel="noopener noreferrer"
-                                      className="w-7 h-7 flex items-center justify-center rounded-full bg-white hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-500 text-[#17464F] hover:text-white transition-colors shadow-sm"
+                                      className="w-7 h-7 flex items-center justify-center rounded-full bg-white hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-500 text-brand-teal hover:text-white transition-colors shadow-sm"
                                       title="Instagram"
                                     >
                                       <Instagram className="w-3.5 h-3.5" />
@@ -2548,7 +1629,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                                       href={instructor.links.facebook}
                                       target="_blank"
                                       rel="noopener noreferrer"
-                                      className="w-7 h-7 flex items-center justify-center rounded-full bg-white hover:bg-[#1877F2] text-[#17464F] hover:text-white transition-colors shadow-sm"
+                                      className="w-7 h-7 flex items-center justify-center rounded-full bg-white hover:bg-[#1877F2] text-brand-teal hover:text-white transition-colors shadow-sm"
                                       title="Facebook"
                                     >
                                       <Facebook className="w-3.5 h-3.5" />
@@ -2559,7 +1640,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                                       href={instructor.link}
                                       target="_blank"
                                       rel="noopener noreferrer"
-                                      className="w-7 h-7 flex items-center justify-center rounded-full bg-white hover:bg-[#D4B483] text-[#17464F] hover:text-white transition-colors shadow-sm"
+                                      className="w-7 h-7 flex items-center justify-center rounded-full bg-white hover:bg-brand-gold text-brand-teal hover:text-white transition-colors shadow-sm"
                                       title="外部連結"
                                     >
                                       <ExternalLink className="w-3.5 h-3.5" />
@@ -2569,13 +1650,13 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                               )}
                             </div>
                             {/* Title */}
-                            <p className="text-sm text-[#D4B483] leading-snug">{instructor.title}</p>
+                            <p className="text-sm text-brand-gold leading-snug">{instructor.title}</p>
                           </div>
                         </div>
 
                         {rawBackground && (
                           <div className="mt-4">
-                            <p className="text-sm text-[#33393C] leading-relaxed whitespace-pre-line">
+                            <p className="text-sm text-brand-text leading-relaxed whitespace-pre-line">
                               {displayText}
                               {!isExpanded && shouldTruncate && "..."}
                             </p>
@@ -2583,10 +1664,10 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                             {/* Toggle button */}
                             {shouldTruncate && (
                               <>
-                                <div className="h-px bg-[#D4B483]/20 my-4" />
+                                <div className="h-px bg-brand-gold/20 my-4" />
                                 <button
                                   onClick={toggleExpanded}
-                                  className="mx-auto flex items-center gap-2 text-sm text-[#D4B483] hover:text-[#17464F] transition-colors"
+                                  className="mx-auto flex items-center gap-2 text-sm text-brand-gold hover:text-brand-teal transition-colors"
                                 >
                                   <span>{isExpanded ? "收起" : "查看更多"}</span>
                                   <ChevronDown
@@ -2625,7 +1706,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               >
                 <X className="w-5 h-5 text-gray-500" />
               </button>
-              <h3 className="text-xl md:text-2xl font-bold text-[#17464F]">完整 <span className="border-2 border-red-500 bg-red-50 px-1 rounded">3+3</span> 學習行事曆</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-brand-teal">完整 <span className="border-2 border-red-500 bg-red-50 px-1 rounded">3+3</span> 學習行事曆</h3>
               {/* CHANGE: Added opening schedule information */}
               <p className="text-sm text-gray-600 mt-1">
                 五月開學，週三晚上八點準時上線。
@@ -2666,7 +1747,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
                         {/* Title & Type */}
                         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-                          <h4 className="text-base md:text-lg font-semibold text-[#17464F]">{week.title}</h4>
+                          <h4 className="text-base md:text-lg font-semibold text-brand-teal">{week.title}</h4>
                           <span className="text-xs text-gray-400 shrink-0">{week.type}</span>
                         </div>
 
@@ -2678,7 +1759,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                           <div className="flex items-center gap-2">
                             {week.instructors.map((instructor, idx) => (
                               <div key={idx} className="flex items-center gap-1.5">
-                                <div className="w-7 h-7 rounded-full overflow-hidden border-2 border-[#D4B483]/30">
+                                <div className="w-7 h-7 rounded-full overflow-hidden border-2 border-brand-gold/30">
                                   <Image
                                     src={instructor.image || "/placeholder.svg"}
                                     alt={instructor.name}
@@ -2692,7 +1773,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                             ))}
                           </div>
                           <button
-                            className="flex items-center gap-1 text-xs text-[#17464F] hover:text-[#D4B483] transition-colors"
+                            className="flex items-center gap-1 text-xs text-brand-teal hover:text-brand-gold transition-colors"
                             onClick={() => toggleWeekExpansion(week.id)}
                           >
                             {isExpanded ? (
@@ -2713,20 +1794,20 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         <div className="px-4 pb-4 pt-0 border-t border-gray-100">
                           {/* Focus Detail */}
                           <div className="mt-4 p-4 bg-[#F7F2EA] rounded-lg">
-                            <h5 className="text-sm font-semibold text-[#17464F] mb-2">本週行動任務</h5>
+                            <h5 className="text-sm font-semibold text-brand-teal mb-2">本週行動任務</h5>
                             <p className="text-sm text-gray-700 leading-relaxed">{week.focusDetail}</p>
                           </div>
 
                           {/* Instructor Details */}
                           <div className="mt-4">
-                            <h5 className="text-sm font-semibold text-[#17464F] mb-3">講師資訊</h5>
+                            <h5 className="text-sm font-semibold text-brand-teal mb-3">講師資訊</h5>
                             <div className="flex flex-wrap gap-4">
                               {week.instructors.map((instructor, idx) => (
                                 <div
                                   key={idx}
                                   className="flex items-start gap-3 p-3 bg-white border border-gray-100 rounded-lg shadow-sm"
                                 >
-                                  <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#D4B483]/50 shrink-0">
+                                  <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-brand-gold/50 shrink-0">
                                     <Image
                                       src={instructor.image || "/placeholder.svg"}
                                       alt={instructor.name}
@@ -2736,7 +1817,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                                     />
                                   </div>
                                   <div>
-                                    <p className="font-medium text-[#17464F]">{instructor.name}</p>
+                                    <p className="font-medium text-brand-teal">{instructor.name}</p>
                                     <p className="text-xs text-gray-500">{instructor.title}</p>
                                   </div>
                                 </div>
