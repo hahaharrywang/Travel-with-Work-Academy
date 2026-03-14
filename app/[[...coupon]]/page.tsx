@@ -28,8 +28,6 @@ import { FloatingSocialButtons } from "@/components/floating-social-buttons" // 
 import { PricingSection } from "@/components/sections/pricing-section" // Import PricingSection
 import FAQSection from "@/components/sections/faq-section" // Import FAQSection
 import { SuccessStoriesSection } from "@/components/sections/success-stories-section"
-import { LearningMapSection } from "@/components/sections/learning-map-section"
-import { EcosystemSection } from "@/components/sections/ecosystem-section"
 import { FreeLectureSection } from "@/components/sections/free-lecture-section"
 
 import {
@@ -46,6 +44,7 @@ import { type PlanId, getCheckoutURL } from "@/data/plan-config"
 import { calendarData, getPhaseColor, getTrackColor, getInstructorsByNames, fourPhases, remoteJobPhaseContent, freelancePhaseContent, undecidedTabContent, type CalendarWeek } from "@/data/calendar"
 import { stagePhotos } from "@/data/stage-photos"
 import { instructors } from "@/data/instructors"
+import { featuresData } from "@/data/features"
 
 
 
@@ -56,116 +55,6 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
   // Feature dialog state
   const [featureDialogOpen, setFeatureDialogOpen] = useState<number | null>(null)
-  // Add state for features data
-  const featuresData = [
-    {
-      id: 0,
-      title: "雙軌資源",
-      icon: (
-        <svg className="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.5}
-            d="M8 7l4-4m0 0l4 4m-4-4v18M16 17l4 4m0 0l-4-4m4 4H4"
-          />
-        </svg>
-      ),
-      shortDesc: "這裡不是要你馬上做對選擇，而是可以開始行動起來，讓行動告訴你答案。",
-      details: [
-        "<strong>接案線路：</strong>幫你釐清主題定位，做出接案作品集，學會基本市場調查、內容與流量思維。",
-        "<strong>遠端上班線路：</strong>認識遠端求職市場，調整履歷與 LinkedIn，練習求職信、面試與獵頭溝通。",
-        "你可以雙線並進，快速全面探索。也可以先選一條當主線，讓行動開始。",
-      ],
-      images: [
-        {
-          src: "/images/e8-87-aa-e5-aa-92-e9-ab-94-e6-8e-a5-e6-a1-88-e8-b7-af-e7-b7-9a-ef-bc-bfreels-e9-87-8d-e8-a6-81-e6-8c-87-e6-a8-99.png",
-          alt: "接案路線：Reels演算法重要指標",
-        },
-        {
-          src: "/images/e4-b8-8a-e7-8f-ad-e8-b7-af-e7-b7-9a-ef-bc-bf-e9-9b-87-e4-b8-bb-e7-84-a1-e5-8b-95-e6-96-bc-e8-a1-b7.png",
-          alt: "上班路線：讓雇主無動於衷的答案",
-        },
-      ],
-    },
-    {
-      id: 1,
-      title: "行動導向設計",
-      icon: (
-        <svg className="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.5}
-            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
-          />
-        </svg>
-      ),
-      shortDesc: "每堂課都有做得到的行動任務，拆成模板和小步驟，不再只聽懂卻做不出來。",
-      details: [
-        "每堂課都對應到一個「做得到」的任務：目標設定、AI加速生產、策略定位、發一篇文、做一支影片、更新履歷、寫求職信……不是看完就結束，而是立刻動手。",
-        "任務拆成學習單與模板：透過清楚的步驟與範例，帶你完成策略定位、影片腳本、JD拆解、面試 STAR 故事庫等關鍵輸出，讓行動不再只靠意志力。",
-        "想走更快，可以加選實作工作坊：短影音剪輯、Coffee Chat、Vibe Coding、工作英語等選修，讓你在需要時針對性加強，把成長慾望落地成真實行動。",
-        "讓你不再只是聽懂、記下來，而是 完成、留下、可以被看見。",
-      ],
-      images: [
-        {
-          src: "/images/e8-a1-8c-e5-8b-95-e5-b0-8e-e5-90-91-ef-bc-bf-e4-bb-bb-e5-8b-99-e6-8b-86-e8-a7-a3.png",
-          alt: "任務拆解",
-        },
-        {
-          src: "/images/e8-a1-8c-e5-8b-95-e5-b0-8e-e5-90-91-ef-bc-bf-e4-bd-9c-e6-a5-ad-e5-b9-b3-e5-8f-b0.png",
-          alt: "作業平台",
-        },
-        {
-          src: "/images/e8-a1-8c-e5-8b-95-e5-b0-8e-e5-90-91-ef-bc-bfvibe-20coding-20-e5-b7-a5-e4-bd-9c-e5-9d-8a-20.png",
-          alt: "Vibe Coding 工作坊",
-        },
-      ],
-    },
-    {
-      id: 2,
-      title: "支持結構",
-      icon: (
-        <svg className="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.5}
-            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-          />
-        </svg>
-      ),
-      shortDesc: "你不需要靠意志力一個人硬撐，這裡有一整套讓你比較走得下去的支持系統。",
-      details: [
-        "Skool 共學空間、Line 群、線上同學會、校友 LinkedIn 群與線下小聚，讓你一路上有人可以交流、回報進度、彼此提醒。",
-        "真正難的通常不是開始，而是做幾週之後開始懷疑自己、忙起來就斷掉。",
-        "所以我們把支持設計進節奏裡：固定交流、成果分享、AMA、QA、共創與復盤，不只是讓你比較有陪伴感，而是讓你比較有機會真的走完。",
-      ],
-      images: [
-        {
-          src: "/images/2-1.jpeg",
-          alt: "遊牧小聚",
-        },
-        { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e7-95-99-e8-a8-80.png", alt: "留言" },
-        { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e4-ba-a4-e6-b5-81.png", alt: "交流" },
-        {
-          src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e4-bd-9c-e6-a5-ad-e4-ba-a4-e6-b5-81.png",
-          alt: "作業交流",
-        },
-        { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e5-90-8c-e5-ad-b8-e6-9c-83.png", alt: "同學會" },
-        {
-          src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e5-90-8c-e5-ad-b8-e6-9c-83-e4-bd-9c-e6-a5-ad.png",
-          alt: "同學會作業",
-        },
-        { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bfline-20group.png", alt: "Line Group" },
-        {
-          src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e8-b6-8a-e5-8d-97-e9-81-8a-e7-89-a7-e4-b9-8b-e6-97-85.jpg",
-          alt: "越南遊牧之旅",
-        },
-      ],
-    },
-  ]
 
   const { currentStageData, timeLeft, lowestPrice, selectedPlanId, setSelectedPlanId, getTrackingParams } = usePricing()
 
@@ -236,25 +125,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
   const [pricingTimelineModalOpen, setPricingTimelineModalOpen] = useState(false)
   const [faqPriceDiffModalOpen, setFaqPriceDiffModalOpen] = useState(false)
-  const [emailPopupOpen, setEmailPopupOpen] = useState(false)
   const [isInFreeSection, setIsInFreeSection] = useState(false)
-
-  // Lock body scroll when email popup is open & load GHL embed script
-  useEffect(() => {
-    if (emailPopupOpen) {
-      document.body.style.overflow = "hidden"
-      // Load GHL form embed script if not already loaded
-      if (!document.querySelector('script[src*="form_embed.js"]')) {
-        const s = document.createElement("script")
-        s.src = "https://link.digitalnomadstaiwan.com/js/form_embed.js"
-        s.async = true
-        document.body.appendChild(s)
-      }
-    } else {
-      document.body.style.overflow = ""
-    }
-    return () => { document.body.style.overflow = "" }
-  }, [emailPopupOpen])
 
   // IntersectionObserver for pricing section - change sticky bar CTA
   useEffect(() => {
@@ -2157,94 +2028,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
         <PricingSection onTimelineModalChange={setPricingTimelineModalOpen} />
       </section>
 
-      {/* EMAIL SUBSCRIPTION BANNER */}
-      <section id="free-lecture-section" className="bg-brand-offwhite py-10 sm:py-14">
-        <div className="max-w-2xl mx-auto px-4 text-center">
-          <h3 className="text-xl sm:text-2xl font-bold text-brand-teal mb-3">
-            {'還不確定要不要加入？先來免費看一場。'}
-          </h3>
-          <p className="text-sm sm:text-base text-brand-text/70 leading-relaxed mb-6">
-            {'用一場免費講座或一支回放，先幫你看懂：'}
-            <br />
-            {'你適不適合、你比較偏哪條路、以及這 5 個月會怎麼走。'}
-          </p>
-          <div className="flex flex-col items-center gap-3">
-            <a
-              href="https://www.accupass.com/organizer/detail/2509180637491342778166"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-brand-gold text-brand-teal font-semibold text-sm sm:text-base px-8 py-4 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-sm"
-            >
-              {'查看免費講座場次資訊'}
-            </a>
-            <a
-              href="https://www.skool.com/twwgroup-3033/classroom/a5319d94?md=bca9b69c2a5b40869e2fe6254aa9fa13"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border-2 border-brand-teal text-brand-teal font-semibold text-sm sm:text-base px-8 py-4 rounded-full hover:bg-brand-teal hover:text-white transition-colors duration-200"
-            >
-              <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
-              </svg>
-              {'觀看學院說明會回放'}
-            </a>
-            <button
-              onClick={() => setEmailPopupOpen(true)}
-              className="inline-flex items-center gap-2 bg-brand-teal text-white font-semibold text-sm sm:text-base px-8 py-4 rounded-full hover:bg-[#1a5561] transition-colors duration-200 shadow-sm"
-            >
-              <Mail className="w-4 h-4 flex-shrink-0" />
-              {'訂閱隨時收到最新活動提醒'}
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* GHL Email Subscription Modal */}
-      {emailPopupOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4"
-          role="dialog"
-          aria-modal="true"
-          aria-label="訂閱電子報"
-        >
-          {/* Backdrop */}
-          <div
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-            onClick={() => setEmailPopupOpen(false)}
-          />
-          {/* Modal — full-width on mobile, max-w-lg on desktop */}
-          <div className="relative z-10 w-full max-w-[calc(100vw-16px)] sm:max-w-lg bg-brand-teal rounded-2xl shadow-2xl" style={{ overflow: "hidden" }}>
-            {/* Close button */}
-            <button
-              onClick={() => setEmailPopupOpen(false)}
-              className="absolute top-3 right-3 z-20 w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 transition-colors text-white"
-              aria-label="關閉"
-            >
-              <X className="w-4 h-4" />
-            </button>
-            {/* GHL form embed container */}
-            <div className="h-[430px] overflow-hidden rounded-[20px]">
-              <iframe
-                src="https://link.digitalnomadstaiwan.com/widget/form/MpJ0wDqzBLszazx5vVRy"
-                style={{ width: "100%", height: "100%", border: "none", borderRadius: "20px" }}
-                id="inline-MpJ0wDqzBLszazx5vVRy"
-                data-layout="{'id':'INLINE'}"
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="Contact us - Academy"
-                data-height="430"
-                data-layout-iframe-id="inline-MpJ0wDqzBLszazx5vVRy"
-                data-form-id="MpJ0wDqzBLszazx5vVRy"
-                title="Contact us - Academy"
-              />
-            </div>
-          </div>
-        </div>
-      )}
+      {/* FREE LECTURE SECTION */}
+      <FreeLectureSection />
 
       {/* FAQ SECTION */}
       <FAQSection

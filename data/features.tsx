@@ -1,5 +1,6 @@
 // Nomad Groups - Features Data (CIS Brand Colors Applied)
 // 學院三大特色資料
+import type { ReactNode } from "react"
 
 export interface FeatureImage {
   src: string
@@ -9,15 +10,51 @@ export interface FeatureImage {
 export interface Feature {
   id: number
   title: string
+  icon: ReactNode
   shortDesc: string
   details: string[]
   images: FeatureImage[]
 }
 
+// Icon components
+export const DualTrackIcon = () => (
+  <svg className="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.5}
+      d="M8 7l4-4m0 0l4 4m-4-4v18M16 17l4 4m0 0l-4-4m4 4H4"
+    />
+  </svg>
+)
+
+export const ActionOrientedIcon = () => (
+  <svg className="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.5}
+      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+    />
+  </svg>
+)
+
+export const SupportStructureIcon = () => (
+  <svg className="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.5}
+      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+    />
+  </svg>
+)
+
 export const featuresData: Feature[] = [
   {
     id: 0,
     title: "雙軌資源",
+    icon: <DualTrackIcon />,
     shortDesc: "這裡不是要你馬上做對選擇，而是可以開始行動起來，讓行動告訴你答案。",
     details: [
       "<strong>接案線路：</strong>幫你釐清主題定位，做出接案作品集，學會基本市場調查、內容與流量思維。",
@@ -38,6 +75,7 @@ export const featuresData: Feature[] = [
   {
     id: 1,
     title: "行動導向設計",
+    icon: <ActionOrientedIcon />,
     shortDesc: "每堂課都有做得到的行動任務，拆成模板和小步驟，不再只聽懂卻做不出來。",
     details: [
       "每堂課都對應到一個「做得到」的任務：目標設定、AI加速生產、策略定位、發一篇文、做一支影片、更新履歷、寫求職信……不是看完就結束，而是立刻動手。",
@@ -63,6 +101,7 @@ export const featuresData: Feature[] = [
   {
     id: 2,
     title: "支持結構",
+    icon: <SupportStructureIcon />,
     shortDesc: "你不需要靠意志力一個人硬撐，這裡有一整套讓你比較走得下去的支持系統。",
     details: [
       "Skool 共學空間、Line 群、線上同學會、校友 LinkedIn 群與線下小聚，讓你一路上有人可以交流、回報進度、彼此提醒。",
@@ -93,16 +132,3 @@ export const featuresData: Feature[] = [
     ],
   },
 ]
-
-// Feature icons as React components (to be used with the data)
-export const featureIcons = {
-  dualTrack: `<svg class="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7l4-4m0 0l4 4m-4-4v18M16 17l4 4m0 0l-4-4m4 4H4" />
-  </svg>`,
-  actionOriented: `<svg class="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-  </svg>`,
-  supportStructure: `<svg class="w-5 h-5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-  </svg>`,
-}
