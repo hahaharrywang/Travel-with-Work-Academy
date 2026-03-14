@@ -1,38 +1,46 @@
 "use client"
 
-import { useState, useEffect, useCallback, useRef, Suspense } from "react"
+import { useState, useEffect, useCallback, useRef } from "react"
 import Image from "next/image"
-import Script from "next/script"
+import dynamic from "next/dynamic"
 import {
   ChevronDown,
   ChevronUp,
   X,
-  TrendingUp,
-  FileText,
-  Users,
   ChevronRight,
   ChevronLeft,
-  Mail,
-  Globe,
-  Linkedin,
-  Instagram,
-  Facebook,
-  ExternalLink,
-  Layers,
-} from "lucide-react" // Import social icons
-import { Button } from "@/components/ui/button"
+} from "lucide-react"
 import { usePricing } from "@/contexts/pricing-context"
 import { AnnouncementBar } from "@/components/announcement-bar"
 import { StickyBottomBar } from "@/components/sticky-bottom-bar"
-import { FloatingSocialButtons } from "@/components/floating-social-buttons" // Import FloatingSocialButtons
-import { PricingSection } from "@/components/sections/pricing-section" // Import PricingSection
-import FAQSection from "@/components/sections/faq-section" // Import FAQSection
-import { SuccessStoriesSection } from "@/components/sections/success-stories-section"
-import { FreeLectureSection } from "@/components/sections/free-lecture-section"
-import { EcosystemSection } from "@/components/sections/ecosystem-section"
-import { KeyFeaturesSection } from "@/components/sections/key-features-section"
+import { FloatingSocialButtons } from "@/components/floating-social-buttons"
+import { Footer } from "@/components/footer"
+import { PricingSection } from "@/components/sections/pricing-section"
+
+// Above-fold sections (loaded immediately)
+import { HeroSection } from "@/components/sections/hero-section"
+import { GalleryModal } from "@/components/ui/gallery-modal"
+import { WeekDetailModal } from "@/components/ui/week-detail-modal"
 import { CourseHighlightsSection } from "@/components/sections/course-highlights-section"
 import { PainPointsSection } from "@/components/sections/pain-points-section"
+import { KeyFeaturesSection } from "@/components/sections/key-features-section"
+
+// Below-fold sections (loaded lazily for better initial performance)
+const FAQSection = dynamic(() => import("@/components/sections/faq-section"), {
+  ssr: true,
+})
+const SuccessStoriesSection = dynamic(
+  () => import("@/components/sections/success-stories-section").then((mod) => mod.SuccessStoriesSection),
+  { ssr: true }
+)
+const FreeLectureSection = dynamic(
+  () => import("@/components/sections/free-lecture-section").then((mod) => mod.FreeLectureSection),
+  { ssr: true }
+)
+const EcosystemSection = dynamic(
+  () => import("@/components/sections/ecosystem-section").then((mod) => mod.EcosystemSection),
+  { ssr: true }
+)
 
 import {
   Dialog,
@@ -48,7 +56,6 @@ import { type PlanId, getCheckoutURL } from "@/data/plan-config"
 import { calendarData, getPhaseColor, getTrackColor, getInstructorsByNames, fourPhases, remoteJobPhaseContent, freelancePhaseContent, undecidedTabContent, type CalendarWeek } from "@/data/calendar"
 import { stagePhotos } from "@/data/stage-photos"
 import { instructors } from "@/data/instructors"
-import { featuresData } from "@/data/features"
 
 
 
@@ -94,9 +101,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
   const [isGalleryOpen, setIsGalleryOpen] = useState(false)
   const [currentStage, setCurrentStage] = useState(0)
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
-  const [showFullSchedule, setShowFullSchedule] = useState(false)
-  const [showAllStages, setShowAllStages] = useState(false) // New state for showing all stages in pricing timeline
-  const [timelineExpanded, setTimelineExpanded] = useState(false) // State for timeline expansion
+  const [emailPopupOpen, setEmailPopupOpen] = useState(false)
 
 
 
@@ -119,7 +124,6 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
   const calendarSectionRef = useRef<HTMLDivElement>(null)
   const [expandedWeeks, setExpandedWeeks] = useState<Set<number>>(new Set())
   const [expandedPhases, setExpandedPhases] = useState<Set<string>>(new Set(["階段一 起步打底"]))
-  const [expandedInstructorBios, setExpandedInstructorBios] = useState<Set<string>>(new Set())
 
   const [pricingTimelineModalOpen, setPricingTimelineModalOpen] = useState(false)
   const [faqPriceDiffModalOpen, setFaqPriceDiffModalOpen] = useState(false)
@@ -201,264 +205,13 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
 
 
-  const [lightboxOpen, setLightboxOpen] = useState(false)
-  const [lightboxImages, setLightboxImages] = useState<Array<{ src: string; alt: string }>>([])
-  const [lightboxIndex, setLightboxIndex] = useState(0)
 
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && lightboxOpen) {
-        setLightboxOpen(false)
-      }
-      if (lightboxOpen) {
-        if (e.key === "ArrowLeft") {
-          setLightboxIndex((prev) => (prev > 0 ? prev - 1 : lightboxImages.length - 1))
-        }
-        if (e.key === "ArrowRight") {
-          setLightboxIndex((prev) => (prev < lightboxImages.length - 1 ? prev + 1 : 0))
-        }
-      }
-    }
-    window.addEventListener("keydown", handleKeyDown)
-    return () => window.removeEventListener("keydown", handleKeyDown)
-  }, [lightboxOpen, lightboxImages.length])
-
-  const openLightbox = (images: Array<{ src: string; alt: string }>, startIndex: number) => {
-    setLightboxImages(images)
-    setLightboxIndex(startIndex)
-    setLightboxOpen(true)
-  }
 
   return (
     <main className="min-h-screen bg-white pb-24 md:pb-0">
       <AnnouncementBar scrollToPricing={scrollToPricing} onEmailSubscribe={() => setEmailPopupOpen(true)} />
-      {/* SECTION 1 HERO START */}
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-brand-teal">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 right-1/3 w-[600px] h-[600px] border border-[#E8C547]/30 rounded-full" />
-          <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] border border-[#E8C547]/20 rounded-full" />
-          <div className="absolute bottom-1/4 right-1/2 w-[300px] h-[300px] border border-[#E8C547]/10 rounded-full" />
-          <div className="absolute bottom-0 left-0 right-0 h-40">
-            <div className="absolute bottom-8 left-[10%] w-1 h-1 bg-[#E8C547] rounded-full animate-pulse" />
-            <div className="absolute bottom-16 left-[20%] w-1.5 h-1.5 bg-[#E8C547]/80 rounded-full animate-pulse delay-100" />
-            <div className="absolute bottom-12 left-[35%] w-1 h-1 bg-[#E8C547]/60 rounded-full animate-pulse delay-200" />
-            <div className="absolute bottom-20 left-[45%] w-2 h-2 bg-[#E8C547]/70 rounded-full animate-pulse delay-300" />
-            <div className="absolute bottom-6 left-[55%] w-1 h-1 bg-[#E8C547] rounded-full animate-pulse delay-150" />
-            <div className="absolute bottom-14 left-[65%] w-1.5 h-1.5 bg-[#E8C547]/80 rounded-full animate-pulse delay-250" />
-            <div className="absolute bottom-10 left-[75%] w-1 h-1 bg-[#E8C547]/60 rounded-full animate-pulse delay-100" />
-            <div className="absolute bottom-18 left-[85%] w-1.5 h-1.5 bg-[#E8C547]/70 rounded-full animate-pulse delay-200" />
-            <div className="absolute bottom-4 left-[90%] w-1 h-1 bg-[#E8C547] rounded-full animate-pulse delay-300" />
-          </div>
-        </div>
-
-        {/* Header with Logo only */}
-        <div className="absolute top-0 left-0 z-30 py-0 px-4 sm:px-6 lg:px-8">
-          <Image
-            src="/images/academy-logo.png"
-            alt="遠距遊牧學院 Travel with Work Academy"
-            width={200}
-            height={105}
-            className="h-auto w-[180px] sm:w-[240px] lg:w-[280px] brightness-0 invert"
-            priority
-          />
-        </div>
-
-        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 lg:pt-28 pb-12 lg:pb-12">
-          {/* Desktop: Left content + Right image - heights match */}
-          <div className="hidden lg:grid lg:grid-cols-2 gap-10 items-stretch">
-            {/* Left: All text content */}
-            <div className="flex flex-col space-y-5">
-              <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-white leading-tight tracking-wide">
-                今年五月，
-                <br />
-                一起把「也許有一天」
-                <br />
-                變成「<span className="text-brand-gold">我也正在路上</span>」
-              </h1>
-
-              <p className="text-sm sm:text-base text-brand-gold font-medium tracking-wide leading-relaxed">
-                {'給想開始遠端上班、接案，或還在兩者之間猶豫的人。'}
-                <br />
-                {'這是一套 5 個月、可單線也可雙軌的行動系統，幫你在不停薪、不打亂原本生活的前提下，真的開始踏出下一步。'}
-              </p>
-
-              <div className="space-y-2 text-left">
-                <div className="flex items-start gap-3">
-                  <Layers className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">雙軌起步：遠端上班 × 接案，不用一開始就選到死</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <TrendingUp className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">不停薪開始：不必離職，也能先試出自己的下一步</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <FileText className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">五個月有節奏：不是被啟發而已，是真的一步步做出來</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Users className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">成果看得見：履歷、作品集、個人頁面，不再只是想過</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Globe className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-                  <p className="text-white/90">從台灣接到世界：線下小聚、遊牧旅程、國際生態系入口</p>
-                </div>
-              </div>
-
-              {/* CTA Buttons - side by side */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <a
-                  href="https://www.accupass.com/organizer/detail/2509180637491342778166"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-brand-gold text-brand-teal font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-md hover:shadow-lg"
-                >
-                  <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-                  </svg>
-                  查看免費講座場次
-                </a>
-                <a
-                  href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-white/30 text-white/80 hover:text-brand-gold hover:border-brand-gold/50 font-medium text-sm px-5 py-2.5 rounded-full transition-colors duration-200"
-                >
-                  <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
-                  </svg>
-                  先看學院說明會回放
-                </a>
-              </div>
-
-              <p className="text-white/50 text-xs">
-                還不確定適不適合？先看免費講座或回放，再決定要不要加入。
-              </p>
-
-              {/* 錨點文字 */}
-              <button
-                onClick={() => {
-                  document.getElementById("learning-map")?.scrollIntoView({ behavior: "smooth" })
-                }}
-                className="text-white/50 hover:text-white/80 text-sm transition-colors duration-200 flex items-center gap-1"
-              >
-                往下看 5 個月怎麼走
-                <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-            </div>
-
-            {/* Right: Image + Social Proof - flex to fill height */}
-            <div className="flex flex-col">
-              <div className="relative flex-1">
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl h-full">
-                  <Image
-                    src="/images/hero-background.png"
-                    alt="遠距工作場景 - 共同工作空間"
-                    fill
-                    className="object-cover"
-                    priority
-                    sizes="50vw"
-                  />
-                </div>
-                <div className="absolute -top-3 -right-3 w-full h-full border-2 border-[#D4AF37]/50 rounded-2xl pointer-events-none" />
-                <div className="absolute -top-6 -right-6 w-full h-full border border-[#D4AF37]/25 rounded-2xl pointer-events-none" />
-              </div>
-              {/* Social Proof - below image */}
-              <p className="text-sm text-white/70 text-center pt-4">
-                <span className="text-brand-gold font-semibold">2025 第一屆</span>
-                {' · '}已累積 <span className="text-white font-medium">300+</span> 學員
-                {' · '}<span className="text-white font-medium">1,500+</span> 線下社群參與
-              </p>
-            </div>
-          </div>
-
-          {/* Mobile: Original stacked layout */}
-          <div className="lg:hidden space-y-6 text-center">
-            <h1 className="text-3xl sm:text-4xl font-bold text-white leading-tight tracking-wide">
-              今年五月，
-              <br />
-              一起把「也許有一天」
-              <br />
-              變成「<span className="text-brand-gold">我也正在路上</span>」
-            </h1>
-
-            <p className="text-sm sm:text-base text-brand-gold font-medium tracking-wide leading-relaxed">
-              {'給想開始遠端上班、接案，或還在兩者之間猶豫的人。'}
-              <br />
-              {'這是一套 5 個月、可單線也可雙軌的行動系統，幫你在不停薪、不打亂原本生活的前提下，真的開始踏出下一步。'}
-            </p>
-
-            <div className="space-y-3 text-left max-w-xl mx-auto">
-              <div className="flex items-start gap-3">
-                <Layers className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-                <p className="text-white/90">雙軌起步：遠端上班 × 接案，不用一開始就選到死</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <TrendingUp className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-                <p className="text-white/90">不停薪開始：不必離職，也能先試出自己的下一步</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <FileText className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-                <p className="text-white/90">五個月有節奏：不是被啟發而已，是真的一步步做出來</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <Users className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-                <p className="text-white/90">成果看得見：履歷、作品集、個人頁面，不再只是想過</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <Globe className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-                <p className="text-white/90">從台灣接到世界：線下小聚、遊牧旅程、國際生態系入口</p>
-              </div>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col gap-4 items-center">
-              <a
-                href="https://www.accupass.com/organizer/detail/2509180637491342778166"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-brand-gold text-brand-teal font-semibold text-sm sm:text-base px-6 py-3 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-md hover:shadow-lg"
-              >
-                <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-                </svg>
-                查看免費講座場次
-              </a>
-              <a
-                href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-white/30 text-white/80 hover:text-brand-gold hover:border-brand-gold/50 font-medium text-sm sm:text-base px-5 py-2.5 rounded-full transition-colors duration-200"
-              >
-                <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
-                </svg>
-                先看學院說明會回放
-              </a>
-              <p className="text-white/50 text-xs text-center">
-                還不確定適不適合？先看免費講座或回放，再決定要不要加入。
-              </p>
-            </div>
-
-            {/* 錨點文字 */}
-            <div className="pt-4">
-              <button
-                onClick={() => {
-                  document.getElementById("learning-map")?.scrollIntoView({ behavior: "smooth" })
-                }}
-                className="text-white/50 hover:text-white/80 text-sm transition-colors duration-200 flex items-center gap-1 mx-auto"
-              >
-                往下看 5 個月怎麼走
-                <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* SECTION 1 HERO */}
+      <HeroSection />
       {/* SECTION 2 COURSE HIGHLIGHTS - 正在尋找「下一步」的你 */}
       <CourseHighlightsSection />
       {/* SECTION 3 PAIN POINTS - 三大痛點 */}
@@ -1331,150 +1084,60 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
       />
 
       {/* FOOTER */}
-      <footer className="py-12 bg-brand-teal text-white">
-        <div className="container mx-auto px-4">
-          {/* Contact Information */}
-          <div className="text-center mb-6">
-            <p className="text-sm text-white/80 leading-relaxed mb-2">如果有問題請洽詢 Line 官方帳號 or Instagram</p>
-            <p className="text-sm text-white/80 leading-relaxed">
-              也可以{" "}
-              <a
-                href="mailto:academy@travelwork.life"
-                className="inline-flex items-center gap-1 text-brand-gold hover:text-brand-gold/80 transition-colors font-medium"
-              >
-                <Mail className="w-3.5 h-3.5" />
-                academy@travelwork.life
-              </a>
-            </p>
-          </div>
-
-          <p className="text-xs text-white/60 mb-8 text-center">會有專人回覆</p>
-
-          {/* Social Media Section */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8 pb-8 border-b border-white/10">
-            <a
-              href="https://www.instagram.com/travelwithwork_/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 px-6 py-3 bg-white/5 hover:bg-white/10 rounded-full transition-all duration-300 group border border-white/10"
-            >
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#f09433] via-[#e6683c] to-[#bc1888] flex items-center justify-center group-hover:scale-110 transition-transform">
-                <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                </svg>
-              </div>
-              <div className="text-left">
-                <p className="text-sm font-medium text-white">Instagram</p>
-                <p className="text-xs text-white/60">@travelwithwork_</p>
-              </div>
-            </a>
-
-            <a
-              href="https://lin.ee/r7kh3fX"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 px-6 py-3 bg-white/5 hover:bg-white/10 rounded-full transition-all duration-300 group border border-white/10"
-            >
-              <div className="w-10 h-10 rounded-full bg-[#06C755] flex items-center justify-center group-hover:scale-110 transition-transform">
-                <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63-.63-.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" />
-                </svg>
-              </div>
-              <div className="text-left">
-                <p className="text-sm font-medium text-white">Line 官方帳號</p>
-                <p className="text-xs text-white/60">@travelwithwork</p>
-              </div>
-            </a>
-          </div>
-
-          {/* Copyright */}
-          <div className="text-center">
-            <p className="text-xs text-white/50">
-              &copy; 2025 遠距遊牧學院 Travel With Work Academy. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
 
       {/* GALLERY MODAL */}
-      {isGalleryOpen && (
+      <GalleryModal
+        isOpen={isGalleryOpen}
+        onClose={() => setIsGalleryOpen(false)}
+        photos={stagePhotos[currentStage] || []}
+        currentIndex={currentPhotoIndex}
+        onPrev={prevPhoto}
+        onNext={nextPhoto}
+      />
+
+      {/* EMAIL SUBSCRIPTION POPUP - GHL Form */}
+      {emailPopupOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4 z-50"
-          onClick={() => setIsGalleryOpen(false)}
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label="訂閱電子報"
         >
-          <div className="relative max-w-4xl w-full max-h-[90vh] flex items-center justify-center">
+          {/* Backdrop */}
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => setEmailPopupOpen(false)} />
+          {/* Modal */}
+          <div
+            className="relative z-10 w-full max-w-[calc(100vw-16px)] sm:max-w-lg bg-brand-teal rounded-2xl shadow-2xl"
+            style={{ overflow: "hidden" }}
+          >
+            {/* Close button */}
             <button
-              onClick={() => setIsGalleryOpen(false)}
-              className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-all duration-200 z-10 text-xl font-bold"
+              onClick={() => setEmailPopupOpen(false)}
+              className="absolute top-3 right-3 z-20 w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 transition-colors text-white"
+              aria-label="關閉"
             >
-              ✕
+              <X className="w-4 h-4" />
             </button>
-
-            <button
-              onClick={(e) => {
-                e.stopPropagation()
-                prevPhoto()
-              }}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full shadow-xl flex items-center justify-center text-gray-800 hover:text-orange-500 transition-all duration-200 z-10 group"
-            >
-              <svg
-                className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-200"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-
-            <button
-              onClick={(e) => {
-                e.stopPropagation()
-                nextPhoto()
-              }}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 w-14 h-14 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full shadow-xl flex items-center justify-center text-gray-800 hover:text-orange-500 transition-all duration-200 z-10 group"
-            >
-              <svg
-                className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-200"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-
-            <div
-              className="relative w-full h-full flex items-center justify-center"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="relative max-w-full max-h-full">
-                <Image
-                  src={stagePhotos[currentStage][currentPhotoIndex]?.src || "/placeholder.svg"}
-                  alt={stagePhotos[currentStage][currentPhotoIndex]?.alt || ""}
-                  width={800}
-                  height={600}
-                  className="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl"
-                />
-
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent text-white p-6 rounded-b-lg">
-                  <p className="text-center text-sm sm:text-base font-medium leading-relaxed">
-                    {stagePhotos[currentStage][currentPhotoIndex]?.alt}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {stagePhotos[currentStage].length > 1 && (
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-80 text-white px-6 py-3 rounded-full text-sm font-medium shadow-lg">
-                <span className="text-orange-400">{currentPhotoIndex + 1}</span>
-                <span className="mx-2 text-gray-300">/</span>
-                <span>{stagePhotos[currentStage].length}</span>
-              </div>
-            )}
-
-            <div className="absolute top-4 left-4 bg-black bg-opacity-60 text-white px-3 py-2 rounded-lg text-xs opacity-70">
-              使用 ← → 鍵或點擊按鈕切換圖片
+            {/* GHL form embed container */}
+            <div className="h-[430px] overflow-hidden rounded-[20px]">
+              <iframe
+                src="https://link.digitalnomadstaiwan.com/widget/form/MpJ0wDqzBLszazx5vVRy"
+                style={{ width: "100%", height: "100%", border: "none", borderRadius: "20px" }}
+                id="inline-MpJ0wDqzBLszazx5vVRy-announcement"
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="遠距遊牧學院 - 表單"
+                data-height="430"
+                data-layout-iframe-id="inline-MpJ0wDqzBLszazx5vVRy-announcement"
+                data-form-id="MpJ0wDqzBLszazx5vVRy"
+                title="遠距遊牧學院 - 表單"
+              ></iframe>
             </div>
           </div>
         </div>
@@ -1507,186 +1170,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
         </div>
       )}
 
-      {/*SELECTED CALENDAR WEEK MODAL */}
-      {selectedWeek && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-[60]"
-          onClick={() => setSelectedWeek(null)}
-        >
-          <div
-            className="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto relative p-8"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={() => setSelectedWeek(null)}
-              className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-gray-400 hover:text-gray-600 text-xl font-bold z-10"
-            >
-              ×
-            </button>
-
-            {/* Week and Track Badge */}
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-sm font-bold text-brand-teal">{selectedWeek.monthWeek}</span>
-              <span
-                className={`px-2 py-0.5 text-xs rounded ${getTrackColor(selectedWeek.track).bg} ${
-                  getTrackColor(selectedWeek.track).text
-                }`}
-              >
-                {selectedWeek.track}
-              </span>
-            </div>
-
-            {/* Course Title */}
-            <h3 className="text-2xl font-bold text-brand-teal mb-3">{selectedWeek.title}</h3>
-
-            {/* Course Type */}
-            <p className="text-sm font-medium text-brand-gold mb-6">{selectedWeek.type}</p>
-
-            {/* Detailed Course Description */}
-            <div className="mb-8">
-              <h4 className="text-lg font-semibold text-brand-teal mb-3">課程說明</h4>
-              <p className="text-sm text-brand-text leading-relaxed whitespace-pre-line">{selectedWeek.focusDetail}</p>
-            </div>
-
-            {/* Instructors Section */}
-            {selectedWeek.instructorNames.length > 0 && (
-              <div>
-                <h4 className="text-lg font-semibold text-brand-teal mb-4">講師介紹</h4>
-                <div className="space-y-6">
-                  {getInstructorsByNames(selectedWeek.instructorNames).map((instructor, idx) => {
-                    const rawBackground = instructor.background || ""
-                    const instructorKey = `${selectedWeek.id}-${idx}`
-                    const isExpanded = expandedInstructorBios.has(instructorKey)
-
-                    const toggleExpanded = () => {
-                      setExpandedInstructorBios((prev) => {
-                        const newSet = new Set(prev)
-                        if (newSet.has(instructorKey)) {
-                          newSet.delete(instructorKey)
-                        } else {
-                          newSet.add(instructorKey)
-                        }
-                        return newSet
-                      })
-                    }
-
-                    const shouldTruncate = rawBackground.length > 200
-                    const displayText = isExpanded ? rawBackground : rawBackground.slice(0, 200)
-
-                    return (
-                      <div key={idx} className="p-6 bg-brand-offwhite rounded-xl">
-                        {/* Header with avatar, name, title, and social links */}
-                        <div className="flex items-start gap-4 mb-4">
-                          <Image
-                            src={instructor.image || "/placeholder.svg"}
-                            alt={instructor.name}
-                            width={64}
-                            height={64}
-                            className="w-16 h-16 rounded-full object-cover flex-shrink-0"
-                          />
-                          <div className="flex-1 min-w-0">
-                            {/* Name and social links row */}
-                            <div className="flex items-start justify-between gap-3 mb-2">
-                              <h5 className="font-bold text-lg text-brand-teal leading-tight">{instructor.name}</h5>
-                              {/* Social links */}
-                              {(instructor.links || instructor.link) && (
-                                <div className="flex items-center gap-1.5 flex-shrink-0">
-                                  {instructor.links?.website && (
-                                    <a
-                                      href={instructor.links.website}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="w-7 h-7 flex items-center justify-center rounded-full bg-white hover:bg-brand-gold text-brand-teal hover:text-white transition-colors shadow-sm"
-                                      title="個人網站"
-                                    >
-                                      <Globe className="w-3.5 h-3.5" />
-                                    </a>
-                                  )}
-                                  {instructor.links?.linkedin && (
-                                    <a
-                                      href={instructor.links.linkedin}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="w-7 h-7 flex items-center justify-center rounded-full bg-white hover:bg-[#0A66C2] text-brand-teal hover:text-white transition-colors shadow-sm"
-                                      title="LinkedIn"
-                                    >
-                                      <Linkedin className="w-3.5 h-3.5" />
-                                    </a>
-                                  )}
-                                  {instructor.links?.instagram && (
-                                    <a
-                                      href={instructor.links.instagram}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="w-7 h-7 flex items-center justify-center rounded-full bg-white hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-500 text-brand-teal hover:text-white transition-colors shadow-sm"
-                                      title="Instagram"
-                                    >
-                                      <Instagram className="w-3.5 h-3.5" />
-                                    </a>
-                                  )}
-                                  {instructor.links?.facebook && (
-                                    <a
-                                      href={instructor.links.facebook}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="w-7 h-7 flex items-center justify-center rounded-full bg-white hover:bg-[#1877F2] text-brand-teal hover:text-white transition-colors shadow-sm"
-                                      title="Facebook"
-                                    >
-                                      <Facebook className="w-3.5 h-3.5" />
-                                    </a>
-                                  )}
-                                  {!instructor.links && instructor?.link && (
-                                    <a
-                                      href={instructor.link}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="w-7 h-7 flex items-center justify-center rounded-full bg-white hover:bg-brand-gold text-brand-teal hover:text-white transition-colors shadow-sm"
-                                      title="外部連結"
-                                    >
-                                      <ExternalLink className="w-3.5 h-3.5" />
-                                    </a>
-                                  )}
-                                </div>
-                              )}
-                            </div>
-                            {/* Title */}
-                            <p className="text-sm text-brand-gold leading-snug">{instructor.title}</p>
-                          </div>
-                        </div>
-
-                        {rawBackground && (
-                          <div className="mt-4">
-                            <p className="text-sm text-brand-text leading-relaxed whitespace-pre-line">
-                              {displayText}
-                              {!isExpanded && shouldTruncate && "..."}
-                            </p>
-
-                            {/* Toggle button */}
-                            {shouldTruncate && (
-                              <>
-                                <div className="h-px bg-brand-gold/20 my-4" />
-                                <button
-                                  onClick={toggleExpanded}
-                                  className="mx-auto flex items-center gap-2 text-sm text-brand-gold hover:text-brand-teal transition-colors"
-                                >
-                                  <span>{isExpanded ? "收起" : "查看更多"}</span>
-                                  <ChevronDown
-                                    className={`w-4 h-4 transition-transform ${isExpanded ? "rotate-180" : ""}`}
-                                  />
-                                </button>
-                              </>
-                            )}
-                          </div>
-                        )}
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
+      {/* WEEK DETAIL MODAL */}
+      <WeekDetailModal week={selectedWeek} onClose={() => setSelectedWeek(null)} />
 
       {/* CALENDAR MODAL */}
       {showCalendarModal && (
@@ -1843,6 +1328,16 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
       {/* CHANGE: Pass isAnyModalOpen to hide bottom bar when modals are open */}
       <StickyBottomBar scrollToPricing={scrollToPricing} isHidden={isAnyModalOpen} isInFreeSection={isInFreeSection} />
       <FloatingSocialButtons />
+
+      {/* Hidden preload iframe for GHL form - loads in background for instant popup */}
+      <iframe
+        src="https://link.digitalnomadstaiwan.com/widget/form/MpJ0wDqzBLszazx5vVRy"
+        className="sr-only"
+        style={{ position: "absolute", width: 0, height: 0, border: "none", overflow: "hidden" }}
+        tabIndex={-1}
+        aria-hidden="true"
+        title="Preload form"
+      />
     </main>
   )
 }
