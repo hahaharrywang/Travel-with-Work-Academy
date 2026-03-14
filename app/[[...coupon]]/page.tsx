@@ -275,30 +275,32 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           </div>
         </div>
 
-        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 lg:pt-36 pb-16 lg:pb-24">
+        {/* Social Proof Marquee - Full width, edge to edge */}
+        <div className="relative z-20 w-full pt-24 sm:pt-28 lg:pt-32">
+          <div className="overflow-hidden bg-white/10 backdrop-blur-sm py-2.5 w-full">
+            <div className="animate-marquee whitespace-nowrap flex items-center gap-10">
+              <span className="text-sm sm:text-base font-medium text-white flex items-center gap-2">
+                <span className="text-brand-gold font-bold">2025 第一屆</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-gold/70" />
+                已累積 300+ 學員
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-gold/70" />
+                1,500+ 線下社群參與
+              </span>
+              <span className="text-sm sm:text-base font-medium text-white flex items-center gap-2">
+                <span className="text-brand-gold font-bold">2025 第一屆</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-gold/70" />
+                已累積 300+ 學員
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-gold/70" />
+                1,500+ 線下社群參與
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 lg:pt-10 pb-16 lg:pb-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left content */}
             <div className="space-y-6 text-center lg:text-left">
-              {/* Social Proof Marquee */}
-              <div className="overflow-hidden rounded-full bg-white/10 backdrop-blur-sm py-2.5 px-1 w-full lg:max-w-md lg:mx-0">
-                <div className="animate-marquee whitespace-nowrap flex items-center gap-10">
-                  <span className="text-sm sm:text-base font-medium text-white flex items-center gap-2">
-                    <span className="text-brand-gold font-bold">2025 第一屆</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-brand-gold/70" />
-                    已累積 300+ 學員
-                    <span className="w-1.5 h-1.5 rounded-full bg-brand-gold/70" />
-                    1,500+ 線下社群參與
-                  </span>
-                  <span className="text-sm sm:text-base font-medium text-white flex items-center gap-2">
-                    <span className="text-brand-gold font-bold">2025 第一屆</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-brand-gold/70" />
-                    已累積 300+ 學員
-                    <span className="w-1.5 h-1.5 rounded-full bg-brand-gold/70" />
-                    1,500+ 線下社群參與
-                  </span>
-                </div>
-              </div>
-
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-wide">
                 今年五月，
                 <br />
