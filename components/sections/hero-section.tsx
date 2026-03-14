@@ -1,147 +1,239 @@
 "use client"
 
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { usePricing, formatPrice, getSingleLinePrice } from "@/contexts/pricing-context"
+import {
+  TrendingUp,
+  FileText,
+  Users,
+  Globe,
+  Layers,
+} from "lucide-react"
 
 export function HeroSection() {
-  const { currentStageData, timeLeft, getCheckoutURLWithTracking } = usePricing()
-
-  const singleLinePrice = currentStageData ? getSingleLinePrice(currentStageData) : 0
-
   return (
-    <section className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-brand-offwhite via-white to-brand-mist/30 overflow-hidden">
-      <div className="absolute top-20 left-10 w-64 h-64 bg-brand-gold/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-brand-teal/5 rounded-full blur-3xl" />
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-brand-teal">
+      {/* Background decorations */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 right-1/3 w-[600px] h-[600px] border border-[#E8C547]/30 rounded-full" />
+        <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] border border-[#E8C547]/20 rounded-full" />
+        <div className="absolute bottom-1/4 right-1/2 w-[300px] h-[300px] border border-[#E8C547]/10 rounded-full" />
+        <div className="absolute bottom-0 left-0 right-0 h-40">
+          <div className="absolute bottom-8 left-[10%] w-1 h-1 bg-[#E8C547] rounded-full animate-pulse" />
+          <div className="absolute bottom-16 left-[20%] w-1.5 h-1.5 bg-[#E8C547]/80 rounded-full animate-pulse delay-100" />
+          <div className="absolute bottom-12 left-[35%] w-1 h-1 bg-[#E8C547]/60 rounded-full animate-pulse delay-200" />
+          <div className="absolute bottom-20 left-[45%] w-2 h-2 bg-[#E8C547]/70 rounded-full animate-pulse delay-300" />
+          <div className="absolute bottom-6 left-[55%] w-1 h-1 bg-[#E8C547] rounded-full animate-pulse delay-150" />
+          <div className="absolute bottom-14 left-[65%] w-1.5 h-1.5 bg-[#E8C547]/80 rounded-full animate-pulse delay-250" />
+          <div className="absolute bottom-10 left-[75%] w-1 h-1 bg-[#E8C547]/60 rounded-full animate-pulse delay-100" />
+          <div className="absolute bottom-18 left-[85%] w-1.5 h-1.5 bg-[#E8C547]/70 rounded-full animate-pulse delay-200" />
+          <div className="absolute bottom-4 left-[90%] w-1 h-1 bg-[#E8C547] rounded-full animate-pulse delay-300" />
+        </div>
+      </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="text-center lg:text-left space-y-6 sm:space-y-8">
-            <div className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3">
-              <span className="inline-flex items-center px-4 py-2 rounded-full bg-white border border-brand-mist text-sm text-brand-text shadow-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-gold mr-2" />
-                知道自己適合哪條遠距路線
-              </span>
-              <span className="inline-flex items-center px-4 py-2 rounded-full bg-white border border-brand-mist text-sm text-brand-text shadow-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-gold mr-2" />
-                有一份能被看見、邏輯清楚的接案作品集
-              </span>
-              <span className="inline-flex items-center px-4 py-2 rounded-full bg-white border border-brand-mist text-sm text-brand-text shadow-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-gold mr-2" />
-                身邊有一群正在前進的成長夥伴
-              </span>
-            </div>
+      {/* Header with Logo only */}
+      <div className="absolute top-0 left-0 z-30 pt-3 sm:pt-4 px-4 sm:px-6 lg:px-8">
+        <Image
+          src="/images/academy-logo.png"
+          alt="遠距遊牧學院 Travel with Work Academy"
+          width={200}
+          height={105}
+          className="h-auto w-[140px] sm:w-[200px] lg:w-[240px] brightness-0 invert"
+          priority
+        />
+      </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-teal leading-tight tracking-wide">
-              用五個月，
-              <span className="block mt-2 text-brand-gold">把「也許有一天」變成「我正在路上」</span>
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-8 sm:pb-10 lg:pb-12">
+        {/* Desktop: Left content + Right image - heights match */}
+        <div className="hidden lg:grid lg:grid-cols-2 gap-10 items-stretch">
+          {/* Left: All text content */}
+          <div className="flex flex-col space-y-5">
+            <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-white leading-tight tracking-wide">
+              今年五月，
+              <br />
+              一起把「也許有一天」
+              <br />
+              變成「<span className="text-brand-gold">我也正在路上</span>」
             </h1>
 
-            <p className="text-base sm:text-lg text-brand-text leading-relaxed max-w-xl mx-auto lg:mx-0">
-              不用先辭職，也不用一下子 all-in。 透過 5
-              個月的遠距職涯探索旅途，結合線上課程、行動任務、共學社群與遊牧體驗資源，開啟探索最適合你生活與成長。
+            <p className="text-sm sm:text-base text-brand-gold font-medium tracking-wide leading-relaxed">
+              {'給想開始遠端上班、接案，或還在兩者之間猶豫的人。'}
+              <br />
+              {'這是一套 5 個月、可單線也可雙軌的行動系統，幫你在不停薪、不打亂原本生活的前提下，真的開始踏出下一步。'}
             </p>
 
-            <div className="flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3">
-              <span className="px-4 py-2 rounded-full bg-brand-teal text-white text-sm font-medium">接案線路</span>
-              <span className="px-4 py-2 rounded-full bg-brand-teal text-white text-sm font-medium">遠端上班線路</span>
-              <span className="px-4 py-2 rounded-full bg-brand-gold text-brand-teal text-sm font-medium">
-                也可以雙線並進
-              </span>
+            <div className="space-y-2 text-left">
+              <div className="flex items-start gap-3">
+                <Layers className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
+                <p className="text-white/90">雙軌起步：遠端上班 × 接案，不用一開始就選到死</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <TrendingUp className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
+                <p className="text-white/90">不停薪開始：不必離職，也能先試出自己的下一步</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <FileText className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
+                <p className="text-white/90">五個月有節奏：不是被啟發而已，是真的一步步做出來</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <Users className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
+                <p className="text-white/90">成果看得見：履歷、作品集、個人頁面，不再只是想過</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <Globe className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
+                <p className="text-white/90">從台灣接到世界：線下小聚、遊牧旅程、國際生態系入口</p>
+              </div>
             </div>
 
-            <p className="text-sm text-brand-text/60 max-w-lg mx-auto lg:mx-0">
-              這不是一張離職門票，而是一段可以在保有現職下完成的五個月行動旅程。
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col items-center lg:items-start gap-4">
-              <Button
-                asChild
-                size="lg"
-                className="hidden md:inline-flex bg-brand-teal hover:bg-brand-teal/90 text-white rounded-full px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <a
-                  href={getCheckoutURLWithTracking()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => {
-                    if (typeof window !== "undefined" && (window as any).trackInitiateCheckout) {
-                      ;(window as any).trackInitiateCheckout(0)
-                    }
-                  }}
-                >
-                  立刻鎖定【{currentStageData?.name} NT${formatPrice(singleLinePrice)}起】
-                </a>
-              </Button>
+            {/* CTA Buttons - side by side */}
+            <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
-                href="https://www.accupass.com/organizer/detail/2304050942218markup872544"
+                href="https://www.accupass.com/organizer/detail/2509180637491342778166"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-brand-teal hover:text-brand-gold font-medium text-base underline underline-offset-4 transition-colors duration-200"
+                className="inline-flex items-center gap-2 bg-brand-gold text-brand-teal font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-md hover:shadow-lg"
               >
+                <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                </svg>
                 查看免費講座場次
               </a>
-              <button
-                onClick={() => {
-                  document.getElementById("course-highlights")?.scrollIntoView({ behavior: "smooth" })
-                }}
-                className="text-brand-teal hover:text-brand-gold font-medium text-base underline underline-offset-4 transition-colors duration-200"
+              <a
+                href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 border border-white/30 text-white/80 hover:text-brand-gold hover:border-brand-gold/50 font-medium text-sm px-5 py-2.5 rounded-full transition-colors duration-200"
               >
-                還在觀望？先看五個月怎麼走 ↓
-              </button>
+                <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+                </svg>
+                先看學院說明會回放
+              </a>
             </div>
 
-            <div className="hidden md:block text-center lg:text-left pt-2">
-              {currentStageData && (
-                <>
-                  <p className="text-sm text-brand-text/70">
-                    目前為{" "}
-                    <span className="text-brand-gold font-semibold">
-                      🔥 {currentStageData.name}｜單線 NT${formatPrice(singleLinePrice)} 起
-                    </span>
-                    <span className="text-brand-text/50 line-through ml-1">
-                      （原價 NT${formatPrice(currentStageData.prices.selfMedia.original)}）
-                    </span>
-                  </p>
-                  <p className="text-sm text-brand-text/60 mt-1">
-                    截止：{currentStageData.endAt.getMonth() + 1}/{currentStageData.endAt.getDate()}（台北時間
-                    23:59）｜剩餘：
-                    <span className="font-medium text-brand-teal">
-                      {String(timeLeft.days).padStart(2, "0")} 天 {String(timeLeft.hours).padStart(2, "0")} 小時
-                    </span>
-                  </p>
-                </>
-              )}
+            <p className="text-white/50 text-xs">
+              還不確定適不適合？先看免費講座或回放，再決定要不要加入。
+            </p>
+
+            {/* 錨點文字 */}
+            <button
+              onClick={() => {
+                document.getElementById("learning-map")?.scrollIntoView({ behavior: "smooth" })
+              }}
+              className="text-white/50 hover:text-white/80 text-sm transition-colors duration-200 flex items-center gap-1"
+            >
+              往下看 5 個月怎麼走
+              <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Right: Image + Social Proof - flex to fill height */}
+          <div className="flex flex-col">
+            <div className="relative flex-1">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl h-full">
+                <Image
+                  src="/images/hero-background.png"
+                  alt="遠距工作場景 - 共同工作空間"
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="50vw"
+                />
+              </div>
+              <div className="absolute -top-3 -right-3 w-full h-full border-2 border-[#D4AF37]/50 rounded-2xl pointer-events-none" />
+              <div className="absolute -top-6 -right-6 w-full h-full border border-[#D4AF37]/25 rounded-2xl pointer-events-none" />
+            </div>
+            {/* Social Proof - below image */}
+            <p className="text-sm text-white/70 text-center pt-4">
+              <span className="text-brand-gold font-semibold">2025 第一屆</span>
+              {' · '}已累積 <span className="text-white font-medium">300+</span> 學員
+              {' · '}<span className="text-white font-medium">1,500+</span> 線下社群參與
+            </p>
+          </div>
+        </div>
+
+        {/* Mobile: Original stacked layout */}
+        <div className="lg:hidden space-y-6 text-center">
+          <h1 className="text-3xl sm:text-4xl font-bold text-white leading-tight tracking-wide">
+            今年五月，
+            <br />
+            一起把「也許有一天」
+            <br />
+            變成「<span className="text-brand-gold">我也正在路上</span>」
+          </h1>
+
+          <p className="text-sm sm:text-base text-brand-gold font-medium tracking-wide leading-relaxed">
+            {'給想開始遠端上班、接案，或還在兩者之間猶豫的人。'}
+            <br />
+            {'這是一套 5 個月、可單線也可雙軌的行動系統，幫你在不停薪、不打亂原本生活的前提下，真的開始踏出下一步。'}
+          </p>
+
+          <div className="space-y-3 text-left max-w-xl mx-auto">
+            <div className="flex items-start gap-3">
+              <Layers className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
+              <p className="text-white/90">雙軌起步：遠端上班 × 接案，不用一開始就選到死</p>
+            </div>
+            <div className="flex items-start gap-3">
+              <TrendingUp className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
+              <p className="text-white/90">不停薪開始：不必離職，也能先試出自己的下一步</p>
+            </div>
+            <div className="flex items-start gap-3">
+              <FileText className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
+              <p className="text-white/90">五個月有節奏：不是被啟發而已，是真的一步步做出來</p>
+            </div>
+            <div className="flex items-start gap-3">
+              <Users className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
+              <p className="text-white/90">成果看得見：履歷、作品集、個人頁面，不再只是想過</p>
+            </div>
+            <div className="flex items-start gap-3">
+              <Globe className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
+              <p className="text-white/90">從台灣接到世界：線下小聚、遊牧旅程、國際生態系入口</p>
             </div>
           </div>
 
-          <div className="relative hidden lg:block">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="col-span-2 rounded-2xl overflow-hidden shadow-lg">
-                <div className="aspect-[16/9] bg-brand-mist relative">
-                  <Image
-                    src="/images/hero-background.png"
-                    alt="遠距工作場景 - 共同工作空間"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                </div>
-              </div>
-              <div className="rounded-2xl overflow-hidden shadow-md">
-                <div className="aspect-square bg-brand-mist relative">
-                  <Image src="/images/2-1.jpeg" alt="遠距工作場景 - 旅途中工作" fill className="object-cover" />
-                </div>
-              </div>
-              <div className="rounded-2xl overflow-hidden shadow-md">
-                <div className="aspect-square bg-brand-mist relative">
-                  <Image src="/images/2-2.jpeg" alt="遠距工作場景 - 小聚互動" fill className="object-cover" />
-                </div>
-              </div>
-            </div>
-            <div className="absolute -bottom-4 -left-4 w-24 h-24 border-2 border-brand-gold/40 rounded-2xl -z-10" />
-            <div className="absolute -top-4 -right-4 w-16 h-16 border-2 border-brand-teal/20 rounded-full -z-10" />
+          {/* CTA Buttons */}
+          <div className="flex flex-col gap-4 items-center">
+            <a
+              href="https://www.accupass.com/organizer/detail/2509180637491342778166"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-brand-gold text-brand-teal font-semibold text-sm sm:text-base px-6 py-3 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-md hover:shadow-lg"
+            >
+              <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+              </svg>
+              查看免費講座場次
+            </a>
+            <a
+              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border border-white/30 text-white/80 hover:text-brand-gold hover:border-brand-gold/50 font-medium text-sm sm:text-base px-5 py-2.5 rounded-full transition-colors duration-200"
+            >
+              <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+              </svg>
+              先看學院說明會回放
+            </a>
+            <p className="text-white/50 text-xs text-center">
+              還不確定適不適合？先看免費講座或回放，再決定要不要加入。
+            </p>
+          </div>
+
+          {/* 錨點文字 */}
+          <div className="pt-4">
+            <button
+              onClick={() => {
+                document.getElementById("learning-map")?.scrollIntoView({ behavior: "smooth" })
+              }}
+              className="text-white/50 hover:text-white/80 text-sm transition-colors duration-200 flex items-center gap-1 mx-auto"
+            >
+              往下看 5 個月怎麼走
+              <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
