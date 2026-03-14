@@ -1100,65 +1100,49 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
         onNext={nextPhoto}
       />
 
-      {/* EMAIL SUBSCRIPTION POPUP */}
+      {/* EMAIL SUBSCRIPTION POPUP - GHL Form */}
       {emailPopupOpen && (
         <div
-          className="fixed inset-0 bg-black/60 flex items-center justify-center p-4 z-50"
-          onClick={() => setEmailPopupOpen(false)}
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label="訂閱電子報"
         >
+          {/* Backdrop */}
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => setEmailPopupOpen(false)} />
+          {/* Modal */}
           <div
-            className="bg-white rounded-2xl max-w-md w-full p-6 relative shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
+            className="relative z-10 w-full max-w-[calc(100vw-16px)] sm:max-w-lg bg-brand-teal rounded-2xl shadow-2xl"
+            style={{ overflow: "hidden" }}
           >
+            {/* Close button */}
             <button
               onClick={() => setEmailPopupOpen(false)}
-              className="absolute top-4 right-4 w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:text-gray-700 hover:bg-gray-200 transition-colors"
+              className="absolute top-3 right-3 z-20 w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 transition-colors text-white"
+              aria-label="關閉"
             >
               <X className="w-4 h-4" />
             </button>
-            
-            <div className="text-center mb-6">
-              <div className="w-16 h-16 bg-brand-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-brand-teal mb-2">訂閱最新消息</h3>
-              <p className="text-sm text-gray-600">
-                輸入您的 Email，我們會在有新的講座、優惠或課程更新時通知您。
-              </p>
+            {/* GHL form embed container */}
+            <div className="h-[430px] overflow-hidden rounded-[20px]">
+              <iframe
+                src="https://link.digitalnomadstaiwan.com/widget/form/MpJ0wDqzBLszazx5vVRy"
+                style={{ width: "100%", height: "100%", border: "none", borderRadius: "20px" }}
+                id="inline-MpJ0wDqzBLszazx5vVRy-announcement"
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="遠距遊牧學院 - 表單"
+                data-height="430"
+                data-layout-iframe-id="inline-MpJ0wDqzBLszazx5vVRy-announcement"
+                data-form-id="MpJ0wDqzBLszazx5vVRy"
+                title="遠距遊牧學院 - 表單"
+              ></iframe>
             </div>
-            
-            <form 
-              onSubmit={(e) => {
-                e.preventDefault()
-                const formData = new FormData(e.currentTarget)
-                const email = formData.get('email')
-                if (email) {
-                  window.open(`https://travelwithwork.ck.page/ea40b56e58?email=${encodeURIComponent(email as string)}`, '_blank')
-                  setEmailPopupOpen(false)
-                }
-              }}
-              className="space-y-4"
-            >
-              <input
-                type="email"
-                name="email"
-                placeholder="your@email.com"
-                required
-                className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold/50 focus:border-brand-gold transition-all"
-              />
-              <button
-                type="submit"
-                className="w-full bg-brand-gold text-brand-teal font-semibold py-3 rounded-xl hover:bg-brand-gold/90 transition-colors"
-              >
-                訂閱
-              </button>
-            </form>
-            
-            <p className="text-xs text-gray-400 text-center mt-4">
-              我們尊重您的隱私，不會發送垃圾郵件。
-            </p>
           </div>
         </div>
       )}
