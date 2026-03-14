@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react"
 import Image from "next/image"
+import dynamic from "next/dynamic"
 import {
   ChevronDown,
   ChevronUp,
@@ -17,16 +18,31 @@ import {
 import { usePricing } from "@/contexts/pricing-context"
 import { AnnouncementBar } from "@/components/announcement-bar"
 import { StickyBottomBar } from "@/components/sticky-bottom-bar"
-import { FloatingSocialButtons } from "@/components/floating-social-buttons" // Import FloatingSocialButtons
-import { PricingSection } from "@/components/sections/pricing-section" // Import PricingSection
-import FAQSection from "@/components/sections/faq-section" // Import FAQSection
-import { SuccessStoriesSection } from "@/components/sections/success-stories-section"
-import { FreeLectureSection } from "@/components/sections/free-lecture-section"
-import { EcosystemSection } from "@/components/sections/ecosystem-section"
-import { KeyFeaturesSection } from "@/components/sections/key-features-section"
+import { FloatingSocialButtons } from "@/components/floating-social-buttons"
+import { PricingSection } from "@/components/sections/pricing-section"
+
+// Above-fold sections (loaded immediately)
+import { HeroSection } from "@/components/sections/hero-section"
 import { CourseHighlightsSection } from "@/components/sections/course-highlights-section"
 import { PainPointsSection } from "@/components/sections/pain-points-section"
-import { HeroSection } from "@/components/sections/hero-section"
+import { KeyFeaturesSection } from "@/components/sections/key-features-section"
+
+// Below-fold sections (loaded lazily for better initial performance)
+const FAQSection = dynamic(() => import("@/components/sections/faq-section"), {
+  ssr: true,
+})
+const SuccessStoriesSection = dynamic(
+  () => import("@/components/sections/success-stories-section").then((mod) => mod.SuccessStoriesSection),
+  { ssr: true }
+)
+const FreeLectureSection = dynamic(
+  () => import("@/components/sections/free-lecture-section").then((mod) => mod.FreeLectureSection),
+  { ssr: true }
+)
+const EcosystemSection = dynamic(
+  () => import("@/components/sections/ecosystem-section").then((mod) => mod.EcosystemSection),
+  { ssr: true }
+)
 
 import {
   Dialog,
@@ -87,9 +103,6 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
   const [isGalleryOpen, setIsGalleryOpen] = useState(false)
   const [currentStage, setCurrentStage] = useState(0)
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
-  const [showFullSchedule, setShowFullSchedule] = useState(false)
-  const [showAllStages, setShowAllStages] = useState(false) // New state for showing all stages in pricing timeline
-  const [timelineExpanded, setTimelineExpanded] = useState(false) // State for timeline expansion
 
 
 
@@ -194,33 +207,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
 
 
-  const [lightboxOpen, setLightboxOpen] = useState(false)
-  const [lightboxImages, setLightboxImages] = useState<Array<{ src: string; alt: string }>>([])
-  const [lightboxIndex, setLightboxIndex] = useState(0)
 
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && lightboxOpen) {
-        setLightboxOpen(false)
-      }
-      if (lightboxOpen) {
-        if (e.key === "ArrowLeft") {
-          setLightboxIndex((prev) => (prev > 0 ? prev - 1 : lightboxImages.length - 1))
-        }
-        if (e.key === "ArrowRight") {
-          setLightboxIndex((prev) => (prev < lightboxImages.length - 1 ? prev + 1 : 0))
-        }
-      }
-    }
-    window.addEventListener("keydown", handleKeyDown)
-    return () => window.removeEventListener("keydown", handleKeyDown)
-  }, [lightboxOpen, lightboxImages.length])
-
-  const openLightbox = (images: Array<{ src: string; alt: string }>, startIndex: number) => {
-    setLightboxImages(images)
-    setLightboxIndex(startIndex)
-    setLightboxOpen(true)
-  }
 
   return (
     <main className="min-h-screen bg-white pb-24 md:pb-0">
