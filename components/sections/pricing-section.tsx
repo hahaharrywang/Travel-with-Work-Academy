@@ -92,7 +92,10 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
             {'如何加入'}
           </h2>
           <p className="text-lg sm:text-xl text-brand-text max-w-3xl mx-auto leading-relaxed">
-            {'選一條自己行動起來最重要。差別在於快速打開兩種可能，還是想先專心走一條主線。'}
+            {'先選一個最適合你現在狀態的起跑方式。'}
+          </p>
+          <p className="text-base text-brand-text/70 max-w-3xl mx-auto leading-relaxed mt-2">
+            {'不一定要一次走到最完整，但你可以先決定：要專心走一條主線，還是用五個月更快打開兩種可能。'}
           </p>
         </div>
 
@@ -193,7 +196,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
             </div>
             <div className="mb-6">
               <h4 className="text-xl font-bold text-brand-teal mb-2">雙線並進</h4>
-              <p className="text-sm text-brand-text/70">想要兩條路都打通、最大化機會的你</p>
+              <p className="text-sm text-brand-text/70">同時探索兩條路線，適合最怕選錯、也想在五個月內更快看見答案的人</p>
             </div>
             <ul className="space-y-3 mb-6 flex-1 text-sm text-brand-text">
               <li className="flex items-start gap-2">
