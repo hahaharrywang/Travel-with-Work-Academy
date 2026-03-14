@@ -392,32 +392,27 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
               {/* Social proof */}
               <div className="pt-4 text-center lg:text-left">
-                <p className="text-sm text-white/60">
-                  2025第一屆 已累積 <span className="text-brand-gold font-semibold">300+</span> 學員與{" "}
-                  <span className="text-brand-gold font-semibold">1,500+</span> 線下社群參與，
-                  <br className="hidden sm:block" />
-                  在台灣與世界各地，把「想像」變成實際行動。
-                </p>
               </div>
             </div>
 
-            <div className="relative hidden lg:block">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl max-w-md ml-auto">
-                <div className="aspect-[4/3] bg-brand-mist relative">
+            {/* Right side image - fills the height of left content */}
+            <div className="relative hidden lg:flex items-stretch">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl w-full">
+                <div className="h-full min-h-[400px] bg-brand-mist relative">
                   <Image
                     src="/images/hero-background.png"
                     alt="遠距工作場景 - 共同工作空間"
                     fill
                     className="object-cover"
                     priority
-                    sizes="40vw"
+                    sizes="50vw"
                   />
                 </div>
               </div>
-              <div className="absolute -top-4 -right-4 w-full h-full border-2 border-[#D4AF37]/50 rounded-2xl pointer-events-none max-w-md ml-auto" />
-              <div className="absolute -top-8 -right-8 w-full h-full border border-[#D4AF37]/25 rounded-2xl pointer-events-none max-w-md ml-auto" />
-              <div className="absolute bottom-0 left-8 w-20 h-20 border-2 border-[#D4AF37]/40 rounded-full pointer-events-none" />
-              <div className="absolute -bottom-4 left-4 w-28 h-28 border border-[#D4AF37]/20 rounded-full pointer-events-none" />
+              <div className="absolute -top-4 -right-4 w-full h-full border-2 border-[#D4AF37]/50 rounded-2xl pointer-events-none" />
+              <div className="absolute -top-8 -right-8 w-full h-full border border-[#D4AF37]/25 rounded-2xl pointer-events-none" />
+              <div className="absolute bottom-4 -left-4 w-20 h-20 border-2 border-[#D4AF37]/40 rounded-full pointer-events-none" />
+              <div className="absolute bottom-0 -left-8 w-28 h-28 border border-[#D4AF37]/20 rounded-full pointer-events-none" />
             </div>
           </div>
         </div>
