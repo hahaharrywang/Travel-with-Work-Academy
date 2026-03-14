@@ -276,56 +276,25 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           </div>
         </div>
 
-        {/* Social Proof Marquee - Full width, directly below announcement bar */}
-        <div className="absolute top-[100px] sm:top-[120px] lg:top-[44px] left-0 right-0 z-30">
-          <div className="overflow-hidden bg-white/10 backdrop-blur-sm py-2 lg:py-1.5">
-            <div className="animate-marquee whitespace-nowrap flex items-center gap-10">
-              <span className="text-sm font-medium text-white flex items-center gap-2">
-                <span className="text-brand-gold font-bold">2025 第一屆</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-gold/70" />
-                已累積 300+ 學員
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-gold/70" />
-                1,500+ 線下社群參與
-              </span>
-              <span className="text-sm font-medium text-white flex items-center gap-2">
-                <span className="text-brand-gold font-bold">2025 第一屆</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-gold/70" />
-                已累積 300+ 學員
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-gold/70" />
-                1,500+ 線下社群參與
-              </span>
-              <span className="text-sm font-medium text-white flex items-center gap-2">
-                <span className="text-brand-gold font-bold">2025 第一屆</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-gold/70" />
-                已累積 300+ 學員
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-gold/70" />
-                1,500+ 線下社群參與
-              </span>
-            </div>
-          </div>
-        </div>
+        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 sm:pt-40 lg:pt-28 pb-16 lg:pb-12">
+          {/* Desktop: Left content + Right image */}
+          <div className="hidden lg:grid lg:grid-cols-2 gap-10 items-start">
+            {/* Left: All text content */}
+            <div className="space-y-6">
+              <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-white leading-tight tracking-wide">
+                今年五月，
+                <br />
+                一起把「也許有一天」
+                <br />
+                變成「<span className="text-brand-gold">我也正在路上</span>」
+              </h1>
 
-        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 sm:pt-40 lg:pt-24 pb-16 lg:pb-12">
-          {/* Desktop: Title + Description side by side */}
-          <div className="hidden lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-start mb-8">
-            <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-white leading-tight tracking-wide">
-              今年五月，
-              <br />
-              一起把「也許有一天」
-              <br />
-              變成「<span className="text-brand-gold">我也正在路上</span>」
-            </h1>
-            <p className="text-sm sm:text-base text-brand-gold font-medium tracking-wide leading-relaxed pt-2">
-              {'給想開始遠端上班、接案，或還在兩者之間猶豫的人。'}
-              <br /><br />
-              {'這是一套 5 個月、可單線也可雙軌的行動系統，幫你在不停薪、不打亂原本生活的前提下，真的開始踏出下一步。'}
-            </p>
-          </div>
+              <p className="text-sm sm:text-base text-brand-gold font-medium tracking-wide leading-relaxed">
+                {'給想開始遠端上班、接案，或還在兩者之間猶豫的人。'}
+                <br />
+                {'這是一套 5 個月、可單線也可雙軌的行動系統，幫你在不停薪、不打亂原本生活的前提下，真的開始踏出下一步。'}
+              </p>
 
-          {/* Desktop: Bullet points + Image side by side */}
-          <div className="hidden lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-            {/* Left: Bullet points + CTAs */}
-            <div className="space-y-5">
               <div className="space-y-2.5 text-left">
                 <div className="flex items-start gap-3">
                   <Layers className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
@@ -349,8 +318,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 </div>
               </div>
 
-              {/* CTA Button */}
-              <div className="flex flex-col gap-4 items-center lg:items-start">
+              {/* CTA Buttons */}
+              <div className="flex flex-col gap-4 items-start pt-2">
                 <a
                   href="https://www.accupass.com/organizer/detail/2509180637491342778166"
                   target="_blank"
@@ -373,43 +342,49 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   </svg>
                   先看學院說明會回放
                 </a>
-                <p className="text-white/50 text-xs text-center lg:text-left">
+                <p className="text-white/50 text-xs">
                   還不確定適不適合？先看免費講座或回放，再決定要不要加入。
                 </p>
               </div>
 
-              {/* 錨點文字 — 往下看學習地圖 */}
-              <div className="pt-2">
-                <button
-                  onClick={() => {
-                    document.getElementById("learning-map")?.scrollIntoView({ behavior: "smooth" })
-                  }}
-                  className="text-white/50 hover:text-white/80 text-sm transition-colors duration-200 flex items-center gap-1"
-                >
-                  往下看 5 個月怎麼走
-                  <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-              </div>
+              {/* 錨點文字 */}
+              <button
+                onClick={() => {
+                  document.getElementById("learning-map")?.scrollIntoView({ behavior: "smooth" })
+                }}
+                className="text-white/50 hover:text-white/80 text-sm transition-colors duration-200 flex items-center gap-1"
+              >
+                往下看 5 個月怎麼走
+                <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
             </div>
 
-            {/* Right side image */}
-            <div className="relative flex items-stretch">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl w-full">
-                <div className="h-full min-h-[320px] bg-brand-mist relative">
-                  <Image
-                    src="/images/hero-background.png"
-                    alt="遠距工作場景 - 共同工作空間"
-                    fill
-                    className="object-cover"
-                    priority
-                    sizes="50vw"
-                  />
+            {/* Right: Image + Social Proof */}
+            <div className="space-y-4">
+              <div className="relative">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                  <div className="aspect-[4/3] bg-brand-mist relative">
+                    <Image
+                      src="/images/hero-background.png"
+                      alt="遠距工作場景 - 共同工作空間"
+                      fill
+                      className="object-cover"
+                      priority
+                      sizes="50vw"
+                    />
+                  </div>
                 </div>
+                <div className="absolute -top-3 -right-3 w-full h-full border-2 border-[#D4AF37]/50 rounded-2xl pointer-events-none" />
+                <div className="absolute -top-6 -right-6 w-full h-full border border-[#D4AF37]/25 rounded-2xl pointer-events-none" />
               </div>
-              <div className="absolute -top-3 -right-3 w-full h-full border-2 border-[#D4AF37]/50 rounded-2xl pointer-events-none" />
-              <div className="absolute -top-6 -right-6 w-full h-full border border-[#D4AF37]/25 rounded-2xl pointer-events-none" />
+              {/* Social Proof - below image */}
+              <p className="text-sm text-white/70 text-center">
+                <span className="text-brand-gold font-semibold">2025 第一屆</span>
+                {' · '}已累積 <span className="text-white font-medium">300+</span> 學員
+                {' · '}<span className="text-white font-medium">1,500+</span> 線下社群參與
+              </p>
             </div>
           </div>
 
