@@ -1328,6 +1328,16 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
       {/* CHANGE: Pass isAnyModalOpen to hide bottom bar when modals are open */}
       <StickyBottomBar scrollToPricing={scrollToPricing} isHidden={isAnyModalOpen} isInFreeSection={isInFreeSection} />
       <FloatingSocialButtons />
+
+      {/* Hidden preload iframe for GHL form - loads in background for instant popup */}
+      <iframe
+        src="https://link.digitalnomadstaiwan.com/widget/form/MpJ0wDqzBLszazx5vVRy"
+        className="sr-only"
+        style={{ position: "absolute", width: 0, height: 0, border: "none", overflow: "hidden" }}
+        tabIndex={-1}
+        aria-hidden="true"
+        title="Preload form"
+      />
     </main>
   )
 }

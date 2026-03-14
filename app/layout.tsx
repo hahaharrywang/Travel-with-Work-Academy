@@ -76,7 +76,10 @@ export default function RootLayout({
   return (
     <html lang="zh-TW" className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}>
       <head>
-
+        {/* Preconnect to GHL form domain for faster loading */}
+        <link rel="preconnect" href="https://link.digitalnomadstaiwan.com" />
+        <link rel="dns-prefetch" href="https://link.digitalnomadstaiwan.com" />
+        
         {gtmId && (
           <Script
             id="gtm-head"
