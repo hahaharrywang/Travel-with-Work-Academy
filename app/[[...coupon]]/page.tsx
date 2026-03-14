@@ -1100,6 +1100,69 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
         onNext={nextPhoto}
       />
 
+      {/* EMAIL SUBSCRIPTION POPUP */}
+      {emailPopupOpen && (
+        <div
+          className="fixed inset-0 bg-black/60 flex items-center justify-center p-4 z-50"
+          onClick={() => setEmailPopupOpen(false)}
+        >
+          <div
+            className="bg-white rounded-2xl max-w-md w-full p-6 relative shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setEmailPopupOpen(false)}
+              className="absolute top-4 right-4 w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:text-gray-700 hover:bg-gray-200 transition-colors"
+            >
+              <X className="w-4 h-4" />
+            </button>
+            
+            <div className="text-center mb-6">
+              <div className="w-16 h-16 bg-brand-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-brand-teal mb-2">訂閱最新消息</h3>
+              <p className="text-sm text-gray-600">
+                輸入您的 Email，我們會在有新的講座、優惠或課程更新時通知您。
+              </p>
+            </div>
+            
+            <form 
+              onSubmit={(e) => {
+                e.preventDefault()
+                const formData = new FormData(e.currentTarget)
+                const email = formData.get('email')
+                if (email) {
+                  window.open(`https://travelwithwork.ck.page/ea40b56e58?email=${encodeURIComponent(email as string)}`, '_blank')
+                  setEmailPopupOpen(false)
+                }
+              }}
+              className="space-y-4"
+            >
+              <input
+                type="email"
+                name="email"
+                placeholder="your@email.com"
+                required
+                className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-gold/50 focus:border-brand-gold transition-all"
+              />
+              <button
+                type="submit"
+                className="w-full bg-brand-gold text-brand-teal font-semibold py-3 rounded-xl hover:bg-brand-gold/90 transition-colors"
+              >
+                訂閱
+              </button>
+            </form>
+            
+            <p className="text-xs text-gray-400 text-center mt-4">
+              我們尊重您的隱私，不會發送垃圾郵件。
+            </p>
+          </div>
+        </div>
+      )}
+
       {/* HIGHLIGHT POPUP MODAL */}
       {highlightPopup.isOpen && (
         <div
