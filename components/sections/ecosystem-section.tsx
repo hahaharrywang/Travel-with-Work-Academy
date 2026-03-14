@@ -232,12 +232,13 @@ export function EcosystemSection({ onOpenLightbox }: EcosystemSectionProps) {
 
         {/* Section bottom CTA */}
         <div className="mt-10 text-center border-t border-brand-mist/40 pt-8">
-          <p className="text-brand-text/70 text-sm mb-3">想先更了解這套系統適不適合你？</p>
+          <p className="text-brand-teal font-semibold text-base sm:text-lg mb-2">還不確定適不適合？</p>
+          <p className="text-brand-text/70 text-sm mb-4">先看免費講座／回放，再決定要不要加入。</p>
           <a
-            href="#pricing"
+            href="#free-resources"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-brand-teal/30 bg-brand-teal/5 text-brand-teal text-sm font-medium hover:bg-brand-teal/10 transition-colors"
           >
-            每週日直播說明會，直接了解生態系資源
+            查看免費講座資訊
           </a>
         </div>
       </div>
