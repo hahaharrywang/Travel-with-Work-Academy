@@ -253,30 +253,17 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
         {/* Header with Logo only */}
         <div className="absolute top-0 left-0 z-30 py-0 px-4 sm:px-6 lg:px-8">
-          <div className="relative">
-            <Image
-              src="/images/academy-logo.png"
-              alt="遠距遊牧學院 Travel with Work Academy"
-              width={200}
-              height={105}
-              className="h-auto w-[180px] sm:w-[240px] lg:w-[280px] brightness-0 invert"
-              priority
-            />
-            {/* Airplane trajectory dotted line - mobile only */}
-            <svg
-              className="absolute -bottom-20 left-4 w-16 h-24 text-white/40 lg:hidden"
-              viewBox="0 0 60 100"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeDasharray="4 4"
-            >
-              <path d="M30 0 Q 10 30, 20 50 Q 30 70, 15 100" />
-            </svg>
-          </div>
+          <Image
+            src="/images/academy-logo.png"
+            alt="遠距遊牧學院 Travel with Work Academy"
+            width={200}
+            height={105}
+            className="h-auto w-[180px] sm:w-[240px] lg:w-[280px] brightness-0 invert"
+            priority
+          />
         </div>
 
-        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 sm:pt-40 lg:pt-28 pb-16 lg:pb-12">
+        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 lg:pt-28 pb-12 lg:pb-12">
           {/* Desktop: Left content + Right image - heights match */}
           <div className="hidden lg:grid lg:grid-cols-2 gap-10 items-stretch">
             {/* Left: All text content */}
