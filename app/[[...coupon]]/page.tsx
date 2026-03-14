@@ -104,6 +104,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
   const [isGalleryOpen, setIsGalleryOpen] = useState(false)
   const [currentStage, setCurrentStage] = useState(0)
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
+  const [emailPopupOpen, setEmailPopupOpen] = useState(false)
 
 
 
