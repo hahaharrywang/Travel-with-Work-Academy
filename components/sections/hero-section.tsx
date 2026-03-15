@@ -1,13 +1,6 @@
 "use client"
 
 import Image from "next/image"
-import {
-  TrendingUp,
-  FileText,
-  Users,
-  Globe,
-  Layers,
-} from "lucide-react"
 
 export function HeroSection() {
   return (
@@ -56,49 +49,39 @@ export function HeroSection() {
             </h1>
 
             <p className="text-sm sm:text-base text-brand-gold font-medium tracking-wide leading-relaxed">
-              {'給想開始遠端上班、接案，或還在兩者之間猶豫的人。'}
-              <br />
-              {'這是一套 5 個月、可單線也可雙軌的行動系統，幫你在不停薪、不打亂原本生活的前提下，真的開始踏出下一步。'}
+              {'用 5 個月有節奏的行動系統，讓你不停薪、不斷收入踏出遠距職涯的下一步。'}
             </p>
 
-            <div className="space-y-2 text-left">
-              <div className="flex items-start gap-3">
-                <Layers className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-                <p className="text-white/90">雙軌起步：遠端上班 × 接案，不用一開始就選到死</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <TrendingUp className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-                <p className="text-white/90">不停薪開始：不必離職，也能先試出自己的下一步</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <FileText className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-                <p className="text-white/90">五個月有節奏：不是被啟發而已，是真的一步步做出來</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <Users className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-                <p className="text-white/90">成果看得見：履歷、作品集、個人頁面，不再只是想過</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <Globe className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-                <p className="text-white/90">從台灣接到世界：線下小聚、遊牧旅程、國際生態系入口</p>
-              </div>
+            {/* 膠囊標籤 */}
+            <div className="flex flex-wrap gap-2">
+              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
+                遠端上班 × 自由接案
+              </span>
+              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
+                不停薪開始
+              </span>
+              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
+                5 個月有節奏
+              </span>
+              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
+                不是一個人
+              </span>
             </div>
 
             {/* CTA Buttons - side by side */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
-                href="https://www.accupass.com/organizer/detail/2509180637491342778166"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#learning-map"
+                onClick={(e) => {
+                  e.preventDefault()
+                  document.getElementById("learning-map")?.scrollIntoView({ behavior: "smooth" })
+                }}
                 className="inline-flex items-center gap-2 bg-brand-gold text-brand-teal font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-md hover:shadow-lg"
               >
-                <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-                </svg>
-                查看免費講座場次
+                查看課程介紹
               </a>
               <a
-                href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                href="https://www.skool.com/twwgroup-3033/classroom/a5319d94?md=bca9b69c2a5b40869e2fe6254aa9fa13"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 border border-white/30 text-white/80 hover:text-brand-gold hover:border-brand-gold/50 font-medium text-sm px-5 py-2.5 rounded-full transition-colors duration-200"
@@ -106,12 +89,13 @@ export function HeroSection() {
                 <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
                 </svg>
-                先看學院說明會回放
+                先看免費說明會
               </a>
             </div>
 
-            <p className="text-white/50 text-xs">
-              還不確定適不適合？先看免費講座或回放，再決定要不要加入。
+            {/* Micro Proof */}
+            <p className="text-white/60 text-sm">
+              至今已累積 <span className="text-white font-medium">300+</span> 學員、<span className="text-white font-medium">1,500+</span> 線下社群參與人次
             </p>
 
             {/* 錨點文字 */}
@@ -144,12 +128,6 @@ export function HeroSection() {
               <div className="absolute -top-3 -right-3 w-full h-full border-2 border-[#D4AF37]/50 rounded-2xl pointer-events-none" />
               <div className="absolute -top-6 -right-6 w-full h-full border border-[#D4AF37]/25 rounded-2xl pointer-events-none" />
             </div>
-            {/* Social Proof - below image */}
-            <p className="text-sm text-white/70 text-center pt-4">
-              <span className="text-brand-gold font-semibold">2025 第一屆</span>
-              {' · '}已累積 <span className="text-white font-medium">300+</span> 學員
-              {' · '}<span className="text-white font-medium">1,500+</span> 線下社群參與
-            </p>
           </div>
         </div>
 
@@ -164,49 +142,39 @@ export function HeroSection() {
           </h1>
 
           <p className="text-sm sm:text-base text-brand-gold font-medium tracking-wide leading-relaxed">
-            {'給想開始遠端上班、接案，或還在兩者之間猶豫的人。'}
-            <br />
-            {'這是一套 5 個月、可單線也可雙軌的行動系統，幫你在不停薪、不打亂原本生活的前提下，真的開始踏出下一步。'}
+            {'用 5 個月有節奏的行動系統，讓你不停薪、不斷收入踏出遠距職涯的下一步。'}
           </p>
 
-          <div className="space-y-3 text-left max-w-xl mx-auto">
-            <div className="flex items-start gap-3">
-              <Layers className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-              <p className="text-white/90">雙軌起步：遠端上班 × 接案，不用一開始就選到死</p>
-            </div>
-            <div className="flex items-start gap-3">
-              <TrendingUp className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-              <p className="text-white/90">不停薪開始：不必離職，也能先試出自己的下一步</p>
-            </div>
-            <div className="flex items-start gap-3">
-              <FileText className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-              <p className="text-white/90">五個月有節奏：不是被啟發而已，是真的一步步做出來</p>
-            </div>
-            <div className="flex items-start gap-3">
-              <Users className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-              <p className="text-white/90">成果看得見：履歷、作品集、個人頁面，不再只是想過</p>
-            </div>
-            <div className="flex items-start gap-3">
-              <Globe className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-              <p className="text-white/90">從台灣接到世界：線下小聚、遊牧旅程、國際生態系入口</p>
-            </div>
+          {/* 膠囊標籤 */}
+          <div className="flex flex-wrap justify-center gap-2">
+            <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
+              遠端上班 × 自由接案
+            </span>
+            <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
+              不停薪開始
+            </span>
+            <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
+              5 個月有節奏
+            </span>
+            <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
+              不是一個人
+            </span>
           </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-col gap-4 items-center">
             <a
-              href="https://www.accupass.com/organizer/detail/2509180637491342778166"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#learning-map"
+              onClick={(e) => {
+                e.preventDefault()
+                document.getElementById("learning-map")?.scrollIntoView({ behavior: "smooth" })
+              }}
               className="inline-flex items-center gap-2 bg-brand-gold text-brand-teal font-semibold text-sm sm:text-base px-6 py-3 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-md hover:shadow-lg"
             >
-              <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-              </svg>
-              查看免費講座場次
+              查看課程介紹
             </a>
             <a
-              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              href="https://www.skool.com/twwgroup-3033/classroom/a5319d94?md=bca9b69c2a5b40869e2fe6254aa9fa13"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 border border-white/30 text-white/80 hover:text-brand-gold hover:border-brand-gold/50 font-medium text-sm sm:text-base px-5 py-2.5 rounded-full transition-colors duration-200"
@@ -214,10 +182,11 @@ export function HeroSection() {
               <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
               </svg>
-              先看學院說明會回放
+              先看免費說明會
             </a>
-            <p className="text-white/50 text-xs text-center">
-              還不確定適不適合？先看免費講座或回放，再決定要不要加入。
+            {/* Micro Proof */}
+            <p className="text-white/60 text-sm">
+              至今已累積 <span className="text-white font-medium">300+</span> 學員、<span className="text-white font-medium">1,500+</span> 線下社群參與人次
             </p>
           </div>
 
