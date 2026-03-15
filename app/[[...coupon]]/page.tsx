@@ -264,11 +264,11 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               </div>
               
               {/* Desktop: 四張卡片 grid */}
-              <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-5">
+              <div className="hidden md:grid grid-cols-2 xl:grid-cols-4 gap-5 max-w-7xl mx-auto">
                 {remoteJobPhaseContent.map((content, index) => {
                   const phase = fourPhases[index]
                   return (
-                    <div key={index} className={`bg-white rounded-xl p-6 shadow-sm border-2 ${phase.color.border}`}>
+                    <div key={index} className={`bg-white rounded-xl p-6 lg:p-7 shadow-sm border-2 ${phase.color.border}`}>
                       <div className="flex items-center gap-2 mb-4">
                         <span className={`w-8 h-8 rounded-full ${phase.color.solid} text-white text-base font-bold flex items-center justify-center flex-shrink-0`}>
                           {index + 1}
@@ -365,11 +365,11 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               </div>
               
               {/* Desktop: 四張卡片 grid */}
-              <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-5">
+              <div className="hidden md:grid grid-cols-2 xl:grid-cols-4 gap-5 max-w-7xl mx-auto">
                 {freelancePhaseContent.map((content, index) => {
                   const phase = fourPhases[index]
                   return (
-                    <div key={index} className={`bg-white rounded-xl p-6 shadow-sm border-2 ${phase.color.border}`}>
+                    <div key={index} className={`bg-white rounded-xl p-6 lg:p-7 shadow-sm border-2 ${phase.color.border}`}>
                       <div className="flex items-center gap-2 mb-4">
                         <span className={`w-8 h-8 rounded-full ${phase.color.solid} text-white text-base font-bold flex items-center justify-center flex-shrink-0`}>
                           {index + 1}
