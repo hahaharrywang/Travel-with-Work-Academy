@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import { Layers, FileCheck, Globe } from "lucide-react"
 
 export function HeroSection() {
   return (
@@ -52,6 +53,11 @@ export function HeroSection() {
               {'用 5 個月有節奏的行動系統，讓你不停薪、不斷收入踏出遠距職涯的下一步。'}
             </p>
 
+            {/* 適合誰 */}
+            <p className="text-white/70 text-sm leading-relaxed">
+              適合正在考慮遠端工作、想接案但不知從何開始、或已經在職但想為自己多創造一條路的人。
+            </p>
+
             {/* 膠囊標籤 */}
             <div className="flex flex-wrap gap-2">
               <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
@@ -66,6 +72,22 @@ export function HeroSection() {
               <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
                 不是一個人
               </span>
+            </div>
+
+            {/* 3 個精簡賣點 */}
+            <div className="space-y-2">
+              <div className="flex items-start gap-3">
+                <Layers className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
+                <p className="text-white/90 text-sm">遠端上班 × 接案雙軌並行，不用一開始就選到死</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <FileCheck className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
+                <p className="text-white/90 text-sm">履歷、作品集、個人頁面，不再只是想過</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <Globe className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
+                <p className="text-white/90 text-sm">線下小聚、遊牧旅程、國際生態系入口</p>
+              </div>
             </div>
 
             {/* CTA Buttons - side by side */}
@@ -145,6 +167,11 @@ export function HeroSection() {
             {'用 5 個月有節奏的行動系統，讓你不停薪、不斷收入踏出遠距職涯的下一步。'}
           </p>
 
+          {/* 適合誰 */}
+          <p className="text-white/70 text-sm leading-relaxed">
+            適合正在考慮遠端工作、想接案但不知從何開始、或已經在職但想為自己多創造一條路的人。
+          </p>
+
           {/* 膠囊標籤 */}
           <div className="flex flex-wrap justify-center gap-2">
             <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
@@ -161,15 +188,31 @@ export function HeroSection() {
             </span>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col gap-4 items-center">
+          {/* 3 個精簡賣點 */}
+          <div className="space-y-2 text-left max-w-sm mx-auto">
+            <div className="flex items-start gap-3">
+              <Layers className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
+              <p className="text-white/90 text-sm">遠端上班 × 接案雙軌並行，不用一開始就選到死</p>
+            </div>
+            <div className="flex items-start gap-3">
+              <FileCheck className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
+              <p className="text-white/90 text-sm">履歷、作品集、個人頁面，不再只是想過</p>
+            </div>
+            <div className="flex items-start gap-3">
+              <Globe className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
+              <p className="text-white/90 text-sm">線下小聚、遊牧旅程、國際生態系入口</p>
+            </div>
+          </div>
+
+          {/* CTA Buttons - 水平並排 */}
+          <div className="flex flex-row flex-wrap justify-center gap-3 items-center">
             <a
               href="#learning-map"
               onClick={(e) => {
                 e.preventDefault()
                 document.getElementById("learning-map")?.scrollIntoView({ behavior: "smooth" })
               }}
-              className="inline-flex items-center gap-2 bg-brand-gold text-brand-teal font-semibold text-sm sm:text-base px-6 py-3 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-md hover:shadow-lg"
+              className="inline-flex items-center gap-2 bg-brand-gold text-brand-teal font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-md hover:shadow-lg"
             >
               查看課程介紹
             </a>
@@ -177,18 +220,19 @@ export function HeroSection() {
               href="https://www.skool.com/twwgroup-3033/classroom/a5319d94?md=bca9b69c2a5b40869e2fe6254aa9fa13"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-white/30 text-white/80 hover:text-brand-gold hover:border-brand-gold/50 font-medium text-sm sm:text-base px-5 py-2.5 rounded-full transition-colors duration-200"
+              className="inline-flex items-center gap-2 border border-white/30 text-white/80 hover:text-brand-gold hover:border-brand-gold/50 font-medium text-sm px-4 py-2.5 rounded-full transition-colors duration-200"
             >
               <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
               </svg>
               先看免費說明會
             </a>
-            {/* Micro Proof */}
-            <p className="text-white/60 text-sm">
-              至今已累積 <span className="text-white font-medium">300+</span> 學員、<span className="text-white font-medium">1,500+</span> 線下社群參與人次
-            </p>
           </div>
+
+          {/* Micro Proof */}
+          <p className="text-white/60 text-sm text-center">
+            至今已累積 <span className="text-white font-medium">300+</span> 學員、<span className="text-white font-medium">1,500+</span> 線下社群參與人次
+          </p>
 
           {/* 錨點文字 */}
           <div className="pt-4">
