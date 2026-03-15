@@ -42,7 +42,7 @@ export function FreeLectureSection() {
               href="https://www.accupass.com/organizer/detail/2509180637491342778166"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-brand-gold text-brand-teal font-semibold text-sm sm:text-base px-6 lg:px-5 py-4 lg:py-3 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-sm w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 bg-brand-gold text-brand-teal font-semibold text-sm sm:text-base px-6 lg:px-5 py-4 lg:py-3 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-sm w-full sm:w-auto whitespace-nowrap"
             >
               {"查看免費講座場次資訊"}
             </a>
@@ -50,7 +50,7 @@ export function FreeLectureSection() {
               href="https://www.skool.com/twwgroup-3033/classroom/a5319d94?md=bca9b69c2a5b40869e2fe6254aa9fa13"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 border-2 border-brand-teal text-brand-teal font-semibold text-sm sm:text-base px-6 lg:px-5 py-4 lg:py-3 rounded-full hover:bg-brand-teal hover:text-white transition-colors duration-200 w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 border-2 border-brand-teal text-brand-teal font-semibold text-sm sm:text-base px-6 lg:px-5 py-4 lg:py-3 rounded-full hover:bg-brand-teal hover:text-white transition-colors duration-200 w-full sm:w-auto whitespace-nowrap"
             >
               <svg
                 className="w-4 h-4 flex-shrink-0"
@@ -69,7 +69,7 @@ export function FreeLectureSection() {
             </a>
             <button
               onClick={() => setEmailPopupOpen(true)}
-              className="inline-flex items-center justify-center gap-2 bg-brand-teal text-white font-semibold text-sm sm:text-base px-6 lg:px-5 py-4 lg:py-3 rounded-full hover:bg-[#1a5561] transition-colors duration-200 shadow-sm w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 bg-brand-teal text-white font-semibold text-sm sm:text-base px-6 lg:px-5 py-4 lg:py-3 rounded-full hover:bg-[#1a5561] transition-colors duration-200 shadow-sm w-full sm:w-auto whitespace-nowrap"
             >
               <Mail className="w-4 h-4 flex-shrink-0" />
               {"訂閱隨時收到最新活動提醒"}
