@@ -270,20 +270,20 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   return (
                     <div key={index} className={`bg-white rounded-xl p-5 shadow-sm border-2 ${phase.color.border}`}>
                       <div className="flex items-center gap-2 mb-3">
-                        <span className={`w-6 h-6 rounded-full ${phase.color.solid} text-white text-xs font-bold flex items-center justify-center flex-shrink-0`}>
+                        <span className={`w-7 h-7 rounded-full ${phase.color.solid} text-white text-sm font-bold flex items-center justify-center flex-shrink-0`}>
                           {index + 1}
                         </span>
-                        <span className="text-xs text-brand-text/50">{phase.months}</span>
-                        <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
+                        <span className="text-sm text-brand-text/50">{phase.months}</span>
+                        <span className={`text-sm font-semibold ${phase.color.text}`}>{phase.name}</span>
                       </div>
-                      <h4 className="font-bold text-brand-teal text-sm mb-2 leading-snug">{content.headline}</h4>
-                      <p className="text-xs text-brand-text/70 mb-3 leading-relaxed">{content.description}</p>
+                      <h4 className="font-bold text-brand-teal text-base mb-2 leading-snug">{content.headline}</h4>
+                      <p className="text-sm text-brand-text/70 mb-4 leading-relaxed">{content.description}</p>
                       
-                      <div className="mb-3">
-                        <p className="text-[10px] font-semibold text-brand-teal mb-1.5">你會得到：</p>
-                        <ul className="space-y-1">
+                      <div className="mb-4">
+                        <p className="text-xs font-semibold text-brand-teal mb-2">你會得到：</p>
+                        <ul className="space-y-1.5">
                           {content.outcomes.map((outcome, i) => (
-                            <li key={i} className="text-[10px] text-brand-text/80 flex items-start gap-1.5">
+                            <li key={i} className="text-xs text-brand-text/80 flex items-start gap-2">
                               <span className="text-brand-gold mt-0.5">•</span>
                               {outcome}
                             </li>
@@ -291,9 +291,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         </ul>
                       </div>
                       
-                      <div className="pt-2 border-t border-brand-mist/50">
-                        <p className="text-[10px] font-semibold text-brand-text/60 mb-1">對應重點：</p>
-                        <p className="text-[10px] text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
+                      <div className="pt-3 border-t border-brand-mist/50">
+                        <p className="text-xs font-semibold text-brand-text/60 mb-1.5">對應重點：</p>
+                        <p className="text-xs text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
                       </div>
                     </div>
                   )
@@ -371,20 +371,20 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   return (
                     <div key={index} className={`bg-white rounded-xl p-5 shadow-sm border-2 ${phase.color.border}`}>
                       <div className="flex items-center gap-2 mb-3">
-                        <span className={`w-6 h-6 rounded-full ${phase.color.solid} text-white text-xs font-bold flex items-center justify-center flex-shrink-0`}>
+                        <span className={`w-7 h-7 rounded-full ${phase.color.solid} text-white text-sm font-bold flex items-center justify-center flex-shrink-0`}>
                           {index + 1}
                         </span>
-                        <span className="text-xs text-brand-text/50">{phase.months}</span>
-                        <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
+                        <span className="text-sm text-brand-text/50">{phase.months}</span>
+                        <span className={`text-sm font-semibold ${phase.color.text}`}>{phase.name}</span>
                       </div>
-                      <h4 className="font-bold text-brand-teal text-sm mb-2 leading-snug">{content.headline}</h4>
-                      <p className="text-xs text-brand-text/70 mb-3 leading-relaxed">{content.description}</p>
+                      <h4 className="font-bold text-brand-teal text-base mb-2 leading-snug">{content.headline}</h4>
+                      <p className="text-sm text-brand-text/70 mb-4 leading-relaxed">{content.description}</p>
                       
-                      <div className="mb-3">
-                        <p className="text-[10px] font-semibold text-brand-teal mb-1.5">你會得到：</p>
-                        <ul className="space-y-1">
+                      <div className="mb-4">
+                        <p className="text-xs font-semibold text-brand-teal mb-2">你會得到：</p>
+                        <ul className="space-y-1.5">
                           {content.outcomes.map((outcome, i) => (
-                            <li key={i} className="text-[10px] text-brand-text/80 flex items-start gap-1.5">
+                            <li key={i} className="text-xs text-brand-text/80 flex items-start gap-2">
                               <span className="text-brand-gold mt-0.5">•</span>
                               {outcome}
                             </li>
@@ -392,9 +392,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         </ul>
                       </div>
                       
-                      <div className="pt-2 border-t border-brand-mist/50">
-                        <p className="text-[10px] font-semibold text-brand-text/60 mb-1">對應重點：</p>
-                        <p className="text-[10px] text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
+                      <div className="pt-3 border-t border-brand-mist/50">
+                        <p className="text-xs font-semibold text-brand-text/60 mb-1.5">對應重點：</p>
+                        <p className="text-xs text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
                       </div>
                     </div>
                   )
