@@ -567,8 +567,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                       description: "把你整理成別人看得懂的樣子",
                     },
                     {
-                      phase: "階段三 接觸機會與轉化",
-                      phaseKey: "接觸機會與轉化",
+                      phase: "階段三 機會與轉化",
+                      phaseKey: "機會與轉化",
                       months: ["7 月"],
                       weeks: [9, 10, 11, 12, 13],
                       description: "開始讓曝光、投遞與合作變成機會",

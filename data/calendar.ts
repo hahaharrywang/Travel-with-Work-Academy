@@ -1,5 +1,5 @@
 // Calendar data types and constants for the course schedule
-// Updated to 4-phase structure: 藍圖與目標 → 定位與門面 → 接觸機會與轉化 → 永續
+// Updated to 4-phase structure: 藍圖與目標 → 定位與門面 → 機會與轉化 → 永續
 
 import { instructors } from "./instructors"
 import type { Instructor } from "@/components/sections/instructors-section"
@@ -44,7 +44,7 @@ export const fourPhases = [
   },
   {
     id: 3,
-    name: "接觸機會與轉化",
+    name: "機會與轉化",
     shortTagline: "開始讓曝光、投遞與合作變成機會",
     description: "開始讓機會真的發生。不管是投遞、曝光、內容、獲客、面試還是成交，這一階段會讓你開始對外出擊。",
     color: { bg: "bg-[#A06E56]/20", text: "text-[#A06E56]", border: "border-[#A06E56]", solid: "bg-[#A06E56]" },
@@ -86,7 +86,7 @@ export const remoteJobPhaseContent = [
     courses: ["自我理解溝通＆人生 SOP", "Linkedin 經營全攻略"],
   },
   {
-    phase: "接觸機會與轉化",
+    phase: "機會與轉化",
     headline: "真正開始出擊",
     description: "這一階段會進入 AI 工具應用、履歷、求職信、面試與談薪，把「我想投」變成「我真的可以去爭取」。",
     outcomes: [
@@ -134,7 +134,7 @@ export const freelancePhaseContent = [
     courses: ["自我理解溝通＆人生 SOP", "定位、方案定價 Offer"],
   },
   {
-    phase: "接觸機會與轉化",
+    phase: "機會與轉化",
     headline: "開始對外被看見，也開始學會讓曝光變成機會",
     description: "這一階段會進入 AI 工具、內容策略、社群獲客、收入藍圖，讓你不只是產出內容，而是更知道怎麼靠近合作與收入。",
     outcomes: [
@@ -298,10 +298,10 @@ export const calendarData: CalendarWeek[] = [
     instructorNames: ["校長哈利"],
     layerTag: "社群節奏 – 交流＆成果展示, 社群節奏 – 深度 QA／Mentoring",
   },
-  // ===== 7 月 - 接觸機會與轉化 =====
+  // ===== 7 月 - 機會與轉化 =====
   {
     id: 9,
-    phase: "接觸機會與轉化",
+    phase: "機會與轉化",
     phaseShort: "階段三",
     monthWeek: "7 月 · Week 1",
     type: "共同必修 2",
@@ -315,7 +315,7 @@ export const calendarData: CalendarWeek[] = [
   },
   {
     id: 10,
-    phase: "接觸機會與轉化",
+    phase: "機會與轉化",
     phaseShort: "階段三",
     monthWeek: "7 月 · Week 2",
     type: "路線必修 – 接案線 3",
@@ -329,7 +329,7 @@ export const calendarData: CalendarWeek[] = [
   },
   {
     id: 11,
-    phase: "接觸機會與轉化",
+    phase: "機會與轉化",
     phaseShort: "階段三",
     monthWeek: "7 月 · Week 3",
     type: "路線必修 – 上班線 3",
@@ -343,7 +343,7 @@ export const calendarData: CalendarWeek[] = [
   },
   {
     id: 12,
-    phase: "接觸機會與轉化",
+    phase: "機會與轉化",
     phaseShort: "階段三",
     monthWeek: "7 月 · Week 4",
     type: "共同必修 3",
@@ -357,7 +357,7 @@ export const calendarData: CalendarWeek[] = [
   },
   {
     id: 13,
-    phase: "接觸機會與轉化",
+    phase: "機會與轉化",
     phaseShort: "階段三",
     monthWeek: "7 月 · Week 5",
     type: "成長節奏 4",
