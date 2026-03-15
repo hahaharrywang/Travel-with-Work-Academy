@@ -264,26 +264,26 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               </div>
               
               {/* Desktop: 四張卡片 grid */}
-              <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6">
                 {remoteJobPhaseContent.map((content, index) => {
                   const phase = fourPhases[index]
                   return (
-                    <div key={index} className={`bg-white rounded-xl p-5 shadow-sm border-2 ${phase.color.border}`}>
-                      <div className="flex items-center gap-2 mb-3">
-                        <span className={`w-6 h-6 rounded-full ${phase.color.solid} text-white text-xs font-bold flex items-center justify-center flex-shrink-0`}>
+                    <div key={index} className={`bg-white rounded-xl p-6 lg:p-7 shadow-sm border-2 ${phase.color.border}`}>
+                      <div className="flex items-center gap-2 mb-4">
+                        <span className={`w-8 h-8 rounded-full ${phase.color.solid} text-white text-base font-bold flex items-center justify-center flex-shrink-0`}>
                           {index + 1}
                         </span>
-                        <span className="text-xs text-brand-text/50">{phase.months}</span>
-                        <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
+                        <span className="text-base text-brand-text/50">{phase.months}</span>
+                        <span className={`text-base font-semibold ${phase.color.text}`}>{phase.name}</span>
                       </div>
-                      <h4 className="font-bold text-brand-teal text-sm mb-2 leading-snug">{content.headline}</h4>
-                      <p className="text-xs text-brand-text/70 mb-3 leading-relaxed">{content.description}</p>
+                      <h4 className="font-bold text-brand-teal text-lg mb-3 leading-snug">{content.headline}</h4>
+                      <p className="text-base text-brand-text/70 mb-5 leading-relaxed">{content.description}</p>
                       
-                      <div className="mb-3">
-                        <p className="text-[10px] font-semibold text-brand-teal mb-1.5">你會得到：</p>
-                        <ul className="space-y-1">
+                      <div className="mb-5">
+                        <p className="text-sm font-semibold text-brand-teal mb-2">你會得到：</p>
+                        <ul className="space-y-2">
                           {content.outcomes.map((outcome, i) => (
-                            <li key={i} className="text-[10px] text-brand-text/80 flex items-start gap-1.5">
+                            <li key={i} className="text-sm text-brand-text/80 flex items-start gap-2">
                               <span className="text-brand-gold mt-0.5">•</span>
                               {outcome}
                             </li>
@@ -291,9 +291,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         </ul>
                       </div>
                       
-                      <div className="pt-2 border-t border-brand-mist/50">
-                        <p className="text-[10px] font-semibold text-brand-text/60 mb-1">對應重點：</p>
-                        <p className="text-[10px] text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
+                      <div className="pt-4 border-t border-brand-mist/50">
+                        <p className="text-sm font-semibold text-brand-text/60 mb-2">對應重點：</p>
+                        <p className="text-sm text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
                       </div>
                     </div>
                   )
@@ -365,26 +365,26 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               </div>
               
               {/* Desktop: 四張卡片 grid */}
-              <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6">
                 {freelancePhaseContent.map((content, index) => {
                   const phase = fourPhases[index]
                   return (
-                    <div key={index} className={`bg-white rounded-xl p-5 shadow-sm border-2 ${phase.color.border}`}>
-                      <div className="flex items-center gap-2 mb-3">
-                        <span className={`w-6 h-6 rounded-full ${phase.color.solid} text-white text-xs font-bold flex items-center justify-center flex-shrink-0`}>
+                    <div key={index} className={`bg-white rounded-xl p-6 lg:p-7 shadow-sm border-2 ${phase.color.border}`}>
+                      <div className="flex items-center gap-2 mb-4">
+                        <span className={`w-8 h-8 rounded-full ${phase.color.solid} text-white text-base font-bold flex items-center justify-center flex-shrink-0`}>
                           {index + 1}
                         </span>
-                        <span className="text-xs text-brand-text/50">{phase.months}</span>
-                        <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
+                        <span className="text-base text-brand-text/50">{phase.months}</span>
+                        <span className={`text-base font-semibold ${phase.color.text}`}>{phase.name}</span>
                       </div>
-                      <h4 className="font-bold text-brand-teal text-sm mb-2 leading-snug">{content.headline}</h4>
-                      <p className="text-xs text-brand-text/70 mb-3 leading-relaxed">{content.description}</p>
+                      <h4 className="font-bold text-brand-teal text-lg mb-3 leading-snug">{content.headline}</h4>
+                      <p className="text-base text-brand-text/70 mb-5 leading-relaxed">{content.description}</p>
                       
-                      <div className="mb-3">
-                        <p className="text-[10px] font-semibold text-brand-teal mb-1.5">你會得到：</p>
-                        <ul className="space-y-1">
+                      <div className="mb-5">
+                        <p className="text-sm font-semibold text-brand-teal mb-2">你會得到：</p>
+                        <ul className="space-y-2">
                           {content.outcomes.map((outcome, i) => (
-                            <li key={i} className="text-[10px] text-brand-text/80 flex items-start gap-1.5">
+                            <li key={i} className="text-sm text-brand-text/80 flex items-start gap-2">
                               <span className="text-brand-gold mt-0.5">•</span>
                               {outcome}
                             </li>
@@ -392,9 +392,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         </ul>
                       </div>
                       
-                      <div className="pt-2 border-t border-brand-mist/50">
-                        <p className="text-[10px] font-semibold text-brand-text/60 mb-1">對應重點：</p>
-                        <p className="text-[10px] text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
+                      <div className="pt-4 border-t border-brand-mist/50">
+                        <p className="text-sm font-semibold text-brand-text/60 mb-2">對應重點：</p>
+                        <p className="text-sm text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
                       </div>
                     </div>
                   )
@@ -567,8 +567,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                       description: "把你整理成別人看得懂的樣子",
                     },
                     {
-                      phase: "階段三 接觸機會與轉化",
-                      phaseKey: "接觸機會與轉化",
+                      phase: "階段三 機會與轉化",
+                      phaseKey: "機會與轉化",
                       months: ["7 月"],
                       weeks: [9, 10, 11, 12, 13],
                       description: "開始讓曝光、投遞與合作變成機會",
@@ -741,42 +741,42 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           </div>
 
           {/* Block 1: Growth System (desktop only - merged into Block 2 on mobile) */}
-          <div className="hidden md:block mb-3">
-            <h4 className="font-bold text-brand-teal text-base sm:text-lg mb-4 flex items-center gap-2">
+          <div className="hidden md:block mb-4">
+            <h4 className="font-bold text-brand-teal text-lg lg:text-xl mb-5 flex items-center gap-2">
               <span className="w-1.5 h-6 rounded-full bg-brand-gold"></span>
               {'一套「把能力變成機會」的成長系統'}
             </h4>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-              <div className="bg-white rounded-xl p-5 border border-brand-mist/50 shadow-sm">
-                <div className="flex items-center gap-2.5 mb-1.5">
-                  <div className="w-8 h-8 rounded-lg bg-brand-teal flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-xs font-bold">{'01'}</span>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="bg-white rounded-xl p-6 border border-brand-mist/50 shadow-sm">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 rounded-lg bg-brand-teal flex items-center justify-center flex-shrink-0">
+                    <span className="text-white text-sm font-bold">{'01'}</span>
                   </div>
-                  <h5 className="font-bold text-brand-teal text-sm">{'當屆完整課程'}</h5>
+                  <h5 className="font-bold text-brand-teal text-base lg:text-lg">{'當屆完整課程'}</h5>
                 </div>
-                <p className="text-brand-text/70 text-xs leading-relaxed pl-[42px]">
+                <p className="text-brand-text/70 text-sm lg:text-base leading-relaxed pl-[52px]">
                   {'聚焦遠距求職與接案兩條路，從定位到落地流程（直播 / 回放一年）'}
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-5 border border-brand-mist/50 shadow-sm">
-                <div className="flex items-center gap-2.5 mb-1.5">
-                  <div className="w-8 h-8 rounded-lg bg-brand-teal flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-xs font-bold">{'02'}</span>
+              <div className="bg-white rounded-xl p-6 border border-brand-mist/50 shadow-sm">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 rounded-lg bg-brand-teal flex items-center justify-center flex-shrink-0">
+                    <span className="text-white text-sm font-bold">{'02'}</span>
                   </div>
-                  <h5 className="font-bold text-brand-teal text-sm">{'作業與落地任務'}</h5>
+                  <h5 className="font-bold text-brand-teal text-base lg:text-lg">{'作業與落地任務'}</h5>
                 </div>
-                <p className="text-brand-text/70 text-xs leading-relaxed pl-[42px]">
+                <p className="text-brand-text/70 text-sm lg:text-base leading-relaxed pl-[52px]">
                   {'每周都要交付 — 一步步把你推到「可以被採用 / 被下單」的狀態'}
                 </p>
               </div>
-              <div className="bg-white rounded-xl p-5 border border-brand-mist/50 shadow-sm">
-                <div className="flex items-center gap-2.5 mb-1.5">
-                  <div className="w-8 h-8 rounded-lg bg-brand-teal flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-xs font-bold">{'03'}</span>
+              <div className="bg-white rounded-xl p-6 border border-brand-mist/50 shadow-sm">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 rounded-lg bg-brand-teal flex items-center justify-center flex-shrink-0">
+                    <span className="text-white text-sm font-bold">{'03'}</span>
                   </div>
-                  <h5 className="font-bold text-brand-teal text-sm">{'成長節奏'}</h5>
+                  <h5 className="font-bold text-brand-teal text-base lg:text-lg">{'成長節奏'}</h5>
                 </div>
-                <p className="text-brand-text/70 text-xs leading-relaxed pl-[42px]">
+                <p className="text-brand-text/70 text-sm lg:text-base leading-relaxed pl-[52px]">
                   {'線上同學會 / 團體 QA / DemoDay，互相學習、幫助，彼此督促跟上進度'}
                 </p>
               </div>
@@ -794,11 +794,11 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               </div>
               {/* Desktop: 顯示「你會做出什麼成果」標題 */}
               <div className="hidden md:flex items-center gap-3 flex-wrap">
-                <h4 className="font-bold text-brand-teal text-lg">{'你會做出什麼成果'}</h4>
-                <div className="flex gap-1.5">
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-brand-gold/15 text-brand-clay font-medium">{'可展示'}</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-brand-gold/15 text-brand-clay font-medium">{'可投遞'}</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-brand-gold/15 text-brand-clay font-medium">{'可成交'}</span>
+                <h4 className="font-bold text-brand-teal text-lg lg:text-xl">{'你會做出什麼成果'}</h4>
+                <div className="flex gap-2">
+                  <span className="text-xs px-3 py-1 rounded-full bg-brand-gold/15 text-brand-clay font-medium">{'可展示'}</span>
+                  <span className="text-xs px-3 py-1 rounded-full bg-brand-gold/15 text-brand-clay font-medium">{'可投遞'}</span>
+                  <span className="text-xs px-3 py-1 rounded-full bg-brand-gold/15 text-brand-clay font-medium">{'可成交'}</span>
                 </div>
               </div>
               {/* 展開/收合按鈕 — 兩端都顯示 */}
@@ -851,68 +851,68 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               </div>
 
               {/* 共用：你會做出什麼成果的 checklist */}
-              <ul className="space-y-4">
-                <li className="flex items-start gap-2.5">
-                  <span className="text-brand-gold flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
+              <ul className="space-y-5 md:mt-4">
+                <li className="flex items-start gap-3">
+                  <span className="text-brand-gold flex-shrink-0 mt-0.5 font-bold text-base md:text-lg">{'✔'}</span>
                   <div>
-                    <span className="font-semibold text-brand-teal text-sm">{'定位與可能性：遠距路線決策 & 啟動目標'}</span>
-                    <p className="text-brand-text/60 text-sm mt-0.5">{'— 釐清你要的自由是什麼（時間／地點／收入），並選定「上班線／接案線／雙軌」的起跑方向及目標'}</p>
+                    <span className="font-semibold text-brand-teal text-sm md:text-base lg:text-lg">{'定位與可能性：遠距路線決策 & 啟動目標'}</span>
+                    <p className="text-brand-text/60 text-sm md:text-base mt-1">{'— 釐清你要的自由是什麼（時間／地點／收入），並選定「上班線／接案線／雙軌」的起跑方向及目標'}</p>
                   </div>
                 </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="text-brand-gold flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
+                <li className="flex items-start gap-3">
+                  <span className="text-brand-gold flex-shrink-0 mt-0.5 font-bold text-base md:text-lg">{'✔'}</span>
                   <div>
-                    <span className="font-semibold text-brand-teal text-sm">{'對外門面與信任：一套讓人秒懂專業與價值的門面'}</span>
-                    <p className="text-brand-text/60 text-sm mt-0.5">{'— 把你的能力、案例、價值主張整理成：LinkedIn／提案頁 / 作品集的關鍵內容與結構'}</p>
+                    <span className="font-semibold text-brand-teal text-sm md:text-base lg:text-lg">{'對外門面與信任：一套讓人秒懂專業與價值的門面'}</span>
+                    <p className="text-brand-text/60 text-sm md:text-base mt-1">{'— 把你的能力、案例、價值主張整理成：LinkedIn／提案頁 / 作品集的關鍵內容與結構'}</p>
                   </div>
                 </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="text-brand-gold flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
+                <li className="flex items-start gap-3">
+                  <span className="text-brand-gold flex-shrink-0 mt-0.5 font-bold text-base md:text-lg">{'✔'}</span>
                   <div>
-                    <span className="font-semibold text-brand-teal text-sm">{'接觸與轉化：把「接觸」變成「機會」的可擴增系統'}</span>
-                    <div className="mt-1 space-y-0.5">
-                      <p className="text-brand-text/60 text-sm">{'— 上班線：JD 拆解 → 客製化履歷 → 面試 & 談薪策略'}</p>
-                      <p className="text-brand-text/60 text-sm">{'— 接案線：社群內容策略 → 作品呈現 → 獲客管道 → 成交流程'}</p>
+                    <span className="font-semibold text-brand-teal text-sm md:text-base lg:text-lg">{'接觸與轉化：把「接觸」變成「機會」的可擴增系統'}</span>
+                    <div className="mt-1.5 space-y-1">
+                      <p className="text-brand-text/60 text-sm md:text-base">{'— 上班線：JD 拆解 → 客製化履歷 → 面試 & 談薪策略'}</p>
+                      <p className="text-brand-text/60 text-sm md:text-base">{'— 接案線：社群內容策略 → 作品呈現 → 獲客管道 → 成交流程'}</p>
                     </div>
                   </div>
                 </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="text-brand-gold flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
+                <li className="flex items-start gap-3">
+                  <span className="text-brand-gold flex-shrink-0 mt-0.5 font-bold text-base md:text-lg">{'✔'}</span>
                   <div>
-                    <span className="font-semibold text-brand-teal text-sm">{'留任與永續：交付的「點 > 線 > 面」永續結構'}</span>
-                    <p className="text-brand-text/60 text-sm mt-0.5">{'— 在前期合作能活下來並能持續成長的方法'}</p>
+                    <span className="font-semibold text-brand-teal text-sm md:text-base lg:text-lg">{'留任與永續：交付的「點 > 線 > 面」永續結構'}</span>
+                    <p className="text-brand-text/60 text-sm md:text-base mt-1">{'— 在前期合作能活下來並能持續成長的方法'}</p>
                   </div>
                 </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="text-brand-gold flex-shrink-0 mt-0.5 font-bold text-sm">{'✔'}</span>
+                <li className="flex items-start gap-3">
+                  <span className="text-brand-gold flex-shrink-0 mt-0.5 font-bold text-base md:text-lg">{'✔'}</span>
                   <div>
-                    <span className="font-semibold text-brand-teal text-sm">{'DemoDay 發表：把行動證明公開呈現'}</span>
-                    <p className="text-brand-text/60 text-sm mt-0.5">{'— 讓你完成一次真正的「交付」與「曝光」，也讓機會更容易找上門'}</p>
+                    <span className="font-semibold text-brand-teal text-sm md:text-base lg:text-lg">{'DemoDay 發表：把行動證明公開呈現'}</span>
+                    <p className="text-brand-text/60 text-sm md:text-base mt-1">{'— 讓你完成一次真正的「交付」與「曝光」，也讓機會更容易找上門'}</p>
                   </div>
                 </li>
               </ul>
 
               {/* 結果畫面層 — 讓讀者看到「自己變成什麼樣的人」 */}
-              <div className="mt-6 p-4 sm:p-5 rounded-xl bg-brand-gold/10 border border-brand-gold/20">
-                <p className="text-xs sm:text-sm text-brand-clay font-medium mb-3 tracking-wide">{'結業後的你'}</p>
-                <ul className="space-y-2.5">
+              <div className="mt-6 p-5 sm:p-6 rounded-xl bg-brand-gold/10 border border-brand-gold/20">
+                <p className="text-sm md:text-base text-brand-clay font-medium mb-4 tracking-wide">{'結業後的你'}</p>
+                <ul className="space-y-3">
                   <li className="flex items-start gap-2">
-                    <span className="text-brand-gold mt-0.5 flex-shrink-0">{'"'}</span>
-                    <p className="text-sm text-brand-text leading-relaxed">
+                    <span className="text-brand-gold mt-0.5 flex-shrink-0 text-lg">{'"'}</span>
+                    <p className="text-sm md:text-base text-brand-text leading-relaxed">
                       {'你不再只是羨慕別人遠距，而是'}
                       <span className="font-semibold text-brand-teal">{'開始有自己的遠距職涯門面'}</span>
                     </p>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-brand-gold mt-0.5 flex-shrink-0">{'"'}</span>
-                    <p className="text-sm text-brand-text leading-relaxed">
+                    <span className="text-brand-gold mt-0.5 flex-shrink-0 text-lg">{'"'}</span>
+                    <p className="text-sm md:text-base text-brand-text leading-relaxed">
                       {'你不再只是想接案，而是'}
                       <span className="font-semibold text-brand-teal">{'開始有第一版可拿去接觸市場的作品與 offer'}</span>
                     </p>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-brand-gold mt-0.5 flex-shrink-0">{'"'}</span>
-                    <p className="text-sm text-brand-text leading-relaxed">
+                    <span className="text-brand-gold mt-0.5 flex-shrink-0 text-lg">{'"'}</span>
+                    <p className="text-sm md:text-base text-brand-text leading-relaxed">
                       {'你不再只是看內容，而是'}
                       <span className="font-semibold text-brand-teal">{'開始留下履歷、提案、內容、DemoDay 這些能被看見的痕跡'}</span>
                     </p>
@@ -920,7 +920,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 </ul>
               </div>
 
-              <p className="mt-5 pt-4 border-t border-brand-mist/50 text-center text-sm font-bold text-brand-gold">
+              <p className="mt-6 pt-5 border-t border-brand-mist/50 text-center text-sm md:text-base font-bold text-brand-gold">
                 {'你的目標是「開始更容易拿到遠距工作 / 接案機會」。'}
               </p>
             </div>
@@ -930,8 +930,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           <details className="group/alumni mb-3 bg-brand-offwhite/80 rounded-2xl border border-brand-gold/30 shadow-sm overflow-hidden">
             <summary className="flex items-center justify-between p-5 sm:p-8 cursor-pointer list-none [&::-webkit-details-marker]:hidden hover:bg-brand-gold/5 transition-colors">
               <div className="flex items-center gap-3 flex-wrap">
-                <h4 className="font-bold text-brand-teal text-base sm:text-lg">{'校友資格'}</h4>
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-brand-teal/10 text-brand-teal font-medium">{'入學即擁有，結業後延續'}</span>
+                <h4 className="font-bold text-brand-teal text-base sm:text-lg lg:text-xl">{'校友資格'}</h4>
+                <span className="text-xs px-3 py-1 rounded-full bg-brand-teal/10 text-brand-teal font-medium">{'入學即擁有，結業後延續'}</span>
               </div>
               <div className="flex items-center gap-1.5 text-brand-text/50 flex-shrink-0 ml-3">
                 <span className="text-xs sm:text-sm group-open/alumni:hidden">展開</span>
@@ -943,56 +943,56 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             </summary>
 
             <div className="px-5 pb-5 sm:px-8 sm:pb-8 border-t border-brand-gold/20">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-5">
-                <div className="flex items-start gap-2.5 bg-white/60 rounded-xl p-4">
-                  <span className="w-2 h-2 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-5">
+                <div className="flex items-start gap-3 bg-white/60 rounded-xl p-5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
                   <div>
-                    <span className="font-semibold text-brand-teal text-sm block mb-0.5">{'Skool 社群永久留存'}</span>
-                    <p className="text-brand-text/60 text-xs leading-relaxed">{'畢業後不用搬家，仍在同一個社群交流（當屆專區僅當屆可見）'}</p>
+                    <span className="font-semibold text-brand-teal text-sm md:text-base block mb-1">{'Skool 社群永久留存'}</span>
+                    <p className="text-brand-text/60 text-xs md:text-sm leading-relaxed">{'畢業後不用搬家，仍在同一個社群交流（當屆專區僅當屆可見）'}</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-2.5 bg-white/60 rounded-xl p-4">
-                  <span className="w-2 h-2 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
+                <div className="flex items-start gap-3 bg-white/60 rounded-xl p-5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
                   <div>
-                    <span className="font-semibold text-brand-teal text-sm block mb-0.5">{'已購內容回放觀看'}</span>
-                    <p className="text-brand-text/60 text-xs leading-relaxed">{'你買過課程(學院正課有一年限制)的回放與學習資源訪問權限'}</p>
+                    <span className="font-semibold text-brand-teal text-sm md:text-base block mb-1">{'已購內容回放觀看'}</span>
+                    <p className="text-brand-text/60 text-xs md:text-sm leading-relaxed">{'你買過課程(學院正課有一年限制)的回放與學習資源訪問權限'}</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-2.5 bg-white/60 rounded-xl p-4">
-                  <span className="w-2 h-2 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
+                <div className="flex items-start gap-3 bg-white/60 rounded-xl p-5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
                   <div>
-                    <span className="font-semibold text-brand-teal text-sm block mb-0.5">{'校友 LinkedIn 群'}</span>
-                    <p className="text-brand-text/60 text-xs leading-relaxed">{'僅限學員與校友加入，職涯拓展與合作'}</p>
+                    <span className="font-semibold text-brand-teal text-sm md:text-base block mb-1">{'校友 LinkedIn 群'}</span>
+                    <p className="text-brand-text/60 text-xs md:text-sm leading-relaxed">{'僅限學員與校友加入，職涯拓展與合作'}</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-2.5 bg-white/60 rounded-xl p-4">
-                  <span className="w-2 h-2 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
+                <div className="flex items-start gap-3 bg-white/60 rounded-xl p-5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
                   <div>
-                    <span className="font-semibold text-brand-teal text-sm block mb-0.5">{'全產品校友價'}</span>
-                    <p className="text-brand-text/60 text-xs leading-relaxed">{'下屆學院 / Journey 旅程 / 工作坊與線下聚會 / 合作夥伴福利（依公告）'}</p>
+                    <span className="font-semibold text-brand-teal text-sm md:text-base block mb-1">{'全產品校友價'}</span>
+                    <p className="text-brand-text/60 text-xs md:text-sm leading-relaxed">{'下屆學院 / Journey 旅程 / 工作坊與線下聚會 / 合作夥伴福利（依公告）'}</p>
                   </div>
                 </div>
               </div>
 
               {/* Co-creation card */}
-              <div className="mt-4 bg-white/60 rounded-xl p-4">
-                <div className="flex items-center gap-2 mb-3">
-                  <h5 className="font-semibold text-brand-teal text-sm">{'共創與參與權'}</h5>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-brand-gold/15 text-brand-clay font-medium">{'把圈子變成機會場'}</span>
+              <div className="mt-5 bg-white/60 rounded-xl p-5">
+                <div className="flex items-center gap-3 mb-4">
+                  <h5 className="font-semibold text-brand-teal text-sm md:text-base">{'共創與參與權'}</h5>
+                  <span className="text-xs px-3 py-1 rounded-full bg-brand-gold/15 text-brand-clay font-medium">{'把圈子變成機會場'}</span>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  <div className="flex items-start gap-2.5">
-                    <span className="w-2 h-2 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="flex items-start gap-3">
+                    <span className="w-2.5 h-2.5 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
                     <div>
-                      <span className="font-semibold text-brand-teal text-sm block mb-0.5">{'共創專案'}</span>
-                      <p className="text-brand-text/60 text-xs leading-relaxed">{'可優先參與、可共同發起（讀書會、實戰企劃、工具共學、Builder 實習等）'}</p>
+                      <span className="font-semibold text-brand-teal text-sm md:text-base block mb-1">{'共創專案'}</span>
+                      <p className="text-brand-text/60 text-xs md:text-sm leading-relaxed">{'可優先參與、可共同發起（讀書會、實戰企劃、工具共學、Builder 實習等）'}</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-2.5">
-                    <span className="w-2 h-2 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
+                  <div className="flex items-start gap-3">
+                    <span className="w-2.5 h-2.5 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
                     <div>
-                      <span className="font-semibold text-brand-teal text-sm block mb-0.5">{'許願池'}</span>
-                      <p className="text-brand-text/60 text-xs leading-relaxed">{'定期提案 / 投票，讓學院資源與活動更貼近你的需求'}</p>
+                      <span className="font-semibold text-brand-teal text-sm md:text-base block mb-1">{'許願池'}</span>
+                      <p className="text-brand-text/60 text-xs md:text-sm leading-relaxed">{'定期提案 / 投票，讓學院資源與活動更貼近你的需求'}</p>
                     </div>
                   </div>
                 </div>
