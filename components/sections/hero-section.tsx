@@ -164,7 +164,9 @@ export function HeroSection() {
           </h1>
 
           <p className="text-sm sm:text-base text-brand-gold font-medium tracking-wide leading-relaxed">
-            {'用 5 個月有節奏的行動系統，讓你不停薪、不斷收入踏出遠距職涯的下一步。'}
+            {'用 5 個月有節奏的行動系統，'}
+            <br />
+            {'讓你不停薪、不斷收入踏出遠距職涯的下一步。'}
           </p>
 
           {/* 適合誰 */}
