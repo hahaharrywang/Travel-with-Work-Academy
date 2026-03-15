@@ -264,7 +264,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               </div>
               
               {/* Desktop: 四張卡片 grid */}
-              <div className="hidden md:grid grid-cols-2 xl:grid-cols-4 gap-5 max-w-7xl mx-auto">
+              <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6">
                 {remoteJobPhaseContent.map((content, index) => {
                   const phase = fourPhases[index]
                   return (
@@ -365,7 +365,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               </div>
               
               {/* Desktop: 四張卡片 grid */}
-              <div className="hidden md:grid grid-cols-2 xl:grid-cols-4 gap-5 max-w-7xl mx-auto">
+              <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6">
                 {freelancePhaseContent.map((content, index) => {
                   const phase = fourPhases[index]
                   return (
