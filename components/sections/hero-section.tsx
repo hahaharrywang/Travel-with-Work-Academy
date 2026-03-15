@@ -82,7 +82,7 @@ export function HeroSection() {
               </div>
               <div className="flex items-start gap-3">
                 <FileCheck className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-                <p className="text-white/90 text-sm">履歷、作品集、個人頁面，不再只是想過</p>
+                <p className="text-white/90 text-sm">履歷、作品集、個人頁面，不再只是想過，可展示</p>
               </div>
               <div className="flex items-start gap-3">
                 <Globe className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
@@ -196,7 +196,7 @@ export function HeroSection() {
             </div>
             <div className="flex items-start gap-3">
               <FileCheck className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-              <p className="text-white/90 text-sm">履歷、作品集、個人頁面，不再只是想過</p>
+              <p className="text-white/90 text-sm">履歷、作品集、個人頁面，不再只是想過，可展示</p>
             </div>
             <div className="flex items-start gap-3">
               <Globe className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
