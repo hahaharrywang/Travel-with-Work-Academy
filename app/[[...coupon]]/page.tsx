@@ -222,7 +222,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
       {/* SECTION 5 INSTRUCTORS - 師資 (currently hidden, use <InstructorsSection instructors={instructors} /> to enable) */}
       {/* SECTION 6 COURSE OUTLINE START - 學習地圖（四階段） */}
       <section id="learning-map" className="py-16 sm:py-20 bg-brand-offwhite">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-teal mb-2 text-balance">學習地圖</h2>
@@ -263,8 +263,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <h3 className="text-lg sm:text-xl font-bold text-brand-teal mb-2">遠端上班：從看懂機會，到更有機會被錄用，也更有能力走得長久</h3>
               </div>
               
-              {/* Desktop: 四張卡片 grid */}
-              <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6">
+              {/* Desktop: 四張卡片 grid - 全寬讓卡片更寬 */}
+              <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {remoteJobPhaseContent.map((content, index) => {
                   const phase = fourPhases[index]
                   return (
@@ -364,8 +364,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <h3 className="text-lg sm:text-xl font-bold text-brand-teal mb-2">接案：從想靠自己變現，到做出能持續合作的內容與服務</h3>
               </div>
               
-              {/* Desktop: 四張卡片 grid */}
-              <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6">
+              {/* Desktop: 四張卡片 grid - 全寬讓卡片更寬 */}
+              <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {freelancePhaseContent.map((content, index) => {
                   const phase = fourPhases[index]
                   return (
