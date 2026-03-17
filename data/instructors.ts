@@ -24,7 +24,7 @@ export const instructors: Instructor[] = [
     },
   },
   {
-    name: "Ally Hsieh",
+    name: "謝雅筑 Ally",
     title: "職涯教練／ICF ACC 認證教練／HR Consultant",
     image: "/images/ally-hsieh.jpg",
     link: "https://www.linkedin.com/in/allyhsieh",
