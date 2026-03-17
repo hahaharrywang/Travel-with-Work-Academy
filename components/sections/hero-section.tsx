@@ -103,15 +103,15 @@ export function HeroSection() {
                 查看課程介紹
               </a>
               <a
-                href="https://www.skool.com/twwgroup-3033/classroom/a5319d94?md=bca9b69c2a5b40869e2fe6254aa9fa13"
+                href="https://www.accupass.com/organizer/detail/2509180637491342778166"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 border border-white/30 text-white/80 hover:text-brand-gold hover:border-brand-gold/50 font-medium text-sm px-5 py-2.5 rounded-full transition-colors duration-200"
               >
                 <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
                 </svg>
-                觀看說明會回放
+                報名線上說明會
               </a>
             </div>
 
@@ -219,15 +219,15 @@ export function HeroSection() {
               查看課程介紹
             </a>
             <a
-              href="https://www.skool.com/twwgroup-3033/classroom/a5319d94?md=bca9b69c2a5b40869e2fe6254aa9fa13"
+              href="https://www.accupass.com/organizer/detail/2509180637491342778166"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 border border-white/30 text-white/80 hover:text-brand-gold hover:border-brand-gold/50 font-medium text-sm px-4 py-2.5 rounded-full transition-colors duration-200"
             >
               <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
               </svg>
-              觀看說明會回放
+              報名線上說明會
             </a>
           </div>
 
