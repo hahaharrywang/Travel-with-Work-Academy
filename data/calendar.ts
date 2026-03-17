@@ -31,7 +31,7 @@ export const fourPhases = [
     name: "藍圖與目標",
     shortTagline: "先知道你要往哪裡走",
     description: "先搞清楚你想往哪裡去。不是空想自由，而是把你接下來幾個月要走的主線、目標與節奏定出來。",
-    color: { bg: "bg-[#D4B483]/20", text: "text-[#D4B483]", border: "border-[#D4B483]", solid: "bg-[#D4B483]" },
+    color: { bg: "bg-brand-gold/20", text: "text-brand-gold", border: "border-brand-gold", solid: "bg-brand-gold" },
     months: "5 月",
   },
   {
@@ -39,7 +39,7 @@ export const fourPhases = [
     name: "定位與門面",
     shortTagline: "把你整理成別人看得懂的樣子",
     description: "把你整理成別人看得懂、也願意相信的樣子。你的經驗、能力、價值主張，不再只是你自己知道。",
-    color: { bg: "bg-[#17464F]/20", text: "text-[#17464F]", border: "border-[#17464F]", solid: "bg-[#17464F]" },
+    color: { bg: "bg-brand-teal/20", text: "text-brand-teal", border: "border-brand-teal", solid: "bg-brand-teal" },
     months: "6 月",
   },
   {
@@ -47,7 +47,7 @@ export const fourPhases = [
     name: "機會與轉化",
     shortTagline: "開始讓曝光、投遞與合作變成機會",
     description: "開始讓機會真的發生。不管是投遞、曝光、內容、獲客、面試還是成交，這一階段會讓你開始對外出擊。",
-    color: { bg: "bg-[#A06E56]/20", text: "text-[#A06E56]", border: "border-[#A06E56]", solid: "bg-[#A06E56]" },
+    color: { bg: "bg-brand-clay/20", text: "text-brand-clay", border: "border-brand-clay", solid: "bg-brand-clay" },
     months: "7 月",
   },
   {
@@ -55,9 +55,8 @@ export const fourPhases = [
     name: "永續",
     shortTagline: "把一次嘗試走成長期節奏",
     description: "把一次嘗試，變成能走下去的節奏。不是短暫熱血，而是學會留任、合作、溝通、財務與長期累積。",
-    color: { bg: "bg-[#C9D7D4]/30", text: "text-[#17464F]", border: "border-[#C9D7D4]", solid: "bg-[#C9D7D4]" },
+    color: { bg: "bg-brand-teal/10", text: "text-brand-teal", border: "border-brand-mist", solid: "bg-brand-teal" },
     months: "8–9 月",
-
   },
 ]
 
