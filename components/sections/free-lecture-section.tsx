@@ -37,6 +37,17 @@ export function FreeLectureSection() {
             <br />
             {"你適不適合、你比較偏哪條路、以及這 5 個月會怎麼走。"}
           </p>
+          
+          {/* Embedded YouTube Video */}
+          <div className="relative w-full aspect-video max-w-xl mx-auto mb-8 rounded-xl overflow-hidden shadow-lg">
+            <iframe
+              src="https://www.youtube.com/embed/DGy_cfO1V9E?rel=0"
+              title="遠距遊牧學院介紹影片"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full"
+            />
+          </div>
           <div className="flex flex-col lg:flex-row items-center justify-center gap-3 lg:gap-4">
             <a
               href="https://www.accupass.com/organizer/detail/2509180637491342778166"
