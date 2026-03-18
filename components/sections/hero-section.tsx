@@ -86,7 +86,7 @@ export function HeroSection() {
               </div>
               <div className="flex items-start gap-3">
                 <Globe className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-                <p className="text-white/90 text-sm">線下小聚、遊牧旅程、國際生態系入口</p>
+                <p className="text-white/90 text-sm">整合線下小聚、國內外遊牧之旅、國際生態系入口</p>
               </div>
             </div>
 
@@ -202,7 +202,7 @@ export function HeroSection() {
             </div>
             <div className="flex items-start gap-3">
               <Globe className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-              <p className="text-white/90 text-sm">線下小聚、遊牧旅程、國際生態系入口</p>
+              <p className="text-white/90 text-sm">整合線下小聚、國內外遊牧之旅、國際生態系入口</p>
             </div>
           </div>
 
