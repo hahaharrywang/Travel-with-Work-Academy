@@ -7,7 +7,26 @@ const config: Config = {
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './data/**/*.{js,ts,jsx,tsx}',
     '*.{js,ts,jsx,tsx,mdx}',
+  ],
+  safelist: [
+    // Brand color utilities used in dynamic data (fourPhases in calendar.ts)
+    'bg-brand-gold',
+    'bg-brand-gold/20',
+    'bg-brand-teal',
+    'bg-brand-teal/10',
+    'bg-brand-teal/20',
+    'bg-brand-clay',
+    'bg-brand-clay/20',
+    'bg-brand-mist',
+    'text-brand-gold',
+    'text-brand-teal',
+    'text-brand-clay',
+    'border-brand-gold',
+    'border-brand-teal',
+    'border-brand-clay',
+    'border-brand-mist',
   ],
   theme: {
     extend: {
