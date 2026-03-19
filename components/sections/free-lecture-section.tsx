@@ -32,7 +32,7 @@ export function FreeLectureSection() {
           {/* Desktop: single line, Mobile: two lines */}
           <h3 className="text-2xl sm:text-3xl font-bold text-brand-teal mb-3">
             <span className="block sm:inline">{"還不確定要不要加入？"}</span>
-            <span className="block sm:inline">{"先聽聽台校長說明會分享"}</span>
+            <span className="block sm:inline">{"先聽聽校長說明會分享"}</span>
           </h3>
           <p className="text-sm sm:text-base text-brand-text/70 leading-relaxed mb-6">
             {"先看懂：你適不適合、偏哪條路、這 5 個月會怎麼走。"}
@@ -48,6 +48,38 @@ export function FreeLectureSection() {
               className="absolute inset-0 w-full h-full"
             />
           </div>
+
+          {/* Upcoming Lectures Section */}
+          <h4 className="text-lg sm:text-xl font-semibold text-brand-teal mb-4">
+            {"近期講座場次"}
+          </h4>
+          <div className="flex flex-col sm:flex-row gap-4 mb-8 max-w-2xl mx-auto">
+            <a
+              href="https://www.accupass.com/organizer/detail/2509180637491342778166"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block flex-1 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200"
+            >
+              <img
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/0326%20Accupass-pmsxDSNfoVrlkKtiQsOwF87solWLmZ.jpg"
+                alt="3/26 免費講座：自媒體 × AI 普通人怎麼開始長出更自由的職涯選擇"
+                className="w-full h-auto"
+              />
+            </a>
+            <a
+              href="https://www.accupass.com/organizer/detail/2509180637491342778166"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block flex-1 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200"
+            >
+              <img
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/0409%20Accupass-J6JzDbqZUBOVuD27Idm72mDdOXwRCU.png"
+                alt="4/9 免費講座：人生是設計出來的 從 ikigai 到 AI 如何打造更有效率的人生"
+                className="w-full h-auto"
+              />
+            </a>
+          </div>
+
           <div className="flex flex-col lg:flex-row items-center justify-center gap-3 lg:gap-4">
             <a
               href="https://www.accupass.com/organizer/detail/2509180637491342778166"

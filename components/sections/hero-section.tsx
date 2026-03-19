@@ -103,9 +103,11 @@ export function HeroSection() {
                 查看課程介紹
               </a>
               <a
-                href="https://www.accupass.com/organizer/detail/2509180637491342778166"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#free-lecture-section"
+                onClick={(e) => {
+                  e.preventDefault()
+                  document.getElementById("free-lecture-section")?.scrollIntoView({ behavior: "smooth" })
+                }}
                 className="inline-flex items-center gap-2 border border-white/30 text-white/80 hover:text-brand-gold hover:border-brand-gold/50 font-medium text-sm px-5 py-2.5 rounded-full transition-colors duration-200"
               >
                 <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
@@ -219,9 +221,11 @@ export function HeroSection() {
               查看課程介紹
             </a>
             <a
-              href="https://www.accupass.com/organizer/detail/2509180637491342778166"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#free-lecture-section"
+              onClick={(e) => {
+                e.preventDefault()
+                document.getElementById("free-lecture-section")?.scrollIntoView({ behavior: "smooth" })
+              }}
               className="inline-flex items-center gap-2 border border-white/30 text-white/80 hover:text-brand-gold hover:border-brand-gold/50 font-medium text-sm px-4 py-2.5 rounded-full transition-colors duration-200"
             >
               <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
