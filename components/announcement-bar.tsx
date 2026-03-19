@@ -75,6 +75,14 @@ export function AnnouncementBar({ scrollToPricing, onEmailSubscribe }: Announcem
                 {item.label}
               </a>
             ))}
+            <a
+              href="https://www.accupass.com/organizer/detail/2509180637491342778166"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm bg-brand-gold text-brand-teal px-3 py-1 rounded-full font-medium hover:bg-brand-gold/90 transition-colors whitespace-nowrap"
+            >
+              講座 & 說明會
+            </a>
           </nav>
         </div>
       </div>

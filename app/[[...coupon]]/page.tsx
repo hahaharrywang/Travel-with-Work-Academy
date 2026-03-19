@@ -226,7 +226,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           {/* Header */}
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-teal mb-2 text-balance">學習地圖</h2>
-            <p className="text-base sm:text-lg text-brand-gold font-medium mb-6">五月開學，每週三晚間八點準時上線。</p>
+            <p className="text-base sm:text-lg text-brand-clay font-medium mb-6">五月開學，每週三晚間八點準時上線。</p>
             <p className="text-brand-text max-w-2xl mx-auto leading-relaxed text-sm sm:text-base font-medium">
               這不是一堆零散課程，而是一套 5 個月、4 階段的行動節奏。
             </p>
@@ -273,7 +273,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         <span className={`w-8 h-8 rounded-full ${phase.color.solid} text-white text-base font-bold flex items-center justify-center flex-shrink-0`}>
                           {index + 1}
                         </span>
-                        <span className="text-base text-brand-text/50">{phase.months}</span>
+                        <span className={`text-base ${phase.color.text}`}>{phase.months}</span>
                         <span className={`text-base font-semibold ${phase.color.text}`}>{phase.name}</span>
                       </div>
                       <h4 className="font-bold text-brand-teal text-lg mb-3 leading-snug">{content.headline}</h4>
@@ -314,7 +314,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                           </span>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-1.5">
-                              <span className="text-xs text-brand-text/50">{phase.months}</span>
+                              <span className={`text-xs ${phase.color.text}`}>{phase.months}</span>
                               <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
                             </div>
                             <p className="text-sm font-bold text-brand-teal truncate">{content.headline}</p>
@@ -374,7 +374,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         <span className={`w-8 h-8 rounded-full ${phase.color.solid} text-white text-base font-bold flex items-center justify-center flex-shrink-0`}>
                           {index + 1}
                         </span>
-                        <span className="text-base text-brand-text/50">{phase.months}</span>
+                        <span className={`text-base ${phase.color.text}`}>{phase.months}</span>
                         <span className={`text-base font-semibold ${phase.color.text}`}>{phase.name}</span>
                       </div>
                       <h4 className="font-bold text-brand-teal text-lg mb-3 leading-snug">{content.headline}</h4>
@@ -415,7 +415,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                           </span>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-1.5">
-                              <span className="text-xs text-brand-text/50">{phase.months}</span>
+                              <span className={`text-xs ${phase.color.text}`}>{phase.months}</span>
                               <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
                             </div>
                             <p className="text-sm font-bold text-brand-teal truncate">{content.headline}</p>
