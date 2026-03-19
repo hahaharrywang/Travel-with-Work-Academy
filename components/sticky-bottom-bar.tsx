@@ -49,17 +49,17 @@ export function StickyBottomBar({ scrollToPricing, isHidden = false, isInFreeSec
               </span>
             </div>
             {isInFreeSection ? (
-              <a
-                href={replayUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => {
+                  document.getElementById("free-lecture-section")?.scrollIntoView({ behavior: "smooth" })
+                }}
                 className="flex-shrink-0 inline-flex items-center gap-2 bg-brand-teal text-white px-5 py-3 rounded-full text-sm font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-md"
               >
                 <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
                 </svg>
                 看說明會回放
-              </a>
+              </button>
             ) : (
               <button
                 onClick={scrollToPricing}
