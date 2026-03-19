@@ -70,7 +70,7 @@ export function HeroSection() {
                 5 個月有節奏
               </span>
               <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
-                不是一個人
+                可展示成果
               </span>
             </div>
 
@@ -188,7 +188,7 @@ export function HeroSection() {
               5 個月有節奏
             </span>
             <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
-              不是一個人
+              可展示成果
             </span>
           </div>
 
