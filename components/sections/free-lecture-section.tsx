@@ -29,12 +29,11 @@ export function FreeLectureSection() {
     <>
       <section id="free-lecture-section" className="bg-brand-offwhite py-10 sm:py-14">
         <div className="max-w-2xl mx-auto px-4 text-center">
-          <h3 className="text-xl sm:text-2xl font-bold text-brand-teal mb-1">
-            {"還不確定要不要加入？"}
+          {/* Desktop: single line, Mobile: two lines */}
+          <h3 className="text-2xl sm:text-3xl font-bold text-brand-teal mb-3">
+            <span className="block sm:inline">{"還不確定要不要加入？"}</span>
+            <span className="block sm:inline">{"先聽聽台校長說明會分享"}</span>
           </h3>
-          <p className="text-lg sm:text-xl font-semibold text-brand-teal mb-3">
-            {"先聽聽台校長說明會分享"}
-          </p>
           <p className="text-sm sm:text-base text-brand-text/70 leading-relaxed mb-6">
             {"先看懂：你適不適合、偏哪條路、這 5 個月會怎麼走。"}
           </p>
