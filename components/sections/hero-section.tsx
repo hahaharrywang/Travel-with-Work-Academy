@@ -24,16 +24,31 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Header with Logo only */}
-      <div className="absolute top-0 left-0 z-30 pt-3 sm:pt-4 px-4 sm:px-6 lg:px-8">
-        <Image
-          src="/images/academy-logo.png"
-          alt="遠距遊牧學院 Travel with Work Academy"
-          width={200}
-          height={105}
-          className="h-auto w-[140px] sm:w-[200px] lg:w-[240px] brightness-0 invert"
-          priority
-        />
+      {/* Header with Logo and Desktop Menu */}
+      <div className="absolute top-0 left-0 right-0 z-30 pt-3 sm:pt-4 px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between">
+          <Image
+            src="/images/academy-logo.png"
+            alt="遠距遊牧學院 Travel with Work Academy"
+            width={200}
+            height={105}
+            className="h-auto w-[140px] sm:w-[200px] lg:w-[240px] brightness-0 invert"
+            priority
+          />
+          {/* Desktop Menu - only visible on lg screens */}
+          <div className="hidden lg:flex items-center">
+            <a
+              href="#free-lecture-section"
+              onClick={(e) => {
+                e.preventDefault()
+                document.getElementById("free-lecture-section")?.scrollIntoView({ behavior: "smooth" })
+              }}
+              className="inline-flex items-center gap-2 bg-brand-gold text-brand-teal font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-md hover:shadow-lg"
+            >
+              講座 & 說明會
+            </a>
+          </div>
+        </div>
       </div>
 
       <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-8 sm:pb-10 lg:pb-12">
