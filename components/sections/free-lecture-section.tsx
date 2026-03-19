@@ -29,13 +29,14 @@ export function FreeLectureSection() {
     <>
       <section id="free-lecture-section" className="bg-brand-offwhite py-10 sm:py-14">
         <div className="max-w-2xl mx-auto px-4 text-center">
-          <h3 className="text-xl sm:text-2xl font-bold text-brand-teal mb-3">
-            {"還不確定要不要加入？先來免費看一場。"}
+          <h3 className="text-xl sm:text-2xl font-bold text-brand-teal mb-1">
+            {"還不確定要不要加入？"}
           </h3>
+          <p className="text-lg sm:text-xl font-semibold text-brand-teal mb-3">
+            {"先聽聽台校長說明會分享"}
+          </p>
           <p className="text-sm sm:text-base text-brand-text/70 leading-relaxed mb-6">
-            {"用一場免費講座或一支回放，先幫你看懂："}
-            <br />
-            {"你適不適合、你比較偏哪條路、以及這 5 個月會怎麼走。"}
+            {"先看懂：你適不適合、偏哪條路、這 5 個月會怎麼走。"}
           </p>
           
           {/* Embedded YouTube Video */}
@@ -55,7 +56,7 @@ export function FreeLectureSection() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-brand-gold text-brand-teal font-semibold text-sm sm:text-base px-6 lg:px-5 py-4 lg:py-3 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-sm w-full sm:w-auto whitespace-nowrap"
             >
-              {"查看免費講座場次資訊"}
+              {"報名免費講座、認識講師"}
             </a>
             <a
               href="https://www.skool.com/twwgroup-3033/classroom/a5319d94?md=bca9b69c2a5b40869e2fe6254aa9fa13"
@@ -76,7 +77,7 @@ export function FreeLectureSection() {
                   d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"
                 />
               </svg>
-              {"觀看學院說明會回放"}
+              {"其他免費學習資源"}
             </a>
             <button
               onClick={() => setEmailPopupOpen(true)}
