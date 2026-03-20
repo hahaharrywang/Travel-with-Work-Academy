@@ -752,10 +752,10 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   <div className="w-10 h-10 rounded-lg bg-brand-teal flex items-center justify-center flex-shrink-0">
                     <span className="text-white text-sm font-bold">{'01'}</span>
                   </div>
-                  <h5 className="font-bold text-brand-teal text-base lg:text-lg">{'當屆完整課程'}</h5>
+                  <h5 className="font-bold text-brand-teal text-base lg:text-lg">{'當屆五個月完整課程'}</h5>
                 </div>
                 <p className="text-brand-text/70 text-sm lg:text-base leading-relaxed pl-[52px]">
-                  {'聚焦遠距求職與接案兩條路，從定位到落地流程（直播 / 回放一年）'}
+                  {'聚焦遠距求職與接案兩條路，從目標、定位到落地流程（直播 / 回放一年）'}
                 </p>
               </div>
               <div className="bg-white rounded-xl p-6 border border-brand-mist/50 shadow-sm">
@@ -766,7 +766,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   <h5 className="font-bold text-brand-teal text-base lg:text-lg">{'作業與落地任務'}</h5>
                 </div>
                 <p className="text-brand-text/70 text-sm lg:text-base leading-relaxed pl-[52px]">
-                  {'每周都要交付 — 一步步把你推到「可以被採用 / 被下單」的狀態'}
+                  {'每堂正課都要交付 — 一步步把你推到「可以展示 / 被詢問」的狀態'}
                 </p>
               </div>
               <div className="bg-white rounded-xl p-6 border border-brand-mist/50 shadow-sm">
@@ -777,7 +777,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   <h5 className="font-bold text-brand-teal text-base lg:text-lg">{'成長節奏'}</h5>
                 </div>
                 <p className="text-brand-text/70 text-sm lg:text-base leading-relaxed pl-[52px]">
-                  {'線上同學會 / 團體 QA / DemoDay，互相學習、幫助，彼此督促跟上進度'}
+                  {'固定課表、線上同學會 / 團體 QA / DemoDay，互相學習、彼此督促跟上進度'}
                 </p>
               </div>
             </div>
@@ -818,22 +818,22 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   <li className="flex items-start gap-2">
                     <span className="text-brand-teal font-bold text-xs mt-0.5 flex-shrink-0">{'01'}</span>
                     <div>
-                      <span className="font-semibold text-brand-teal text-sm">{'當屆完整課程'}</span>
-                      <span className="text-brand-text/60 text-xs">{' — 聚焦遠距求職與接案兩條路，從定位到落地流程（直播 / 回放一年）'}</span>
+                      <span className="font-semibold text-brand-teal text-sm">{'當屆五個月完整課程'}</span>
+                      <span className="text-brand-text/60 text-xs">{' — 聚焦遠距求職與接案兩條路，從目標、定位到落地流程（直播 / 回放一年）'}</span>
                     </div>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-brand-teal font-bold text-xs mt-0.5 flex-shrink-0">{'02'}</span>
                     <div>
                       <span className="font-semibold text-brand-teal text-sm">{'作業與落地任務'}</span>
-                      <span className="text-brand-text/60 text-xs">{' — 每周都要交付，一步步把你推到「可以被採用 / 被下單」的狀態'}</span>
+                      <span className="text-brand-text/60 text-xs">{' — 每堂正課都要交付，一步步把你推到「可以展示 / 被詢問」的狀態'}</span>
                     </div>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-brand-teal font-bold text-xs mt-0.5 flex-shrink-0">{'03'}</span>
                     <div>
                       <span className="font-semibold text-brand-teal text-sm">{'成長節奏'}</span>
-                      <span className="text-brand-text/60 text-xs">{' — 線上同學會 / 團體 QA / DemoDay，互相學習、幫助，彼此督促跟上進度'}</span>
+                      <span className="text-brand-text/60 text-xs">{' — 固定課表、線上同學會 / 團體 QA / DemoDay，互相學習、彼此督促跟上進度'}</span>
                     </div>
                   </li>
                 </ul>
@@ -900,7 +900,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     <span className="text-brand-gold mt-0.5 flex-shrink-0 text-lg">{'"'}</span>
                     <p className="text-sm md:text-base text-brand-text leading-relaxed">
                       {'你不再只是羨慕別人遠距，而是'}
-                      <span className="font-semibold text-brand-teal">{'開始有自己的遠距職涯門面'}</span>
+                      <span className="font-semibold text-brand-teal">{'你也在路上，開始有自己的遠距職涯門面'}</span>
                     </p>
                   </li>
                   <li className="flex items-start gap-2">
@@ -920,8 +920,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 </ul>
               </div>
 
-              <p className="mt-6 pt-5 border-t border-brand-mist/50 text-center text-sm md:text-base font-bold text-brand-gold">
-                {'你的目標是「開始更容易拿到遠距工作 / 接案機會」。'}
+<p className="mt-6 pt-5 border-t border-brand-mist/50 text-center text-sm md:text-base font-bold text-brand-clay">
+{'你的目標是「開始更容易拿到遠距工作 / 接案機會」。'}
               </p>
             </div>
           </details>
@@ -947,7 +947,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <div className="flex items-start gap-3 bg-white/60 rounded-xl p-5">
                   <span className="w-2.5 h-2.5 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
                   <div>
-                    <span className="font-semibold text-brand-teal text-sm md:text-base block mb-1">{'Skool 社群永久留存'}</span>
+                    <span className="font-semibold text-brand-teal text-sm md:text-base block mb-1">{'校友 Skool 社群永久留存'}</span>
                     <p className="text-brand-text/60 text-xs md:text-sm leading-relaxed">{'畢業後不用搬家，仍在同一個社群交流（當屆專區僅當屆可見）'}</p>
                   </div>
                 </div>
@@ -978,7 +978,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <div className="mt-5 bg-white/60 rounded-xl p-5">
                 <div className="flex items-center gap-3 mb-4">
                   <h5 className="font-semibold text-brand-teal text-sm md:text-base">{'共創與參與權'}</h5>
-                  <span className="text-xs px-3 py-1 rounded-full bg-brand-gold/15 text-brand-clay font-medium">{'把圈子變成機會場'}</span>
+                  <span className="text-sm md:text-base px-4 py-1.5 rounded-full bg-brand-gold/20 text-brand-clay font-semibold">{'把圈子變成機會場'}</span>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex items-start gap-3">
