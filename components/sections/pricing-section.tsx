@@ -117,12 +117,17 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                 {String(timeLeft.minutes).padStart(2, "0")} 分 {String(timeLeft.seconds).padStart(2, "0")} 秒
               </p>
               {/* Button to open timeline modal */}
-              <button
-                onClick={handleTimelineModalOpen}
-                className="text-sm text-white/70 hover:text-brand-gold transition-colors underline underline-offset-4"
-              >
-                查看漲價時間軸
-              </button>
+              <div className="flex flex-col items-center gap-2">
+                <button
+                  onClick={handleTimelineModalOpen}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-brand-gold text-brand-gold font-bold hover:bg-brand-gold hover:text-brand-teal transition-colors"
+                >
+                  查看漲價時間軸
+                </button>
+                <p className="text-xs text-white/50">
+                  隨著更多資訊釋出，每週四午夜調漲價格
+                </p>
+              </div>
             </div>
           )}
         </div>
