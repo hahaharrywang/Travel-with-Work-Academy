@@ -5,10 +5,12 @@ import { useState } from "react"
 import { stages, formatPrice } from "@/contexts/pricing-context"
 
 function formatDateRange(start: Date, end: Date, isLast: boolean): string {
+  // 強制使用台灣時區 (UTC+8) 格式化日期，避免時區問題
   const fmt = (d: Date) => {
-    const y = d.getFullYear()
-    const m = String(d.getMonth() + 1).padStart(2, "0")
-    const dd = String(d.getDate()).padStart(2, "0")
+    const taiwanDate = new Date(d.toLocaleString("en-US", { timeZone: "Asia/Taipei" }))
+    const y = taiwanDate.getFullYear()
+    const m = String(taiwanDate.getMonth() + 1).padStart(2, "0")
+    const dd = String(taiwanDate.getDate()).padStart(2, "0")
     return `${y}/${m}/${dd}`
   }
   if (isLast) return `${fmt(start)} 之後`
