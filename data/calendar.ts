@@ -323,7 +323,7 @@ export const calendarData: CalendarWeek[] = [
     focusShort: "不靠靈感硬撐，把內容產出變成可持續流程，用 AI 幫忙企劃、標題、開頭。",
     focusDetail:
       "核心內容\n• 讓內容與變現接得起來：每篇內容都朝同一個目標前進\n• 不靠靈感硬撐，把內容產出變成可持續流程\n• 用 AI 輔助內容企劃、標題、開頭等\n\n行動任務\n• 產出具體內容策略與第一步產出",
-    instructorNames: ["三分鐘"],
+    instructorNames: ["三分鐘 Lynn"],
     layerTag: "路線必修 – 接案線 / 內容策略與企劃",
   },
   {

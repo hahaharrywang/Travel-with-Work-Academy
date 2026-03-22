@@ -35,7 +35,7 @@ export const instructors: Instructor[] = [
     },
   },
   {
-    name: "三分鐘",
+    name: "三分鐘 Lynn",
     title: "三分鐘行銷在學中、內容顧問",
     image: "/images/instructors/san-fen-zhong.png",
     link: "https://www.instagram.com/only3minute/",
