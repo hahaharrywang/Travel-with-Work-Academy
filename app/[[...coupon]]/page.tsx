@@ -517,7 +517,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           )}
 
           {/* CTA Button */}
-          <div id="learning-map-cta" className="text-center mt-10">
+          {/* Mobile: Expand/Collapse Button */}
+          <div id="learning-map-cta" className="text-center mt-10 md:hidden">
             <button
               onClick={() => {
                 setShowCalendarInline(!showCalendarInline)
@@ -550,8 +551,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             {!showCalendarInline && <p className="text-sm text-brand-text/60 mt-2">看看每週三晚間八點，具體在做什麼</p>}
           </div>
 
+          {/* Mobile: Expandable Content */}
           {showCalendarInline && (
-            <div ref={calendarSectionRef} className="mt-8 animate-in slide-in-from-top-4 fade-in duration-500">
+            <div ref={calendarSectionRef} className="mt-8 animate-in slide-in-from-top-4 fade-in duration-500 md:hidden">
               {/* Tab Navigation */}
               <div className="flex justify-center mb-6">
                 <div className="inline-flex bg-brand-offwhite rounded-full p-1 border border-brand-mist">
@@ -880,9 +882,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             </div>
           )}
 
-          {/* Footer with collapse button */}
+          {/* Mobile: Footer with collapse button */}
           {showCalendarInline && (
-            <div className="flex justify-center py-6">
+            <div className="flex justify-center py-6 md:hidden">
               <button
                 onClick={() => {
                   setShowCalendarInline(false)
@@ -900,6 +902,297 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               </button>
             </div>
           )}
+
+          {/* Desktop: Always visible Tab Section */}
+          <div className="hidden md:block mt-12">
+            <div className="text-center mb-6">
+              <h3 className="text-xl font-bold text-brand-teal mb-2">課表與講師</h3>
+              <p className="text-sm text-brand-text/60">看看每週三晚間八點，具體在做什麼</p>
+            </div>
+            {/* Tab Navigation */}
+            <div className="flex justify-center mb-6">
+              <div className="inline-flex bg-brand-offwhite rounded-full p-1 border border-brand-mist">
+                <button
+                  onClick={() => setActiveCalendarTab("instructors")}
+                  className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                    activeCalendarTab === "instructors"
+                      ? "bg-brand-teal text-white shadow-sm"
+                      : "text-brand-text/70 hover:text-brand-teal"
+                  }`}
+                >
+                  講師介紹
+                </button>
+                <button
+                  onClick={() => setActiveCalendarTab("schedule")}
+                  className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                    activeCalendarTab === "schedule"
+                      ? "bg-brand-teal text-white shadow-sm"
+                      : "text-brand-text/70 hover:text-brand-teal"
+                  }`}
+                >
+                  課表
+                </button>
+                <button
+                  onClick={() => setActiveCalendarTab("principal")}
+                  className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                    activeCalendarTab === "principal"
+                      ? "bg-brand-teal text-white shadow-sm"
+                      : "text-brand-text/70 hover:text-brand-teal"
+                  }`}
+                >
+                  校長介紹
+                </button>
+              </div>
+            </div>
+
+            {/* Tab Content: Instructors */}
+            {activeCalendarTab === "instructors" && (
+              <div className="animate-in fade-in duration-300">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+                  {(() => {
+                    const calendarInstructorNames = new Set(
+                      calendarData.flatMap((week) => week.instructorNames)
+                    )
+                    return instructors
+                      .filter((instructor) => calendarInstructorNames.has(instructor.name) && instructor.name !== "校長哈利")
+                      .map((instructor) => (
+                        <div
+                          key={instructor.name}
+                          className="flex flex-col items-center p-4 bg-white rounded-xl border border-brand-mist/50 hover:border-brand-gold hover:shadow-md transition-all duration-300 cursor-pointer group"
+                          onClick={() => setSelectedInstructor(instructor)}
+                        >
+                          <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-3 border-brand-gold/30 group-hover:border-brand-gold transition-colors mb-3">
+                            <Image
+                              src={instructor.image || "/placeholder.svg"}
+                              alt={instructor.name}
+                              width={96}
+                              height={96}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          <h4 className="text-sm font-semibold text-brand-teal text-center mb-1">
+                            {instructor.name}
+                          </h4>
+                          <p className="text-xs text-brand-text/60 text-center line-clamp-2 mb-2">
+                            {instructor.title}
+                          </p>
+                          <button className="text-xs text-brand-gold hover:text-brand-teal transition-colors font-medium">
+                            查看詳情
+                          </button>
+                        </div>
+                      ))
+                  })()}
+                </div>
+              </div>
+            )}
+
+            {/* Tab Content: Schedule */}
+            {activeCalendarTab === "schedule" && (
+              <div className="space-y-4">
+                {(() => {
+                  const phases = ["藍圖與目標", "定位與門面", "機會與轉化", "永續"]
+                  const phaseDescriptions: Record<string, string> = {
+                    藍圖與目標: "先知道你要往哪裡走",
+                    定位與門面: "把你整理成別人看得懂的樣子",
+                    機會與轉化: "開始讓曝光、投遞與合作變成機會",
+                    永續: "找到工作不是終點，走得久才是",
+                  }
+                  const phaseMonths: Record<string, string> = {
+                    藍圖與目標: "5 月",
+                    定位與門面: "6 月",
+                    機會與轉化: "7 月",
+                    永續: "8–9 月",
+                  }
+
+                  return phases.map((phase, phaseIndex) => {
+                    const phaseWeeks = calendarData.filter((week) => week.phase === phase)
+                    if (phaseWeeks.length === 0) return null
+
+                    return (
+                      <div key={phase} className="border border-brand-mist/50 rounded-xl overflow-hidden bg-white">
+                        <button
+                          onClick={() => setExpandedPhase(expandedPhase === phase ? null : phase)}
+                          className="w-full flex items-center justify-between p-4 hover:bg-brand-offwhite/50 transition-colors"
+                        >
+                          <div className="flex items-center gap-3 text-left">
+                            <span
+                              className={`inline-flex items-center justify-center w-8 h-8 rounded-full text-white text-sm font-bold ${
+                                phaseIndex === 0
+                                  ? "bg-brand-teal"
+                                  : phaseIndex === 1
+                                    ? "bg-brand-gold"
+                                    : phaseIndex === 2
+                                      ? "bg-brand-clay"
+                                      : "bg-brand-mist text-brand-teal"
+                              }`}
+                            >
+                              {phaseIndex + 1}
+                            </span>
+                            <div>
+                              <p className="text-xs text-brand-text/60">
+                                {phaseMonths[phase]} <span className="text-brand-gold">{phase}</span>
+                              </p>
+                              <p className="text-sm font-semibold text-brand-teal">{phaseDescriptions[phase]}</p>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-2 text-brand-text/50">
+                            <span className="text-xs">展開</span>
+                            {expandedPhase === phase ? (
+                              <ChevronUp className="w-4 h-4" />
+                            ) : (
+                              <ChevronDown className="w-4 h-4" />
+                            )}
+                          </div>
+                        </button>
+
+                        {expandedPhase === phase && (
+                          <div className="border-t border-brand-mist/30 p-4 bg-brand-offwhite/30">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                              {phaseWeeks.map((week) => {
+                                const weekInstructors = getInstructorsByNames(week.instructorNames)
+                                return (
+                                  <div
+                                    key={week.id}
+                                    className="bg-white rounded-lg p-4 border border-brand-mist/30 hover:border-brand-gold/50 hover:shadow-sm transition-all cursor-pointer"
+                                    onClick={() => setSelectedWeek(week)}
+                                  >
+                                    <div className="flex items-center justify-between mb-2">
+                                      <span className="text-xs text-brand-text/60">{week.monthWeek}</span>
+                                      <span
+                                        className={`text-xs px-2 py-0.5 rounded-full ${
+                                          week.track === "全體共同"
+                                            ? "bg-brand-teal/10 text-brand-teal"
+                                            : week.track === "遠端上班線"
+                                              ? "bg-blue-100 text-blue-700"
+                                              : "bg-brand-gold/10 text-brand-gold"
+                                        }`}
+                                      >
+                                        {week.track}
+                                      </span>
+                                    </div>
+                                    <h4 className="text-sm font-semibold text-brand-teal mb-2">{week.title}</h4>
+                                    <p className="text-xs text-brand-text/70 line-clamp-2 mb-3">{week.focusShort}</p>
+                                    <div className="flex items-center justify-between">
+                                      <div className="flex items-center gap-2">
+                                        <div className="w-6 h-6 rounded-full overflow-hidden border border-brand-mist">
+                                          <Image
+                                            src={weekInstructors[0]?.image || "/placeholder.svg"}
+                                            alt={weekInstructors[0]?.name || "講師"}
+                                            width={24}
+                                            height={24}
+                                            className="w-full h-full object-cover"
+                                          />
+                                        </div>
+                                        <span className="text-xs text-brand-text/60">
+                                          {weekInstructors[0]?.name === "講師確認中"
+                                            ? "待公開"
+                                            : weekInstructors[0]?.name}
+                                        </span>
+                                      </div>
+                                      <ChevronRight className="w-4 h-4 text-brand-text/40" />
+                                    </div>
+                                  </div>
+                                )
+                              })}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    )
+                  })
+                })()}
+              </div>
+            )}
+
+            {/* Tab Content: Principal */}
+            {activeCalendarTab === "principal" && (
+              <div className="animate-in fade-in duration-300">
+                {(() => {
+                  const principal = instructors.find((i) => i.name === "校長哈利")
+                  if (!principal) return null
+                  return (
+                    <div className="max-w-2xl mx-auto">
+                      <div className="bg-white rounded-2xl shadow-sm border border-brand-mist/50 overflow-hidden">
+                        <div className="bg-gradient-to-br from-brand-teal to-brand-teal/80 pt-8 pb-16 px-6 text-center">
+                          <div className="w-28 h-28 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg mb-4">
+                            <Image
+                              src={principal.image || "/placeholder.svg"}
+                              alt={principal.name}
+                              width={112}
+                              height={112}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          <h3 className="text-2xl font-bold text-white mb-1">Harry Wang</h3>
+                          <p className="text-white/80 text-sm">數位遊牧台灣 創辦人暨執行長</p>
+                        </div>
+                        <div className="px-6 py-6 -mt-8">
+                          <div className="bg-brand-offwhite rounded-xl p-5 mb-5">
+                            <h4 className="text-sm font-semibold text-brand-teal mb-3">關於校長</h4>
+                            <p className="text-sm text-brand-text/80 leading-relaxed">
+                              2021年畢業於日本的國際大學後，在三年內斜槓了四個職種、合計五年的工作經驗，包含保養品、HR、資安等領域。於職涯前期快速探索、迭代人生。
+                            </p>
+                            <p className="text-sm text-brand-text/80 leading-relaxed mt-3">
+                              現為品牌「數位遊牧台灣」的創辦人兼執行長，品牌願景是幫助更多冒險家實現自由探索的人生。通過本地推廣與促進國際交流，對內教育培育新一代數位遊牧者、對外將台灣打造為世界進入亞洲的數位遊牧入口。
+                            </p>
+                            <p className="text-sm text-brand-text/80 leading-relaxed mt-3">
+                              Harry 在品牌成立後，帶領一個八人團隊，已經舉辦了 30 場線下活動，吸引了超過 900 付費參加人次，其中有近一半參加者是來自於口碑推薦。活動不僅在台灣本地受到對該領域有興趣者的青睞，活動中英語多文化友善的氛圍，也吸引了在台外國人的關注。Harry 也已受邀至數個國際性數位遊牧活動中擔任講者與嘉賓。
+                            </p>
+                          </div>
+                          <div className="bg-brand-offwhite rounded-xl p-5 mb-5">
+                            <h4 className="text-sm font-semibold text-brand-teal mb-3">數位遊牧相關經歷</h4>
+                            <ul className="text-sm text-brand-text/80 space-y-2">
+                              <li className="flex items-start gap-2">
+                                <span className="text-brand-gold mt-1">•</span>
+                                <span>2025 Vietnam Nomad Fest 講者</span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <span className="text-brand-gold mt-1">•</span>
+                                <span>2024 NextT旅創加速器第三屆新創團隊</span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <span className="text-brand-gold mt-1">•</span>
+                                <span>2024 Japan Okinawa Nomad Resort 台灣宣傳大使</span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <span className="text-brand-gold mt-1">•</span>
+                                <span>2024 Japan Colive Fukuoka 講者</span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <span className="text-brand-gold mt-1">•</span>
+                                <span>2024 Asian Nomad Alliance Summit 台灣代表</span>
+                              </li>
+                            </ul>
+                          </div>
+                          <div className="bg-brand-offwhite rounded-xl p-5">
+                            <h4 className="text-sm font-semibold text-brand-teal mb-3">工作經歷</h4>
+                            <ul className="text-sm text-brand-text/80 space-y-2">
+                              <li className="flex items-start gap-2">
+                                <span className="text-brand-gold mt-1">•</span>
+                                <span>台灣數位遊牧股份有限公司 / 創辦人暨執行長</span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <span className="text-brand-gold mt-1">•</span>
+                                <span>數位遊牧協會 / 理事</span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <span className="text-brand-gold mt-1">•</span>
+                                <span>Slasify / Business Development Manager</span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <span className="text-brand-gold mt-1">•</span>
+                                <span>日本立命館亞洲太平洋大學 / 國際經營學系畢</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })()}
+              </div>
+            )}
+          </div>
         </div>
       </section>
 
