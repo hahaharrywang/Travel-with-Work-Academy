@@ -730,9 +730,15 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               {activeCalendarTab === "instructors" && (
                 <div className="animate-in fade-in duration-300">
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
-                    {instructors
-                      .filter((instructor) => instructor.name !== "講師確認中")
-                      .map((instructor) => (
+                    {(() => {
+                      // 收集課表中所有講師名稱
+                      const calendarInstructorNames = new Set(
+                        calendarData.flatMap((week) => week.instructorNames)
+                      )
+                      // 只顯示在課表中有課程的講師
+                      return instructors
+                        .filter((instructor) => calendarInstructorNames.has(instructor.name))
+                        .map((instructor) => (
                         <div
                           key={instructor.name}
                           className="flex flex-col items-center p-4 bg-white rounded-xl border border-brand-mist/50 hover:border-brand-gold hover:shadow-md transition-all duration-300 cursor-pointer group"
@@ -757,7 +763,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                             查看詳情
                           </button>
                         </div>
-                      ))}
+                      ))
+                    })()}
                   </div>
                 </div>
               )}
