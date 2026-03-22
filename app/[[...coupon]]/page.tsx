@@ -536,7 +536,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               {showCalendarInline ? (
                 <>
                   <ChevronUp className="w-4 h-4" />
-                  收合行事曆
+                  收合課表
                 </>
               ) : (
                 <>
