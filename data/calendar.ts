@@ -323,7 +323,7 @@ export const calendarData: CalendarWeek[] = [
     focusShort: "不靠靈感硬撐，把內容產出變成可持續流程，用 AI 幫忙企劃、標題、開頭。",
     focusDetail:
       "核心內容\n• 讓內容與變現接得起來：每篇內容都朝同一個目標前進\n• 不靠靈感硬撐，把內容產出變成可持續流程\n• 用 AI 輔助內容企劃、標題、開頭等\n\n行動任務\n• 產出具體內容策略與第一步產出",
-    instructorNames: ["講師確認中"],
+    instructorNames: ["三分鐘"],
     layerTag: "路線必修 – 接案線 / 內容策略與企劃",
   },
   {
@@ -394,7 +394,7 @@ export const calendarData: CalendarWeek[] = [
     focusShort: "讓接案不只是「有案做」而是「做得久」：可搭配短影音剪輯選修 Workshop。",
     focusDetail:
       "核心內容\n• 把接案從「等案」變「選案」：建立穩定的案源管道\n• 讓你的收入結構多元化\n• 可搭配短影音剪輯選修 Workshop\n\n行動任務\n• 檢視目前的案源結構\n• 建立可複用的接案流程 SOP",
-    instructorNames: ["講師確認中"],
+    instructorNames: ["林佳 Zoe"],
     layerTag: "路線必修 – 接案線 / 流量出擊（短影音）",
   },
   {
