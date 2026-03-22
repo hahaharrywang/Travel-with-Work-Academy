@@ -803,8 +803,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                                 className="w-full h-full object-cover"
                               />
                             </div>
-                            <h3 className="text-2xl font-bold text-white mb-1">Harry Wang</h3>
-                            <p className="text-white/80 text-sm">數位遊牧台灣 創辦人暨執行長</p>
+                            <h3 className="text-2xl font-bold text-white mb-1">Harry</h3>
+                            <p className="text-white/80 text-sm">DigitalNomadsTaiwan 創辦人暨執行長</p>
                           </div>
 
                           {/* Content */}
@@ -813,62 +813,66 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                             <div className="bg-brand-offwhite rounded-xl p-5 mb-5">
                               <h4 className="text-sm font-semibold text-brand-teal mb-3">關於校長</h4>
                               <p className="text-sm text-brand-text/80 leading-relaxed">
-                                2021年畢業於日本的國際大學後，在三年內斜槓了四個職種、合計五年的工作經驗，包含保養品、HR、資安等領域。於職涯前期快速探索、迭代人生。
+                                Harry 是數位遊牧台灣（DigitalNomadsTaiwan）創辦人暨執行長，也是遠距遊牧學院校長。畢業後，曾跨足不同產業與多元遠端工作角色，其中也包含跨國人資產業的第一線經驗。這段歷程讓他從產業端更早看見：遠距工作、全球人才流動與更彈性的職涯模式，正在快速崛起，並逐漸成為新世代的重要趨勢。
                               </p>
                               <p className="text-sm text-brand-text/80 leading-relaxed mt-3">
-                                現為品牌「數位遊牧台灣」的創辦人兼執行長，品牌願景是幫助更多冒險家實現自由探索的人生。通過本地推廣與促進國際交流，對內教育培育新一代數位遊牧者、對外將台灣打造為世界進入亞洲的數位遊牧入口。
+                                此後，他持續投入數位遊牧社群的經營、活動策劃與國際交流。也正因為在一次次真實的交流、相遇與陪伴中，看見許多人對自由職涯的嚮往、卡點與轉變，他更加確信：比起只提供靈感與想像，真正重要的，是一套能幫助人逐步行動、持續前進的學習路線。這也成為遠距遊牧學院持續發展的核心方向。
                               </p>
                               <p className="text-sm text-brand-text/80 leading-relaxed mt-3">
-                                Harry 在品牌成立後，帶領一個八人團隊，已經舉辦了 30 場線下活動，吸引了超過 900 付費參加人次，其中有近一半參加者是來自於口碑推薦。活動不僅在台灣本地受到對該領域有興趣者的青睞，活動中英語多文化友善的氛圍，也吸引了在台外國人的關注。Harry 也已受邀至數個國際性數位遊牧活動中擔任講者與嘉賓。
+                                品牌成立以來，已累積舉辦超過 50 場線下活動，吸引超過 1800 人次付費參與，其中近一半來自口碑推薦。作為遠距遊牧學院校長，Harry 希望做的，不只是分享理念，而是陪伴更多人把對自由的想像，轉化成可以一步步開始的職涯路線。
                               </p>
                             </div>
 
-                            {/* 數位遊牧相關經歷 */}
+                            {/* 職涯背景 */}
                             <div className="bg-brand-offwhite rounded-xl p-5 mb-5">
-                              <h4 className="text-sm font-semibold text-brand-teal mb-3">數位遊牧相關經歷</h4>
+                              <h4 className="text-sm font-semibold text-brand-teal mb-3">職涯背景</h4>
                               <ul className="text-sm text-brand-text/80 space-y-2">
                                 <li className="flex items-start gap-2">
                                   <span className="text-brand-gold mt-1">•</span>
-                                  <span>2025 Vietnam Nomad Fest 講者</span>
+                                  <span>數位遊牧台灣／創辦人暨執行長</span>
                                 </li>
                                 <li className="flex items-start gap-2">
                                   <span className="text-brand-gold mt-1">•</span>
-                                  <span>2024 NextT旅創加速器第三屆新創團隊</span>
+                                  <span>遠距遊牧學院／創辦人兼校長</span>
                                 </li>
                                 <li className="flex items-start gap-2">
                                   <span className="text-brand-gold mt-1">•</span>
-                                  <span>2024 Japan Okinawa Nomad Resort 台灣宣傳大使</span>
+                                  <span>跨國人力資源外商 / 全遠端商務開發</span>
                                 </li>
                                 <li className="flex items-start gap-2">
                                   <span className="text-brand-gold mt-1">•</span>
-                                  <span>2024 Japan Colive Fukuoka 講者</span>
+                                  <span>新創加速器 / 遠端PM</span>
                                 </li>
                                 <li className="flex items-start gap-2">
                                   <span className="text-brand-gold mt-1">•</span>
-                                  <span>2024 Asian Nomad Alliance Summit 台灣代表</span>
+                                  <span>科技新創 / 遠端外部營運顧問</span>
                                 </li>
                               </ul>
                             </div>
 
-                            {/* 工作經歷 */}
+                            {/* 數位遊牧相關經歷 */}
                             <div className="bg-brand-offwhite rounded-xl p-5">
-                              <h4 className="text-sm font-semibold text-brand-teal mb-3">工作經歷</h4>
+                              <h4 className="text-sm font-semibold text-brand-teal mb-3">數位遊牧相關經歷</h4>
                               <ul className="text-sm text-brand-text/80 space-y-2">
                                 <li className="flex items-start gap-2">
                                   <span className="text-brand-gold mt-1">•</span>
-                                  <span>台灣數位遊牧股份有限公司 / 創辦人暨執行長</span>
+                                  <span>2025 Vietnam Nomad Fest／講者</span>
                                 </li>
                                 <li className="flex items-start gap-2">
                                   <span className="text-brand-gold mt-1">•</span>
-                                  <span>數位遊牧協會 / 理事</span>
+                                  <span>2025 Kozarocks 遊牧對談台灣講者</span>
                                 </li>
                                 <li className="flex items-start gap-2">
                                   <span className="text-brand-gold mt-1">•</span>
-                                  <span>Slasify / Business Development Manager</span>
+                                  <span>2024 Japan Okinawa Nomad Resort／台灣宣傳大使</span>
                                 </li>
                                 <li className="flex items-start gap-2">
                                   <span className="text-brand-gold mt-1">•</span>
-                                  <span>日本立命館亞洲太平洋大學 / 國際經營學系畢</span>
+                                  <span>2024 Japan Colive Fukuoka／講者</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                  <span className="text-brand-gold mt-1">•</span>
+                                  <span>2024 Asian Nomad Alliance Summit／台灣代表</span>
                                 </li>
                               </ul>
                             </div>
@@ -1131,65 +1135,69 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                               className="w-full h-full object-cover"
                             />
                           </div>
-                          <h3 className="text-2xl font-bold text-white mb-1">Harry Wang</h3>
-                          <p className="text-white/80 text-sm">數位遊牧台灣 創辦人暨執行長</p>
+                          <h3 className="text-2xl font-bold text-white mb-1">Harry</h3>
+                          <p className="text-white/80 text-sm">DigitalNomadsTaiwan 創辦人暨執行長</p>
                         </div>
                         <div className="px-6 py-6 -mt-8">
                           <div className="bg-brand-offwhite rounded-xl p-5 mb-5">
                             <h4 className="text-sm font-semibold text-brand-teal mb-3">關於校長</h4>
                             <p className="text-sm text-brand-text/80 leading-relaxed">
-                              2021年畢業於日本的國際大學後，在三年內斜槓了四個職種、合計五年的工作經驗，包含保養品、HR、資安等領域。於職涯前期快速探索、迭代人生。
+                              Harry 是數位遊牧台灣（DigitalNomadsTaiwan）創辦人暨執行長，也是遠距遊牧學院校長。畢業後，曾跨足不同產業與多元遠端工作角色，其中也包含跨國人資產業的第一線經驗。這段歷程讓他從產業端更早看見：遠距工作、全球人才流動與更彈性的職涯模式，正在快速崛起，並逐漸成為新世代的重要趨勢。
                             </p>
                             <p className="text-sm text-brand-text/80 leading-relaxed mt-3">
-                              現為品牌「數位遊牧台灣」的創辦人兼執行長，品牌願景是幫助更多冒險家實現自由探索的人生。通過本地推廣與促進國際交流，對內教育培育新一代數位遊牧者、對外將台灣打造為世界進入亞洲的數位遊牧入口。
+                              此後，他持續投入數位遊牧社群的經營、活動策劃與國際交流。也正因為在一次次真實的交流、相遇與陪伴中，看見許多人對自由職涯的嚮往、卡點與轉變，他更加確信：比起只提供靈感與想像，真正重要的，是一套能幫助人逐步行動、持續前進的學習路線。這也成為遠距遊牧學院持續發展的核心方向。
                             </p>
                             <p className="text-sm text-brand-text/80 leading-relaxed mt-3">
-                              Harry 在品牌成立後，帶領一個八人團隊，已經舉辦了 30 場線下活動，吸引了超過 900 付費參加人次，其中有近一半參加者是來自於口碑推薦。活動不僅在台灣本地受到對該領域有興趣者的青睞，活動中英語多文化友善的氛圍，也吸引了在台外國人的關注。Harry 也已受邀至數個國際性數位遊牧活動中擔任講者與嘉賓。
+                              品牌成立以來，已累積舉辦超過 50 場線下活動，吸引超過 1800 人次付費參與，其中近一半來自口碑推薦。作為遠距遊牧學院校長，Harry 希望做的，不只是分享理念，而是陪伴更多人把對自由的想像，轉化成可以一步步開始的職涯路線。
                             </p>
                           </div>
                           <div className="bg-brand-offwhite rounded-xl p-5 mb-5">
-                            <h4 className="text-sm font-semibold text-brand-teal mb-3">數位遊牧相關經歷</h4>
+                            <h4 className="text-sm font-semibold text-brand-teal mb-3">職涯背景</h4>
                             <ul className="text-sm text-brand-text/80 space-y-2">
                               <li className="flex items-start gap-2">
                                 <span className="text-brand-gold mt-1">•</span>
-                                <span>2025 Vietnam Nomad Fest 講者</span>
+                                <span>數位遊牧台灣／創辦人暨執行長</span>
                               </li>
                               <li className="flex items-start gap-2">
                                 <span className="text-brand-gold mt-1">•</span>
-                                <span>2024 NextT旅創加速器第三屆新創團隊</span>
+                                <span>遠距遊牧學院／創辦人兼校長</span>
                               </li>
                               <li className="flex items-start gap-2">
                                 <span className="text-brand-gold mt-1">•</span>
-                                <span>2024 Japan Okinawa Nomad Resort 台灣宣傳大使</span>
+                                <span>跨國人力資源外商 / 全遠端商務開發</span>
                               </li>
                               <li className="flex items-start gap-2">
                                 <span className="text-brand-gold mt-1">•</span>
-                                <span>2024 Japan Colive Fukuoka 講者</span>
+                                <span>新創加速器 / 遠端PM</span>
                               </li>
                               <li className="flex items-start gap-2">
                                 <span className="text-brand-gold mt-1">•</span>
-                                <span>2024 Asian Nomad Alliance Summit 台灣代表</span>
+                                <span>科技新創 / 遠端外部營運顧問</span>
                               </li>
                             </ul>
                           </div>
                           <div className="bg-brand-offwhite rounded-xl p-5">
-                            <h4 className="text-sm font-semibold text-brand-teal mb-3">工作經歷</h4>
+                            <h4 className="text-sm font-semibold text-brand-teal mb-3">數位遊牧相關經歷</h4>
                             <ul className="text-sm text-brand-text/80 space-y-2">
                               <li className="flex items-start gap-2">
                                 <span className="text-brand-gold mt-1">•</span>
-                                <span>台灣數位遊牧股份有限公司 / 創辦人暨執行長</span>
+                                <span>2025 Vietnam Nomad Fest／講者</span>
                               </li>
                               <li className="flex items-start gap-2">
                                 <span className="text-brand-gold mt-1">•</span>
-                                <span>數位遊牧協會 / 理事</span>
+                                <span>2025 Kozarocks 遊牧對談台灣講者</span>
                               </li>
                               <li className="flex items-start gap-2">
                                 <span className="text-brand-gold mt-1">•</span>
-                                <span>Slasify / Business Development Manager</span>
+                                <span>2024 Japan Okinawa Nomad Resort／台灣宣傳大使</span>
                               </li>
                               <li className="flex items-start gap-2">
                                 <span className="text-brand-gold mt-1">•</span>
-                                <span>日本立命館亞洲太平洋大學 / 國際經營學系畢</span>
+                                <span>2024 Japan Colive Fukuoka／講者</span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <span className="text-brand-gold mt-1">•</span>
+                                <span>2024 Asian Nomad Alliance Summit／台灣代表</span>
                               </li>
                             </ul>
                           </div>
