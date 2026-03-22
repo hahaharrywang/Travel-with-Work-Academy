@@ -745,40 +745,66 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <div className="animate-in fade-in duration-300">
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
 {(() => {
-  // 收集課表中所有講師名稱
-  const calendarInstructorNames = new Set(
-  calendarData.flatMap((week) => week.instructorNames)
-  )
-  // 只顯示在課表中有課程的講師，並排除校長
-  return instructors
-  .filter((instructor) => calendarInstructorNames.has(instructor.name) && instructor.name !== "校長哈利")
-  .map((instructor) => (
-                        <div
-                          key={instructor.name}
-                          className="flex flex-col items-center p-4 bg-white rounded-xl border border-brand-mist/50 hover:border-brand-gold hover:shadow-md transition-all duration-300 cursor-pointer group"
-                          onClick={() => setSelectedInstructor(instructor)}
-                        >
-                          <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-3 border-brand-gold/30 group-hover:border-brand-gold transition-colors mb-3">
-                            <Image
-                              src={instructor.image || "/placeholder.svg"}
-                              alt={instructor.name}
-                              width={96}
-                              height={96}
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                          <h4 className="text-sm font-semibold text-brand-teal text-center mb-1">
-                            {instructor.name}
-                          </h4>
-                          <p className="text-xs text-brand-text/60 text-center line-clamp-2 mb-2">
-                            {instructor.title}
-                          </p>
-                          <button className="text-xs text-brand-gold hover:text-brand-teal transition-colors font-medium">
-                            查看詳情
-                          </button>
-                        </div>
-                      ))
+                      // 收集課表中所有講師名稱
+                      const calendarInstructorNames = new Set(
+                        calendarData.flatMap((week) => week.instructorNames)
+                      )
+                      // 只顯示在課表中有課程的講師，並排除校長
+                      const filteredInstructors = instructors
+                        .filter((instructor) => calendarInstructorNames.has(instructor.name) && instructor.name !== "校長哈利")
+                      
+                      // 計算需要多少個佔位卡片（目標 12 位講師）
+                      const placeholderCount = Math.max(0, 12 - filteredInstructors.length)
+                      
+                      return (
+                        <>
+                          {filteredInstructors.map((instructor) => (
+                            <div
+                              key={instructor.name}
+                              className="flex flex-col items-center p-4 bg-white rounded-xl border border-brand-mist/50 hover:border-brand-gold hover:shadow-md transition-all duration-300 cursor-pointer group"
+                              onClick={() => setSelectedInstructor(instructor)}
+                            >
+                              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-3 border-brand-gold/30 group-hover:border-brand-gold transition-colors mb-3">
+                                <Image
+                                  src={instructor.image || "/placeholder.svg"}
+                                  alt={instructor.name}
+                                  width={96}
+                                  height={96}
+                                  className="w-full h-full object-cover"
+                                />
+                              </div>
+                              <h4 className="text-sm font-semibold text-brand-teal text-center mb-1">
+                                {instructor.name}
+                              </h4>
+                              <p className="text-xs text-brand-text/60 text-center line-clamp-2 mb-2">
+                                {instructor.title}
+                              </p>
+                              <button className="text-xs text-brand-gold hover:text-brand-teal transition-colors font-medium">
+                                查看詳情
+                              </button>
+                            </div>
+                          ))}
+                          {/* 佔位卡片 */}
+                          {Array.from({ length: Math.min(placeholderCount, 3) }).map((_, index) => (
+                            <div
+                              key={`placeholder-${index}`}
+                              className="flex flex-col items-center justify-center p-4 bg-brand-offwhite/50 rounded-xl border-2 border-dashed border-brand-mist"
+                            >
+                              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-brand-mist/30 flex items-center justify-center mb-3">
+                                <span className="text-3xl text-brand-mist">?</span>
+                              </div>
+                              <h4 className="text-sm font-medium text-brand-text/40 text-center">
+                                即將公佈
+                              </h4>
+                            </div>
+                          ))}
+                        </>
+                      )
                     })()}
+                  </div>
+                  {/* 底部提示 */}
+                  <div className="text-center mt-6">
+                    <p className="text-sm text-brand-gold font-medium">講師陣容持續更新中...</p>
                   </div>
                 </div>
               )}
@@ -957,35 +983,61 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     const calendarInstructorNames = new Set(
                       calendarData.flatMap((week) => week.instructorNames)
                     )
-                    return instructors
+                    const filteredInstructors = instructors
                       .filter((instructor) => calendarInstructorNames.has(instructor.name) && instructor.name !== "校長哈利")
-                      .map((instructor) => (
-                        <div
-                          key={instructor.name}
-                          className="flex flex-col items-center p-4 bg-white rounded-xl border border-brand-mist/50 hover:border-brand-gold hover:shadow-md transition-all duration-300 cursor-pointer group"
-                          onClick={() => setSelectedInstructor(instructor)}
-                        >
-                          <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-3 border-brand-gold/30 group-hover:border-brand-gold transition-colors mb-3">
-                            <Image
-                              src={instructor.image || "/placeholder.svg"}
-                              alt={instructor.name}
-                              width={96}
-                              height={96}
-                              className="w-full h-full object-cover"
-                            />
+                    
+                    // 計算需要多少個佔位卡片（目標 12 位講師）
+                    const placeholderCount = Math.max(0, 12 - filteredInstructors.length)
+                    
+                    return (
+                      <>
+                        {filteredInstructors.map((instructor) => (
+                          <div
+                            key={instructor.name}
+                            className="flex flex-col items-center p-4 bg-white rounded-xl border border-brand-mist/50 hover:border-brand-gold hover:shadow-md transition-all duration-300 cursor-pointer group"
+                            onClick={() => setSelectedInstructor(instructor)}
+                          >
+                            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-3 border-brand-gold/30 group-hover:border-brand-gold transition-colors mb-3">
+                              <Image
+                                src={instructor.image || "/placeholder.svg"}
+                                alt={instructor.name}
+                                width={96}
+                                height={96}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                            <h4 className="text-sm font-semibold text-brand-teal text-center mb-1">
+                              {instructor.name}
+                            </h4>
+                            <p className="text-xs text-brand-text/60 text-center line-clamp-2 mb-2">
+                              {instructor.title}
+                            </p>
+                            <button className="text-xs text-brand-gold hover:text-brand-teal transition-colors font-medium">
+                              查看詳情
+                            </button>
                           </div>
-                          <h4 className="text-sm font-semibold text-brand-teal text-center mb-1">
-                            {instructor.name}
-                          </h4>
-                          <p className="text-xs text-brand-text/60 text-center line-clamp-2 mb-2">
-                            {instructor.title}
-                          </p>
-                          <button className="text-xs text-brand-gold hover:text-brand-teal transition-colors font-medium">
-                            查看詳情
-                          </button>
-                        </div>
-                      ))
+                        ))}
+                        {/* 佔位卡片 */}
+                        {Array.from({ length: Math.min(placeholderCount, 3) }).map((_, index) => (
+                          <div
+                            key={`placeholder-${index}`}
+                            className="flex flex-col items-center justify-center p-4 bg-brand-offwhite/50 rounded-xl border-2 border-dashed border-brand-mist"
+                          >
+                            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-brand-mist/30 flex items-center justify-center mb-3">
+                              <span className="text-3xl text-brand-mist">?</span>
+                            </div>
+                            <h4 className="text-sm font-medium text-brand-text/40 text-center">
+                              即將公佈
+                            </h4>
+                          </div>
+                        ))}
+                      </>
+                    )
                   })()}
+                </div>
+                {/* 底部提示 */}
+                <div className="text-center mt-6">
+                  <p className="text-sm text-brand-gold font-medium">講師陣容持續更新中...</p>
                 </div>
               </div>
             )}
