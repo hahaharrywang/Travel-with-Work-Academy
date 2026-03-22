@@ -36,11 +36,11 @@ export const instructors: Instructor[] = [
   },
   {
     name: "三分鐘",
-    title: "IG+FB+Threads 共 10萬粉絲、知識型 IP 經營者，揭秘如何透過社群影響力，放大個人價值",
-    image: "/images/e4-b8-89-e5-88-86-e9-90-98.jpeg",
+    title: "三分鐘行銷在學中、內容顧問",
+    image: "/images/instructors/san-fen-zhong.png",
     link: "https://www.instagram.com/only3minute/",
     background:
-      "三分鐘是擁有超過10萬粉絲的知識型 IP 經營者，擅長透過社群媒體放大個人價值，並分享實用的內容創作與經營策略。",
+      "前 Skyline 編採顧問 / 前 遠見 合作社群編輯 / 前 奧美廣告 業務經理 / 神農生活 / 食習 行銷社群顧問 / 9 萬讀者 IG「三分鐘｜行銷在學中」經營者 / 目前為 行銷顧問 / 社群講師 / 自媒體創作者 / 合作 100+ 品牌，企業內訓、校園講座經驗超過 50 場",
     links: {
       instagram: "https://www.instagram.com/only3minute/",
     },
@@ -131,11 +131,11 @@ export const instructors: Instructor[] = [
   },
   {
     name: "林佳 Zoe",
-    title: "9萬粉絲創作者，專長於打造 IG 流量，協助你產出具潛力的短影片與貼文！",
-    image: "/images/e6-af-8f-e6-97-a5e-e9-8c-a0.jpeg",
+    title: "每日e錠 共同創辦人",
+    image: "/images/instructors/lin-jia-zoe.png",
     link: "https://www.daydayding.com",
     background:
-      "林佳 Zoe 是一位擁有9萬粉絲的創作者，專長於 IG 流量經營與短影片製作，將分享如何打造吸引人的內容。",
+      "自媒體創作者、社群行銷顧問 / 8 年跨產業行銷經驗，操盤百萬粉絲團 / IG 經營 4 個月破萬追蹤，現累積 9 萬粉絲 / 輔導逾 10,000 名學員打造個人品牌與自媒體 / 曾授課於政府機構、知名企業與國際平台 / 致力推廣透過個人品牌實現理想生活與事業",
     links: {
       website: "https://www.daydayding.com",
     },

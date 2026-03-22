@@ -111,18 +111,22 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                   {currentStageData.name} {currentStageData.discountLabel}
                 </span>
               </p>
-              <p className="text-sm text-white/60 mb-3">漲價倒數</p>
-              <p className="text-3xl sm:text-4xl font-bold text-brand-gold mb-4">
+              <p className="text-2xl sm:text-4xl font-bold text-brand-gold mb-4">
                 {timeLeft.days} 天 {String(timeLeft.hours).padStart(2, "0")} 時{" "}
                 {String(timeLeft.minutes).padStart(2, "0")} 分 {String(timeLeft.seconds).padStart(2, "0")} 秒
               </p>
               {/* Button to open timeline modal */}
-              <button
-                onClick={handleTimelineModalOpen}
-                className="text-sm text-white/70 hover:text-brand-gold transition-colors underline underline-offset-4"
-              >
-                查看漲價時間軸
-              </button>
+              <div className="flex flex-col items-center gap-2">
+                <button
+                  onClick={handleTimelineModalOpen}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-brand-gold text-brand-gold font-bold hover:bg-brand-gold hover:text-brand-teal transition-colors"
+                >
+                  查看漲價時間軸
+                </button>
+                <p className="text-xs text-white/50">
+                  隨著更多資訊釋出，每週四午夜調漲價格
+                </p>
+              </div>
             </div>
           )}
         </div>
