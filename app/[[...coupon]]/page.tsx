@@ -64,7 +64,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
   const [couponCode, setCouponCode] = useState<string | null>(null)
   const [activeMapTab, setActiveMapTab] = useState<string>("遠端上班") // State for Learning Map tabs
   const [selectedWeek, setSelectedWeek] = useState<CalendarWeek | null>(null)
-  const [activeCalendarTab, setActiveCalendarTab] = useState<"schedule" | "instructors" | "principal">("schedule")
+  const [activeCalendarTab, setActiveCalendarTab] = useState<"schedule" | "instructors" | "principal">("instructors")
   const [selectedInstructor, setSelectedInstructor] = useState<typeof instructors[0] | null>(null)
 
   const { currentStageData, timeLeft, lowestPrice, selectedPlanId, setSelectedPlanId, getTrackingParams } = usePricing()
@@ -556,6 +556,16 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <div className="flex justify-center mb-6">
                 <div className="inline-flex bg-brand-offwhite rounded-full p-1 border border-brand-mist">
                   <button
+                    onClick={() => setActiveCalendarTab("instructors")}
+                    className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                      activeCalendarTab === "instructors"
+                        ? "bg-brand-teal text-white shadow-sm"
+                        : "text-brand-text/70 hover:text-brand-teal"
+                    }`}
+                  >
+                    講師介紹
+                  </button>
+                  <button
                     onClick={() => setActiveCalendarTab("schedule")}
                     className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                       activeCalendarTab === "schedule"
@@ -565,27 +575,17 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   >
                     課表
                   </button>
-<button
-  onClick={() => setActiveCalendarTab("instructors")}
-  className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-  activeCalendarTab === "instructors"
-  ? "bg-brand-teal text-white shadow-sm"
-  : "text-brand-text/70 hover:text-brand-teal"
-  }`}
-  >
-  講師介紹
-  </button>
-  <button
-  onClick={() => setActiveCalendarTab("principal")}
-  className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-  activeCalendarTab === "principal"
-  ? "bg-brand-teal text-white shadow-sm"
-  : "text-brand-text/70 hover:text-brand-teal"
-  }`}
-  >
-  校長介紹
-  </button>
-  </div>
+                  <button
+                    onClick={() => setActiveCalendarTab("principal")}
+                    className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                      activeCalendarTab === "principal"
+                        ? "bg-brand-teal text-white shadow-sm"
+                        : "text-brand-text/70 hover:text-brand-teal"
+                    }`}
+                  >
+                    校長介紹
+                  </button>
+                </div>
               </div>
 
               {/* Tab Content: Schedule */}
