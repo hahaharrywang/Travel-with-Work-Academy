@@ -111,8 +111,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                   {currentStageData.name} {currentStageData.discountLabel}
                 </span>
               </p>
-              <p className="text-sm text-white/60 mb-3">漲價倒數</p>
-              <p className="text-3xl sm:text-4xl font-bold text-brand-gold mb-4">
+              <p className="text-2xl sm:text-4xl font-bold text-brand-gold mb-4">
                 {timeLeft.days} 天 {String(timeLeft.hours).padStart(2, "0")} 時{" "}
                 {String(timeLeft.minutes).padStart(2, "0")} 分 {String(timeLeft.seconds).padStart(2, "0")} 秒
               </p>
