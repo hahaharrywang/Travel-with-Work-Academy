@@ -64,7 +64,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
   const [couponCode, setCouponCode] = useState<string | null>(null)
   const [activeMapTab, setActiveMapTab] = useState<string>("遠端上班") // State for Learning Map tabs
   const [selectedWeek, setSelectedWeek] = useState<CalendarWeek | null>(null)
-  const [activeCalendarTab, setActiveCalendarTab] = useState<"schedule" | "instructors">("schedule")
+  const [activeCalendarTab, setActiveCalendarTab] = useState<"schedule" | "instructors" | "principal">("schedule")
   const [selectedInstructor, setSelectedInstructor] = useState<typeof instructors[0] | null>(null)
 
   const { currentStageData, timeLeft, lowestPrice, selectedPlanId, setSelectedPlanId, getTrackingParams } = usePricing()
@@ -565,17 +565,27 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   >
                     課表
                   </button>
-                  <button
-                    onClick={() => setActiveCalendarTab("instructors")}
-                    className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                      activeCalendarTab === "instructors"
-                        ? "bg-brand-teal text-white shadow-sm"
-                        : "text-brand-text/70 hover:text-brand-teal"
-                    }`}
-                  >
-                    講師介紹
-                  </button>
-                </div>
+<button
+  onClick={() => setActiveCalendarTab("instructors")}
+  className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+  activeCalendarTab === "instructors"
+  ? "bg-brand-teal text-white shadow-sm"
+  : "text-brand-text/70 hover:text-brand-teal"
+  }`}
+  >
+  講師介紹
+  </button>
+  <button
+  onClick={() => setActiveCalendarTab("principal")}
+  className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+  activeCalendarTab === "principal"
+  ? "bg-brand-teal text-white shadow-sm"
+  : "text-brand-text/70 hover:text-brand-teal"
+  }`}
+  >
+  校長介紹
+  </button>
+  </div>
               </div>
 
               {/* Tab Content: Schedule */}
@@ -732,15 +742,15 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               {activeCalendarTab === "instructors" && (
                 <div className="animate-in fade-in duration-300">
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
-                    {(() => {
-                      // 收集課表中所有講師名稱
-                      const calendarInstructorNames = new Set(
-                        calendarData.flatMap((week) => week.instructorNames)
-                      )
-                      // 只顯示在課表中有課程的講師
-                      return instructors
-                        .filter((instructor) => calendarInstructorNames.has(instructor.name))
-                        .map((instructor) => (
+{(() => {
+  // 收集課表中所有講師名稱
+  const calendarInstructorNames = new Set(
+  calendarData.flatMap((week) => week.instructorNames)
+  )
+  // 只顯示在課表中有課程的講師，並排除校長
+  return instructors
+  .filter((instructor) => calendarInstructorNames.has(instructor.name) && instructor.name !== "校長哈利")
+  .map((instructor) => (
                         <div
                           key={instructor.name}
                           className="flex flex-col items-center p-4 bg-white rounded-xl border border-brand-mist/50 hover:border-brand-gold hover:shadow-md transition-all duration-300 cursor-pointer group"
@@ -768,6 +778,73 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                       ))
                     })()}
                   </div>
+                </div>
+              )}
+
+              {/* Tab Content: Principal */}
+              {activeCalendarTab === "principal" && (
+                <div className="animate-in fade-in duration-300">
+                  {(() => {
+                    const principal = instructors.find((i) => i.name === "校長哈利")
+                    if (!principal) return null
+                    const principalCourses = calendarData.filter((week) =>
+                      week.instructorNames.includes("校長哈利")
+                    )
+                    return (
+                      <div className="max-w-2xl mx-auto">
+                        <div className="bg-white rounded-2xl shadow-sm border border-brand-mist/50 overflow-hidden">
+                          {/* Header with photo */}
+                          <div className="bg-gradient-to-br from-brand-teal to-brand-teal/80 pt-8 pb-16 px-6 text-center">
+                            <div className="w-28 h-28 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg mb-4">
+                              <Image
+                                src={principal.image || "/placeholder.svg"}
+                                alt={principal.name}
+                                width={112}
+                                height={112}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                            <h3 className="text-2xl font-bold text-white mb-1">{principal.name}</h3>
+                            <p className="text-white/80 text-sm">{principal.title}</p>
+                          </div>
+
+                          {/* Content */}
+                          <div className="px-6 py-6 -mt-8">
+                            <div className="bg-brand-offwhite rounded-xl p-5 mb-5">
+                              <h4 className="text-sm font-semibold text-brand-teal mb-3">關於校長</h4>
+                              <p className="text-sm text-brand-text/80 leading-relaxed whitespace-pre-line">
+                                {principal.background}
+                              </p>
+                            </div>
+
+                            {/* Principal's Courses */}
+                            {principalCourses.length > 0 && (
+                              <div className="bg-brand-offwhite rounded-xl p-5">
+                                <h4 className="text-sm font-semibold text-brand-teal mb-3">負責課程</h4>
+                                <div className="space-y-3">
+                                  {principalCourses.map((course) => (
+                                    <div
+                                      key={course.id}
+                                      className="bg-white rounded-lg p-4 border border-brand-mist/50"
+                                    >
+                                      <div className="flex items-center gap-2 mb-1">
+                                        <span className="text-xs text-brand-gold font-medium">{course.monthWeek}</span>
+                                        <span className="text-xs px-2 py-0.5 rounded bg-brand-mist/50 text-brand-teal">
+                                          {course.track}
+                                        </span>
+                                      </div>
+                                      <h5 className="text-sm font-semibold text-brand-teal mb-1">{course.title}</h5>
+                                      <p className="text-xs text-brand-text/70">{course.focusShort}</p>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  })()}
                 </div>
               )}
             </div>
