@@ -63,6 +63,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
   const [couponCode, setCouponCode] = useState<string | null>(null)
   const [activeMapTab, setActiveMapTab] = useState<string>("遠端上班") // State for Learning Map tabs
   const [selectedWeek, setSelectedWeek] = useState<CalendarWeek | null>(null)
+  const [activeCalendarTab, setActiveCalendarTab] = useState<"schedule" | "instructors">("schedule")
+  const [selectedInstructor, setSelectedInstructor] = useState<typeof instructors[0] | null>(null)
 
   const { currentStageData, timeLeft, lowestPrice, selectedPlanId, setSelectedPlanId, getTrackingParams } = usePricing()
 
@@ -539,7 +541,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               ) : (
                 <>
                   <ChevronDown className="w-4 h-4" />
-                  展開學習行事曆＆課程講師
+                  展開課表＆講師介紹
                 </>
               )}
             </button>
@@ -548,7 +550,34 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
 
           {showCalendarInline && (
             <div ref={calendarSectionRef} className="mt-8 animate-in slide-in-from-top-4 fade-in duration-500">
-              {/* Timeline Content - Grouped by Phase */}
+              {/* Tab Navigation */}
+              <div className="flex justify-center mb-6">
+                <div className="inline-flex bg-brand-offwhite rounded-full p-1 border border-brand-mist">
+                  <button
+                    onClick={() => setActiveCalendarTab("schedule")}
+                    className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                      activeCalendarTab === "schedule"
+                        ? "bg-brand-teal text-white shadow-sm"
+                        : "text-brand-text/70 hover:text-brand-teal"
+                    }`}
+                  >
+                    課表
+                  </button>
+                  <button
+                    onClick={() => setActiveCalendarTab("instructors")}
+                    className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                      activeCalendarTab === "instructors"
+                        ? "bg-brand-teal text-white shadow-sm"
+                        : "text-brand-text/70 hover:text-brand-teal"
+                    }`}
+                  >
+                    講師介紹
+                  </button>
+                </div>
+              </div>
+
+              {/* Tab Content: Schedule */}
+              {activeCalendarTab === "schedule" && (
               <div className="space-y-4">
                 {(() => {
                   const phaseGroups = [
@@ -695,6 +724,43 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   )
                 })()}
               </div>
+            )}
+
+              {/* Tab Content: Instructors */}
+              {activeCalendarTab === "instructors" && (
+                <div className="animate-in fade-in duration-300">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+                    {instructors
+                      .filter((instructor) => instructor.name !== "講師確認中")
+                      .map((instructor) => (
+                        <div
+                          key={instructor.name}
+                          className="flex flex-col items-center p-4 bg-white rounded-xl border border-brand-mist/50 hover:border-brand-gold hover:shadow-md transition-all duration-300 cursor-pointer group"
+                          onClick={() => setSelectedInstructor(instructor)}
+                        >
+                          <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-3 border-brand-gold/30 group-hover:border-brand-gold transition-colors mb-3">
+                            <Image
+                              src={instructor.image || "/placeholder.svg"}
+                              alt={instructor.name}
+                              width={96}
+                              height={96}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          <h4 className="text-sm font-semibold text-brand-teal text-center mb-1">
+                            {instructor.name}
+                          </h4>
+                          <p className="text-xs text-brand-text/60 text-center line-clamp-2 mb-2">
+                            {instructor.title}
+                          </p>
+                          <button className="text-xs text-brand-gold hover:text-brand-teal transition-colors font-medium">
+                            查看詳情
+                          </button>
+                        </div>
+                      ))}
+                  </div>
+                </div>
+              )}
             </div>
           )}
 
@@ -714,7 +780,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-offwhite text-brand-teal rounded-full font-medium hover:bg-brand-mist transition-all duration-300 border border-brand-mist"
               >
                 <ChevronUp className="w-4 h-4" />
-                收合行事曆
+                收合課表
               </button>
             </div>
           )}
@@ -1170,8 +1236,92 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
         </div>
       )}
 
-      {/* WEEK DETAIL MODAL */}
-      <WeekDetailModal week={selectedWeek} onClose={() => setSelectedWeek(null)} />
+{/* WEEK DETAIL MODAL */}
+<WeekDetailModal week={selectedWeek} onClose={() => setSelectedWeek(null)} />
+
+{/* INSTRUCTOR DETAIL MODAL */}
+{selectedInstructor && (
+  <div
+    className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4"
+    onClick={() => setSelectedInstructor(null)}
+  >
+    <div
+      className="bg-white rounded-2xl max-w-lg w-full max-h-[85vh] overflow-y-auto shadow-2xl animate-in zoom-in-95 fade-in duration-300"
+      onClick={(e) => e.stopPropagation()}
+    >
+      {/* Header */}
+      <div className="relative bg-gradient-to-br from-brand-teal to-brand-teal/80 pt-8 pb-16 px-6 text-center">
+        <button
+          onClick={() => setSelectedInstructor(null)}
+          className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
+        >
+          <X className="w-5 h-5 text-white" />
+        </button>
+        <div className="w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg mb-4">
+          <Image
+            src={selectedInstructor.image || "/placeholder.svg"}
+            alt={selectedInstructor.name}
+            width={96}
+            height={96}
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <h3 className="text-xl font-bold text-white mb-1">{selectedInstructor.name}</h3>
+        <p className="text-white/80 text-sm">{selectedInstructor.title}</p>
+      </div>
+
+      {/* Content */}
+      <div className="px-6 py-6 -mt-8">
+        <div className="bg-brand-offwhite rounded-xl p-4 mb-4">
+          <h4 className="text-sm font-semibold text-brand-teal mb-2">講師介紹</h4>
+          <p className="text-sm text-brand-text/80 leading-relaxed whitespace-pre-line">
+            {selectedInstructor.background}
+          </p>
+        </div>
+
+        {/* Instructor's Courses */}
+        {(() => {
+          const instructorCourses = calendarData.filter((week) =>
+            week.instructorNames.includes(selectedInstructor.name)
+          )
+          if (instructorCourses.length === 0) return null
+          return (
+            <div className="bg-brand-offwhite rounded-xl p-4">
+              <h4 className="text-sm font-semibold text-brand-teal mb-3">負責課程</h4>
+              <div className="space-y-3">
+                {instructorCourses.map((course) => (
+                  <div
+                    key={course.id}
+                    className="bg-white rounded-lg p-3 border border-brand-mist/50"
+                  >
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-xs text-brand-gold font-medium">{course.monthWeek}</span>
+                      <span className="text-xs px-2 py-0.5 rounded bg-brand-mist/50 text-brand-teal">
+                        {course.track}
+                      </span>
+                    </div>
+                    <h5 className="text-sm font-semibold text-brand-teal mb-1">{course.title}</h5>
+                    <p className="text-xs text-brand-text/70">{course.focusShort}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )
+        })()}
+      </div>
+
+      {/* Footer */}
+      <div className="px-6 pb-6">
+        <button
+          onClick={() => setSelectedInstructor(null)}
+          className="w-full py-3 bg-brand-teal text-white rounded-full font-medium hover:bg-brand-teal/90 transition-colors"
+        >
+          關閉
+        </button>
+      </div>
+    </div>
+  </div>
+)}
 
       {/* CALENDAR MODAL */}
       {showCalendarModal && (
