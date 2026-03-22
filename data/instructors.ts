@@ -40,7 +40,7 @@ export const instructors: Instructor[] = [
     image: "/images/instructors/san-fen-zhong.png",
     link: "https://www.instagram.com/only3minute/",
     background:
-      "前 Skyline 編採顧問 / 前 遠見 合作社群編輯 / 前 奧美廣告 業務經理 / 神農生活 / 食習 行銷社群顧問 / 9 萬讀者 IG「三分鐘｜行銷在學中」經營者 / 目前為 行銷顧問 / 社群講師 / 自媒體創作者 / 合作 100+ 品牌，企業內訓、校園講座經驗超過 50 場",
+      "前 奧美廣告 業務經理 / 10 萬讀者 IG「三分鐘｜行銷在學中」經營者 / 目前為 行銷顧問 / 社群講師 / 自媒體創作者 / 合作 100+ 品牌，企業內訓、校園講座經驗超過 50 場",
     links: {
       instagram: "https://www.instagram.com/only3minute/",
     },
