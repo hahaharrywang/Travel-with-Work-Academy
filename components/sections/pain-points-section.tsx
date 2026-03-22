@@ -72,7 +72,7 @@ export function PainPointsSection() {
               <div className="mt-5 border-t border-brand-gold/20 pt-5">
                 <p className="text-white/60 text-sm mb-3">還不確定自己比較適合哪一條？</p>
                 <a
-                  href="#pricing"
+                  href="#pricing-section"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-brand-gold/50 bg-brand-gold/10 text-brand-gold text-sm font-medium hover:bg-brand-gold/20 transition-colors"
                 >
                   先看免費講座／說明會回放
