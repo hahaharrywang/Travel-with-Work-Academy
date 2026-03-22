@@ -9,6 +9,7 @@ import {
   X,
   ChevronRight,
   ChevronLeft,
+  CalendarDays,
 } from "lucide-react"
 import { usePricing } from "@/contexts/pricing-context"
 import { AnnouncementBar } from "@/components/announcement-bar"
@@ -527,21 +528,22 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   })
                 }, 300)
               }}
-              className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+              className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 shadow-md ${
                 showCalendarInline
                   ? "bg-brand-offwhite text-brand-teal border border-brand-mist hover:bg-brand-mist"
-                  : "bg-brand-teal text-white hover:bg-[#1a5561]"
+                  : "bg-brand-gold text-brand-teal hover:bg-[#c9a670] animate-pulse-subtle"
               }`}
             >
               {showCalendarInline ? (
                 <>
-                  <ChevronUp className="w-4 h-4" />
+                  <ChevronUp className="w-5 h-5" />
                   收合課表
                 </>
               ) : (
                 <>
-                  <ChevronDown className="w-4 h-4" />
+                  <CalendarDays className="w-5 h-5" />
                   展開課表＆講師介紹
+                  <ChevronDown className="w-4 h-4" />
                 </>
               )}
             </button>
