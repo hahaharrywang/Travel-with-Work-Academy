@@ -1011,7 +1011,15 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     return (
                       <div key={phase} className="border border-brand-mist/50 rounded-xl overflow-hidden bg-white">
                         <button
-                          onClick={() => setExpandedPhase(expandedPhase === phase ? null : phase)}
+                          onClick={() => {
+                            const newSet = new Set(expandedPhases)
+                            if (newSet.has(phase)) {
+                              newSet.delete(phase)
+                            } else {
+                              newSet.add(phase)
+                            }
+                            setExpandedPhases(newSet)
+                          }}
                           className="w-full flex items-center justify-between p-4 hover:bg-brand-offwhite/50 transition-colors"
                         >
                           <div className="flex items-center gap-3 text-left">
@@ -1037,7 +1045,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                           </div>
                           <div className="flex items-center gap-2 text-brand-text/50">
                             <span className="text-xs">展開</span>
-                            {expandedPhase === phase ? (
+                            {expandedPhases.has(phase) ? (
                               <ChevronUp className="w-4 h-4" />
                             ) : (
                               <ChevronDown className="w-4 h-4" />
@@ -1045,7 +1053,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                           </div>
                         </button>
 
-                        {expandedPhase === phase && (
+                        {expandedPhases.has(phase) && (
                           <div className="border-t border-brand-mist/30 p-4 bg-brand-offwhite/30">
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                               {phaseWeeks.map((week) => {
