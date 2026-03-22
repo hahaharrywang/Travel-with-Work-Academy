@@ -787,9 +787,6 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   {(() => {
                     const principal = instructors.find((i) => i.name === "校長哈利")
                     if (!principal) return null
-                    const principalCourses = calendarData.filter((week) =>
-                      week.instructorNames.includes("校長哈利")
-                    )
                     return (
                       <div className="max-w-2xl mx-auto">
                         <div className="bg-white rounded-2xl shadow-sm border border-brand-mist/50 overflow-hidden">
@@ -804,42 +801,75 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                                 className="w-full h-full object-cover"
                               />
                             </div>
-                            <h3 className="text-2xl font-bold text-white mb-1">{principal.name}</h3>
-                            <p className="text-white/80 text-sm">{principal.title}</p>
+                            <h3 className="text-2xl font-bold text-white mb-1">Harry Wang</h3>
+                            <p className="text-white/80 text-sm">數位遊牧台灣 創辦人暨執行長</p>
                           </div>
 
                           {/* Content */}
                           <div className="px-6 py-6 -mt-8">
+                            {/* 關於校長 */}
                             <div className="bg-brand-offwhite rounded-xl p-5 mb-5">
                               <h4 className="text-sm font-semibold text-brand-teal mb-3">關於校長</h4>
-                              <p className="text-sm text-brand-text/80 leading-relaxed whitespace-pre-line">
-                                {principal.background}
+                              <p className="text-sm text-brand-text/80 leading-relaxed">
+                                2021年畢業於日本的國際大學後，在三年內斜槓了四個職種、合計五年的工作經驗，包含保養品、HR、資安等領域。於職涯前期快速探索、迭代人生。
+                              </p>
+                              <p className="text-sm text-brand-text/80 leading-relaxed mt-3">
+                                現為品牌「數位遊牧台灣」的創辦人兼執行長，品牌願景是幫助更多冒險家實現自由探索的人生。通過本地推廣與促進國際交流，對內教育培育新一代數位遊牧者、對外將台灣打造為世界進入亞洲的數位遊牧入口。
+                              </p>
+                              <p className="text-sm text-brand-text/80 leading-relaxed mt-3">
+                                Harry 在品牌成立後，帶領一個八人團隊，已經舉辦了 30 場線下活動，吸引了超過 900 付費參加人次，其中有近一半參加者是來自於口碑推薦。活動不僅在台灣本地受到對該領域有興趣者的青睞，活動中英語多文化友善的氛圍，也吸引了在台外國人的關注。Harry 也已受邀至數個國際性數位遊牧活動中擔任講者與嘉賓。
                               </p>
                             </div>
 
-                            {/* Principal's Courses */}
-                            {principalCourses.length > 0 && (
-                              <div className="bg-brand-offwhite rounded-xl p-5">
-                                <h4 className="text-sm font-semibold text-brand-teal mb-3">負責課程</h4>
-                                <div className="space-y-3">
-                                  {principalCourses.map((course) => (
-                                    <div
-                                      key={course.id}
-                                      className="bg-white rounded-lg p-4 border border-brand-mist/50"
-                                    >
-                                      <div className="flex items-center gap-2 mb-1">
-                                        <span className="text-xs text-brand-gold font-medium">{course.monthWeek}</span>
-                                        <span className="text-xs px-2 py-0.5 rounded bg-brand-mist/50 text-brand-teal">
-                                          {course.track}
-                                        </span>
-                                      </div>
-                                      <h5 className="text-sm font-semibold text-brand-teal mb-1">{course.title}</h5>
-                                      <p className="text-xs text-brand-text/70">{course.focusShort}</p>
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            )}
+                            {/* 數位遊牧相關經歷 */}
+                            <div className="bg-brand-offwhite rounded-xl p-5 mb-5">
+                              <h4 className="text-sm font-semibold text-brand-teal mb-3">數位遊牧相關經歷</h4>
+                              <ul className="text-sm text-brand-text/80 space-y-2">
+                                <li className="flex items-start gap-2">
+                                  <span className="text-brand-gold mt-1">•</span>
+                                  <span>2025 Vietnam Nomad Fest 講者</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                  <span className="text-brand-gold mt-1">•</span>
+                                  <span>2024 NextT旅創加速器第三屆新創團隊</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                  <span className="text-brand-gold mt-1">•</span>
+                                  <span>2024 Japan Okinawa Nomad Resort 台灣宣傳大使</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                  <span className="text-brand-gold mt-1">•</span>
+                                  <span>2024 Japan Colive Fukuoka 講者</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                  <span className="text-brand-gold mt-1">•</span>
+                                  <span>2024 Asian Nomad Alliance Summit 台灣代表</span>
+                                </li>
+                              </ul>
+                            </div>
+
+                            {/* 工作經歷 */}
+                            <div className="bg-brand-offwhite rounded-xl p-5">
+                              <h4 className="text-sm font-semibold text-brand-teal mb-3">工作經歷</h4>
+                              <ul className="text-sm text-brand-text/80 space-y-2">
+                                <li className="flex items-start gap-2">
+                                  <span className="text-brand-gold mt-1">•</span>
+                                  <span>台灣數位遊牧股份有限公司 / 創辦人暨執行長</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                  <span className="text-brand-gold mt-1">•</span>
+                                  <span>數位遊牧協會 / 理事</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                  <span className="text-brand-gold mt-1">•</span>
+                                  <span>Slasify / Business Development Manager</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                  <span className="text-brand-gold mt-1">•</span>
+                                  <span>日本立命館亞洲太平洋大學 / 國際經營學系畢</span>
+                                </li>
+                              </ul>
+                            </div>
                           </div>
                         </div>
                       </div>
