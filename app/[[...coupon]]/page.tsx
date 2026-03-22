@@ -906,7 +906,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           {/* Desktop: Always visible Tab Section */}
           <div className="hidden md:block mt-12">
             <div className="text-center mb-6">
-              <h3 className="text-xl font-bold text-brand-teal mb-2">課表與講師</h3>
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-teal mb-3">課表與講師</h3>
               <p className="text-sm text-brand-text/60">看看每週三晚間八點，具體在做什麼</p>
             </div>
             {/* Tab Navigation */}
