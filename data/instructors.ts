@@ -150,4 +150,15 @@ export const instructors: Instructor[] = [
       website: "https://www.nesswellness.com/",
     },
   },
+  {
+    name: "Demi",
+    title: "Co-Working Online 創辦人",
+    image: "/images/instructors/demi.png",
+    link: "https://www.instagram.com/myjobistraveling/",
+    background:
+      "AndAction進階證照 - Life Coach 人生教練 / 美國NGH國際證照 - 催眠師療癒師 / 數位遊牧、自由工作講師 / 個人品牌「我的正職是旅行」創辦人 / 永續品牌「Waste Studio｜海廢飾品專門店」創辦人",
+    links: {
+      instagram: "https://www.instagram.com/myjobistraveling/",
+    },
+  },
 ]
