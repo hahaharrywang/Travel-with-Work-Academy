@@ -1093,10 +1093,10 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                               {phaseIndex + 1}
                             </span>
                             <div>
-                              <p className="text-xs text-brand-text/60">
-                                {phaseMonths[phase]} <span className="text-brand-gold">{phase}</span>
+                              <p className="text-sm font-medium text-brand-text">
+                                {phaseMonths[phase]} <span className="text-brand-teal font-semibold">{phase}</span>
                               </p>
-                              <p className="text-sm font-semibold text-brand-teal">{phaseDescriptions[phase]}</p>
+                              <p className="text-base font-bold text-brand-teal">{phaseDescriptions[phase]}</p>
                             </div>
                           </div>
                           <div className="flex items-center gap-2 text-brand-text/50">
