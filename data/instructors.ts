@@ -28,7 +28,7 @@ export const instructors: Instructor[] = [
     title: "職涯教練／ICF ACC 認證教練／HR Consultant",
     image: "/images/ally-hsieh.jpg",
     link: "https://www.linkedin.com/in/allyhsieh",
-    background: `現任 LHH Taiwan Senior Consultant，曾任 Adecco Taiwan Director、Spring Professional Director / Associate Director / Manager，並具 PwC 背景。擁有 10+ 年科技人才招募與職涯發展經驗，曾領導 20+ 人團隊，成功招募數百位軟體工程、PM、Designer、QA、DevOps、Data、AI/ML 等人才，並協助 30+ 位科技人才前往日本、新加坡發展。具備 CDA、職涯錨定檢測師、ICF ACC 等專業認證，專長涵蓋自我探索、求職策略、職場議題與 LinkedIn 個人品牌打造。畢業於國立臺灣大學會計學系、會計研究所。`,
+    background: `擁有 10+ 年人才招募與職涯發展經驗，累積 400+ 小時一對一諮詢時數。曾任全球最大人力資源集團總監，成功協助數百位人才拿到理想 Offer。具備 CDA、ICF ACC 認證，並在 LinkedIn 經營超過 21,000 名追蹤者。`,
     links: {
       linkedin: "https://www.linkedin.com/in/allyhsieh",
       website: "https://portaly.cc/ally.hsieh",
@@ -57,10 +57,10 @@ export const instructors: Instructor[] = [
   },
   {
     name: "西打藍",
-    title: "創立一人公司、IG 粉絲近 1 萬、電子報訂閱 2500+，五年真實經驗帶你從零開始到高價接案的完整路徑",
+    title: "自由文字接案者｜一人公司創辦人",
     image: "/images/e8-a5-bf-e6-89-93-e8-97-8d.jpeg",
     link: "https://siddharam.com",
-    background: "西打藍是一位成功的獨立工作者，創立一人公司並累積豐富的接案經驗，將分享從零開始到高價接案的完整路徑。",
+    background: "自由文字接案 5 年 / 代筆出版 3 本書，曾受『大人的 Small Talk』Podcast 專訪 / 近 100 名學員付費 1v1 接案諮詢 / 單筆最高接案價 94.5 萬 / 電子報訂閱數突破 2500 人 / IG 粉絲近萬人",
     links: {
       website: "https://siddharam.com",
     },
@@ -142,17 +142,17 @@ export const instructors: Instructor[] = [
   },
   {
     name: "Angela Feng",
-    title: "ness 共同創辦人｜演講者、業師、亞洲區品牌行銷管理顧問",
+    title: "NESS Wellness 共同創辦人｜國際演講者｜創投顧問｜亞洲品牌策略與社群經營專家",
     image: "/images/instructors/angela.jpg",
     link: "https://www.nesswellness.com/",
-    background: `擁有 14 年行銷與創投經驗，曾任亞太區美國品牌集團行銷總監、創投公司 Head of Growth / Venture Partner。北京清華大學 × INSEAD 雙碩士 EMBA，並獲 INSEAD 領導力發展課程認證。曾管理亞太區 50+ 國際品牌推廣，具備品牌發展、授權、行銷與商業策略專長。國際舞台經歷豐富：UN CSW 聯合國論壇講者、Women in Tech Forum、APICTA Awards、Taiwan Digital Nomad Conference 等。具備跨國創業與 NGO 領導經驗，足跡遍及美、加、日、中，旅行超過 45 國。媒體專訪：Taiwan News、TaiwanPlus、Tatler Taiwan、Elle、換日線、台灣科技女性等。`,
+    background: `14 年行銷與創投經驗，曾任亞太區美國品牌集團行銷總監、管理 50+ 國際品牌推廣；創投公司 Head of Growth/Venture Partner，在美國、日本、中國均有創業經驗。北京清華 × INSEAD 雙碩士 EMBA，並獲 INSEAD 領導力發展課程認證。2024 APICTA Awards 銀牌、聯合國 CSW 女性論壇講者、Women in Tech Forum 等國際舞台經驗。媒體專訪：Taiwan News、TaiwanPlus、Tatler Taiwan、Elle、換日線、台灣科技女性。`,
     links: {
       website: "https://www.nesswellness.com/",
     },
   },
   {
     name: "Demi",
-    title: "Co-Working Online 創辦人",
+    title: "Co-Working Online｜自由者共同工作平台・創辦人",
     image: "/images/instructors/demi.png",
     link: "https://www.instagram.com/myjobistraveling/",
     background:
