@@ -259,11 +259,11 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           </div>
 
           {/* Tab Content: 遠端上班 - 四階段卡片 */}
-          {activeMapTab === "遠端上班" && (
-            <div className="animate-in fade-in duration-300">
+{activeMapTab === "遠端上班" && (
+              <div className="animate-in fade-in duration-300">
               {/* Tab 標題 */}
               <div className="text-center mb-8">
-                <h3 className="text-lg sm:text-xl font-bold text-brand-teal mb-2">遠端上班：從看懂機會，到更有機會被錄用，也更有能力走得長久</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-brand-teal mb-2">遠端上班：從看懂機會，到更有機會被錄用，也更有能力走得長久</h3>
               </div>
               
               {/* Desktop: 四張卡片 grid - 全寬讓卡片更寬 */}
@@ -276,8 +276,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         <span className={`w-8 h-8 rounded-full ${phase.color.solid} text-white text-base font-bold flex items-center justify-center flex-shrink-0`}>
                           {index + 1}
                         </span>
-                        <span className={`text-base ${phase.color.text}`}>{phase.months}</span>
-                        <span className={`text-base font-semibold ${phase.color.text}`}>{phase.name}</span>
+                        <span className="text-base font-medium text-brand-text/80">{phase.months}</span>
+                        <span className={`text-base font-bold ${phase.color.text}`}>{phase.name}</span>
                       </div>
                       <h4 className="font-bold text-brand-teal text-lg mb-3 leading-snug">{content.headline}</h4>
                       <p className="text-base text-brand-text/70 mb-5 leading-relaxed">{content.description}</p>
@@ -317,8 +317,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                           </span>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-1.5">
-                              <span className={`text-xs ${phase.color.text}`}>{phase.months}</span>
-                              <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
+                              <span className="text-xs font-medium text-brand-text/80">{phase.months}</span>
+                              <span className={`text-xs font-bold ${phase.color.text}`}>{phase.name}</span>
                             </div>
                             <p className="text-sm font-bold text-brand-teal truncate">{content.headline}</p>
                           </div>
@@ -360,11 +360,11 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           )}
 
           {/* Tab Content: 接案 - 四階段卡片 */}
-          {activeMapTab === "接案" && (
-            <div className="animate-in fade-in duration-300">
+{activeMapTab === "接案" && (
+              <div className="animate-in fade-in duration-300">
               {/* Tab 標題 */}
               <div className="text-center mb-8">
-                <h3 className="text-lg sm:text-xl font-bold text-brand-teal mb-2">接案：從想靠自己變現，到做出能持續合作的內容與服務</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-brand-teal mb-2">接案：從想靠自己變現，到做出能持續合作的內容與服務</h3>
               </div>
               
               {/* Desktop: 四張卡片 grid - 全寬讓卡片更寬 */}
@@ -377,8 +377,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         <span className={`w-8 h-8 rounded-full ${phase.color.solid} text-white text-base font-bold flex items-center justify-center flex-shrink-0`}>
                           {index + 1}
                         </span>
-                        <span className={`text-base ${phase.color.text}`}>{phase.months}</span>
-                        <span className={`text-base font-semibold ${phase.color.text}`}>{phase.name}</span>
+                        <span className="text-base font-medium text-brand-text/80">{phase.months}</span>
+                        <span className={`text-base font-bold ${phase.color.text}`}>{phase.name}</span>
                       </div>
                       <h4 className="font-bold text-brand-teal text-lg mb-3 leading-snug">{content.headline}</h4>
                       <p className="text-base text-brand-text/70 mb-5 leading-relaxed">{content.description}</p>
@@ -418,8 +418,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                           </span>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-1.5">
-                              <span className={`text-xs ${phase.color.text}`}>{phase.months}</span>
-                              <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
+                              <span className="text-xs font-medium text-brand-text/80">{phase.months}</span>
+                              <span className={`text-xs font-bold ${phase.color.text}`}>{phase.name}</span>
                             </div>
                             <p className="text-sm font-bold text-brand-teal truncate">{content.headline}</p>
                           </div>
@@ -1093,10 +1093,10 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                               {phaseIndex + 1}
                             </span>
                             <div>
-                              <p className="text-sm font-medium text-brand-text">
-                                {phaseMonths[phase]} <span className="text-brand-teal font-semibold">{phase}</span>
+                              <p className="text-xs text-brand-text/60">
+                                {phaseMonths[phase]} <span className="text-brand-gold">{phase}</span>
                               </p>
-                              <p className="text-base font-bold text-brand-teal">{phaseDescriptions[phase]}</p>
+                              <p className="text-sm font-semibold text-brand-teal">{phaseDescriptions[phase]}</p>
                             </div>
                           </div>
                           <div className="flex items-center gap-2 text-brand-text/50">
