@@ -1748,7 +1748,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
       </div>
 
       {/* Content */}
-      <div className="px-6 py-6 -mt-8">
+      <div className="px-6 py-6 -mt-8 relative z-10">
         <div className="bg-brand-offwhite rounded-xl p-4 mb-4">
           <h4 className="text-sm font-semibold text-brand-teal mb-2">講師介紹</h4>
           <p className="text-sm text-brand-text/80 leading-relaxed whitespace-pre-line">
