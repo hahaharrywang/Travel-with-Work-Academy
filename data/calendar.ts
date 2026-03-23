@@ -82,7 +82,7 @@ export const remoteJobPhaseContent = [
       "一版更能代表你的 LinkedIn / 對外門面",
       "對自己可以怎麼被看見，有更具體的方向",
     ],
-    courses: ["自我理解溝通＆人生 SOP", "Linkedin 經營全攻略"],
+    courses: ["可持續的自由：身心靈平衡的遠距人生 SOP", "Linkedin 經營全攻略"],
   },
   {
     phase: "機會與轉化",
@@ -93,7 +93,7 @@ export const remoteJobPhaseContent = [
       "更能說服人的面試故事",
       "更敢投遞、也更懂怎麼和機會互動",
     ],
-    courses: ["AI ＆ 自動化工具學習思維", "履歷、求職信秘笈、面試談薪", "自媒體收入藍圖"],
+    courses: ["Focus on Your True Value 讓 AI 成為你的實習生：從對話到自動化的第一個流程", "履歷、求職信秘笈、面試談薪", "自媒體變現藍圖"],
   },
   {
     phase: "永續",
@@ -130,7 +130,7 @@ export const freelancePhaseContent = [
       "第一版 offer / 方案定價想法",
       "比較像「可以接案的人」的對外門面",
     ],
-    courses: ["自我理解溝通＆人生 SOP", "定位、方案定價 Offer"],
+    courses: ["可持續的自由：身心靈平衡的遠距人生 SOP", "定位、方案定價 Offer"],
   },
   {
     phase: "機會與轉化",
@@ -141,7 +141,7 @@ export const freelancePhaseContent = [
       "一套更有策略的對外曝光方式",
       "從「有內容」走向「有機會成交」",
     ],
-    courses: ["AI ＆ 自動化工具學習思維", "社群獲客漏斗＆內容", "自媒體收入藍圖"],
+    courses: ["Focus on Your True Value 讓 AI 成為你的實習生：從對話到自動化的第一個流程", "社群獲客漏斗＆內容", "自媒體變現藍圖"],
   },
   {
     phase: "永續",
@@ -248,7 +248,7 @@ export const calendarData: CalendarWeek[] = [
     monthWeek: "6 月 · Week 1",
     type: "共同必修 1",
     track: "全體共同",
-    title: "自我理解溝通＆人生 SOP",
+    title: "可持續的自由：身心靈平衡的遠距人生 SOP",
     focusShort: "把行動變成固定節奏：週／月／季，整理「學院結束後，我的生活怎麼繼續跑」。",
     focusDetail:
       "核心內容\n• 了解自己的運作方式：什麼情況下能穩定產出\n• 建立可複製的生活／工作節奏\n• 為學院之後做準備\n\n行動任務\n• 寫出你的「人生系統說明書」簡版\n• 設計每週 SOP",
@@ -305,7 +305,7 @@ export const calendarData: CalendarWeek[] = [
     monthWeek: "7 月 · Week 1",
     type: "共同必修 2",
     track: "全體共同",
-    title: "AI ＆ 自動化工具學習思維",
+    title: "Focus on Your True Value 讓 AI 成為你的實習生：從對話到自動化的第一個流程",
     focusShort: "用 AI + 自動化把日常工作變輕：做出你的第一個可運作流程。",
     focusDetail:
       "核心內容\n• 什麼工作適合交給 AI／什麼仍要自己做\n• 把「想法」變成「可執行流程」\n• 以最小可用成果（MVP）為導向\n\n行動任務\n• 做出 1 個「能實際跑起來」的自動化流程\n• 寫下你的「AI 使用規則」",
@@ -347,7 +347,7 @@ export const calendarData: CalendarWeek[] = [
     monthWeek: "7 月 · Week 4",
     type: "共同必修 3",
     track: "全體共同",
-    title: "自媒體收入藍圖",
+    title: "自媒體變現藍圖",
     focusShort: "把專業變成可販售的雛形：適用上班線＋接案線的商業化／知識變現技能。",
     focusDetail:
       "核心內容\n• 釐清你的專業能解決誰的什麼問題\n• 把知識整理成可交付的產品雛形\n• 建立一個「價值說法」\n\n行動任務\n• 產出你的知識產品雛形",
