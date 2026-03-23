@@ -437,7 +437,7 @@ export const calendarData: CalendarWeek[] = [
     focusShort: "把自由變「可負擔」：建立你的旅居財務規劃與風險底線。",
     focusDetail:
       "核心內容\n• 旅居與遠距生活的財務視角\n• 設定你的「可持續」財務目標\n• 建立基本風險意識\n\n行動任務\n• 盤點你目前的月固定支出＋最低生活底線\n• 設定 1 個 90 天財務目標\n• 寫下你的風險規則 3 條",
-    instructorNames: ["講師確認中"],
+    instructorNames: ["Demi"],
     layerTag: "核心技能 – 財務規劃／風險管理",
   },
   {
