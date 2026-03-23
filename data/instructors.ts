@@ -35,12 +35,12 @@ export const instructors: Instructor[] = [
     },
   },
   {
-    name: "三分鐘",
+    name: "三分鐘 Lynn",
     title: "三分鐘行銷在學中、內容顧問",
     image: "/images/instructors/san-fen-zhong.png",
     link: "https://www.instagram.com/only3minute/",
     background:
-      "前 Skyline 編採顧問 / 前 遠見 合作社群編輯 / 前 奧美廣告 業務經理 / 神農生活 / 食習 行銷社群顧問 / 9 萬讀者 IG「三分鐘｜行銷在學中」經營者 / 目前為 行銷顧問 / 社群講師 / 自媒體創作者 / 合作 100+ 品牌，企業內訓、校園講座經驗超過 50 場",
+      "前 奧美廣告 業務經理 / 10 萬讀者 IG「三分鐘｜行銷在學中」經營者 / 目前為 行銷顧問 / 社群講師 / 自媒體創作者 / 合作 100+ 品牌，企業內訓、校園講座經驗超過 50 場",
     links: {
       instagram: "https://www.instagram.com/only3minute/",
     },
@@ -148,6 +148,17 @@ export const instructors: Instructor[] = [
     background: `擁有 14 年行銷與創投經驗，曾任亞太區美國品牌集團行銷總監、創投公司 Head of Growth / Venture Partner。北京清華大學 × INSEAD 雙碩士 EMBA，並獲 INSEAD 領導力發展課程認證。曾管理亞太區 50+ 國際品牌推廣，具備品牌發展、授權、行銷與商業策略專長。國際舞台經歷豐富：UN CSW 聯合國論壇講者、Women in Tech Forum、APICTA Awards、Taiwan Digital Nomad Conference 等。具備跨國創業與 NGO 領導經驗，足跡遍及美、加、日、中，旅行超過 45 國。媒體專訪：Taiwan News、TaiwanPlus、Tatler Taiwan、Elle、換日線、台灣科技女性等。`,
     links: {
       website: "https://www.nesswellness.com/",
+    },
+  },
+  {
+    name: "Demi",
+    title: "Co-Working Online 創辦人",
+    image: "/images/instructors/demi.png",
+    link: "https://www.instagram.com/myjobistraveling/",
+    background:
+      "AndAction進階證照 - Life Coach 人生教練 / 美國NGH國際證照 - 催眠師療癒師 / 數位遊牧、自由工作講師 / 個人品牌「我的正職是旅行」創辦人 / 永續品牌「Waste Studio｜海廢飾品專門店」創辦人",
+    links: {
+      instagram: "https://www.instagram.com/myjobistraveling/",
     },
   },
 ]

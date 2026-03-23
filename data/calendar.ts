@@ -323,7 +323,7 @@ export const calendarData: CalendarWeek[] = [
     focusShort: "不靠靈感硬撐，把內容產出變成可持續流程，用 AI 幫忙企劃、標題、開頭。",
     focusDetail:
       "核心內容\n• 讓內容與變現接得起來：每篇內容都朝同一個目標前進\n• 不靠靈感硬撐，把內容產出變成可持續流程\n• 用 AI 輔助內容企劃、標題、開頭等\n\n行動任務\n• 產出具體內容策略與第一步產出",
-    instructorNames: ["三分鐘"],
+    instructorNames: ["三分鐘 Lynn"],
     layerTag: "路線必修 – 接案線 / 內容策略與企劃",
   },
   {
@@ -437,7 +437,7 @@ export const calendarData: CalendarWeek[] = [
     focusShort: "把自由變「可負擔」：建立你的旅居財務規劃與風險底線。",
     focusDetail:
       "核心內容\n• 旅居與遠距生活的財務視角\n• 設定你的「可持續」財務目標\n• 建立基本風險意識\n\n行動任務\n• 盤點你目前的月固定支出＋最低生活底線\n• 設定 1 個 90 天財務目標\n• 寫下你的風險規則 3 條",
-    instructorNames: ["講師確認中"],
+    instructorNames: ["Demi"],
     layerTag: "核心技能 – 財務規劃／風險管理",
   },
   {
