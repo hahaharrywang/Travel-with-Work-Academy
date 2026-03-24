@@ -164,15 +164,14 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
             <div className="text-center pt-4 border-t border-slate-100">
               {currentStageData && (
                 <>
-                  <div className="text-sm text-gray-500 line-through mb-1">
+                  <div className="text-base text-brand-text/70 line-through decoration-brand-clay decoration-2 mb-1">
                     原價 NT$ {formatPrice(currentStageData.prices.selfMedia.original)}
                   </div>
                   <div className="text-3xl font-bold text-brand-teal mb-1">
                     NT$ {formatPrice(currentStageData.prices.selfMedia.stagePrice)}
                   </div>
                   <div className="text-xs text-brand-gold font-medium mb-4">
-                    目前為「{currentStageData.name}」· {currentStageData.discountLabel}（省 NT${" "}
-                    {formatPrice(currentStageData.prices.selfMedia.savingAmount)}）
+                    目前 {currentStageData.discountLabel}，現省 NT$ {formatPrice(currentStageData.prices.selfMedia.savingAmount)}，每週四午夜調漲
                   </div>
                 </>
               )}
@@ -227,15 +226,14 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
             <div className="text-center pt-4 border-t border-slate-100">
               {currentStageData && (
                 <>
-                  <div className="text-sm text-gray-500 line-through mb-1">
+                  <div className="text-base text-brand-text/70 line-through decoration-brand-clay decoration-2 mb-1">
                     原價 NT$ {formatPrice(currentStageData.prices.dualLine.original)}
                   </div>
                   <div className="text-3xl font-bold text-brand-gold mb-1">
                     NT$ {formatPrice(currentStageData.prices.dualLine.stagePrice)}
                   </div>
                   <div className="text-xs text-brand-gold font-medium mb-4">
-                    目前為「{currentStageData.name}」· {currentStageData.discountLabel}（省 NT${" "}
-                    {formatPrice(currentStageData.prices.dualLine.savingAmount)}）
+                    目前 {currentStageData.discountLabel}，現省 NT$ {formatPrice(currentStageData.prices.dualLine.savingAmount)}，每週四午夜調漲
                   </div>
                 </>
               )}
@@ -287,15 +285,14 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
             <div className="text-center pt-4 border-t border-slate-100">
               {currentStageData && (
                 <>
-                  <div className="text-sm text-gray-500 line-through mb-1">
+                  <div className="text-base text-brand-text/70 line-through decoration-brand-clay decoration-2 mb-1">
                     原價 NT$ {formatPrice(currentStageData.prices.remoteJob.original)}
                   </div>
                   <div className="text-3xl font-bold text-brand-teal mb-1">
                     NT$ {formatPrice(currentStageData.prices.remoteJob.stagePrice)}
                   </div>
                   <div className="text-xs text-brand-gold font-medium mb-4">
-                    目前為「{currentStageData.name}」· {currentStageData.discountLabel}（省 NT${" "}
-                    {formatPrice(currentStageData.prices.remoteJob.savingAmount)}）
+                    目前 {currentStageData.discountLabel}，現省 NT$ {formatPrice(currentStageData.prices.remoteJob.savingAmount)}，每週四午夜調漲
                   </div>
                 </>
               )}
