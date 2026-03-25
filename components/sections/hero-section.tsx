@@ -78,7 +78,7 @@ export function HeroSection() {
             <div className="space-y-2">
               <div className="flex items-start gap-3">
                 <Layers className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-                <p className="text-white/90 text-sm">遠端上班 × 接案雙軌並行，不用一開始就選到死</p>
+                <p className="text-white/90 text-sm">遠端上班 × 接案雙軌並行，可雙修、也可單線</p>
               </div>
               <div className="flex items-start gap-3">
                 <FileCheck className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
@@ -196,7 +196,7 @@ export function HeroSection() {
           <div className="space-y-2 text-left max-w-sm mx-auto">
             <div className="flex items-start gap-3">
               <Layers className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-              <p className="text-white/90 text-sm">遠端上班 × 接案雙軌並行，不用一開始就選到死</p>
+              <p className="text-white/90 text-sm">遠端上班 × 接案雙軌並行，可雙修、也可單線</p>
             </div>
             <div className="flex items-start gap-3">
               <FileCheck className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
@@ -240,15 +240,18 @@ export function HeroSection() {
             至今已累積 <span className="text-white font-medium">300+</span> 學員、<span className="text-white font-medium">1,500+</span> 線下社群參與人次
           </p>
 
-          {/* 錨點文字 */}
-          <div className="pt-4">
+          {/* 引導文案 */}
+          <div className="pt-4 space-y-3 text-center">
+            <p className="text-white/70 text-sm leading-relaxed max-w-xs mx-auto">
+              AI時代下已經不缺資訊，你需要的是一個驗證過的決策指引＆環境，在未來五個月裡，有人陪你一起試、一起走、一起調整方向。
+            </p>
             <button
               onClick={() => {
                 document.getElementById("learning-map")?.scrollIntoView({ behavior: "smooth" })
               }}
-              className="text-white/50 hover:text-white/80 text-sm transition-colors duration-200 flex items-center gap-1 mx-auto"
+              className="text-brand-gold hover:text-white text-sm transition-colors duration-200 flex items-center gap-1 mx-auto font-medium"
             >
-              往下看 5 個月怎麼走
+              了解為什麼學院可以幫你
               <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
               </svg>
