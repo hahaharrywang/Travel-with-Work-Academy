@@ -266,7 +266,7 @@ export const calendarData: CalendarWeek[] = [
     focusShort: "把定位收斂、Offer 做清楚：讓陌生客戶快速理解並信任你的價值。",
     focusDetail:
       "核心內容\n• 把「我想做很多」收斂成「我現在先做這一塊」\n• 用輕量市場調查校準定位與價格想像\n• 讓你的服務變得可被選擇\n\n行動任務\n• 完善你的接案 Offer 架構\n• 完成一次市場觀察與調查",
-    instructorNames: ["講師確認中"],
+    instructorNames: ["老 K"],
     layerTag: "路線必修 – 接案線 / 作品集與市場研究",
   },
   {
