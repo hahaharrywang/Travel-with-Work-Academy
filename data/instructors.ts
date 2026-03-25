@@ -161,4 +161,15 @@ export const instructors: Instructor[] = [
       instagram: "https://www.instagram.com/myjobistraveling/",
     },
   },
+  {
+    name: "老 K",
+    title: "一人事業顧問、Notion 顧問",
+    image: "/images/instructors/lao-k.jpg",
+    link: "https://www.instagram.com/leadingmr.k/",
+    background:
+      "老 K 從軟體工程師轉戰自媒體，創立「領先時代」，6 年內從一人公司擴張至 11 人團隊，白手起家到年營收千萬等級的實戰派創業者。身為 Notion 全球官方認證顧問，各大平台與自有課程已帶領逾 1.4 萬名學員透過數位工具/自媒體技術來放大個人影響力。他是將內容創作、商業模式與系統化工具營運，轉化為自動化獲利模式的頂尖實戰者，擅長幫你用系統化思維，打造不間斷的個人品牌收益、建造一人事業收入飛輪。",
+    links: {
+      instagram: "https://www.instagram.com/leadingmr.k/",
+    },
+  },
 ]
