@@ -72,7 +72,7 @@ export function PainPointsSection() {
               <div className="mt-5 border-t border-brand-gold/20 pt-5">
                 <button
                   onClick={() => {
-                    document.getElementById("learning-map")?.scrollIntoView({ behavior: "smooth" })
+                    document.getElementById("key-features")?.scrollIntoView({ behavior: "smooth" })
                   }}
                   className="text-brand-gold hover:text-white text-sm transition-colors duration-200 flex items-center gap-1 mx-auto font-medium"
                 >
