@@ -76,11 +76,30 @@ export function PainPointsSection() {
                   }}
                   className="text-brand-gold hover:text-white text-sm transition-colors duration-200 flex items-center gap-1 mx-auto font-medium"
                 >
-                  了解為什麼學院可以幫你
+                  了解學院特色
                   <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
+              </div>
+
+              {/* Free Lecture CTA */}
+              <div className="mt-4 pt-4 border-t border-brand-gold/10">
+                <p className="text-white/60 text-sm mb-2">還不確定適不適合？</p>
+                <p className="text-white/50 text-xs mb-3">先看免費講座／回放，再決定要不要加入。</p>
+                <a
+                  href="#free-lecture-section"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    document.getElementById("free-lecture-section")?.scrollIntoView({ behavior: "smooth" })
+                  }}
+                  className="inline-flex items-center gap-1.5 text-white/70 hover:text-brand-gold text-sm transition-colors"
+                >
+                  查看免費講座資訊
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </a>
               </div>
             </div>
           </div>
