@@ -247,7 +247,7 @@ export function HeroSection() {
             </p>
             <button
               onClick={() => {
-                document.getElementById("course-highlights")?.scrollIntoView({ behavior: "smooth" })
+                document.getElementById("pain-points")?.scrollIntoView({ behavior: "smooth" })
               }}
               className="text-brand-gold hover:text-white text-sm transition-colors duration-200 flex items-center gap-1 mx-auto font-medium"
             >
