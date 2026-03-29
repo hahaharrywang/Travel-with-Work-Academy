@@ -69,7 +69,7 @@ export function PainPointsSection() {
               </p>
 
               {/* Scroll CTA */}
-              <div className="mt-5 border-t border-brand-gold/20 pt-5 space-y-4">
+              <div className="mt-5 border-t border-brand-gold/20 pt-5">
                 <button
                   onClick={() => {
                     document.getElementById("key-features")?.scrollIntoView({ behavior: "smooth" })
@@ -81,18 +81,6 @@ export function PainPointsSection() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
-                
-                <div className="pt-2">
-                  <p className="text-white/60 text-xs mb-2">還不確定適不適合？ 先看免費講座／回放，再決定要不要加入。</p>
-                  <button
-                    onClick={() => {
-                      document.getElementById("free-lecture-section")?.scrollIntoView({ behavior: "smooth" })
-                    }}
-                    className="text-white/50 hover:text-brand-gold text-xs transition-colors duration-200"
-                  >
-                    {'查看免費講座資訊 >>>'}
-                  </button>
-                </div>
               </div>
             </div>
           </div>
