@@ -223,7 +223,7 @@ export const calendarData: CalendarWeek[] = [
     focusShort: "把「想找遠端工作」變成職涯藍圖：目標職位＋90 天可落地計畫。",
     focusDetail:
       "核心內容\n• 釐清你適合的遠端職位方向與工作型態\n• 把求職變成「可持續的行動系統」\n• 設定可追蹤的求職成果指標\n\n行動任務\n• 列出可能性與優先順序，並設定成果指標",
-    instructorNames: ["講師確認中"],
+    instructorNames: ["喬"],
     layerTag: "路線必修 – 上班線 / 起步與藍圖",
   },
   {
