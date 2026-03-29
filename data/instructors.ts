@@ -2,6 +2,17 @@ import type { Instructor } from "@/components/sections/instructors-section"
 
 export const instructors: Instructor[] = [
   {
+    name: "喬",
+    title: "ADPList 全球 Top 1% 導師",
+    image: "/images/instructors/qiao.jpg",
+    link: "https://www.linkedin.com/",
+    background:
+      "喬是一位求職教練，同時是 ADPList 全球 Top 1% 導師、LinkedIn Top Voice，著有暢銷書《ㄧ生受用的求職方法：量化求職》。曾親身拿到美國、加拿大、英國與新加坡的遠距 Offer，最後跨國錄取美國 Amazon 的遠距職位。並將秘訣整理每個人都適用的求職框架，協助超過兩百人順利上岸，包括國內外遠距工作。",
+    links: {
+      linkedin: "https://www.linkedin.com/",
+    },
+  },
+  {
     name: "校長哈利",
     title: "Nomad Groups / 遠距遊牧學院 創辦人，數位遊牧台灣社群發起人",
     image: "/images/harry-principal.png",
