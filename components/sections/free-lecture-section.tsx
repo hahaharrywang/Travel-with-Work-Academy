@@ -61,8 +61,8 @@ export function FreeLectureSection() {
               className="block flex-1 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200"
             >
               <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/0326%20Accupass-pmsxDSNfoVrlkKtiQsOwF87solWLmZ.jpg"
-                alt="3/26 免費講座：自媒體 × AI 普通人怎麼開始長出更自由的職涯選擇"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Accupass%20banner%20%282%29-YLit0F52VO3VPkmvZSSPAMphzqGM4M.png"
+                alt="4/5 免費講座：把「對自由的嚮往」變成「我已經在路上」- 遠端上班 × 自由接案 × 遠端職涯下一步"
                 className="w-full h-auto"
               />
             </a>
