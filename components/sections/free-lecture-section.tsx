@@ -41,7 +41,7 @@ export function FreeLectureSection() {
           {/* Embedded YouTube Video */}
           <div className="relative w-full aspect-video max-w-xl mx-auto mb-8 rounded-xl overflow-hidden shadow-lg">
             <iframe
-              src="https://www.youtube.com/embed/DGy_cfO1V9E?rel=0"
+              src="https://www.youtube.com/embed/zuoGvZUoA0c?rel=0"
               title="遠距遊牧學院介紹影片"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
