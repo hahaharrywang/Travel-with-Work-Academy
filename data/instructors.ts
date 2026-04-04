@@ -156,7 +156,7 @@ export const instructors: Instructor[] = [
     title: "NESS Wellness 共同創辦人｜國際演講者｜創投顧問｜亞洲品牌策略與社群經營專家",
     image: "/images/instructors/angela.jpg",
     link: "https://www.nesswellness.com/",
-    background: `14 年行銷與創投經驗，曾任亞太區美國品牌集團行銷總監、管理 50+ 國際品牌推廣；創投公司 Head of Growth/Venture Partner，在美國、日本、中國均有創業經驗。北京清華 × INSEAD 雙碩士 EMBA，並獲 INSEAD 領導力發展課程認證。2024 APICTA Awards 銀牌、聯合國 CSW 女性論壇講者、Women in Tech Forum 等國際舞台經驗。媒體專訪：Taiwan News、TaiwanPlus、Tatler Taiwan、Elle、換日線、台灣科技女性。`,
+    background: `14 年行銷與創投經驗，曾任亞太區美國品牌集團行銷總監、管理 50+ 國際品牌推廣；創投公司 Head of Growth/Venture Partner，在美國、日本、中國均有創業經驗。北京清華 × INSEAD 雙碩士 EMBA，並獲 INSEAD 領導力發展課程認證。2024 APICTA Awards 銀牌、聯合國 CSW 女性論壇講者、Women in Tech Forum 等國際舞台經驗。媒體專訪：Taiwan News、TaiwanPlus、Tatler Taiwan��Elle、換日線、台灣科技女性。`,
     links: {
       website: "https://www.nesswellness.com/",
     },
@@ -181,6 +181,17 @@ export const instructors: Instructor[] = [
       "老 K 從軟體工程師轉戰自媒體，創立「領先時代」，6 年內從一人公司擴張至 11 人團隊，白手起家到年營收千萬等級的實戰派創業者。身為 Notion 全球官方認證顧問，各大平台與自有課程已帶領逾 1.4 萬名學員透過數位工具/自媒體技術來放大個人影響力。他是將內容創作、商業模式與系統化工具營運，轉化為自動化獲利模式的頂尖實戰者，擅長幫你用系統化思維，打造不間斷的個人品牌收益、建造一人事業收入飛輪。",
     links: {
       instagram: "https://www.instagram.com/leadingmr.k/",
+    },
+  },
+  {
+    name: "Vivinee",
+    title: "前 Crypto.com / Fazz｜Tech Recruiter & User Growth PM",
+    image: "/images/instructors/vivinee.png",
+    link: "https://www.linkedin.com/",
+    background:
+      "Vivinee 曾任職於 Crypto.com、Fazz，並在取得 Amazon 工作機會後選擇專注遠距職涯。擁有 Tech Recruiter 與 User Growth PM 經驗，深度參與跨國招募、面試與遠距協作。閱覽上千份履歷、面試 300+ 國際人才，熟悉遠距團隊重視的關鍵能力。2024 年共同主辦「前進外商 Mentor 計畫」，協助學員掌握穩定的遠距求職技巧。",
+    links: {
+      linkedin: "https://www.linkedin.com/",
     },
   },
 ]
