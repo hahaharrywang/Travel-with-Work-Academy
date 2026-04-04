@@ -308,7 +308,7 @@ export const calendarData: CalendarWeek[] = [
     title: "Focus on Your True Value 讓 AI 成為你的實習生：從對話到自動化的第一個流程",
     focusShort: "用 AI + 自動化把日常工作變輕：做出你的第一個可運作流程。",
     focusDetail:
-      "核心內容\n• 什麼工作適合交給 AI／什麼仍要自己做\n• 把「想法」變成「可執行流程」\n• 以最小可用成果（MVP）為導向\n\n行動任務\n• 做出 1 個「能實際跑起來」的自動化流程\n• 寫下你的「AI 使用規則」",
+      "核心內容\n• 什麼工作適合交給 AI／什麼仍要自己做\n• 把「想法���變成「可執行流程」\n• 以最小可用成果（MVP）為導向\n\n行動任務\n• 做出 1 個「能實際跑起來」的自動化流程\n• 寫下你的「AI 使用規則」",
     instructorNames: ["林上哲"],
     layerTag: "核心技能 – AI 工作流／效率工具",
   },
@@ -408,7 +408,7 @@ export const calendarData: CalendarWeek[] = [
     focusShort: "用市場視角升級你的求職策略：可以繼續用 AI 課程教的 prompt 套用。",
     focusDetail:
       "核心內容\n• 思維轉型：理解「成果導向」底層邏輯，學會在不見面的情況下建立信任與高品質交付。\n• 數位協作：養成非同步溝通與工作文件化的專業習慣。\n• 永續經營：規劃長期的遠距職涯路徑，包含語言升級與數位足跡積累。\n\n基礎任務\n• 撰寫一則專業的「非同步進度回報訊息」（背景、進度、阻礙、下一步）\n\n進階任務\n• 運用 Notion 或 Google Doc 建立個人工作週記模板，並附上本週實際填寫結果",
-    instructorNames: ["講師確認中"],
+    instructorNames: ["Vivinee"],
     layerTag: "路線必修 – 上班線 / 試水溫（面試＆談薪）",
   },
   {
