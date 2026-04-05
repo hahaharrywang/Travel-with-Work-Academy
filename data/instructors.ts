@@ -5,11 +5,11 @@ export const instructors: Instructor[] = [
     name: "喬",
     title: "ADPList 全球 Top 1% 導師",
     image: "/images/instructors/qiao.jpg",
-    link: "https://www.linkedin.com/",
+    link: "https://www.linkedin.com/in/georgechan3/",
     background:
       "喬是一位求職教練，同時是 ADPList 全球 Top 1% 導師、LinkedIn Top Voice，著有暢銷書《ㄧ生受用的求職方法：量化求職》。曾親身拿到美國、加拿大、英國與新加坡的遠距 Offer，最後跨國錄取美國 Amazon 的遠距職位。並將秘訣整理每個人都適用的求職框架，協助超過兩百人順利上岸，包括國內外遠距工作。",
     links: {
-      linkedin: "https://www.linkedin.com/",
+      linkedin: "https://www.linkedin.com/in/georgechan3/",
     },
   },
   {
@@ -32,6 +32,7 @@ export const instructors: Instructor[] = [
       "工具王阿璋 IP 經營（超過 20 萬粉絲)、碩士開始全職經營自媒體，至今超過 6 年、夫妻數位遊牧 2 年經歷，前往泰國、越南、菲律賓、日本、馬來西亞等多國旅居、經營「阿璋遊牧」電子報，持續週更 2 年，累積超過 7000 位忠實讀者、創立「數位遊牧陪跑計劃」，協助讀者成功轉型開始數位遊牧、以幫助他人為目標，成功獲得理想生活",
     links: {
       website: "https://www.johntool.com",
+      instagram: "https://www.instagram.com/johntooltw/",
     },
   },
   {
@@ -74,6 +75,7 @@ export const instructors: Instructor[] = [
     background: "自由文字接案 5 年 / 代筆出版 3 本書，曾受『大人的 Small Talk』Podcast 專訪 / 近 100 名學員付費 1v1 接案諮詢 / 單筆最高接案價 94.5 萬 / 電子報訂閱數突破 2500 人 / IG 粉絲近萬人",
     links: {
       website: "https://siddharam.com",
+      instagram: "https://www.instagram.com/sidd.blue/",
     },
   },
   {
@@ -149,49 +151,51 @@ export const instructors: Instructor[] = [
       "自媒體創作者、社群行銷顧問 / 8 年跨產業行銷經驗，操盤百萬粉絲團 / IG 經營 4 個月破萬追蹤，現累積 9 萬粉絲 / 輔導逾 10,000 名學員打造個人品牌與自媒體 / 曾授課於政府機構、知名企業與國際平台 / 致力推廣透過個人品牌實現理想生活與事業",
     links: {
       website: "https://www.daydayding.com",
+      instagram: "https://www.instagram.com/daydayding/",
     },
   },
-  {
+{
     name: "Angela Feng",
     title: "NESS Wellness 共同創辦人｜國際演講者｜創投顧問｜亞洲品牌策略與社群經營專家",
     image: "/images/instructors/angela.jpg",
     link: "https://www.nesswellness.com/",
-    background: `14 年行銷與創投經驗，曾任亞太區美國品牌集團行銷總監、管理 50+ 國際品牌推廣；創投公司 Head of Growth/Venture Partner，在美國、日本、中國均有創業經驗。北京清華 × INSEAD 雙碩士 EMBA，並獲 INSEAD 領導力發展課程認證。2024 APICTA Awards 銀牌、聯合國 CSW 女性論壇講者、Women in Tech Forum 等國際舞台經驗。媒體專訪：Taiwan News、TaiwanPlus、Tatler Taiwan��Elle、換日線、台灣科技女性。`,
+    background: `14 年行銷與創投經驗，曾任亞太區美國品牌集團行銷總監、管理 50+ 國際品牌推廣；創投公司 Head of Growth/Venture Partner，在美國、日本、中國均有創業經驗。北京清華 × INSEAD 雙碩士 EMBA，並獲 INSEAD 領導力發展課程認證。2024 APICTA Awards 銀牌、聯合國 CSW 女性論壇講者、Women in Tech Forum 等國際舞台經驗。媒體專訪：Taiwan News、TaiwanPlus、Tatler Taiwan、Elle、換日線、台灣科技女性。`,
     links: {
       website: "https://www.nesswellness.com/",
+      instagram: "https://www.instagram.com/angelaywei/",
     },
   },
   {
     name: "Demi",
     title: "Co-Working Online｜自由者共同工作平台・創辦人",
     image: "/images/instructors/demi.png",
-    link: "https://www.instagram.com/myjobistraveling/",
+    link: "https://www.instagram.com/sssyuuu/",
     background:
       "AndAction進階證照 - Life Coach 人生教練 / 美國NGH國際證照 - 催眠師療癒師 / 數位遊牧、自由工作講師 / 個人品牌「我的正職是旅行」創辦人 / 永續品牌「Waste Studio｜海廢飾品專門店」創辦人",
     links: {
-      instagram: "https://www.instagram.com/myjobistraveling/",
+      instagram: "https://www.instagram.com/sssyuuu/",
     },
   },
   {
     name: "老 K",
     title: "一人事業顧問、Notion 顧問",
     image: "/images/instructors/lao-k.jpg",
-    link: "https://www.instagram.com/leadingmr.k/",
+    link: "https://www.instagram.com/leadingmrk/",
     background:
       "老 K 從軟體工程師轉戰自媒體，創立「領先時代」，6 年內從一人公司擴張至 11 人團隊，白手起家到年營收千萬等級的實戰派創業者。身為 Notion 全球官方認證顧問，各大平台與自有課程已帶領逾 1.4 萬名學員透過數位工具/自媒體技術來放大個人影響力。他是將內容創作、商業模式與系統化工具營運，轉化為自動化獲利模式的頂尖實戰者，擅長幫你用系統化思維，打造不間斷的個人品牌收益、建造一人事業收入飛輪。",
     links: {
-      instagram: "https://www.instagram.com/leadingmr.k/",
+      instagram: "https://www.instagram.com/leadingmrk/",
     },
   },
   {
     name: "Vivinee",
     title: "前 Crypto.com / Fazz｜Tech Recruiter & User Growth PM",
     image: "/images/instructors/vivinee.png",
-    link: "https://www.linkedin.com/",
+    link: "https://www.linkedin.com/in/vivinee-liao/",
     background:
       "Vivinee 曾任職於 Crypto.com、Fazz，並在取得 Amazon 工作機會後選擇專注遠距職涯。擁有 Tech Recruiter 與 User Growth PM 經驗，深度參與跨國招募、面試與遠距協作。閱覽上千份履歷、面試 300+ 國際人才，熟悉遠距團隊重視的關鍵能力。2024 年共同主辦「前進外商 Mentor 計畫」，協助學員掌握穩定的遠距求職技巧。",
     links: {
-      linkedin: "https://www.linkedin.com/",
+      linkedin: "https://www.linkedin.com/in/vivinee-liao/",
     },
   },
 ]
