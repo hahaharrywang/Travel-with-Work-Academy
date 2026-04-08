@@ -61,8 +61,8 @@ export function FreeLectureSection() {
               className="block flex-1 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200"
             >
               <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Accupass%20banner%20%282%29-YLit0F52VO3VPkmvZSSPAMphzqGM4M.png"
-                alt="4/5 免費講座：把「對自由的嚮往」變成「我已經在路上」- 遠端上班 × 自由接案 × 遠端職涯下一步"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/0409%20Accupass-J6JzDbqZUBOVuD27Idm72mDdOXwRCU.png"
+                alt="4/9 免費講座：人生是設計出來的 從 ikigai 到 AI 如何打造更有效率的人生"
                 className="w-full h-auto"
               />
             </a>
@@ -73,8 +73,8 @@ export function FreeLectureSection() {
               className="block flex-1 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200"
             >
               <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/0409%20Accupass-J6JzDbqZUBOVuD27Idm72mDdOXwRCU.png"
-                alt="4/9 免費講座：人生是設計出來的 從 ikigai 到 AI 如何打造更有效率的人生"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/TWW2%20Banner%20%285%29-OkIC2AFIrYlR8CE05LgLpIbh1o61gb.png"
+                alt="4/12 免費講座：2小時把「對自由職涯的嚮往」變成「我已經在路上」- 遠端上班 × 自由接案 × 遠距自由職涯下一步"
                 className="w-full h-auto"
               />
             </a>
