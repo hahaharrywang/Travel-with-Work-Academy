@@ -90,7 +90,7 @@ export function FreeLectureSection() {
               {"報名免費講座、認識講師"}
             </a>
             <a
-              href="https://www.skool.com/twwgroup-3033/classroom/a5319d94?md=bca9b69c2a5b40869e2fe6254aa9fa13"
+              href="https://www.skool.com/twwgroup-3033/about"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 border-2 border-brand-teal text-brand-teal font-semibold text-sm sm:text-base px-6 lg:px-5 py-4 lg:py-3 rounded-full hover:bg-brand-teal hover:text-white transition-colors duration-200 w-full sm:w-auto whitespace-nowrap"
