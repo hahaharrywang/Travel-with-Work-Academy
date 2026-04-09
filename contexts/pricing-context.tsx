@@ -422,9 +422,18 @@ export function PricingProvider({
   const lowestPrice = getSingleLinePrice(currentStageData)
 
   const checkoutURL = useMemo(() => {
-    const baseURL = currentStageData.checkoutUrls.dualLine
+    // 如果目前階段的連結為空，往前找最近一個有設定連結的階段
+    let baseURL = currentStageData.checkoutUrls.dualLine
+    if (!baseURL) {
+      for (let i = currentStageIndex - 1; i >= 0; i--) {
+        if (stages[i].checkoutUrls.dualLine) {
+          baseURL = stages[i].checkoutUrls.dualLine
+          break
+        }
+      }
+    }
     return couponCode ? `${baseURL}&coupon=${couponCode}` : baseURL
-  }, [couponCode, currentStageData])
+  }, [couponCode, currentStageData, currentStageIndex])
 
   const getTrackingParams = () => {
     if (typeof window === "undefined") return ""
@@ -438,7 +447,16 @@ export function PricingProvider({
   }
 
   const getCheckoutURLWithTracking = (planId: PlanId) => {
-    const baseURL = currentStageData.checkoutUrls[planId]
+    // 如果目前階段的連結為空，往前找最近一個有設定連結的階段
+    let baseURL = currentStageData.checkoutUrls[planId]
+    if (!baseURL) {
+      for (let i = currentStageIndex - 1; i >= 0; i--) {
+        if (stages[i].checkoutUrls[planId]) {
+          baseURL = stages[i].checkoutUrls[planId]
+          break
+        }
+      }
+    }
     const urlWithCoupon = couponCode ? `${baseURL}&coupon=${couponCode}` : baseURL
     return `${urlWithCoupon}${getTrackingParams()}`
   }
