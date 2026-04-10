@@ -41,7 +41,7 @@ export function HeroSection() {
         <div className="hidden lg:grid lg:grid-cols-2 gap-10 items-stretch">
           {/* Left: All text content */}
           <div className="flex flex-col space-y-5">
-            <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-white leading-tight lg:leading-[1.35] tracking-wide">
+            <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-white leading-tight lg:leading-[1.2] tracking-wide">
               今年五月，
               <br />
               一起把「也許有一天」
