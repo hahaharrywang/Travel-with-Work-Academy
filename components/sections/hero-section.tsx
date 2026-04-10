@@ -119,7 +119,7 @@ export function HeroSection() {
 
             {/* Micro Proof */}
             <p className="text-white/60 text-sm">
-              至今已累積 <span className="text-white font-medium">300+</span> 學員、<span className="text-white font-medium">1,500+</span> 線下社群參與人次
+              至今已累積 <span className="text-white font-medium">300+</span> 學員、<span className="text-white font-medium">1,800+</span> 線下社群參與人次
             </p>
 
             {/* 錨點文字 */}
@@ -237,7 +237,7 @@ export function HeroSection() {
 
           {/* Micro Proof */}
           <p className="text-white/60 text-sm text-center">
-            至今已累積 <span className="text-white font-medium">300+</span> 學員、<span className="text-white font-medium">1,500+</span> 線下社群參與人次
+            至今已累積 <span className="text-white font-medium">300+</span> 學員、<span className="text-white font-medium">1,800+</span> 線下社群參與人次
           </p>
 
           {/* 引導文案 */}
