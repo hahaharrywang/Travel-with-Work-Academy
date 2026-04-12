@@ -19,11 +19,11 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
   const visibleStages = useMemo(() => {
     const now = new Date()
     const currentIndex = stages.findIndex((s) => now >= s.startAt && now <= s.endAt)
-    const originalIndex = stages.length - 1
+    const lastIndex = stages.length - 1
 
-    // Past: only show up to 2 stages before current
+    // Past: only show up to 2 stages before current (never changes)
     const pastStart = Math.max(0, currentIndex - 2)
-    const pastIndices = []
+    const pastIndices: number[] = []
     for (let i = pastStart; i < currentIndex; i++) {
       pastIndices.push(i)
     }
@@ -32,14 +32,29 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
     const currentIndices = currentIndex >= 0 ? [currentIndex] : []
 
     // Future: all stages after current
-    const futureIndices = []
-    for (let i = currentIndex + 1; i <= originalIndex; i++) {
+    const futureIndices: number[] = []
+    for (let i = currentIndex + 1; i <= lastIndex; i++) {
       futureIndices.push(i)
     }
 
+    // Collapsed: past(2) + current + next(+1) + (+3) + last(原價)
+    const nextIndex = currentIndex + 1
+    const skipOneIndex = currentIndex + 3
+    const collapsedFutureIndices = futureIndices.filter((i) =>
+      i === nextIndex || i === skipOneIndex || i === lastIndex
+    )
+    const collapsedIndices = [...pastIndices, ...currentIndices, ...collapsedFutureIndices]
+      .filter((v, i, a) => a.indexOf(v) === i)
+      .sort((a, b) => a - b)
+
+    // Expanded: past(2) + current + all future
+    const expandedIndices = [...pastIndices, ...currentIndices, ...futureIndices]
+      .filter((v, i, a) => a.indexOf(v) === i)
+      .sort((a, b) => a - b)
+
     return {
-      collapsed: [...pastIndices, ...currentIndices, originalIndex >= 0 ? [originalIndex] : []].flat().filter((v, i, a) => a.indexOf(v) === i).sort((a, b) => a - b).map((i) => stages[i]),
-      expanded: [...pastIndices, ...currentIndices, ...futureIndices].map((i) => stages[i]),
+      collapsed: collapsedIndices.map((i) => stages[i]),
+      expanded: expandedIndices.map((i) => stages[i]),
     }
   }, [])
 
