@@ -16,57 +16,35 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
   const [showTimelineModal, setShowTimelineModal] = useState(false)
 
 
-  const collapsedStages = useMemo(() => {
+  const visibleStages = useMemo(() => {
     const now = new Date()
     const currentIndex = stages.findIndex((s) => now >= s.startAt && now <= s.endAt)
-    const nextIndex = currentIndex + 1 < stages.length ? currentIndex + 1 : -1
-    const originalIndex = stages.length - 1 // Last stage is "原價"
-
-    // Always include: current, next (if exists), and original price
-    const mustShowIndices = new Set<number>()
-    if (currentIndex >= 0) mustShowIndices.add(currentIndex)
-    if (nextIndex >= 0 && nextIndex !== originalIndex) mustShowIndices.add(nextIndex)
-    mustShowIndices.add(originalIndex)
-
-    // Calculate remaining slots (target ~6 total)
-    const targetTotal = 6
-    const remainingSlots = targetTotal - mustShowIndices.size
-
-    // Evenly distribute remaining stages
-    const otherIndices = stages.map((_, i) => i).filter((i) => !mustShowIndices.has(i))
-
-    const step = Math.max(1, Math.floor(otherIndices.length / remainingSlots))
-    const distributedIndices: number[] = []
-    for (let i = 0; i < otherIndices.length && distributedIndices.length < remainingSlots; i += step) {
-      distributedIndices.push(otherIndices[i])
-    }
-
-    // Combine and sort
-    const allIndices = [...mustShowIndices, ...distributedIndices].sort((a, b) => a - b)
-    return allIndices.map((i) => stages[i])
-  }, [])
-
-  const collapsedStagesMobile = useMemo(() => {
-    const now = new Date()
-    const currentIndex = stages.findIndex((s) => now >= s.startAt && now <= s.endAt)
-    const nextIndex = currentIndex + 1 < stages.length ? currentIndex + 1 : -1
     const originalIndex = stages.length - 1
 
-    const indices = new Set<number>()
-    if (currentIndex >= 0) indices.add(currentIndex)
-    if (nextIndex >= 0 && nextIndex !== originalIndex) indices.add(nextIndex)
-    indices.add(originalIndex)
-
-    // Add one more stage between next and original if there's room
-    if (indices.size < 4 && nextIndex >= 0) {
-      const midIndex = Math.floor((nextIndex + originalIndex) / 2)
-      if (midIndex !== nextIndex && midIndex !== originalIndex) {
-        indices.add(midIndex)
-      }
+    // Past: only show up to 2 stages before current
+    const pastStart = Math.max(0, currentIndex - 2)
+    const pastIndices = []
+    for (let i = pastStart; i < currentIndex; i++) {
+      pastIndices.push(i)
     }
 
-    return [...indices].sort((a, b) => a - b).map((i) => stages[i])
+    // Current
+    const currentIndices = currentIndex >= 0 ? [currentIndex] : []
+
+    // Future: all stages after current
+    const futureIndices = []
+    for (let i = currentIndex + 1; i <= originalIndex; i++) {
+      futureIndices.push(i)
+    }
+
+    return {
+      collapsed: [...pastIndices, ...currentIndices, originalIndex >= 0 ? [originalIndex] : []].flat().filter((v, i, a) => a.indexOf(v) === i).sort((a, b) => a - b).map((i) => stages[i]),
+      expanded: [...pastIndices, ...currentIndices, ...futureIndices].map((i) => stages[i]),
+    }
   }, [])
+
+  const collapsedStages = visibleStages.collapsed
+  const collapsedStagesMobile = visibleStages.collapsed
 
   const handleTimelineModalOpen = () => {
     setShowTimelineModal(true)
