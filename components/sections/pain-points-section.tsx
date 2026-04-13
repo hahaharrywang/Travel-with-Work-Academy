@@ -12,7 +12,7 @@ export function PainPointsSection() {
       {/* Desktop: Show the cut image */}
       <div className="hidden lg:block">
         <Image
-          src="/images/section3-painpoints-desktop.png"
+          src="/images/section3-painpoints-desktop.jpg"
           alt="不是你不努力，而是拼圖還有缺 - 方向斷裂、方法斷裂、同伴斷裂"
           width={1920}
           height={800}
