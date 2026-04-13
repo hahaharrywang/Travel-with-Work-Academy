@@ -126,7 +126,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
   const [showCalendarInline, setShowCalendarInline] = useState(false)
   const calendarSectionRef = useRef<HTMLDivElement>(null)
   const [expandedWeeks, setExpandedWeeks] = useState<Set<number>>(new Set())
-  const [expandedPhases, setExpandedPhases] = useState<Set<string>>(new Set(["階段一 起步打底"]))
+  const [expandedPhases, setExpandedPhases] = useState<Set<string>>(new Set())
 
   const [pricingTimelineModalOpen, setPricingTimelineModalOpen] = useState(false)
   const [faqPriceDiffModalOpen, setFaqPriceDiffModalOpen] = useState(false)
