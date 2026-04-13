@@ -266,80 +266,42 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <h3 className="text-lg sm:text-xl font-bold text-brand-teal mb-2">遠端上班：從看懂機會，到更有機會被錄用，也更有能力走得長久</h3>
               </div>
               
-              {/* Desktop: 四張卡片 grid - 全寬讓卡片更寬 */}
-              <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {/* Desktop & Mobile: Accordion 折疊式 */}
+              <div className="space-y-3 max-w-4xl mx-auto">
                 {remoteJobPhaseContent.map((content, index) => {
                   const phase = fourPhases[index]
                   return (
-                    <div key={index} className={`bg-white rounded-xl p-6 lg:p-7 shadow-sm border-2 ${phase.color.border}`}>
-                      <div className="flex items-center gap-2 mb-4">
-                        <span className={`w-8 h-8 rounded-full ${phase.color.solid} text-white text-base font-bold flex items-center justify-center flex-shrink-0`}>
-                          {index + 1}
-                        </span>
-                        <span className={`text-base ${phase.color.text}`}>{phase.months}</span>
-                        <span className={`text-base font-semibold ${phase.color.text}`}>{phase.name}</span>
-                      </div>
-                      <h4 className="font-bold text-brand-teal text-lg mb-3 leading-snug">{content.headline}</h4>
-                      <p className="text-base text-brand-text/70 mb-5 leading-relaxed">{content.description}</p>
-                      
-                      <div className="mb-5">
-                        <p className="text-sm font-semibold text-brand-teal mb-2">你會得到：</p>
-                        <ul className="space-y-2">
-                          {content.outcomes.map((outcome, i) => (
-                            <li key={i} className="text-sm text-brand-text/80 flex items-start gap-2">
-                              <span className="text-brand-gold mt-0.5">•</span>
-                              {outcome}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      
-                      <div className="pt-4 border-t border-brand-mist/50">
-                        <p className="text-sm font-semibold text-brand-text/60 mb-2">對應重點：</p>
-                        <p className="text-sm text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-
-              {/* Mobile: Accordion 折疊式 */}
-              <div className="md:hidden space-y-3">
-                {remoteJobPhaseContent.map((content, index) => {
-                  const phase = fourPhases[index]
-                  const isFirst = index === 0
-                  return (
-                    <details key={index} className={`group bg-white rounded-xl border-2 ${phase.color.border} overflow-hidden`} open={isFirst}>
-                      <summary className="p-4 cursor-pointer hover:bg-brand-offwhite/50 transition-colors list-none [&::-webkit-details-marker]:hidden">
-                        <div className="flex items-center gap-3">
-                          <span className={`w-7 h-7 rounded-full ${phase.color.solid} text-white text-xs font-bold flex items-center justify-center flex-shrink-0`}>
+                    <details key={index} className={`group bg-white rounded-xl border-2 ${phase.color.border} overflow-hidden`}>
+                      <summary className="p-4 md:p-5 cursor-pointer hover:bg-brand-offwhite/50 transition-colors list-none [&::-webkit-details-marker]:hidden">
+                        <div className="flex items-center gap-3 md:gap-4">
+                          <span className={`w-7 h-7 md:w-9 md:h-9 rounded-full ${phase.color.solid} text-white text-xs md:text-sm font-bold flex items-center justify-center flex-shrink-0`}>
                             {index + 1}
                           </span>
                           <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-1.5">
-                              <span className={`text-xs ${phase.color.text}`}>{phase.months}</span>
-                              <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
+                            <div className="flex items-center gap-1.5 md:gap-2">
+                              <span className={`text-xs md:text-sm ${phase.color.text}`}>{phase.months}</span>
+                              <span className={`text-xs md:text-sm font-semibold ${phase.color.text}`}>{phase.name}</span>
                             </div>
-                            <p className="text-sm font-bold text-brand-teal truncate">{content.headline}</p>
+                            <p className="text-sm md:text-base font-bold text-brand-teal truncate">{content.headline}</p>
                           </div>
                           {/* 展開/收合提示 */}
                           <div className="flex items-center gap-1 text-brand-text/50 flex-shrink-0">
-                            <span className="text-xs group-open:hidden">展開</span>
-                            <span className="text-xs hidden group-open:inline">收合</span>
-                            <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <span className="text-xs md:text-sm group-open:hidden">展開</span>
+                            <span className="text-xs md:text-sm hidden group-open:inline">收合</span>
+                            <svg className="w-4 h-4 md:w-5 md:h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                             </svg>
                           </div>
                         </div>
                       </summary>
-                      <div className="px-4 pb-4 pt-2 border-t border-brand-mist/30">
-                        <p className="text-sm text-brand-text/70 mb-3 leading-relaxed">{content.description}</p>
+                      <div className="px-4 md:px-5 pb-4 md:pb-5 pt-2 md:pt-3 border-t border-brand-mist/30">
+                        <p className="text-sm md:text-base text-brand-text/70 mb-3 md:mb-4 leading-relaxed">{content.description}</p>
                         
-                        <div className="mb-3">
-                          <p className="text-xs font-semibold text-brand-teal mb-2">你會得到：</p>
-                          <ul className="space-y-1.5">
+                        <div className="mb-3 md:mb-4">
+                          <p className="text-xs md:text-sm font-semibold text-brand-teal mb-2">你會得到：</p>
+                          <ul className="space-y-1.5 md:space-y-2">
                             {content.outcomes.map((outcome, i) => (
-                              <li key={i} className="text-xs text-brand-text/80 flex items-start gap-2">
+                              <li key={i} className="text-xs md:text-sm text-brand-text/80 flex items-start gap-2">
                                 <span className="text-brand-gold mt-0.5">•</span>
                                 {outcome}
                               </li>
@@ -347,9 +309,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                           </ul>
                         </div>
                         
-                        <div className="pt-3 border-t border-brand-mist/50">
-                          <p className="text-xs font-semibold text-brand-text/60 mb-1">對應重點：</p>
-                          <p className="text-xs text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
+                        <div className="pt-3 md:pt-4 border-t border-brand-mist/50">
+                          <p className="text-xs md:text-sm font-semibold text-brand-text/60 mb-1 md:mb-2">對應重點：</p>
+                          <p className="text-xs md:text-sm text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
                         </div>
                       </div>
                     </details>
@@ -367,80 +329,42 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <h3 className="text-lg sm:text-xl font-bold text-brand-teal mb-2">接案：從想靠自己變現，到做出能持續合作的內容與服務</h3>
               </div>
               
-              {/* Desktop: 四張卡片 grid - 全寬讓卡片更寬 */}
-              <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {/* Desktop & Mobile: Accordion 折疊式 */}
+              <div className="space-y-3 max-w-4xl mx-auto">
                 {freelancePhaseContent.map((content, index) => {
                   const phase = fourPhases[index]
                   return (
-                    <div key={index} className={`bg-white rounded-xl p-6 lg:p-7 shadow-sm border-2 ${phase.color.border}`}>
-                      <div className="flex items-center gap-2 mb-4">
-                        <span className={`w-8 h-8 rounded-full ${phase.color.solid} text-white text-base font-bold flex items-center justify-center flex-shrink-0`}>
-                          {index + 1}
-                        </span>
-                        <span className={`text-base ${phase.color.text}`}>{phase.months}</span>
-                        <span className={`text-base font-semibold ${phase.color.text}`}>{phase.name}</span>
-                      </div>
-                      <h4 className="font-bold text-brand-teal text-lg mb-3 leading-snug">{content.headline}</h4>
-                      <p className="text-base text-brand-text/70 mb-5 leading-relaxed">{content.description}</p>
-                      
-                      <div className="mb-5">
-                        <p className="text-sm font-semibold text-brand-teal mb-2">你會得到：</p>
-                        <ul className="space-y-2">
-                          {content.outcomes.map((outcome, i) => (
-                            <li key={i} className="text-sm text-brand-text/80 flex items-start gap-2">
-                              <span className="text-brand-gold mt-0.5">•</span>
-                              {outcome}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      
-                      <div className="pt-4 border-t border-brand-mist/50">
-                        <p className="text-sm font-semibold text-brand-text/60 mb-2">對應重點：</p>
-                        <p className="text-sm text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-
-              {/* Mobile: Accordion 折疊式 */}
-              <div className="md:hidden space-y-3">
-                {freelancePhaseContent.map((content, index) => {
-                  const phase = fourPhases[index]
-                  const isFirst = index === 0
-                  return (
-                    <details key={index} className={`group bg-white rounded-xl border-2 ${phase.color.border} overflow-hidden`} open={isFirst}>
-                      <summary className="p-4 cursor-pointer hover:bg-brand-offwhite/50 transition-colors list-none [&::-webkit-details-marker]:hidden">
-                        <div className="flex items-center gap-3">
-                          <span className={`w-7 h-7 rounded-full ${phase.color.solid} text-white text-xs font-bold flex items-center justify-center flex-shrink-0`}>
+                    <details key={index} className={`group bg-white rounded-xl border-2 ${phase.color.border} overflow-hidden`}>
+                      <summary className="p-4 md:p-5 cursor-pointer hover:bg-brand-offwhite/50 transition-colors list-none [&::-webkit-details-marker]:hidden">
+                        <div className="flex items-center gap-3 md:gap-4">
+                          <span className={`w-7 h-7 md:w-9 md:h-9 rounded-full ${phase.color.solid} text-white text-xs md:text-sm font-bold flex items-center justify-center flex-shrink-0`}>
                             {index + 1}
                           </span>
                           <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-1.5">
-                              <span className={`text-xs ${phase.color.text}`}>{phase.months}</span>
-                              <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
+                            <div className="flex items-center gap-1.5 md:gap-2">
+                              <span className={`text-xs md:text-sm ${phase.color.text}`}>{phase.months}</span>
+                              <span className={`text-xs md:text-sm font-semibold ${phase.color.text}`}>{phase.name}</span>
                             </div>
-                            <p className="text-sm font-bold text-brand-teal truncate">{content.headline}</p>
+                            <p className="text-sm md:text-base font-bold text-brand-teal truncate">{content.headline}</p>
                           </div>
                           {/* 展開/收合提示 */}
                           <div className="flex items-center gap-1 text-brand-text/50 flex-shrink-0">
-                            <span className="text-xs group-open:hidden">展開</span>
-                            <span className="text-xs hidden group-open:inline">收合</span>
-                            <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <span className="text-xs md:text-sm group-open:hidden">展開</span>
+                            <span className="text-xs md:text-sm hidden group-open:inline">收合</span>
+                            <svg className="w-4 h-4 md:w-5 md:h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                             </svg>
                           </div>
                         </div>
                       </summary>
-                      <div className="px-4 pb-4 pt-2 border-t border-brand-mist/30">
-                        <p className="text-sm text-brand-text/70 mb-3 leading-relaxed">{content.description}</p>
+                      <div className="px-4 md:px-5 pb-4 md:pb-5 pt-2 md:pt-3 border-t border-brand-mist/30">
+                        <p className="text-sm md:text-base text-brand-text/70 mb-3 md:mb-4 leading-relaxed">{content.description}</p>
                         
-                        <div className="mb-3">
-                          <p className="text-xs font-semibold text-brand-teal mb-2">你會得到：</p>
-                          <ul className="space-y-1.5">
+                        <div className="mb-3 md:mb-4">
+                          <p className="text-xs md:text-sm font-semibold text-brand-teal mb-2">你會得到：</p>
+                          <ul className="space-y-1.5 md:space-y-2">
                             {content.outcomes.map((outcome, i) => (
-                              <li key={i} className="text-xs text-brand-text/80 flex items-start gap-2">
+                              <li key={i} className="text-xs md:text-sm text-brand-text/80 flex items-start gap-2">
                                 <span className="text-brand-gold mt-0.5">•</span>
                                 {outcome}
                               </li>
@@ -448,9 +372,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                           </ul>
                         </div>
                         
-                        <div className="pt-3 border-t border-brand-mist/50">
-                          <p className="text-xs font-semibold text-brand-text/60 mb-1">對應重點：</p>
-                          <p className="text-xs text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
+                        <div className="pt-3 md:pt-4 border-t border-brand-mist/50">
+                          <p className="text-xs md:text-sm font-semibold text-brand-text/60 mb-1 md:mb-2">對應重點：</p>
+                          <p className="text-xs md:text-sm text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
                         </div>
                       </div>
                     </details>
@@ -1183,7 +1107,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             {activeCalendarTab === "principal" && (
               <div className="animate-in fade-in duration-300">
                 {(() => {
-                  const principal = instructors.find((i) => i.name === "校長哈利")
+                  const principal = instructors.find((i) => i.name === "校��哈利")
                   if (!principal) return null
                   return (
                     <div className="max-w-2xl mx-auto">
