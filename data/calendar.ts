@@ -53,7 +53,7 @@ export const fourPhases = [
   {
     id: 4,
     name: "永續",
-    shortTagline: "把一次嘗試走成長期節奏",
+    shortTagline: "找到一次機會不是終點，走得久才是",
     description: "把一次嘗試，變成能走下去的節奏。不是短暫熱血，而是學會留任、合作、溝通、財務與長期累積。",
     color: { bg: "bg-brand-teal/10", text: "text-brand-teal", border: "border-brand-mist", solid: "bg-brand-teal" },
     months: "8–9 月",
@@ -179,7 +179,7 @@ export const undecidedTabContent = {
     week2: "接案變現地圖 ＆ 目標設定",
     week3: "遠端上班職涯藍圖 ＆ 目標設定",
   },
-  closing: "你不需要現在就把人生選到最精準。你只需要先進到一個，能幫你更快看見答案的節奏裡。\n\n猶豫不決的時間，才是你最大的成本。",
+  closing: "你不需要一次就在人生的選擇題選到最正確的答案。你只需要先進到一個，能幫你更快看見答案的行動節奏裡，先開始就好。\n\n猶豫不決的時間，才是一去不復返的成本。",
 }
 
 export const calendarData: CalendarWeek[] = [
@@ -308,7 +308,7 @@ export const calendarData: CalendarWeek[] = [
     title: "Focus on Your True Value 讓 AI 成為你的實習生：從對話到自動化的第一個流程",
     focusShort: "用 AI + 自動化把日常工作變輕：做出你的第一個可運作流程。",
     focusDetail:
-      "核心內容\n• 什麼工作適合交給 AI／什麼仍要自己做\n• 把「想法���變成「可執行流程」\n• 以最小可用成果（MVP）為導向\n\n行動任務\n• 做出 1 個「能實際跑起來」的自動化流程\n• 寫下你的「AI 使用規則」",
+      "核心內容\n• 什麼工作適合交給 AI／什麼仍要自己做\n• 把「想法�����變成「可執行流程」\n• 以最小可用成果（MVP）為導向\n\n行動任務\n• 做出 1 個「能實際跑起來」的自動化流程\n• 寫下你的「AI 使用規則」",
     instructorNames: ["林上哲"],
     layerTag: "核心技能 – AI 工作流／效率工具",
   },
