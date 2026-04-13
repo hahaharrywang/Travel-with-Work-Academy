@@ -50,12 +50,12 @@ export function HeroSection() {
             </h1>
 
             <p className="text-sm sm:text-base text-brand-gold font-medium tracking-wide leading-relaxed">
-              {'用 5 個月有節奏的行動系統，讓你不停薪、不斷收入踏出遠距職涯的下一步。'}
+              {'不停薪、不 all-in，五個月找到適合你的遠距路徑。'}
             </p>
 
             {/* 適合誰 */}
             <p className="text-white/70 text-sm leading-relaxed">
-              適合正在考慮遠端工作、想接案但不知從何開始、或已經在職但想為自己多創造一條路的人。
+              不管你是想找到一份遠距工作、用接案或內容創作多一條收入線，還是只是覺得「人生不該只有這樣」。
             </p>
 
             {/* 膠囊標籤 */}
@@ -166,14 +166,16 @@ export function HeroSection() {
           </h1>
 
           <p className="text-sm sm:text-base text-brand-gold font-medium tracking-wide leading-relaxed">
-            {'用 5 個月有節奏的行動系統，'}
+            {'不停薪、不 all-in，'}
             <br />
-            {'讓你不停薪、不斷收入踏出遠距職涯的下一步。'}
+            {'五個月找到適合你的遠距路徑。'}
           </p>
 
           {/* 適合誰 */}
           <p className="text-white/70 text-sm leading-relaxed">
-            適合正在考慮遠端工作、想接案但不知從何開始、或已經在職但想為自己多創造一條路的人。
+            不管你是想找到一份遠距工作、用接案或內容創作多一條收入線，
+            <br />
+            還是只是覺得「人生不該只有這樣」。
           </p>
 
           {/* 膠囊標籤 */}

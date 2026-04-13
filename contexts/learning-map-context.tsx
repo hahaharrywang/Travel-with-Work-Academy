@@ -35,7 +35,7 @@ export function LearningMapProvider({ children }: { children: ReactNode }) {
   const [activeMapTab, setActiveMapTab] = useState<string>("遠端上班")
   const [selectedWeek, setSelectedWeek] = useState<CalendarWeek | null>(null)
   const [expandedWeeks, setExpandedWeeks] = useState<Set<number>>(new Set())
-  const [expandedPhases, setExpandedPhases] = useState<Set<string>>(new Set(["階段一 起步打底"]))
+  const [expandedPhases, setExpandedPhases] = useState<Set<string>>(new Set())
   const [showCalendarInline, setShowCalendarInline] = useState(false)
   const [showCalendarModal, setShowCalendarModal] = useState(false)
   const [expandedInstructorBios, setExpandedInstructorBios] = useState<Set<string>>(new Set())

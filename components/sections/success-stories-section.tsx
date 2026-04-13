@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react"
 import { Card } from "@/components/ui/card"
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel"
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react"
 
 const successStories = [
   {
@@ -12,7 +12,7 @@ const successStories = [
     identity: "科技公司 PM，從沒公開過自己作品",
     tags: ["#遠距遊牧學院"],
     content: [
-      "加入學院之前，我完全沒有作品集。頂多只有幾個零散的 side project 與想法。每次想到要投履歷或嘗試接案，就會卡在同一句話：「我好像沒有什麼可以拿得出來。」",
+      "加入學院之前，我在科技公司當了三年 PM，工作穩定、不算討厭，但每天就是通勤、開會、交報告。偶爾看到有人在海外遠距工作的分享，心裡會想「也許我也可以」，但想到自己完全沒有作品集——頂多只有幾個零散的 side project 與想法——每次想到要投履歷或嘗試接案，就卡在同一句話：「我好像沒有什麼可以拿得出來。」",
       "後來在學院的實作任務裡，我跟著專業框架一步一步整理自己的過去經驗，完成了第一個真正能「被展示」的個人專案：把專案背景寫清楚、我負責做了什麼、最後的產出與成效是什麼，並且整理成一份正式的作品集頁面，後來透過 vibe coding 工作坊，甚至做出了個人網頁。",
     ],
     quote:
@@ -29,7 +29,7 @@ const successStories = [
     identity: "邊上班邊經營 IG 的設計人",
     tags: ["#遠距遊牧學院", "#接案線"],
     content: [
-      "以前我一直有在發文、分享想法，但我從來沒有收集過電子報名單，也不知道要怎麼把內容變成真正的付費產品。",
+      "加入學院之前，我邊上班邊經營 IG，其實已經動了好一陣子。但做了半年，什麼都碰了一點，卻什麼都沒有真正做完——沒有穩定變現、也不知道下一步要加強哪裡。我一直有在發文、分享想法，但從來沒有收集過電子報名單，也不知道要怎麼把內容變成真正的付費產品。",
       "在學院的課後任務裡，我跟著步驟做了人生第一個「電子報引導頁」：先想清楚我想服務的讀者是誰、我可以承諾對方獲得什麼，接著把訂閱流程設定好，開始穩定邀請 IG／社團的追蹤者留下 email。",
       "兩週後，我收到了我的第一筆線上訂閱收入：30元，雖然不多，但收到當下我非常興奮",
     ],
@@ -56,6 +56,23 @@ const successStories = [
       "已完成第一次海外旅居工作實驗",
       "已建立可重複的旅居工作節奏",
       "正在規劃下一趟 30 天長期旅居計畫",
+    ],
+  },
+  {
+    id: "case-d",
+    title: "案例 D｜從「一直在想」到真的動起來",
+    identity: "行銷公司企劃，工作第四年，每天都在幫別人做內容",
+    tags: ["#接案"],
+    content: [
+      "加入學院之前，我每次看到「遠距工作」的貼文都會存起來，但存了一整個資料夾也沒用。我不是沒有想法，而是不知道從哪一步開始——看了很多人的分享，但總覺得他們的起點跟我不一樣。",
+      "進學院之後，我第一次不是在收藏別人的故事，而是在寫自己的。我跟著任務完成了第一版服務定位、做了三次潛在客戶訪談、整理出一個真的可以對外講的 Offer 頁面。過程中我才發現，原來我不是沒有能力，只是從來沒有人幫我把這些能力「變成一個可以被看見的東西」。",
+    ],
+    quote:
+      "以前我每次看到「遠距工作」的貼文都會存起來，但存了一整個資料夾也沒用。學院讓我第一次不是在收藏別人的故事，而是在寫自己的。",
+    currentStatus: [
+      "已完成個人服務定位與第一版 Offer 頁面",
+      "完成 3 次潛在客戶市場調查",
+      "建立每週固定產出節奏，不再只是「存貼文」",
     ],
   },
 ]
@@ -162,23 +179,16 @@ export function SuccessStoriesSection() {
           </p>
         </div>
 
-        {/* Desktop: Grid Layout (lg and above) */}
-        <div className="hidden lg:grid lg:grid-cols-3 gap-6 xl:gap-8">
-          {successStories.map((story) => (
-            <StoryCard key={story.id} story={story} expanded={storiesExpanded} onToggle={() => setStoriesExpanded(!storiesExpanded)} />
-          ))}
-        </div>
-
-        {/* Mobile/Tablet: Carousel with peek + dots (below lg) */}
-        <MobileSuccessCarousel stories={successStories} expanded={storiesExpanded} onToggle={() => setStoriesExpanded(!storiesExpanded)} />
+        {/* All screens: Carousel with peek + dots */}
+        <SuccessCarousel stories={successStories} expanded={storiesExpanded} onToggle={() => setStoriesExpanded(!storiesExpanded)} />
       </div>
     </section>
   )
 }
 
-/* ── Mobile carousel with peek, dots & auto-hint ── */
+/* ── Carousel with peek, dots & auto-hint (all screens) ── */
 
-function MobileSuccessCarousel({ stories, expanded, onToggle }: { stories: Story[]; expanded: boolean; onToggle: () => void }) {
+function SuccessCarousel({ stories, expanded, onToggle }: { stories: Story[]; expanded: boolean; onToggle: () => void }) {
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
   const [count, setCount] = useState(0)
@@ -209,43 +219,88 @@ function MobileSuccessCarousel({ stories, expanded, onToggle }: { stories: Story
     return () => clearTimeout(timer)
   }, [api])
 
+  const scrollPrev = useCallback(() => api?.scrollPrev(), [api])
+  const scrollNext = useCallback(() => api?.scrollNext(), [api])
+
   return (
-    <div className="lg:hidden">
+    <div className="relative">
+      {/* Carousel */}
       <Carousel
         opts={{
           align: "start",
           loop: true,
-          // Show peek of next card
           slidesToScroll: 1,
         }}
         setApi={setApi}
         className="w-full"
       >
-        <CarouselContent className="-ml-3">
+        <CarouselContent className="-ml-3 lg:-ml-4">
           {stories.map((story) => (
-            <CarouselItem key={story.id} className="pl-3 basis-[88%] md:basis-[48%]">
+            <CarouselItem key={story.id} className="pl-3 lg:pl-4 basis-[85%] md:basis-[48%] lg:basis-[32%]">
               <StoryCard story={story} className="h-full" expanded={expanded} onToggle={onToggle} />
             </CarouselItem>
           ))}
         </CarouselContent>
       </Carousel>
 
-      {/* Dot indicators */}
-      <div className="flex justify-center items-center gap-2 mt-5">
-        {Array.from({ length: count }).map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => api?.scrollTo(idx)}
-            aria-label={`Go to slide ${idx + 1}`}
-            className={`rounded-full transition-all duration-300 ${
-              idx === current
-                ? "w-6 h-2 bg-brand-teal"
-                : "w-2 h-2 bg-brand-mist hover:bg-brand-teal/40"
-            }`}
-          />
-        ))}
-        <span className="text-xs text-brand-text/50 ml-2">{`${current + 1} / ${count}`}</span>
+      {/* Left/Right Navigation Arrows - Desktop */}
+      <button
+        onClick={scrollPrev}
+        className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 items-center justify-center rounded-full bg-white shadow-md border border-brand-mist hover:bg-brand-offwhite hover:border-brand-gold/50 transition-all z-10"
+        aria-label="上一個案例"
+      >
+        <ChevronLeft className="w-5 h-5 text-brand-teal" />
+      </button>
+      <button
+        onClick={scrollNext}
+        className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 items-center justify-center rounded-full bg-white shadow-md border border-brand-mist hover:bg-brand-offwhite hover:border-brand-gold/50 transition-all z-10"
+        aria-label="下一個案例"
+      >
+        <ChevronRight className="w-5 h-5 text-brand-teal" />
+      </button>
+
+      {/* Navigation controls */}
+      <div className="flex justify-center items-center gap-3 mt-6">
+        {/* Mobile left arrow */}
+        <button
+          onClick={scrollPrev}
+          className="lg:hidden flex w-8 h-8 items-center justify-center rounded-full bg-white shadow-sm border border-brand-mist hover:bg-brand-offwhite transition-all"
+          aria-label="上一個案例"
+        >
+          <ChevronLeft className="w-4 h-4 text-brand-teal" />
+        </button>
+
+        {/* Dot indicators */}
+        <div className="flex items-center gap-2">
+          {Array.from({ length: count }).map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => api?.scrollTo(idx)}
+              aria-label={`前往案例 ${idx + 1}`}
+              className={`rounded-full transition-all duration-300 ${
+                idx === current
+                  ? "w-6 h-2 bg-brand-teal"
+                  : "w-2 h-2 bg-brand-mist hover:bg-brand-teal/40"
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Mobile right arrow */}
+        <button
+          onClick={scrollNext}
+          className="lg:hidden flex w-8 h-8 items-center justify-center rounded-full bg-white shadow-sm border border-brand-mist hover:bg-brand-offwhite transition-all"
+          aria-label="下一個案例"
+        >
+          <ChevronRight className="w-4 h-4 text-brand-teal" />
+        </button>
+
+        {/* Page indicator */}
+        <span className="text-xs text-brand-text/50 ml-1">{`${current + 1} / ${count}`}</span>
       </div>
+
+      {/* Swipe hint for mobile */}
+      <p className="lg:hidden text-center text-xs text-brand-text/40 mt-2">{'左右滑動查看更多案例'}</p>
     </div>
   )
 }

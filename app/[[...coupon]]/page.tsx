@@ -126,7 +126,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
   const [showCalendarInline, setShowCalendarInline] = useState(false)
   const calendarSectionRef = useRef<HTMLDivElement>(null)
   const [expandedWeeks, setExpandedWeeks] = useState<Set<number>>(new Set())
-  const [expandedPhases, setExpandedPhases] = useState<Set<string>>(new Set(["階段一 起步打底"]))
+  const [expandedPhases, setExpandedPhases] = useState<Set<string>>(new Set())
 
   const [pricingTimelineModalOpen, setPricingTimelineModalOpen] = useState(false)
   const [faqPriceDiffModalOpen, setFaqPriceDiffModalOpen] = useState(false)
@@ -266,50 +266,63 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <h3 className="text-lg sm:text-xl font-bold text-brand-teal mb-2">遠端上班：從看懂機會，到更有機會被錄用，也更有能力走得長久</h3>
               </div>
               
-              {/* Desktop: 四張卡片 grid - 全寬讓卡片更寬 */}
-              <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {/* Desktop: 橫向 4 欄 grid，點擊展開 */}
+              <div className="hidden md:grid md:grid-cols-4 gap-4 items-start">
                 {remoteJobPhaseContent.map((content, index) => {
                   const phase = fourPhases[index]
                   return (
-                    <div key={index} className={`bg-white rounded-xl p-6 lg:p-7 shadow-sm border-2 ${phase.color.border}`}>
-                      <div className="flex items-center gap-2 mb-4">
-                        <span className={`w-8 h-8 rounded-full ${phase.color.solid} text-white text-base font-bold flex items-center justify-center flex-shrink-0`}>
-                          {index + 1}
-                        </span>
-                        <span className={`text-base ${phase.color.text}`}>{phase.months}</span>
-                        <span className={`text-base font-semibold ${phase.color.text}`}>{phase.name}</span>
+                    <details key={index} className={`group bg-white rounded-xl border-2 ${phase.color.border}`}>
+                      <summary className="p-5 cursor-pointer hover:bg-brand-offwhite/50 transition-colors list-none [&::-webkit-details-marker]:hidden">
+                        <div className="flex flex-col items-center text-center">
+                          <span className={`w-10 h-10 rounded-full ${phase.color.solid} text-white text-sm font-bold flex items-center justify-center mb-3`}>
+                            {index + 1}
+                          </span>
+                          <div className="flex items-center gap-1.5 mb-2">
+                            <span className={`text-xs ${phase.color.text}`}>{phase.months}</span>
+                            <span className={`text-sm font-semibold ${phase.color.text}`}>{phase.name}</span>
+                          </div>
+                          <p className="text-sm font-bold text-brand-teal mb-2 leading-snug">{content.headline}</p>
+                          <p className="text-xs text-brand-text/60 leading-relaxed mb-3">{phase.shortTagline}</p>
+                          <div className="flex items-center gap-1 text-brand-text/50">
+                            <span className="text-xs group-open:hidden">點擊展開</span>
+                            <span className="text-xs hidden group-open:inline">收合</span>
+                            <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            </svg>
+                          </div>
+                        </div>
+                      </summary>
+                      <div className="px-5 pb-5 pt-3 border-t border-brand-mist/30">
+                        <p className="text-sm text-brand-text/70 mb-4 leading-relaxed">{content.description}</p>
+                        
+                        <div className="mb-4">
+                          <p className="text-xs font-semibold text-brand-teal mb-2">你會得到：</p>
+                          <ul className="space-y-1.5">
+                            {content.outcomes.map((outcome, i) => (
+                              <li key={i} className="text-xs text-brand-text/80 flex items-start gap-2">
+                                <span className="text-brand-gold mt-0.5">•</span>
+                                {outcome}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        
+                        <div className="pt-3 border-t border-brand-mist/50">
+                          <p className="text-xs font-semibold text-brand-text/60 mb-1">對應重點：</p>
+                          <p className="text-xs text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
+                        </div>
                       </div>
-                      <h4 className="font-bold text-brand-teal text-lg mb-3 leading-snug">{content.headline}</h4>
-                      <p className="text-base text-brand-text/70 mb-5 leading-relaxed">{content.description}</p>
-                      
-                      <div className="mb-5">
-                        <p className="text-sm font-semibold text-brand-teal mb-2">你會得到：</p>
-                        <ul className="space-y-2">
-                          {content.outcomes.map((outcome, i) => (
-                            <li key={i} className="text-sm text-brand-text/80 flex items-start gap-2">
-                              <span className="text-brand-gold mt-0.5">•</span>
-                              {outcome}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      
-                      <div className="pt-4 border-t border-brand-mist/50">
-                        <p className="text-sm font-semibold text-brand-text/60 mb-2">對應重點：</p>
-                        <p className="text-sm text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
-                      </div>
-                    </div>
+                    </details>
                   )
                 })}
               </div>
 
-              {/* Mobile: Accordion 折疊式 */}
+              {/* Mobile: 縱向 Accordion */}
               <div className="md:hidden space-y-3">
                 {remoteJobPhaseContent.map((content, index) => {
                   const phase = fourPhases[index]
-                  const isFirst = index === 0
                   return (
-                    <details key={index} className={`group bg-white rounded-xl border-2 ${phase.color.border} overflow-hidden`} open={isFirst}>
+                    <details key={index} className={`group bg-white rounded-xl border-2 ${phase.color.border} overflow-hidden`}>
                       <summary className="p-4 cursor-pointer hover:bg-brand-offwhite/50 transition-colors list-none [&::-webkit-details-marker]:hidden">
                         <div className="flex items-center gap-3">
                           <span className={`w-7 h-7 rounded-full ${phase.color.solid} text-white text-xs font-bold flex items-center justify-center flex-shrink-0`}>
@@ -322,7 +335,6 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                             </div>
                             <p className="text-sm font-bold text-brand-teal truncate">{content.headline}</p>
                           </div>
-                          {/* 展開/收合提示 */}
                           <div className="flex items-center gap-1 text-brand-text/50 flex-shrink-0">
                             <span className="text-xs group-open:hidden">展開</span>
                             <span className="text-xs hidden group-open:inline">收合</span>
@@ -367,50 +379,63 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <h3 className="text-lg sm:text-xl font-bold text-brand-teal mb-2">接案：從想靠自己變現，到做出能持續合作的內容與服務</h3>
               </div>
               
-              {/* Desktop: 四張卡片 grid - 全寬讓卡片更寬 */}
-              <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {/* Desktop: 橫向 4 欄 grid，點擊展開 */}
+              <div className="hidden md:grid md:grid-cols-4 gap-4 items-start">
                 {freelancePhaseContent.map((content, index) => {
                   const phase = fourPhases[index]
                   return (
-                    <div key={index} className={`bg-white rounded-xl p-6 lg:p-7 shadow-sm border-2 ${phase.color.border}`}>
-                      <div className="flex items-center gap-2 mb-4">
-                        <span className={`w-8 h-8 rounded-full ${phase.color.solid} text-white text-base font-bold flex items-center justify-center flex-shrink-0`}>
-                          {index + 1}
-                        </span>
-                        <span className={`text-base ${phase.color.text}`}>{phase.months}</span>
-                        <span className={`text-base font-semibold ${phase.color.text}`}>{phase.name}</span>
+                    <details key={index} className={`group bg-white rounded-xl border-2 ${phase.color.border}`}>
+                      <summary className="p-5 cursor-pointer hover:bg-brand-offwhite/50 transition-colors list-none [&::-webkit-details-marker]:hidden">
+                        <div className="flex flex-col items-center text-center">
+                          <span className={`w-10 h-10 rounded-full ${phase.color.solid} text-white text-sm font-bold flex items-center justify-center mb-3`}>
+                            {index + 1}
+                          </span>
+                          <div className="flex items-center gap-1.5 mb-2">
+                            <span className={`text-xs ${phase.color.text}`}>{phase.months}</span>
+                            <span className={`text-sm font-semibold ${phase.color.text}`}>{phase.name}</span>
+                          </div>
+                          <p className="text-sm font-bold text-brand-teal mb-2 leading-snug">{content.headline}</p>
+                          <p className="text-xs text-brand-text/60 leading-relaxed mb-3">{phase.shortTagline}</p>
+                          <div className="flex items-center gap-1 text-brand-text/50">
+                            <span className="text-xs group-open:hidden">點擊展開</span>
+                            <span className="text-xs hidden group-open:inline">收合</span>
+                            <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            </svg>
+                          </div>
+                        </div>
+                      </summary>
+                      <div className="px-5 pb-5 pt-3 border-t border-brand-mist/30">
+                        <p className="text-sm text-brand-text/70 mb-4 leading-relaxed">{content.description}</p>
+                        
+                        <div className="mb-4">
+                          <p className="text-xs font-semibold text-brand-teal mb-2">你會得到：</p>
+                          <ul className="space-y-1.5">
+                            {content.outcomes.map((outcome, i) => (
+                              <li key={i} className="text-xs text-brand-text/80 flex items-start gap-2">
+                                <span className="text-brand-gold mt-0.5">•</span>
+                                {outcome}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        
+                        <div className="pt-3 border-t border-brand-mist/50">
+                          <p className="text-xs font-semibold text-brand-text/60 mb-1">對應重點：</p>
+                          <p className="text-xs text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
+                        </div>
                       </div>
-                      <h4 className="font-bold text-brand-teal text-lg mb-3 leading-snug">{content.headline}</h4>
-                      <p className="text-base text-brand-text/70 mb-5 leading-relaxed">{content.description}</p>
-                      
-                      <div className="mb-5">
-                        <p className="text-sm font-semibold text-brand-teal mb-2">你會得到：</p>
-                        <ul className="space-y-2">
-                          {content.outcomes.map((outcome, i) => (
-                            <li key={i} className="text-sm text-brand-text/80 flex items-start gap-2">
-                              <span className="text-brand-gold mt-0.5">•</span>
-                              {outcome}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      
-                      <div className="pt-4 border-t border-brand-mist/50">
-                        <p className="text-sm font-semibold text-brand-text/60 mb-2">對應重點：</p>
-                        <p className="text-sm text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
-                      </div>
-                    </div>
+                    </details>
                   )
                 })}
               </div>
 
-              {/* Mobile: Accordion 折疊式 */}
+              {/* Mobile: 縱向 Accordion */}
               <div className="md:hidden space-y-3">
                 {freelancePhaseContent.map((content, index) => {
                   const phase = fourPhases[index]
-                  const isFirst = index === 0
                   return (
-                    <details key={index} className={`group bg-white rounded-xl border-2 ${phase.color.border} overflow-hidden`} open={isFirst}>
+                    <details key={index} className={`group bg-white rounded-xl border-2 ${phase.color.border} overflow-hidden`}>
                       <summary className="p-4 cursor-pointer hover:bg-brand-offwhite/50 transition-colors list-none [&::-webkit-details-marker]:hidden">
                         <div className="flex items-center gap-3">
                           <span className={`w-7 h-7 rounded-full ${phase.color.solid} text-white text-xs font-bold flex items-center justify-center flex-shrink-0`}>
@@ -423,7 +448,6 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                             </div>
                             <p className="text-sm font-bold text-brand-teal truncate">{content.headline}</p>
                           </div>
-                          {/* 展開/收合提示 */}
                           <div className="flex items-center gap-1 text-brand-text/50 flex-shrink-0">
                             <span className="text-xs group-open:hidden">展開</span>
                             <span className="text-xs hidden group-open:inline">收合</span>
@@ -614,7 +638,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                       phaseKey: "機會與轉化",
                       months: ["7 月"],
                       weeks: [9, 10, 11, 12, 13],
-                      description: "開始讓曝光、投遞與合作變成機會",
+                      description: "���始讓曝光、投遞與合作變成機會",
                     },
                     {
                       phase: "階段四 永續",
@@ -863,7 +887,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                                 </li>
                                 <li className="flex items-start gap-2">
                                   <span className="text-brand-gold mt-1">•</span>
-                                  <span>跨國人力資源外商 / 全遠端商務開發</span>
+                                  <span>跨國人力資源外商 / 全遠端商務開���</span>
                                 </li>
                                 <li className="flex items-start gap-2">
                                   <span className="text-brand-gold mt-1">•</span>
@@ -1183,7 +1207,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             {activeCalendarTab === "principal" && (
               <div className="animate-in fade-in duration-300">
                 {(() => {
-                  const principal = instructors.find((i) => i.name === "校長哈利")
+                  const principal = instructors.find((i) => i.name === "校��哈利")
                   if (!principal) return null
                   return (
                     <div className="max-w-2xl mx-auto">
@@ -1235,7 +1259,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                               </li>
                               <li className="flex items-start gap-2">
                                 <span className="text-brand-gold mt-1">•</span>
-                                <span>科技新創 / 遠端外部營運顧問</span>
+                                <span>科技新創 / 遠端外部營���顧問</span>
                               </li>
                             </ul>
                           </div>
@@ -1387,7 +1411,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     <span className="text-brand-teal font-bold text-xs mt-0.5 flex-shrink-0">{'03'}</span>
                     <div>
                       <span className="font-semibold text-brand-teal text-sm">{'成長節奏'}</span>
-                      <span className="text-brand-text/60 text-xs">{' — 固定課表、線上同學會 / 團體 QA / DemoDay，互相學習、彼此督促跟上進度'}</span>
+                      <span className="text-brand-text/60 text-xs">{' — 固定課表、線上同學會 / 團體 QA / DemoDay，互相學習、彼此督促跟��進度'}</span>
                     </div>
                   </li>
                 </ul>
