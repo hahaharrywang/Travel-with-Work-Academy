@@ -53,7 +53,7 @@ export function PainPointsSection() {
             <div className="border-l-2 border-brand-gold pl-4">
               <h3 className="text-base font-bold text-brand-gold mb-1">同伴斷裂</h3>
               <p className="text-white/80 leading-relaxed text-sm">
-                {'身邊沒人能討論，久了就把想法藏在心裡。'}
+                {'身邊沒人在走這條路，久了你開始懷疑自己：好像不是那種「夠格」開始的人。'}
               </p>
             </div>
           </div>
