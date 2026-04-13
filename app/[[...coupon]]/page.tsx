@@ -267,12 +267,12 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               </div>
               
               {/* Desktop: 橫向 4 欄 grid，點擊展開 */}
-              <div className="hidden md:grid md:grid-cols-4 gap-4">
+              <div className="hidden md:grid md:grid-cols-4 gap-4 items-start">
                 {remoteJobPhaseContent.map((content, index) => {
                   const phase = fourPhases[index]
                   return (
-                    <details key={index} className={`group bg-white rounded-xl border-2 ${phase.color.border} overflow-hidden`}>
-                      <summary className="p-5 cursor-pointer hover:bg-brand-offwhite/50 transition-colors list-none [&::-webkit-details-marker]:hidden h-full">
+                    <details key={index} className={`group bg-white rounded-xl border-2 ${phase.color.border}`}>
+                      <summary className="p-5 cursor-pointer hover:bg-brand-offwhite/50 transition-colors list-none [&::-webkit-details-marker]:hidden">
                         <div className="flex flex-col items-center text-center">
                           <span className={`w-10 h-10 rounded-full ${phase.color.solid} text-white text-sm font-bold flex items-center justify-center mb-3`}>
                             {index + 1}
@@ -283,7 +283,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                           </div>
                           <p className="text-sm font-bold text-brand-teal mb-2 leading-snug">{content.headline}</p>
                           <p className="text-xs text-brand-text/60 leading-relaxed mb-3">{phase.shortTagline}</p>
-                          <div className="flex items-center gap-1 text-brand-text/50 mt-auto">
+                          <div className="flex items-center gap-1 text-brand-text/50">
                             <span className="text-xs group-open:hidden">點擊展開</span>
                             <span className="text-xs hidden group-open:inline">收合</span>
                             <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -380,12 +380,12 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               </div>
               
               {/* Desktop: 橫向 4 欄 grid，點擊展開 */}
-              <div className="hidden md:grid md:grid-cols-4 gap-4">
+              <div className="hidden md:grid md:grid-cols-4 gap-4 items-start">
                 {freelancePhaseContent.map((content, index) => {
                   const phase = fourPhases[index]
                   return (
-                    <details key={index} className={`group bg-white rounded-xl border-2 ${phase.color.border} overflow-hidden`}>
-                      <summary className="p-5 cursor-pointer hover:bg-brand-offwhite/50 transition-colors list-none [&::-webkit-details-marker]:hidden h-full">
+                    <details key={index} className={`group bg-white rounded-xl border-2 ${phase.color.border}`}>
+                      <summary className="p-5 cursor-pointer hover:bg-brand-offwhite/50 transition-colors list-none [&::-webkit-details-marker]:hidden">
                         <div className="flex flex-col items-center text-center">
                           <span className={`w-10 h-10 rounded-full ${phase.color.solid} text-white text-sm font-bold flex items-center justify-center mb-3`}>
                             {index + 1}
@@ -396,7 +396,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                           </div>
                           <p className="text-sm font-bold text-brand-teal mb-2 leading-snug">{content.headline}</p>
                           <p className="text-xs text-brand-text/60 leading-relaxed mb-3">{phase.shortTagline}</p>
-                          <div className="flex items-center gap-1 text-brand-text/50 mt-auto">
+                          <div className="flex items-center gap-1 text-brand-text/50">
                             <span className="text-xs group-open:hidden">點擊展開</span>
                             <span className="text-xs hidden group-open:inline">收合</span>
                             <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -638,7 +638,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                       phaseKey: "機會與轉化",
                       months: ["7 月"],
                       weeks: [9, 10, 11, 12, 13],
-                      description: "開始讓曝光、投遞與合作變成機會",
+                      description: "���始讓曝光、投遞與合作變成機會",
                     },
                     {
                       phase: "階段四 永續",
@@ -887,7 +887,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                                 </li>
                                 <li className="flex items-start gap-2">
                                   <span className="text-brand-gold mt-1">•</span>
-                                  <span>跨國人力資源外商 / 全遠端商務開發</span>
+                                  <span>跨國人力資源外商 / 全遠端商務開���</span>
                                 </li>
                                 <li className="flex items-start gap-2">
                                   <span className="text-brand-gold mt-1">•</span>
