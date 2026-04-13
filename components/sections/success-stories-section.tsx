@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react"
 import { Card } from "@/components/ui/card"
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel"
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react"
 
 const successStories = [
   {
@@ -219,8 +219,12 @@ function SuccessCarousel({ stories, expanded, onToggle }: { stories: Story[]; ex
     return () => clearTimeout(timer)
   }, [api])
 
+  const scrollPrev = useCallback(() => api?.scrollPrev(), [api])
+  const scrollNext = useCallback(() => api?.scrollNext(), [api])
+
   return (
-    <div>
+    <div className="relative">
+      {/* Carousel */}
       <Carousel
         opts={{
           align: "start",
@@ -232,29 +236,71 @@ function SuccessCarousel({ stories, expanded, onToggle }: { stories: Story[]; ex
       >
         <CarouselContent className="-ml-3 lg:-ml-4">
           {stories.map((story) => (
-            <CarouselItem key={story.id} className="pl-3 lg:pl-4 basis-[88%] md:basis-[48%] lg:basis-[32%]">
+            <CarouselItem key={story.id} className="pl-3 lg:pl-4 basis-[85%] md:basis-[48%] lg:basis-[32%]">
               <StoryCard story={story} className="h-full" expanded={expanded} onToggle={onToggle} />
             </CarouselItem>
           ))}
         </CarouselContent>
       </Carousel>
 
-      {/* Dot indicators */}
-      <div className="flex justify-center items-center gap-2 mt-5">
-        {Array.from({ length: count }).map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => api?.scrollTo(idx)}
-            aria-label={`Go to slide ${idx + 1}`}
-            className={`rounded-full transition-all duration-300 ${
-              idx === current
-                ? "w-6 h-2 bg-brand-teal"
-                : "w-2 h-2 bg-brand-mist hover:bg-brand-teal/40"
-            }`}
-          />
-        ))}
-        <span className="text-xs text-brand-text/50 ml-2">{`${current + 1} / ${count}`}</span>
+      {/* Left/Right Navigation Arrows - Desktop */}
+      <button
+        onClick={scrollPrev}
+        className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 items-center justify-center rounded-full bg-white shadow-md border border-brand-mist hover:bg-brand-offwhite hover:border-brand-gold/50 transition-all z-10"
+        aria-label="上一個案例"
+      >
+        <ChevronLeft className="w-5 h-5 text-brand-teal" />
+      </button>
+      <button
+        onClick={scrollNext}
+        className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 items-center justify-center rounded-full bg-white shadow-md border border-brand-mist hover:bg-brand-offwhite hover:border-brand-gold/50 transition-all z-10"
+        aria-label="下一個案例"
+      >
+        <ChevronRight className="w-5 h-5 text-brand-teal" />
+      </button>
+
+      {/* Navigation controls */}
+      <div className="flex justify-center items-center gap-3 mt-6">
+        {/* Mobile left arrow */}
+        <button
+          onClick={scrollPrev}
+          className="lg:hidden flex w-8 h-8 items-center justify-center rounded-full bg-white shadow-sm border border-brand-mist hover:bg-brand-offwhite transition-all"
+          aria-label="上一個案例"
+        >
+          <ChevronLeft className="w-4 h-4 text-brand-teal" />
+        </button>
+
+        {/* Dot indicators */}
+        <div className="flex items-center gap-2">
+          {Array.from({ length: count }).map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => api?.scrollTo(idx)}
+              aria-label={`前往案例 ${idx + 1}`}
+              className={`rounded-full transition-all duration-300 ${
+                idx === current
+                  ? "w-6 h-2 bg-brand-teal"
+                  : "w-2 h-2 bg-brand-mist hover:bg-brand-teal/40"
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Mobile right arrow */}
+        <button
+          onClick={scrollNext}
+          className="lg:hidden flex w-8 h-8 items-center justify-center rounded-full bg-white shadow-sm border border-brand-mist hover:bg-brand-offwhite transition-all"
+          aria-label="下一個案例"
+        >
+          <ChevronRight className="w-4 h-4 text-brand-teal" />
+        </button>
+
+        {/* Page indicator */}
+        <span className="text-xs text-brand-text/50 ml-1">{`${current + 1} / ${count}`}</span>
       </div>
+
+      {/* Swipe hint for mobile */}
+      <p className="lg:hidden text-center text-xs text-brand-text/40 mt-2">{'左右滑動查看更多案例'}</p>
     </div>
   )
 }
