@@ -54,7 +54,7 @@ export function InstructorsSection({ instructors }: InstructorsSectionProps) {
         </a>
       </div>
       <h4 className="text-base sm:text-lg font-bold text-brand-teal mb-1">{instructor.name}</h4>
-      <p className="text-brand-text text-xs sm:text-sm leading-relaxed line-clamp-2 px-2">
+      <p className="text-brand-text text-sm leading-relaxed line-clamp-2 px-2">
         {instructor.title.split("，")[0]}
       </p>
       {/* Added social media links */}

@@ -116,7 +116,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                 >
                   查看漲價時間軸
                 </button>
-                <p className="text-xs text-white/50">
+                <p className="text-sm text-white/60">
                   隨著更多資訊釋出，每週四午夜調漲價格
                 </p>
               </div>
@@ -163,7 +163,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                   <div className="text-3xl font-bold text-brand-teal mb-1">
                     NT$ {formatPrice(currentStageData.prices.selfMedia.stagePrice)}
                   </div>
-                  <div className="text-xs text-brand-gold font-medium mb-4">
+                  <div className="text-sm text-brand-gold font-medium mb-4">
                     目前 {currentStageData.discountLabel}，現省 NT$ {formatPrice(currentStageData.prices.selfMedia.savingAmount)}，每週四午夜調漲
                   </div>
                 </>
@@ -225,7 +225,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                   <div className="text-3xl font-bold text-brand-gold mb-1">
                     NT$ {formatPrice(currentStageData.prices.dualLine.stagePrice)}
                   </div>
-                  <div className="text-xs text-brand-gold font-medium mb-4">
+                  <div className="text-sm text-brand-gold font-medium mb-4">
                     目前 {currentStageData.discountLabel}，現省 NT$ {formatPrice(currentStageData.prices.dualLine.savingAmount)}，每週四午夜調漲
                   </div>
                 </>
@@ -284,7 +284,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                   <div className="text-3xl font-bold text-brand-teal mb-1">
                     NT$ {formatPrice(currentStageData.prices.remoteJob.stagePrice)}
                   </div>
-                  <div className="text-xs text-brand-gold font-medium mb-4">
+                  <div className="text-sm text-brand-gold font-medium mb-4">
                     目前 {currentStageData.discountLabel}，現省 NT$ {formatPrice(currentStageData.prices.remoteJob.savingAmount)}，每週四午夜調漲
                   </div>
                 </>
@@ -309,8 +309,8 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
 
         {/* Disclaimer note */}
         <div className="rounded-xl bg-brand-mist/30 border border-brand-mist px-5 py-4 text-center mb-4">
-          <p className="text-brand-text text-xs sm:text-sm leading-relaxed">
-            <span className="font-semibold text-brand-teal">重要說明：</span>學院方案以「課程＋社群＋校友資格」為主；多數線下活動／工作坊／旅程為選配加購，但校友享優先與專屬價。
+          <p className="text-brand-text text-sm leading-relaxed">
+            <span className="font-semibold text-brand-teal">重要說明：</span>學院方案以「課程＋社群＋校友資格」為主；多數線下活動／工作坊／旅程為選配加購，但校友享優��與專屬價。
           </p>
         </div>
 
@@ -379,17 +379,17 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                                   }`}
                                 >
                                   {stage.name}
-                                  {isCurrent && <span className="block text-[10px]">(目前)</span>}
-                                  {isNext && <span className="block text-[10px]">(下一階段)</span>}
+                                  {isCurrent && <span className="block text-xs">(目前)</span>}
+                                  {isNext && <span className="block text-xs">(下一階段)</span>}
                                 </div>
                                 <div className="flex gap-1 justify-center mt-1">
                                   <span
-                                    className={`text-[10px] px-1.5 py-0.5 rounded ${isPast ? "bg-gray-200 text-gray-400" : "bg-brand-teal/10 text-brand-teal"}`}
+                                    className={`text-xs px-1.5 py-0.5 rounded ${isPast ? "bg-gray-200 text-gray-400" : "bg-brand-teal/10 text-brand-teal"}`}
                                   >
                                     單 {stage.prices.remoteJob.stagePrice.toLocaleString()}
                                   </span>
                                   <span
-                                    className={`text-[10px] px-1.5 py-0.5 rounded ${isPast ? "bg-gray-200 text-gray-400" : "bg-brand-gold/20 text-[#A06E56]"}`}
+                                    className={`text-xs px-1.5 py-0.5 rounded ${isPast ? "bg-gray-200 text-gray-400" : "bg-brand-gold/20 text-[#A06E56]"}`}
                                   >
                                     雙 {stage.prices.dualLine.stagePrice.toLocaleString()}
                                   </span>

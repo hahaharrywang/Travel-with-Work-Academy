@@ -296,10 +296,10 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         <p className="text-sm text-brand-text/70 mb-4 leading-relaxed">{content.description}</p>
                         
                         <div className="mb-4">
-                          <p className="text-xs font-semibold text-brand-teal mb-2">你會得到：</p>
+                          <p className="text-sm font-semibold text-brand-teal mb-2">你會得到：</p>
                           <ul className="space-y-1.5">
                             {content.outcomes.map((outcome, i) => (
-                              <li key={i} className="text-xs text-brand-text/80 flex items-start gap-2">
+                              <li key={i} className="text-sm text-brand-text/80 flex items-start gap-2">
                                 <span className="text-brand-gold mt-0.5">•</span>
                                 {outcome}
                               </li>
@@ -308,8 +308,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         </div>
                         
                         <div className="pt-3 border-t border-brand-mist/50">
-                          <p className="text-xs font-semibold text-brand-text/60 mb-1">對應重點：</p>
-                          <p className="text-xs text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
+                          <p className="text-sm font-semibold text-brand-text/60 mb-1">對應重點：</p>
+                          <p className="text-sm text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
                         </div>
                       </div>
                     </details>
@@ -325,19 +325,19 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     <details key={index} className={`group bg-white rounded-xl border-2 ${phase.color.border} overflow-hidden`}>
                       <summary className="p-4 cursor-pointer hover:bg-brand-offwhite/50 transition-colors list-none [&::-webkit-details-marker]:hidden">
                         <div className="flex items-center gap-3">
-                          <span className={`w-7 h-7 rounded-full ${phase.color.solid} text-white text-xs font-bold flex items-center justify-center flex-shrink-0`}>
+                          <span className={`w-7 h-7 rounded-full ${phase.color.solid} text-white text-sm font-bold flex items-center justify-center flex-shrink-0`}>
                             {index + 1}
                           </span>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-1.5">
-                              <span className={`text-xs ${phase.color.text}`}>{phase.months}</span>
-                              <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
+                              <span className={`text-sm ${phase.color.text}`}>{phase.months}</span>
+                              <span className={`text-sm font-semibold ${phase.color.text}`}>{phase.name}</span>
                             </div>
                             <p className="text-sm font-bold text-brand-teal truncate">{content.headline}</p>
                           </div>
                           <div className="flex items-center gap-1 text-brand-text/50 flex-shrink-0">
-                            <span className="text-xs group-open:hidden">展開</span>
-                            <span className="text-xs hidden group-open:inline">收合</span>
+                            <span className="text-sm group-open:hidden">展開</span>
+                            <span className="text-sm hidden group-open:inline">收合</span>
                             <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                             </svg>
@@ -348,10 +348,10 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         <p className="text-sm text-brand-text/70 mb-3 leading-relaxed">{content.description}</p>
                         
                         <div className="mb-3">
-                          <p className="text-xs font-semibold text-brand-teal mb-2">你會得到：</p>
+                          <p className="text-sm font-semibold text-brand-teal mb-2">你會得到：</p>
                           <ul className="space-y-1.5">
                             {content.outcomes.map((outcome, i) => (
-                              <li key={i} className="text-xs text-brand-text/80 flex items-start gap-2">
+                              <li key={i} className="text-sm text-brand-text/80 flex items-start gap-2">
                                 <span className="text-brand-gold mt-0.5">•</span>
                                 {outcome}
                               </li>
@@ -360,8 +360,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         </div>
                         
                         <div className="pt-3 border-t border-brand-mist/50">
-                          <p className="text-xs font-semibold text-brand-text/60 mb-1">對應重點：</p>
-                          <p className="text-xs text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
+                          <p className="text-sm font-semibold text-brand-text/60 mb-1">對應重點：</p>
+                          <p className="text-sm text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
                         </div>
                       </div>
                     </details>
@@ -409,10 +409,10 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         <p className="text-sm text-brand-text/70 mb-4 leading-relaxed">{content.description}</p>
                         
                         <div className="mb-4">
-                          <p className="text-xs font-semibold text-brand-teal mb-2">你會得到：</p>
+                          <p className="text-sm font-semibold text-brand-teal mb-2">你會得到：</p>
                           <ul className="space-y-1.5">
                             {content.outcomes.map((outcome, i) => (
-                              <li key={i} className="text-xs text-brand-text/80 flex items-start gap-2">
+                              <li key={i} className="text-sm text-brand-text/80 flex items-start gap-2">
                                 <span className="text-brand-gold mt-0.5">•</span>
                                 {outcome}
                               </li>
@@ -421,8 +421,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         </div>
                         
                         <div className="pt-3 border-t border-brand-mist/50">
-                          <p className="text-xs font-semibold text-brand-text/60 mb-1">對應重點：</p>
-                          <p className="text-xs text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
+                          <p className="text-sm font-semibold text-brand-text/60 mb-1">對應重點：</p>
+                          <p className="text-sm text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
                         </div>
                       </div>
                     </details>
@@ -438,19 +438,19 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     <details key={index} className={`group bg-white rounded-xl border-2 ${phase.color.border} overflow-hidden`}>
                       <summary className="p-4 cursor-pointer hover:bg-brand-offwhite/50 transition-colors list-none [&::-webkit-details-marker]:hidden">
                         <div className="flex items-center gap-3">
-                          <span className={`w-7 h-7 rounded-full ${phase.color.solid} text-white text-xs font-bold flex items-center justify-center flex-shrink-0`}>
+                          <span className={`w-7 h-7 rounded-full ${phase.color.solid} text-white text-sm font-bold flex items-center justify-center flex-shrink-0`}>
                             {index + 1}
                           </span>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-1.5">
-                              <span className={`text-xs ${phase.color.text}`}>{phase.months}</span>
-                              <span className={`text-xs font-semibold ${phase.color.text}`}>{phase.name}</span>
+                              <span className={`text-sm ${phase.color.text}`}>{phase.months}</span>
+                              <span className={`text-sm font-semibold ${phase.color.text}`}>{phase.name}</span>
                             </div>
                             <p className="text-sm font-bold text-brand-teal truncate">{content.headline}</p>
                           </div>
                           <div className="flex items-center gap-1 text-brand-text/50 flex-shrink-0">
-                            <span className="text-xs group-open:hidden">展開</span>
-                            <span className="text-xs hidden group-open:inline">收合</span>
+                            <span className="text-sm group-open:hidden">展開</span>
+                            <span className="text-sm hidden group-open:inline">收合</span>
                             <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                             </svg>
@@ -461,10 +461,10 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         <p className="text-sm text-brand-text/70 mb-3 leading-relaxed">{content.description}</p>
                         
                         <div className="mb-3">
-                          <p className="text-xs font-semibold text-brand-teal mb-2">你會得到：</p>
+                          <p className="text-sm font-semibold text-brand-teal mb-2">你會得到：</p>
                           <ul className="space-y-1.5">
                             {content.outcomes.map((outcome, i) => (
-                              <li key={i} className="text-xs text-brand-text/80 flex items-start gap-2">
+                              <li key={i} className="text-sm text-brand-text/80 flex items-start gap-2">
                                 <span className="text-brand-gold mt-0.5">•</span>
                                 {outcome}
                               </li>
@@ -473,8 +473,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         </div>
                         
                         <div className="pt-3 border-t border-brand-mist/50">
-                          <p className="text-xs font-semibold text-brand-text/60 mb-1">對應重點：</p>
-                          <p className="text-xs text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
+                          <p className="text-sm font-semibold text-brand-text/60 mb-1">對應重點：</p>
+                          <p className="text-sm text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
                         </div>
                       </div>
                     </details>
