@@ -233,13 +233,13 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             <p className="text-brand-text max-w-2xl mx-auto leading-relaxed text-sm sm:text-base font-medium">
               這不是一堆零散課程，而是一套 5 個月、4 階段的行動節奏。
             </p>
-            <p className="text-brand-text/70 max-w-2xl mx-auto leading-relaxed text-xs sm:text-sm mt-2">
+            <p className="text-brand-text/80 max-w-2xl mx-auto leading-relaxed text-xs sm:text-sm mt-2">
               兩條路各有主線課，也會共用通用能力模組，例如 AI、自媒體、人生使用說明SOP、財務。
             </p>
           </div>
 
           {/* Tabs 前導文字 */}
-          <p className="text-center text-brand-text/70 text-sm mb-4">先選一條你現在最想嘗試的路線：</p>
+          <p className="text-center text-brand-text/80 text-sm mb-4">先選一條你現在最想嘗試的路線：</p>
 
           {/* Tabs */}
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
@@ -282,8 +282,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                             <span className={`text-sm font-semibold ${phase.color.text}`}>{phase.name}</span>
                           </div>
                           <p className="text-sm font-bold text-brand-teal mb-2 leading-snug">{content.headline}</p>
-                          <p className="text-xs text-brand-text/70 leading-relaxed mb-3">{phase.shortTagline}</p>
-                          <div className="flex items-center gap-1 text-brand-text/70">
+                          <p className="text-xs text-brand-text/80 leading-relaxed mb-3">{phase.shortTagline}</p>
+                          <div className="flex items-center gap-1 text-brand-text/80">
                             <span className="text-xs group-open:hidden">點擊展開</span>
                             <span className="text-xs hidden group-open:inline">收合</span>
                             <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -293,7 +293,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         </div>
                       </summary>
                       <div className="px-5 pb-5 pt-3 border-t border-brand-mist/30">
-                        <p className="text-sm text-brand-text/70 mb-4 leading-relaxed">{content.description}</p>
+                        <p className="text-sm text-brand-text/80 mb-4 leading-relaxed">{content.description}</p>
                         
                         <div className="mb-4">
                           <p className="text-sm font-semibold text-brand-teal mb-2">你會得到：</p>
@@ -308,7 +308,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         </div>
                         
                         <div className="pt-3 border-t border-brand-mist/50">
-                          <p className="text-sm font-semibold text-brand-text/70 mb-1">對應重點：</p>
+                          <p className="text-sm font-semibold text-brand-text/80 mb-1">對應重點：</p>
                           <p className="text-sm text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
                         </div>
                       </div>
@@ -335,7 +335,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                             </div>
                             <p className="text-sm font-bold text-brand-teal truncate">{content.headline}</p>
                           </div>
-                          <div className="flex items-center gap-1 text-brand-text/70 flex-shrink-0">
+                          <div className="flex items-center gap-1 text-brand-text/80 flex-shrink-0">
                             <span className="text-sm group-open:hidden">展開</span>
                             <span className="text-sm hidden group-open:inline">收合</span>
                             <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -345,7 +345,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         </div>
                       </summary>
                       <div className="px-4 pb-4 pt-2 border-t border-brand-mist/30">
-                        <p className="text-sm text-brand-text/70 mb-3 leading-relaxed">{content.description}</p>
+                        <p className="text-sm text-brand-text/80 mb-3 leading-relaxed">{content.description}</p>
                         
                         <div className="mb-3">
                           <p className="text-sm font-semibold text-brand-teal mb-2">你會得到：</p>
@@ -360,7 +360,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         </div>
                         
                         <div className="pt-3 border-t border-brand-mist/50">
-                          <p className="text-sm font-semibold text-brand-text/70 mb-1">對應重點：</p>
+                          <p className="text-sm font-semibold text-brand-text/80 mb-1">對應重點：</p>
                           <p className="text-sm text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
                         </div>
                       </div>
@@ -395,8 +395,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                             <span className={`text-sm font-semibold ${phase.color.text}`}>{phase.name}</span>
                           </div>
                           <p className="text-sm font-bold text-brand-teal mb-2 leading-snug">{content.headline}</p>
-                          <p className="text-xs text-brand-text/70 leading-relaxed mb-3">{phase.shortTagline}</p>
-                          <div className="flex items-center gap-1 text-brand-text/70">
+                          <p className="text-xs text-brand-text/80 leading-relaxed mb-3">{phase.shortTagline}</p>
+                          <div className="flex items-center gap-1 text-brand-text/80">
                             <span className="text-xs group-open:hidden">點擊展開</span>
                             <span className="text-xs hidden group-open:inline">收合</span>
                             <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -406,7 +406,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         </div>
                       </summary>
                       <div className="px-5 pb-5 pt-3 border-t border-brand-mist/30">
-                        <p className="text-sm text-brand-text/70 mb-4 leading-relaxed">{content.description}</p>
+                        <p className="text-sm text-brand-text/80 mb-4 leading-relaxed">{content.description}</p>
                         
                         <div className="mb-4">
                           <p className="text-sm font-semibold text-brand-teal mb-2">你會得到：</p>
@@ -421,7 +421,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         </div>
                         
                         <div className="pt-3 border-t border-brand-mist/50">
-                          <p className="text-sm font-semibold text-brand-text/70 mb-1">對應重點：</p>
+                          <p className="text-sm font-semibold text-brand-text/80 mb-1">對應重點：</p>
                           <p className="text-sm text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
                         </div>
                       </div>
@@ -448,7 +448,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                             </div>
                             <p className="text-sm font-bold text-brand-teal truncate">{content.headline}</p>
                           </div>
-                          <div className="flex items-center gap-1 text-brand-text/70 flex-shrink-0">
+                          <div className="flex items-center gap-1 text-brand-text/80 flex-shrink-0">
                             <span className="text-sm group-open:hidden">展開</span>
                             <span className="text-sm hidden group-open:inline">收合</span>
                             <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -458,7 +458,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         </div>
                       </summary>
                       <div className="px-4 pb-4 pt-2 border-t border-brand-mist/30">
-                        <p className="text-sm text-brand-text/70 mb-3 leading-relaxed">{content.description}</p>
+                        <p className="text-sm text-brand-text/80 mb-3 leading-relaxed">{content.description}</p>
                         
                         <div className="mb-3">
                           <p className="text-sm font-semibold text-brand-teal mb-2">你會得到：</p>
@@ -473,7 +473,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                         </div>
                         
                         <div className="pt-3 border-t border-brand-mist/50">
-                          <p className="text-sm font-semibold text-brand-text/70 mb-1">對應重點：</p>
+                          <p className="text-sm font-semibold text-brand-text/80 mb-1">對應重點：</p>
                           <p className="text-sm text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
                         </div>
                       </div>
@@ -572,7 +572,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 </>
               )}
             </button>
-            {!showCalendarInline && <p className="text-sm text-brand-text/70 mt-2">看看每週三晚間八點，具體在做什麼</p>}
+            {!showCalendarInline && <p className="text-sm text-brand-text/80 mt-2">看看每週三晚間八點，具體在做什麼</p>}
           </div>
 
           {/* Mobile: Expandable Content */}
@@ -586,7 +586,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                       activeCalendarTab === "instructors"
                         ? "bg-brand-teal text-white shadow-sm"
-                        : "text-brand-text/70 hover:text-brand-teal"
+                        : "text-brand-text/80 hover:text-brand-teal"
                     }`}
                   >
                     講師介紹
@@ -596,7 +596,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                       activeCalendarTab === "schedule"
                         ? "bg-brand-teal text-white shadow-sm"
-                        : "text-brand-text/70 hover:text-brand-teal"
+                        : "text-brand-text/80 hover:text-brand-teal"
                     }`}
                   >
                     課表
@@ -606,7 +606,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                       activeCalendarTab === "principal"
                         ? "bg-brand-teal text-white shadow-sm"
-                        : "text-brand-text/70 hover:text-brand-teal"
+                        : "text-brand-text/80 hover:text-brand-teal"
                     }`}
                   >
                     校長介紹
@@ -739,7 +739,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                                                 </div>
                                               ))}
                                             </div>
-                                            <span className="text-xs text-brand-text/70">
+                                            <span className="text-xs text-brand-text/80">
                                               {weekInstructors.length === 1
                                                 ? weekInstructors[0].name === "講師確認中"
                                                   ? "待公開"
@@ -800,7 +800,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                               <h4 className="text-sm font-semibold text-brand-teal text-center mb-1">
                                 {instructor.name}
                               </h4>
-                              <p className="text-xs text-brand-text/70 text-center line-clamp-2 mb-2">
+                              <p className="text-xs text-brand-text/80 text-center line-clamp-2 mb-2">
                                 {instructor.title}
                               </p>
                               <button className="text-xs text-brand-gold hover:text-brand-teal transition-colors font-medium">
@@ -960,7 +960,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     })
                   }, 300)
                 }}
-                className="inline-flex items-center gap-1.5 text-brand-text/70 hover:text-brand-teal text-sm transition-colors"
+                className="inline-flex items-center gap-1.5 text-brand-text/80 hover:text-brand-teal text-sm transition-colors"
               >
                 <ChevronUp className="w-4 h-4" />
                 收合課表
@@ -972,7 +972,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           <div className="hidden md:block mt-12">
             <div className="text-center mb-6">
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-teal mb-3">課表與講師</h3>
-              <p className="text-sm text-brand-text/70">看看每週三晚間八點，具體在做什麼</p>
+              <p className="text-sm text-brand-text/80">看看每週三晚間八點，具體在做什麼</p>
             </div>
             {/* Tab Navigation */}
             <div className="flex justify-center mb-6">
@@ -982,7 +982,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                     activeCalendarTab === "instructors"
                       ? "bg-brand-teal text-white shadow-sm"
-                      : "text-brand-text/70 hover:text-brand-teal"
+                      : "text-brand-text/80 hover:text-brand-teal"
                   }`}
                 >
                   講師介紹
@@ -992,7 +992,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                     activeCalendarTab === "schedule"
                       ? "bg-brand-teal text-white shadow-sm"
-                      : "text-brand-text/70 hover:text-brand-teal"
+                      : "text-brand-text/80 hover:text-brand-teal"
                   }`}
                 >
                   課表
@@ -1002,7 +1002,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                     activeCalendarTab === "principal"
                       ? "bg-brand-teal text-white shadow-sm"
-                      : "text-brand-text/70 hover:text-brand-teal"
+                      : "text-brand-text/80 hover:text-brand-teal"
                   }`}
                 >
                   校長介紹
@@ -1044,7 +1044,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                             <h4 className="text-sm font-semibold text-brand-teal text-center mb-1">
                               {instructor.name}
                             </h4>
-                            <p className="text-xs text-brand-text/70 text-center line-clamp-2 mb-2">
+                            <p className="text-xs text-brand-text/80 text-center line-clamp-2 mb-2">
                               {instructor.title}
                             </p>
                             <button className="text-xs text-brand-gold hover:text-brand-teal transition-colors font-medium">
@@ -1134,7 +1134,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                               <p className="text-base font-bold text-brand-teal">{phaseDescriptions[phase]}</p>
                             </div>
                           </div>
-                          <div className="flex items-center gap-2 text-brand-text/70">
+                          <div className="flex items-center gap-2 text-brand-text/80">
                             <span className="text-xs">展開</span>
                             {expandedPhases.has(phase) ? (
                               <ChevronUp className="w-4 h-4" />
@@ -1156,7 +1156,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                                     onClick={() => setSelectedWeek(week)}
                                   >
                                     <div className="flex items-center justify-between mb-2">
-                                      <span className="text-xs text-brand-text/70">{week.monthWeek}</span>
+                                      <span className="text-xs text-brand-text/80">{week.monthWeek}</span>
                                       <span
                                         className={`text-xs px-2 py-0.5 rounded-full ${
                                           week.track === "全體共同"
@@ -1170,7 +1170,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                                       </span>
                                     </div>
                                     <h4 className="text-sm font-semibold text-brand-teal mb-2">{week.title}</h4>
-                                    <p className="text-xs text-brand-text/70 line-clamp-2 mb-3">{week.focusShort}</p>
+                                    <p className="text-xs text-brand-text/80 line-clamp-2 mb-3">{week.focusShort}</p>
                                     <div className="flex items-center justify-between">
                                       <div className="flex items-center gap-2">
                                         <div className="w-6 h-6 rounded-full overflow-hidden border border-brand-mist">
@@ -1182,7 +1182,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                                             className="w-full h-full object-cover"
                                           />
                                         </div>
-                                        <span className="text-xs text-brand-text/70">
+                                        <span className="text-xs text-brand-text/80">
                                           {weekInstructors[0]?.name === "講師確認中"
                                             ? "待公開"
                                             : weekInstructors[0]?.name}
@@ -1313,7 +1313,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             <h3 className="text-2xl sm:text-3xl font-bold text-brand-teal mb-3 text-balance">
               {'成為本屆學員你會得到什麼'}
             </h3>
-            <p className="text-sm sm:text-base text-brand-text/70">
+            <p className="text-sm sm:text-base text-brand-text/80">
               {'遠距職涯 x 遠端接案 — 一套從定位到落地的完整行動系統'}
             </p>
           </div>
@@ -1332,7 +1332,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   </div>
                   <h5 className="font-bold text-brand-teal text-base lg:text-lg">{'當屆五個月完整課程'}</h5>
                 </div>
-                <p className="text-brand-text/70 text-sm lg:text-base leading-relaxed pl-[52px]">
+                <p className="text-brand-text/80 text-sm lg:text-base leading-relaxed pl-[52px]">
                   {'聚焦遠距求職與接案兩條路，從目標、定位到落地流程（直播 / 回放一年）'}
                 </p>
               </div>
@@ -1343,7 +1343,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   </div>
                   <h5 className="font-bold text-brand-teal text-base lg:text-lg">{'作業與落地任務'}</h5>
                 </div>
-                <p className="text-brand-text/70 text-sm lg:text-base leading-relaxed pl-[52px]">
+                <p className="text-brand-text/80 text-sm lg:text-base leading-relaxed pl-[52px]">
                   {'每堂正課都要交付 — 一步步把你推到「可以展示 / 被詢問」的狀態'}
                 </p>
               </div>
@@ -1354,7 +1354,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   </div>
                   <h5 className="font-bold text-brand-teal text-base lg:text-lg">{'成長節奏'}</h5>
                 </div>
-                <p className="text-brand-text/70 text-sm lg:text-base leading-relaxed pl-[52px]">
+                <p className="text-brand-text/80 text-sm lg:text-base leading-relaxed pl-[52px]">
                   {'固定課表、線上同學會 / 團體 QA / DemoDay，互相學習、彼此督促跟上進度'}
                 </p>
               </div>
@@ -1380,7 +1380,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 </div>
               </div>
               {/* 展開/收合按鈕 — 兩端都顯示 */}
-              <div className="flex items-center gap-1.5 text-brand-text/70 flex-shrink-0 ml-3">
+              <div className="flex items-center gap-1.5 text-brand-text/80 flex-shrink-0 ml-3">
                 <span className="text-xs sm:text-sm group-open/block2:hidden">展開</span>
                 <span className="text-xs sm:text-sm hidden group-open/block2:inline">收合</span>
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-open/block2:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1397,21 +1397,21 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     <span className="text-brand-teal font-bold text-xs mt-0.5 flex-shrink-0">{'01'}</span>
                     <div>
                       <span className="font-semibold text-brand-teal text-sm">{'當屆五個月完整課程'}</span>
-                      <span className="text-brand-text/70 text-xs">{' — 聚焦遠距求職與接案兩條路，從目標、定位到落地流程（直播 / 回放一年）'}</span>
+                      <span className="text-brand-text/80 text-xs">{' — 聚焦遠距求職與接案兩條路，從目標、定位到落地流程（直播 / 回放一年）'}</span>
                     </div>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-brand-teal font-bold text-xs mt-0.5 flex-shrink-0">{'02'}</span>
                     <div>
                       <span className="font-semibold text-brand-teal text-sm">{'作業與落地任務'}</span>
-                      <span className="text-brand-text/70 text-xs">{' — 每堂正課都要交付，一步步把你推到「可以展示 / 被詢問」的狀態'}</span>
+                      <span className="text-brand-text/80 text-xs">{' — 每堂正課都要交付，一步步把你推到「可以展示 / 被詢問」的狀態'}</span>
                     </div>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-brand-teal font-bold text-xs mt-0.5 flex-shrink-0">{'03'}</span>
                     <div>
                       <span className="font-semibold text-brand-teal text-sm">{'成長節奏'}</span>
-                      <span className="text-brand-text/70 text-xs">{' — 固定課表、線上同學會 / 團體 QA / DemoDay，互相學習、彼此督促跟��進度'}</span>
+                      <span className="text-brand-text/80 text-xs">{' — 固定課表、線上同學會 / 團體 QA / DemoDay，互相學習、彼此督促跟��進度'}</span>
                     </div>
                   </li>
                 </ul>
@@ -1434,14 +1434,14 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   <span className="text-brand-gold flex-shrink-0 mt-0.5 font-bold text-base md:text-lg">{'✔'}</span>
                   <div>
                     <span className="font-semibold text-brand-teal text-sm md:text-base lg:text-lg">{'定位與可能性：遠距路線決策 & 啟動目標'}</span>
-                    <p className="text-brand-text/70 text-sm md:text-base mt-1">{'— 釐清你要的自由是什麼（時間／地點／收入），並選定「上班線／接案線／雙軌」的起跑方向及目標'}</p>
+                    <p className="text-brand-text/80 text-sm md:text-base mt-1">{'— 釐清你要的自由是什麼（時間／地點／收入），並選定「上班線／接案線／雙軌」的起跑方向及目標'}</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-brand-gold flex-shrink-0 mt-0.5 font-bold text-base md:text-lg">{'✔'}</span>
                   <div>
                     <span className="font-semibold text-brand-teal text-sm md:text-base lg:text-lg">{'對外門面與信任：一套讓人秒懂專業與價值的門面'}</span>
-                    <p className="text-brand-text/70 text-sm md:text-base mt-1">{'— 把你的能力、案例、價值主張整理成：LinkedIn／提案頁 / 作品集的關鍵內容與結構'}</p>
+                    <p className="text-brand-text/80 text-sm md:text-base mt-1">{'— 把你的能力、案例、價值主張整理成：LinkedIn／提案頁 / 作品集的關鍵內容與結構'}</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -1449,8 +1449,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   <div>
                     <span className="font-semibold text-brand-teal text-sm md:text-base lg:text-lg">{'接觸與轉化：把「接觸」變成「機會」的可擴增系統'}</span>
                     <div className="mt-1.5 space-y-1">
-                      <p className="text-brand-text/70 text-sm md:text-base">{'— 上班線：JD 拆解 → 客製化履歷 → 面試 & 談薪策略'}</p>
-                      <p className="text-brand-text/70 text-sm md:text-base">{'— 接案線：社群內容策略 → 作品呈現 → 獲客管道 → 成交流程'}</p>
+                      <p className="text-brand-text/80 text-sm md:text-base">{'— 上班線：JD 拆解 → 客製化履歷 → 面試 & 談薪策略'}</p>
+                      <p className="text-brand-text/80 text-sm md:text-base">{'— 接案線：社群內容策略 → 作品呈現 → 獲客管道 → 成交流程'}</p>
                     </div>
                   </div>
                 </li>
@@ -1458,14 +1458,14 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   <span className="text-brand-gold flex-shrink-0 mt-0.5 font-bold text-base md:text-lg">{'✔'}</span>
                   <div>
                     <span className="font-semibold text-brand-teal text-sm md:text-base lg:text-lg">{'留任與永續：交付的「點 > 線 > 面」永續結構'}</span>
-                    <p className="text-brand-text/70 text-sm md:text-base mt-1">{'— 在前期合作能活下來並能持續成長的方法'}</p>
+                    <p className="text-brand-text/80 text-sm md:text-base mt-1">{'— 在前期合作能活下來並能持續成長的方法'}</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-brand-gold flex-shrink-0 mt-0.5 font-bold text-base md:text-lg">{'✔'}</span>
                   <div>
                     <span className="font-semibold text-brand-teal text-sm md:text-base lg:text-lg">{'DemoDay 發表：把行動證明公開呈現'}</span>
-                    <p className="text-brand-text/70 text-sm md:text-base mt-1">{'— 讓你完成一次真正的「交付」與「曝光」，也讓機會更容易找上門'}</p>
+                    <p className="text-brand-text/80 text-sm md:text-base mt-1">{'— 讓你完成一次真正的「交付」與「曝光」，也讓機會更容易找上門'}</p>
                   </div>
                 </li>
               </ul>
@@ -1511,7 +1511,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <h4 className="font-bold text-brand-teal text-base sm:text-lg lg:text-xl">{'校友資格'}</h4>
                 <span className="text-xs px-3 py-1 rounded-full bg-brand-teal/10 text-brand-teal font-medium">{'入學即擁有，結業後延續'}</span>
               </div>
-              <div className="flex items-center gap-1.5 text-brand-text/70 flex-shrink-0 ml-3">
+              <div className="flex items-center gap-1.5 text-brand-text/80 flex-shrink-0 ml-3">
                 <span className="text-xs sm:text-sm group-open/alumni:hidden">展開</span>
                 <span className="text-xs sm:text-sm hidden group-open/alumni:inline">收合</span>
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-open/alumni:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1526,28 +1526,28 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   <span className="w-2.5 h-2.5 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
                   <div>
                     <span className="font-semibold text-brand-teal text-sm md:text-base block mb-1">{'校友 Skool 社群永久留存'}</span>
-                    <p className="text-brand-text/70 text-xs md:text-sm leading-relaxed">{'畢業後不用搬家，仍在同一個社群交流（當屆專區僅當屆可見）'}</p>
+                    <p className="text-brand-text/80 text-xs md:text-sm leading-relaxed">{'畢業後不用搬家，仍在同一個社群交流（當屆專區僅當屆可見）'}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 bg-white/60 rounded-xl p-5">
                   <span className="w-2.5 h-2.5 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
                   <div>
                     <span className="font-semibold text-brand-teal text-sm md:text-base block mb-1">{'已購內容回放觀看'}</span>
-                    <p className="text-brand-text/70 text-xs md:text-sm leading-relaxed">{'你買過課程(學院正課有一年限制)的回放與學習資源訪問權限'}</p>
+                    <p className="text-brand-text/80 text-xs md:text-sm leading-relaxed">{'你買過課程(學院正課有一年限制)的回放與學習資源訪問權限'}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 bg-white/60 rounded-xl p-5">
                   <span className="w-2.5 h-2.5 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
                   <div>
                     <span className="font-semibold text-brand-teal text-sm md:text-base block mb-1">{'校友 LinkedIn 群'}</span>
-                    <p className="text-brand-text/70 text-xs md:text-sm leading-relaxed">{'僅限學員與校友加入，職涯拓展與合作'}</p>
+                    <p className="text-brand-text/80 text-xs md:text-sm leading-relaxed">{'僅限學員與校友加入，職涯拓展與合作'}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 bg-white/60 rounded-xl p-5">
                   <span className="w-2.5 h-2.5 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
                   <div>
                     <span className="font-semibold text-brand-teal text-sm md:text-base block mb-1">{'全產品校友價'}</span>
-                    <p className="text-brand-text/70 text-xs md:text-sm leading-relaxed">{'下屆學院 / Journey 旅程 / 工作坊與線下聚會 / 合作夥伴福利（依公告）'}</p>
+                    <p className="text-brand-text/80 text-xs md:text-sm leading-relaxed">{'下屆學院 / Journey 旅程 / 工作坊與線下聚會 / 合作夥伴福利（依公告）'}</p>
                   </div>
                 </div>
               </div>
@@ -1563,14 +1563,14 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     <span className="w-2.5 h-2.5 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
                     <div>
                       <span className="font-semibold text-brand-teal text-sm md:text-base block mb-1">{'共創專案'}</span>
-                      <p className="text-brand-text/70 text-xs md:text-sm leading-relaxed">{'可優先參與、可共同發起（讀書會、實戰企劃、工具共學、Builder 實習等）'}</p>
+                      <p className="text-brand-text/80 text-xs md:text-sm leading-relaxed">{'可優先參與、可共同發起（讀書會、實戰企劃、工具共學、Builder 實習等）'}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="w-2.5 h-2.5 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
                     <div>
                       <span className="font-semibold text-brand-teal text-sm md:text-base block mb-1">{'許願池'}</span>
-                      <p className="text-brand-text/70 text-xs md:text-sm leading-relaxed">{'定期提案 / 投票，讓學院資源與活動更貼近你的需求'}</p>
+                      <p className="text-brand-text/80 text-xs md:text-sm leading-relaxed">{'定期提案 / 投票，讓學院資源與活動更貼近你的需求'}</p>
                     </div>
                   </div>
                 </div>
@@ -1584,7 +1584,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-1">
               <h4 className="font-bold text-brand-teal text-base sm:text-lg">{'入學自動開通 — 職涯成長社群 Premium 訂閱權益'}</h4>
             </div>
-            <p className="text-[10px] sm:text-xs text-brand-text/70 mb-5">{'在學期間有效，不需另外加購'}</p>
+            <p className="text-[10px] sm:text-xs text-brand-text/80 mb-5">{'在學期間有效，不需另外加購'}</p>
 
             <div className="space-y-4">
               <div className="flex items-start gap-3">
@@ -1592,9 +1592,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <div>
                   <p className="text-sm font-medium text-brand-teal">
                     {'付費講座、工作坊折扣'}
-                    <span className="text-brand-text/70 font-normal text-xs ml-1.5">{'每月至少一場'}</span>
+                    <span className="text-brand-text/80 font-normal text-xs ml-1.5">{'每月至少一場'}</span>
                   </p>
-                  <p className="text-xs text-brand-text/70 mt-0.5">{'參加到 1.5 場就回本'}</p>
+                  <p className="text-xs text-brand-text/80 mt-0.5">{'參加到 1.5 場就回本'}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -1603,7 +1603,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   <p className="text-sm font-medium text-brand-teal">
                     {'合作夥伴 / 活動優惠搶先看'}
                   </p>
-                  <p className="text-xs text-brand-text/70 mt-0.5">{'訂閱會員限定的合作夥伴優惠與活動搶先通知'}</p>
+                  <p className="text-xs text-brand-text/80 mt-0.5">{'訂閱會員限定的合作夥伴優惠與活動搶先通知'}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -1611,14 +1611,14 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <div>
                   <p className="text-sm font-medium text-brand-teal">
                     {'世界遊牧資訊'}
-                    <span className="text-brand-text/70 font-normal text-xs ml-1.5">{'趨勢整理 + 活動情報'}</span>
+                    <span className="text-brand-text/80 font-normal text-xs ml-1.5">{'趨勢整理 + 活動情報'}</span>
                   </p>
-                  <p className="text-xs text-brand-text/70 mt-0.5">{'遠距工作市場趨勢、工具更新、海內外活動情報'}</p>
+                  <p className="text-xs text-brand-text/80 mt-0.5">{'遠距工作市場趨勢、工具更新、海內外活動情報'}</p>
                 </div>
               </div>
             </div>
 
-            <p className="mt-5 pt-3 border-t border-brand-teal/10 text-xs text-brand-text/70 text-center">{'結業後若想持續使用，可再自行續訂 Premium。'}</p>
+            <p className="mt-5 pt-3 border-t border-brand-teal/10 text-xs text-brand-text/80 text-center">{'結業後若想持續使用，可再自行續訂 Premium。'}</p>
           </div>
           */}
 
@@ -1874,7 +1874,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                       </span>
                     </div>
                     <h5 className="text-sm font-semibold text-brand-teal mb-1">{course.title}</h5>
-                    <p className="text-xs text-brand-text/70">{course.focusShort}</p>
+                    <p className="text-xs text-brand-text/80">{course.focusShort}</p>
                   </div>
                 ))}
               </div>
