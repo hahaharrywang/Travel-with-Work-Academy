@@ -53,19 +53,7 @@ export function FreeLectureSection() {
           <h4 className="text-lg sm:text-xl font-semibold text-brand-teal mb-4">
             {"近期講座場次"}
           </h4>
-          <div className="flex flex-col sm:flex-row gap-4 mb-8 max-w-2xl mx-auto">
-            <a
-              href="https://www.accupass.com/organizer/detail/2509180637491342778166"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block flex-1 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200"
-            >
-              <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/TWW2%20Banner%20%285%29-OkIC2AFIrYlR8CE05LgLpIbh1o61gb.png"
-                alt="4/12 免費講座：2小時把「對自由職涯的嚮往」變成「我已經在路上」- 遠端上班 × 自由接案 × 遠距自由職涯下一步"
-                className="w-full h-auto"
-              />
-            </a>
+          <div className="flex flex-col sm:flex-row gap-4 mb-8 max-w-xl mx-auto">
             <a
               href="https://www.accupass.com/organizer/detail/2509180637491342778166"
               target="_blank"
