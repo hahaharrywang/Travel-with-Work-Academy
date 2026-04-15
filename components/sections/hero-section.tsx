@@ -118,7 +118,7 @@ export function HeroSection() {
             </div>
 
             {/* Micro Proof */}
-            <p className="text-white/60 text-sm">
+            <p className="text-white/70 text-sm">
               至今已累積 <span className="text-white font-medium">300+</span> 學員、<span className="text-white font-medium">1,800+</span> 線下社群參與人次
             </p>
 
@@ -127,7 +127,7 @@ export function HeroSection() {
               onClick={() => {
                 document.getElementById("learning-map")?.scrollIntoView({ behavior: "smooth" })
               }}
-              className="text-white/50 hover:text-white/80 text-sm transition-colors duration-200 flex items-center gap-1"
+              className="text-white/70 hover:text-white text-sm transition-colors duration-200 flex items-center gap-1"
             >
               往下看 5 個月怎麼走
               <svg className="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
@@ -238,7 +238,7 @@ export function HeroSection() {
           </div>
 
           {/* Micro Proof */}
-          <p className="text-white/60 text-sm text-center">
+          <p className="text-white/70 text-sm text-center">
             至今已累積 <span className="text-white font-medium">300+</span> 學員、<span className="text-white font-medium">1,800+</span> 線下社群參與人次
           </p>
 

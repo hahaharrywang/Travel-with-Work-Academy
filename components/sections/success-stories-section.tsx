@@ -296,11 +296,11 @@ function SuccessCarousel({ stories, expanded, onToggle }: { stories: Story[]; ex
         </button>
 
         {/* Page indicator */}
-        <span className="text-xs text-brand-text/50 ml-1">{`${current + 1} / ${count}`}</span>
+        <span className="text-xs text-brand-text/70 ml-1">{`${current + 1} / ${count}`}</span>
       </div>
 
       {/* Swipe hint for mobile */}
-      <p className="lg:hidden text-center text-xs text-brand-text/40 mt-2">{'左右滑動查看更多案例'}</p>
+      <p className="lg:hidden text-center text-xs text-brand-text/60 mt-2">{'左右滑動查看更多案例'}</p>
     </div>
   )
 }
