@@ -1421,7 +1421,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   <li className="flex items-start gap-2">
                     <span className="text-brand-teal font-bold text-xs mt-0.5 flex-shrink-0">{'02'}</span>
                     <div>
-                      <span className="font-semibold text-brand-teal text-sm">{'作���與落地任務'}</span>
+                      <span className="font-semibold text-brand-teal text-sm">{'作業與落地任務'}</span>
                       <span className="text-brand-text/80 text-xs">{' — 每堂正課都要交付，一步步把你推到「可以展示 / 被詢問」的狀態'}</span>
                     </div>
                   </li>
@@ -1429,7 +1429,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     <span className="text-brand-teal font-bold text-xs mt-0.5 flex-shrink-0">{'03'}</span>
                     <div>
                       <span className="font-semibold text-brand-teal text-sm">{'成長節奏'}</span>
-                      <span className="text-brand-text/80 text-xs">{' — 固定課表、線上同學會 / 團體 QA / DemoDay，互相學習、彼此督促跟��進度'}</span>
+                      <span className="text-brand-text/80 text-xs">{' — 固定課表、線上同學會 / 團體 QA / DemoDay，互相學習、彼此督促跟上進度'}</span>
                     </div>
                   </li>
                 </ul>
@@ -1521,6 +1521,77 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               </p>
             </div>
           </details>
+
+          {/* NEW Block: 兩條路線的具體能力培養 */}
+          <div className="mb-3 bg-white rounded-2xl border border-brand-mist/50 shadow-sm overflow-hidden">
+            <div className="p-5 sm:px-8 sm:py-6 border-b border-brand-mist/30">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="w-1.5 h-6 rounded-full bg-brand-gold flex-shrink-0"></span>
+                <h4 className="font-bold text-brand-teal text-base sm:text-lg lg:text-xl">{'兩條路線的具體能力培養'}</h4>
+                <span className="text-xs px-3 py-1 rounded-full bg-brand-teal/10 text-brand-teal font-medium">{'按階段推進，看得見的進展'}</span>
+              </div>
+            </div>
+
+            <div className="px-5 pb-5 sm:px-8 sm:pb-8 pt-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                {/* 遠端上班線 */}
+                <div>
+                  <h5 className="font-bold text-brand-teal text-base md:text-lg pb-3 mb-4 border-b-2 border-brand-teal/20">
+                    {'遠端上班線'}
+                  </h5>
+                  <div className="space-y-5">
+                    {remoteJobPhaseContent.map((phase, idx) => {
+                      const monthLabels = ["5月", "6月", "7月", "8-9月"]
+                      return (
+                        <div key={phase.phase}>
+                          <p className="font-semibold text-brand-teal text-sm md:text-base mb-2">
+                            <span className="text-brand-gold mr-2">{monthLabels[idx]}</span>
+                            {phase.phase}
+                          </p>
+                          <ul className="space-y-1.5">
+                            {phase.outcomes.map((outcome, i) => (
+                              <li key={i} className="flex items-start gap-2 text-xs md:text-sm text-brand-text/80 leading-relaxed">
+                                <span className="text-brand-gold flex-shrink-0 mt-0.5">{'•'}</span>
+                                <span>{outcome}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+
+                {/* 接案線 */}
+                <div>
+                  <h5 className="font-bold text-brand-teal text-base md:text-lg pb-3 mb-4 border-b-2 border-brand-teal/20">
+                    {'接案線'}
+                  </h5>
+                  <div className="space-y-5">
+                    {freelancePhaseContent.map((phase, idx) => {
+                      const monthLabels = ["5月", "6月", "7月", "8-9月"]
+                      return (
+                        <div key={phase.phase}>
+                          <p className="font-semibold text-brand-teal text-sm md:text-base mb-2">
+                            <span className="text-brand-gold mr-2">{monthLabels[idx]}</span>
+                            {phase.phase}
+                          </p>
+                          <ul className="space-y-1.5">
+                            {phase.outcomes.map((outcome, i) => (
+                              <li key={i} className="flex items-start gap-2 text-xs md:text-sm text-brand-text/80 leading-relaxed">
+                                <span className="text-brand-gold flex-shrink-0 mt-0.5">{'•'}</span>
+                                <span>{outcome}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
           {/* Block 3: Alumni Status — collapsible */}
           <details className="group/alumni mb-3 bg-brand-offwhite/80 rounded-2xl border border-brand-gold/30 shadow-sm overflow-hidden">

@@ -1,9 +1,10 @@
 "use client"
 
 import { useState } from "react"
-import { X, User } from "lucide-react"
+import Image from "next/image"
+import { X } from "lucide-react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogPortal, DialogOverlay } from "@/components/ui/dialog"
-import { calendarData, type CalendarWeek } from "@/data/calendar"
+import { calendarData, getInstructorsByNames, type CalendarWeek } from "@/data/calendar"
 
 interface CourseDetailModalProps {
   isOpen: boolean
@@ -61,43 +62,61 @@ const getMonthFromPhase = (phase: string): string => {
 function CourseCard({ course, isRequired = true }: { course: CalendarWeek; isRequired?: boolean }) {
   const { content, tasks } = parseFocusDetail(course.focusDetail)
   const month = getMonthFromPhase(course.phase)
-  const instructor = course.instructorNames[0] || "講師確認中"
+  const instructors = getInstructorsByNames(course.instructorNames)
 
   return (
     <div className="bg-white border border-brand-mist rounded-xl p-5 mb-4">
-      {/* 標籤與講師 */}
-      <div className="flex items-start justify-between mb-3">
-        <div className="flex items-center gap-2">
-          <span className="text-brand-gold font-medium text-sm">{month}</span>
-          {isRequired !== undefined && (
-            <span className={`text-xs px-2 py-0.5 rounded ${isRequired ? 'bg-brand-teal/10 text-brand-teal' : 'bg-brand-mist text-brand-text/70'}`}>
-              {isRequired ? '必修' : '選修'}
-            </span>
-          )}
-        </div>
-        <div className="flex items-center gap-1 text-brand-text/70 text-sm">
-          <User className="w-4 h-4" />
-          {instructor}
-        </div>
+      {/* 月份與標籤 */}
+      <div className="flex items-center gap-2 mb-3">
+        <span className="text-brand-gold font-medium text-sm">{month}</span>
+        {isRequired !== undefined && (
+          <span className={`text-xs px-2 py-0.5 rounded ${isRequired ? 'bg-brand-teal/10 text-brand-teal' : 'bg-brand-mist text-brand-text/70'}`}>
+            {isRequired ? '必修' : '選修'}
+          </span>
+        )}
       </div>
 
       {/* 課程標題 */}
       <h4 className="text-lg font-bold text-brand-teal mb-2">{course.title}</h4>
 
       {/* 課程說明 */}
-      <p className="text-sm text-brand-text/80 mb-4 leading-relaxed line-clamp-3">
+      <p className="text-sm text-brand-text/80 mb-4 leading-relaxed">
         {content || course.focusShort}
       </p>
 
       {/* 行動任務 */}
       {tasks.length > 0 && (
-        <div className="bg-brand-offwhite rounded-lg p-3">
+        <div className="bg-brand-offwhite rounded-lg p-3 mb-4">
           {tasks.map((task, i) => (
             <p key={i} className="text-sm text-brand-text flex items-start gap-2 mb-1 last:mb-0">
               <span className="text-brand-gold">&#9997;</span>
               <span><strong>{i === 0 ? '行動任務：' : ''}</strong>{task}</span>
             </p>
           ))}
+        </div>
+      )}
+
+      {/* 講師資訊（頭像 + 姓名 + 職稱） */}
+      {instructors.length > 0 && (
+        <div className="pt-4 border-t border-brand-mist/50">
+          <p className="text-xs text-brand-text/60 mb-3 uppercase tracking-wider">{'講師'}</p>
+          <div className="space-y-3">
+            {instructors.map((instructor, idx) => (
+              <div key={idx} className="flex items-start gap-3">
+                <Image
+                  src={instructor.image || "/placeholder.svg"}
+                  alt={instructor.name}
+                  width={48}
+                  height={48}
+                  className="w-12 h-12 rounded-full object-cover flex-shrink-0"
+                />
+                <div className="flex-1 min-w-0">
+                  <p className="font-semibold text-brand-teal text-sm">{instructor.name}</p>
+                  <p className="text-xs text-brand-gold leading-snug mt-0.5">{instructor.title}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>
