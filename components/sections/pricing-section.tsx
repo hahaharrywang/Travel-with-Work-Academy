@@ -310,7 +310,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
         {/* Disclaimer note */}
         <div className="rounded-xl bg-brand-mist/30 border border-brand-mist px-5 py-4 text-center mb-4">
           <p className="text-brand-text text-sm leading-relaxed">
-            <span className="font-semibold text-brand-teal">重要說明：</span>學院方案以「課程＋社群＋校友資格」為主；多數線下活動／工作坊／旅程為選配加購，但校友享優��與專�����價。
+            <span className="font-semibold text-brand-teal">重要說明：</span>學院方案以「課程＋社群＋校友資格」為主；多數線下活動／工作坊／旅程為選配加購，校友皆享有專屬折扣。
           </p>
         </div>
 
