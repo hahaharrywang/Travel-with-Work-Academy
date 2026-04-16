@@ -26,6 +26,11 @@ import { CourseHighlightsSection } from "@/components/sections/course-highlights
 import { PainPointsSection } from "@/components/sections/pain-points-section"
 import { KeyFeaturesSection } from "@/components/sections/key-features-section"
 
+// V2 Learning Map Components
+import { LearningMapSectionV2 } from "@/components/sections/learning-map-section-v2"
+import { CourseDetailModal } from "@/components/ui/course-detail-modal"
+import { WeeklyScheduleModal } from "@/components/ui/weekly-schedule-modal"
+
 // Below-fold sections (loaded lazily for better initial performance)
 const FAQSection = dynamic(() => import("@/components/sections/faq-section"), {
   ssr: true,
@@ -66,6 +71,10 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
   const [selectedWeek, setSelectedWeek] = useState<CalendarWeek | null>(null)
   const [activeCalendarTab, setActiveCalendarTab] = useState<"schedule" | "instructors" | "principal">("instructors")
   const [selectedInstructor, setSelectedInstructor] = useState<typeof instructors[0] | null>(null)
+
+  // V2 Modal states
+  const [isCourseDetailModalOpen, setIsCourseDetailModalOpen] = useState(false)
+  const [isWeeklyScheduleModalOpen, setIsWeeklyScheduleModalOpen] = useState(false)
 
   const { currentStageData, timeLeft, lowestPrice, selectedPlanId, setSelectedPlanId, getTrackingParams } = usePricing()
 
@@ -155,7 +164,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
     showCalendarModal ||
     pricingTimelineModalOpen ||
     faqPriceDiffModalOpen ||
-    highlightPopup.isOpen
+    highlightPopup.isOpen ||
+    isCourseDetailModalOpen ||
+    isWeeklyScheduleModalOpen
 
   useEffect(() => {
     if (isAnyModalOpen) {
@@ -223,7 +234,14 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
       <KeyFeaturesSection />
 
       {/* SECTION 5 INSTRUCTORS - 師資 (currently hidden, use <InstructorsSection instructors={instructors} /> to enable) */}
-      {/* SECTION 6 COURSE OUTLINE START - 學習地圖（四階段） */}
+      
+      {/* NEW V2 LEARNING MAP - 課程概覽（新版） */}
+      <LearningMapSectionV2
+        onOpenCourseDetail={() => setIsCourseDetailModalOpen(true)}
+        onOpenWeeklySchedule={() => setIsWeeklyScheduleModalOpen(true)}
+      />
+
+      {/* SECTION 6 COURSE OUTLINE START - 學習地圖（四階段）【舊版保留】 */}
       <section id="learning-map" className="py-16 sm:py-20 bg-brand-offwhite">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
@@ -2047,6 +2065,18 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           </div>
         </div>
       )}
+
+      {/* V2 Course Detail Modal */}
+      <CourseDetailModal
+        isOpen={isCourseDetailModalOpen}
+        onClose={() => setIsCourseDetailModalOpen(false)}
+      />
+
+      {/* V2 Weekly Schedule Modal */}
+      <WeeklyScheduleModal
+        isOpen={isWeeklyScheduleModalOpen}
+        onClose={() => setIsWeeklyScheduleModalOpen(false)}
+      />
 
       {/* CHANGE: Pass isAnyModalOpen to hide bottom bar when modals are open */}
       <StickyBottomBar scrollToPricing={scrollToPricing} isHidden={isAnyModalOpen} isInFreeSection={isInFreeSection} />
