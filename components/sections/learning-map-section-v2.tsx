@@ -118,10 +118,10 @@ export function LearningMapSectionV2({ onOpenCourseDetail, onOpenWeeklySchedule 
           {fourPhases.map((phase, index) => (
             <div key={phase.id} className="relative">
               <div className="bg-brand-teal text-white rounded-xl p-5 h-full">
-                <div className="text-brand-gold font-medium mb-2">
-                  {phase.months}
-                </div>
-                <h3 className="text-xl font-bold mb-2">{phase.name}</h3>
+                <h3 className="text-xl font-bold mb-2">
+                  <span className="text-brand-gold font-medium">{phase.months}</span>{" "}
+                  {phase.name}
+                </h3>
                 <p className="text-sm opacity-90">{phase.shortTagline}</p>
               </div>
               {/* 箭頭連接（除了最後一個） */}
@@ -138,10 +138,10 @@ export function LearningMapSectionV2({ onOpenCourseDetail, onOpenWeeklySchedule 
         <div className="flex flex-col gap-3 mb-8 lg:hidden">
           {fourPhases.map((phase) => (
             <div key={phase.id} className="bg-brand-teal text-white rounded-xl p-4">
-              <div className="text-brand-gold font-medium text-sm mb-1">
-                {phase.months}
-              </div>
-              <h3 className="text-base font-bold mb-1">{phase.name}</h3>
+              <h3 className="text-base font-bold mb-1">
+                <span className="text-brand-gold font-medium">{phase.months}</span>{" "}
+                {phase.name}
+              </h3>
               <p className="text-sm opacity-90">{phase.shortTagline}</p>
             </div>
           ))}
