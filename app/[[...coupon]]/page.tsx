@@ -1259,7 +1259,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                               </li>
                               <li className="flex items-start gap-2">
                                 <span className="text-brand-gold mt-1">•</span>
-                                <span>科技新創 / 遠端外部營���顧問</span>
+                                <span>科技新創 / 遠端外部營運顧問</span>
                               </li>
                             </ul>
                           </div>
@@ -1403,7 +1403,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   <li className="flex items-start gap-2">
                     <span className="text-brand-teal font-bold text-xs mt-0.5 flex-shrink-0">{'02'}</span>
                     <div>
-                      <span className="font-semibold text-brand-teal text-sm">{'作業與落地任務'}</span>
+                      <span className="font-semibold text-brand-teal text-sm">{'作���與落地任務'}</span>
                       <span className="text-brand-text/80 text-xs">{' — 每堂正課都要交付，一步步把你推到「可以展示 / 被詢問」的狀態'}</span>
                     </div>
                   </li>
