@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback, useRef } from "react"
+import { useState, useEffect, useCallback } from "react"
 import Image from "next/image"
 import dynamic from "next/dynamic"
 import {
@@ -9,7 +9,6 @@ import {
   X,
   ChevronRight,
   ChevronLeft,
-  CalendarDays,
 } from "lucide-react"
 import { usePricing } from "@/contexts/pricing-context"
 import { AnnouncementBar } from "@/components/announcement-bar"
@@ -59,7 +58,7 @@ import {
 } from "@/components/ui/dialog"
 
 import { type PlanId, getCheckoutURL } from "@/data/plan-config"
-import { calendarData, getPhaseColor, getTrackColor, getInstructorsByNames, fourPhases, remoteJobPhaseContent, freelancePhaseContent, undecidedTabContent, type CalendarWeek } from "@/data/calendar"
+import { calendarData, getPhaseColor, getTrackColor, getInstructorsByNames, remoteJobPhaseContent, freelancePhaseContent, type CalendarWeek } from "@/data/calendar"
 import { stagePhotos } from "@/data/stage-photos"
 import { instructors } from "@/data/instructors"
 
@@ -67,7 +66,6 @@ import { instructors } from "@/data/instructors"
 
 export default function LandingPage({ params }: { params: { coupon?: string | string[] } }) {
   const [couponCode, setCouponCode] = useState<string | null>(null)
-  const [activeMapTab, setActiveMapTab] = useState<string>("遠端上班") // State for Learning Map tabs
   const [selectedWeek, setSelectedWeek] = useState<CalendarWeek | null>(null)
   const [activeCalendarTab, setActiveCalendarTab] = useState<"schedule" | "instructors" | "principal">("instructors")
   const [selectedInstructor, setSelectedInstructor] = useState<typeof instructors[0] | null>(null)
@@ -132,8 +130,6 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
   }
 
   const [showCalendarModal, setShowCalendarModal] = useState(false)
-  const [showCalendarInline, setShowCalendarInline] = useState(false)
-  const calendarSectionRef = useRef<HTMLDivElement>(null)
   const [expandedWeeks, setExpandedWeeks] = useState<Set<number>>(new Set())
   const [expandedPhases, setExpandedPhases] = useState<Set<string>>(new Set())
 
@@ -245,8 +241,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
       <section className="py-16 sm:py-20 bg-brand-offwhite">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          {/* Desktop: Always visible Tab Section */}
-          <div id="course-and-instructors" className="hidden md:block mt-12 scroll-mt-24">
+          {/* 課表與講師 Tab Section */}
+          <div id="course-and-instructors" className="scroll-mt-24">
             <div className="text-center mb-6">
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-teal mb-3">課表與講師</h3>
               <p className="text-sm text-brand-text/80">看看每週三晚間八點，具體在做什麼</p>
@@ -622,7 +618,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   <h5 className="font-bold text-brand-teal text-base lg:text-lg">{'成長節奏'}</h5>
                 </div>
                 <p className="text-brand-text/80 text-sm lg:text-base leading-relaxed pl-[52px]">
-                  {'固定課表、線上同學會 / 團體 QA / DemoDay，互相學習、彼此督促跟上進度'}
+                  {'固定課表、線上同學會 / 團體 QA / DemoDay，互相學習、彼此督促跟上進��'}
                 </p>
               </div>
             </div>
