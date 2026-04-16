@@ -15,7 +15,7 @@ interface StickyBottomBarProps {
 }
 
 export function StickyBottomBar({ scrollToPricing, isHidden = false, isInFreeSection = false }: StickyBottomBarProps) {
-  const { currentStageData, timeLeft, lowestPrice, selectedPlanId, getCheckoutURLWithTracking } = usePricing()
+  const { currentStageData, timeLeft, selectedPlanId, getCheckoutURLWithTracking } = usePricing()
 
   if (!currentStageData) return null
 
@@ -27,8 +27,9 @@ export function StickyBottomBar({ scrollToPricing, isHidden = false, isInFreeSec
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white border-t border-brand-mist shadow-[0_-4px_20px_rgba(0,0,0,0.1)]">
       {!selectedPlanId ? (
-        <div className="px-4 py-3">
-          <div className="flex items-center justify-center gap-2 text-xs text-brand-text mb-2">
+        <div className="px-3 py-2.5">
+          {/* 倒數與折扣 */}
+          <div className="flex items-center justify-center gap-1.5 text-[11px] text-brand-text mb-2">
             <span className="text-brand-gold font-bold">{currentStageData.name}</span>
             <span>·</span>
             <span>{currentStageData.discountLabel}</span>
@@ -41,19 +42,15 @@ export function StickyBottomBar({ scrollToPricing, isHidden = false, isInFreeSec
               </span>
             </span>
           </div>
-          <div className="flex items-center justify-between gap-3">
-            <div className="flex-1 min-w-0">
-              <span className="text-sm text-brand-text">
-                單線方案本階段{" "}
-                <span className="font-bold text-brand-teal">NT$ {lowestPrice ? formatPrice(lowestPrice) : "--"}</span> 起
-              </span>
-            </div>
+
+          {/* 雙 CTA 並排 */}
+          <div className="flex items-center gap-2">
             {isInFreeSection ? (
               <button
                 onClick={() => {
                   document.getElementById("free-lecture-section")?.scrollIntoView({ behavior: "smooth" })
                 }}
-                className="flex-shrink-0 inline-flex items-center gap-2 bg-brand-teal text-white px-5 py-3 rounded-full text-sm font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-md"
+                className="flex-1 inline-flex items-center justify-center gap-1.5 bg-brand-gold text-brand-teal px-3 py-3 rounded-full text-sm font-bold hover:bg-[#c9a673] transition-all duration-300 shadow-md"
               >
                 <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
@@ -62,12 +59,23 @@ export function StickyBottomBar({ scrollToPricing, isHidden = false, isInFreeSec
               </button>
             ) : (
               <button
-                onClick={scrollToPricing}
-                className="flex-shrink-0 bg-brand-teal text-white px-5 py-3 rounded-full text-sm font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-md"
+                onClick={() => {
+                  document.getElementById("free-lecture-section")?.scrollIntoView({ behavior: "smooth" })
+                }}
+                className="flex-1 inline-flex items-center justify-center gap-1.5 bg-brand-gold text-brand-teal px-3 py-3 rounded-full text-sm font-bold hover:bg-[#c9a673] transition-all duration-300 shadow-md"
               >
-                查看方案
+                <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                </svg>
+                免費卡位講座
               </button>
             )}
+            <button
+              onClick={scrollToPricing}
+              className="flex-1 bg-brand-teal text-white px-3 py-3 rounded-full text-sm font-bold hover:bg-[#0f3339] transition-all duration-300 shadow-md"
+            >
+              查看方案
+            </button>
           </div>
         </div>
       ) : (
