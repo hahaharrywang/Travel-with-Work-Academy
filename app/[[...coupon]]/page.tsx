@@ -987,7 +987,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           )}
 
           {/* Desktop: Always visible Tab Section */}
-          <div className="hidden md:block mt-12">
+          <div id="course-and-instructors" className="hidden md:block mt-12 scroll-mt-24">
             <div className="text-center mb-6">
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-teal mb-3">課表與講師</h3>
               <p className="text-sm text-brand-text/80">看看每週三晚間八點，具體在做什麼</p>
@@ -1113,12 +1113,16 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     永續: "8–9 月",
                   }
 
+                  // 漸變色階：5月最淺 → 8-9月最深（與 V2 學習地圖一致）
+                  const phaseGradients = ["bg-[#3d8b8b]", "bg-[#357878]", "bg-[#2d6565]", "bg-[#255454]"]
+
                   return phases.map((phase, phaseIndex) => {
                     const phaseWeeks = calendarData.filter((week) => week.phase === phase)
                     if (phaseWeeks.length === 0) return null
+                    const isExpanded = expandedPhases.has(phase)
 
                     return (
-                      <div key={phase} className="border border-brand-mist/50 rounded-xl overflow-hidden bg-white">
+                      <div key={phase} className="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                         <button
                           onClick={() => {
                             const newSet = new Set(expandedPhases)
@@ -1129,41 +1133,27 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                             }
                             setExpandedPhases(newSet)
                           }}
-                          className="w-full flex items-center justify-between p-4 hover:bg-brand-offwhite/50 transition-colors"
+                          className={`w-full flex items-center justify-between p-5 text-left transition-colors ${phaseGradients[phaseIndex]} text-white hover:brightness-110`}
                         >
-                          <div className="flex items-center gap-3 text-left">
-                            <span
-                              className={`inline-flex items-center justify-center w-8 h-8 rounded-full text-white text-sm font-bold ${
-                                phaseIndex === 0
-                                  ? "bg-brand-teal"
-                                  : phaseIndex === 1
-                                    ? "bg-brand-gold"
-                                    : phaseIndex === 2
-                                      ? "bg-brand-clay"
-                                      : "bg-brand-mist text-brand-teal"
-                              }`}
-                            >
-                              {phaseIndex + 1}
-                            </span>
-                            <div>
-                              <p className="text-sm font-medium text-brand-text">
-                                {phaseMonths[phase]} <span className="text-brand-teal font-semibold">{phase}</span>
-                              </p>
-                              <p className="text-base font-bold text-brand-teal">{phaseDescriptions[phase]}</p>
-                            </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-base sm:text-lg font-bold mb-1">
+                              <span className="text-brand-gold font-medium">{phaseMonths[phase]}</span>{" "}
+                              {phase}
+                            </p>
+                            <p className="text-sm text-white/85">{phaseDescriptions[phase]}</p>
                           </div>
-                          <div className="flex items-center gap-2 text-brand-text/80">
-                            <span className="text-xs">展開</span>
-                            {expandedPhases.has(phase) ? (
-                              <ChevronUp className="w-4 h-4" />
+                          <div className="flex items-center gap-2 text-white/90 flex-shrink-0 ml-4">
+                            <span className="text-xs">{isExpanded ? "收合" : "展開"}</span>
+                            {isExpanded ? (
+                              <ChevronUp className="w-5 h-5" />
                             ) : (
-                              <ChevronDown className="w-4 h-4" />
+                              <ChevronDown className="w-5 h-5" />
                             )}
                           </div>
                         </button>
 
-                        {expandedPhases.has(phase) && (
-                          <div className="border-t border-brand-mist/30 p-4 bg-brand-offwhite/30">
+                        {isExpanded && (
+                          <div className="p-4 bg-white border-x border-b border-brand-mist/50 rounded-b-xl">
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                               {phaseWeeks.map((week) => {
                                 const weekInstructors = getInstructorsByNames(week.instructorNames)
@@ -1415,7 +1405,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     <span className="text-brand-teal font-bold text-xs mt-0.5 flex-shrink-0">{'01'}</span>
                     <div>
                       <span className="font-semibold text-brand-teal text-sm">{'當屆五個月完整課程'}</span>
-                      <span className="text-brand-text/80 text-xs">{' — 聚焦遠距求職與接案兩條路，從目標、定位到落地流程（直播 / 回放一年）'}</span>
+                      <span className="text-brand-text/80 text-xs">{' — 聚焦遠距求職與接案兩條路，從目標、定位到落地流��（直播 / 回放一年）'}</span>
                     </div>
                   </li>
                   <li className="flex items-start gap-2">
@@ -2008,7 +1998,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <p className="text-sm text-gray-600 mt-1">
                 五月開學，週三晚上八點準時上線。
                 <br />
-                24 週的課程與行動任務，分成三個階段：起步打底、出擊試水、累積整合。
+                24 週的課程與行動任務，分成三個階段：起���打底、出擊試水、累積整合。
               </p>
             </div>
 

@@ -216,6 +216,26 @@ export function CourseDetailModal({ isOpen, onClose }: CourseDetailModalProps) {
                 ))}
               </div>
             )}
+
+            {/* 引導提示：查看講師完整介紹 */}
+            <div className="mt-4 p-4 bg-brand-offwhite rounded-xl border border-brand-mist/50 text-center">
+              <p className="text-sm text-brand-text/80 mb-2">{'想看每週講師的完整介紹？'}</p>
+              <button
+                onClick={() => {
+                  onClose()
+                  setTimeout(() => {
+                    document.getElementById("course-and-instructors")?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    })
+                  }, 300)
+                }}
+                className="inline-flex items-center gap-1.5 text-brand-teal hover:text-brand-teal/80 font-semibold text-sm transition-colors"
+              >
+                {'前往「課表與講師」區塊'}
+                <span aria-hidden>&#8595;</span>
+              </button>
+            </div>
           </div>
         </DialogContent>
       </DialogPortal>
