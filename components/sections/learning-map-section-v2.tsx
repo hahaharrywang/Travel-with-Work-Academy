@@ -115,36 +115,53 @@ export function LearningMapSectionV2({ onOpenCourseDetail, onOpenWeeklySchedule 
 
         {/* 四階段時間軸卡片 - Desktop */}
         <div className="hidden lg:grid lg:grid-cols-4 gap-4 mb-12">
-          {fourPhases.map((phase, index) => (
-            <div key={phase.id} className="relative">
-              <div className="bg-brand-teal text-white rounded-xl p-5 h-full">
-                <h3 className="text-xl font-bold mb-2">
-                  <span className="text-brand-gold font-medium">{phase.months}</span>{" "}
-                  {phase.name}
-                </h3>
-                <p className="text-sm opacity-90">{phase.shortTagline}</p>
-              </div>
-              {/* 箭頭連接（除了最後一個） */}
-              {index < 3 && (
-                <div className="absolute top-1/2 -right-2 transform -translate-y-1/2 text-brand-teal z-10 hidden lg:block">
-                  <span className="text-2xl">→</span>
+          {fourPhases.map((phase, index) => {
+            // 階段漸變色：從淺到深，象徵成長
+            const phaseColors = [
+              "bg-[#3d8b8b]", // 5月 - 較淺
+              "bg-[#357878]", // 6月
+              "bg-[#2d6565]", // 7月
+              "bg-[#255454]", // 8-9月 - 最深
+            ]
+            return (
+              <div key={phase.id} className="relative group">
+                <div className={`${phaseColors[index]} text-white rounded-xl p-5 h-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1`}>
+                  <h3 className="text-xl font-bold mb-2">
+                    <span className="text-brand-gold font-medium">{phase.months}</span>{" "}
+                    {phase.name}
+                  </h3>
+                  <p className="text-sm text-white/85">{phase.shortTagline}</p>
                 </div>
-              )}
-            </div>
-          ))}
+                {/* 箭頭連接（除了最後一個） */}
+                {index < 3 && (
+                  <div className="absolute top-1/2 -right-2 transform -translate-y-1/2 z-10 hidden lg:block">
+                    <span className="text-brand-gold/60 text-xl">&#10095;</span>
+                  </div>
+                )}
+              </div>
+            )
+          })}
         </div>
 
         {/* 四階段時間軸卡片 - Mobile (垂直排列) */}
         <div className="flex flex-col gap-3 mb-8 lg:hidden">
-          {fourPhases.map((phase) => (
-            <div key={phase.id} className="bg-brand-teal text-white rounded-xl p-4">
-              <h3 className="text-base font-bold mb-1">
-                <span className="text-brand-gold font-medium">{phase.months}</span>{" "}
-                {phase.name}
-              </h3>
-              <p className="text-sm opacity-90">{phase.shortTagline}</p>
-            </div>
-          ))}
+          {fourPhases.map((phase, index) => {
+            const phaseColors = [
+              "bg-[#3d8b8b]",
+              "bg-[#357878]",
+              "bg-[#2d6565]",
+              "bg-[#255454]",
+            ]
+            return (
+              <div key={phase.id} className={`${phaseColors[index]} text-white rounded-xl p-4 shadow-md`}>
+                <h3 className="text-base font-bold mb-1">
+                  <span className="text-brand-gold font-medium">{phase.months}</span>{" "}
+                  {phase.name}
+                </h3>
+                <p className="text-sm text-white/85">{phase.shortTagline}</p>
+              </div>
+            )
+          })}
         </div>
 
         {/* Tab 引導文案 */}
@@ -241,7 +258,7 @@ export function LearningMapSectionV2({ onOpenCourseDetail, onOpenWeeklySchedule 
               <div className="bg-white rounded-xl border border-brand-mist p-6">
                 <h4 className="text-lg font-bold text-brand-teal mb-3">共同必修</h4>
                 <p className="text-brand-text/80 text-sm mb-4 leading-relaxed">
-                  無論選擇哪條路線，這些正課都是你的必修學分——幫你建立可持續的生活節奏、掌握 AI 工具、學會知識變現，以及��好財務規劃。
+                  無論選擇哪條路線，這些正課都是你的必修學分——幫你建立可持續的生活節奏、掌握 AI 工具、學會知識變現，以及����好財務規劃。
                 </p>
                 <ul className="space-y-2">
                   {commonRequired.map((item, i) => (
