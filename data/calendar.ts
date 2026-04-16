@@ -53,7 +53,7 @@ export const fourPhases = [
   {
     id: 4,
     name: "永續",
-    shortTagline: "找到一次機會不是終點，走得久才是",
+    shortTagline: "從「找到機會」到「持續經營」",
     description: "把一次嘗試，變成能走下去的節奏。不是短暫熱血，而是學會留任、合作、溝通、財務與長期累積。",
     color: { bg: "bg-brand-teal/10", text: "text-brand-teal", border: "border-brand-mist", solid: "bg-brand-teal" },
     months: "8–9 月",
@@ -64,7 +64,7 @@ export const fourPhases = [
 export const remoteJobPhaseContent = [
   {
     phase: "藍圖與目標",
-    headline: "先看懂遠端上班這條路到底長什麼樣",
+    headline: "先看懂，這條路長什麼樣",
     description: "你會釐清自己想要的工作型態、適合的職缺方向，以及接下來幾個月要集中火力的目標。",
     outcomes: [
       "全局認識：拆解遠距工作市場現況，認識不同職位類型與聘僱模式。",
@@ -171,7 +171,7 @@ export const undecidedTabContent = {
     points: [
       "你可以先選一條主線開始",
       "單線的正式學員，第 2、3 週會有試上另一條路起步課的機會",
-      "在第一個月內，仍保有換線 / 升級雙軌的彈性",
+      "在第一個月內，�����有換線 / 升級雙軌的彈性",
     ],
   },
   trialInfo: {
@@ -300,7 +300,7 @@ export const calendarData: CalendarWeek[] = [
   // ===== 7 月 - 機會與轉化 =====
   {
     id: 9,
-    phase: "機會與轉化",
+    phase: "機會與轉���",
     phaseShort: "階段三",
     monthWeek: "7 月 · Week 1",
     type: "共同必修 2",
@@ -308,7 +308,7 @@ export const calendarData: CalendarWeek[] = [
     title: "Focus on Your True Value 讓 AI 成為你的實習生：從對話到自動化的第一個流程",
     focusShort: "用 AI + 自動化把日常工作變輕：做出你的第一個可運作流程。",
     focusDetail:
-      "核心內容\n• 什麼工作適合交給 AI／什麼仍要自己做\n• 把「想法�����變成「可執行流程」\n• 以最小可用成果（MVP）為導向\n\n行動任務\n• 做出 1 個「能實際跑起來」的自動化流程\n• 寫下你的「AI 使用規則」",
+      "核心內容\n• 什����作適合交給 AI／什麼仍要自己做\n• 把「想法�����變成「可執行流程」\n• 以最小可用成果（MVP）為導向\n\n行動任務\n• 做出 1 個「能實際跑起來」的自動化流程\n• 寫下你的「AI 使用規則」",
     instructorNames: ["林上哲"],
     layerTag: "核心技能 – AI 工作流／效率工具",
   },

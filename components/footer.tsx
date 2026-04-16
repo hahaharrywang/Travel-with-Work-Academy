@@ -23,7 +23,7 @@ export function Footer() {
           </p>
         </div>
 
-        <p className="text-xs text-white/60 mb-8 text-center">會有專人回覆</p>
+        <p className="text-xs text-white/70 mb-8 text-center">會有專人回覆</p>
 
         {/* Social Media Section */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8 pb-8 border-b border-white/10">
@@ -41,7 +41,7 @@ export function Footer() {
             </div>
             <div className="text-left">
               <p className="text-sm font-medium text-white">Instagram</p>
-              <p className="text-xs text-white/60">@travelwithwork_</p>
+              <p className="text-xs text-white/70">@travelwithwork_</p>
             </div>
           </a>
 
@@ -59,14 +59,14 @@ export function Footer() {
             </div>
             <div className="text-left">
               <p className="text-sm font-medium text-white">Line 官方帳號</p>
-              <p className="text-xs text-white/60">@travelwithwork</p>
+              <p className="text-xs text-white/70">@travelwithwork</p>
             </div>
           </a>
         </div>
 
         {/* Copyright */}
         <div className="text-center">
-          <p className="text-xs text-white/50">
+          <p className="text-xs text-white/70">
             &copy; {new Date().getFullYear()} 遠距遊牧學院 Travel With Work Academy. All rights reserved.
           </p>
         </div>

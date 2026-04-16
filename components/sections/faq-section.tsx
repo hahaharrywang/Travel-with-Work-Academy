@@ -212,7 +212,7 @@ function SwitchAndUpgradeAnswer({ onModalChange }: UpgradePricingAnswerProps) {
             你可以選擇<strong>換線</strong>（單路線 A → 單路線 B），或<strong>加購升級成雙線並進</strong>（單路線 →
             雙路線）。
           </p>
-          <p className="text-xs text-brand-text/60 pl-3.5 mt-2">
+          <p className="text-xs text-brand-text/70 pl-3.5 mt-2">
             ※ 申請截止後，後續路線將鎖定，以確保後續社群學習體驗品質。
           </p>
         </div>
@@ -236,7 +236,7 @@ function SwitchAndUpgradeAnswer({ onModalChange }: UpgradePricingAnswerProps) {
             <p className="text-brand-text/80 text-xs mb-2">
               加購費用 = （你入學當時的「雙路線價格 - 單路線價格」）+ 500（手續費）
             </p>
-            <p className="text-xs text-brand-text/60 italic">
+            <p className="text-xs text-brand-text/70 italic">
               重點：看你「當初下單入學」落在哪個價格階段，不是你申請加購當天的價格。因為有固定手續費，加購會略高於當期價差——如果你本來就高度可能需要雙線，越早直接選雙線越划算。
             </p>
           </div>
@@ -255,7 +255,7 @@ function SwitchAndUpgradeAnswer({ onModalChange }: UpgradePricingAnswerProps) {
             <div className="space-y-3 mb-4">
               <div className="bg-white border border-brand-mist rounded-lg p-3.5 text-sm">
                 <p className="font-semibold text-brand-teal mb-1">{'例子 1｜換線（在「'}{ex1Stage.name}{'」入學）'}</p>
-                <p className="text-xs text-brand-text/60 mb-2">{'購買時間：'}{formatDateRange(ex1Stage.startAt, ex1Stage.endAt, false)}</p>
+                <p className="text-xs text-brand-text/70 mb-2">{'購買時間：'}{formatDateRange(ex1Stage.startAt, ex1Stage.endAt, false)}</p>
                 <p className="text-brand-text/80">
                   原本選接案線，想換成遠端上班線
                   <br />
@@ -265,7 +265,7 @@ function SwitchAndUpgradeAnswer({ onModalChange }: UpgradePricingAnswerProps) {
 
               <div className="bg-white border border-brand-mist rounded-lg p-3.5 text-sm">
                 <p className="font-semibold text-brand-teal mb-1">{'例子 2｜升級雙路線（在「'}{ex2Stage.name}{'」入學）'}</p>
-                <p className="text-xs text-brand-text/60 mb-2">{'購買時間：'}{formatDateRange(ex2Stage.startAt, ex2Stage.endAt, false)}</p>
+                <p className="text-xs text-brand-text/70 mb-2">{'購買時間：'}{formatDateRange(ex2Stage.startAt, ex2Stage.endAt, false)}</p>
                 <p className="text-brand-text/80">
                   {'單路線 '}{formatPrice(ex2Single)}{'／雙路線 '}{formatPrice(ex2Dual)}{' → 價差 '}{formatPrice(ex2Diff)}
                   <br />
