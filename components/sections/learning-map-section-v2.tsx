@@ -95,7 +95,7 @@ export function LearningMapSectionV2({ onOpenCourseDetail, onOpenWeeklySchedule 
   ]
 
   return (
-    <section id="learning-map-v2" className="py-16 sm:py-20 bg-brand-offwhite">
+    <section id="learning-map" className="py-16 sm:py-20 bg-brand-offwhite">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header - 融入舊版核心敘事 */}
         <div className="text-center mb-10">
@@ -258,7 +258,7 @@ export function LearningMapSectionV2({ onOpenCourseDetail, onOpenWeeklySchedule 
               <div className="bg-white rounded-xl border border-brand-mist p-6">
                 <h4 className="text-lg font-bold text-brand-teal mb-3">共同必修</h4>
                 <p className="text-brand-text/80 text-sm mb-4 leading-relaxed">
-                  無論選擇哪條路線，這些正課都是你的必修學分——幫你建立可持續的生活節奏、掌握 AI 工具、學會知識變現，以及����好財務規劃。
+                  無論選擇哪條路線，這些正課都是你的必修學分——幫你建立可持續的生活節奏、掌握 AI 工具、學會知識變現，以及做好財務規劃。
                 </p>
                 <ul className="space-y-2">
                   {commonRequired.map((item, i) => (
