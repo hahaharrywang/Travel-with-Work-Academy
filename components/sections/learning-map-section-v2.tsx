@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { Calendar, ExternalLink, BookOpen, LayoutGrid } from "lucide-react"
-import { fourPhases, freelancePhaseContent, remoteJobPhaseContent, undecidedTabContent } from "@/data/calendar"
+import { Calendar, ExternalLink, LayoutGrid } from "lucide-react"
+import { fourPhases, undecidedTabContent } from "@/data/calendar"
 
 interface LearningMapSectionV2Props {
   onOpenCourseDetail: () => void
@@ -11,6 +11,12 @@ interface LearningMapSectionV2Props {
 
 export function LearningMapSectionV2({ onOpenCourseDetail, onOpenWeeklySchedule }: LearningMapSectionV2Props) {
   const [activeTab, setActiveTab] = useState<"remote" | "freelance" | "undecided">("remote")
+
+  // 路線標語
+  const routeTaglines = {
+    remote: "從看懂機會，到更有機會被錄用，也更有能力走得長久",
+    freelance: "從想靠自己變現，到做出能持續合作的內容與服務",
+  }
 
   // 對比表格資料
   const comparisonData = [
@@ -39,13 +45,19 @@ export function LearningMapSectionV2({ onOpenCourseDetail, onOpenWeeklySchedule 
   return (
     <section id="learning-map-v2" className="py-16 sm:py-20 bg-brand-offwhite">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-teal mb-3 flex items-center justify-center gap-2">
-            <span className="text-2xl">&#9757;</span> 課程概覽
+        {/* Section Header - 融入舊版核心敘事 */}
+        <div className="text-center mb-10">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-teal mb-2 text-balance">
+            學習地圖
           </h2>
-          <p className="text-brand-text text-base sm:text-lg max-w-2xl mx-auto">
-            兩條主線共用同一套四階段成長架構，每堂正課皆包含實作行動任務
+          <p className="text-base sm:text-lg text-brand-clay font-medium mb-4">
+            五月開學，每週三晚間八點準時上線。
+          </p>
+          <p className="text-brand-text max-w-2xl mx-auto leading-relaxed text-sm sm:text-base font-medium">
+            這不是一堆零散課程，而是一套 5 個月、4 階段的行動節奏。
+          </p>
+          <p className="text-brand-text/80 max-w-2xl mx-auto leading-relaxed text-xs sm:text-sm mt-2">
+            兩條路各有主線課，也會共用通用能力模組，例如 AI、自媒體、人生使用說明SOP、財務。
           </p>
         </div>
 
@@ -83,61 +95,10 @@ export function LearningMapSectionV2({ onOpenCourseDetail, onOpenWeeklySchedule 
           ))}
         </div>
 
-        {/* 路線說明卡片 - Desktop only */}
-        <div className="hidden lg:grid lg:grid-cols-2 gap-6 mb-8">
-          {/* 接案路線 */}
-          <div className="bg-white border-2 border-brand-mist rounded-xl p-6">
-            <h3 className="text-lg font-bold text-brand-teal mb-2 flex items-center gap-2">
-              <span>&#128736;</span> 接案路線
-            </h3>
-            <p className="text-brand-text text-sm leading-relaxed">
-              釐清主題定位、做出接案作品集、建立市場研究、社群獲客策略與變現思維
-            </p>
-          </div>
-          {/* 遠端上班路線 */}
-          <div className="bg-white border-2 border-brand-mist rounded-xl p-6">
-            <h3 className="text-lg font-bold text-brand-teal mb-2 flex items-center gap-2">
-              <span>&#128188;</span> 遠端上班路線
-            </h3>
-            <p className="text-brand-text text-sm leading-relaxed">
-              看懂遠端求職市場、整理履歷與 LinkedIn、練習求職信、面試與獵頭溝通
-            </p>
-          </div>
-        </div>
+        {/* Tab 引導文案 */}
+        <p className="text-center text-brand-text/80 text-sm mb-4">先選一條你現在最想嘗試的路線：</p>
 
-        {/* CTA 按鈕區 */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-          <button
-            onClick={onOpenCourseDetail}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-teal text-white rounded-full font-medium hover:bg-brand-teal/90 transition-colors"
-          >
-            <LayoutGrid className="w-5 h-5" />
-            查看各路線課程詳情
-          </button>
-          <button
-            onClick={onOpenWeeklySchedule}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-teal text-white rounded-full font-medium hover:bg-brand-teal/90 transition-colors"
-          >
-            <Calendar className="w-5 h-5" />
-            查看完整週次表（22 週）
-          </button>
-        </div>
-
-        {/* 外部連結 */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
-          <a
-            href="https://link.travelwithwork.life/tww2calendar"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 border-2 border-brand-mist rounded-full text-brand-text hover:bg-brand-mist/20 transition-colors text-sm"
-          >
-            <Calendar className="w-4 h-4" />
-            課表行事曆
-            <ExternalLink className="w-3 h-3" />
-          </a>
-        </div>
-
-        {/* Tab 切換 - 桌機與手機共用 */}
+        {/* Tab 切換 */}
         <div className="flex justify-center mb-8">
           <div className="inline-flex bg-white rounded-full p-1 border border-brand-mist">
             <button
@@ -173,11 +134,44 @@ export function LearningMapSectionV2({ onOpenCourseDetail, onOpenWeeklySchedule 
           </div>
         </div>
 
-        {/* Tab Content: 對比表格 (遠端上班/接案) */}
+        {/* Tab Content: 遠端上班 / 接案 */}
         {(activeTab === "remote" || activeTab === "freelance") && (
           <div className="animate-in fade-in duration-300">
+            {/* 路線標語 */}
+            <div className="text-center mb-8">
+              <h3 className="text-lg sm:text-xl font-bold text-brand-teal">
+                {activeTab === "remote" ? "遠端上班" : "接案"}：{routeTaglines[activeTab]}
+              </h3>
+            </div>
+
+            {/* 路線說明卡片 - Desktop only */}
+            <div className="hidden lg:grid lg:grid-cols-2 gap-6 mb-8">
+              {/* 接案路線 */}
+              <div className={`bg-white border-2 rounded-xl p-6 transition-all ${
+                activeTab === "freelance" ? "border-brand-teal ring-2 ring-brand-teal/20" : "border-brand-mist"
+              }`}>
+                <h4 className="text-lg font-bold text-brand-teal mb-2 flex items-center gap-2">
+                  <span>&#128736;</span> 接案路線
+                </h4>
+                <p className="text-brand-text text-sm leading-relaxed">
+                  釐清主題定位、做出接案作品集、建立市場研究、社群獲客策略與變現思維
+                </p>
+              </div>
+              {/* 遠端上班路線 */}
+              <div className={`bg-white border-2 rounded-xl p-6 transition-all ${
+                activeTab === "remote" ? "border-brand-teal ring-2 ring-brand-teal/20" : "border-brand-mist"
+              }`}>
+                <h4 className="text-lg font-bold text-brand-teal mb-2 flex items-center gap-2">
+                  <span>&#128188;</span> 遠端上班路線
+                </h4>
+                <p className="text-brand-text text-sm leading-relaxed">
+                  看懂遠端求職市場、整理履歷與 LinkedIn、練習求職信、面試與獵頭溝通
+                </p>
+              </div>
+            </div>
+
             {/* 對比表格 - Desktop */}
-            <div className="hidden md:block bg-white rounded-xl border border-brand-mist overflow-hidden">
+            <div className="hidden md:block bg-white rounded-xl border border-brand-mist overflow-hidden mb-8">
               {/* 表頭 */}
               <div className="grid grid-cols-3 bg-brand-teal text-white">
                 <div className="p-4 font-semibold">階段</div>
@@ -191,29 +185,69 @@ export function LearningMapSectionV2({ onOpenCourseDetail, onOpenWeeklySchedule 
                   className={`grid grid-cols-3 ${index % 2 === 0 ? "bg-white" : "bg-brand-offwhite/50"}`}
                 >
                   <div className="p-4 font-medium text-brand-teal">{row.phase}</div>
-                  <div className="p-4 text-brand-text">{row.freelance}</div>
-                  <div className="p-4 text-brand-text">{row.remote}</div>
+                  <div className={`p-4 ${activeTab === "freelance" ? "text-brand-teal font-medium" : "text-brand-text"}`}>
+                    {row.freelance}
+                  </div>
+                  <div className={`p-4 ${activeTab === "remote" ? "text-brand-teal font-medium" : "text-brand-text"}`}>
+                    {row.remote}
+                  </div>
                 </div>
               ))}
             </div>
 
             {/* 對比表格 - Mobile (卡片式) */}
-            <div className="md:hidden space-y-4">
+            <div className="md:hidden space-y-4 mb-8">
               {comparisonData.map((row, index) => (
                 <div key={index} className="bg-white rounded-xl border border-brand-mist p-4">
                   <div className="font-medium text-brand-teal mb-3">{row.phase}</div>
                   <div className="grid grid-cols-2 gap-3 text-sm">
-                    <div>
+                    <div className={activeTab === "freelance" ? "font-medium" : ""}>
                       <span className="text-xs text-brand-text/60 block mb-1">接案路線</span>
-                      <span className="text-brand-text">{row.freelance}</span>
+                      <span className={activeTab === "freelance" ? "text-brand-teal" : "text-brand-text"}>
+                        {row.freelance}
+                      </span>
                     </div>
-                    <div>
+                    <div className={activeTab === "remote" ? "font-medium" : ""}>
                       <span className="text-xs text-brand-text/60 block mb-1">遠端上班</span>
-                      <span className="text-brand-text">{row.remote}</span>
+                      <span className={activeTab === "remote" ? "text-brand-teal" : "text-brand-text"}>
+                        {row.remote}
+                      </span>
                     </div>
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* CTA 按鈕區 */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+              <button
+                onClick={onOpenCourseDetail}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-teal text-white rounded-full font-medium hover:bg-brand-teal/90 transition-colors"
+              >
+                <LayoutGrid className="w-5 h-5" />
+                查看各路線課程詳情
+              </button>
+              <button
+                onClick={onOpenWeeklySchedule}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-teal text-white rounded-full font-medium hover:bg-brand-teal/90 transition-colors"
+              >
+                <Calendar className="w-5 h-5" />
+                查看完整週次表（22 週）
+              </button>
+            </div>
+
+            {/* 外部連結 */}
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <a
+                href="https://link.travelwithwork.life/tww2calendar"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 border-2 border-brand-mist rounded-full text-brand-text hover:bg-brand-mist/20 transition-colors text-sm"
+              >
+                <Calendar className="w-4 h-4" />
+                課表行事曆
+                <ExternalLink className="w-3 h-3" />
+              </a>
             </div>
           </div>
         )}
