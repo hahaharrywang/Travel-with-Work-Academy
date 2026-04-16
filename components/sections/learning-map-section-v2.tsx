@@ -24,28 +24,74 @@ export function LearningMapSectionV2({ onOpenCourseDetail, onOpenWeeklySchedule 
     },
   }
 
-  // 對比表格資料
-  const comparisonData = [
-    {
-      phase: "5月 | 藍圖目標",
-      freelance: "接案變現藍圖",
-      remote: "遠距職位地圖",
-    },
-    {
-      phase: "6月 | 定位門面",
-      freelance: "定位、產品服務方案",
-      remote: "LinkedIn、履歷",
-    },
-    {
-      phase: "7月 | 拓渠轉化",
-      freelance: "社群獲客漏斗、成交策略",
-      remote: "投遞、求職信",
-    },
-    {
-      phase: "8-9月 | 永續經營",
-      freelance: "顧客關係 + 案例資產化",
-      remote: "面試談薪 & 留任",
-    },
+  // 路線必修課程表格資料
+  const routeCourseData = {
+    remote: [
+      {
+        phase: "5月",
+        course: "遠端上班職涯藍圖＆目標設定",
+        description: "先看懂這條路長什麼樣。釐清想要的工作型態、適合的職缺方向，以及接下來要集中火力的目標。",
+      },
+      {
+        phase: "6月",
+        course: "LinkedIn 經營全攻略",
+        description: "把價值變成「更容易被看懂」。重新整理經歷、優勢與故事，放進 LinkedIn 與對外呈現。",
+      },
+      {
+        phase: "7月",
+        course: "履歷、求職信秘笈、面試談薪",
+        description: "真正開始出擊。從履歷、求職信到面試談薪，把「我想投」變成「我真的可以去爭取」。",
+      },
+      {
+        phase: "8-9月",
+        course: "留任策略＆溝通",
+        description: "找到工作不是終點，走得久才是。思考留任、溝通與節奏管理，讓遠端工作成為可持續的生活方式。",
+      },
+    ],
+    freelance: [
+      {
+        phase: "5月",
+        course: "接案變現地圖＆目標設定",
+        description: "先不要急著發內容或開服務。先看懂接案與變現的幾種可能，找到適合自己的起跑方式。",
+      },
+      {
+        phase: "6月",
+        course: "定位、方案定價 Offer",
+        description: "讓你的價值開始有形。整理定位、服務與方案，讓別人看得懂你可以幫他解決什麼問題。",
+      },
+      {
+        phase: "7月",
+        course: "社群獲客漏斗＆內容策略",
+        description: "開始對外被看見。進入內容策略與社群獲客，讓曝光變成機會、讓機會靠近成交。",
+      },
+      {
+        phase: "8-9月",
+        course: "接案的永續與合作",
+        description: "接到案不代表能長久，能合作下去才會真的穩。思考合作關係、交付節奏與長期累積。",
+      },
+    ],
+  }
+
+  // 共同必修課程
+  const commonRequired = [
+    "可持續的自由：身心靈平衡的遠距人生 SOP",
+    "讓 AI 成為你的實習生：從對話到自動化的第一個流程",
+    "自媒體變現藍圖",
+    "旅居財務課程",
+  ]
+
+  // 成長節奏
+  const growthRhythm = [
+    "開學典禮 & 遠距遊牧概論",
+    "每月交流 / 成果發表",
+    "每月講師團體 QA",
+    "每月同學會",
+    "校長 AMA",
+    "學習復盤 & 目標調整",
+    "共創專案大會議",
+    "一對一同儕互助",
+    "全體期末成果發表會",
+    "結業典禮",
   ]
 
   return (
@@ -153,52 +199,75 @@ export function LearningMapSectionV2({ onOpenCourseDetail, onOpenWeeklySchedule 
               </p>
             </div>
 
-            {/* 對比表格 - Desktop */}
+            {/* 路線必修課程表格 - Desktop */}
             <div className="hidden md:block bg-white rounded-xl border border-brand-mist overflow-hidden mb-8">
               {/* 表頭 */}
-              <div className="grid grid-cols-3 bg-brand-teal text-white">
-                <div className="p-4 font-semibold">階段</div>
-                <div className="p-4 font-semibold">接案路線</div>
-                <div className="p-4 font-semibold">遠端上班路線</div>
+              <div className="grid grid-cols-[80px_1fr_1.5fr] bg-brand-teal text-white">
+                <div className="p-4 font-semibold text-sm">階段</div>
+                <div className="p-4 font-semibold text-sm">
+                  {activeTab === "remote" ? "遠端上班路線必修" : "接案路線必修"}
+                </div>
+                <div className="p-4 font-semibold text-sm">課程簡介</div>
               </div>
               {/* 表格內容 */}
-              {comparisonData.map((row, index) => (
+              {routeCourseData[activeTab].map((row, index) => (
                 <div
                   key={index}
-                  className={`grid grid-cols-3 ${index % 2 === 0 ? "bg-white" : "bg-brand-offwhite/50"}`}
+                  className={`grid grid-cols-[80px_1fr_1.5fr] ${index % 2 === 0 ? "bg-white" : "bg-brand-offwhite/50"}`}
                 >
-                  <div className="p-4 font-medium text-brand-teal">{row.phase}</div>
-                  <div className={`p-4 ${activeTab === "freelance" ? "text-brand-teal font-medium" : "text-brand-text"}`}>
-                    {row.freelance}
-                  </div>
-                  <div className={`p-4 ${activeTab === "remote" ? "text-brand-teal font-medium" : "text-brand-text"}`}>
-                    {row.remote}
-                  </div>
+                  <div className="p-4 font-medium text-brand-gold text-sm">{row.phase}</div>
+                  <div className="p-4 text-brand-teal font-medium text-sm">{row.course}</div>
+                  <div className="p-4 text-brand-text text-sm leading-relaxed">{row.description}</div>
                 </div>
               ))}
             </div>
 
-            {/* 對比表格 - Mobile (卡片式) */}
+            {/* 路線必修課程表格 - Mobile (卡片式) */}
             <div className="md:hidden space-y-4 mb-8">
-              {comparisonData.map((row, index) => (
+              {routeCourseData[activeTab].map((row, index) => (
                 <div key={index} className="bg-white rounded-xl border border-brand-mist p-4">
-                  <div className="font-medium text-brand-teal mb-3">{row.phase}</div>
-                  <div className="grid grid-cols-2 gap-3 text-sm">
-                    <div className={activeTab === "freelance" ? "font-medium" : ""}>
-                      <span className="text-xs text-brand-text/60 block mb-1">接案路線</span>
-                      <span className={activeTab === "freelance" ? "text-brand-teal" : "text-brand-text"}>
-                        {row.freelance}
-                      </span>
-                    </div>
-                    <div className={activeTab === "remote" ? "font-medium" : ""}>
-                      <span className="text-xs text-brand-text/60 block mb-1">遠端上班</span>
-                      <span className={activeTab === "remote" ? "text-brand-teal" : "text-brand-text"}>
-                        {row.remote}
-                      </span>
-                    </div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-brand-gold font-medium text-sm">{row.phase}</span>
                   </div>
+                  <h4 className="text-brand-teal font-medium mb-2">{row.course}</h4>
+                  <p className="text-brand-text text-sm leading-relaxed">{row.description}</p>
                 </div>
               ))}
+            </div>
+
+            {/* 共同必修與成長節奏 - 兩張卡片 */}
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              {/* 共同必修卡片 */}
+              <div className="bg-white rounded-xl border border-brand-mist p-6">
+                <h4 className="text-lg font-bold text-brand-teal mb-3">共同必修</h4>
+                <p className="text-brand-text/80 text-sm mb-4 leading-relaxed">
+                  無論選擇哪條路線，這些正課都是你的必修學分——幫你建立可持續的生活節奏、掌握 AI 工具、學會知識變現，以及做好財務規劃。
+                </p>
+                <ul className="space-y-2">
+                  {commonRequired.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-brand-text text-sm">
+                      <span className="text-brand-gold mt-0.5">•</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* 成長節奏卡片 */}
+              <div className="bg-white rounded-xl border border-brand-mist p-6">
+                <h4 className="text-lg font-bold text-brand-teal mb-3">成長節奏</h4>
+                <p className="text-brand-text/80 text-sm mb-4 leading-relaxed">
+                  除了正課，我們也設計了一套貫穿 5 個月的成長節奏，讓你不只是上課，而是真的有推進、有產出、有交流。
+                </p>
+                <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
+                  {growthRhythm.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-brand-text text-sm">
+                      <span className="text-brand-gold mt-0.5">•</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
             {/* CTA 按鈕區 */}
