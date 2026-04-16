@@ -26,6 +26,11 @@ import { CourseHighlightsSection } from "@/components/sections/course-highlights
 import { PainPointsSection } from "@/components/sections/pain-points-section"
 import { KeyFeaturesSection } from "@/components/sections/key-features-section"
 
+// New V2 Learning Map Components
+import { LearningMapSectionV2 } from "@/components/sections/learning-map-section-v2"
+import { CourseDetailModal } from "@/components/ui/course-detail-modal"
+import { WeeklyScheduleModal } from "@/components/ui/weekly-schedule-modal"
+
 // Below-fold sections (loaded lazily for better initial performance)
 const FAQSection = dynamic(() => import("@/components/sections/faq-section"), {
   ssr: true,
@@ -66,6 +71,10 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
   const [selectedWeek, setSelectedWeek] = useState<CalendarWeek | null>(null)
   const [activeCalendarTab, setActiveCalendarTab] = useState<"schedule" | "instructors" | "principal">("instructors")
   const [selectedInstructor, setSelectedInstructor] = useState<typeof instructors[0] | null>(null)
+
+  // V2 Learning Map Modal states
+  const [isCourseDetailModalOpen, setIsCourseDetailModalOpen] = useState(false)
+  const [isWeeklyScheduleModalOpen, setIsWeeklyScheduleModalOpen] = useState(false)
 
   const { currentStageData, timeLeft, lowestPrice, selectedPlanId, setSelectedPlanId, getTrackingParams } = usePricing()
 
@@ -155,7 +164,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
     showCalendarModal ||
     pricingTimelineModalOpen ||
     faqPriceDiffModalOpen ||
-    highlightPopup.isOpen
+    highlightPopup.isOpen ||
+    isCourseDetailModalOpen ||
+    isWeeklyScheduleModalOpen
 
   useEffect(() => {
     if (isAnyModalOpen) {
@@ -194,22 +205,6 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
     })
   }
 
-  const toggleFeature = (index: number) => {
-    setExpandedFeatures((prev) => {
-      const newSet = new Set(prev)
-      if (newSet.has(index)) {
-        newSet.delete(index)
-      } else {
-        newSet.add(index)
-      }
-      return newSet
-    })
-  }
-
-
-
-
-
   return (
     <main className="min-h-screen bg-white pb-24 md:pb-0">
       <AnnouncementBar scrollToPricing={scrollToPricing} onEmailSubscribe={() => setEmailPopupOpen(true)} />
@@ -223,8 +218,15 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
       <KeyFeaturesSection />
 
       {/* SECTION 5 INSTRUCTORS - 師資 (currently hidden, use <InstructorsSection instructors={instructors} /> to enable) */}
-      {/* SECTION 6 COURSE OUTLINE START - 學習地圖（四階段） */}
-      <section id="learning-map" className="py-16 sm:py-20 bg-brand-offwhite">
+      
+      {/* NEW V2 LEARNING MAP SECTION - 課程概覽（新版） */}
+      <LearningMapSectionV2
+        onOpenCourseDetail={() => setIsCourseDetailModalOpen(true)}
+        onOpenWeeklySchedule={() => setIsWeeklyScheduleModalOpen(true)}
+      />
+
+      {/* SECTION 6 COURSE OUTLINE START - 學習地圖（四階段）【舊版，待確認後移除】 */}
+      {false && <section id="learning-map-old" className="py-16 sm:py-20 bg-brand-offwhite">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-10">
@@ -498,7 +500,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   <p className="whitespace-pre-line">{undecidedTabContent.intro}</p>
                 </div>
 
-                {/* 決策彈性區塊 */}
+                {/* 決策彈���區塊 */}
                 <div className="bg-brand-offwhite rounded-xl p-5 mb-6">
                   <h4 className="font-bold text-brand-teal mb-3">{undecidedTabContent.flexibility.headline}</h4>
                   <ul className="space-y-2">
@@ -1397,7 +1399,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     <span className="text-brand-teal font-bold text-xs mt-0.5 flex-shrink-0">{'01'}</span>
                     <div>
                       <span className="font-semibold text-brand-teal text-sm">{'當屆五個月完整課程'}</span>
-                      <span className="text-brand-text/80 text-xs">{' — 聚焦遠距求職與接案兩條路，從目標、定位到落地流程（直播 / 回放一年）'}</span>
+                      <span className="text-brand-text/80 text-xs">{' — ��焦遠距求職與接案兩條路，從目標、定位到落地流程（直播 / 回放一年）'}</span>
                     </div>
                   </li>
                   <li className="flex items-start gap-2">
@@ -1563,7 +1565,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     <span className="w-2.5 h-2.5 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
                     <div>
                       <span className="font-semibold text-brand-teal text-sm md:text-base block mb-1">{'共創專案'}</span>
-                      <p className="text-brand-text/80 text-xs md:text-sm leading-relaxed">{'可優先參與、可共同發起（讀書會、實戰企劃、工具共學、Builder 實習等）'}</p>
+                      <p className="text-brand-text/80 text-xs md:text-sm leading-relaxed">{'可優先參與、可共同發起��讀書會、實戰企劃、工具共學、Builder 實習等）'}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -1632,7 +1634,8 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             </button>
           </div>
         </div>
-      </section>
+      </section>}
+      {/* END OF OLD LEARNING MAP SECTION */}
 
       {/* SECTION 2.1 ECOSYSTEM PARTNERSHIP - 生態系 */}
       <EcosystemSection
@@ -2047,6 +2050,16 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           </div>
         </div>
       )}
+
+      {/* V2 Learning Map Modals */}
+      <CourseDetailModal
+        isOpen={isCourseDetailModalOpen}
+        onClose={() => setIsCourseDetailModalOpen(false)}
+      />
+      <WeeklyScheduleModal
+        isOpen={isWeeklyScheduleModalOpen}
+        onClose={() => setIsWeeklyScheduleModalOpen(false)}
+      />
 
       {/* CHANGE: Pass isAnyModalOpen to hide bottom bar when modals are open */}
       <StickyBottomBar scrollToPricing={scrollToPricing} isHidden={isAnyModalOpen} isInFreeSection={isInFreeSection} />
