@@ -1207,7 +1207,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             {activeCalendarTab === "principal" && (
               <div className="animate-in fade-in duration-300">
                 {(() => {
-                  const principal = instructors.find((i) => i.name === "校��哈利")
+                  const principal = instructors.find((i) => i.name === "校長哈利")
                   if (!principal) return null
                   return (
                     <div className="max-w-2xl mx-auto">
