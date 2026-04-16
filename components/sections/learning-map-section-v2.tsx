@@ -12,10 +12,16 @@ interface LearningMapSectionV2Props {
 export function LearningMapSectionV2({ onOpenCourseDetail, onOpenWeeklySchedule }: LearningMapSectionV2Props) {
   const [activeTab, setActiveTab] = useState<"remote" | "freelance" | "undecided">("remote")
 
-  // 路線標語
-  const routeTaglines = {
-    remote: "從看懂機會，到更有機會被錄用，也更有能力走得長久",
-    freelance: "從想靠自己變現，到做出能持續合作的內容與服務",
+  // 路線標語與副標
+  const routeContent = {
+    remote: {
+      tagline: "從看懂機會，到更有機會被錄用，也更有能力走得長久",
+      subtitle: "看懂遠端求職市場、整理履歷與 LinkedIn、練習求職信、面試與獵頭溝通",
+    },
+    freelance: {
+      tagline: "從想靠自己變現，到做出能持續合作的內容與服務",
+      subtitle: "釐清主題定位、做出接案作品集、建立市場研究、社群獲客策略與變現思維",
+    },
   }
 
   // 對比表格資料
@@ -137,37 +143,14 @@ export function LearningMapSectionV2({ onOpenCourseDetail, onOpenWeeklySchedule 
         {/* Tab Content: 遠端上班 / 接案 */}
         {(activeTab === "remote" || activeTab === "freelance") && (
           <div className="animate-in fade-in duration-300">
-            {/* 路線標語 */}
+            {/* 路線標語與副標 */}
             <div className="text-center mb-8">
-              <h3 className="text-lg sm:text-xl font-bold text-brand-teal">
-                {activeTab === "remote" ? "遠端上班" : "接案"}：{routeTaglines[activeTab]}
+              <h3 className="text-lg sm:text-xl font-bold text-brand-teal mb-2">
+                {activeTab === "remote" ? "遠端上班" : "接案"}：{routeContent[activeTab].tagline}
               </h3>
-            </div>
-
-            {/* 路線說明卡片 - Desktop only */}
-            <div className="hidden lg:grid lg:grid-cols-2 gap-6 mb-8">
-              {/* 接案路線 */}
-              <div className={`bg-white border-2 rounded-xl p-6 transition-all ${
-                activeTab === "freelance" ? "border-brand-teal ring-2 ring-brand-teal/20" : "border-brand-mist"
-              }`}>
-                <h4 className="text-lg font-bold text-brand-teal mb-2 flex items-center gap-2">
-                  <span>&#128736;</span> 接案路線
-                </h4>
-                <p className="text-brand-text text-sm leading-relaxed">
-                  釐清主題定位、做出接案作品集、建立市場研究、社群獲客策略與變現思維
-                </p>
-              </div>
-              {/* 遠端上班路線 */}
-              <div className={`bg-white border-2 rounded-xl p-6 transition-all ${
-                activeTab === "remote" ? "border-brand-teal ring-2 ring-brand-teal/20" : "border-brand-mist"
-              }`}>
-                <h4 className="text-lg font-bold text-brand-teal mb-2 flex items-center gap-2">
-                  <span>&#128188;</span> 遠端上班路線
-                </h4>
-                <p className="text-brand-text text-sm leading-relaxed">
-                  看懂遠端求職市場、整理履歷與 LinkedIn、練習求職信、面試與獵頭溝通
-                </p>
-              </div>
+              <p className="text-brand-text/80 text-sm sm:text-base max-w-2xl mx-auto">
+                {routeContent[activeTab].subtitle}
+              </p>
             </div>
 
             {/* 對比表格 - Desktop */}
