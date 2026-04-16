@@ -66,8 +66,8 @@ export function LearningMapSectionV2({ onOpenCourseDetail, onOpenWeeklySchedule 
           {fourPhases.map((phase, index) => (
             <div key={phase.id} className="relative">
               <div className="bg-brand-teal text-white rounded-xl p-5 h-full">
-                <div className="text-sm opacity-80 mb-1">
-                  {index + 1} {phase.months}
+                <div className="text-brand-gold font-medium mb-2">
+                  {phase.months}
                 </div>
                 <h3 className="text-xl font-bold mb-2">{phase.name}</h3>
                 <p className="text-sm opacity-90">{phase.shortTagline}</p>
@@ -82,15 +82,15 @@ export function LearningMapSectionV2({ onOpenCourseDetail, onOpenWeeklySchedule 
           ))}
         </div>
 
-        {/* 四階段時間軸卡片 - Mobile (2x2 grid) */}
-        <div className="grid grid-cols-2 gap-3 mb-8 lg:hidden">
-          {fourPhases.map((phase, index) => (
+        {/* 四階段時間軸卡片 - Mobile (垂直排列) */}
+        <div className="flex flex-col gap-3 mb-8 lg:hidden">
+          {fourPhases.map((phase) => (
             <div key={phase.id} className="bg-brand-teal text-white rounded-xl p-4">
-              <div className="text-xs opacity-80 mb-1">
-                {index + 1} {phase.months}
+              <div className="text-brand-gold font-medium text-sm mb-1">
+                {phase.months}
               </div>
               <h3 className="text-base font-bold mb-1">{phase.name}</h3>
-              <p className="text-xs opacity-90 line-clamp-2">{phase.shortTagline}</p>
+              <p className="text-sm opacity-90">{phase.shortTagline}</p>
             </div>
           ))}
         </div>
