@@ -117,7 +117,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                   查看漲價時間軸
                 </button>
                 <p className="text-sm text-white/60">
-                  隨著更多資訊釋出，每週四午夜調漲價格
+                  隨著更多資訊釋出，每週日說明會後午夜調漲價格
                 </p>
               </div>
             </div>
@@ -164,7 +164,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                     NT$ {formatPrice(currentStageData.prices.selfMedia.stagePrice)}
                   </div>
                   <div className="text-sm text-brand-gold font-medium mb-4">
-                    目前 {currentStageData.discountLabel}，現省 NT$ {formatPrice(currentStageData.prices.selfMedia.savingAmount)}，每週四午夜調漲
+                    目前 {currentStageData.discountLabel}，現省 NT$ {formatPrice(currentStageData.prices.selfMedia.savingAmount)}，每週日說明會後午夜調漲
                   </div>
                 </>
               )}
@@ -226,7 +226,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                     NT$ {formatPrice(currentStageData.prices.dualLine.stagePrice)}
                   </div>
                   <div className="text-sm text-brand-gold font-medium mb-4">
-                    目前 {currentStageData.discountLabel}，現省 NT$ {formatPrice(currentStageData.prices.dualLine.savingAmount)}，每週四午夜調漲
+                    目前 {currentStageData.discountLabel}，現省 NT$ {formatPrice(currentStageData.prices.dualLine.savingAmount)}，每週日說明會後午夜調漲
                   </div>
                 </>
               )}
@@ -285,7 +285,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                     NT$ {formatPrice(currentStageData.prices.remoteJob.stagePrice)}
                   </div>
                   <div className="text-sm text-brand-gold font-medium mb-4">
-                    目前 {currentStageData.discountLabel}，現省 NT$ {formatPrice(currentStageData.prices.remoteJob.savingAmount)}，每週四午夜調漲
+                    目前 {currentStageData.discountLabel}，現省 NT$ {formatPrice(currentStageData.prices.remoteJob.savingAmount)}，每週日說明會後午夜調漲
                   </div>
                 </>
               )}
@@ -310,7 +310,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
         {/* Disclaimer note */}
         <div className="rounded-xl bg-brand-mist/30 border border-brand-mist px-5 py-4 text-center mb-4">
           <p className="text-brand-text text-sm leading-relaxed">
-            <span className="font-semibold text-brand-teal">重要說明：</span>學院方案以「課程＋社群＋校友資格」為主；多數線下活動／工作坊／旅程為選配加購，但校友享優��與專���價。
+            <span className="font-semibold text-brand-teal">重要說明：</span>學院方案以「課程＋社群＋校友資格」為主；多數線下活動／工作坊／旅程為選配加購，但校友享優��與專�����價。
           </p>
         </div>
 
