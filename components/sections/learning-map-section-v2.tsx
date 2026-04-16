@@ -241,7 +241,7 @@ export function LearningMapSectionV2({ onOpenCourseDetail, onOpenWeeklySchedule 
               <div className="bg-white rounded-xl border border-brand-mist p-6">
                 <h4 className="text-lg font-bold text-brand-teal mb-3">共同必修</h4>
                 <p className="text-brand-text/80 text-sm mb-4 leading-relaxed">
-                  無論選擇哪條路線，這些正課都是你的必修學分——幫你建立可持續的生活節奏、掌握 AI 工具、學會知識變現，以及做好財務規劃。
+                  無論選擇哪條路線，這些正課都是你的必修學分——幫你建立可持續的生活節奏、掌握 AI 工具、學會知識變現，以及��好財務規劃。
                 </p>
                 <ul className="space-y-2">
                   {commonRequired.map((item, i) => (
@@ -323,14 +323,6 @@ export function LearningMapSectionV2({ onOpenCourseDetail, onOpenWeeklySchedule 
                     </li>
                   ))}
                 </ul>
-              </div>
-
-              <div className="bg-brand-gold/10 rounded-lg p-5 mb-6">
-                <h4 className="font-semibold text-brand-teal mb-3">{undecidedTabContent.trialInfo.headline}</h4>
-                <div className="space-y-2 text-sm text-brand-text">
-                  <p><strong>Week 2：</strong>{undecidedTabContent.trialInfo.week2}</p>
-                  <p><strong>Week 3：</strong>{undecidedTabContent.trialInfo.week3}</p>
-                </div>
               </div>
 
               <p className="text-brand-text whitespace-pre-line leading-relaxed text-sm">
