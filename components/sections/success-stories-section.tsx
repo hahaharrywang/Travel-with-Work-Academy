@@ -161,17 +161,23 @@ export function SuccessStoriesSection() {
   const [storiesExpanded, setStoriesExpanded] = useState(false)
 
   return (
-    <section id="student-results" className="pt-16 sm:pt-24 pb-12 sm:pb-20 bg-brand-offwhite">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="student-results" className="relative pt-16 sm:pt-24 pb-12 sm:pb-20 bg-brand-teal overflow-hidden">
+      {/* Background decorations - 呼應 Hero 的金色圓圈 */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] border border-brand-gold/15 rounded-full" />
+        <div className="absolute -bottom-60 -left-40 w-[600px] h-[600px] border border-brand-gold/10 rounded-full" />
+      </div>
+
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-brand-teal mb-2 text-balance">學員真實成果</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 text-balance">學員真實成果</h2>
           <p className="text-lg sm:text-xl font-medium text-brand-gold mb-6">因為加入了學院，開始有了不一樣。</p>
           {/* Decorative gold line */}
           <div className="flex justify-center mb-6">
             <div className="w-24 h-0.5 bg-brand-gold"></div>
           </div>
-          <p className="text-base sm:text-lg text-brand-text max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-white/80 max-w-3xl mx-auto leading-relaxed">
             在遠距遊牧學院，我們不是只上課看影片，而是完成一個個具體行動：
             <br />
             有人從沒有作品集，到做出第一個 side
@@ -279,8 +285,8 @@ function SuccessCarousel({ stories, expanded, onToggle }: { stories: Story[]; ex
               aria-label={`前往案例 ${idx + 1}`}
               className={`rounded-full transition-all duration-300 ${
                 idx === current
-                  ? "w-6 h-2 bg-brand-teal"
-                  : "w-2 h-2 bg-brand-mist hover:bg-brand-teal/40"
+                  ? "w-6 h-2 bg-brand-gold"
+                  : "w-2 h-2 bg-white/30 hover:bg-brand-gold/60"
               }`}
             />
           ))}
@@ -296,11 +302,11 @@ function SuccessCarousel({ stories, expanded, onToggle }: { stories: Story[]; ex
         </button>
 
         {/* Page indicator */}
-        <span className="text-xs text-brand-text/70 ml-1">{`${current + 1} / ${count}`}</span>
+        <span className="text-xs text-white/70 ml-1">{`${current + 1} / ${count}`}</span>
       </div>
 
       {/* Swipe hint for mobile */}
-      <p className="lg:hidden text-center text-xs text-brand-text/60 mt-2">{'左右滑動查看更多案例'}</p>
+      <p className="lg:hidden text-center text-xs text-white/60 mt-2">{'左右滑動查看更多案例'}</p>
     </div>
   )
 }
