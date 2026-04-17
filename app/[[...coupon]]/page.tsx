@@ -499,7 +499,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                               Harry 是數位遊牧台灣（DigitalNomadsTaiwan）創辦人暨執行長，也是遠距遊牧學院校長。畢業後，曾跨足不同產業與多元遠端工作角色，其中也包含跨國人資產業的第一線經驗。這段歷程讓他從產業端更早看見：遠距工作、全球人才流動與更彈性的職涯模式，正在快速崛起，並逐漸成為新世代的重要趨勢。
                             </p>
                             <p className="text-sm text-brand-text/80 leading-relaxed mt-3">
-                              此後，他持續投入數位遊牧社群的經營、活動策劃與國際交流。也正因為在一次次真實的交流、相遇與陪伴中，看見許多人對自由職涯的嚮往、卡點與轉變，他更加確信：比起只提供靈感��想像，真正重要的，是一套能幫助人逐步行動、持續前進的學習路線。這也成為遠距遊牧學院持續發展的核心方向。
+                              此後，他持續投入數位遊牧社群的經營、活動策劃與國際交��。也正因為在一次次真實的交流、相遇與陪伴中，看見許多人對自由職涯的嚮往、卡點與轉變，他更加確信：比起只提供靈感��想像，真正重要的，是一套能幫助人逐步行動、持續前進的學習路線。這也成為遠距遊牧學院持續發展的核心方向。
                             </p>
                             <p className="text-sm text-brand-text/80 leading-relaxed mt-3">
                               品牌成立以來，已累積舉辦超過 50 場線下活動，吸引超過 1800 人次付費參與，其中近一半來自口碑推薦。作為遠距遊牧學院校長，Harry 希望做的，不只是分享理念，而是陪伴更多人把對自由的想像，轉化成可以一步步開始的職涯路線。
@@ -771,76 +771,78 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             </div>
           </details>
 
-          {/* NEW Block: 兩條路線的具體能力培養 */}
-          <div className="mb-3 bg-white rounded-2xl border border-brand-mist/50 shadow-sm overflow-hidden">
-            <div className="p-5 sm:px-8 sm:py-6 border-b border-brand-mist/30">
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="w-1.5 h-6 rounded-full bg-brand-gold flex-shrink-0"></span>
-                <h4 className="font-bold text-brand-teal text-base sm:text-lg lg:text-xl">{'兩條路線的具體能力培養'}</h4>
-                <span className="text-xs px-3 py-1 rounded-full bg-brand-teal/10 text-brand-teal font-medium">{'按階段推進，看得見的進展'}</span>
-              </div>
-            </div>
-
-            <div className="px-5 pb-5 sm:px-8 sm:pb-8 pt-5">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                {/* 遠端上班線 */}
-                <div>
-                  <h5 className="font-bold text-brand-teal text-base md:text-lg pb-3 mb-4 border-b-2 border-brand-teal/20">
-                    {'遠端上班線'}
-                  </h5>
-                  <div className="space-y-5">
-                    {remoteJobPhaseContent.map((phase, idx) => {
-                      const monthLabels = ["5月", "6月", "7月", "8-9月"]
-                      return (
-                        <div key={phase.phase}>
-                          <p className="font-semibold text-brand-teal text-sm md:text-base mb-2">
-                            <span className="text-brand-gold mr-2">{monthLabels[idx]}</span>
-                            {phase.phase}
-                          </p>
-                          <ul className="space-y-1.5">
-                            {phase.outcomes.map((outcome, i) => (
-                              <li key={i} className="flex items-start gap-2 text-xs md:text-sm text-brand-text/80 leading-relaxed">
-                                <span className="text-brand-gold flex-shrink-0 mt-0.5">{'•'}</span>
-                                <span>{outcome}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )
-                    })}
-                  </div>
-                </div>
-
-                {/* 接案線 */}
-                <div>
-                  <h5 className="font-bold text-brand-teal text-base md:text-lg pb-3 mb-4 border-b-2 border-brand-teal/20">
-                    {'接案線'}
-                  </h5>
-                  <div className="space-y-5">
-                    {freelancePhaseContent.map((phase, idx) => {
-                      const monthLabels = ["5月", "6月", "7月", "8-9月"]
-                      return (
-                        <div key={phase.phase}>
-                          <p className="font-semibold text-brand-teal text-sm md:text-base mb-2">
-                            <span className="text-brand-gold mr-2">{monthLabels[idx]}</span>
-                            {phase.phase}
-                          </p>
-                          <ul className="space-y-1.5">
-                            {phase.outcomes.map((outcome, i) => (
-                              <li key={i} className="flex items-start gap-2 text-xs md:text-sm text-brand-text/80 leading-relaxed">
-                                <span className="text-brand-gold flex-shrink-0 mt-0.5">{'•'}</span>
-                                <span>{outcome}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )
-                    })}
-                  </div>
+          {/* Block: 兩條路線的具體能力培養 — HIDDEN（內容尚未定稿，暫不公開；要重新顯示把此條件改回 true 或移除條件包裹） */}
+          {false && (
+            <div className="mb-3 bg-white rounded-2xl border border-brand-mist/50 shadow-sm overflow-hidden">
+              <div className="p-5 sm:px-8 sm:py-6 border-b border-brand-mist/30">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="w-1.5 h-6 rounded-full bg-brand-gold flex-shrink-0"></span>
+                  <h4 className="font-bold text-brand-teal text-base sm:text-lg lg:text-xl">{'兩條路線的具體能力培養'}</h4>
+                  <span className="text-xs px-3 py-1 rounded-full bg-brand-teal/10 text-brand-teal font-medium">{'按階段推進，看得見的進展'}</span>
                 </div>
               </div>
+
+              <div className="px-5 pb-5 sm:px-8 sm:pb-8 pt-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                  {/* 遠端上班線 */}
+                  <div>
+                    <h5 className="font-bold text-brand-teal text-base md:text-lg pb-3 mb-4 border-b-2 border-brand-teal/20">
+                      {'遠端上班線'}
+                    </h5>
+                    <div className="space-y-5">
+                      {remoteJobPhaseContent.map((phase, idx) => {
+                        const monthLabels = ["5月", "6月", "7月", "8-9月"]
+                        return (
+                          <div key={phase.phase}>
+                            <p className="font-semibold text-brand-teal text-sm md:text-base mb-2">
+                              <span className="text-brand-gold mr-2">{monthLabels[idx]}</span>
+                              {phase.phase}
+                            </p>
+                            <ul className="space-y-1.5">
+                              {phase.outcomes.map((outcome, i) => (
+                                <li key={i} className="flex items-start gap-2 text-xs md:text-sm text-brand-text/80 leading-relaxed">
+                                  <span className="text-brand-gold flex-shrink-0 mt-0.5">{'•'}</span>
+                                  <span>{outcome}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
+
+                  {/* 接案線 */}
+                  <div>
+                    <h5 className="font-bold text-brand-teal text-base md:text-lg pb-3 mb-4 border-b-2 border-brand-teal/20">
+                      {'接案線'}
+                    </h5>
+                    <div className="space-y-5">
+                      {freelancePhaseContent.map((phase, idx) => {
+                        const monthLabels = ["5月", "6月", "7月", "8-9月"]
+                        return (
+                          <div key={phase.phase}>
+                            <p className="font-semibold text-brand-teal text-sm md:text-base mb-2">
+                              <span className="text-brand-gold mr-2">{monthLabels[idx]}</span>
+                              {phase.phase}
+                            </p>
+                            <ul className="space-y-1.5">
+                              {phase.outcomes.map((outcome, i) => (
+                                <li key={i} className="flex items-start gap-2 text-xs md:text-sm text-brand-text/80 leading-relaxed">
+                                  <span className="text-brand-gold flex-shrink-0 mt-0.5">{'•'}</span>
+                                  <span>{outcome}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Block 3: Alumni Status — collapsible */}
           <details className="group/alumni mb-3 bg-brand-offwhite/80 rounded-2xl border border-brand-gold/30 shadow-sm overflow-hidden">
