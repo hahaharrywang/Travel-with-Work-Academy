@@ -207,7 +207,7 @@ export function FreeLectureSection() {
               {"錯過場次了嗎？先看說明會回放"}
             </h4>
             <p className="text-sm text-brand-text/70 mb-5">
-              {"內容與每週日說明會大同小異，15 分鐘就能聽懂重點。"}
+              {"每次內容都會變得更豐富，情況允許的話還是很建議參與直播，可以現場 QA 直接交流。"}
             </p>
             <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
               <iframe
