@@ -937,7 +937,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   <p className="text-sm font-medium text-brand-teal">
                     {'合作夥伴 / 活動優惠搶先看'}
                   </p>
-                  <p className="text-xs text-brand-text/80 mt-0.5">{'訂閱會員限定的合作夥伴優惠與活動搶先通知'}</p>
+                  <p className="text-xs text-brand-text/80 mt-0.5">{'訂閱會員限��的合作夥伴優惠與活動搶先通知'}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -994,6 +994,52 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
         // CHANGE: Pass modal state to FAQ section
         onPriceDiffModalChange={setFaqPriceDiffModalOpen}
       />
+
+      {/* CLOSING CTA */}
+      <section className="relative py-16 sm:py-20 bg-brand-teal overflow-hidden">
+        {/* 裝飾圓圈 - 呼應 Hero 與見證區 */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-32 -right-32 w-[400px] h-[400px] border border-brand-gold/15 rounded-full" />
+          <div className="absolute -bottom-40 -left-32 w-[480px] h-[480px] border border-brand-gold/10 rounded-full" />
+        </div>
+
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3 text-balance">
+            {'看完還有疑問？'}
+          </h2>
+          <p className="text-base sm:text-lg text-white/80 mb-8 leading-relaxed text-pretty">
+            來講座現場直接問校長，順便認識下一屆同學
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a
+              href="#free-lecture-section"
+              onClick={(e) => {
+                e.preventDefault()
+                document.getElementById("free-lecture-section")?.scrollIntoView({ behavior: "smooth" })
+              }}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-brand-gold text-brand-teal font-bold text-base px-7 py-3.5 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-md hover:shadow-lg"
+            >
+              <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+              </svg>
+              免費卡位講座
+              <span aria-hidden>{'→'}</span>
+            </a>
+            <a
+              href="https://lin.ee/r7kh3fX"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-white/30 text-white hover:text-brand-gold hover:border-brand-gold/60 font-medium text-sm px-6 py-3.5 rounded-full transition-colors duration-200"
+            >
+              <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
+                <path d="M24 10.304c0-5.369-5.383-9.738-12-9.738S0 4.935 0 10.304c0 4.813 4.27 8.846 10.035 9.608.391.084.923.258 1.058.592.121.303.079.779.039 1.085l-.171 1.027c-.053.303-.242 1.186 1.039.647 1.281-.54 6.911-4.069 9.428-6.967C22.802 14.988 24 12.801 24 10.304zM7.632 13.286H5.237a.636.636 0 01-.636-.635V8.12a.636.636 0 111.272 0v3.895h1.759a.636.636 0 110 1.271zm2.459-.635a.636.636 0 11-1.272 0V8.12a.636.636 0 111.272 0v4.531zm5.504 0a.636.636 0 01-.436.603.64.64 0 01-.2.032.634.634 0 01-.508-.254l-2.339-3.181v2.8a.636.636 0 11-1.271 0V8.12a.634.634 0 01.436-.603.632.632 0 01.7.222l2.347 3.184v-2.8a.636.636 0 111.271 0v4.528zm3.675-2.9a.636.636 0 110 1.272h-1.759v1.12h1.759a.635.635 0 110 1.27h-2.395a.635.635 0 01-.635-.635v-4.53a.636.636 0 01.635-.636h2.395a.636.636 0 110 1.272h-1.759v1.12h1.759v-.253z" />
+              </svg>
+              加入 Line 官方
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* FOOTER */}
       <Footer />
