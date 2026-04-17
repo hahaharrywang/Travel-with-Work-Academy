@@ -204,7 +204,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
               <div className="flex items-center justify-between gap-3 pb-3 border-b border-white/15">
                 <div>
                   <p className="text-sm sm:text-base text-white/85">{'自己一項一項累積'}</p>
-                  <p className="text-[11px] sm:text-xs text-white/50 mt-0.5">市場單價合計</p>
+                  <p className="text-[11px] sm:text-xs text-white/50 mt-0.5">市價合計（還不包括你找資源、統整的時間）</p>
                 </div>
                 <span className="text-lg sm:text-xl font-semibold text-white/85 line-through decoration-white/40">
                   NT$ 37,500
