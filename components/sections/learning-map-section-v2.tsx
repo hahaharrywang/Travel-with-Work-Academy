@@ -314,7 +314,7 @@ export function LearningMapSectionV2({ onOpenCourseDetail, onOpenWeeklySchedule 
                 className="inline-flex items-center gap-2 px-4 py-2 border-2 border-brand-mist rounded-full text-brand-text hover:bg-brand-mist/20 transition-colors text-sm"
               >
                 <Calendar className="w-4 h-4" />
-                課表行事曆
+                課表行事曆 Google Sheet 版
                 <ExternalLink className="w-3 h-3" />
               </a>
             </div>

@@ -241,14 +241,14 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
         onOpenWeeklySchedule={() => setIsWeeklyScheduleModalOpen(true)}
       />
 
-      {/* SECTION: 課表與講師 */}
+      {/* SECTION: 講師與課表 */}
       <section className="py-16 sm:py-20 bg-brand-offwhite">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          {/* 課表與講師 Tab Section */}
+          {/* 講師與課表 Tab Section */}
           <div id="course-and-instructors" className="scroll-mt-24">
             <div className="text-center mb-6">
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-teal mb-3">課表與講師</h3>
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-teal mb-3">講師與課表</h3>
               <p className="text-sm text-brand-text/80">看看每週三晚間八點，具體在做什麼</p>
             </div>
             {/* Tab Navigation */}
@@ -499,7 +499,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                               Harry 是數位遊牧台灣（DigitalNomadsTaiwan）創辦人暨執行長，也是遠距遊牧學院校長。畢業後，曾跨足不同產業與多元遠端工作角色，其中也包含跨國人資產業的第一線經驗。這段歷程讓他從產業端更早看見：遠距工作、全球人才流動與更彈性的職涯模式，正在快速崛起，並逐漸成為新世代的重要趨勢。
                             </p>
                             <p className="text-sm text-brand-text/80 leading-relaxed mt-3">
-                              此後，他持續投入數位遊牧社群的經營、活動策劃與國際交��。也正因為在一次次真實的交流、相遇與陪伴中，看見許多人對自由職涯的嚮往、卡點與轉變，他更加確信：比起只提供靈感��想像，真正重要的，是一套能幫助人逐步行動、持續前進的學習路線。這也成為遠距遊牧學院持續發展的核心方向。
+                              此後，他持續投入數位遊牧社群的經營、活動策劃與國際交���。也正因為在一次次真實的交流、相遇與陪伴中，看見許多人對自由職涯的嚮往、卡點與轉變，他更加確信：比起只提供靈感��想像，真正重要的，是一套能幫助人逐步行動、持續前進的學習路線。這也成為遠距遊牧學院持續發展的核心方向。
                             </p>
                             <p className="text-sm text-brand-text/80 leading-relaxed mt-3">
                               品牌成立以來，已累積舉辦超過 50 場線下活動，吸引超過 1800 人次付費參與，其中近一半來自口碑推薦。作為遠距遊牧學院校長，Harry 希望做的，不只是分享理念，而是陪伴更多人把對自由的想像，轉化成可以一步步開始的職涯路線。
