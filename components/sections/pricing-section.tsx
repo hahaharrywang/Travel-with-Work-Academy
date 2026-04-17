@@ -131,10 +131,10 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
               {'最大的成本，從來不是學費'}
             </h3>
             <p className="text-sm sm:text-base text-brand-text/80 leading-relaxed mb-1.5">
-              市場上充斥許多垂直深度陪跑、單向觀看的線上課程，找不太到這麼完整的初期探索資源。
+              市場上已有許多垂直深度陪跑、單向觀看的線上課程，但卻找不太到這麼完整的初期探索資源。
             </p>
             <p className="text-sm sm:text-base text-brand-text/80 leading-relaxed">
-              自己累積這些能力與啟發，除了錢，花更多的是時間的試錯成本。
+              獨自找資源、累積這些能力與啟發，除了錢，花更多的是試錯成本與一去不復返的時間。
             </p>
           </div>
 
@@ -204,7 +204,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
               <div className="flex items-center justify-between gap-3 pb-3 border-b border-white/15">
                 <div>
                   <p className="text-sm sm:text-base text-white/85">{'自己一項一項累積'}</p>
-                  <p className="text-[11px] sm:text-xs text-white/50 mt-0.5">市場單價合計</p>
+                  <p className="text-[11px] sm:text-xs text-white/50 mt-0.5">市價合計（還不包括你找資源、統整的時間）</p>
                 </div>
                 <span className="text-lg sm:text-xl font-semibold text-white/85 line-through decoration-white/40">
                   NT$ 37,500
@@ -434,7 +434,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
         {/* Disclaimer note */}
         <div className="rounded-xl bg-brand-mist/30 border border-brand-mist px-5 py-4 text-center mb-4">
           <p className="text-brand-text text-sm leading-relaxed">
-            <span className="font-semibold text-brand-teal">重要說明：</span>學院方案以「課程＋社群＋校友資格」為主；多數線下活動／工作坊／旅���為選配加購，校友皆享有專屬折扣。
+            <span className="font-semibold text-brand-teal">重要說明：</span>學院方案以「課程＋社群＋校友資格」為主；多數線下活動／工作坊／旅程為選配加購，校友皆享有專屬折扣。
           </p>
         </div>
 

@@ -232,7 +232,7 @@ export function CourseDetailModal({ isOpen, onClose }: CourseDetailModalProps) {
                 }}
                 className="inline-flex items-center gap-1.5 text-brand-teal hover:text-brand-teal/80 font-semibold text-sm transition-colors"
               >
-                {'前往「課表與講師」區塊'}
+                {'前往「講師與課表」區塊'}
                 <span aria-hidden>&#8595;</span>
               </button>
             </div>
