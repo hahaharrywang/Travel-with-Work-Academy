@@ -91,31 +91,37 @@ export function HeroSection() {
             </div>
 
             {/* CTA Buttons - side by side */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <a
-                href="#learning-map"
-                onClick={(e) => {
-                  e.preventDefault()
-                  document.getElementById("learning-map")?.scrollIntoView({ behavior: "smooth" })
-                }}
-                className="inline-flex items-center gap-2 bg-brand-gold text-brand-teal font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-md hover:shadow-lg"
-              >
-                查看課程介紹
-              </a>
+            <div className="flex flex-wrap items-center gap-3 pt-2">
               <a
                 href="#free-lecture-section"
                 onClick={(e) => {
                   e.preventDefault()
                   document.getElementById("free-lecture-section")?.scrollIntoView({ behavior: "smooth" })
                 }}
-                className="inline-flex items-center gap-2 border border-white/30 text-white/80 hover:text-brand-gold hover:border-brand-gold/50 font-medium text-sm px-5 py-2.5 rounded-full transition-colors duration-200"
+                className="inline-flex items-center gap-2 bg-brand-gold text-brand-teal font-semibold text-base px-6 py-3 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-md hover:shadow-lg"
               >
-                <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
                 </svg>
-                報名線上講座
+                免費卡位講座
+                <span aria-hidden>{'→'}</span>
+              </a>
+              <a
+                href="#learning-map"
+                onClick={(e) => {
+                  e.preventDefault()
+                  document.getElementById("learning-map")?.scrollIntoView({ behavior: "smooth" })
+                }}
+                className="inline-flex items-center gap-2 border border-white/30 text-white/80 hover:text-brand-gold hover:border-brand-gold/50 font-medium text-sm px-5 py-2.5 rounded-full transition-colors duration-200"
+              >
+                看完整 5 個月怎麼走
               </a>
             </div>
+
+            {/* 輔助句 */}
+            <p className="text-white/60 text-xs leading-relaxed">
+              {'2 小時線上講座，免費｜聽懂你適不適合這條路、從哪裡開始。'}
+            </p>
 
             {/* Micro Proof */}
             <p className="text-white/70 text-sm">
@@ -210,32 +216,38 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* CTA Buttons - 水平並排 */}
-          <div className="flex flex-row flex-wrap justify-center gap-3 items-center">
-            <a
-              href="#learning-map"
-              onClick={(e) => {
-                e.preventDefault()
-                document.getElementById("learning-map")?.scrollIntoView({ behavior: "smooth" })
-              }}
-              className="inline-flex items-center gap-2 bg-brand-gold text-brand-teal font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-md hover:shadow-lg"
-            >
-              查看課程介紹
-            </a>
+          {/* CTA Buttons - 主 + 次 */}
+          <div className="flex flex-col items-center gap-3">
             <a
               href="#free-lecture-section"
               onClick={(e) => {
                 e.preventDefault()
                 document.getElementById("free-lecture-section")?.scrollIntoView({ behavior: "smooth" })
               }}
-              className="inline-flex items-center gap-2 border border-white/30 text-white/80 hover:text-brand-gold hover:border-brand-gold/50 font-medium text-sm px-4 py-2.5 rounded-full transition-colors duration-200"
+              className="inline-flex items-center gap-2 bg-brand-gold text-brand-teal font-semibold text-base px-6 py-3 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-md hover:shadow-lg"
             >
-              <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+              <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
               </svg>
-              報名線上講座
+              免費卡位講座
+              <span aria-hidden>{'→'}</span>
+            </a>
+            <a
+              href="#learning-map"
+              onClick={(e) => {
+                e.preventDefault()
+                document.getElementById("learning-map")?.scrollIntoView({ behavior: "smooth" })
+              }}
+              className="inline-flex items-center gap-2 border border-white/30 text-white/80 hover:text-brand-gold hover:border-brand-gold/50 font-medium text-sm px-5 py-2.5 rounded-full transition-colors duration-200"
+            >
+              看完整 5 個月怎麼走
             </a>
           </div>
+
+          {/* 輔助句 */}
+          <p className="text-white/60 text-xs leading-relaxed text-center">
+            {'2 小時線上講座，免費｜聽懂你適不適合這條路、從哪裡開始。'}
+          </p>
 
           {/* Micro Proof */}
           <p className="text-white/70 text-sm text-center">

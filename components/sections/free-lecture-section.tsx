@@ -1,16 +1,54 @@
 "use client"
 
-import { Mail, X } from "lucide-react"
+import { Mail, X, Calendar, ArrowRight } from "lucide-react"
 import { useState, useEffect } from "react"
+import {
+  weeklyLecture,
+  upcomingLectures,
+  getNextSundayNineTaipei,
+  formatLectureDateTime,
+  type LectureHighlight,
+} from "@/data/lectures"
+
+/**
+ * 把 highlight 文字中，emphasis 關鍵詞用金色粗體高亮
+ */
+function HighlightText({ item }: { item: LectureHighlight }) {
+  if (!item.emphasis || item.emphasis.length === 0) {
+    return <>{item.text}</>
+  }
+  // build a regex that matches any of the emphasis terms
+  const escaped = item.emphasis.map((s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+  const pattern = new RegExp(`(${escaped.join("|")})`, "g")
+  const parts = item.text.split(pattern)
+  return (
+    <>
+      {parts.map((part, idx) =>
+        item.emphasis!.includes(part) ? (
+          <span key={idx} className="text-brand-gold font-bold">
+            {part}
+          </span>
+        ) : (
+          <span key={idx}>{part}</span>
+        ),
+      )}
+    </>
+  )
+}
 
 export function FreeLectureSection() {
   const [emailPopupOpen, setEmailPopupOpen] = useState(false)
+  const [nextSunday, setNextSunday] = useState<{ dateLabel: string; timeLabel: string } | null>(null)
+
+  // 下個週日時間在 client 端計算，避免 SSR / client 不一致造成 hydration mismatch
+  useEffect(() => {
+    setNextSunday(getNextSundayNineTaipei())
+  }, [])
 
   // Lock body scroll when email popup is open & load GHL embed script
   useEffect(() => {
     if (emailPopupOpen) {
       document.body.style.overflow = "hidden"
-      // Load GHL form embed script if not already loaded
       if (!document.querySelector('script[src*="form_embed.js"]')) {
         const s = document.createElement("script")
         s.src = "https://link.digitalnomadstaiwan.com/js/form_embed.js"
@@ -27,84 +65,180 @@ export function FreeLectureSection() {
 
   return (
     <>
-      <section id="free-lecture-section" className="bg-brand-offwhite py-10 sm:py-14">
-        <div className="max-w-2xl mx-auto px-4 text-center">
-          {/* Desktop: single line, Mobile: two lines */}
-          <h3 className="text-2xl sm:text-3xl font-bold text-brand-teal mb-3">
-            <span className="block sm:inline">{"還不確定要不要加入？"}</span>
-            <span className="block sm:inline">{"先聽聽校長說明會分享"}</span>
-          </h3>
-          <p className="text-sm sm:text-base text-brand-text/70 leading-relaxed mb-6">
-            {"先看懂：你適不適合、偏哪條路、這 5 個月會怎麼走。"}
-          </p>
-          
-          {/* Embedded YouTube Video */}
-          <div className="relative w-full aspect-video max-w-xl mx-auto mb-8 rounded-xl overflow-hidden shadow-lg">
-            <iframe
-              src="https://www.youtube.com/embed/gZ37Pl9NdHU?rel=0"
-              title="遠距遊牧學院介紹影片"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              className="absolute inset-0 w-full h-full"
-            />
+      <section id="free-lecture-section" className="bg-brand-offwhite py-14 sm:py-20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="text-center mb-10 max-w-3xl mx-auto">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-teal mb-3 text-balance">
+              <span className="block sm:inline">{"下一場免費講座｜"}</span>
+              <span className="block sm:inline">{"2 小時搞懂你的遠距下一步"}</span>
+            </h3>
+            <p className="text-sm sm:text-base text-brand-text/75 leading-relaxed">
+              {"每週日晚 9pm 固定開講，不定期加場合作講座 & 主題工作坊"}
+            </p>
           </div>
 
-          {/* Upcoming Lectures Section */}
-          <h4 className="text-lg sm:text-xl font-semibold text-brand-teal mb-4">
-            {"近期講座場次"}
-          </h4>
-          <div className="flex flex-col sm:flex-row gap-4 mb-8 max-w-xl mx-auto">
-            <a
-              href="https://www.accupass.com/organizer/detail/2509180637491342778166"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block flex-1 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200"
-            >
-              <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/0419%20accupass-x4C0XvsCCDLq3Q7cMT4H6VQLJ9hzQu.jpg"
-                alt="4/19 免費講座：遠距自由職涯下一步 2小時把「對自由職涯的嚮往」變成「我已經在路上」"
-                className="w-full h-auto"
+          {/* Featured Card - 每週日說明會 */}
+          <div className="relative bg-brand-teal rounded-2xl overflow-hidden shadow-lg mb-10 sm:mb-12">
+            {/* 裝飾圓圈 */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+              <div className="absolute -top-32 -right-32 w-80 h-80 border border-brand-gold/15 rounded-full" />
+              <div className="absolute -bottom-40 -left-24 w-96 h-96 border border-brand-gold/10 rounded-full" />
+            </div>
+
+            <div className="relative p-6 sm:p-10">
+              {/* Top row: tag + date */}
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-5">
+                <span className="inline-flex items-center gap-1.5 bg-brand-gold/20 text-brand-gold border border-brand-gold/40 text-xs sm:text-sm font-semibold px-3 py-1 rounded-full">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse" />
+                  {weeklyLecture.tag}
+                </span>
+                {nextSunday && (
+                  <span className="inline-flex items-center gap-1.5 text-white/85 text-xs sm:text-sm">
+                    <Calendar className="w-4 h-4 text-brand-gold" aria-hidden />
+                    <span className="font-semibold">{nextSunday.dateLabel}</span>
+                    <span className="text-white/60">·</span>
+                    <span>{nextSunday.timeLabel}（台灣時間）</span>
+                  </span>
+                )}
+              </div>
+
+              {/* Title + speaker */}
+              <h4 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-balance">
+                {weeklyLecture.title}
+              </h4>
+              <p className="text-sm sm:text-base text-white/70 mb-6">
+                {"主講｜"}
+                <span className="text-white font-medium">{weeklyLecture.speaker}</span>
+              </p>
+
+              {/* Highlights */}
+              {weeklyLecture.highlights && weeklyLecture.highlights.length > 0 && (
+                <div className="mb-8">
+                  <p className="text-sm sm:text-base font-bold text-white mb-4">
+                    {"這場講座將跟你分享："}
+                  </p>
+                  <ul className="space-y-3 sm:space-y-3.5">
+                    {weeklyLecture.highlights.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-3 text-white/90 text-sm sm:text-base leading-relaxed">
+                        <span className="flex-shrink-0 w-6 h-6 sm:w-7 sm:h-7 rounded-md bg-brand-gold/25 border border-brand-gold/40 flex items-center justify-center text-brand-gold text-xs sm:text-sm font-bold mt-0.5">
+                          {idx + 1}
+                        </span>
+                        <span className="text-pretty">
+                          <HighlightText item={item} />
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* CTA */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                <a
+                  href={weeklyLecture.registerUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-brand-gold text-brand-teal font-bold text-base px-7 py-3.5 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-md hover:shadow-lg"
+                >
+                  {"免費卡位講座"}
+                  <ArrowRight className="w-5 h-5 flex-shrink-0" aria-hidden />
+                </a>
+                <p className="text-xs sm:text-sm text-white/60 sm:ml-2">
+                  {"免費 · 2 小時 · 線上直播"}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* 近期加開場次 - 若有才顯示 */}
+          {upcomingLectures.length > 0 && (
+            <div className="mb-10 sm:mb-12">
+              <div className="flex items-end justify-between mb-5">
+                <h4 className="text-lg sm:text-xl font-bold text-brand-teal">
+                  {"近期加開場次"}
+                </h4>
+                <span className="text-xs text-brand-text/60">{"講師合作 & 主題工作坊"}</span>
+              </div>
+
+              <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory -mx-4 px-4 sm:mx-0 sm:px-0 sm:overflow-visible sm:grid sm:grid-cols-2 lg:grid-cols-3 pb-2 sm:pb-0 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                {upcomingLectures.map((lec) => {
+                  const dt = lec.startAt ? formatLectureDateTime(lec.startAt) : null
+                  return (
+                    <a
+                      key={lec.id}
+                      href={lec.registerUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-shrink-0 w-[82%] sm:w-auto snap-center bg-white rounded-xl border border-brand-mist p-5 hover:border-brand-gold hover:shadow-md transition-all duration-200 flex flex-col"
+                    >
+                      <span className="inline-flex self-start items-center bg-brand-teal/10 text-brand-teal text-[11px] font-semibold px-2.5 py-1 rounded-full mb-3">
+                        {lec.tag}
+                      </span>
+                      <h5 className="text-base font-bold text-brand-teal mb-2 leading-snug text-pretty">
+                        {lec.title}
+                      </h5>
+                      <p className="text-xs text-brand-text/75 mb-3">
+                        {"主講｜"}
+                        <span className="text-brand-text">{lec.speaker}</span>
+                      </p>
+                      {dt && (
+                        <p className="flex items-center gap-1.5 text-xs text-brand-text/80 mt-auto">
+                          <Calendar className="w-3.5 h-3.5 text-brand-gold" aria-hidden />
+                          <span>{dt.dateLabel}</span>
+                          <span className="text-brand-text/50">·</span>
+                          <span>{dt.timeLabel}</span>
+                        </p>
+                      )}
+                      <span className="inline-flex items-center gap-1 text-sm text-brand-gold font-semibold mt-3">
+                        {"了解詳情"}
+                        <ArrowRight className="w-4 h-4" aria-hidden />
+                      </span>
+                    </a>
+                  )
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* 回放區 */}
+          <div className="max-w-2xl mx-auto text-center">
+            <h4 className="text-lg sm:text-xl font-bold text-brand-teal mb-2">
+              {"錯過場次了嗎？先看說明會回放"}
+            </h4>
+            <p className="text-sm text-brand-text/70 mb-5">
+              {"內容與每週日說明會大同小異，15 分鐘就能聽懂重點。"}
+            </p>
+            <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
+              <iframe
+                src="https://www.youtube.com/embed/gZ37Pl9NdHU?rel=0"
+                title="遠距遊牧學院說明會回放"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
               />
-            </a>
+            </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row items-center justify-center gap-3 lg:gap-4">
-            <a
-              href="https://www.accupass.com/organizer/detail/2509180637491342778166"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-brand-gold text-brand-teal font-semibold text-sm sm:text-base px-6 lg:px-5 py-4 lg:py-3 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-sm w-full sm:w-auto whitespace-nowrap"
+          {/* 底部輔助資源 - 降級視覺 */}
+          <div className="mt-10 pt-6 border-t border-brand-mist/60 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-sm">
+            <button
+              onClick={() => setEmailPopupOpen(true)}
+              className="inline-flex items-center gap-2 text-brand-teal hover:text-brand-gold font-medium transition-colors duration-200"
             >
-              {"報名免費講座、認識講師"}
-            </a>
+              <Mail className="w-4 h-4 flex-shrink-0" aria-hidden />
+              {"訂閱電子報，不錯過未來場次"}
+            </button>
+            <span className="hidden sm:inline text-brand-text/30">·</span>
             <a
               href="https://www.skool.com/twwgroup-3033/about"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 border-2 border-brand-teal text-brand-teal font-semibold text-sm sm:text-base px-6 lg:px-5 py-4 lg:py-3 rounded-full hover:bg-brand-teal hover:text-white transition-colors duration-200 w-full sm:w-auto whitespace-nowrap"
+              className="inline-flex items-center gap-1 text-brand-text/70 hover:text-brand-teal font-medium transition-colors duration-200"
             >
-              <svg
-                className="w-4 h-4 flex-shrink-0"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"
-                />
-              </svg>
               {"其他免費學習資源"}
+              <ArrowRight className="w-3.5 h-3.5" aria-hidden />
             </a>
-            <button
-              onClick={() => setEmailPopupOpen(true)}
-              className="inline-flex items-center justify-center gap-2 bg-brand-teal text-white font-semibold text-sm sm:text-base px-6 lg:px-5 py-4 lg:py-3 rounded-full hover:bg-[#1a5561] transition-colors duration-200 shadow-sm w-full sm:w-auto whitespace-nowrap"
-            >
-              <Mail className="w-4 h-4 flex-shrink-0" />
-              {"訂閱隨時收到最新活動提醒"}
-            </button>
           </div>
         </div>
       </section>
@@ -117,14 +251,11 @@ export function FreeLectureSection() {
           aria-modal="true"
           aria-label="訂閱電子報"
         >
-          {/* Backdrop */}
           <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => setEmailPopupOpen(false)} />
-          {/* Modal — full-width on mobile, max-w-lg on desktop */}
           <div
             className="relative z-10 w-full max-w-[calc(100vw-16px)] sm:max-w-lg bg-brand-teal rounded-2xl shadow-2xl"
             style={{ overflow: "hidden" }}
           >
-            {/* Close button */}
             <button
               onClick={() => setEmailPopupOpen(false)}
               className="absolute top-3 right-3 z-20 w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 transition-colors text-white"
@@ -132,7 +263,6 @@ export function FreeLectureSection() {
             >
               <X className="w-4 h-4" />
             </button>
-            {/* GHL form embed container */}
             <div className="h-[430px] overflow-hidden rounded-[20px]">
               <iframe
                 src="https://link.digitalnomadstaiwan.com/widget/form/MpJ0wDqzBLszazx5vVRy"

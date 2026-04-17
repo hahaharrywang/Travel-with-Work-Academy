@@ -124,6 +124,130 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
           )}
         </div>
 
+        {/* Value Stack - 完整價值拆解 */}
+        <div className="mb-10 sm:mb-12">
+          <div className="text-center mb-6 max-w-3xl mx-auto">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-teal mb-3 text-balance">
+              {'最大的成本，從來不是學費'}
+            </h3>
+            <p className="text-sm sm:text-base text-brand-text/80 leading-relaxed mb-1.5">
+              市場上充斥許多垂直深度陪跑、單向觀看的線上課程，找不太到這麼完整的初期探索資源。
+            </p>
+            <p className="text-sm sm:text-base text-brand-text/80 leading-relaxed">
+              自己累積這些能力與啟發，除了錢，花更多的是時間的試錯成本。
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-sm border border-brand-mist overflow-hidden">
+            {/* Desktop: table */}
+            <table className="w-full hidden md:table">
+              <thead>
+                <tr className="bg-brand-gold/20 border-b border-brand-mist">
+                  <th className="text-left px-6 py-3 text-sm font-bold text-brand-teal w-40">項目</th>
+                  <th className="text-left px-6 py-3 text-sm font-bold text-brand-teal">說明</th>
+                  <th className="text-right px-6 py-3 text-sm font-bold text-brand-teal w-40">價值</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-brand-mist/50">
+                  <td className="px-6 py-4 text-sm font-semibold text-brand-teal">正式課程</td>
+                  <td className="px-6 py-4 text-sm text-brand-text leading-relaxed">四階段課綱、12 堂專家正課、課後作業、含實戰範例模板</td>
+                  <td className="px-6 py-4 text-sm font-semibold text-brand-teal text-right whitespace-nowrap">NT$ 24,000</td>
+                </tr>
+                <tr className="bg-brand-offwhite/60 border-b border-brand-mist/50">
+                  <td className="px-6 py-4 text-sm font-semibold text-brand-teal">成長節奏</td>
+                  <td className="px-6 py-4 text-sm text-brand-text leading-relaxed">10 堂：每月底同學交流發表會、復盤、團體 QA、共創專案機會</td>
+                  <td className="px-6 py-4 text-sm font-semibold text-brand-teal text-right whitespace-nowrap">NT$ 7,500</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 text-sm font-semibold text-brand-teal">終身校友資格</td>
+                  <td className="px-6 py-4 text-sm text-brand-text leading-relaxed">最新世界遊牧資訊、LinkedIn 校友連結、生態系活動折扣</td>
+                  <td className="px-6 py-4 text-sm font-semibold text-brand-teal text-right whitespace-nowrap">
+                    NT$ 6,000
+                    <span className="block text-xs font-normal text-brand-text/60 mt-0.5">(持續漲價)</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            {/* Mobile: stacked cards */}
+            <div className="md:hidden divide-y divide-brand-mist/50">
+              <div className="p-4">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-sm font-semibold text-brand-teal">正式課程</span>
+                  <span className="text-sm font-semibold text-brand-teal whitespace-nowrap">NT$ 24,000</span>
+                </div>
+                <p className="text-xs text-brand-text/80 leading-relaxed">四階段課綱、12 堂專家正課、課後作業、含實戰範例模板</p>
+              </div>
+              <div className="p-4 bg-brand-offwhite/60">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-sm font-semibold text-brand-teal">成長節奏</span>
+                  <span className="text-sm font-semibold text-brand-teal whitespace-nowrap">NT$ 7,500</span>
+                </div>
+                <p className="text-xs text-brand-text/80 leading-relaxed">10 堂：每月底同學交流發表會、復盤、團體 QA、共創專案機會</p>
+              </div>
+              <div className="p-4">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-sm font-semibold text-brand-teal">終身校友資格</span>
+                  <div className="text-right">
+                    <div className="text-sm font-semibold text-brand-teal whitespace-nowrap">NT$ 6,000</div>
+                    <div className="text-[10px] text-brand-text/60">(持續漲價)</div>
+                  </div>
+                </div>
+                <p className="text-xs text-brand-text/80 leading-relaxed">最新世界遊牧資訊、LinkedIn 校友連結、生態系活動折扣</p>
+              </div>
+            </div>
+
+            {/* Funnel - 三層遞減 */}
+            <div className="bg-gradient-to-br from-brand-teal to-[#0f3d44] p-5 sm:p-7">
+              {/* 第一層：自己累積成本 */}
+              <div className="flex items-center justify-between gap-3 pb-3 border-b border-white/15">
+                <div>
+                  <p className="text-sm sm:text-base text-white/85">{'自己一項一項累積'}</p>
+                  <p className="text-[11px] sm:text-xs text-white/50 mt-0.5">市場單價合計</p>
+                </div>
+                <span className="text-lg sm:text-xl font-semibold text-white/85 line-through decoration-white/40">
+                  NT$ 37,500
+                </span>
+              </div>
+
+              {/* 第二層：學院打包價 */}
+              <div className="flex items-center justify-between gap-3 py-3 border-b border-white/15">
+                <div>
+                  <p className="text-sm sm:text-base text-white">{'整套打包進學院'}</p>
+                  <p className="text-[11px] sm:text-xs text-brand-gold mt-0.5">
+                    {'先幫你省 NT$ 11,000'}
+                  </p>
+                </div>
+                <span className="text-xl sm:text-2xl font-bold text-white">
+                  NT$ {formatPrice(currentStageData.prices.dualLine.original)}
+                </span>
+              </div>
+
+              {/* 第三層：現在卡位 */}
+              <div className="flex items-end justify-between gap-3 pt-4">
+                <div className="min-w-0 flex-1">
+                  <p className="text-sm sm:text-base text-brand-gold font-bold mb-0.5">
+                    {'現在卡位 '}
+                    <span className="text-white/95">{currentStageData.name}</span>
+                  </p>
+                  <p className="text-[11px] sm:text-xs text-white/70 leading-relaxed">
+                    {currentStageData.discountLabel}
+                    {'｜再省 NT$ '}{formatPrice(currentStageData.prices.dualLine.savingAmount)}
+                    {'，倒數結束自動漲價'}
+                  </p>
+                </div>
+                <div className="text-right flex-shrink-0 flex items-baseline gap-1">
+                  <span className="text-sm sm:text-base font-semibold text-brand-gold/90">NT$</span>
+                  <span className="text-3xl sm:text-4xl font-bold text-brand-gold leading-none">
+                    {formatPrice(currentStageData.prices.dualLine.stagePrice)}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Pricing Cards */}
         <div id="pricing-cards" className="grid md:grid-cols-3 gap-6 mb-12">
           {/* 接案線路 */}
@@ -310,7 +434,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
         {/* Disclaimer note */}
         <div className="rounded-xl bg-brand-mist/30 border border-brand-mist px-5 py-4 text-center mb-4">
           <p className="text-brand-text text-sm leading-relaxed">
-            <span className="font-semibold text-brand-teal">重要說明：</span>學院方案以「課程＋社群＋校友資格」為主；多數線下活動／工作坊／旅程為選配加購，校友皆享有專屬折扣。
+            <span className="font-semibold text-brand-teal">重要說明：</span>學院方案以「課程＋社群＋校友資格」為主；多數線下活動／工作坊／旅���為選配加購，校友皆享有專屬折扣。
           </p>
         </div>
 

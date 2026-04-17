@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback, useRef } from "react"
+import { useState, useEffect, useCallback } from "react"
 import Image from "next/image"
 import dynamic from "next/dynamic"
 import {
@@ -9,7 +9,6 @@ import {
   X,
   ChevronRight,
   ChevronLeft,
-  CalendarDays,
 } from "lucide-react"
 import { usePricing } from "@/contexts/pricing-context"
 import { AnnouncementBar } from "@/components/announcement-bar"
@@ -25,6 +24,12 @@ import { WeekDetailModal } from "@/components/ui/week-detail-modal"
 import { CourseHighlightsSection } from "@/components/sections/course-highlights-section"
 import { PainPointsSection } from "@/components/sections/pain-points-section"
 import { KeyFeaturesSection } from "@/components/sections/key-features-section"
+import { TestimonialsStrip } from "@/components/sections/testimonials-strip"
+
+// V2 Learning Map Components
+import { LearningMapSectionV2 } from "@/components/sections/learning-map-section-v2"
+import { CourseDetailModal } from "@/components/ui/course-detail-modal"
+import { WeeklyScheduleModal } from "@/components/ui/weekly-schedule-modal"
 
 // Below-fold sections (loaded lazily for better initial performance)
 const FAQSection = dynamic(() => import("@/components/sections/faq-section"), {
@@ -54,7 +59,7 @@ import {
 } from "@/components/ui/dialog"
 
 import { type PlanId, getCheckoutURL } from "@/data/plan-config"
-import { calendarData, getPhaseColor, getTrackColor, getInstructorsByNames, fourPhases, remoteJobPhaseContent, freelancePhaseContent, undecidedTabContent, type CalendarWeek } from "@/data/calendar"
+import { calendarData, getPhaseColor, getTrackColor, getInstructorsByNames, remoteJobPhaseContent, freelancePhaseContent, type CalendarWeek } from "@/data/calendar"
 import { stagePhotos } from "@/data/stage-photos"
 import { instructors } from "@/data/instructors"
 
@@ -62,10 +67,13 @@ import { instructors } from "@/data/instructors"
 
 export default function LandingPage({ params }: { params: { coupon?: string | string[] } }) {
   const [couponCode, setCouponCode] = useState<string | null>(null)
-  const [activeMapTab, setActiveMapTab] = useState<string>("遠端上班") // State for Learning Map tabs
   const [selectedWeek, setSelectedWeek] = useState<CalendarWeek | null>(null)
   const [activeCalendarTab, setActiveCalendarTab] = useState<"schedule" | "instructors" | "principal">("instructors")
   const [selectedInstructor, setSelectedInstructor] = useState<typeof instructors[0] | null>(null)
+
+  // V2 Modal states
+  const [isCourseDetailModalOpen, setIsCourseDetailModalOpen] = useState(false)
+  const [isWeeklyScheduleModalOpen, setIsWeeklyScheduleModalOpen] = useState(false)
 
   const { currentStageData, timeLeft, lowestPrice, selectedPlanId, setSelectedPlanId, getTrackingParams } = usePricing()
 
@@ -123,8 +131,6 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
   }
 
   const [showCalendarModal, setShowCalendarModal] = useState(false)
-  const [showCalendarInline, setShowCalendarInline] = useState(false)
-  const calendarSectionRef = useRef<HTMLDivElement>(null)
   const [expandedWeeks, setExpandedWeeks] = useState<Set<number>>(new Set())
   const [expandedPhases, setExpandedPhases] = useState<Set<string>>(new Set())
 
@@ -155,7 +161,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
     showCalendarModal ||
     pricingTimelineModalOpen ||
     faqPriceDiffModalOpen ||
-    highlightPopup.isOpen
+    highlightPopup.isOpen ||
+    isCourseDetailModalOpen ||
+    isWeeklyScheduleModalOpen
 
   useEffect(() => {
     if (isAnyModalOpen) {
@@ -215,6 +223,9 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
       <AnnouncementBar scrollToPricing={scrollToPricing} onEmailSubscribe={() => setEmailPopupOpen(true)} />
       {/* SECTION 1 HERO */}
       <HeroSection />
+
+      {/* TESTIMONIALS STRIP - social proof above fold */}
+      <TestimonialsStrip />
       {/* SECTION 2 COURSE HIGHLIGHTS - 正在尋找「下一步」的你 */}
       <CourseHighlightsSection />
       {/* SECTION 3 PAIN POINTS - 三大痛點 */}
@@ -223,753 +234,19 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
       <KeyFeaturesSection />
 
       {/* SECTION 5 INSTRUCTORS - 師資 (currently hidden, use <InstructorsSection instructors={instructors} /> to enable) */}
-      {/* SECTION 6 COURSE OUTLINE START - 學習地圖（四階段） */}
-      <section id="learning-map" className="py-16 sm:py-20 bg-brand-offwhite">
+      
+      {/* NEW V2 LEARNING MAP - 課程概覽（新版） */}
+      <LearningMapSectionV2
+        onOpenCourseDetail={() => setIsCourseDetailModalOpen(true)}
+        onOpenWeeklySchedule={() => setIsWeeklyScheduleModalOpen(true)}
+      />
+
+      {/* SECTION: 課表與講師 */}
+      <section className="py-16 sm:py-20 bg-brand-offwhite">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
-          <div className="text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-teal mb-2 text-balance">學習地圖</h2>
-            <p className="text-base sm:text-lg text-brand-clay font-medium mb-6">五月開學，每週三晚間八點準時上線。</p>
-            <p className="text-brand-text max-w-2xl mx-auto leading-relaxed text-sm sm:text-base font-medium">
-              這不是一堆零散課程，而是一套 5 個月、4 階段的行動節奏。
-            </p>
-            <p className="text-brand-text/80 max-w-2xl mx-auto leading-relaxed text-xs sm:text-sm mt-2">
-              兩條路各有主線課，也會共用通用能力模組，例如 AI、自媒體、人生使用說明SOP、財務。
-            </p>
-          </div>
 
-          {/* Tabs 前導文字 */}
-          <p className="text-center text-brand-text/80 text-sm mb-4">先選一條你現在最想嘗試的路線：</p>
-
-          {/* Tabs */}
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
-            {["遠端上班", "接案", "我還不確定"].map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveMapTab(tab)}
-                className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-sm sm:text-base font-medium transition-all duration-300 border-2 ${
-                  activeMapTab === tab
-                    ? "bg-brand-teal text-white border-brand-teal"
-                    : "bg-white text-brand-teal border-brand-teal/30 hover:border-brand-teal"
-                }`}
-              >
-                {tab}
-              </button>
-            ))}
-          </div>
-
-          {/* Tab Content: 遠端上班 - 四階段卡片 */}
-          {activeMapTab === "遠端上班" && (
-            <div className="animate-in fade-in duration-300">
-              {/* Tab 標題 */}
-              <div className="text-center mb-8">
-                <h3 className="text-lg sm:text-xl font-bold text-brand-teal mb-2">遠端上班：從看懂機會，到更有機會被錄用，也更有能力走得長久</h3>
-              </div>
-              
-              {/* Desktop: 橫向 4 欄 grid，點擊展開 */}
-              <div className="hidden md:grid md:grid-cols-4 gap-4 items-start">
-                {remoteJobPhaseContent.map((content, index) => {
-                  const phase = fourPhases[index]
-                  return (
-                    <details key={index} className={`group bg-white rounded-xl border-2 ${phase.color.border}`}>
-                      <summary className="p-5 cursor-pointer hover:bg-brand-offwhite/50 transition-colors list-none [&::-webkit-details-marker]:hidden">
-                        <div className="flex flex-col items-center text-center">
-                          <span className={`w-10 h-10 rounded-full ${phase.color.solid} text-white text-sm font-bold flex items-center justify-center mb-3`}>
-                            {index + 1}
-                          </span>
-                          <div className="flex items-center gap-1.5 mb-2">
-                            <span className={`text-xs ${phase.color.text}`}>{phase.months}</span>
-                            <span className={`text-sm font-semibold ${phase.color.text}`}>{phase.name}</span>
-                          </div>
-                          <p className="text-sm font-bold text-brand-teal mb-2 leading-snug">{content.headline}</p>
-                          <p className="text-xs text-brand-text/80 leading-relaxed mb-3">{phase.shortTagline}</p>
-                          <div className="flex items-center gap-1 text-brand-text/80">
-                            <span className="text-xs group-open:hidden">點擊展開</span>
-                            <span className="text-xs hidden group-open:inline">收合</span>
-                            <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                            </svg>
-                          </div>
-                        </div>
-                      </summary>
-                      <div className="px-5 pb-5 pt-3 border-t border-brand-mist/30">
-                        <p className="text-sm text-brand-text/80 mb-4 leading-relaxed">{content.description}</p>
-                        
-                        <div className="mb-4">
-                          <p className="text-sm font-semibold text-brand-teal mb-2">你會得到：</p>
-                          <ul className="space-y-1.5">
-                            {content.outcomes.map((outcome, i) => (
-                              <li key={i} className="text-sm text-brand-text/80 flex items-start gap-2">
-                                <span className="text-brand-gold mt-0.5">•</span>
-                                {outcome}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        
-                        <div className="pt-3 border-t border-brand-mist/50">
-                          <p className="text-sm font-semibold text-brand-text/80 mb-1">對應重點：</p>
-                          <p className="text-sm text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
-                        </div>
-                      </div>
-                    </details>
-                  )
-                })}
-              </div>
-
-              {/* Mobile: 縱向 Accordion */}
-              <div className="md:hidden space-y-3">
-                {remoteJobPhaseContent.map((content, index) => {
-                  const phase = fourPhases[index]
-                  return (
-                    <details key={index} className={`group bg-white rounded-xl border-2 ${phase.color.border} overflow-hidden`}>
-                      <summary className="p-4 cursor-pointer hover:bg-brand-offwhite/50 transition-colors list-none [&::-webkit-details-marker]:hidden">
-                        <div className="flex items-center gap-3">
-                          <span className={`w-7 h-7 rounded-full ${phase.color.solid} text-white text-sm font-bold flex items-center justify-center flex-shrink-0`}>
-                            {index + 1}
-                          </span>
-                          <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-1.5">
-                              <span className={`text-sm ${phase.color.text}`}>{phase.months}</span>
-                              <span className={`text-sm font-semibold ${phase.color.text}`}>{phase.name}</span>
-                            </div>
-                            <p className="text-sm font-bold text-brand-teal truncate">{content.headline}</p>
-                          </div>
-                          <div className="flex items-center gap-1 text-brand-text/80 flex-shrink-0">
-                            <span className="text-sm group-open:hidden">展開</span>
-                            <span className="text-sm hidden group-open:inline">收合</span>
-                            <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                            </svg>
-                          </div>
-                        </div>
-                      </summary>
-                      <div className="px-4 pb-4 pt-2 border-t border-brand-mist/30">
-                        <p className="text-sm text-brand-text/80 mb-3 leading-relaxed">{content.description}</p>
-                        
-                        <div className="mb-3">
-                          <p className="text-sm font-semibold text-brand-teal mb-2">你會得到：</p>
-                          <ul className="space-y-1.5">
-                            {content.outcomes.map((outcome, i) => (
-                              <li key={i} className="text-sm text-brand-text/80 flex items-start gap-2">
-                                <span className="text-brand-gold mt-0.5">•</span>
-                                {outcome}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        
-                        <div className="pt-3 border-t border-brand-mist/50">
-                          <p className="text-sm font-semibold text-brand-text/80 mb-1">對應重點：</p>
-                          <p className="text-sm text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
-                        </div>
-                      </div>
-                    </details>
-                  )
-                })}
-              </div>
-            </div>
-          )}
-
-          {/* Tab Content: 接案 - 四階段卡片 */}
-          {activeMapTab === "接案" && (
-            <div className="animate-in fade-in duration-300">
-              {/* Tab 標題 */}
-              <div className="text-center mb-8">
-                <h3 className="text-lg sm:text-xl font-bold text-brand-teal mb-2">接案：從想靠自己變現，到做出能持續合作的內容與服務</h3>
-              </div>
-              
-              {/* Desktop: 橫向 4 欄 grid，點擊展開 */}
-              <div className="hidden md:grid md:grid-cols-4 gap-4 items-start">
-                {freelancePhaseContent.map((content, index) => {
-                  const phase = fourPhases[index]
-                  return (
-                    <details key={index} className={`group bg-white rounded-xl border-2 ${phase.color.border}`}>
-                      <summary className="p-5 cursor-pointer hover:bg-brand-offwhite/50 transition-colors list-none [&::-webkit-details-marker]:hidden">
-                        <div className="flex flex-col items-center text-center">
-                          <span className={`w-10 h-10 rounded-full ${phase.color.solid} text-white text-sm font-bold flex items-center justify-center mb-3`}>
-                            {index + 1}
-                          </span>
-                          <div className="flex items-center gap-1.5 mb-2">
-                            <span className={`text-xs ${phase.color.text}`}>{phase.months}</span>
-                            <span className={`text-sm font-semibold ${phase.color.text}`}>{phase.name}</span>
-                          </div>
-                          <p className="text-sm font-bold text-brand-teal mb-2 leading-snug">{content.headline}</p>
-                          <p className="text-xs text-brand-text/80 leading-relaxed mb-3">{phase.shortTagline}</p>
-                          <div className="flex items-center gap-1 text-brand-text/80">
-                            <span className="text-xs group-open:hidden">點擊展開</span>
-                            <span className="text-xs hidden group-open:inline">收合</span>
-                            <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                            </svg>
-                          </div>
-                        </div>
-                      </summary>
-                      <div className="px-5 pb-5 pt-3 border-t border-brand-mist/30">
-                        <p className="text-sm text-brand-text/80 mb-4 leading-relaxed">{content.description}</p>
-                        
-                        <div className="mb-4">
-                          <p className="text-sm font-semibold text-brand-teal mb-2">你會得到：</p>
-                          <ul className="space-y-1.5">
-                            {content.outcomes.map((outcome, i) => (
-                              <li key={i} className="text-sm text-brand-text/80 flex items-start gap-2">
-                                <span className="text-brand-gold mt-0.5">•</span>
-                                {outcome}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        
-                        <div className="pt-3 border-t border-brand-mist/50">
-                          <p className="text-sm font-semibold text-brand-text/80 mb-1">對應重點：</p>
-                          <p className="text-sm text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
-                        </div>
-                      </div>
-                    </details>
-                  )
-                })}
-              </div>
-
-              {/* Mobile: 縱向 Accordion */}
-              <div className="md:hidden space-y-3">
-                {freelancePhaseContent.map((content, index) => {
-                  const phase = fourPhases[index]
-                  return (
-                    <details key={index} className={`group bg-white rounded-xl border-2 ${phase.color.border} overflow-hidden`}>
-                      <summary className="p-4 cursor-pointer hover:bg-brand-offwhite/50 transition-colors list-none [&::-webkit-details-marker]:hidden">
-                        <div className="flex items-center gap-3">
-                          <span className={`w-7 h-7 rounded-full ${phase.color.solid} text-white text-sm font-bold flex items-center justify-center flex-shrink-0`}>
-                            {index + 1}
-                          </span>
-                          <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-1.5">
-                              <span className={`text-sm ${phase.color.text}`}>{phase.months}</span>
-                              <span className={`text-sm font-semibold ${phase.color.text}`}>{phase.name}</span>
-                            </div>
-                            <p className="text-sm font-bold text-brand-teal truncate">{content.headline}</p>
-                          </div>
-                          <div className="flex items-center gap-1 text-brand-text/80 flex-shrink-0">
-                            <span className="text-sm group-open:hidden">展開</span>
-                            <span className="text-sm hidden group-open:inline">收合</span>
-                            <svg className="w-4 h-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                            </svg>
-                          </div>
-                        </div>
-                      </summary>
-                      <div className="px-4 pb-4 pt-2 border-t border-brand-mist/30">
-                        <p className="text-sm text-brand-text/80 mb-3 leading-relaxed">{content.description}</p>
-                        
-                        <div className="mb-3">
-                          <p className="text-sm font-semibold text-brand-teal mb-2">你會得到：</p>
-                          <ul className="space-y-1.5">
-                            {content.outcomes.map((outcome, i) => (
-                              <li key={i} className="text-sm text-brand-text/80 flex items-start gap-2">
-                                <span className="text-brand-gold mt-0.5">•</span>
-                                {outcome}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        
-                        <div className="pt-3 border-t border-brand-mist/50">
-                          <p className="text-sm font-semibold text-brand-text/80 mb-1">對應重點：</p>
-                          <p className="text-sm text-brand-teal leading-relaxed">{content.courses.join("、")}</p>
-                        </div>
-                      </div>
-                    </details>
-                  )
-                })}
-              </div>
-            </div>
-          )}
-
-          {/* Tab Content: 我還不確定 - 簡化版，降低決策焦慮 */}
-          {activeMapTab === "我還不確定" && (
-            <div className="animate-in fade-in duration-300 max-w-3xl mx-auto">
-              {/* Tab 標題 */}
-              <div className="text-center mb-8">
-                <h3 className="text-lg sm:text-xl font-bold text-brand-teal mb-2">{undecidedTabContent.headline}</h3>
-              </div>
-
-              <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
-                {/* 常見困惑 */}
-                <div className="text-brand-text text-sm leading-relaxed mb-6">
-                  <p className="whitespace-pre-line">{undecidedTabContent.intro}</p>
-                </div>
-
-                {/* 決策彈性區塊 */}
-                <div className="bg-brand-offwhite rounded-xl p-5 mb-6">
-                  <h4 className="font-bold text-brand-teal mb-3">{undecidedTabContent.flexibility.headline}</h4>
-                  <ul className="space-y-2">
-                    {undecidedTabContent.flexibility.points.map((point, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-brand-text">
-                        <svg className="w-5 h-5 text-brand-gold flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* 試上資訊 */}
-                <div className="mb-6">
-                  <h4 className="font-bold text-brand-teal mb-3">{undecidedTabContent.trialInfo.headline}</h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div className="relative bg-gradient-to-br from-brand-teal to-[#1a5561] rounded-xl p-4 text-white">
-                      <div className="absolute top-2 right-2 bg-brand-gold text-brand-teal text-[10px] font-bold px-2 py-0.5 rounded-full">
-                        Week 2
-                      </div>
-                      <p className="font-semibold text-sm">{undecidedTabContent.trialInfo.week2}</p>
-                    </div>
-                    <div className="relative bg-gradient-to-br from-brand-teal to-[#1a5561] rounded-xl p-4 text-white">
-                      <div className="absolute top-2 right-2 bg-brand-gold text-brand-teal text-[10px] font-bold px-2 py-0.5 rounded-full">
-                        Week 3
-                      </div>
-                      <p className="font-semibold text-sm">{undecidedTabContent.trialInfo.week3}</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* 收尾 */}
-                <div className="pt-4 border-t border-brand-mist">
-                  <p className="text-center text-brand-teal font-medium">{undecidedTabContent.closing}</p>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* CTA Button */}
-          {/* Mobile: Expand/Collapse Button */}
-          <div id="learning-map-cta" className="text-center mt-10 md:hidden">
-            <button
-              onClick={() => {
-                setShowCalendarInline(!showCalendarInline)
-                setTimeout(() => {
-                  document.getElementById("learning-map-cta")?.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center",
-                  })
-                }, 300)
-              }}
-              className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 shadow-md ${
-                showCalendarInline
-                  ? "bg-brand-offwhite text-brand-teal border border-brand-mist hover:bg-brand-mist"
-                  : "bg-brand-gold text-brand-teal hover:bg-[#c9a670] animate-pulse-subtle"
-              }`}
-            >
-              {showCalendarInline ? (
-                <>
-                  <ChevronUp className="w-5 h-5" />
-                  收合課表
-                </>
-              ) : (
-                <>
-                  <CalendarDays className="w-5 h-5" />
-                  展開課表＆講師介紹
-                  <ChevronDown className="w-4 h-4" />
-                </>
-              )}
-            </button>
-            {!showCalendarInline && <p className="text-sm text-brand-text/80 mt-2">看看每週三晚間八點，具體在做什麼</p>}
-          </div>
-
-          {/* Mobile: Expandable Content */}
-          {showCalendarInline && (
-            <div ref={calendarSectionRef} className="mt-8 animate-in slide-in-from-top-4 fade-in duration-500 md:hidden">
-              {/* Tab Navigation */}
-              <div className="flex justify-center mb-6">
-                <div className="inline-flex bg-brand-offwhite rounded-full p-1 border border-brand-mist">
-                  <button
-                    onClick={() => setActiveCalendarTab("instructors")}
-                    className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                      activeCalendarTab === "instructors"
-                        ? "bg-brand-teal text-white shadow-sm"
-                        : "text-brand-text/80 hover:text-brand-teal"
-                    }`}
-                  >
-                    講師介紹
-                  </button>
-                  <button
-                    onClick={() => setActiveCalendarTab("schedule")}
-                    className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                      activeCalendarTab === "schedule"
-                        ? "bg-brand-teal text-white shadow-sm"
-                        : "text-brand-text/80 hover:text-brand-teal"
-                    }`}
-                  >
-                    課表
-                  </button>
-                  <button
-                    onClick={() => setActiveCalendarTab("principal")}
-                    className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                      activeCalendarTab === "principal"
-                        ? "bg-brand-teal text-white shadow-sm"
-                        : "text-brand-text/80 hover:text-brand-teal"
-                    }`}
-                  >
-                    校長介紹
-                  </button>
-                </div>
-              </div>
-
-              {/* Tab Content: Schedule */}
-              {activeCalendarTab === "schedule" && (
-              <div className="space-y-4">
-                {(() => {
-                  const phaseGroups = [
-                    {
-                      phase: "階段一 藍圖與目標",
-                      phaseKey: "藍圖與目標",
-                      months: ["5 月"],
-                      weeks: [1, 2, 3, 4],
-                      description: "先知道你要往哪裡走",
-                    },
-                    {
-                      phase: "階段二 定位與門面",
-                      phaseKey: "定位與門面",
-                      months: ["6 月"],
-                      weeks: [5, 6, 7, 8],
-                      description: "把你整理成別人看得懂的樣子",
-                    },
-                    {
-                      phase: "階段三 機會與轉化",
-                      phaseKey: "機會與轉化",
-                      months: ["7 月"],
-                      weeks: [9, 10, 11, 12, 13],
-                      description: "���始讓曝光、投遞與合作變成機會",
-                    },
-                    {
-                      phase: "階段四 永續",
-                      phaseKey: "永續",
-                      months: ["8 月", "9 月"],
-                      weeks: [14, 15, 16, 17, 18, 19, 20, 21, 22],
-                      description: "把一次嘗試走成長期節奏",
-                    },
-                  ]
-
-                  return (
-                    <>
-                      {phaseGroups.map((group) => {
-                        const phaseWeeks = calendarData.filter((week) => week.phase === group.phaseKey)
-                        const isPhaseExpanded = expandedPhases.has(group.phase)
-                        const phaseColor = getPhaseColor(group.phaseKey)
-
-                        if (phaseWeeks.length === 0) return null
-
-                        return (
-                          <div
-                            key={group.phase}
-                            className="border border-brand-mist rounded-xl overflow-hidden bg-white"
-                          >
-                            {/* Phase Header - Clickable */}
-                            <button
-                              onClick={() => togglePhase(group.phase)}
-                              className={`w-full px-4 md:px-6 py-4 flex items-center justify-center relative transition-colors ${
-                                isPhaseExpanded ? "bg-brand-offwhite" : "bg-white hover:bg-brand-offwhite/50"
-                              }`}
-                            >
-                              <div className="flex flex-col items-center gap-1 text-center flex-1">
-                                <span
-                                  className={`px-3 py-1 text-sm font-semibold rounded-lg ${phaseColor.bg} ${phaseColor.text}`}
-                                >
-                                  {group.phase}
-                                </span>
-                                <p className="text-sm text-gray-500">
-                                  {group.months.join("、")}　{group.description}
-                                </p>
-                              </div>
-                              <ChevronDown
-                                className={`w-5 h-5 text-brand-teal transition-transform flex-shrink-0 absolute right-4 md:right-6 ${
-                                  isPhaseExpanded ? "rotate-180" : ""
-                                }`}
-                              />
-                            </button>
-
-                            {/* Phase Content - Expandable */}
-                            {isPhaseExpanded && (
-                              <div className="px-4 md:px-6 py-4 border-t border-brand-mist animate-in slide-in-from-top-2 fade-in duration-300">
-                                {/* Week Cards Grid */}
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                                  {phaseWeeks.map((week) => {
-                                    const trackColor = getTrackColor(week.track)
-                                    const weekInstructors = getInstructorsByNames(week.instructorNames)
-
-                                    return (
-                                      <div
-                                        key={week.id}
-                                        className="border border-brand-mist rounded-lg p-4 bg-white hover:shadow-md transition-shadow cursor-pointer flex flex-col h-full"
-                                        onClick={() => setSelectedWeek(week)}
-                                      >
-                                        {/* Week Header */}
-                                        <div className="flex items-center justify-between mb-2">
-                                          <span className="text-sm font-bold text-brand-teal">{week.monthWeek}</span>
-                                          <span
-                                            className={`px-2 py-0.5 text-xs rounded ${trackColor.bg} ${trackColor.text}`}
-                                          >
-                                            {week.track}
-                                          </span>
-                                        </div>
-
-                                        {/* Title */}
-                                        <h4 className="text-sm font-semibold text-brand-teal mb-2 line-clamp-2">
-                                          {week.title}
-                                        </h4>
-
-                                        <p className="text-xs text-brand-text mb-3 line-clamp-2">{week.focusShort}</p>
-
-                                        <div className="flex-1"></div>
-
-                                        <div className="flex items-center justify-between mt-auto pt-3 border-t border-brand-mist/30">
-                                          <div className="flex items-center gap-2">
-                                            <div className="flex items-center -space-x-2">
-                                              {weekInstructors.slice(0, 3).map((instructor, idx) => (
-                                                <div
-                                                  key={idx}
-                                                  className="w-6 h-6 rounded-full overflow-hidden border-2 border-white"
-                                                >
-                                                  <Image
-                                                    src={instructor.image || "/placeholder.svg"}
-                                                    alt={instructor.name}
-                                                    width={24}
-                                                    height={24}
-                                                    className="w-full h-full object-cover"
-                                                  />
-                                                </div>
-                                              ))}
-                                            </div>
-                                            <span className="text-xs text-brand-text/80">
-                                              {weekInstructors.length === 1
-                                                ? weekInstructors[0].name === "講師確認中"
-                                                  ? "待公開"
-                                                  : weekInstructors[0].name
-                                                : `${weekInstructors[0].name === "講師確認中" ? "待公開" : weekInstructors[0].name} 等 ${weekInstructors.length} 位`}
-                                            </span>
-                                          </div>
-                                          <ChevronRight className="w-4 h-4 text-brand-teal/50" />
-                                        </div>
-                                      </div>
-                                    )
-                                  })}
-                                </div>
-                              </div>
-                            )}
-                          </div>
-                        )
-                      })}
-                    </>
-                  )
-                })()}
-              </div>
-            )}
-
-              {/* Tab Content: Instructors */}
-              {activeCalendarTab === "instructors" && (
-                <div className="animate-in fade-in duration-300">
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
-{(() => {
-                      // 收集課表中所有講師名稱
-                      const calendarInstructorNames = new Set(
-                        calendarData.flatMap((week) => week.instructorNames)
-                      )
-                      // 只顯示在課表中有課程的講師，並排除校長
-                      const filteredInstructors = instructors
-                        .filter((instructor) => calendarInstructorNames.has(instructor.name) && instructor.name !== "校長哈利")
-                      
-                      // 計算需要多少個佔位卡片（目標 12 位講師）
-                      const placeholderCount = Math.max(0, 12 - filteredInstructors.length)
-                      
-                      return (
-                        <>
-                          {filteredInstructors.map((instructor) => (
-                            <div
-                              key={instructor.name}
-                              className="flex flex-col items-center p-4 bg-white rounded-xl border border-brand-mist/50 hover:border-brand-gold hover:shadow-md transition-all duration-300 cursor-pointer group"
-                              onClick={() => setSelectedInstructor(instructor)}
-                            >
-                              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-3 border-brand-gold/30 group-hover:border-brand-gold transition-colors mb-3">
-                                <Image
-                                  src={instructor.image || "/placeholder.svg"}
-                                  alt={instructor.name}
-                                  width={96}
-                                  height={96}
-                                  className="w-full h-full object-cover"
-                                />
-                              </div>
-                              <h4 className="text-sm font-semibold text-brand-teal text-center mb-1">
-                                {instructor.name}
-                              </h4>
-                              <p className="text-xs text-brand-text/80 text-center line-clamp-2 mb-2">
-                                {instructor.title}
-                              </p>
-                              <button className="text-xs text-brand-gold hover:text-brand-teal transition-colors font-medium">
-                                查看詳情
-                              </button>
-                            </div>
-                          ))}
-                          {/* 佔位卡片 */}
-                          {Array.from({ length: Math.min(placeholderCount, 3) }).map((_, index) => (
-                            <div
-                              key={`placeholder-${index}`}
-                              className="flex flex-col items-center justify-center p-4 bg-brand-offwhite/50 rounded-xl border-2 border-dashed border-brand-mist"
-                            >
-                              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-brand-mist/30 flex items-center justify-center mb-3">
-                                <span className="text-3xl text-brand-mist">?</span>
-                              </div>
-                              <h4 className="text-sm font-medium text-brand-text/40 text-center">
-                                即將公佈
-                              </h4>
-                            </div>
-                          ))}
-                        </>
-                      )
-                    })()}
-                  </div>
-                  {/* 底部提示 */}
-                  <div className="text-center mt-6">
-                    <p className="text-sm text-brand-gold font-medium">講師陣容持續更新中...</p>
-                  </div>
-                </div>
-              )}
-
-              {/* Tab Content: Principal */}
-              {activeCalendarTab === "principal" && (
-                <div className="animate-in fade-in duration-300">
-                  {(() => {
-                    const principal = instructors.find((i) => i.name === "校長哈利")
-                    if (!principal) return null
-                    return (
-                      <div className="max-w-2xl mx-auto">
-                        <div className="bg-white rounded-2xl shadow-sm border border-brand-mist/50 overflow-hidden">
-                          {/* Header with photo */}
-                          <div className="bg-gradient-to-br from-brand-teal to-brand-teal/80 pt-8 pb-16 px-6 text-center">
-                            <div className="w-28 h-28 mx-auto rounded-full overflow-hidden border-4 border-white shadow-lg mb-4">
-                              <Image
-                                src={principal.image || "/placeholder.svg"}
-                                alt={principal.name}
-                                width={112}
-                                height={112}
-                                className="w-full h-full object-cover"
-                              />
-                            </div>
-                            <h3 className="text-2xl font-bold text-white mb-1">Harry</h3>
-                            <p className="text-white/80 text-sm">DigitalNomadsTaiwan 創辦人暨執行長</p>
-                          </div>
-
-                          {/* Content */}
-                          <div className="px-6 py-6 -mt-8">
-                            {/* 關於校長 */}
-                            <div className="bg-brand-offwhite rounded-xl p-5 mb-5">
-                              <h4 className="text-sm font-semibold text-brand-teal mb-3">關於校長</h4>
-                              <p className="text-sm text-brand-text/80 leading-relaxed">
-                                Harry 是數位遊牧台灣（DigitalNomadsTaiwan）創辦人暨執行長，也是遠距遊牧學院校長。畢業後，曾跨足不同產業與多元遠端工作角色，其中也包含跨國人資產業的第一線經驗。這段歷程讓他從產業端更早看見：遠距工作、全球人才流動與更彈性的職涯模式，正在快速崛起，並逐漸成為新世代的重要趨勢。
-                              </p>
-                              <p className="text-sm text-brand-text/80 leading-relaxed mt-3">
-                                此後，他持續投入數位遊牧社群的經營、活動策劃與國際交流。也正因為在一次次真實的交流、相遇與陪伴中，看見許多人對自由職涯的嚮往、卡點與轉變，他更加確信：比起只提供靈感與想像，真正重要的，是一套能幫助人逐步行動、持續前進的學習路線。這也成為遠距遊牧學院持續發展的核心方向。
-                              </p>
-                              <p className="text-sm text-brand-text/80 leading-relaxed mt-3">
-                                品牌成立以來，已累積舉辦超過 50 場線下活動，吸引超過 1800 人次付費參與，其中近一半來自口碑推薦。作為遠距遊牧學院校長，Harry 希望做的，不只是分享理念，而是陪伴更多人把對自由的想像，轉化成可以一步步開始的職涯路線。
-                              </p>
-                            </div>
-
-                            {/* 職涯背景 */}
-                            <div className="bg-brand-offwhite rounded-xl p-5 mb-5">
-                              <h4 className="text-sm font-semibold text-brand-teal mb-3">職涯背景</h4>
-                              <ul className="text-sm text-brand-text/80 space-y-2">
-                                <li className="flex items-start gap-2">
-                                  <span className="text-brand-gold mt-1">•</span>
-                                  <span>數位遊牧台灣／創辦人暨執行長</span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                  <span className="text-brand-gold mt-1">•</span>
-                                  <span>遠距遊牧學院／創辦人兼校長</span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                  <span className="text-brand-gold mt-1">•</span>
-                                  <span>跨國人力資源外商 / 全遠端商務開���</span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                  <span className="text-brand-gold mt-1">•</span>
-                                  <span>新創加速器 / 遠端PM</span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                  <span className="text-brand-gold mt-1">•</span>
-                                  <span>科技新創 / 遠端外部營運顧問</span>
-                                </li>
-                              </ul>
-                            </div>
-
-                            {/* 數位遊牧相關經歷 */}
-                            <div className="bg-brand-offwhite rounded-xl p-5">
-                              <h4 className="text-sm font-semibold text-brand-teal mb-3">數位遊牧相關經歷</h4>
-                              <ul className="text-sm text-brand-text/80 space-y-2">
-                                <li className="flex items-start gap-2">
-                                  <span className="text-brand-gold mt-1">•</span>
-                                  <span>2025 Vietnam Nomad Fest／講者</span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                  <span className="text-brand-gold mt-1">•</span>
-                                  <span>2025 Kozarocks 遊牧對談台灣講者</span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                  <span className="text-brand-gold mt-1">•</span>
-                                  <span>2024 Japan Okinawa Nomad Resort／台灣宣傳大使</span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                  <span className="text-brand-gold mt-1">•</span>
-                                  <span>2024 Japan Colive Fukuoka／講者</span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                  <span className="text-brand-gold mt-1">•</span>
-                                  <span>2024 Asian Nomad Alliance Summit／台灣代表</span>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    )
-                  })()}
-                </div>
-              )}
-            </div>
-          )}
-
-          {/* Mobile: Footer with collapse button */}
-          {showCalendarInline && (
-            <div className="flex flex-col items-center gap-3 py-6 md:hidden">
-              <a
-                href="https://link.travelwithwork.life/tww2calendar"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-brand-teal/70 hover:text-brand-teal text-sm transition-colors"
-              >
-                查看表格版本課表
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
-              <button
-                onClick={() => {
-                  setShowCalendarInline(false)
-                  setTimeout(() => {
-                    document.getElementById("learning-map-cta")?.scrollIntoView({
-                      behavior: "smooth",
-                      block: "center",
-                    })
-                  }, 300)
-                }}
-                className="inline-flex items-center gap-1.5 text-brand-text/80 hover:text-brand-teal text-sm transition-colors"
-              >
-                <ChevronUp className="w-4 h-4" />
-                收合課表
-              </button>
-            </div>
-          )}
-
-          {/* Desktop: Always visible Tab Section */}
-          <div className="hidden md:block mt-12">
+          {/* 課表與講師 Tab Section */}
+          <div id="course-and-instructors" className="scroll-mt-24">
             <div className="text-center mb-6">
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-teal mb-3">課表與講師</h3>
               <p className="text-sm text-brand-text/80">看看每週三晚間八點，具體在做什麼</p>
@@ -1095,12 +372,16 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     永續: "8–9 月",
                   }
 
+                  // 漸變色階：5月最淺 → 8-9月最深（與 V2 學習地圖一致）
+                  const phaseGradients = ["bg-[#3d8b8b]", "bg-[#357878]", "bg-[#2d6565]", "bg-[#255454]"]
+
                   return phases.map((phase, phaseIndex) => {
                     const phaseWeeks = calendarData.filter((week) => week.phase === phase)
                     if (phaseWeeks.length === 0) return null
+                    const isExpanded = expandedPhases.has(phase)
 
                     return (
-                      <div key={phase} className="border border-brand-mist/50 rounded-xl overflow-hidden bg-white">
+                      <div key={phase} className="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                         <button
                           onClick={() => {
                             const newSet = new Set(expandedPhases)
@@ -1111,41 +392,27 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                             }
                             setExpandedPhases(newSet)
                           }}
-                          className="w-full flex items-center justify-between p-4 hover:bg-brand-offwhite/50 transition-colors"
+                          className={`w-full flex items-center justify-between p-5 text-left transition-colors ${phaseGradients[phaseIndex]} text-white hover:brightness-110`}
                         >
-                          <div className="flex items-center gap-3 text-left">
-                            <span
-                              className={`inline-flex items-center justify-center w-8 h-8 rounded-full text-white text-sm font-bold ${
-                                phaseIndex === 0
-                                  ? "bg-brand-teal"
-                                  : phaseIndex === 1
-                                    ? "bg-brand-gold"
-                                    : phaseIndex === 2
-                                      ? "bg-brand-clay"
-                                      : "bg-brand-mist text-brand-teal"
-                              }`}
-                            >
-                              {phaseIndex + 1}
-                            </span>
-                            <div>
-                              <p className="text-sm font-medium text-brand-text">
-                                {phaseMonths[phase]} <span className="text-brand-teal font-semibold">{phase}</span>
-                              </p>
-                              <p className="text-base font-bold text-brand-teal">{phaseDescriptions[phase]}</p>
-                            </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-base sm:text-lg font-bold mb-1">
+                              <span className="text-brand-gold font-medium">{phaseMonths[phase]}</span>{" "}
+                              {phase}
+                            </p>
+                            <p className="text-sm text-white/85">{phaseDescriptions[phase]}</p>
                           </div>
-                          <div className="flex items-center gap-2 text-brand-text/80">
-                            <span className="text-xs">展開</span>
-                            {expandedPhases.has(phase) ? (
-                              <ChevronUp className="w-4 h-4" />
+                          <div className="flex items-center gap-2 text-white/90 flex-shrink-0 ml-4">
+                            <span className="text-xs">{isExpanded ? "收合" : "展開"}</span>
+                            {isExpanded ? (
+                              <ChevronUp className="w-5 h-5" />
                             ) : (
-                              <ChevronDown className="w-4 h-4" />
+                              <ChevronDown className="w-5 h-5" />
                             )}
                           </div>
                         </button>
 
-                        {expandedPhases.has(phase) && (
-                          <div className="border-t border-brand-mist/30 p-4 bg-brand-offwhite/30">
+                        {isExpanded && (
+                          <div className="p-4 bg-white border-x border-b border-brand-mist/50 rounded-b-xl">
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                               {phaseWeeks.map((week) => {
                                 const weekInstructors = getInstructorsByNames(week.instructorNames)
@@ -1207,7 +474,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
             {activeCalendarTab === "principal" && (
               <div className="animate-in fade-in duration-300">
                 {(() => {
-                  const principal = instructors.find((i) => i.name === "校��哈利")
+                  const principal = instructors.find((i) => i.name === "校長哈利")
                   if (!principal) return null
                   return (
                     <div className="max-w-2xl mx-auto">
@@ -1232,7 +499,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                               Harry 是數位遊牧台灣（DigitalNomadsTaiwan）創辦人暨執行長，也是遠距遊牧學院校長。畢業後，曾跨足不同產業與多元遠端工作角色，其中也包含跨國人資產業的第一線經驗。這段歷程讓他從產業端更早看見：遠距工作、全球人才流動與更彈性的職涯模式，正在快速崛起，並逐漸成為新世代的重要趨勢。
                             </p>
                             <p className="text-sm text-brand-text/80 leading-relaxed mt-3">
-                              此後，他持續投入數位遊牧社群的經營、活動策劃與國際交流。也正因為在一次次真實的交流、相遇與陪伴中，看見許多人對自由職涯的嚮往、卡點與轉變，他更加確信：比起只提供靈感與想像，真正重要的，是一套能幫助人逐步行動、持續前進的學習路線。這也成為遠距遊牧學院持續發展的核心方向。
+                              此後，他持續投入數位遊牧社群的經營、活動策劃與國際交��。也正因為在一次次真實的交流、相遇與陪伴中，看見許多人對自由職涯的嚮往、卡點與轉變，他更加確信：比起只提供靈感��想像，真正重要的，是一套能幫助人逐步行動、持續前進的學習路線。這也成為遠距遊牧學院持續發展的核心方向。
                             </p>
                             <p className="text-sm text-brand-text/80 leading-relaxed mt-3">
                               品牌成立以來，已累積舉辦超過 50 場線下活動，吸引超過 1800 人次付費參與，其中近一半來自口碑推薦。作為遠距遊牧學院校長，Harry 希望做的，不只是分享理念，而是陪伴更多人把對自由的想像，轉化成可以一步步開始的職涯路線。
@@ -1259,7 +526,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                               </li>
                               <li className="flex items-start gap-2">
                                 <span className="text-brand-gold mt-1">•</span>
-                                <span>科技新創 / 遠端外部營���顧問</span>
+                                <span>科技新創 / 遠端外部營運顧問</span>
                               </li>
                             </ul>
                           </div>
@@ -1355,7 +622,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   <h5 className="font-bold text-brand-teal text-base lg:text-lg">{'成長節奏'}</h5>
                 </div>
                 <p className="text-brand-text/80 text-sm lg:text-base leading-relaxed pl-[52px]">
-                  {'固定課表、線上同學會 / 團體 QA / DemoDay，互相學習、彼此督促跟上進度'}
+                  {'固定��表、線上同學會 / 團體 QA / DemoDay，互相學習、彼此督促跟上進��'}
                 </p>
               </div>
             </div>
@@ -1397,7 +664,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     <span className="text-brand-teal font-bold text-xs mt-0.5 flex-shrink-0">{'01'}</span>
                     <div>
                       <span className="font-semibold text-brand-teal text-sm">{'當屆五個月完整課程'}</span>
-                      <span className="text-brand-text/80 text-xs">{' — 聚焦遠距求職與接案兩條路，從目標、定位到落地流程（直播 / 回放一年）'}</span>
+                      <span className="text-brand-text/80 text-xs">{' — 聚焦遠距求職與接案兩條路，從目標、定位到落地流��（直播 / 回放一年）'}</span>
                     </div>
                   </li>
                   <li className="flex items-start gap-2">
@@ -1411,7 +678,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     <span className="text-brand-teal font-bold text-xs mt-0.5 flex-shrink-0">{'03'}</span>
                     <div>
                       <span className="font-semibold text-brand-teal text-sm">{'成長節奏'}</span>
-                      <span className="text-brand-text/80 text-xs">{' — 固定課表、線上同學會 / 團體 QA / DemoDay，互相學習、彼此督促跟��進度'}</span>
+                      <span className="text-brand-text/80 text-xs">{' — 固定課表、線上同學會 / 團體 QA / DemoDay，互相學習、彼此督促跟上進度'}</span>
                     </div>
                   </li>
                 </ul>
@@ -1503,6 +770,79 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               </p>
             </div>
           </details>
+
+          {/* Block: 兩條路線的具體能力培養 — HIDDEN（內容尚未定稿，暫不公開；要重新顯示把此條件改回 true 或移除條件包裹） */}
+          {false && (
+            <div className="mb-3 bg-white rounded-2xl border border-brand-mist/50 shadow-sm overflow-hidden">
+              <div className="p-5 sm:px-8 sm:py-6 border-b border-brand-mist/30">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="w-1.5 h-6 rounded-full bg-brand-gold flex-shrink-0"></span>
+                  <h4 className="font-bold text-brand-teal text-base sm:text-lg lg:text-xl">{'兩條路線的具體能力培養'}</h4>
+                  <span className="text-xs px-3 py-1 rounded-full bg-brand-teal/10 text-brand-teal font-medium">{'按階段推進，看得見的進展'}</span>
+                </div>
+              </div>
+
+              <div className="px-5 pb-5 sm:px-8 sm:pb-8 pt-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                  {/* 遠端上班線 */}
+                  <div>
+                    <h5 className="font-bold text-brand-teal text-base md:text-lg pb-3 mb-4 border-b-2 border-brand-teal/20">
+                      {'遠端上班線'}
+                    </h5>
+                    <div className="space-y-5">
+                      {remoteJobPhaseContent.map((phase, idx) => {
+                        const monthLabels = ["5月", "6月", "7月", "8-9月"]
+                        return (
+                          <div key={phase.phase}>
+                            <p className="font-semibold text-brand-teal text-sm md:text-base mb-2">
+                              <span className="text-brand-gold mr-2">{monthLabels[idx]}</span>
+                              {phase.phase}
+                            </p>
+                            <ul className="space-y-1.5">
+                              {phase.outcomes.map((outcome, i) => (
+                                <li key={i} className="flex items-start gap-2 text-xs md:text-sm text-brand-text/80 leading-relaxed">
+                                  <span className="text-brand-gold flex-shrink-0 mt-0.5">{'•'}</span>
+                                  <span>{outcome}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
+
+                  {/* 接案線 */}
+                  <div>
+                    <h5 className="font-bold text-brand-teal text-base md:text-lg pb-3 mb-4 border-b-2 border-brand-teal/20">
+                      {'接案線'}
+                    </h5>
+                    <div className="space-y-5">
+                      {freelancePhaseContent.map((phase, idx) => {
+                        const monthLabels = ["5月", "6月", "7月", "8-9月"]
+                        return (
+                          <div key={phase.phase}>
+                            <p className="font-semibold text-brand-teal text-sm md:text-base mb-2">
+                              <span className="text-brand-gold mr-2">{monthLabels[idx]}</span>
+                              {phase.phase}
+                            </p>
+                            <ul className="space-y-1.5">
+                              {phase.outcomes.map((outcome, i) => (
+                                <li key={i} className="flex items-start gap-2 text-xs md:text-sm text-brand-text/80 leading-relaxed">
+                                  <span className="text-brand-gold flex-shrink-0 mt-0.5">{'•'}</span>
+                                  <span>{outcome}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Block 3: Alumni Status — collapsible */}
           <details className="group/alumni mb-3 bg-brand-offwhite/80 rounded-2xl border border-brand-gold/30 shadow-sm overflow-hidden">
@@ -1603,7 +943,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   <p className="text-sm font-medium text-brand-teal">
                     {'合作夥伴 / 活動優惠搶先看'}
                   </p>
-                  <p className="text-xs text-brand-text/80 mt-0.5">{'訂閱會員限定的合作夥伴優惠與活動搶先通知'}</p>
+                  <p className="text-xs text-brand-text/80 mt-0.5">{'訂閱會員限��的合作夥伴優惠與活動搶先通知'}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -1660,6 +1000,52 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
         // CHANGE: Pass modal state to FAQ section
         onPriceDiffModalChange={setFaqPriceDiffModalOpen}
       />
+
+      {/* CLOSING CTA */}
+      <section className="relative py-16 sm:py-20 bg-brand-teal overflow-hidden">
+        {/* 裝飾圓圈 - 呼應 Hero 與見證區 */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-32 -right-32 w-[400px] h-[400px] border border-brand-gold/15 rounded-full" />
+          <div className="absolute -bottom-40 -left-32 w-[480px] h-[480px] border border-brand-gold/10 rounded-full" />
+        </div>
+
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3 text-balance">
+            {'看完還有疑問？'}
+          </h2>
+          <p className="text-base sm:text-lg text-white/80 mb-8 leading-relaxed text-pretty">
+            來講座現場直接問校長，順便認識下一屆同學
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a
+              href="#free-lecture-section"
+              onClick={(e) => {
+                e.preventDefault()
+                document.getElementById("free-lecture-section")?.scrollIntoView({ behavior: "smooth" })
+              }}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-brand-gold text-brand-teal font-bold text-base px-7 py-3.5 rounded-full hover:bg-[#c9a673] transition-colors duration-200 shadow-md hover:shadow-lg"
+            >
+              <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+              </svg>
+              免費卡位講座
+              <span aria-hidden>{'→'}</span>
+            </a>
+            <a
+              href="https://lin.ee/r7kh3fX"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-white/30 text-white hover:text-brand-gold hover:border-brand-gold/60 font-medium text-sm px-6 py-3.5 rounded-full transition-colors duration-200"
+            >
+              <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
+                <path d="M24 10.304c0-5.369-5.383-9.738-12-9.738S0 4.935 0 10.304c0 4.813 4.27 8.846 10.035 9.608.391.084.923.258 1.058.592.121.303.079.779.039 1.085l-.171 1.027c-.053.303-.242 1.186 1.039.647 1.281-.54 6.911-4.069 9.428-6.967C22.802 14.988 24 12.801 24 10.304zM7.632 13.286H5.237a.636.636 0 01-.636-.635V8.12a.636.636 0 111.272 0v3.895h1.759a.636.636 0 110 1.271zm2.459-.635a.636.636 0 11-1.272 0V8.12a.636.636 0 111.272 0v4.531zm5.504 0a.636.636 0 01-.436.603.64.64 0 01-.2.032.634.634 0 01-.508-.254l-2.339-3.181v2.8a.636.636 0 11-1.271 0V8.12a.634.634 0 01.436-.603.632.632 0 01.7.222l2.347 3.184v-2.8a.636.636 0 111.271 0v4.528zm3.675-2.9a.636.636 0 110 1.272h-1.759v1.12h1.759a.635.635 0 110 1.27h-2.395a.635.635 0 01-.635-.635v-4.53a.636.636 0 01.635-.636h2.395a.636.636 0 110 1.272h-1.759v1.12h1.759v-.253z" />
+              </svg>
+              加入 Line 官方
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* FOOTER */}
       <Footer />
@@ -1860,7 +1246,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           if (instructorCourses.length === 0) return null
           return (
             <div className="bg-brand-offwhite rounded-xl p-4">
-              <h4 className="text-sm font-semibold text-brand-teal mb-3">負責課程</h4>
+              <h4 className="text-sm font-semibold text-brand-teal mb-3">負���課程</h4>
               <div className="space-y-3">
                 {instructorCourses.map((course) => (
                   <div
@@ -1919,7 +1305,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <p className="text-sm text-gray-600 mt-1">
                 五月開學，週三晚上八點準時上線。
                 <br />
-                24 週的課程與行動任務，分成三個階段：起步打底、出擊試水、累積整合。
+                24 週的課程與行動任務，分成三個階段：起���打底、出擊試水、累積整合。
               </p>
             </div>
 
@@ -2047,6 +1433,18 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           </div>
         </div>
       )}
+
+      {/* V2 Course Detail Modal */}
+      <CourseDetailModal
+        isOpen={isCourseDetailModalOpen}
+        onClose={() => setIsCourseDetailModalOpen(false)}
+      />
+
+      {/* V2 Weekly Schedule Modal */}
+      <WeeklyScheduleModal
+        isOpen={isWeeklyScheduleModalOpen}
+        onClose={() => setIsWeeklyScheduleModalOpen(false)}
+      />
 
       {/* CHANGE: Pass isAnyModalOpen to hide bottom bar when modals are open */}
       <StickyBottomBar scrollToPricing={scrollToPricing} isHidden={isAnyModalOpen} isInFreeSection={isInFreeSection} />
