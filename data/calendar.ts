@@ -295,7 +295,7 @@ export const calendarData: CalendarWeek[] = [
   // ===== 7 月 - 機會與轉化 =====
   {
     id: 9,
-    phase: "機會與轉���",
+    phase: "機會與轉化",
     phaseShort: "階段三",
     monthWeek: "7 月 · Week 1",
     type: "共同必修 2",
@@ -303,7 +303,7 @@ export const calendarData: CalendarWeek[] = [
     title: "Focus on Your True Value 讓 AI 成為你的實習生：從對話到自動化的第一個流程",
     focusShort: "用 AI + 自動化把日常工作變輕：做出你的第一個可運作流程。",
     focusDetail:
-      "核心內容\n• 什������作適合交給 AI／什麼仍要自己做\n• 把「想法�����變成「可執行流程」\n• 以最小可用成果（MVP）為導向\n\n行動任務\n• 做出 1 個「能實際跑起來」的自動化流程\n• 寫下你的「AI 使用規則」",
+      "核心內容\n• 什麼工作適合交給 AI／什麼仍要自己做\n• 把「想法」變成「可執行流程」\n• 以最小可用成果（MVP）為導向\n\n行動任務\n• 做出 1 個「能實際跑起來」的自動化流程\n• 寫下你的「AI 使用規則」",
     instructorNames: ["林上哲"],
     layerTag: "核心技能 – AI 工作流／效率工具",
   },
@@ -317,7 +317,7 @@ export const calendarData: CalendarWeek[] = [
     title: "社群獲客漏斗＆內容",
     focusShort: "不靠靈感硬撐，把內容產出變成可持續流程，用 AI 幫忙企劃、標題、開頭。",
     focusDetail:
-      "核心內容\n• 讓內容與變現���得起來：每篇內容都朝同一個目標前進\n• 不靠靈感硬撐，把內容產出變成可持續流程\n• 用 AI 輔助內容企劃、標題、開頭等\n\n行動任務\n• 產出具體內容策略與第一步產出",
+      "核心內容\n• 讓內容與變現連得起來：每篇內容都朝同一個目標前進\n• 不靠靈感硬撐，把內容產出變成可持續流程\n• 用 AI 輔助內容企劃、標題、開頭等\n\n行動任務\n• 產出具體內容策略與第一步產出",
     instructorNames: ["三分鐘 Lynn"],
     layerTag: "路線必修 – 接案線 / 內容策略與企劃",
   },

@@ -499,7 +499,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                               Harry 是數位遊牧台灣（DigitalNomadsTaiwan）創辦人暨執行長，也是遠距遊牧學院校長。畢業後，曾跨足不同產業與多元遠端工作角色，其中也包含跨國人資產業的第一線經驗。這段歷程讓他從產業端更早看見：遠距工作、全球人才流動與更彈性的職涯模式，正在快速崛起，並逐漸成為新世代的重要趨勢。
                             </p>
                             <p className="text-sm text-brand-text/80 leading-relaxed mt-3">
-                              此後，他持續投入數位遊牧社群的經營、活動策劃與國際交���。也正因為在一次次真實的交流、相遇與陪伴中，看見許多人對自由職涯的嚮往、卡點與轉變，他更加確信：比起只提供靈感��想像，真正重要的，是一套能幫助人逐步行動、持續前進的學習路線。這也成為遠距遊牧學院持續發展的核心方向。
+                              此後，他持續投入數位遊牧社群的經營、活動策劃與國際交流。也正因為在一次次真實的交流、相遇與陪伴中，看見許多人對自由職涯的嚮往、卡點與轉變，他更加確信：比起只提供靈感與想像，真正重要的，是一套能幫助人逐步行動、持續前進的學習路線。這也成為遠距遊牧學院持續發展的核心方向。
                             </p>
                             <p className="text-sm text-brand-text/80 leading-relaxed mt-3">
                               品牌成立以來，已累積舉辦超過 50 場線下活動，吸引超過 1800 人次付費參與，其中近一半來自口碑推薦。作為遠距遊牧學院校長，Harry 希望做的，不只是分享理念，而是陪伴更多人把對自由的想像，轉化成可以一步步開始的職涯路線。
@@ -664,7 +664,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     <span className="text-brand-teal font-bold text-xs mt-0.5 flex-shrink-0">{'01'}</span>
                     <div>
                       <span className="font-semibold text-brand-teal text-sm">{'當屆五個月完整課程'}</span>
-                      <span className="text-brand-text/80 text-xs">{' — 聚焦遠距求職與接案兩條路，從目標、定位到落地流��（直播 / 回放一年）'}</span>
+                      <span className="text-brand-text/80 text-xs">{' — 聚焦遠距求職與接案兩條路，從目標、定位到落地流程（直播 / 回放一年）'}</span>
                     </div>
                   </li>
                   <li className="flex items-start gap-2">
@@ -1246,7 +1246,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
           if (instructorCourses.length === 0) return null
           return (
             <div className="bg-brand-offwhite rounded-xl p-4">
-              <h4 className="text-sm font-semibold text-brand-teal mb-3">負���課程</h4>
+              <h4 className="text-sm font-semibold text-brand-teal mb-3">負責課程</h4>
               <div className="space-y-3">
                 {instructorCourses.map((course) => (
                   <div
@@ -1305,7 +1305,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
               <p className="text-sm text-gray-600 mt-1">
                 五月開學，週三晚上八點準時上線。
                 <br />
-                24 週的課程與行動任務，分成三個階段：起���打底、出擊試水、累積整合。
+                24 週的課程與行動任務，分成三個階段：起步打底、出擊試水、累積整合。
               </p>
             </div>
 
