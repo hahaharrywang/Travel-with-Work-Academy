@@ -1,6 +1,7 @@
 "use client"
 
 import { Mail, X, Calendar, ArrowRight } from "lucide-react"
+import Image from "next/image"
 import { useState, useEffect } from "react"
 import {
   weeklyLecture,
@@ -87,32 +88,54 @@ export function FreeLectureSection() {
             </div>
 
             <div className="relative p-6 sm:p-10">
-              {/* Top row: tag + date */}
-              <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-5">
-                <span className="inline-flex items-center gap-1.5 bg-brand-gold/20 text-brand-gold border border-brand-gold/40 text-xs sm:text-sm font-semibold px-3 py-1 rounded-full">
-                  <span className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse" />
-                  {weeklyLecture.tag}
-                </span>
-                {nextSunday && (
-                  <span className="inline-flex items-center gap-1.5 text-white/85 text-xs sm:text-sm">
-                    <Calendar className="w-4 h-4 text-brand-gold" aria-hidden />
-                    <span className="font-semibold">{nextSunday.dateLabel}</span>
-                    <span className="text-white/60">·</span>
-                    <span>{nextSunday.timeLabel}（台灣時間）</span>
+              {/* Banner 圖片 - 絕對定位於右上角，點擊跳轉報名連結 */}
+              {weeklyLecture.bannerImage && (
+                <a
+                  href={weeklyLecture.registerUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="點擊查看講座詳情與報名"
+                  className="absolute top-4 right-4 sm:top-6 sm:right-6 w-32 sm:w-52 lg:w-60 rounded-lg overflow-hidden shadow-lg ring-1 ring-white/10 hover:ring-brand-gold/60 transition-all duration-200 z-10 group"
+                >
+                  <Image
+                    src={weeklyLecture.bannerImage}
+                    alt={weeklyLecture.bannerAlt || weeklyLecture.title}
+                    width={1080}
+                    height={540}
+                    className="w-full h-auto group-hover:scale-[1.02] transition-transform duration-200"
+                  />
+                </a>
+              )}
+
+              {/* 文字內容區 - 右側預留 banner 空間避免被壓住 */}
+              <div className={weeklyLecture.bannerImage ? "pr-36 sm:pr-60 lg:pr-64" : ""}>
+                {/* Top row: tag + date */}
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-5">
+                  <span className="inline-flex items-center gap-1.5 bg-brand-gold/20 text-brand-gold border border-brand-gold/40 text-xs sm:text-sm font-semibold px-3 py-1 rounded-full">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse" />
+                    {weeklyLecture.tag}
                   </span>
-                )}
+                  {nextSunday && (
+                    <span className="inline-flex items-center gap-1.5 text-white/85 text-xs sm:text-sm">
+                      <Calendar className="w-4 h-4 text-brand-gold" aria-hidden />
+                      <span className="font-semibold">{nextSunday.dateLabel}</span>
+                      <span className="text-white/60">·</span>
+                      <span>{nextSunday.timeLabel}（台灣時間）</span>
+                    </span>
+                  )}
+                </div>
+
+                {/* Title + speaker */}
+                <h4 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-balance">
+                  {weeklyLecture.title}
+                </h4>
+                <p className="text-sm sm:text-base text-white/70 mb-6">
+                  {"主講｜"}
+                  <span className="text-white font-medium">{weeklyLecture.speaker}</span>
+                </p>
               </div>
 
-              {/* Title + speaker */}
-              <h4 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-balance">
-                {weeklyLecture.title}
-              </h4>
-              <p className="text-sm sm:text-base text-white/70 mb-6">
-                {"主講｜"}
-                <span className="text-white font-medium">{weeklyLecture.speaker}</span>
-              </p>
-
-              {/* Highlights */}
+              {/* Highlights - 全寬，不讓 banner 佔用欄位 */}
               {weeklyLecture.highlights && weeklyLecture.highlights.length > 0 && (
                 <div className="mb-8">
                   <p className="text-sm sm:text-base font-bold text-white mb-4">

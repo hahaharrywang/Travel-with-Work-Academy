@@ -33,6 +33,10 @@ export type Lecture = {
    * weekly 類型可留空，會自動計算下個週日 21:00
    */
   startAt?: string
+  /** 活動 banner 圖片（放在 /public 下的路徑，例如 "/lectures/0419-banner.jpg"） */
+  bannerImage?: string
+  /** banner 圖片替代文字 */
+  bannerAlt?: string
 }
 
 /**
@@ -45,6 +49,8 @@ export const weeklyLecture: Lecture = {
   title: "遠距遊牧學院說明會",
   speaker: "校長 Harry",
   registerUrl: "https://webinar.travelwithwork.life/tww2_0419_landingpage-880799",
+  bannerImage: "/lectures/0419-banner.jpg",
+  bannerAlt: "遠距自由職涯下一步：2 小時把『對自由職涯的嚮往』變成『我已經在路上』｜主講 Harry",
   highlights: [
     {
       text: "屬於每個人的自由，你需要能夠清楚講出來",
