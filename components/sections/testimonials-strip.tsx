@@ -2,33 +2,7 @@
 
 import AutoScroll from "embla-carousel-auto-scroll"
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
-
-const strip = [
-  {
-    id: "case-a",
-    tag: "作品集 0 → 1",
-    quote: "第一次能很有底氣地把作品集連結貼在履歷裡，讓成果自己說話。",
-    identity: "科技公司 PM｜案例 A",
-  },
-  {
-    id: "case-b",
-    tag: "首筆線上收入",
-    quote: "兩週後收到第一筆線上訂閱收入，第一次相信接案可以慢慢累積變現。",
-    identity: "邊上班邊經營 IG 的設計人｜案例 B",
-  },
-  {
-    id: "case-c",
-    tag: "完成第一次海外旅居",
-    quote: "旅居不再只是想像中的夢，而是一個可以被規劃、也可以被重複的生活選項。",
-    identity: "台北工作 7 年的上班族｜案例 C",
-  },
-  {
-    id: "case-d",
-    tag: "服務定位 + Offer 上線",
-    quote: "第一次不是在收藏別人的故事，而是在寫自己的。",
-    identity: "行銷公司企劃，工作第四年｜案例 D",
-  },
-]
+import { featuredCases } from "@/data/student-cases"
 
 export function TestimonialsStrip() {
   const scrollToFull = () => {
@@ -61,7 +35,7 @@ export function TestimonialsStrip() {
           }}
           plugins={[
             AutoScroll({
-              speed: 0.6,
+              speed: 0.5,
               startDelay: 400,
               stopOnInteraction: false,
               stopOnMouseEnter: true,
@@ -70,7 +44,7 @@ export function TestimonialsStrip() {
           ]}
         >
           <CarouselContent className="-ml-3 sm:-ml-4">
-            {strip.map((item) => (
+            {featuredCases.map((item) => (
               <CarouselItem
                 key={item.id}
                 className="pl-3 sm:pl-4 basis-[82%] sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
@@ -88,7 +62,7 @@ export function TestimonialsStrip() {
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                     </svg>
-                    {item.tag}
+                    {item.pill}
                   </span>
 
                   {/* Quote */}
@@ -103,7 +77,7 @@ export function TestimonialsStrip() {
                   </p>
 
                   {/* Identity */}
-                  <p className="text-xs text-brand-text/70 pt-3 border-t border-brand-mist">
+                  <p className="text-xs text-brand-text/70 pt-3 border-t border-brand-mist line-clamp-2">
                     {item.identity}
                   </p>
                 </div>
