@@ -151,7 +151,7 @@ export function AnnouncementBar({ scrollToPricing, onEmailSubscribe }: Announcem
 
             {/* Free webinar link */}
             <a
-              href="https://www.accupass.com/organizer/detail/2509180637491342778166"
+              href="https://webinar.travelwithwork.life/tww2_0419_landingpage-880799"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}

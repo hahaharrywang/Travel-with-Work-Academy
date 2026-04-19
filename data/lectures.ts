@@ -44,7 +44,7 @@ export const weeklyLecture: Lecture = {
   tag: "每週日固定場",
   title: "遠距遊牧學院說明會",
   speaker: "校長 Harry",
-  registerUrl: "https://www.accupass.com/organizer/detail/2509180637491342778166",
+  registerUrl: "https://webinar.travelwithwork.life/tww2_0419_landingpage-880799",
   highlights: [
     {
       text: "屬於每個人的自由，你需要能夠清楚講出來",
