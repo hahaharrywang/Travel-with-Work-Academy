@@ -53,6 +53,11 @@ export function HeroSection() {
               {'不停薪、不 all-in，五個月找到適合你的遠距路徑。'}
             </p>
 
+            {/* Micro Proof */}
+            <p className="text-sm sm:text-base text-brand-gold font-bold leading-relaxed">
+              至今已累積 300+ 學員、1,800+ 線下社群參與人次
+            </p>
+
             {/* 適合誰 */}
             <p className="text-white/70 text-sm leading-relaxed">
               不管你是想找到一份遠距工作、用接案或內容創作多一條收入線，還是只是覺得「人生不該只有這樣」。
@@ -70,12 +75,7 @@ export function HeroSection() {
               </div>
               <div className="flex items-start gap-3">
                 <Globe className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-                <div className="flex-1">
-                  <p className="text-white/90 text-sm">整合線下小聚、國內外遊牧之旅、國際生態系入口</p>
-                  <p className="text-white/60 text-xs mt-1.5">
-                    至今已累積 <span className="text-white/90 font-medium">300+</span> 學員、<span className="text-white/90 font-medium">1,800+</span> 線下社群參與人次
-                  </p>
-                </div>
+                <p className="text-white/90 text-sm">整合線下小聚、國內外遊牧之旅、國際生態系入口</p>
               </div>
             </div>
 
@@ -149,6 +149,11 @@ export function HeroSection() {
             {'五個月找到適合你的遠距路徑。'}
           </p>
 
+          {/* Micro Proof */}
+          <p className="text-sm sm:text-base text-brand-gold font-bold leading-relaxed">
+            至今已累積 300+ 學員、1,800+ 線下社群參與人次
+          </p>
+
           {/* 適合誰 */}
           <p className="text-white/70 text-sm leading-relaxed">
             不管你是想找到一份遠距工作、
@@ -170,12 +175,7 @@ export function HeroSection() {
             </div>
             <div className="flex items-start gap-3">
               <Globe className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-              <div className="flex-1">
-                <p className="text-white/90 text-sm">整合線下小聚、國內外遊牧之旅、國際生態系入口</p>
-                <p className="text-white/60 text-xs mt-1.5">
-                  至今已累積 <span className="text-white/90 font-medium">300+</span> 學員、<span className="text-white/90 font-medium">1,800+</span> 線下社群參與人次
-                </p>
-              </div>
+              <p className="text-white/90 text-sm">整合線下小聚、國內外遊牧之旅、國際生態系入口</p>
             </div>
           </div>
 
