@@ -156,7 +156,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                 </tr>
                 <tr className="bg-brand-offwhite/60 border-b border-brand-mist/50">
                   <td className="px-6 py-4 text-sm font-semibold text-brand-teal">成長節奏</td>
-                  <td className="px-6 py-4 text-sm text-brand-text leading-relaxed">共 10 堂，��涵每月底同學交流發表會、復盤課、導師團體 QA、彈性課程、共創專案機會、工作坊許願池</td>
+                  <td className="px-6 py-4 text-sm text-brand-text leading-relaxed">共 10 堂，包含每月底同學交流發表會、復盤課、導師團體 QA、彈性課程、共創專案機會、工作坊許願池</td>
                   <td className="px-6 py-4 text-sm font-semibold text-brand-teal text-right whitespace-nowrap">NT$ 12,000</td>
                 </tr>
                 <tr>
@@ -184,7 +184,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                   <span className="text-sm font-semibold text-brand-teal">成長節奏</span>
                   <span className="text-sm font-semibold text-brand-teal whitespace-nowrap">NT$ 12,000</span>
                 </div>
-                <p className="text-xs text-brand-text/80 leading-relaxed">共 10 堂，包涵每月底同學交流發表會、復盤課、導師團體 QA、彈性課程、共創專案機會、工作坊許願池</p>
+                <p className="text-xs text-brand-text/80 leading-relaxed">共 10 堂，包含每月底同學交流發表會、復盤課、導師團體 QA、彈性課程、共創專案機會、工作坊許願池</p>
               </div>
               <div className="p-4">
                 <div className="flex items-center justify-between mb-1">
