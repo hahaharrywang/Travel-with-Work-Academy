@@ -156,7 +156,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                 </tr>
                 <tr className="bg-brand-offwhite/60 border-b border-brand-mist/50">
                   <td className="px-6 py-4 text-sm font-semibold text-brand-teal">成長節奏</td>
-                  <td className="px-6 py-4 text-sm text-brand-text leading-relaxed">共 10 堂，包涵每月底同學交流發表會、復盤課、導師團體 QA、彈性課程、共創專案機會、工作坊許願池</td>
+                  <td className="px-6 py-4 text-sm text-brand-text leading-relaxed">共 10 堂，��涵每月底同學交流發表會、復盤課、導師團體 QA、彈性課程、共創專案機會、工作坊許願池</td>
                   <td className="px-6 py-4 text-sm font-semibold text-brand-teal text-right whitespace-nowrap">NT$ 12,000</td>
                 </tr>
                 <tr>
@@ -434,7 +434,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
         {/* Disclaimer note */}
         <div className="rounded-xl bg-brand-mist/30 border border-brand-mist px-5 py-4 text-center mb-4">
           <p className="text-brand-text text-sm leading-relaxed">
-            <span className="font-semibold text-brand-teal">重要說明：</span>學院方案以「課程＋社群＋校友資格」為主；多數線下活動／工作坊／旅程為選配加購，校友皆享有專屬折扣。
+            <span className="font-semibold text-brand-teal">重要說明：</span>學院方案以「課程＋社群＋校友資格」為主；多數生態系中線下活動／工作坊／旅程為選配加購，校友皆享有專屬折扣。
           </p>
         </div>
 
