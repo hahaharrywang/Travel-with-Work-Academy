@@ -92,8 +92,8 @@ export function HeroSection() {
               </a>
             </div>
 
-            {/* 輔助句 */}
-            <p className="text-white/60 text-xs leading-relaxed">
+            {/* 輔助句 - 呼應金色 CTA 色系 */}
+            <p className="text-brand-gold/85 text-xs leading-relaxed">
               {'2 小時線上講座，免費｜聽懂你適不適合這條路、從哪裡開始。'}
             </p>
 
@@ -194,8 +194,8 @@ export function HeroSection() {
             </a>
           </div>
 
-          {/* 輔助句 */}
-          <p className="text-white/60 text-xs leading-relaxed text-center">
+          {/* 輔助句 - 呼應金色 CTA 色系 */}
+          <p className="text-brand-gold/85 text-xs leading-relaxed">
             {'2 小時線上講座，免費｜聽懂你適不適合這條路、從哪裡開始。'}
           </p>
 
