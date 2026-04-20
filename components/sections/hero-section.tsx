@@ -66,16 +66,21 @@ export function HeroSection() {
               </div>
               <div className="flex items-start gap-3">
                 <FileCheck className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-                <p className="text-white/90 text-sm">履歷、作品集、個人頁面，不再只是想過，可展示</p>
+                <p className="text-white/90 text-sm">履歷、作品集、個人頁面，成果可累積可展示</p>
               </div>
               <div className="flex items-start gap-3">
                 <Globe className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-                <p className="text-white/90 text-sm">整合線下小聚、國內外遊牧之旅、國際生態系入口</p>
+                <div className="flex-1">
+                  <p className="text-white/90 text-sm">整合線下小聚、國內外遊牧之旅、國際生態系入口</p>
+                  <p className="text-white/60 text-xs mt-1.5">
+                    至今已累積 <span className="text-white/90 font-medium">300+</span> 學員、<span className="text-white/90 font-medium">1,800+</span> 線下社群參與人次
+                  </p>
+                </div>
               </div>
             </div>
 
             {/* CTA 組：按鈕 + 輔助句，金色細邊框框成一組 */}
-            <div className="inline-flex flex-col items-start gap-3 rounded-2xl border border-brand-gold/40 bg-brand-gold/[0.04] px-5 py-4 sm:px-6 sm:py-5 mt-2 max-w-full">
+            <div className="inline-flex flex-col items-start gap-3 rounded-2xl border border-brand-gold/60 bg-brand-gold/[0.05] px-5 py-4 sm:px-6 sm:py-5 mt-2 max-w-full">
               <a
                 href="#free-lecture-section"
                 onClick={(e) => {
@@ -90,15 +95,10 @@ export function HeroSection() {
                 免費卡位講座
                 <span aria-hidden>{'→'}</span>
               </a>
-              <p className="text-brand-gold/90 text-xs sm:text-[13px] font-semibold leading-relaxed">
+              <p className="text-brand-gold text-xs sm:text-[13px] font-bold leading-relaxed">
                 {'2 小時線上講座，免費｜聽懂你適不適合這條路、從哪裡開始。'}
               </p>
             </div>
-
-            {/* Micro Proof */}
-            <p className="text-white/70 text-sm">
-              至今已累積 <span className="text-white font-medium">300+</span> 學員、<span className="text-white font-medium">1,800+</span> 線下社群參與人次
-            </p>
 
             {/* 錨點文字 */}
             <button
@@ -166,16 +166,21 @@ export function HeroSection() {
             </div>
             <div className="flex items-start gap-3">
               <FileCheck className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-              <p className="text-white/90 text-sm">履歷、作品集、個人頁面，不再只是想過，可展示</p>
+              <p className="text-white/90 text-sm">履歷、作品集、個人頁面，成果可累積可展示</p>
             </div>
             <div className="flex items-start gap-3">
               <Globe className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-              <p className="text-white/90 text-sm">整合線下小聚、國內外遊牧之旅、國際生態系入口</p>
+              <div className="flex-1">
+                <p className="text-white/90 text-sm">整合線下小聚、國內外遊牧之旅、國際生態系入口</p>
+                <p className="text-white/60 text-xs mt-1.5">
+                  至今已累積 <span className="text-white/90 font-medium">300+</span> 學員、<span className="text-white/90 font-medium">1,800+</span> 線下社群參與人次
+                </p>
+              </div>
             </div>
           </div>
 
           {/* CTA 組：按鈕 + 輔助句，金色細邊框框成一組 */}
-          <div className="inline-flex flex-col items-center gap-3 rounded-2xl border border-brand-gold/40 bg-brand-gold/[0.04] px-5 py-4 w-full max-w-sm mx-auto">
+          <div className="inline-flex flex-col items-center gap-3 rounded-2xl border border-brand-gold/60 bg-brand-gold/[0.05] px-5 py-4 w-full max-w-sm mx-auto">
             <a
               href="#free-lecture-section"
               onClick={(e) => {
@@ -190,21 +195,13 @@ export function HeroSection() {
               免費卡位講座
               <span aria-hidden>{'→'}</span>
             </a>
-            <p className="text-brand-gold/90 text-xs font-semibold leading-relaxed text-center">
+            <p className="text-brand-gold text-xs font-bold leading-relaxed text-center">
               {'2 小時線上講座，免費｜聽懂你適不適合這條路、從哪裡開始。'}
             </p>
           </div>
 
-          {/* Micro Proof */}
-          <p className="text-white/70 text-sm text-center">
-            至今已累積 <span className="text-white font-medium">300+</span> 學員、<span className="text-white font-medium">1,800+</span> 線下社群參與人次
-          </p>
-
           {/* 引導文案 */}
           <div className="pt-4 space-y-3 text-center">
-            <p className="text-white/70 text-sm leading-relaxed max-w-xs mx-auto">
-              AI時代下已經不缺資訊，你需要的是一個驗證過的決策指引＆環境，在未來五個月裡，有人陪你一起試、一起走、一起調整方向。
-            </p>
             <button
               onClick={() => {
                 document.getElementById("pain-points")?.scrollIntoView({ behavior: "smooth" })
