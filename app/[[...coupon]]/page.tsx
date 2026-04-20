@@ -622,7 +622,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   <h5 className="font-bold text-brand-teal text-base lg:text-lg">{'成長節奏'}</h5>
                 </div>
                 <p className="text-brand-text/80 text-sm lg:text-base leading-relaxed pl-[52px]">
-                  {'固定��表、線上同學會 / 團體 QA / DemoDay，互相學習、彼此督促跟上進��'}
+                  {'固定課表、線上同學會 / 團體 QA / DemoDay，互相學習、彼此督促跟上進度'}
                 </p>
               </div>
             </div>
