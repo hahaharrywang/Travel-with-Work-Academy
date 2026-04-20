@@ -179,7 +179,9 @@ export function HeroSection() {
 
           {/* 適合誰 */}
           <p className="text-white/70 text-sm leading-relaxed">
-            不管你是想找到一份遠距工作、用接案或內容創作多一條收入線，
+            不管你是想找到一份遠距工作、
+            <br />
+            用接案或內容創作多一條收入線，
             <br />
             還是只是覺得「人生不該只有這樣」。
           </p>
