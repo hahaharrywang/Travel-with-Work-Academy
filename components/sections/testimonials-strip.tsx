@@ -35,7 +35,7 @@ export function TestimonialsStrip() {
           }}
           plugins={[
             AutoScroll({
-              speed: 0.5,
+              speed: 0.9,
               startDelay: 400,
               stopOnInteraction: false,
               stopOnMouseEnter: true,
