@@ -58,27 +58,11 @@ export function HeroSection() {
               不管你是想找到一份遠距工作、用接案或內容創作多一條收入線，還是只是覺得「人生不該只有這樣」。
             </p>
 
-            {/* 膠囊標籤 */}
-            <div className="flex flex-wrap gap-2">
-              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
-                遠端上班 × 自由接案
-              </span>
-              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
-                不停薪開始
-              </span>
-              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
-                5 個月有節奏
-              </span>
-              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
-                可展示成果
-              </span>
-            </div>
-
             {/* 3 個精簡賣點 */}
             <div className="space-y-2">
               <div className="flex items-start gap-3">
                 <Layers className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-                <p className="text-white/90 text-sm">遠端上班 × 接案雙軌並行，可雙修、也可單線</p>
+                <p className="text-white/90 text-sm">遠端上班 × 自由接案｜雙軌並行，可雙修、也可單線</p>
               </div>
               <div className="flex items-start gap-3">
                 <FileCheck className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
@@ -105,16 +89,6 @@ export function HeroSection() {
                 </svg>
                 免費卡位講座
                 <span aria-hidden>{'→'}</span>
-              </a>
-              <a
-                href="#learning-map"
-                onClick={(e) => {
-                  e.preventDefault()
-                  document.getElementById("learning-map")?.scrollIntoView({ behavior: "smooth" })
-                }}
-                className="inline-flex items-center gap-2 border border-white/30 text-white/80 hover:text-brand-gold hover:border-brand-gold/50 font-medium text-sm px-5 py-2.5 rounded-full transition-colors duration-200"
-              >
-                看完整 5 個月怎麼走
               </a>
             </div>
 
@@ -186,27 +160,11 @@ export function HeroSection() {
             還是只是覺得「人生不該只有這樣」。
           </p>
 
-          {/* 膠囊標籤 */}
-          <div className="flex flex-wrap justify-center gap-2">
-            <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
-              遠端上班 × 自由接案
-            </span>
-            <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
-              不停薪開始
-            </span>
-            <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
-              5 個月有節奏
-            </span>
-            <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
-              可展示成果
-            </span>
-          </div>
-
           {/* 3 個精簡賣點 */}
           <div className="space-y-2 text-left max-w-sm mx-auto">
             <div className="flex items-start gap-3">
               <Layers className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-              <p className="text-white/90 text-sm">遠端上班 × 接案雙軌並行，可雙修、也可單線</p>
+              <p className="text-white/90 text-sm">遠端上班 × 自由接案｜雙軌並行，可雙修、也可單線</p>
             </div>
             <div className="flex items-start gap-3">
               <FileCheck className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
@@ -233,16 +191,6 @@ export function HeroSection() {
               </svg>
               免費卡位講座
               <span aria-hidden>{'→'}</span>
-            </a>
-            <a
-              href="#learning-map"
-              onClick={(e) => {
-                e.preventDefault()
-                document.getElementById("learning-map")?.scrollIntoView({ behavior: "smooth" })
-              }}
-              className="inline-flex items-center gap-2 border border-white/30 text-white/80 hover:text-brand-gold hover:border-brand-gold/50 font-medium text-sm px-5 py-2.5 rounded-full transition-colors duration-200"
-            >
-              看完整 5 個月怎麼走
             </a>
           </div>
 
