@@ -9,11 +9,11 @@ export function TestimonialsStrip() {
     <section
       id="testimonials-strip"
       aria-label="學員成果速覽"
-      className="bg-brand-offwhite py-12 sm:py-16"
+      className="bg-brand-offwhite py-5 sm:py-6"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header with decorative line */}
-        <div className="flex items-center justify-center gap-3 mb-8 sm:mb-10">
+        {/* Kicker with decorative line */}
+        <div className="flex items-center justify-center gap-3 mb-4 sm:mb-5">
           <span className="h-px w-8 sm:w-12 bg-brand-gold/60" aria-hidden />
           <p className="text-xs sm:text-sm font-medium text-brand-teal tracking-wide">
             第一屆 <span className="font-bold">300+</span> 學員已在路上
@@ -83,7 +83,7 @@ export function TestimonialsStrip() {
         </Carousel>
 
         {/* Helper text */}
-        <p className="text-center text-xs sm:text-sm text-brand-text/60 mt-6 sm:mt-8">
+        <p className="text-center text-xs sm:text-sm text-brand-text/60 mt-3 sm:mt-4">
           下方看完整學員案例故事
           <span aria-hidden className="ml-1">{'↓'}</span>
         </p>

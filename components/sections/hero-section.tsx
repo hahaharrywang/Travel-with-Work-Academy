@@ -53,36 +53,25 @@ export function HeroSection() {
               {'不停薪、不 all-in，五個月找到適合你的遠距路徑。'}
             </p>
 
+            {/* Micro Proof */}
+            <p className="text-sm sm:text-base text-brand-gold font-bold leading-relaxed">
+              至今已累積 300+ 學員、1,800+ 線下社群參與人次
+            </p>
+
             {/* 適合誰 */}
             <p className="text-white/70 text-sm leading-relaxed">
               不管你是想找到一份遠距工作、用接案或內容創作多一條收入線，還是只是覺得「人生不該只有這樣」。
             </p>
 
-            {/* 膠囊標籤 */}
-            <div className="flex flex-wrap gap-2">
-              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
-                遠端上班 × 自由接案
-              </span>
-              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
-                不停薪開始
-              </span>
-              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
-                5 個月有節奏
-              </span>
-              <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
-                可展示成果
-              </span>
-            </div>
-
             {/* 3 個精簡賣點 */}
             <div className="space-y-2">
               <div className="flex items-start gap-3">
                 <Layers className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-                <p className="text-white/90 text-sm">遠端上班 × 接案雙軌並行，可雙修、也可單線</p>
+                <p className="text-white/90 text-sm">遠端上班 × 自由接案｜雙軌並行，可雙修、也可單線</p>
               </div>
               <div className="flex items-start gap-3">
                 <FileCheck className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-                <p className="text-white/90 text-sm">履歷、作品集、個人頁面，不再只是想過，可展示</p>
+                <p className="text-white/90 text-sm">履歷、作品集、個人頁面，成果可累積可展示</p>
               </div>
               <div className="flex items-start gap-3">
                 <Globe className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
@@ -90,8 +79,11 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* CTA Buttons - side by side */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
+            {/* CTA 組：輔助句 + 按鈕，金色細邊框框成一組 */}
+            <div className="inline-flex flex-col items-start gap-3 rounded-2xl border border-brand-gold/60 bg-brand-gold/[0.05] px-5 py-4 sm:px-6 sm:py-5 mt-2 max-w-full">
+              <p className="text-brand-gold text-xs sm:text-[13px] font-bold leading-relaxed">
+                {'免費直播講座｜聽懂你適不適合這條路、從哪裡開始。'}
+              </p>
               <a
                 href="#free-lecture-section"
                 onClick={(e) => {
@@ -106,27 +98,7 @@ export function HeroSection() {
                 免費卡位講座
                 <span aria-hidden>{'→'}</span>
               </a>
-              <a
-                href="#learning-map"
-                onClick={(e) => {
-                  e.preventDefault()
-                  document.getElementById("learning-map")?.scrollIntoView({ behavior: "smooth" })
-                }}
-                className="inline-flex items-center gap-2 border border-white/30 text-white/80 hover:text-brand-gold hover:border-brand-gold/50 font-medium text-sm px-5 py-2.5 rounded-full transition-colors duration-200"
-              >
-                看完整 5 個月怎麼走
-              </a>
             </div>
-
-            {/* 輔助句 */}
-            <p className="text-white/60 text-xs leading-relaxed">
-              {'2 小時線上講座，免費｜聽懂你適不適合這條路、從哪裡開始。'}
-            </p>
-
-            {/* Micro Proof */}
-            <p className="text-white/70 text-sm">
-              至今已累積 <span className="text-white font-medium">300+</span> 學員、<span className="text-white font-medium">1,800+</span> 線下社群參與人次
-            </p>
 
             {/* 錨點文字 */}
             <button
@@ -177,38 +149,29 @@ export function HeroSection() {
             {'五個月找到適合你的遠距路徑。'}
           </p>
 
+          {/* Micro Proof */}
+          <p className="text-sm sm:text-base text-brand-gold font-bold leading-relaxed">
+            至今已累積 300+ 學員、1,800+ 線下社群參與人次
+          </p>
+
           {/* 適合誰 */}
           <p className="text-white/70 text-sm leading-relaxed">
-            不管你是想找到一份遠距工作、用接案或內容創作多一條收入線，
+            不管你是想找到一份遠距工作、
+            <br />
+            用接案或內容創作多一條收入線，
             <br />
             還是只是覺得「人生不該只有這樣」。
           </p>
-
-          {/* 膠囊標籤 */}
-          <div className="flex flex-wrap justify-center gap-2">
-            <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
-              遠端上班 × 自由接案
-            </span>
-            <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
-              不停薪開始
-            </span>
-            <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
-              5 個月有節奏
-            </span>
-            <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 text-white/90 text-sm border border-white/20">
-              可展示成果
-            </span>
-          </div>
 
           {/* 3 個精簡賣點 */}
           <div className="space-y-2 text-left max-w-sm mx-auto">
             <div className="flex items-start gap-3">
               <Layers className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-              <p className="text-white/90 text-sm">遠端上班 × 接案雙軌並行，可雙修、也可單線</p>
+              <p className="text-white/90 text-sm">遠端上班 × 自由接案｜雙軌並行，可雙修、也可單線</p>
             </div>
             <div className="flex items-start gap-3">
               <FileCheck className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
-              <p className="text-white/90 text-sm">履歷、作品集、個人頁面，不再只是想過，可展示</p>
+              <p className="text-white/90 text-sm">履歷、作品集、個人頁面，成果可累積可展示</p>
             </div>
             <div className="flex items-start gap-3">
               <Globe className="w-5 h-5 text-brand-gold mt-0.5 flex-shrink-0" />
@@ -216,8 +179,11 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* CTA Buttons - 主 + 次 */}
-          <div className="flex flex-col items-center gap-3">
+          {/* CTA 組：輔助句 + 按鈕，金色細邊框框成一組 */}
+          <div className="inline-flex flex-col items-center gap-3 rounded-2xl border border-brand-gold/60 bg-brand-gold/[0.05] px-5 py-4 w-full max-w-sm mx-auto">
+            <p className="text-brand-gold text-xs font-bold leading-relaxed text-center">
+              {'免費直播講座｜聽懂你適不適合這條路、從哪裡開始。'}
+            </p>
             <a
               href="#free-lecture-section"
               onClick={(e) => {
@@ -232,33 +198,10 @@ export function HeroSection() {
               免費卡位講座
               <span aria-hidden>{'→'}</span>
             </a>
-            <a
-              href="#learning-map"
-              onClick={(e) => {
-                e.preventDefault()
-                document.getElementById("learning-map")?.scrollIntoView({ behavior: "smooth" })
-              }}
-              className="inline-flex items-center gap-2 border border-white/30 text-white/80 hover:text-brand-gold hover:border-brand-gold/50 font-medium text-sm px-5 py-2.5 rounded-full transition-colors duration-200"
-            >
-              看完整 5 個月怎麼走
-            </a>
           </div>
-
-          {/* 輔助句 */}
-          <p className="text-white/60 text-xs leading-relaxed text-center">
-            {'2 小時線上講座，免費｜聽懂你適不適合這條路、從哪裡開始。'}
-          </p>
-
-          {/* Micro Proof */}
-          <p className="text-white/70 text-sm text-center">
-            至今已累積 <span className="text-white font-medium">300+</span> 學員、<span className="text-white font-medium">1,800+</span> 線下社群參與人次
-          </p>
 
           {/* 引導文案 */}
           <div className="pt-4 space-y-3 text-center">
-            <p className="text-white/70 text-sm leading-relaxed max-w-xs mx-auto">
-              AI時代下已經不缺資訊，你需要的是一個驗證過的決策指引＆環境，在未來五個月裡，有人陪你一起試、一起走、一起調整方向。
-            </p>
             <button
               onClick={() => {
                 document.getElementById("pain-points")?.scrollIntoView({ behavior: "smooth" })
