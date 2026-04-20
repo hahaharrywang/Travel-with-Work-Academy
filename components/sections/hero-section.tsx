@@ -79,8 +79,11 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* CTA 組：按鈕 + 輔助句，金色細邊框框成一組 */}
+            {/* CTA 組：輔助句 + 按鈕，金色細邊框框成一組 */}
             <div className="inline-flex flex-col items-start gap-3 rounded-2xl border border-brand-gold/60 bg-brand-gold/[0.05] px-5 py-4 sm:px-6 sm:py-5 mt-2 max-w-full">
+              <p className="text-brand-gold text-xs sm:text-[13px] font-bold leading-relaxed">
+                {'免費直播講座｜聽懂你適不適合這條路、從哪裡開始。'}
+              </p>
               <a
                 href="#free-lecture-section"
                 onClick={(e) => {
@@ -95,9 +98,6 @@ export function HeroSection() {
                 免費卡位講座
                 <span aria-hidden>{'→'}</span>
               </a>
-              <p className="text-brand-gold text-xs sm:text-[13px] font-bold leading-relaxed">
-                {'2 小時線上講座，免費｜聽懂你適不適合這條路、從哪裡開始。'}
-              </p>
             </div>
 
             {/* 錨點文字 */}
@@ -179,8 +179,11 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* CTA 組：按鈕 + 輔助句，金色細邊框框成一組 */}
+          {/* CTA 組：輔助句 + 按鈕，金色細邊框框成一組 */}
           <div className="inline-flex flex-col items-center gap-3 rounded-2xl border border-brand-gold/60 bg-brand-gold/[0.05] px-5 py-4 w-full max-w-sm mx-auto">
+            <p className="text-brand-gold text-xs font-bold leading-relaxed text-center">
+              {'免費直播講座｜聽懂你適不適合這條路、從哪裡開始。'}
+            </p>
             <a
               href="#free-lecture-section"
               onClick={(e) => {
@@ -195,9 +198,6 @@ export function HeroSection() {
               免費卡位講座
               <span aria-hidden>{'→'}</span>
             </a>
-            <p className="text-brand-gold text-xs font-bold leading-relaxed text-center">
-              {'2 小時線上講座，免費｜聽懂你適不適合這條路、從哪裡開始。'}
-            </p>
           </div>
 
           {/* 引導文案 */}
