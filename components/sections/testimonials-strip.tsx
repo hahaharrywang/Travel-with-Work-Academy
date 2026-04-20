@@ -15,10 +15,7 @@ export function TestimonialsStrip() {
         {/* Section heading */}
         <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-brand-teal leading-relaxed text-balance">
-            AI 時代下已經不缺資訊，你需要的是一個驗證過的決策指引＆環境，
-            <span className="block mt-2 text-brand-gold">
-              在未來五個月裡，有人陪你一起試、一起走、一起調整方向。
-            </span>
+            AI 時代下已經不缺資訊，你需要的是一個驗證過的決策指引＆環境。
           </h2>
         </div>
 
