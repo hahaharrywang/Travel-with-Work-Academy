@@ -74,8 +74,8 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* CTA Buttons - side by side */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
+            {/* CTA 組：按鈕 + 輔助句，金色細邊框框成一組 */}
+            <div className="inline-flex flex-col items-start gap-3 rounded-2xl border border-brand-gold/40 bg-brand-gold/[0.04] px-5 py-4 sm:px-6 sm:py-5 mt-2 max-w-full">
               <a
                 href="#free-lecture-section"
                 onClick={(e) => {
@@ -90,12 +90,10 @@ export function HeroSection() {
                 免費卡位講座
                 <span aria-hidden>{'→'}</span>
               </a>
+              <p className="text-brand-gold/90 text-xs sm:text-[13px] font-semibold leading-relaxed">
+                {'2 小時線上講座，免費｜聽懂你適不適合這條路、從哪裡開始。'}
+              </p>
             </div>
-
-            {/* 輔助句 - 呼應金色 CTA 色系 */}
-            <p className="text-brand-gold/85 text-xs leading-relaxed">
-              {'2 小時線上講座，免費｜聽懂你適不適合這條路、從哪裡開始。'}
-            </p>
 
             {/* Micro Proof */}
             <p className="text-white/70 text-sm">
@@ -176,8 +174,8 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* CTA Buttons - 主 + 次 */}
-          <div className="flex flex-col items-center gap-3">
+          {/* CTA 組：按鈕 + 輔助句，金色細邊框框成一組 */}
+          <div className="inline-flex flex-col items-center gap-3 rounded-2xl border border-brand-gold/40 bg-brand-gold/[0.04] px-5 py-4 w-full max-w-sm mx-auto">
             <a
               href="#free-lecture-section"
               onClick={(e) => {
@@ -192,12 +190,10 @@ export function HeroSection() {
               免費卡位講座
               <span aria-hidden>{'→'}</span>
             </a>
+            <p className="text-brand-gold/90 text-xs font-semibold leading-relaxed text-center">
+              {'2 小時線上講座，免費｜聽懂你適不適合這條路、從哪裡開始。'}
+            </p>
           </div>
-
-          {/* 輔助句 - 呼應金色 CTA 色系 */}
-          <p className="text-brand-gold/85 text-xs leading-relaxed">
-            {'2 小時線上講座，免費｜聽懂你適不適合這條路、從哪裡開始。'}
-          </p>
 
           {/* Micro Proof */}
           <p className="text-white/70 text-sm text-center">
