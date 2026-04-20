@@ -5,10 +5,6 @@ import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carouse
 import { featuredCases } from "@/data/student-cases"
 
 export function TestimonialsStrip() {
-  const scrollToFull = () => {
-    document.getElementById("student-results")?.scrollIntoView({ behavior: "smooth" })
-  }
-
   return (
     <section
       id="testimonials-strip"
@@ -86,17 +82,11 @@ export function TestimonialsStrip() {
           </CarouselContent>
         </Carousel>
 
-        {/* CTA button */}
-        <div className="flex justify-center mt-8 sm:mt-10">
-          <button
-            type="button"
-            onClick={scrollToFull}
-            className="inline-flex items-center gap-2 border border-brand-teal/40 text-brand-teal font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-brand-teal hover:text-white hover:border-brand-teal transition-colors duration-200"
-          >
-            下方看完整學員案例故事
-            <span aria-hidden>{'↓'}</span>
-          </button>
-        </div>
+        {/* Helper text */}
+        <p className="text-center text-xs sm:text-sm text-brand-text/60 mt-6 sm:mt-8">
+          下方看完整學員案例故事
+          <span aria-hidden className="ml-1">{'↓'}</span>
+        </p>
       </div>
     </section>
   )
