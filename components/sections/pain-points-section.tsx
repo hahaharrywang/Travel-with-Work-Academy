@@ -25,21 +25,15 @@ export function PainPointsSection() {
       <div className="lg:hidden py-10 sm:py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
           {/* Section Title */}
-          <div className="text-center mb-8 max-w-3xl mx-auto">
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white leading-relaxed text-balance">
-              AI 時代下已經不缺資訊，你需要的是一個驗證過的決策指引＆環境，
-              <span className="block mt-2 text-brand-gold">
-                在未來五個月裡，有人陪你一起試、一起走、一起調整方向。
-              </span>
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 text-balance">
+              不是你不努力，而是拼圖還有缺
             </h2>
-            <div className="mt-5 flex items-center justify-center gap-2 opacity-80">
+            <div className="flex items-center justify-center gap-2 opacity-80">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>
               <span className="w-1.5 h-1.5 rounded-full bg-brand-teal"></span>
               <span className="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>
             </div>
-            <p className="mt-4 text-sm sm:text-base text-white/75">
-              不是你不努力，而是拼圖還有缺
-            </p>
           </div>
 
           {/* Pain Points List - Gold vertical line (compact version) */}
