@@ -119,8 +119,8 @@ export function StudentCasesModal({ isOpen, onClose }: StudentCasesModalProps) {
             </div>
 
             {/* Footer note */}
-            <p className="text-center text-xs text-brand-text/60 mt-8 leading-relaxed">
-              所有案例已去識別化，學員版本的完整原文可於內部查閱。
+            <p className="text-center text-sm font-semibold text-brand-teal mt-8 leading-relaxed">
+              還有更多未收錄的路上故事，都在學院中發生 ...
             </p>
           </div>
         </DialogContent>
