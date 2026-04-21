@@ -156,12 +156,12 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                 </tr>
                 <tr className="bg-brand-offwhite/60 border-b border-brand-mist/50">
                   <td className="px-6 py-4 text-sm font-semibold text-brand-teal">成長節奏</td>
-                  <td className="px-6 py-4 text-sm text-brand-text leading-relaxed">10 堂：每月底同學交流發表會、復盤、團體 QA、共創專案機會</td>
-                  <td className="px-6 py-4 text-sm font-semibold text-brand-teal text-right whitespace-nowrap">NT$ 7,500</td>
+                  <td className="px-6 py-4 text-sm text-brand-text leading-relaxed">共 10 堂，包含每月底同學交流發表會、復盤課、導師團體 QA、彈性課程、共創專案機會、工作坊許願池</td>
+                  <td className="px-6 py-4 text-sm font-semibold text-brand-teal text-right whitespace-nowrap">NT$ 12,000</td>
                 </tr>
                 <tr>
                   <td className="px-6 py-4 text-sm font-semibold text-brand-teal">終身校友資格</td>
-                  <td className="px-6 py-4 text-sm text-brand-text leading-relaxed">最新世界遊牧資訊、LinkedIn 校友連結、生態系活動折扣</td>
+                  <td className="px-6 py-4 text-sm text-brand-text leading-relaxed">最新世界遊牧資訊、Line 校友群、LinkedIn 校友連結、生態系活動折扣 ... 等持續累積之資源</td>
                   <td className="px-6 py-4 text-sm font-semibold text-brand-teal text-right whitespace-nowrap">
                     NT$ 6,000
                     <span className="block text-xs font-normal text-brand-text/60 mt-0.5">(持續漲價)</span>
@@ -182,9 +182,9 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
               <div className="p-4 bg-brand-offwhite/60">
                 <div className="flex items-center justify-between mb-1">
                   <span className="text-sm font-semibold text-brand-teal">成長節奏</span>
-                  <span className="text-sm font-semibold text-brand-teal whitespace-nowrap">NT$ 7,500</span>
+                  <span className="text-sm font-semibold text-brand-teal whitespace-nowrap">NT$ 12,000</span>
                 </div>
-                <p className="text-xs text-brand-text/80 leading-relaxed">10 堂：每月底同學交流發表會、復盤、團體 QA、共創專案機會</p>
+                <p className="text-xs text-brand-text/80 leading-relaxed">共 10 堂，包含每月底同學交流發表會、復盤課、導師團體 QA、彈性課程、共創專案機會、工作坊許願池</p>
               </div>
               <div className="p-4">
                 <div className="flex items-center justify-between mb-1">
@@ -194,7 +194,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                     <div className="text-[10px] text-brand-text/60">(持續漲價)</div>
                   </div>
                 </div>
-                <p className="text-xs text-brand-text/80 leading-relaxed">最新世界遊牧資訊、LinkedIn 校友連結、生態系活動折扣</p>
+                <p className="text-xs text-brand-text/80 leading-relaxed">最新世界遊牧資訊、Line 校友群、LinkedIn 校友連結、生態系活動折扣 ... 等持續累積之資源</p>
               </div>
             </div>
 
@@ -207,7 +207,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                   <p className="text-[11px] sm:text-xs text-white/50 mt-0.5">市價合計（還不包括你找資源、統整的時間）</p>
                 </div>
                 <span className="text-lg sm:text-xl font-semibold text-white/85 line-through decoration-white/40">
-                  NT$ 37,500
+                  NT$ 42,000
                 </span>
               </div>
 
@@ -216,7 +216,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                 <div>
                   <p className="text-sm sm:text-base text-white">{'整套打包進學院'}</p>
                   <p className="text-[11px] sm:text-xs text-brand-gold mt-0.5">
-                    {'先幫你省 NT$ 11,000'}
+                    {'先幫你省 NT$ 15,500'}
                   </p>
                 </div>
                 <span className="text-xl sm:text-2xl font-bold text-white">
@@ -434,7 +434,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
         {/* Disclaimer note */}
         <div className="rounded-xl bg-brand-mist/30 border border-brand-mist px-5 py-4 text-center mb-4">
           <p className="text-brand-text text-sm leading-relaxed">
-            <span className="font-semibold text-brand-teal">重要說明：</span>學院方案以「課程＋社群＋校友資格」為主；多數線下活動／工作坊／旅程為選配加購，校友皆享有專屬折扣。
+            <span className="font-semibold text-brand-teal">重要說明：</span>學院方案以「課程＋社群＋校友資格」為主；多數生態系中線下活動／工作坊／旅程為選配加購，校友皆享有專屬折扣。
           </p>
         </div>
 

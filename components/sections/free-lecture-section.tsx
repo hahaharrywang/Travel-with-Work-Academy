@@ -87,14 +87,14 @@ export function FreeLectureSection() {
             </div>
 
             <div className="relative p-6 sm:p-10">
-              {/* Banner 圖片 - 絕對定位於右上角，點擊跳轉報名連結 */}
+              {/* Banner 圖片 - 桌機版絕對定位於右上角，點擊跳轉報名連結 */}
               {weeklyLecture.bannerImage && (
                 <a
                   href={weeklyLecture.registerUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="點擊查看講座詳情與報名"
-                  className="absolute top-4 right-4 sm:top-6 sm:right-6 w-40 sm:w-64 lg:w-80 rounded-lg overflow-hidden shadow-lg ring-1 ring-white/10 hover:ring-brand-gold/60 transition-all duration-200 z-10 group"
+                  className="hidden sm:block absolute top-5 right-5 sm:w-72 md:w-80 lg:w-[24rem] xl:w-[28rem] rounded-lg overflow-hidden shadow-lg ring-1 ring-white/10 hover:ring-brand-gold/60 transition-all duration-200 z-10 group"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -105,8 +105,8 @@ export function FreeLectureSection() {
                 </a>
               )}
 
-              {/* 文字內容區 - 右側預留 banner 空間避免被壓住 */}
-              <div className={weeklyLecture.bannerImage ? "pr-44 sm:pr-72 lg:pr-[22rem]" : ""}>
+              {/* 文字內容區 - 桌機版右側預留 banner 空間避免被壓住 */}
+              <div className={weeklyLecture.bannerImage ? "sm:pr-[20rem] md:pr-[22rem] lg:pr-[26rem] xl:pr-[30rem]" : ""}>
                 {/* Top row: tag + date */}
                 <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-5">
                   <span className="inline-flex items-center gap-1.5 bg-brand-gold/20 text-brand-gold border border-brand-gold/40 text-xs sm:text-sm font-semibold px-3 py-1 rounded-full">
@@ -152,6 +152,24 @@ export function FreeLectureSection() {
                     ))}
                   </ul>
                 </div>
+              )}
+
+              {/* Banner 圖片 - 手機版顯示於 CTA 上方 */}
+              {weeklyLecture.bannerImage && (
+                <a
+                  href={weeklyLecture.registerUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="點擊查看講座詳情與報名"
+                  className="sm:hidden block w-full mb-5 rounded-lg overflow-hidden shadow-lg ring-1 ring-white/10 hover:ring-brand-gold/60 transition-all duration-200 group"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={weeklyLecture.bannerImage}
+                    alt={weeklyLecture.bannerAlt || weeklyLecture.title}
+                    className="block w-full h-auto group-hover:scale-[1.02] transition-transform duration-200"
+                  />
+                </a>
               )}
 
               {/* CTA */}

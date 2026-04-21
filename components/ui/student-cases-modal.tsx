@@ -96,20 +96,15 @@ export function StudentCasesModal({ isOpen, onClose }: StudentCasesModalProps) {
           onEscapeKeyDown={onClose}
         >
           {/* Sticky header */}
-          <DialogHeader className="sticky top-0 z-10 bg-brand-teal text-white px-5 py-4 sm:px-8 sm:py-5 border-b border-brand-teal/30 flex-row items-start justify-between space-y-0">
-            <div className="flex-1 min-w-0 pr-4 text-left">
-              <DialogTitle className="text-lg sm:text-xl font-bold text-white text-pretty">
-                更多學員案例故事
-              </DialogTitle>
-              <p className="text-xs sm:text-sm text-white/70 mt-1 text-pretty">
-                另外 {extendedCases.length} 位學員，橫跨接案、遠端上班、雙軌、家庭旅居四條路線
-              </p>
-            </div>
+          <DialogHeader className="sticky top-0 z-10 bg-brand-teal text-white px-5 py-4 sm:px-8 sm:py-5 border-b border-brand-teal/30 flex-row items-center justify-center space-y-0">
+            <DialogTitle className="flex-1 text-center text-lg sm:text-xl font-bold text-white text-pretty">
+              更多學員案例故事
+            </DialogTitle>
             <button
               type="button"
               onClick={onClose}
               aria-label="關閉"
-              className="flex-shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+              className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -124,8 +119,8 @@ export function StudentCasesModal({ isOpen, onClose }: StudentCasesModalProps) {
             </div>
 
             {/* Footer note */}
-            <p className="text-center text-xs text-brand-text/60 mt-8 leading-relaxed">
-              所有案例已去識別化，學員版本的完整原文可於內部查閱。
+            <p className="text-center text-sm font-semibold text-brand-teal mt-8 leading-relaxed">
+              還有更多未收錄的路上故事，都在學院中發生 ...
             </p>
           </div>
         </DialogContent>
