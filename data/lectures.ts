@@ -48,9 +48,9 @@ export const weeklyLecture: Lecture = {
   tag: "每週日固定場",
   title: "遠距遊牧學院說明會",
   speaker: "校長 Harry",
-  registerUrl: "https://webinar.travelwithwork.life/tww2_0419_landingpage-880799",
-  bannerImage: "/lectures/0419-banner.jpg",
-  bannerAlt: "遠距自由職涯下一步：2 小時把『對自由職涯的嚮往』變成『我已經在路上』｜主講 Harry",
+  registerUrl: "https://webinar.travelwithwork.life/tww2_0426_landingpage-880799",
+  bannerImage: "/lectures/0426-banner.png",
+  bannerAlt: "不是你做不到遠距／接案，只是你還沒看清楚，自己適合怎麼開始｜主講 Harry",
   highlights: [
     {
       text: "屬於每個人的自由，你需要能夠清楚講出來",
