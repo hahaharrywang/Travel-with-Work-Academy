@@ -74,7 +74,7 @@ export function FreeLectureSection() {
               <span className="block sm:inline">{"2 小時搞懂你的遠距下一步"}</span>
             </h3>
             <p className="text-sm sm:text-base text-brand-text/75 leading-relaxed">
-              {"每週日晚 9pm 固定開講，不定期加場合作講座 & 主題工作坊"}
+              {"每週日晚 8pm 固定開講，不定期加場合作講座 & 主題工作坊"}
             </p>
           </div>
 
