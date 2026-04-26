@@ -1,8 +1,8 @@
 /**
  * Lectures / Events data
  *
- * - Weekly 類型是遠距遊牧學院的每週日固定說明會（台灣時間 21:00）
- *   - 日期自動計算為下一個週日 21:00，不需要每週手動更新
+ * - Weekly 類型是遠距遊牧學院的每週日固定說明會（台灣時間 20:00）
+ *   - 日期自動計算為下一個週日 20:00，不需要每週手動更新
  * - Collab / Workshop 類型為不定期加開場次，須手動維護
  * - 加新場次時只要在 upcomingLectures 陣列中新增物件即可
  */
@@ -30,7 +30,7 @@ export type Lecture = {
   registerUrl: string
   /**
    * 特定日期時間（ISO string with timezone, e.g. "2026-05-10T20:00:00+08:00"）
-   * weekly 類型可留空，會自動計算下個週日 21:00
+   * weekly 類型可留空，會自動計算下個週日 20:00
    */
   startAt?: string
   /** 活動 banner 圖片（放在 /public 下的路徑，例如 "/lectures/0419-banner.jpg"） */
@@ -89,12 +89,12 @@ export const weeklyLecture: Lecture = {
 export const upcomingLectures: Lecture[] = []
 
 /**
- * 計算「下個週日 21:00（台灣時間）」並回傳顯示用字串
- * - 如果今天就是週日且 < 21:00，回傳今天 21:00
- * - 否則回傳下一個週日 21:00
+ * 計算「下個週日 20:00（台灣時間）」並回傳顯示用字串
+ * - 如果今天就是週日且 < 20:00，回傳今天 20:00
+ * - 否則回傳下一個週日 20:00
  *
  * 回傳格式：{ dateLabel, timeLabel, iso }
- * 例：{ dateLabel: "4/20（週日）", timeLabel: "21:00", iso: "..." }
+ * 例：{ dateLabel: "4/20（週日）", timeLabel: "20:00", iso: "..." }
  */
 export function getNextSundayNineTaipei(now: Date = new Date()): {
   dateLabel: string
@@ -133,7 +133,7 @@ export function getNextSundayNineTaipei(now: Date = new Date()): {
 
   // 決定目標日期（今天 or 下週日）
   let daysToAdd: number
-  if (taipeiWeekday === 0 && (hour < 21 || (hour === 21 && minute === 0))) {
+  if (taipeiWeekday === 0 && (hour < 20 || (hour === 20 && minute === 0))) {
     daysToAdd = 0
   } else {
     daysToAdd = (7 - taipeiWeekday) % 7
@@ -149,10 +149,10 @@ export function getNextSundayNineTaipei(now: Date = new Date()): {
   const tDay = target.getUTCDate()
 
   const dateLabel = `${tMonth}/${tDay}（週日）`
-  const timeLabel = "21:00"
+  const timeLabel = "20:00"
   // ISO with +08:00
   const pad = (n: number) => String(n).padStart(2, "0")
-  const iso = `${target.getUTCFullYear()}-${pad(tMonth)}-${pad(tDay)}T21:00:00+08:00`
+  const iso = `${target.getUTCFullYear()}-${pad(tMonth)}-${pad(tDay)}T20:00:00+08:00`
 
   return { dateLabel, timeLabel, iso }
 }

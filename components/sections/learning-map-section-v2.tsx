@@ -45,7 +45,7 @@ export function LearningMapSectionV2({ onOpenCourseDetail, onOpenWeeklySchedule 
       {
         phase: "8-9月",
         course: "留任策略＆溝通",
-        description: "找到工作不是終點，走得久才是。思考留任、溝通與節奏管理，讓遠端工作成為可持續的生活方式。",
+        description: "從思維、協作到長期職涯策略，這堂課一次帶你建立並規劃能持續成長的遠距職涯路徑。",
       },
     ],
     freelance: [
