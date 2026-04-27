@@ -5,6 +5,8 @@ import type { ReactNode } from "react"
 export interface FeatureImage {
   src: string
   alt: string
+  /** 顯示在圖片左上角的小標籤（例如「接案路線」「上班路線」），讓使用者一眼看懂圖片內容 */
+  label?: string
 }
 
 export interface Feature {
@@ -66,10 +68,12 @@ export const featuresData: Feature[] = [
       {
         src: "/images/e8-87-aa-e5-aa-92-e9-ab-94-e6-8e-a5-e6-a1-88-e8-b7-af-e7-b7-9a-ef-bc-bfreels-e9-87-8d-e8-a6-81-e6-8c-87-e6-a8-99.png",
         alt: "接案路線：Reels演算法重要指標",
+        label: "接案路線",
       },
       {
         src: "/images/e4-b8-8a-e7-8f-ad-e8-b7-af-e7-b7-9a-ef-bc-bf-e9-9b-87-e4-b8-bb-e7-84-a1-e5-8b-95-e6-96-bc-e8-a1-b7.png",
         alt: "上班路線：讓雇主無動於衷的答案",
+        label: "遠端上班路線",
       },
     ],
   },
