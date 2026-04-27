@@ -91,7 +91,7 @@ export function StudentCasesModal({ isOpen, onClose }: StudentCasesModalProps) {
       <DialogPortal>
         <DialogOverlay className="bg-black/60 backdrop-blur-sm" />
         <DialogContent
-          className="fixed left-[50%] top-[50%] z-50 flex flex-col w-[96vw] max-w-7xl max-h-[92vh] translate-x-[-50%] translate-y-[-50%] bg-brand-offwhite p-0 shadow-2xl rounded-2xl border border-brand-mist overflow-hidden"
+          className="fixed left-[50%] top-[50%] z-50 flex flex-col w-[98vw] max-w-[1600px] max-h-[94vh] translate-x-[-50%] translate-y-[-50%] bg-brand-offwhite p-0 shadow-2xl rounded-2xl border border-brand-mist overflow-hidden"
           onPointerDownOutside={onClose}
           onEscapeKeyDown={onClose}
         >
@@ -112,7 +112,7 @@ export function StudentCasesModal({ isOpen, onClose }: StudentCasesModalProps) {
 
           {/* Scrollable body */}
           <div className="flex-1 overflow-y-auto px-4 py-5 sm:px-8 sm:py-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
               {extendedCases.map((item) => (
                 <CaseCard key={item.id} item={item} />
               ))}
