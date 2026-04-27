@@ -92,14 +92,17 @@ export const featuresData: Feature[] = [
       {
         src: "/images/e8-a1-8c-e5-8b-95-e5-b0-8e-e5-90-91-ef-bc-bf-e4-bb-bb-e5-8b-99-e6-8b-86-e8-a7-a3.png",
         alt: "任務拆解",
+        label: "步驟切小、明確指示",
       },
       {
         src: "/images/e8-a1-8c-e5-8b-95-e5-b0-8e-e5-90-91-ef-bc-bf-e4-bd-9c-e6-a5-ad-e5-b9-b3-e5-8f-b0.png",
         alt: "作業平台",
+        label: "作業系統掌握進度",
       },
       {
         src: "/images/e8-a1-8c-e5-8b-95-e5-b0-8e-e5-90-91-ef-bc-bfvibe-20coding-20-e5-b7-a5-e4-bd-9c-e5-9d-8a-20.png",
         alt: "Vibe Coding 工作坊",
+        label: "工作坊推進執行",
       },
     ],
   },
@@ -118,22 +121,42 @@ export const featuresData: Feature[] = [
       {
         src: "/images/2-1.jpeg",
         alt: "遊牧小聚",
+        label: "線下人脈聚會",
       },
-      { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e7-95-99-e8-a8-80.png", alt: "留言" },
-      { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e4-ba-a4-e6-b5-81.png", alt: "交流" },
+      {
+        src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e7-95-99-e8-a8-80.png",
+        alt: "留言",
+        label: "線上學習社群",
+      },
+      {
+        src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e4-ba-a4-e6-b5-81.png",
+        alt: "交流",
+        label: "同學交流",
+      },
       {
         src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e4-bd-9c-e6-a5-ad-e4-ba-a4-e6-b5-81.png",
         alt: "作業交流",
+        label: "作業觀摩",
       },
-      { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e5-90-8c-e5-ad-b8-e6-9c-83.png", alt: "同學會" },
+      {
+        src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e5-90-8c-e5-ad-b8-e6-9c-83.png",
+        alt: "同學會",
+        label: "同學會",
+      },
       {
         src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e5-90-8c-e5-ad-b8-e6-9c-83-e4-bd-9c-e6-a5-ad.png",
         alt: "同學會作業",
+        label: "作業發表",
       },
-      { src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bfline-20group.png", alt: "Line Group" },
+      {
+        src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bfline-20group.png",
+        alt: "Line Group",
+        label: "校友群組",
+      },
       {
         src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e8-b6-8a-e5-8d-97-e9-81-8a-e7-89-a7-e4-b9-8b-e6-97-85.jpg",
         alt: "越南遊牧之旅",
+        label: "國際體驗旅程",
       },
     ],
   },
