@@ -21,11 +21,17 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
     const currentIndex = stages.findIndex((s) => now >= s.startAt && now <= s.endAt)
     const lastIndex = stages.length - 1
 
-    // Past: only show up to 2 stages before current (never changes)
-    const pastStart = Math.max(0, currentIndex - 2)
-    const pastIndices: number[] = []
-    for (let i = pastStart; i < currentIndex; i++) {
-      pastIndices.push(i)
+    // Collapsed past: only show 1 stage right before current (avoid making users feel they missed too much)
+    const collapsedPastStart = Math.max(0, currentIndex - 1)
+    const collapsedPastIndices: number[] = []
+    for (let i = collapsedPastStart; i < currentIndex; i++) {
+      collapsedPastIndices.push(i)
+    }
+
+    // Expanded past: all stages from the very first one
+    const expandedPastIndices: number[] = []
+    for (let i = 0; i < currentIndex; i++) {
+      expandedPastIndices.push(i)
     }
 
     // Current
@@ -37,18 +43,18 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
       futureIndices.push(i)
     }
 
-    // Collapsed: past(2) + current + next(+1) + (+3) + last(原價)
+    // Collapsed: past(1) + current + next(+1) + (+3) + last(原價)
     const nextIndex = currentIndex + 1
     const skipOneIndex = currentIndex + 3
     const collapsedFutureIndices = futureIndices.filter((i) =>
       i === nextIndex || i === skipOneIndex || i === lastIndex
     )
-    const collapsedIndices = [...pastIndices, ...currentIndices, ...collapsedFutureIndices]
+    const collapsedIndices = [...collapsedPastIndices, ...currentIndices, ...collapsedFutureIndices]
       .filter((v, i, a) => a.indexOf(v) === i)
       .sort((a, b) => a - b)
 
-    // Expanded: past(2) + current + all future
-    const expandedIndices = [...pastIndices, ...currentIndices, ...futureIndices]
+    // Expanded: all past + current + all future (full 15 stages)
+    const expandedIndices = [...expandedPastIndices, ...currentIndices, ...futureIndices]
       .filter((v, i, a) => a.indexOf(v) === i)
       .sort((a, b) => a - b)
 
