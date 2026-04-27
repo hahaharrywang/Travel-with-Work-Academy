@@ -21,17 +21,12 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
     const currentIndex = stages.findIndex((s) => now >= s.startAt && now <= s.endAt)
     const lastIndex = stages.length - 1
 
-    // Collapsed past: only show 1 stage right before current (avoid making users feel they missed too much)
-    const collapsedPastStart = Math.max(0, currentIndex - 1)
-    const collapsedPastIndices: number[] = []
-    for (let i = collapsedPastStart; i < currentIndex; i++) {
-      collapsedPastIndices.push(i)
-    }
-
-    // Expanded past: all stages from the very first one
-    const expandedPastIndices: number[] = []
-    for (let i = 0; i < currentIndex; i++) {
-      expandedPastIndices.push(i)
+    // Past stages: only show up to 2 stages right before current (max 3 visible including current)
+    // This applies to both collapsed and expanded views to avoid making users feel they missed too much
+    const pastStart = Math.max(0, currentIndex - 2)
+    const pastIndices: number[] = []
+    for (let i = pastStart; i < currentIndex; i++) {
+      pastIndices.push(i)
     }
 
     // Current
@@ -49,12 +44,12 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
     const collapsedFutureIndices = futureIndices.filter((i) =>
       i === nextIndex || i === skipOneIndex || i === lastIndex
     )
-    const collapsedIndices = [...collapsedPastIndices, ...currentIndices, ...collapsedFutureIndices]
+    const collapsedIndices = [...pastIndices, ...currentIndices, ...collapsedFutureIndices]
       .filter((v, i, a) => a.indexOf(v) === i)
       .sort((a, b) => a - b)
 
-    // Expanded: all past + current + all future (full 15 stages)
-    const expandedIndices = [...expandedPastIndices, ...currentIndices, ...futureIndices]
+    // Expanded: past (max 2) + current + all future
+    const expandedIndices = [...pastIndices, ...currentIndices, ...futureIndices]
       .filter((v, i, a) => a.indexOf(v) === i)
       .sort((a, b) => a - b)
 
@@ -294,7 +289,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                     NT$ {formatPrice(currentStageData.prices.selfMedia.stagePrice)}
                   </div>
                   <div className="text-sm text-brand-gold font-medium mb-4">
-                    目前 {currentStageData.discountLabel}，現省 NT$ {formatPrice(currentStageData.prices.selfMedia.savingAmount)}，每週日說明會後午夜調漲
+                    目前 {currentStageData.discountLabel}，現省 NT$ {formatPrice(currentStageData.prices.selfMedia.savingAmount)}，每週日說明會後��夜調漲
                   </div>
                 </>
               )}
@@ -549,7 +544,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                       onClick={() => setTimelineExpanded(!timelineExpanded)}
                       className="text-sm text-brand-teal hover:text-brand-gold transition-colors underline"
                     >
-                      {timelineExpanded ? "收起" : "展開全部 15 個階段"}
+                      {timelineExpanded ? "收起" : "展開全部階段"}
                     </button>
                   </div>
                 </div>
