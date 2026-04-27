@@ -289,7 +289,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                     NT$ {formatPrice(currentStageData.prices.selfMedia.stagePrice)}
                   </div>
                   <div className="text-sm text-brand-gold font-medium mb-4">
-                    目前 {currentStageData.discountLabel}，現省 NT$ {formatPrice(currentStageData.prices.selfMedia.savingAmount)}，每週日說明會後��夜調漲
+                    目前 {currentStageData.discountLabel}，現省 NT$ {formatPrice(currentStageData.prices.selfMedia.savingAmount)}，每週日說明會後午夜調漲
                   </div>
                 </>
               )}
