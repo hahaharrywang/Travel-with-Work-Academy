@@ -133,6 +133,11 @@ export function KeyFeaturesSection() {
                           onClick={() => openLightbox(feature.images, idx)}
                         >
                           <Image src={image.src || "/placeholder.svg"} alt={image.alt} fill className="object-cover" />
+                          {image.label && (
+                            <span className="pointer-events-none absolute top-3 left-3 inline-flex items-center px-3 py-1 rounded-full bg-brand-teal text-white text-xs sm:text-sm font-semibold shadow-md">
+                              {image.label}
+                            </span>
+                          )}
                         </div>
                       ))}
                     </div>

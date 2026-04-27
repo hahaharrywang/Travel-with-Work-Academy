@@ -21,7 +21,8 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
     const currentIndex = stages.findIndex((s) => now >= s.startAt && now <= s.endAt)
     const lastIndex = stages.length - 1
 
-    // Past: only show up to 2 stages before current (never changes)
+    // Past stages: only show up to 2 stages right before current (max 3 visible including current)
+    // This applies to both collapsed and expanded views to avoid making users feel they missed too much
     const pastStart = Math.max(0, currentIndex - 2)
     const pastIndices: number[] = []
     for (let i = pastStart; i < currentIndex; i++) {
@@ -37,7 +38,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
       futureIndices.push(i)
     }
 
-    // Collapsed: past(2) + current + next(+1) + (+3) + last(原價)
+    // Collapsed: past(1) + current + next(+1) + (+3) + last(原價)
     const nextIndex = currentIndex + 1
     const skipOneIndex = currentIndex + 3
     const collapsedFutureIndices = futureIndices.filter((i) =>
@@ -47,7 +48,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
       .filter((v, i, a) => a.indexOf(v) === i)
       .sort((a, b) => a - b)
 
-    // Expanded: past(2) + current + all future
+    // Expanded: past (max 2) + current + all future
     const expandedIndices = [...pastIndices, ...currentIndices, ...futureIndices]
       .filter((v, i, a) => a.indexOf(v) === i)
       .sort((a, b) => a - b)
@@ -288,7 +289,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                     NT$ {formatPrice(currentStageData.prices.selfMedia.stagePrice)}
                   </div>
                   <div className="text-sm text-brand-gold font-medium mb-4">
-                    目前 {currentStageData.discountLabel}，現省 NT$ {formatPrice(currentStageData.prices.selfMedia.savingAmount)}，每週日說明會後午夜調漲
+                    目前 {currentStageData.discountLabel}，現省 NT$ {formatPrice(currentStageData.prices.selfMedia.savingAmount)}，每週日說明會後��夜調漲
                   </div>
                 </>
               )}
@@ -543,7 +544,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                       onClick={() => setTimelineExpanded(!timelineExpanded)}
                       className="text-sm text-brand-teal hover:text-brand-gold transition-colors underline"
                     >
-                      {timelineExpanded ? "收起" : "展開全部 15 個階段"}
+                      {timelineExpanded ? "收起" : "展開全部階段"}
                     </button>
                   </div>
                 </div>
