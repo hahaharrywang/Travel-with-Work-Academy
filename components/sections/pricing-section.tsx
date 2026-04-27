@@ -132,7 +132,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
               {'最大的成本，從來不是學費'}
             </h3>
             <p className="text-sm sm:text-base text-brand-text/80 leading-relaxed mb-1.5">
-              市場上已有許多垂直深度陪跑、單向觀看的線上課程，但卻找不太到這麼完整的初期探索資源。
+              市場上已有許多垂直深度陪跑、單向觀看的線上課程，但卻找不太到這麼完整的啟動資源。
             </p>
             <p className="text-sm sm:text-base text-brand-text/80 leading-relaxed">
               獨自找資源、累積這些能力與啟發，除了錢，花更多的是試錯成本與一去不復返的時間。
