@@ -151,7 +151,7 @@ export function AnnouncementBar({ scrollToPricing, onEmailSubscribe }: Announcem
 
             {/* Free webinar link */}
             <a
-              href="https://webinar.travelwithwork.life/tww2_0426_landingpage-880799"
+              href="https://webinar.travelwithwork.life/tww2/register-mainwebinar"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
