@@ -335,8 +335,8 @@ export const stages: Stage[] = [
     tagLine: "開學價格，給不小心晚接收到資訊的你。",
     discountLabel: "87 折",
     discountRate: 0.87,
-    startAt: new Date("2026-06-08T00:00:00+08:00"),
-    endAt: new Date("2026-06-14T23:59:59+08:00"),
+    startAt: new Date("2026-05-06T00:00:00+08:00"),
+    endAt: new Date("2026-05-10T23:59:59+08:00"),
     prices: {
       selfMedia: { original: 19000, stagePrice: 16499, savingAmount: 2501 },
       remoteJob: { original: 19000, stagePrice: 16499, savingAmount: 2501 },
@@ -355,8 +355,8 @@ export const stages: Stage[] = [
     tagLine: "開學價格，給不小心晚接收到資訊的你。",
     discountLabel: "91 折",
     discountRate: 0.91,
-    startAt: new Date("2026-06-15T00:00:00+08:00"),
-    endAt: new Date("2026-06-21T23:59:59+08:00"),
+    startAt: new Date("2026-05-11T00:00:00+08:00"),
+    endAt: new Date("2026-05-17T23:59:59+08:00"),
     prices: {
       selfMedia: { original: 19000, stagePrice: 17299, savingAmount: 1701 },
       remoteJob: { original: 19000, stagePrice: 17299, savingAmount: 1701 },
