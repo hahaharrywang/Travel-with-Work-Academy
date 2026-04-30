@@ -84,7 +84,7 @@ export function LearningMapSectionV2({ onOpenCourseDetail, onOpenWeeklySchedule 
   const growthRhythm = [
     "開學典禮 & 遠距遊牧概論",
     "每月交流 / 成果發表",
-    "每月講師團體 QA",
+    "講師團體 QA、解卡點",
     "每月同學會",
     "校長 AMA",
     "學習復盤 & 目標調整",
