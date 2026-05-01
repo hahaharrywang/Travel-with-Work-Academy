@@ -246,7 +246,7 @@ export function FreeLectureSection() {
               {"錯過場次了嗎？先看說明會回放"}
             </h4>
             <p className="text-sm text-brand-text/70 mb-5">
-              {"每次內容都會變得更豐富，情況允許的話還是很��議參與直播，可以現場 QA 直接交流。"}
+              {"每週內容都會變得更豐富，依然很建議參與直播，可以現場 QA 直接交流！"}
             </p>
             <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
               <iframe
@@ -257,6 +257,9 @@ export function FreeLectureSection() {
                 className="absolute inset-0 w-full h-full"
               />
             </div>
+            <p className="mt-4 text-sm sm:text-base font-semibold text-brand-teal">
+              {"於 YouTube 平台收看，可以點擊不同章節進度條及調整語速，加速理解！"}
+            </p>
           </div>
 
           {/* 底部輔助資源 - 降級視覺 */}
