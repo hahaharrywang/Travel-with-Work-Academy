@@ -309,7 +309,8 @@ export default function InstructorCarouselSection() {
 
                       {/* BACK */}
                       <div className="absolute inset-0 backface-hidden rotate-y-180 rounded-2xl shadow-xl overflow-hidden bg-brand-teal text-white flex flex-col cursor-pointer">
-                        <div className="relative px-5 pt-5 pb-3 sm:px-6 sm:pt-6">
+                        {/* Header */}
+                        <div className="relative px-5 pt-5 pb-3 sm:px-6 sm:pt-6 shrink-0">
                           <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-brand-gold/20 text-brand-gold text-[11px] font-semibold tracking-widest uppercase">
                             講師簡介
                           </span>
@@ -320,88 +321,86 @@ export default function InstructorCarouselSection() {
                             {card.title}
                           </p>
                         </div>
-                        <div className="flex-1 px-5 sm:px-6 pb-4 overflow-y-auto scrollbar-thin">
-                          {/* 負責課程 */}
-                          <div className="mb-4 rounded-xl bg-white/[0.08] border border-white/10 p-3.5">
-                            <p className="text-[10px] font-semibold tracking-widest uppercase text-brand-gold/90 mb-1.5">
+
+                        {/* 負責課程（固定，永遠可見） */}
+                        <div className="px-5 sm:px-6 shrink-0">
+                          <div className="rounded-xl bg-white/[0.08] border border-white/10 p-3">
+                            <p className="text-[10px] font-semibold tracking-widest uppercase text-brand-gold/90 mb-1">
                               負責課程
                             </p>
-                            <p className="text-xs text-white/70 mb-1">
+                            <p className="text-[11px] text-white/70 mb-1">
                               <span className="font-semibold text-white/90">{card.weekFullLabel}</span>
                               <span className="mx-1.5 text-white/40">·</span>
                               <span>{card.trackLabel}</span>
                             </p>
-                            <p className="text-sm font-semibold text-white leading-snug">
+                            <p className="text-xs sm:text-sm font-semibold text-white leading-snug line-clamp-2">
                               {card.courseTitle}
                             </p>
                           </div>
+                        </div>
+
+                        {/* Bio（可滾動） */}
+                        <div className="flex-1 px-5 sm:px-6 pt-3 pb-3 overflow-y-auto scrollbar-thin">
                           <p className="text-sm leading-relaxed text-white/85 whitespace-pre-line">
                             {card.background}
                           </p>
-                          {/* 社群連結 */}
-                          {card.links && (card.links.website || card.links.linkedin || card.links.instagram || card.links.facebook) && (
-                            <div className="mt-4 pt-3 border-t border-white/10">
-                              <p className="text-[10px] font-semibold tracking-widest uppercase text-brand-gold/90 mb-2">
-                                追蹤講師
-                              </p>
-                              <div className="flex items-center gap-2 flex-wrap">
-                                {card.links.website && (
-                                  <a
-                                    href={card.links.website}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    onClick={(e) => e.stopPropagation()}
-                                    aria-label={`${card.name} 個人網站`}
-                                    className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-brand-gold hover:text-brand-text text-white transition-colors"
-                                  >
-                                    <Globe className="w-4 h-4" />
-                                  </a>
-                                )}
-                                {card.links.linkedin && (
-                                  <a
-                                    href={card.links.linkedin}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    onClick={(e) => e.stopPropagation()}
-                                    aria-label={`${card.name} LinkedIn`}
-                                    className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-brand-gold hover:text-brand-text text-white transition-colors"
-                                  >
-                                    <Linkedin className="w-4 h-4" />
-                                  </a>
-                                )}
-                                {card.links.instagram && (
-                                  <a
-                                    href={card.links.instagram}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    onClick={(e) => e.stopPropagation()}
-                                    aria-label={`${card.name} Instagram`}
-                                    className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-brand-gold hover:text-brand-text text-white transition-colors"
-                                  >
-                                    <Instagram className="w-4 h-4" />
-                                  </a>
-                                )}
-                                {card.links.facebook && (
-                                  <a
-                                    href={card.links.facebook}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    onClick={(e) => e.stopPropagation()}
-                                    aria-label={`${card.name} Facebook`}
-                                    className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-brand-gold hover:text-brand-text text-white transition-colors"
-                                  >
-                                    <Facebook className="w-4 h-4" />
-                                  </a>
-                                )}
-                              </div>
-                            </div>
-                          )}
                         </div>
-                        <div className="relative px-5 sm:px-6 pb-5 pt-2 flex items-center justify-between border-t border-white/10">
-                          <span className="font-serif italic text-sm text-white/30 leading-none select-none tracking-wide">
-                            Travel with Work
-                          </span>
-                          <span className="inline-flex items-center gap-2 text-xs font-semibold text-brand-gold">
+
+                        {/* Footer：社群連結 + 點擊返回（永遠可見） */}
+                        <div className="relative px-5 sm:px-6 py-3 flex items-center justify-between gap-3 border-t border-white/10 shrink-0">
+                          {/* 社群連結 */}
+                          <div className="flex items-center gap-1.5 flex-wrap">
+                            {card.links?.website && (
+                              <a
+                                href={card.links.website}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                aria-label={`${card.name} 個人網站`}
+                                className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/10 hover:bg-brand-gold hover:text-brand-text text-white transition-colors"
+                              >
+                                <Globe className="w-4 h-4" />
+                              </a>
+                            )}
+                            {card.links?.linkedin && (
+                              <a
+                                href={card.links.linkedin}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                aria-label={`${card.name} LinkedIn`}
+                                className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/10 hover:bg-brand-gold hover:text-brand-text text-white transition-colors"
+                              >
+                                <Linkedin className="w-4 h-4" />
+                              </a>
+                            )}
+                            {card.links?.instagram && (
+                              <a
+                                href={card.links.instagram}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                aria-label={`${card.name} Instagram`}
+                                className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/10 hover:bg-brand-gold hover:text-brand-text text-white transition-colors"
+                              >
+                                <Instagram className="w-4 h-4" />
+                              </a>
+                            )}
+                            {card.links?.facebook && (
+                              <a
+                                href={card.links.facebook}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                aria-label={`${card.name} Facebook`}
+                                className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/10 hover:bg-brand-gold hover:text-brand-text text-white transition-colors"
+                              >
+                                <Facebook className="w-4 h-4" />
+                              </a>
+                            )}
+                          </div>
+
+                          <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-gold whitespace-nowrap">
                             <span className="block w-1.5 h-1.5 rounded-full bg-brand-gold" aria-hidden />
                             點擊返回
                           </span>
