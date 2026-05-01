@@ -34,10 +34,20 @@ function buildCards(): CarouselCard[] {
   const seen = new Set<string>()
   const cards: CarouselCard[] = []
 
+  // 各路線堂數計數器（不含校長／非主課週）
+  const trackCounter = new Map<string, number>()
+  const ORDINAL_CN = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十"]
+  const toOrdinal = (n: number) => (n >= 1 && n <= ORDINAL_CN.length ? ORDINAL_CN[n - 1] : String(n))
+
   calendarData.forEach((week) => {
     const primaryName = week.instructorNames?.[0]
     if (!primaryName) return
     if (primaryName === "校長哈利") return
+
+    // 將該堂課計入所屬路線的順序，產生「第 N 堂」標籤
+    const currentCount = (trackCounter.get(week.track) ?? 0) + 1
+    trackCounter.set(week.track, currentCount)
+    const classLabel = `第 ${toOrdinal(currentCount)} 堂`
 
     if (primaryName === "講師確認中") {
       const key = `placeholder-week-${week.id}`
@@ -46,12 +56,12 @@ function buildCards(): CarouselCard[] {
       cards.push({
         key,
         name: "講師確認中",
-        title: `Week ${week.id}・${week.title}`,
+        title: `${week.track}・${week.title}`,
         image: null,
         background:
           "本堂課的講師正在最後敲定中，敬請期待。完整簡介將於講師確認後第一時間更新。",
         isPlaceholder: true,
-        weekLabel: `Week ${week.id}`,
+        weekLabel: classLabel,
         trackLabel: week.track,
       })
       return
@@ -68,7 +78,7 @@ function buildCards(): CarouselCard[] {
       image: instructor.image,
       background: instructor.background,
       isPlaceholder: false,
-      weekLabel: `Week ${week.id}`,
+      weekLabel: classLabel,
       trackLabel: week.track,
     })
   })
