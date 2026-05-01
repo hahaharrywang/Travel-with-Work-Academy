@@ -105,3 +105,39 @@
 .animate-pulse-subtle {
   animation: pulse-subtle 2.5s ease-in-out infinite;
 }
+
+/* Handwriting font (Liu Jian Mao Cao) for instructor name display */
+.font-handwriting {
+  font-family: var(--font-handwriting), "Noto Serif TC", "Noto Serif CJK TC", serif;
+  letter-spacing: 0.05em;
+}
+
+/* 3D flip card support for instructor carousel */
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Hide scrollbar inside instructor card back side */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: hsl(var(--brand-gold) / 0.4);
+  border-radius: 2px;
+}

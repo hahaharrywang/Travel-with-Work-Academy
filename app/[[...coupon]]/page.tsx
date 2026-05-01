@@ -47,6 +47,10 @@ const EcosystemSection = dynamic(
   () => import("@/components/sections/ecosystem-section").then((mod) => mod.EcosystemSection),
   { ssr: true }
 )
+const InstructorCarouselSection = dynamic(
+  () => import("@/components/sections/instructor-carousel-section"),
+  { ssr: true }
+)
 
 import {
   Dialog,
@@ -234,7 +238,10 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
       <KeyFeaturesSection />
 
       {/* SECTION 5 INSTRUCTORS - 師資 (currently hidden, use <InstructorsSection instructors={instructors} /> to enable) */}
-      
+
+      {/* SECTION: 本屆 12 位講師 Carousel (3D 翻卡) */}
+      <InstructorCarouselSection />
+
       {/* NEW V2 LEARNING MAP - 課程概覽（新版） */}
       <LearningMapSectionV2
         onOpenCourseDetail={() => setIsCourseDetailModalOpen(true)}
