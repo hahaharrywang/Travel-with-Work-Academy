@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Inter, JetBrains_Mono, Liu_Jian_Mao_Cao } from "next/font/google"
+import { Inter, JetBrains_Mono } from "next/font/google"
 import Script from "next/script"
 import "./globals.css"
 import { StructuredData } from "@/components/structured-data"
@@ -13,13 +13,6 @@ const inter = Inter({
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jetbrains-mono",
-})
-
-const liuJianMaoCao = Liu_Jian_Mao_Cao({
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-handwriting",
 })
 
 export const viewport: Viewport = {
@@ -81,7 +74,7 @@ export default function RootLayout({
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID
 
   return (
-    <html lang="zh-TW" className={`${inter.variable} ${jetbrainsMono.variable} ${liuJianMaoCao.variable} antialiased`}>
+    <html lang="zh-TW" className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}>
       <head>
         {/* Preconnect to GHL form domain for faster loading */}
         <link rel="preconnect" href="https://link.digitalnomadstaiwan.com" />

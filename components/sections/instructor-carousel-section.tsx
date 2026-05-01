@@ -14,6 +14,15 @@ type CarouselCard = {
   background: string
   isPlaceholder: boolean
   weekLabel: string
+  trackLabel: string
+}
+
+// 依路線決定膠囊顏色，與全站既有色系一致
+function getTrackChipClass(track: string): string {
+  if (track.includes("接案")) return "bg-brand-gold text-brand-text"
+  if (track.includes("遠端上班")) return "bg-brand-teal text-white"
+  // 全體共同 / 共同必修等
+  return "bg-brand-clay text-white"
 }
 
 /**
@@ -31,18 +40,19 @@ function buildCards(): CarouselCard[] {
     if (primaryName === "校長哈利") return
 
     if (primaryName === "講師確認中") {
-      const key = `placeholder-week-${week.week}`
+      const key = `placeholder-week-${week.id}`
       if (seen.has(key)) return
       seen.add(key)
       cards.push({
         key,
         name: "講師確認中",
-        title: `Week ${week.week}・${week.title}`,
+        title: `Week ${week.id}・${week.title}`,
         image: null,
         background:
           "本堂課的講師正在最後敲定中，敬請期待。完整簡介將於講師確認後第一時間更新。",
         isPlaceholder: true,
-        weekLabel: `Week ${week.week}`,
+        weekLabel: `Week ${week.id}`,
+        trackLabel: week.track,
       })
       return
     }
@@ -58,7 +68,8 @@ function buildCards(): CarouselCard[] {
       image: instructor.image,
       background: instructor.background,
       isPlaceholder: false,
-      weekLabel: `Week ${week.week}`,
+      weekLabel: `Week ${week.id}`,
+      trackLabel: week.track,
     })
   })
 
@@ -236,20 +247,25 @@ export default function InstructorCarouselSection() {
                             />
                           ) : (
                             <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-brand-mist to-brand-offwhite">
-                              <span className="text-brand-teal/50 text-6xl font-handwriting">
+                              <span className="text-brand-teal/40 text-6xl font-serif font-bold">
                                 ?
                               </span>
                             </div>
                           )}
-                          {/* Week chip */}
-                          <span className="absolute top-3 left-3 inline-flex items-center px-3 py-1 rounded-full bg-brand-teal text-white text-xs font-semibold shadow-md">
-                            {card.weekLabel}
-                          </span>
+                          {/* Top chips: Week + Track */}
+                          <div className="absolute top-3 left-3 flex flex-col items-start gap-1.5">
+                            <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold shadow-md ${getTrackChipClass(card.trackLabel)}`}>
+                              {card.trackLabel}
+                            </span>
+                            <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/95 text-brand-teal text-xs font-semibold shadow-md backdrop-blur-sm">
+                              {card.weekLabel}
+                            </span>
+                          </div>
                         </div>
 
                         {/* Body */}
                         <div className="flex-1 flex flex-col px-5 pt-4 pb-5 sm:px-6 sm:pt-5 sm:pb-6">
-                          <h3 className="font-handwriting text-3xl sm:text-4xl text-brand-teal leading-tight mb-2">
+                          <h3 className="font-serif text-2xl sm:text-3xl font-bold text-brand-teal leading-tight tracking-tight mb-2">
                             {card.name}
                           </h3>
                           <p className="text-xs sm:text-sm text-brand-gold font-medium leading-snug line-clamp-2 mb-3">
@@ -274,7 +290,7 @@ export default function InstructorCarouselSection() {
                           <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-brand-gold/20 text-brand-gold text-[11px] font-semibold tracking-widest uppercase">
                             講師簡介
                           </span>
-                          <h3 className="font-handwriting text-3xl sm:text-4xl text-white leading-tight mt-3">
+                          <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white leading-tight tracking-tight mt-3">
                             {card.name}
                           </h3>
                           <p className="text-xs sm:text-sm text-brand-gold/90 font-medium leading-snug mt-1.5">
@@ -287,7 +303,7 @@ export default function InstructorCarouselSection() {
                           </p>
                         </div>
                         <div className="relative px-5 sm:px-6 pb-5 pt-2 flex items-center justify-between border-t border-white/10">
-                          <span className="font-handwriting text-base text-white/30 leading-none select-none">
+                          <span className="font-serif italic text-sm text-white/30 leading-none select-none tracking-wide">
                             Travel with Work
                           </span>
                           <span className="inline-flex items-center gap-2 text-xs font-semibold text-brand-gold">
