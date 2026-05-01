@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import Image from "next/image"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronLeft, ChevronRight, Globe, Linkedin, Instagram, Facebook } from "lucide-react"
 import { instructors } from "@/data/instructors"
 import { calendarData } from "@/data/calendar"
 
@@ -15,6 +15,14 @@ type CarouselCard = {
   isPlaceholder: boolean
   weekLabel: string
   trackLabel: string
+  courseTitle: string
+  weekFullLabel: string
+  links?: {
+    website?: string
+    linkedin?: string
+    instagram?: string
+    facebook?: string
+  }
 }
 
 // 依路線決定膠囊顏色，與全站既有色系一致
@@ -63,6 +71,8 @@ function buildCards(): CarouselCard[] {
         isPlaceholder: true,
         weekLabel: classLabel,
         trackLabel: week.track,
+        courseTitle: week.title,
+        weekFullLabel: `Week ${week.id}`,
       })
       return
     }
@@ -80,6 +90,9 @@ function buildCards(): CarouselCard[] {
       isPlaceholder: false,
       weekLabel: classLabel,
       trackLabel: week.track,
+      courseTitle: week.title,
+      weekFullLabel: `Week ${week.id}`,
+      links: instructor.links,
     })
   })
 
@@ -308,9 +321,81 @@ export default function InstructorCarouselSection() {
                           </p>
                         </div>
                         <div className="flex-1 px-5 sm:px-6 pb-4 overflow-y-auto scrollbar-thin">
+                          {/* 負責課程 */}
+                          <div className="mb-4 rounded-xl bg-white/[0.08] border border-white/10 p-3.5">
+                            <p className="text-[10px] font-semibold tracking-widest uppercase text-brand-gold/90 mb-1.5">
+                              負責課程
+                            </p>
+                            <p className="text-xs text-white/70 mb-1">
+                              <span className="font-semibold text-white/90">{card.weekFullLabel}</span>
+                              <span className="mx-1.5 text-white/40">·</span>
+                              <span>{card.trackLabel}</span>
+                            </p>
+                            <p className="text-sm font-semibold text-white leading-snug">
+                              {card.courseTitle}
+                            </p>
+                          </div>
                           <p className="text-sm leading-relaxed text-white/85 whitespace-pre-line">
                             {card.background}
                           </p>
+                          {/* 社群連結 */}
+                          {card.links && (card.links.website || card.links.linkedin || card.links.instagram || card.links.facebook) && (
+                            <div className="mt-4 pt-3 border-t border-white/10">
+                              <p className="text-[10px] font-semibold tracking-widest uppercase text-brand-gold/90 mb-2">
+                                追蹤講師
+                              </p>
+                              <div className="flex items-center gap-2 flex-wrap">
+                                {card.links.website && (
+                                  <a
+                                    href={card.links.website}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={(e) => e.stopPropagation()}
+                                    aria-label={`${card.name} 個人網站`}
+                                    className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-brand-gold hover:text-brand-text text-white transition-colors"
+                                  >
+                                    <Globe className="w-4 h-4" />
+                                  </a>
+                                )}
+                                {card.links.linkedin && (
+                                  <a
+                                    href={card.links.linkedin}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={(e) => e.stopPropagation()}
+                                    aria-label={`${card.name} LinkedIn`}
+                                    className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-brand-gold hover:text-brand-text text-white transition-colors"
+                                  >
+                                    <Linkedin className="w-4 h-4" />
+                                  </a>
+                                )}
+                                {card.links.instagram && (
+                                  <a
+                                    href={card.links.instagram}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={(e) => e.stopPropagation()}
+                                    aria-label={`${card.name} Instagram`}
+                                    className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-brand-gold hover:text-brand-text text-white transition-colors"
+                                  >
+                                    <Instagram className="w-4 h-4" />
+                                  </a>
+                                )}
+                                {card.links.facebook && (
+                                  <a
+                                    href={card.links.facebook}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={(e) => e.stopPropagation()}
+                                    aria-label={`${card.name} Facebook`}
+                                    className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-brand-gold hover:text-brand-text text-white transition-colors"
+                                  >
+                                    <Facebook className="w-4 h-4" />
+                                  </a>
+                                )}
+                              </div>
+                            </div>
+                          )}
                         </div>
                         <div className="relative px-5 sm:px-6 pb-5 pt-2 flex items-center justify-between border-t border-white/10">
                           <span className="font-serif italic text-sm text-white/30 leading-none select-none tracking-wide">
