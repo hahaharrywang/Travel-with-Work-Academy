@@ -60,6 +60,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
   }, [])
 
   const collapsedStages = visibleStages.collapsed
+  const expandedStages = visibleStages.expanded
   const collapsedStagesMobile = visibleStages.collapsed
 
   const handleTimelineModalOpen = () => {
@@ -462,7 +463,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                 <div className="hidden md:block">
                   <div className="relative overflow-x-auto pb-4">
                     <div className="flex items-center justify-between min-w-max px-4">
-                      {(timelineExpanded ? stages : collapsedStages).map((stage, index, arr) => {
+                      {(timelineExpanded ? expandedStages : collapsedStages).map((stage, index, arr) => {
                         const now = new Date()
                         const isPast = now > stage.endAt
                         const isCurrent = now >= stage.startAt && now <= stage.endAt

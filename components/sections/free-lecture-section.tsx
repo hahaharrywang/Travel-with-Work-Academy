@@ -246,11 +246,11 @@ export function FreeLectureSection() {
               {"錯過場次了嗎？先看說明會回放"}
             </h4>
             <p className="text-sm text-brand-text/70 mb-5">
-              {"每次內容都會變得更豐富，情況允許的話還是很建議參與直播，可以現場 QA 直接交流。"}
+              {"每次內容都會變得更豐富，情況允許的話還是很��議參與直播，可以現場 QA 直接交流。"}
             </p>
             <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
               <iframe
-                src="https://www.youtube.com/embed/gZ37Pl9NdHU?rel=0"
+                src="https://www.youtube.com/embed/rshX6yFb_Vc?rel=0"
                 title="遠距遊牧學院說明會回放"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
