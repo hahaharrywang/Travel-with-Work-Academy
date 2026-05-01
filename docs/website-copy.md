@@ -224,7 +224,7 @@ D. 學員案例資料結構（student-cases.ts）
 > 想過很多版本，但每條路都沒真的走下去。
 
 **方法斷裂**
-> 買課、看影片、存��記，但不知道今天該做哪一步。
+> 買課、看影片、存���記，但不知道今天該做哪一步。
 
 **同伴斷裂**
 > 身邊沒人在走這條路，久了你開始懷疑自己：好像不是那種「夠格」開始的人。
@@ -452,7 +452,7 @@ D. 學員案例資料結構（student-cases.ts）
 
 **三個彈性點：**
 - 你可以先選一條主線開始
-- 單線的正式學員，第 2、3 週可以試上另一條路的起步課：藍圖���目標
+- 單線的正式學員，第 2、3 週可以試上另一條路的起步課：藍������目標
 - 在開學後一個月內，學院內提供換線上課 / 升級雙軌的彈性
 
 **結語：**
@@ -462,7 +462,7 @@ D. 學員案例資料結構（student-cases.ts）
 
 ---
 
-### 彈跳視窗 A：各路線課程詳情（CourseDetailModal）
+### 彈跳視窗 A：各路線課程詳情��CourseDetailModal）
 
 標題（含 emoji 📚）：
 > 各路線課程詳情
@@ -740,7 +740,7 @@ D. 學員案例資料結構（student-cases.ts）
 
 ### 說明文字
 > 在遠距遊牧學院，我們不是只上課看影片，而是完成一個個具體行動：
-> 有人從沒有作品集，到做出第一個 side project；有人開啟接案變現；��人第一次帶著工作出國旅居，找到了自己想過的生活樣子。
+> 有人從沒有作品集，到做出第一個 side project；有人開啟接案���現；��人第一次帶著工作出國旅居，找到了自己想過的生活樣子。
 
 ---
 
@@ -929,7 +929,7 @@ D. 學員案例資料結構（student-cases.ts）
 ## 12. 下一場免費講座（FreeLectureSection）
 
 ### 區塊標題（兩段於桌機合併、手機分行）
-> 下一場免費講座｜2 小時搞懂你的遠距下一步
+> 下一場免費講座｜2 小時搞懂你的遠距下一���
 
 ### ��標
 > 每週日晚 8pm 固定開講，不定期加場合作講座 & 主題工作坊
@@ -944,7 +944,7 @@ D. 學員案例資料結構（student-cases.ts）
 **主標題：**
 > 遠距遊牧學院說明會
 
-**主講：** 主講｜**校長 Harry**
+**主講：** 主講��**校長 Harry**
 
 **Banner 圖：**
 - `/lectures/0426-banner.png`
@@ -1142,7 +1142,7 @@ YouTube 嵌入：`https://www.youtube.com/embed/rshX6yFb_Vc?rel=0`
 
 ## 15. Footer
 
-### 聯絡資訊（置中）
+### 聯絡資訊（置���）
 > 如果有問題請洽詢 Line 官方帳號 or Instagram
 > 也可以 ✉️ academy@travelwork.life
 > 會有專人回覆
@@ -1341,7 +1341,7 @@ YouTube 嵌入：`https://www.youtube.com/embed/rshX6yFb_Vc?rel=0`
 - **行動任務**：
   - 完善你的接案 Offer 架構
   - 完成一次市場觀察與調查
-- **層級標籤**：路線必修 – 接案線 / 作品集與市場研究
+- **層級標籤**：路線必修 – 接案線 / 作品集與市場研���
 
 #### Week 7｜LinkedIn 經營全攻略
 
@@ -1614,7 +1614,7 @@ YouTube 嵌入：`https://www.youtube.com/embed/rshX6yFb_Vc?rel=0`
 
 #### 階段四｜找到工作不是終點，走得久才是
 - 描述：這一階段會帶你思考留任、溝通、旅居財務、節奏管理與成果整合，讓遠端工作不是短期幻想，而是更能持續的生活方式。
-- 學習成果：
+- 學習成��：
   - 信任累積：理解「成果導向」思維，學會在遠端環境快速建立專業信任
   - 協作升級：養成非同步溝通與文件化習慣，有效與跨時區團隊合作
   - 永續發展：規劃個人長期競爭力路徑，讓遠距工作成為可持續的職涯選擇
@@ -1658,119 +1658,100 @@ YouTube 嵌入：`https://www.youtube.com/embed/rshX6yFb_Vc?rel=0`
 
 ---
 
-## 附錄 D：18 位講師完整介紹（instructors.ts）
+## 附錄 D：本屆講師完整介紹（12 位 + 1 位待確認）
 
-> 資料源：`data/instructors.ts`。每位講師同步呈現：頭銜、社群連結、完整背景介紹。
+> 範圍：僅列出本屆 22 週課表（`data/calendar.ts`）實際排課、會出現在網站講師區的講師。資料源 `data/instructors.ts`。
 
 ---
 
-### 1. 喬
+### 1. 校長哈利（Harry）
 
-- **頭銜**：ADPList 全球 Top 1% 導師
-- **連結**：[LinkedIn](https://www.linkedin.com/in/georgechan3/)
-- **背景**：喬是一位求職教練，同時是 ADPList 全球 Top 1% 導師、LinkedIn Top Voice，著有暢銷書《一生受用的求職方法：量化求職》。曾親身拿到美國、加拿大、英國與新加坡的遠距 Offer，最後跨國錄取美國 Amazon 的遠距職位。並將秘訣整理每個人都適用的求職框架，協助超過兩百人順利上岸，包括國內外遠距工作。
-
-### 2. 校長哈利（Harry）
-
+- **本屆任課**：Week 1 開學典禮 ＆ 遠距遊牧概論｜Week 4／8／13／17 月末交流／成果發表｜Week 14 學習復盤＆目標調整｜Week 19 共創專案大會議｜Week 20 彈性課程｜Week 21 全體期末成果發表會｜Week 22 結業典禮
 - **頭銜**：Nomad Groups／遠距遊牧學院 創辦人，數位遊牧台灣社群發起人
 - **連結**：[Instagram @twnomadacademy](https://www.instagram.com/twnomadacademy/)
 - **背景**：數位遊牧台灣社群發起人，遠距遊牧學院（Travel with Work Academy）創辦人。致力於推動華語世界的遠距工作與數位遊牧生活方式，建立以行動導向為核心的學習社群，幫助學員在 5 個月內完成可展示的職涯轉型成果。
 
-### 3. 工具王阿璋
+### 2. 西打藍
 
-- **頭銜**：「阿璋遊牧」電子報創辦人、數位遊牧陪跑計劃創辦人、IP 經營者
-- **連結**：[Website](https://www.johntool.com)、[Instagram @johntooltw](https://www.instagram.com/johntooltw/)
-- **背景**：工具王阿璋 IP 經營（超過 20 萬粉絲）、碩士開始全職經營自媒體，至今超過 6 年；夫妻數位遊牧 2 年經歷，前往泰國、越南、菲律賓、日本、馬來西亞等多國旅居；經營「阿璋遊牧」電子報，持續週更 2 年，累積超過 7000 位忠實讀者；創立「數位遊牧陪跑計劃」，協助讀者成功轉型開始數位遊牧；以幫助他人為目標，成功獲得理想生活。
-
-### 4. 謝雅筑 Ally
-
-- **頭銜**：職涯教練／ICF ACC 認證教練／HR Consultant
-- **連結**：[LinkedIn](https://www.linkedin.com/in/allyhsieh)、[個人頁](https://portaly.cc/ally.hsieh)
-- **背景**：擁有 10+ 年人才招募與職涯發展經驗，累積 400+ 小時一對一諮詢時數。曾任全球最大人力資源集團總監，成功協助數百位人才拿到理想 Offer。具備 CDA、ICF ACC 認證，並在 LinkedIn 經營超過 21,000 名追蹤者。
-
-### 5. 三分鐘 Lynn
-
-- **頭銜**：三分鐘行銷在學中、內容顧問
-- **連結**：[Instagram @only3minute](https://www.instagram.com/only3minute/)
-- **背景**：前奧美廣告業務經理／10 萬讀者 IG「三分鐘｜行銷在學中」經營者／目前為行銷顧問／社群講師／自媒體創作者／合作 100+ 品牌，企業內訓、校園講座經驗超過 50 場。
-
-### 6. 鮪魚
-
-- **頭銜**：專注於知識變現與內容創新，協助超過百位講師完成課程開發，累積銷售額突破 3 億。
-- **連結**：[Instagram @newsvegtw](https://www.instagram.com/newsvegtw/)
-- **背景**：專注於知識變現與內容創新，協助超過百位講師完成課程開發，累積銷售額突破 3 億。
-
-### 7. 西打藍
-
+- **本屆任課**：Week 2 接案變現地圖 ＆ 目標設定（接案線）
 - **頭銜**：自由文字接案者｜一人公司創辦人
 - **連結**：[Website](https://siddharam.com)、[Instagram @sidd.blue](https://www.instagram.com/sidd.blue/)
 - **背景**：自由文字接案 5 年／代筆出版 3 本書，曾受《大人的 Small Talk》Podcast 專訪／近 100 名學員付費 1v1 接案諮詢／單筆最高接案價 94.5 萬／電子報訂閱數突破 2500 人／IG 粉絲近萬人。
 
-### 8. 林上哲
+### 3. 喬
 
-- **頭銜**：nuva 創辦人，致力推動 AI 教育與應用，與 NVIDIA 官方合作擔任 AI 與 AIGC 講師
-- **連結**：[Instagram @nuva.now](https://www.instagram.com/nuva.now/)、[Website](https://www.meetnuva.com)
-- **背景**：與 NVIDIA 官方合作，擔任 AI 與 AIGC 講師，推廣 RTX GPU 與生成式 AI 應用。舉辦超過 20 場以上 AI 講座與實戰課程，累積 4,200+ 名學員參與。課程專長涵蓋 ChatGPT、AI Line Bot、MyGPT、AIGC 實作等。品牌「nuva」已成為台灣知名 AI 教育與實戰社群，受到 450+ 企業與組織信賴。
+- **本屆任課**：Week 3 遠端上班職涯藍圖 ＆ 目標設定（遠端上班線）
+- **頭銜**：ADPList 全球 Top 1% 導師
+- **連結**：[LinkedIn](https://www.linkedin.com/in/georgechan3/)
+- **背景**：求職教練，同時是 ADPList 全球 Top 1% 導師、LinkedIn Top Voice，著有暢銷書《一生受用的求職方法：量化求職》。曾親身拿到美國、加拿大、英國與新加坡的遠距 Offer，最後跨國錄取美國 Amazon 的遠距職位。並將秘訣整理每個人都適用的求職框架，協助超過兩百人順利上岸，包括國內外遠距工作。
 
-### 9. 許詮
+### 4. Angela Feng
 
-- **頭銜**：前 TikTok 子公司總經理、前阿里巴巴子公司副總、XChange 創辦人、33 歲退休旅居峇里島
-- **連結**：[Facebook](https://www.facebook.com/SnT.life)
-- **背景**：許詮曾任職於 TikTok 和阿里巴巴等知名企業，現為 XChange 創辦人，並已實現 33 歲退休旅居峇里島的目標，是實現財務自由的典範。
-
-### 10. Shelley
-
-- **頭銜**：ADPList 2025 Top 50 Global Mentor，LinkedIn 個人品牌術，機會自己來敲門
-- **連結**：[LinkedIn](https://www.linkedin.com/in/yuhsuan-tien)
-- **背景**：Shelley 是 ADPList 2025 Top 50 Global Mentor，專精於 LinkedIn 個人品牌建立，協助個人發掘機會並拓展職涯。
-
-### 11. 讀者太太
-
-- **頭銜**：英國職涯教練、「女力學院」《人脈力》講師，突破跨國遠距職涯天花板
-- **連結**：[Facebook](https://www.facebook.com/duzhetaitai)
-- **背景**：讀者太太是英國職涯教練，也是「女力學院」《人脈力》講師，擅長協助專業人士突破跨國遠距職涯的限制。
-
-### 12. Emilia
-
-- **頭銜**：高階跨國獵頭，獵頭揭密談薪技巧與職涯躍升策略
-- **連結**：[LinkedIn](https://www.linkedin.com/in/emchh/)
-- **背景**：Emilia 是一位經驗豐富的高階跨國獵頭，將分享獵頭行業的秘辛、談薪技巧以及職涯躍升的策略。
-
-### 13. Joyce Weng
-
-- **頭銜**：過去為記者的她，跳脫傳統、成功於海外轉型遠全遠距工作，她將剖析如何規劃旅居財務、精打細算開銷
-- **連結**：[Facebook](https://www.facebook.com/storiesinmyworld)
-- **背景**：Joyce Weng 是一位成功從記者轉型為遠距工作者的前輩，將分享她在海外的經驗，以及如何規劃旅居財務與開銷。
-
-### 14. 林佳 Zoe
-
-- **頭銜**：每日 e 錠 共同創辦人
-- **連結**：[Website](https://www.daydayding.com)、[Instagram @daydayding](https://www.instagram.com/daydayding/)
-- **背景**：自媒體創作者、社群行銷顧問／8 年跨產業行銷經驗，操盤百萬粉絲團／IG 經營 4 個月破萬追蹤，現累積 9 萬粉絲／輔導逾 10,000 名學員打造個人品牌與自媒體／曾授課於政府機構、知名企業與國際平台／致力推廣透過個人品牌實現理想生活與事業。
-
-### 15. Angela Feng
-
+- **本屆任課**：Week 5 可持續的自由：身心靈平衡的遠距人生 SOP（共同必修）
 - **頭銜**：NESS Wellness 共同創辦人｜國際演講者｜創投顧問｜亞洲品牌策略與社群經營專家
 - **連結**：[Website](https://www.nesswellness.com/)、[Instagram @angelaywei](https://www.instagram.com/angelaywei/)
 - **背景**：14 年行銷與創投經驗，曾任亞太區美國品牌集團行銷總監、管理 50+ 國際品牌推廣；創投公司 Head of Growth／Venture Partner，在美國、日本、中國均有創業經驗。北京清華 × INSEAD 雙碩士 EMBA，並獲 INSEAD 領導力發展課程認證。2024 APICTA Awards 銀牌、聯合國 CSW 女性論壇講者、Women in Tech Forum 等國際舞台經驗。媒體專訪：Taiwan News、TaiwanPlus、Tatler Taiwan、Elle、換日線、台灣科技女性。
 
-### 16. Demi
+### 5. 老 K
 
-- **頭銜**：Co-Working Online｜自由者共同工作平台・創辦人
-- **連結**：[Instagram @sssyuuu](https://www.instagram.com/sssyuuu/)
-- **背景**：AndAction 進階證照 - Life Coach 人生教練／美國 NGH 國際證照 - 催眠師療癒師／數位遊牧、自由工作講師／個人品牌「我的正職是旅行」創辦人／永續品牌「Waste Studio｜海廢飾品專門店」創辦人。
-
-### 17. 老 K
-
+- **本屆任課**：Week 6 定位、方案定價 Offer（接案線）
 - **頭銜**：一人事業顧問、Notion 顧問
 - **連結**：[Instagram @leadingmrk](https://www.instagram.com/leadingmrk/)
 - **背景**：老 K 從軟體工程師轉戰自媒體，創立「領先時代」，6 年內從一人公司擴張至 11 人團隊，白手起家到年營收千萬等級的實戰派創業者。身為 Notion 全球官方認證顧問，各大平台與自有課程已帶領逾 1.4 萬名學員透過數位工具／自媒體技術來放大個人影響力。他是將內容創作、商業模式與系統化工具營運，轉化為自動化獲利模式的頂尖實戰者，擅長幫你用系統化思維，打造不間斷的個人品牌收益、建造一人事業收入飛輪。
 
-### 18. Vivinee
+### 6. 謝雅筑 Ally
 
+- **本屆任課**：Week 7 LinkedIn 經營全攻略（遠端上班線）
+- **頭銜**：職涯教練／ICF ACC 認證教練／HR Consultant
+- **連結**：[LinkedIn](https://www.linkedin.com/in/allyhsieh)、[個人頁](https://portaly.cc/ally.hsieh)
+- **背景**：擁有 10+ 年人才招募與職涯發展經驗，累積 400+ 小時一對一諮詢時數。曾任全球最大人力資源集團總監，成功協助數百位人才拿到理想 Offer。具備 CDA、ICF ACC 認證，並在 LinkedIn 經營超過 21,000 名追蹤者。
+
+### 7. 林上哲
+
+- **本屆任課**：Week 9 Focus on Your True Value 讓 AI 成為你的實習生（共同必修）
+- **頭銜**：nuva 創辦人，致力推動 AI 教育與應用，與 NVIDIA 官方合作擔任 AI 與 AIGC 講師
+- **連結**：[Instagram @nuva.now](https://www.instagram.com/nuva.now/)、[Website](https://www.meetnuva.com)
+- **背景**：與 NVIDIA 官方合作，擔任 AI 與 AIGC 講師，推廣 RTX GPU 與生成式 AI 應用。舉辦超過 20 場以上 AI 講座與實戰課程，累積 4,200+ 名學員參與。課程專長涵蓋 ChatGPT、AI Line Bot、MyGPT、AIGC 實作等。品牌「nuva」已成為台灣知名 AI 教育與實戰社群，受到 450+ 企業與組織信賴。
+
+### 8. 三分鐘 Lynn
+
+- **本屆任課**：Week 10 社群獲客漏斗 ＆ 內容（接案線）
+- **頭銜**：三分鐘行銷在學中、內容顧問
+- **連結**：[Instagram @only3minute](https://www.instagram.com/only3minute/)
+- **背景**：前奧美廣告業務經理／10 萬讀者 IG「三分鐘｜行銷在學中」經營者／目前為行銷顧問／社群講師／自媒體創作者／合作 100+ 品牌，企業內訓、校園講座經驗超過 50 場。
+
+### 9. Week 11 講師（確認中）
+
+- **本屆任課**：Week 11 履歷、求職信秘笈、面試談薪（遠端上班線）
+- **狀態**：講師確認中，敬請期待。
+
+### 10. 工具王阿璋
+
+- **本屆任課**：Week 12 自媒體變現藍圖（共同必修）
+- **頭銜**：「阿璋遊牧」電子報創辦人、數位遊牧陪跑計劃創辦人、IP 經營者
+- **連結**：[Website](https://www.johntool.com)、[Instagram @johntooltw](https://www.instagram.com/johntooltw/)
+- **背景**：工具王阿璋 IP 經營（超過 20 萬粉絲）、碩士開始全職經營自媒體，至今超過 6 年；夫妻數位遊牧 2 年經歷，前往泰國、越南、菲律賓、日本、馬來西亞等多國旅居；經營「阿璋遊牧」電子報，持續週更 2 年，累積超過 7000 位忠實讀者；創立「數位遊牧陪跑計劃」，協助讀者成功轉型開始數位遊牧；以幫助他人為目標，成功獲得理想生活。
+
+### 11. 林佳 Zoe
+
+- **本屆任課**：Week 15 接案的永續與合作（接案線）
+- **頭銜**：每日 e 錠 共同創辦人
+- **連結**：[Website](https://www.daydayding.com)、[Instagram @daydayding](https://www.instagram.com/daydayding/)
+- **背景**：自媒體創作者、社群行銷顧問／8 年跨產業行銷經驗，操盤百萬粉絲團／IG 經營 4 個月破萬追蹤，現累積 9 萬粉絲／輔導逾 10,000 名學員打造個人品牌與自媒體／曾授課於政府機構、知名企業與國際平台／致力推廣透過個人品牌實現理想生活與事業。
+
+### 12. Vivinee
+
+- **本屆任課**：Week 16 留任策略 ＆ 溝通（遠端上班線）
 - **頭銜**：前 Crypto.com／Fazz｜Tech Recruiter & User Growth PM
 - **連結**：[LinkedIn](https://www.linkedin.com/in/vivinee-liao/)
 - **背景**：Vivinee 曾任職於 Crypto.com、Fazz，並在取得 Amazon 工作機會後選擇專注遠距職涯。擁有 Tech Recruiter 與 User Growth PM 經驗，深度參與跨國招募、面試與遠距協作。閱覽上千份履歷、面試 300+ 國際人才，熟悉遠距團隊重視的關鍵能力。2024 年共同主辦「前進外商 Mentor 計畫」，協助學員掌握穩定的遠距求職技巧。
+
+### 13. Demi
+
+- **本屆任課**：Week 18 旅居財務課程（共同必修）
+- **頭銜**：Co-Working Online｜自由者共同工作平台・創辦人
+- **連結**：[Instagram @sssyuuu](https://www.instagram.com/sssyuuu/)
+- **背景**：AndAction 進階證照 - Life Coach 人生教練／美國 NGH 國際證照 - 催眠師療癒師／數位遊牧、自由工作講師／個人品牌「我的正職是旅行」創辦人／永續品牌「Waste Studio｜海廢飾品專門店」創辦人。
 
 ---
 
