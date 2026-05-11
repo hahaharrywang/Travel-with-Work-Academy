@@ -482,11 +482,11 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                                   isCurrent
                                     ? "bg-brand-gold border-brand-gold ring-4 ring-brand-gold/20"
                                     : isNext
-                                      ? "bg-brand-teal border-brand-teal"
+                                      ? "bg-white border-brand-teal"
                                       : isPast
                                         ? "bg-gray-300 border-gray-300"
                                         : isOriginal
-                                          ? "bg-[#A06E56] border-[#A06E56]"
+                                          ? "border-[#A06E56] bg-white"
                                           : "bg-white border-brand-teal"
                                 }`}
                               />
