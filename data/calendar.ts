@@ -290,7 +290,7 @@ export const calendarData: CalendarWeek[] = [
     focusDetail:
       "核心內容\n• 官方交流作業分享會\n• 同學會\n• 校長 AMA\n• 晚上講師團體 QA\n\n行動任務\n• 準備 3 分鐘成果分享\n• 寫下「下月承諾清單」3 項\n• 提出 1 個你最需要被解的問題",
     instructorNames: ["校長哈利"],
-    layerTag: "社群節奏 – 交流＆成果展示, 社群節奏 – 深度 QA／Mentoring",
+    layerTag: "社群節奏 – ���流＆成果展示, 社群節奏 – 深度 QA／Mentoring",
   },
   // ===== 7 月 - 機會與轉化 =====
   {
@@ -332,7 +332,7 @@ export const calendarData: CalendarWeek[] = [
     focusShort: "從投履歷到簽 Offer：掌握遠距求職的臨門一腳。",
     focusDetail:
       "核心內容\n• 主動出擊：掌握各大遠距平台投遞策略，建立高效的求職節奏與習慣。\n• 面試取勝：運用 STAR 架構破解遠距面試常見題型。\n• 合約解析：具備薪資談判能力，並能判斷 Offer 條款風險。\n\n基礎任務\n• 撰寫「30 秒遠距自我介紹」（職能年資、遠距優勢、明確求職方向）\n\n進階任務\n• 針對一則遠距面試情境題，運用 STAR 架構撰寫含數據的完整答案草稿",
-    instructorNames: ["講師確認中"],
+    instructorNames: ["Lydia Huang"],
     layerTag: "路線必修 – 上班線 / 信任載體（履歷＆信件）",
   },
   {
