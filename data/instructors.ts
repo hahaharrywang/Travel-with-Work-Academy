@@ -4,7 +4,7 @@ export const instructors: Instructor[] = [
   {
     name: "喬",
     title: "ADPList 全球 Top 1% 導師",
-    image: "/images/instructors/qiao.jpg",
+    image: "/instructors/qiao.webp",
     link: "https://www.linkedin.com/in/georgechan3/",
     background:
       "喬是一位求職教練，同時是 ADPList 全球 Top 1% 導師、LinkedIn Top Voice，著有暢銷書《ㄧ生受用的求職方法：量化求職》。曾親身拿到美國、加拿大、英國與新加坡的遠距 Offer，最後跨國錄取美國 Amazon 的遠距職位。並將秘訣整理每個人都適用的求職框架，協助超過兩百人順利上岸，包括國內外遠距工作。",
@@ -26,7 +26,7 @@ export const instructors: Instructor[] = [
   {
     name: "工具王阿璋",
     title: "『阿璋遊牧』電子報創辦人、數位遊牧陪跑計劃創辦人、IP 經營者",
-    image: "/images/e5-b7-a5-e5-85-b7-e7-8e-8b-e5-95-8a-e7-92-8b.png",
+    image: "/instructors/azhang.webp",
     link: "https://www.johntool.com",
     background:
       "工具王阿璋 IP 經營（超過 20 萬粉絲)、碩士開始全職經營自媒體，至今超過 6 年、夫妻數位遊牧 2 年經歷，前往泰國、越南、菲律賓、日本、馬來西亞等多國旅居、經營「阿璋遊牧」電子報，持續週更 2 年，累積超過 7000 位忠實讀者、創立「數位遊牧陪跑計劃」，協助讀者成功轉型開始數位遊牧、以幫助他人為目標，成功獲得理想生活",
@@ -38,7 +38,7 @@ export const instructors: Instructor[] = [
   {
     name: "謝雅筑 Ally",
     title: "職涯教練／ICF ACC 認證教練／HR Consultant",
-    image: "/images/ally-hsieh.jpg",
+    image: "/instructors/ally.webp",
     link: "https://www.linkedin.com/in/allyhsieh",
     background: `擁有 10+ 年人才招募與職涯發展經驗，累積 400+ 小時一對一諮詢時數。曾任全球最大人力資源集團總監，成功協助數百位人才拿到理想 Offer。具備 CDA、ICF ACC 認證，並在 LinkedIn 經營超過 21,000 名追蹤者。`,
     links: {
@@ -81,7 +81,7 @@ export const instructors: Instructor[] = [
   {
     name: "林上哲",
     title: "nuva 創辦人，致力推動 AI 教育與應用，與 NVIDIA 官方合作擔任 AI 與 AIGC 講師",
-    image: "/images/lin-shang-zhe.jpg",
+    image: "/instructors/lin-shang-zhe.webp",
     link: "https://www.instagram.com/nuva.now/",
     background:
       "與 NVIDIA 官方合作，擔任 AI 與 AIGC 講師，推廣 RTX GPU 與生成式 AI 應用。舉辦超過 20 場以上 AI 講座與實戰課程，累積 4,200+ 名學員參與。課程專長涵蓋 ChatGPT、AI Line Bot、MyGPT、AIGC 實作等。品牌「nuva」已成為台灣知名 AI 教育與實戰社群，受到 450+ 企業與組織信賴。",
@@ -157,7 +157,7 @@ export const instructors: Instructor[] = [
 {
     name: "Angela Feng",
     title: "NESS Wellness 共同創辦人｜國際演講者｜創投顧問｜亞洲品牌策略與社群經營專家",
-    image: "/images/instructors/angela.jpg",
+    image: "/instructors/angela-feng.webp",
     link: "https://www.nesswellness.com/",
     background: `14 年行銷與創投經驗，曾任亞太區美國品牌集團行銷總監、管理 50+ 國際品牌推廣；創投公司 Head of Growth/Venture Partner，在美國、日本、中國均有創業經驗。北京清華 × INSEAD 雙碩士 EMBA，並獲 INSEAD 領導力發展課程認證。2024 APICTA Awards 銀牌、聯合國 CSW 女性論壇講者、Women in Tech Forum 等國際舞台經驗。媒體專訪：Taiwan News、TaiwanPlus、Tatler Taiwan、Elle、換日線、台灣科技女性。`,
     links: {
@@ -190,12 +190,23 @@ export const instructors: Instructor[] = [
   {
     name: "Vivinee",
     title: "前 Crypto.com / Fazz｜Tech Recruiter & User Growth PM",
-    image: "/images/instructors/vivinee.png",
+    image: "/instructors/vivinee.webp",
     link: "https://www.linkedin.com/in/vivinee-liao/",
     background:
       "Vivinee 曾任職於 Crypto.com、Fazz，並在取得 Amazon 工作機會後選擇專注遠距職涯。擁有 Tech Recruiter 與 User Growth PM 經驗，深度參與跨國招募、面試與遠距協作。閱覽上千份履歷、面試 300+ 國際人才，熟悉遠距團隊重視的關鍵能力。2024 年共同主辦「前進外商 Mentor 計畫」，協助學員掌握穩定的遠距求職技巧。",
     links: {
       linkedin: "https://www.linkedin.com/in/vivinee-liao/",
+    },
+  },
+  {
+    name: "Lydia Huang",
+    title: "Head of Talent Relations, Worca｜Relocation Career Consultant｜HRRR 人資萬應室發起人",
+    image: "/instructors/lydia-huang.webp",
+    link: "https://www.linkedin.com/in/lydiahuang/",
+    background:
+      "矽谷 HR Tech 新創 Head of HR / Talent Relations，自 2022 年起在跨國遠距團隊工作。曾任台灣科技獵頭顧問，專注軟體工程與新創人才招募；歐洲顧問公司 NetExpat 台灣唯一 Relocation Career Consultant，協助跨國人才與伴侶在異地建立職涯。支援來自 15+ 國家專業人士（美國、荷蘭、日本、韓國、印度等）職涯轉換與跨文化適應。Global Shapers Mentor（世界經濟論壇青年社群），協助學生與年輕專業人士進入國際職場。發起 HR 社群 HRRR 人資萬應室，舉辦 50+ 場人才與職涯活動。",
+    links: {
+      linkedin: "https://www.linkedin.com/in/lydiahuang/",
     },
   },
 ]

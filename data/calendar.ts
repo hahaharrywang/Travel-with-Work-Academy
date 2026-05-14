@@ -201,7 +201,7 @@ export const calendarData: CalendarWeek[] = [
     type: "路線必修 – 接案線 1",
     track: "接案線",
     title: "接案副業變現藍圖：接案流程 & 框架拆解",
-    focusShort: "拆解 20+ 種變現方式與接案四大能力 Road Map，設定你的 90 天目標。",
+    focusShort: "從講師親身經歷的 20+ 種收入來源出發，幫你判斷現階段最適合切入的方向。",
     focusDetail:
       "核心內容\n• 拆解講師親身經歷的 20+ 種變現方式，看見接案的真實可能性\n• 接案四大能力 Road Map：作品網站 → 行銷曝光 → 業務談案 → 專案管理，按順序建立\n• 五種商業模式解析：分潤、時薪、月付、執行、顧問，找到適合你的收費方式\n• 多位數位接案者案例拆解，看他們怎麼起步與累積\n\n你會學到\n• 盤點你現有能力可行的收入來源，不只接案，也包含多元商業可能\n• 判斷自己是否適合接案：執行力、溝通能力、時間管理的自我檢核\n• 如果現階段不適合，也有對應的學習路徑與方向\n• 設定 90 天可追蹤的接案目標與每週固定節奏\n\n行動任務\n• 完成你的「變現可能性清單」並標出優先順序\n• 設定第一個 90 天成果指標",
     instructorNames: ["西打藍"],
@@ -215,7 +215,7 @@ export const calendarData: CalendarWeek[] = [
     type: "路線必修 – 上班線 1",
     track: "遠端上班線",
     title: "Remote 全景圖：搞懂市場，鎖定你的第一個目標",
-    focusShort: "搞懂遠距市場全貌，鎖定目標職位與 90 天落地計畫。",
+    focusShort: "看懂全遠距、混合、外包三種模式，識破求職詐騙，找出最適合你的職位類型。",
     focusDetail:
       "核心內容\n• 全局認識：深入了解遠距市場與高需求職位類型。\n• 安全防線：識破常見求職詐騙陷阱，掌握標準的跨國應徵流程。\n• 精準定位：完成個人適配度評估，設定具體求職目標。\n\n基礎任務\n• 填寫遠距目標設定表：目標職位、偏好時區、合作模式\n\n進階任務\n• 註冊 LinkedIn，尋找一位同領域前輩（Role Model）觀摩，並分析其 Profile 吸引人的 3 個關鍵字。",
     instructorNames: ["喬"],
@@ -244,7 +244,7 @@ export const calendarData: CalendarWeek[] = [
     type: "共同必修 1",
     track: "全體共同",
     title: "可持續的自由：Ikigai & 個人使用說明書",
-    focusShort: "找到你的 Ikigai，建立可複製的生活節奏與個人使用說明書。",
+    focusShort: "用 SOP、正念與自我覺察，把「自由人生」變成一套能長期運作的日常系統。",
     focusDetail:
       "核心內容\n• 了解自己的運作方式：什麼情況下能穩定產出\n• 建立可複製的生活／工作節奏，除了讓自己、也讓別人能快速了解如何跟自己溝通互動，為未來的高效人生做準備\n\n行動任務\n• 寫出你的「人生系統說明書」簡版\n• 設計每週 SOP",
     instructorNames: ["Angela Feng"],
@@ -272,7 +272,7 @@ export const calendarData: CalendarWeek[] = [
     type: "路線必修 – 上班線 2",
     track: "遠端上班線",
     title: "讓 Recruiter 主動找上你：LinkedIn × 履歷改造術",
-    focusShort: "讓 Recruiter 主動找上你：優化 LinkedIn 與履歷的關鍵技巧。",
+    focusShort: "從 Recruiter 的搜尋視角反推 JD 關鍵字，做出一份能被找到、也讓人想聯繫你的數位形象。",
     focusDetail:
       "核心內容\n• 能力轉譯：盤點個人經歷，將實體協作經驗轉化為「遠距協作證據」。\n• 關鍵字對焦：學習 JD 拆解術，抓出核心需求並精準對應至個人履歷。\n• 數位門面：掌握 LinkedIn 搜尋引擎邏輯 (SEO)，優化檔案以提升被搜到的機率。\n\n基礎任務\n• 寫一行遠距版 LinkedIn Headline（職稱｜專長｜關鍵字，30 字以內）\n\n進階任務\n• 完成一份「成果導向」履歷初稿，並同步更新 LinkedIn 個人檔案核心欄位",
     instructorNames: ["謝雅筑 Ally"],
@@ -290,7 +290,7 @@ export const calendarData: CalendarWeek[] = [
     focusDetail:
       "核心內容\n• 官方交流作業分享會\n• 同學會\n• 校長 AMA\n• 晚上講師團體 QA\n\n行動任務\n• 準備 3 分鐘成果分享\n• 寫下「下月承諾清單」3 項\n• 提出 1 個你最需要被解的問題",
     instructorNames: ["校長哈利"],
-    layerTag: "社群節奏 – 交流＆成果展示, 社群節奏 – 深度 QA／Mentoring",
+    layerTag: "社群節奏 – �����流＆成果展示, 社群節奏 – 深度 QA／Mentoring",
   },
   // ===== 7 月 - 機會與轉化 =====
   {
@@ -301,7 +301,7 @@ export const calendarData: CalendarWeek[] = [
     type: "共同必修 2",
     track: "全體共同",
     title: "Focus on Your True Value：從對話到自動化的第一個流程",
-    focusShort: "用 AI + 自動化把日常工作變輕：做出你的第一個可運作流程。",
+    focusShort: "哪些事該親自做、哪些該交給 AI？這堂課幫你畫出那條線，並做出第一個自動化流程。",
     focusDetail:
       "核心內容\n• 什麼工作適合交給 AI／什麼仍要自己做\n• 把「想法」變成「可執行流程」\n• 以最小可用成果（MVP）為導向，淬煉出你人生的「品味」\n\n行動任務\n• 做出 1 個「能實際跑起來」的自動化流程\n• 寫下你的「AI 使用規則」",
     instructorNames: ["林上哲"],
@@ -315,7 +315,7 @@ export const calendarData: CalendarWeek[] = [
     type: "路線必修 – 接案線 3",
     track: "接案線",
     title: "社群獲客全攻略：讓內容幫你接到案子",
-    focusShort: "讓潛在客戶從「看到你」到「相信你」，用策略讓內容幫你接到案子。",
+    focusShort: "發文不是碰運氣——學會設計內容漏斗，讓陌生人一步步變成付費客戶。",
     focusDetail:
       "核心內容\n• 讓內容與變現連得起來：如何讓潛在客戶從「看到你」、「記住你」、到「相信你」\n• 透過策略規劃，讓內容都朝同一個目標前進，不靠靈感硬撐，把內容產出變成可持續流程\n\n行動任務\n• 產出具體內容策略與第一步產出",
     instructorNames: ["三分鐘 Lynn"],
@@ -329,10 +329,10 @@ export const calendarData: CalendarWeek[] = [
     type: "路線必修 – 上班線 3",
     track: "遠端上班線",
     title: "從投履歷到簽 Offer：遠距求職的臨門一腳",
-    focusShort: "從投履歷到簽 Offer：掌握遠距求職的臨門一腳。",
+    focusShort: "從投遞節奏、STAR 面試、薪資談判到 Offer 條款判讀，補齊求職最後一哩路的每個環節。",
     focusDetail:
       "核心內容\n• 主動出擊：掌握各大遠距平台投遞策略，建立高效的求職節奏與習慣。\n• 面試取勝：運用 STAR 架構破解遠距面試常見題型。\n• 合約解析：具備薪資談判能力，並能判斷 Offer 條款風險。\n\n基礎任務\n• 撰寫「30 秒遠距自我介紹」（職能年資、遠距優勢、明確求職方向）\n\n進階任務\n• 針對一則遠距面試情境題，運用 STAR 架構撰寫含數據的完整答案草稿",
-    instructorNames: ["講師確認中"],
+    instructorNames: ["Lydia Huang"],
     layerTag: "路線必修 – 上班線 / 信任載體（履歷＆信件）",
   },
   {
@@ -343,7 +343,7 @@ export const calendarData: CalendarWeek[] = [
     type: "共同必修 3",
     track: "全體共同",
     title: "自媒體變現藍圖：從 0 到第一筆收入",
-    focusShort: "自媒體變現路徑大拆解，建立以終為始的長期經營思維。",
+    focusShort: "業配、課程、聯盟、訂閱⋯⋯哪條路最適合你？這堂課幫你看清自媒體的錢從哪來。",
     focusDetail:
       "核心內容\n• 自媒體的變現路徑大拆解，釐清你的影響力或專業能解決誰的什麼問題\n• 建立一個「價值說法」，了解未來變現藍圖\n\n行動任務\n• 產出你的自媒體潛在變現規劃，建立以終為始的長期經營思維",
     instructorNames: ["工具王阿璋"],
@@ -386,7 +386,7 @@ export const calendarData: CalendarWeek[] = [
     type: "路線必修 – 接案線 4",
     track: "接案線",
     title: "談錢不傷感情：從報價、簽約到讓客戶離不開你",
-    focusShort: "從報價、簽約到讓客戶離不開你，建立穩定案源與合約知識庫。",
+    focusShort: "報價被砍、尾款收不到、合約被坑——這堂課教你用專業姿態保護自己。",
     focusDetail:
       "核心內容\n• 把接案從「等案」變「選案」：建立穩定的案源管道\n• 路上該知道的接案合約知識庫，讓你的收入結構多元化、且更永續\n\n行動任務\n• 檢視目前的案源結構\n• 建立可複用的接案流程 SOP",
     instructorNames: ["林佳 Zoe"],
@@ -400,7 +400,7 @@ export const calendarData: CalendarWeek[] = [
     type: "路線必修 – 上班線 4",
     track: "遠端上班線",
     title: "拿到 Offer 然後呢？遠距存活指南 & 長期能力佈局",
-    focusShort: "拿到 Offer 後的遠距存活指南，建立長期能力佈局。",
+    focusShort: "進入遠距團隊後如何快速建立信任、並在試用期存活？學會非同步溝通、文件化習慣與可持續的職涯佈局。",
     focusDetail:
       "核心內容\n• 思維轉型：理解「成果導向」底層邏輯，學會在不見面的情況下建立信任與高品質交付。\n• 數位協作：養成非同步溝通與工作文件化的專業習慣。\n• 永續經營：規劃長期的遠距職涯路徑，包含語言升級與數位足跡積累。\n\n基礎任務\n• 撰寫一則專業的「非同步進度回報訊息」（背景、進度、阻礙、下一步）\n\n進階任務\n• 運用 Notion 或 Google Doc 建立個人工作週記模板，並附上本週實際填寫結果",
     instructorNames: ["Vivinee"],
