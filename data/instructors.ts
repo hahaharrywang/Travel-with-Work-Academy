@@ -202,11 +202,11 @@ export const instructors: Instructor[] = [
     name: "Lydia Huang",
     title: "Head of Talent Relations, Worca｜Relocation Career Consultant｜HRRR 人資萬應室發起人",
     image: "/instructors/lydia-huang.webp",
-    link: "https://www.linkedin.com/in/lydiahuang/",
+    link: "https://www.linkedin.com/in/itslydiahuang/",
     background:
       "矽谷 HR Tech 新創 Head of HR / Talent Relations，自 2022 年起在跨國遠距團隊工作。曾任台灣科技獵頭顧問，專注軟體工程與新創人才招募；歐洲顧問公司 NetExpat 台灣唯一 Relocation Career Consultant，協助跨國人才與伴侶在異地建立職涯。支援來自 15+ 國家專業人士（美國、荷蘭、日本、韓國、印度等）職涯轉換與跨文化適應。Global Shapers Mentor（世界經濟論壇青年社群），協助學生與年輕專業人士進入國際職場。發起 HR 社群 HRRR 人資萬應室，舉辦 50+ 場人才與職涯活動。",
     links: {
-      linkedin: "https://www.linkedin.com/in/lydiahuang/",
+      linkedin: "https://www.linkedin.com/in/itslydiahuang/",
     },
   },
 ]
