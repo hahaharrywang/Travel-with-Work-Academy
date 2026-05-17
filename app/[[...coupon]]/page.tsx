@@ -474,7 +474,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                               Harry 是數位遊牧台灣（DigitalNomadsTaiwan）創辦人暨執行長，也是遠距遊牧學院校長。畢業後，曾跨足不同產業與多元遠端工作角色，其中也包含跨國人資產業的第一線經驗。這段歷程讓他從產業端更早看見：遠距工作、全球人才流動與更彈性的職涯模式，正在快速崛起，並逐漸成為新世代的重要趨勢。
                             </p>
                             <p className="text-sm text-brand-text/80 leading-relaxed mt-3">
-                              此後，他持續投入數位遊牧社群的經營、活動策劃與��際交��。也正因為在一次次真實的交流、相遇與陪伴中，看見許多人對自由職涯的嚮往、卡點與轉變，他更加確信：比起只提供靈感與想像，真正重要的，是一套能幫助人逐步行動、持續前進的學習路線。這也成為遠距遊牧學院持續發展的核心方向。
+                              此後，他持續投入數位遊牧社群的經營、活動策劃與國際交流。也正因為在一次次真實的交流、相遇與陪伴中，看見許多人對自由職涯的嚮往、卡點與轉變，他更加確信：比起只提供靈感與想像，真正重要的，是一套能幫助人逐步行動、持續前進的學習路線。這也成為遠距遊牧學院持續發展的核心方向。
                             </p>
                             <p className="text-sm text-brand-text/80 leading-relaxed mt-3">
                               品牌成立以來，已累積舉辦超過 50 場線下活動，吸引超過 1800 人次付費參與，其中近一半來自口碑推薦。作為遠距遊牧學院校長，Harry 希望做的，不只是分享理念，而是陪伴更多人把對自由的想像，轉化成可以一步步開始的職涯路線。
@@ -699,7 +699,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                 <li className="flex items-start gap-3">
                   <span className="text-brand-gold flex-shrink-0 mt-0.5 font-bold text-base md:text-lg">{'✔'}</span>
                   <div>
-                    <span className="font-semibold text-brand-teal text-sm md:text-base lg:text-lg">{'留任與永續：交付的「點 > 線 > 面��永續結構'}</span>
+                    <span className="font-semibold text-brand-teal text-sm md:text-base lg:text-lg">{'留任與永續：交付的「點 > 線 > 面」永續結構'}</span>
                     <p className="text-brand-text/80 text-sm md:text-base mt-1">{'— 在前期合作能活下來並能持續成長的方法'}</p>
                   </div>
                 </li>
@@ -719,7 +719,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   <li className="flex items-start gap-2">
                     <span className="text-brand-gold mt-0.5 flex-shrink-0 text-lg">{'"'}</span>
                     <p className="text-sm md:text-base text-brand-text leading-relaxed">
-                      {'你不再只是羨慕別人遠距，而是'}
+                      {'你不再只是羨慕別人遠距，而���'}
                       <span className="font-semibold text-brand-teal">{'你也在路上，開始有自己的遠距職涯門面'}</span>
                     </p>
                   </li>
@@ -885,7 +885,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                     <span className="w-2.5 h-2.5 rounded-full bg-brand-gold mt-1.5 flex-shrink-0"></span>
                     <div>
                       <span className="font-semibold text-brand-teal text-sm md:text-base block mb-1">{'許願池'}</span>
-                      <p className="text-brand-text/80 text-xs md:text-sm leading-relaxed">{'��期提案 / 投票，讓學院資源與活動更貼近你的需求'}</p>
+                      <p className="text-brand-text/80 text-xs md:text-sm leading-relaxed">{'定期提案 / 投票，讓學院資源與活動更貼近你的需求'}</p>
                     </div>
                   </div>
                 </div>
