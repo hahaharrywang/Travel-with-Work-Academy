@@ -165,7 +165,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                   <td className="px-6 py-4 text-sm font-semibold text-brand-teal">終身校友資格</td>
                   <td className="px-6 py-4 text-sm text-brand-text leading-relaxed">最新世界遊牧資訊、Line 校友群、LinkedIn 校友連結、生態系活動折扣 ... 等持續累積之資源</td>
                   <td className="px-6 py-4 text-sm font-semibold text-brand-teal text-right whitespace-nowrap">
-                    NT$ 6,000
+                    NT$ 9,000
                     <span className="block text-xs font-normal text-brand-text/60 mt-0.5">(持續漲價)</span>
                   </td>
                 </tr>
@@ -192,7 +192,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                 <div className="flex items-center justify-between mb-1">
                   <span className="text-sm font-semibold text-brand-teal">終身校友資格</span>
                   <div className="text-right">
-                    <div className="text-sm font-semibold text-brand-teal whitespace-nowrap">NT$ 6,000</div>
+                    <div className="text-sm font-semibold text-brand-teal whitespace-nowrap">NT$ 9,000</div>
                     <div className="text-[10px] text-brand-text/60">(持續漲價)</div>
                   </div>
                 </div>
@@ -209,7 +209,7 @@ export function PricingSection({ onTimelineModalChange }: PricingSectionProps) {
                   <p className="text-[11px] sm:text-xs text-white/50 mt-0.5">市價合計（還不包括你找資源、統整的時間）</p>
                 </div>
                 <span className="text-lg sm:text-xl font-semibold text-white/85 line-through decoration-white/40">
-                  NT$ 42,000
+                  NT$ 45,000
                 </span>
               </div>
 
