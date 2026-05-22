@@ -143,9 +143,9 @@ export const instructors: Instructor[] = [
     },
   },
   {
-    name: "林佳 Zoe",
+    name: "Zoe & Yoko",
     title: "每日e錠 共同創辦人",
-    image: "/images/instructors/lin-jia-zoe.png",
+    image: "/instructors/zoe-yoko.webp",
     link: "https://www.daydayding.com",
     background:
       "自媒體創作者、社群行銷顧問 / 8 年跨產業行銷經驗，操盤百萬粉絲團 / IG 經營 4 個月破萬追蹤，現累積 9 萬粉絲 / 輔導逾 10,000 名學員打造個人品牌與自媒體 / 曾授課於政府機構、知名企業與國際平台 / 致力推廣透過個人品牌實現理想生活與事業",
@@ -154,7 +154,7 @@ export const instructors: Instructor[] = [
       instagram: "https://www.instagram.com/daydayding/",
     },
   },
-{
+  {
     name: "Angela Feng",
     title: "NESS Wellness 共同創辦人｜國際演講者｜創投顧問｜亞洲品牌策略與社群經營專家",
     image: "/instructors/angela-feng.webp",
