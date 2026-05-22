@@ -154,12 +154,12 @@ export const instructors: Instructor[] = [
       instagram: "https://www.instagram.com/daydayding/",
     },
   },
-{
+  {
     name: "Angela Feng",
     title: "NESS Wellness 共同創辦人｜國際演講者｜創投顧問｜亞洲品牌策略與社群經營專家",
     image: "/instructors/angela-feng.webp",
     link: "https://www.nesswellness.com/",
-    background: `14 年行銷與創投經驗，曾任亞太區美國品牌集團行銷總監、管理 50+ 國際品牌推廣；創投公司 Head of Growth/Venture Partner，在美國、日本、中國均有創業經驗。北京清華 × INSEAD 雙碩士 EMBA，並獲 INSEAD 領導力發展課程認證。2024 APICTA Awards 銀牌、聯合國 CSW 女性論壇講者、Women in Tech Forum 等國際舞台經驗。媒體專訪：Taiwan News、TaiwanPlus、Tatler Taiwan、Elle、換日線、台灣科技女性。`,
+    background: `14 年行銷與創投經驗，曾任亞太區美國品牌集團行銷總監、管理 50+ 國際品牌推廣；創投公司 Head of Growth/Venture Partner，在美國、日本、中國均有創業經驗。北京清華 × INSEAD 雙碩士 EMBA，並獲 INSEAD 領導力發展課程認證。2024 APICTA Awards 銀牌、聯合國 CSW 女性論壇講者、Women in Tech Forum 等國際舞台經驗。媒體專訪：Taiwan News���TaiwanPlus、Tatler Taiwan、Elle、換日線、台灣科技女性。`,
     links: {
       website: "https://www.nesswellness.com/",
       instagram: "https://www.instagram.com/angelaywei/",
