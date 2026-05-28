@@ -113,7 +113,29 @@ const faqData: FAQCategory[] = [
       {
         question: "結業後還能看回放嗎？",
         answer:
-          "你會永久保留自己買過的課程回放與資源。同一個 Skool 社群也會持續保留，畢業後不用搬家，仍可在社群中交流（但「當屆專區」僅當屆可見）。",
+          "學院正課可以於學期結束後起算回放一年。校友專屬 Skool 社群資格也會持續，畢業後不用搬家，仍可在社群中交流。",
+      },
+    ],
+  },
+  {
+    title: "關於學院",
+    items: [
+      {
+        question: "有與任何機構或是協會合作嗎？",
+        answer: (
+          <>
+            沒有。
+            <a
+              href="https://www.instagram.com/digitalnomadstaiwan/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-brand-teal font-medium underline underline-offset-2 hover:text-brand-gold transition-colors"
+            >
+              DigitalNomadsTaiwan
+            </a>
+            {" "}與遠距遊牧學院創辦人都是哈利。
+          </>
+        ),
       },
     ],
   },

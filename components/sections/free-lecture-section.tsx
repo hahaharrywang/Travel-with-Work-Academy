@@ -258,7 +258,16 @@ export function FreeLectureSection() {
               />
             </div>
             <p className="mt-4 text-sm sm:text-base font-semibold text-brand-teal">
-              {"於 YouTube 平台收看，可以點擊不同章節進度條及調整語速，加速理解！"}
+              {"於 "}
+              <a
+                href="https://www.youtube.com/watch?v=rshX6yFb_Vc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 hover:text-brand-gold transition-colors"
+              >
+                YouTube 平台
+              </a>
+              {"收看，可以點擊不同章節進度條及調整語速，加速理解！"}
             </p>
           </div>
 
