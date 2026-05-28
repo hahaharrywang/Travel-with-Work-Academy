@@ -719,7 +719,7 @@ export default function LandingPage({ params }: { params: { coupon?: string | st
                   <li className="flex items-start gap-2">
                     <span className="text-brand-gold mt-0.5 flex-shrink-0 text-lg">{'"'}</span>
                     <p className="text-sm md:text-base text-brand-text leading-relaxed">
-                      {'你不再只是羨慕別人遠距，而���'}
+                      {'你不再只是羨慕別人遠距，而是'}
                       <span className="font-semibold text-brand-teal">{'你也在路上，開始有自己的遠距職涯門面'}</span>
                     </p>
                   </li>
