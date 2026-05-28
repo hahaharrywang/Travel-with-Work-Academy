@@ -117,6 +117,28 @@ const faqData: FAQCategory[] = [
       },
     ],
   },
+  {
+    title: "關於學院",
+    items: [
+      {
+        question: "有與任何機構或是協會合作嗎？",
+        answer: (
+          <>
+            沒有。
+            <a
+              href="https://www.instagram.com/digitalnomadstaiwan/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-brand-teal font-medium underline underline-offset-2 hover:text-brand-gold transition-colors"
+            >
+              DigitalNomadsTaiwan
+            </a>
+            {" "}與遠距遊牧學院創辦人都是哈利。
+          </>
+        ),
+      },
+    ],
+  },
 ]
 
 export function FAQSection({ onPriceDiffModalChange }: FAQSectionProps) {
