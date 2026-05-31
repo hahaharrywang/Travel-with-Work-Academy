@@ -93,7 +93,7 @@ export function EcosystemSection({ onOpenLightbox }: EcosystemSectionProps) {
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-white p-1.5 flex-shrink-0">
                   <Image
-                    src="/images/design-mode/%E6%95%B8%E4%BD%8D%E9%81%8A%E7%89%A7%E5%8F%B0%E7%81%A3%20Logo%281%29%281%29%281%29%281%29.png"
+                    src="/images/design-mode/%E6%95%B8%E4%BD%8D%E9%81%8A%E7%89%A7%E5%8F%B0%E7%81%A3%20Logo.png"
                     alt="Taiwan Digital Nomad"
                     width={36}
                     height={36}
