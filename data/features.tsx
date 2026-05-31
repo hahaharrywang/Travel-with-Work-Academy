@@ -119,9 +119,14 @@ export const featuresData: Feature[] = [
     ],
     images: [
       {
+        src: "/images/chinese-nomad-meetup.webp",
+        alt: "中文遠距遊牧小聚",
+        label: "中文遠距遊牧小聚",
+      },
+      {
         src: "/images/2-1.jpeg",
         alt: "遊牧小聚",
-        label: "線下人脈聚會",
+        label: "國際英文遊牧小聚",
       },
       {
         src: "/images/e7-a4-be-e7-be-a4-e6-94-af-e6-8c-81-ef-bc-bf-e7-95-99-e8-a8-80.png",
