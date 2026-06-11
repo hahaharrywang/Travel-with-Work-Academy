@@ -93,7 +93,7 @@ export function EcosystemSection({ onOpenLightbox }: EcosystemSectionProps) {
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-white p-1.5 flex-shrink-0">
                   <Image
-                    src="/images/design-mode/%E6%95%B8%E4%BD%8D%E9%81%8A%E7%89%A7%E5%8F%B0%E7%81%A3%20Logo.png"
+                    src="/images/taiwan-digital-nomad-logo.png"
                     alt="Taiwan Digital Nomad"
                     width={36}
                     height={36}
@@ -160,7 +160,7 @@ export function EcosystemSection({ onOpenLightbox }: EcosystemSectionProps) {
           <div className="rounded-2xl border border-brand-mist bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
             {/* Top Header Strip */}
             <a
-              href="https://www.instagram.com/twnomadacademy/"
+              href="https://www.instagram.com/twnomadlearngroup"
               target="_blank"
               rel="noopener noreferrer"
               className="block bg-brand-teal px-4 py-3 sm:px-6 sm:py-4 hover:bg-[#1a5260] transition-colors"
@@ -178,7 +178,7 @@ export function EcosystemSection({ onOpenLightbox }: EcosystemSectionProps) {
                 </div>
                 <div className="min-w-0">
                   <h3 className="text-white font-bold text-base sm:text-lg leading-tight truncate">{"職涯成長入口"}</h3>
-                  <span className="text-brand-gold text-xs sm:text-sm">@twnomadacademy</span>
+                  <span className="text-brand-gold text-xs sm:text-sm">@twnomadlearngroup</span>
                 </div>
               </div>
             </a>
