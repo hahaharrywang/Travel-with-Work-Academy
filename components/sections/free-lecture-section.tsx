@@ -250,7 +250,7 @@ export function FreeLectureSection() {
             </p>
             <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
               <iframe
-                src="https://www.youtube.com/embed/rshX6yFb_Vc?rel=0"
+                src="https://www.youtube.com/embed/aReZb6h_2A4?rel=0"
                 title="遠距遊牧學院說明會回放"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
@@ -260,7 +260,7 @@ export function FreeLectureSection() {
             <p className="mt-4 text-sm sm:text-base font-semibold text-brand-teal">
               {"於 "}
               <a
-                href="https://www.youtube.com/watch?v=rshX6yFb_Vc"
+                href="https://youtu.be/aReZb6h_2A4"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline underline-offset-2 hover:text-brand-gold transition-colors"

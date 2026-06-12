@@ -224,7 +224,7 @@ D. 學員案例資料結構（student-cases.ts）
 > 想過很多版本，但每條路都沒真的走下去。
 
 **方法斷裂**
-> 買課、看影片、存����記，但不知道今天該做哪一步。
+> 買課、看影片、存������，但不知道今天該做哪一步。
 
 **同伴斷裂**
 > 身邊沒人在走這條路，久了你開始懷疑自己：好像不是那種「夠格」開始的人。
@@ -462,7 +462,7 @@ D. 學員案例資料結構（student-cases.ts）
 
 ---
 
-### 彈跳視��� A��各��線課��詳情��CourseDetailModal）
+### 彈跳視����� A��各��線課��詳情��CourseDetailModal）
 
 標題（含 emoji 📚）：
 > 各路線課程詳情
@@ -664,7 +664,7 @@ D. 學員案例資料結構（student-cases.ts）
 
 **共創與參與權卡片：**
 
-副標：把圈子變成機會場
+副標：把圈��變成機會場
 
 - **共創專案**
   可優先參與、可共同發起（讀書會、實戰企劃、工具共學、Builder 實習等）
@@ -739,7 +739,7 @@ D. 學員案例資料結構（student-cases.ts）
 裝飾金線後接：
 
 ### 說明文字
-> 在遠距遊牧學院，我們不是只上課看影片，而是完成一個個具體行動：
+> 在遠距遊牧學院，我們不是只���課看影片，而是完成一個個具體行動：
 > 有人從沒有作品集，到做出第一個 side project；有人���啟接案���現；��人第一次帶著工作出國旅居，找到了自己想過的生活樣子。
 
 ---
@@ -926,7 +926,7 @@ D. 學員案例資料結構（student-cases.ts）
 
 ---
 
-## 12. 下一場免費講座（FreeLectureSection）
+## 12. 下一場免費講���（FreeLectureSection）
 
 ### 區塊標題（兩段於桌機合併、手機分行）
 > 下一場免費講座｜2 小時搞懂���的遠距下一���
@@ -994,7 +994,7 @@ D. 學員案例資料結構（student-cases.ts）
 說明：
 > 每週內容都會變得更豐富，依然很建議參與直播，可以現場 QA 直接交流！
 
-YouTube 嵌入：`https://www.youtube.com/embed/rshX6yFb_Vc?rel=0`
+ YouTube 嵌入：`https://www.youtube.com/embed/aReZb6h_2A4?rel=0`
 
 YouTube 下方提示（金色粗體置中）：
 > 於 YouTube 平台收看，可以點擊不同章節進度條及調整語速，加速理解！
@@ -1211,7 +1211,7 @@ YouTube 下方提示（金色粗體置中）：
 | 用途 | URL |
 |---|---|
 | 週固定講座報名 | `https://webinar.travelwithwork.life/tww2/register-mainwebinar` |
-| YouTube 回放 | `https://youtu.be/rshX6yFb_Vc` |
+| YouTube 回放 | `https://youtu.be/aReZb6h_2A4` |
 | Instagram（學院 Lifestyle）| `https://www.instagram.com/digitalnomadstaiwan/` |
 | Instagram（學院 Career）| `https://www.instagram.com/twnomadacademy/` |
 | Instagram（品牌總入口）| `https://www.instagram.com/travelwithwork_/` |
@@ -1339,7 +1339,7 @@ YouTube 下方提示（金色粗體置中）：
 - **核心目標**：把定位收斂、Offer 做清楚：讓陌生客戶快速理解並信任你的價值。
 - **核心內容**：
   - 把「我想做很多」收斂成「我現在先做這一塊」
-  - 用輕量市場調查校準定位與價格想���
+  - 用輕量市場調查校準定���與價格想���
   - ���你的服務變���可被選擇
 - **行動任務**：
   - 完善你的接案 Offer 架構
@@ -1686,7 +1686,7 @@ YouTube 下方提示（金色粗體置中）：
 - **本屆任課**：Week 3 遠端上班職涯藍圖 ＆ 目標設定（遠端上班線）
 - **頭銜**：ADPList 全球 Top 1% 導師
 - **連結**：[LinkedIn](https://www.linkedin.com/in/georgechan3/)
-- **背景**：求職教練，同時是 ADPList 全球 Top 1% 導師、LinkedIn Top Voice，著有暢銷書《一生受用的求職方法：量化求職》。曾親身拿到美國、加拿大、英國與新加坡的遠距 Offer，最後跨國錄取美國 Amazon 的遠距職位。並將秘訣整理每��人都適用的求職框��，協助超過兩百人��利上岸，包括國內外遠距工作。
+- **背景**：求職教練，同時是 ADPList 全球 Top 1% 導師、LinkedIn Top Voice，著有暢銷書《一生受用的求職方法：量化求職》。曾親身拿到美國、加拿大、英國與新加坡的遠距 Offer，最後跨國錄取美國 Amazon 的遠距職位。��將秘訣整理每��人都適用的求職框��，協助超過兩百人��利上岸，包括國內外遠距工作。
 
 ### 4. Angela Feng
 
