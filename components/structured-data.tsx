@@ -15,7 +15,7 @@ export function StructuredData() {
     sameAs: ["https://www.instagram.com/travelwithwork_/", "https://open.spotify.com/show/0bPxKFkLMJHOgcEBNvkq21"],
     contactPoint: {
       "@type": "ContactPoint",
-      email: "Academy@travelwork.life",
+      email: "Academy@travelwithwork.life",
       contactType: "customer service",
       availableLanguage: ["zh-TW", "en"],
     },
