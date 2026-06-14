@@ -14,11 +14,11 @@ export function Footer() {
           <p className="text-sm text-white/80 leading-relaxed">
             也可以{" "}
             <a
-              href="mailto:academy@travelwork.life"
+              href="mailto:academy@travelwithwork.life"
               className="inline-flex items-center gap-1 text-brand-gold hover:text-brand-gold/80 transition-colors font-medium"
             >
               <Mail className="w-3.5 h-3.5" />
-              academy@travelwork.life
+              academy@travelwithwork.life
             </a>
           </p>
         </div>
